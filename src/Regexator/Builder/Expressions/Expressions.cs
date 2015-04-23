@@ -9,7 +9,7 @@ namespace Pihrtsoft.Regexator.Builder
     {
         public static QuantifiableExpression Backreference(int groupNumber)
         {
-            return new NumberBackreference(groupNumber);
+            return new NumberBackreference(groupNumber).InsignificantSeparator();
         }
 
         public static QuantifiableExpression Backreference(string groupName)
@@ -41,6 +41,11 @@ namespace Pihrtsoft.Regexator.Builder
         public static Expression Text(string value)
         {
             return Expression.Create(value);
+        }
+
+        internal static QuantifiableExpression InsignificantSeparator()
+        {
+            return Expressions.OptionsGroup(InlineOptions.IgnorePatternWhitespace, new Expression(" ", false));
         }
     }
 }

@@ -48,8 +48,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Regexator\src\Regexator\Regexator.csproj">
-      <Project>{e0ec9abc-ab16-4e9f-aec9-b11416d644dd}</Project>
+    <ProjectReference Include="..\..\src\Regexator\Regexator.csproj">
+      <Project>{d6edf7a7-afea-44df-a5cb-f140a4133eea}</Project>
       <Name>Regexator</Name>
     </ProjectReference>
   </ItemGroup>

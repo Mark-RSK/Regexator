@@ -39,5 +39,10 @@ namespace Pihrtsoft.Regexator.Builder
         {
             return Append(Expressions.Text(value));
         }
+
+        internal QuantifiableExpression InsignificantSeparator()
+        {
+            return Append(Expressions.InsignificantSeparator());
+        }
     }
 }
