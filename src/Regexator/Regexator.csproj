@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D6EDF7A7-AFEA-44DF-A5CB-F140A4133EEA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Pihrtsoft.Regexator</RootNamespace>
+    <AssemblyName>Regexator.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>..\..\..\Pihrtsoft.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Regexator_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Builder\Anchor.cs" />
+    <Compile Include="Builder\AsciiChar.cs" />
+    <Compile Include="Builder\Assertion.cs" />
+    <Compile Include="Builder\AssertionKind.cs" />
+    <Compile Include="Builder\AtLeastQuantifier.cs" />
+    <Compile Include="Builder\BalancingGroup.cs" />
+    <Compile Include="Builder\BuildContext.cs" />
+    <Compile Include="Builder\BuildSettings.cs" />
+    <Compile Include="Builder\CharClass.cs" />
+    <Compile Include="Builder\CharGroup.cs" />
+    <Compile Include="Builder\CharItem\CharItem.cs" />
+    <Compile Include="Builder\CharItem\CharItems_Ascii.cs" />
+    <Compile Include="Builder\CharItem\CharItems_CharClass.cs" />
+    <Compile Include="Builder\CharItem\CharItems_Chars.cs" />
+    <Compile Include="Builder\CharItem\CharItem_Ascii.cs" />
+    <Compile Include="Builder\CharItem\CharItem_CharClass.cs" />
+    <Compile Include="Builder\CharItem\CharItem_Chars.cs" />
+    <Compile Include="Builder\CharSubtraction.cs" />
+    <Compile Include="Builder\EscapeMode.cs" />
+    <Compile Include="Builder\ExactQuantifier.cs" />
+    <Compile Include="Builder\ExpressionKind.cs" />
+    <Compile Include="Builder\Expressions\Expressions.cs" />
+    <Compile Include="Builder\Expressions\Expressions_Alternation.cs" />
+    <Compile Include="Builder\Expressions\Expressions_Anchor.cs" />
+    <Compile Include="Builder\Expressions\Expressions_Ascii.cs" />
+    <Compile Include="Builder\Expressions\Expressions_Assertion.cs" />
+    <Compile Include="Builder\Expressions\Expressions_CharClass.cs" />
+    <Compile Include="Builder\Expressions\Expressions_Chars.cs" />
+    <Compile Include="Builder\Expressions\Expressions_Groups.cs" />
+    <Compile Include="Builder\Expressions\Expressions_Quantifiers.cs" />
+    <Compile Include="Builder\Expressions\UnicodeBlocks.cs" />
+    <Compile Include="Builder\Expressions\UnicodeCategories.cs" />
+    <Compile Include="Builder\Expression\Expression.cs" />
+    <Compile Include="Builder\Expression\Expression_Alternation.cs" />
+    <Compile Include="Builder\Expression\Expression_Anchors.cs" />
+    <Compile Include="Builder\Expression\Expression_Ascii.cs" />
+    <Compile Include="Builder\Expression\Expression_Assertion.cs" />
+    <Compile Include="Builder\Expression\Expression_CharClass.cs" />
+    <Compile Include="Builder\Expression\Expression_Chars.cs" />
+    <Compile Include="Builder\Expression\Expression_Group.cs" />
+    <Compile Include="Builder\Expression\Expression_Other.cs" />
+    <Compile Include="Builder\Expression\Expression_Quantifier.cs" />
+    <Compile Include="Builder\FromToQuantifier.cs" />
+    <Compile Include="Builder\GroupingConstruct.cs" />
+    <Compile Include="Builder\IBaseGroup.cs" />
+    <Compile Include="Builder\IdentifierSeparatorKind.cs" />
+    <Compile Include="Builder\IExcludedGroup.cs" />
+    <Compile Include="Builder\IfConstruct.cs" />
+    <Compile Include="Builder\InlineOptions.cs" />
+    <Compile Include="Builder\NameBackreference.cs" />
+    <Compile Include="Builder\NamedGroup.cs" />
+    <Compile Include="Builder\NonbacktrackingGroup.cs" />
+    <Compile Include="Builder\NoncapturingGroup.cs" />
+    <Compile Include="Builder\NotCharGroup.cs" />
+    <Compile Include="Builder\NumberBackreference.cs" />
+    <Compile Include="Builder\OptionsGroup.cs" />
+    <Compile Include="Builder\OrConstruct.cs" />
+    <Compile Include="Builder\QuantifiableExpression.cs" />
+    <Compile Include="Builder\Quantifier.cs" />
+    <Compile Include="Builder\QuantifierKind.cs" />
+    <Compile Include="Builder\Subexpression.cs" />
+    <Compile Include="Builder\Substitutions.cs" />
+    <Compile Include="Builder\SymbolQuantifier.cs" />
+    <Compile Include="Builder\Syntax\Syntax.cs" />
+    <Compile Include="Builder\Syntax\Syntax_Anchors.cs" />
+    <Compile Include="Builder\Syntax\Syntax_Chars.cs" />
+    <Compile Include="Builder\Syntax\Syntax_Groups.cs" />
+    <Compile Include="Builder\Syntax\Syntax_Quantifiers.cs" />
+    <Compile Include="Builder\Syntax\Syntax_Unicode.cs" />
+    <Compile Include="Builder\UnicodeBlock.cs" />
+    <Compile Include="Builder\UnicodeCategory.cs" />
+    <Compile Include="Builder\Utilities.cs" />
+    <Compile Include="Core\CaptureItemEqualityComparer.cs" />
+    <Compile Include="Core\SplitItemKind.cs" />
+    <Compile Include="Core\ResultMode.cs" />
+    <Compile Include="Core\GroupSortProperty.cs" />
+    <Compile Include="Core\MatchEqualityComparer.cs" />
+    <Compile Include="Core\ReplaceResultEqualityComparer.cs" />
+    <Compile Include="Core\ReplaceItemEqualityComparer.cs" />
+    <Compile Include="Core\SplitItemEqualityComparer.cs" />
+    <Compile Include="Core\CaptureItem.cs" />
+    <Compile Include="Core\CaptureItemCollection.cs" />
+    <Compile Include="Core\GroupSplitItem.cs" />
+    <Compile Include="Core\SplitContext.cs" />
+    <Compile Include="Core\SplitItem.cs" />
+    <Compile Include="Core\GroupInfoIndexEqualityComparer.cs" />
+    <Compile Include="Core\Extensions.cs" />
+    <Compile Include="Core\ReplaceResult.cs" />
+    <Compile Include="Core\SplitItemCollection.cs" />
+    <Compile Include="Core\ReplaceItemCollection.cs" />
+    <Compile Include="Core\LimitState.cs" />
+    <Compile Include="Core\GroupInfo.cs" />
+    <Compile Include="Core\GroupInfoCollection.cs" />
+    <Compile Include="Core\GroupInfoSorter.cs" />
+    <Compile Include="Core\GroupItem.cs" />
+    <Compile Include="Core\GroupItemCollection.cs" />
+    <Compile Include="Core\GroupSettings.cs" />
+    <Compile Include="Core\MatchData.cs" />
+    <Compile Include="Core\MatchItem.cs" />
+    <Compile Include="Core\MatchItemCollection.cs" />
+    <Compile Include="Core\GroupItemEqualityComparer.cs" />
+    <Compile Include="Core\MatchItemEqualityComparer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Core\RegexExtensions.cs" />
+    <Compile Include="Core\ReplaceData.cs" />
+    <Compile Include="Core\ReplaceItem.cs" />
+    <Compile Include="Core\SplitData.cs" />
+    <Compile Include="Core\MatchSplitItem.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Regexator_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDictionary Include="AppDictionary.xml" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
