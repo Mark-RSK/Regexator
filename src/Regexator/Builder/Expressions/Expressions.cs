@@ -9,7 +9,7 @@ namespace Pihrtsoft.Regexator.Builder
     {
         public static QuantifiableExpression Backreference(int groupNumber)
         {
-            return new NumberBackreference(groupNumber).InsignificantSeparator();
+            return new NumberBackreference(groupNumber);
         }
 
         public static QuantifiableExpression Backreference(string groupName)

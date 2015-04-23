@@ -12,6 +12,7 @@ namespace Pihrtsoft.Regexator.Builder
         {
             IdentifierSeparator = IdentifierSeparatorKind.LessThan;
             NonbacktrackingAny = true;
+            SeparatorAfterNumberBackreference = true;
         }
 
         public object Clone()
@@ -19,11 +20,13 @@ namespace Pihrtsoft.Regexator.Builder
             return new BuildSettings() {
                 ConditionWithAssertion = ConditionWithAssertion,
                 IdentifierSeparator = IdentifierSeparator,
-                NonbacktrackingAny = NonbacktrackingAny};
+                NonbacktrackingAny = NonbacktrackingAny,
+                SeparatorAfterNumberBackreference = SeparatorAfterNumberBackreference};
         }
 
         public IdentifierSeparatorKind IdentifierSeparator { get; set; }
         public bool NonbacktrackingAny { get; set; }
         public bool ConditionWithAssertion { get; set; }
+        public bool SeparatorAfterNumberBackreference { get; set; }
     }
 }

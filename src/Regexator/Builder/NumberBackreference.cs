@@ -20,7 +20,13 @@ namespace Pihrtsoft.Regexator.Builder
 
         internal override IEnumerable<string> EnumerateContent(BuildContext context)
         {
-            yield return Syntax.Backreference(GroupNumber);
+            if (context.Settings.SeparatorAfterNumberBackreference)
+            {
+                yield return Syntax.Backreference(GroupNumber) + Expressions.InsignificantSeparator();		        
+            }
+            {
+                yield return Syntax.Backreference(GroupNumber);
+            }
         }
 
         public int GroupNumber
