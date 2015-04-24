@@ -92,7 +92,17 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static CharItem Alphanumeric()
         {
-            return Range('a', 'z').Range('A', 'Z').Range('0', '9');
+            return LatinAlphabet().DigitAsRange();
+        }
+
+        public static CharItem LatinAlphabet()
+        {
+            return Range('a', 'z').Range('A', 'Z');
+        }
+
+        public static CharItem DigitAsRange()
+        {
+            return Range('0', '9');
         }
     }
 }

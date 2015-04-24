@@ -119,6 +119,16 @@ namespace Pihrtsoft.Regexator.Builder
             return Append(CharItems.Alphanumeric());
         }
 
+        public CharItem LatinAlphabet()
+        {
+            return Append(CharItems.LatinAlphabet());
+        }
+
+        public CharItem DigitAsRange()
+        {
+            return Append(CharItems.DigitAsRange());
+        }
+
         internal abstract string Content { get; }
 
         public string BaseGroupValue
