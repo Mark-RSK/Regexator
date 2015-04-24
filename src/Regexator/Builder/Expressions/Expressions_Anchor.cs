@@ -7,17 +7,17 @@ namespace Pihrtsoft.Regexator.Builder
     {
         public static QuantifiableExpression Start()
         {
-            return new Anchor(Syntax.Start);
+            return new StartOfInput();
         }
 
         public static QuantifiableExpression StartOfLine()
         {
-            return new Anchor(Syntax.StartOfLine);
+            return new StartOfLine();
         }
 
         public static QuantifiableExpression EndOfLine()
         {
-            return new Anchor(Syntax.EndOfLine);
+            return new EndOfLine();
         }
 
         public static QuantifiableExpression EndOfLineOrBeforeCarriageReturn()
@@ -39,27 +39,27 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifiableExpression End()
         {
-            return new Anchor(Syntax.End);
+            return new EndOfInput();
         }
 
         public static QuantifiableExpression EndOrBeforeEndingNewLine()
         {
-            return new Anchor(Syntax.EndOrBeforeEndingNewLine);
+            return new EndOrBeforeEndingNewLine();
         }
 
         public static QuantifiableExpression PreviousMatchEnd()
         {
-            return new Anchor(Syntax.PreviousMatchEnd);
+            return new PreviousMatchEnd();
         }
 
         public static QuantifiableExpression WordBoundary()
         {
-            return new Anchor(Syntax.WordBoundary);
+            return new WordBoundary();
         }
 
         public static QuantifiableExpression NotWordBoundary()
         {
-            return new Anchor(Syntax.NotWordBoundary);
+            return new NotWordBoundary();
         }
     }
 }

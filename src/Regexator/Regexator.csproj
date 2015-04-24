@@ -51,13 +51,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Builder\Anchor.cs" />
+    <Compile Include="Builder\Anchors\Anchor.cs" />
+    <Compile Include="Builder\Anchors\EndOrBeforeEndingNewLine.cs" />
+    <Compile Include="Builder\Anchors\NotWordBoundary.cs" />
+    <Compile Include="Builder\Anchors\WordBoundary.cs" />
+    <Compile Include="Builder\Anchors\PreviousMatchEnd.cs" />
+    <Compile Include="Builder\Anchors\EndOfLine.cs" />
+    <Compile Include="Builder\Anchors\EndOfInput.cs" />
+    <Compile Include="Builder\Anchors\StartOfLine.cs" />
     <Compile Include="Builder\AsciiChar.cs" />
     <Compile Include="Builder\Assertion.cs" />
     <Compile Include="Builder\AssertionKind.cs" />
     <Compile Include="Builder\AtLeastQuantifier.cs" />
     <Compile Include="Builder\BalancingGroup.cs" />
     <Compile Include="Builder\BuildContext.cs" />
+    <Compile Include="Builder\Anchors\StartOfInput.cs" />
     <Compile Include="Builder\PatternSettings.cs" />
     <Compile Include="Builder\CharClass.cs" />
     <Compile Include="Builder\CharGroup\CharGroup.cs" />

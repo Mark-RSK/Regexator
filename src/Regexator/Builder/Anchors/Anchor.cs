@@ -3,14 +3,9 @@
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal sealed class Anchor
+    internal abstract class Anchor
         : QuantifiableExpression
     {
-        internal Anchor(string value)
-            : base(value)
-        {
-        }
-
         internal override ExpressionKind Kind
         {
             get { return ExpressionKind.Anchor; }
