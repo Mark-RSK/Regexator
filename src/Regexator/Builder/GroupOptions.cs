@@ -3,30 +3,30 @@
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal sealed class OptionsGroup
+    internal sealed class GroupOptions
         : GroupingConstruct
     {
         private readonly InlineOptions _applyOptions;
         private readonly InlineOptions _disableOptions;
 
-        internal OptionsGroup(InlineOptions applyOptions, string value)
+        internal GroupOptions(InlineOptions applyOptions, string value)
             : this(applyOptions, InlineOptions.None, value)
         {
         }
 
-        internal OptionsGroup(InlineOptions applyOptions, InlineOptions disableOptions, string value)
+        internal GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, string value)
             : base(value)
         {
             _applyOptions = applyOptions;
             _disableOptions = disableOptions;
         }
 
-        internal OptionsGroup(InlineOptions applyOptions, Expression childExpression)
+        internal GroupOptions(InlineOptions applyOptions, Expression childExpression)
             : this(applyOptions, InlineOptions.None, childExpression)
         {
         }
 
-        internal OptionsGroup(InlineOptions applyOptions, InlineOptions disableOptions, Expression childExpression)
+        internal GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, Expression childExpression)
             : base(childExpression)
         {
             _applyOptions = applyOptions;
@@ -45,7 +45,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         internal override string Opening(BuildContext context)
         {
-            return Syntax.OptionsGroupStart(ApplyOptions, DisableOptions);
+            return Syntax.GroupOptionsStart(ApplyOptions, DisableOptions);
         }
     }
 }

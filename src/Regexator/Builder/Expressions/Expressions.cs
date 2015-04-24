@@ -45,7 +45,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         internal static QuantifiableExpression InsignificantSeparator()
         {
-            return Expressions.OptionsGroup(InlineOptions.IgnorePatternWhitespace, new Expression(" ", false));
+            return Expressions.GroupOptions(InlineOptions.IgnorePatternWhitespace, new Expression(" ", false));
         }
     }
 }

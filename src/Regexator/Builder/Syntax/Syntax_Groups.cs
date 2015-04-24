@@ -67,17 +67,17 @@ namespace Pihrtsoft.Regexator.Builder
             return NonbacktrackingStart + value + GroupEnd;
         }
 
-        public static string OptionsGroup(InlineOptions applyOptions, string value)
+        public static string GroupOptions(InlineOptions applyOptions, string value)
         {
-            return OptionsGroup(applyOptions, InlineOptions.None, value);
+            return GroupOptions(applyOptions, InlineOptions.None, value);
         }
 
-        public static string OptionsGroup(InlineOptions applyOptions, InlineOptions disableOptions, string value)
+        public static string GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, string value)
         {
-            return OptionsGroupStart(applyOptions, disableOptions) + value + GroupEnd;
+            return GroupOptionsStart(applyOptions, disableOptions) + value + GroupEnd;
         }
 
-        internal static string OptionsGroupStart(InlineOptions applyOptions, InlineOptions disableOptions)
+        internal static string GroupOptionsStart(InlineOptions applyOptions, InlineOptions disableOptions)
         {
             if ((applyOptions & InlineOptions) != InlineOptions.None)
             {

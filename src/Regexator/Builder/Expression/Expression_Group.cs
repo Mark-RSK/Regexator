@@ -95,34 +95,34 @@ namespace Pihrtsoft.Regexator.Builder
             return Expressions.Balancing(name1, name2, First);
         }
 
-        public QuantifiableExpression OptionsGroup(InlineOptions applyOptions, Expression value)
+        public QuantifiableExpression GroupOptions(InlineOptions applyOptions, Expression value)
         {
-            return Append(Expressions.OptionsGroup(applyOptions, value));
+            return Append(Expressions.GroupOptions(applyOptions, value));
         }
 
-        public QuantifiableExpression OptionsGroup(InlineOptions applyOptions, string value)
+        public QuantifiableExpression GroupOptions(InlineOptions applyOptions, string value)
         {
-            return Append(Expressions.OptionsGroup(applyOptions, value));
+            return Append(Expressions.GroupOptions(applyOptions, value));
         }
 
-        public QuantifiableExpression OptionsGroup(InlineOptions applyOptions, InlineOptions disableOptions, Expression value)
+        public QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, Expression value)
         {
-            return Append(Expressions.OptionsGroup(applyOptions, disableOptions, value));
+            return Append(Expressions.GroupOptions(applyOptions, disableOptions, value));
         }
 
-        public QuantifiableExpression OptionsGroup(InlineOptions applyOptions, InlineOptions disableOptions, string value)
+        public QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, string value)
         {
-            return Append(Expressions.OptionsGroup(applyOptions, disableOptions, value));
+            return Append(Expressions.GroupOptions(applyOptions, disableOptions, value));
         }
 
-        public QuantifiableExpression AsOptionsGroup(InlineOptions applyOptions)
+        public QuantifiableExpression AsGroupOptions(InlineOptions applyOptions)
         {
-            return Expressions.OptionsGroup(applyOptions, First);
+            return Expressions.GroupOptions(applyOptions, First);
         }
 
-        public QuantifiableExpression AsOptionsGroup(InlineOptions applyOptions, InlineOptions disableOptions)
+        public QuantifiableExpression AsGroupOptions(InlineOptions applyOptions, InlineOptions disableOptions)
         {
-            return Expressions.OptionsGroup(applyOptions, disableOptions, First);
+            return Expressions.GroupOptions(applyOptions, disableOptions, First);
         }
     }
 }

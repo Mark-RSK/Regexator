@@ -65,24 +65,24 @@ namespace Pihrtsoft.Regexator.Builder
             return new Nonbacktracking(value);
         }
 
-        public static QuantifiableExpression OptionsGroup(InlineOptions applyOptions, Expression expression)
+        public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, Expression expression)
         {
-            return new OptionsGroup(applyOptions, expression);
+            return new GroupOptions(applyOptions, expression);
         }
 
-        public static QuantifiableExpression OptionsGroup(InlineOptions applyOptions, string value)
+        public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, string value)
         {
-            return new OptionsGroup(applyOptions, value);
+            return new GroupOptions(applyOptions, value);
         }
 
-        public static QuantifiableExpression OptionsGroup(InlineOptions applyOptions, InlineOptions disableOptions, Expression expression)
+        public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, Expression expression)
         {
-            return new OptionsGroup(applyOptions, disableOptions, expression);
+            return new GroupOptions(applyOptions, disableOptions, expression);
         }
 
-        public static QuantifiableExpression OptionsGroup(InlineOptions applyOptions, InlineOptions disableOptions, string value)
+        public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, string value)
         {
-            return new OptionsGroup(applyOptions, disableOptions, value);
+            return new GroupOptions(applyOptions, disableOptions, value);
         }
     }
 }
