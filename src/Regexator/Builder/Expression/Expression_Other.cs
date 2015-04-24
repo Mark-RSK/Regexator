@@ -1,6 +1,8 @@
 // Copyright (c) Josef Pihrt. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System.Diagnostics.CodeAnalysis;
+
 namespace Pihrtsoft.Regexator.Builder
 {
     public partial class Expression
@@ -40,6 +42,7 @@ namespace Pihrtsoft.Regexator.Builder
             return Append(Expressions.Text(value));
         }
 
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal QuantifiableExpression InsignificantSeparator()
         {
             return Append(Expressions.InsignificantSeparator());
