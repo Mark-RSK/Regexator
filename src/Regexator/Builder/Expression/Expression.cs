@@ -90,10 +90,10 @@ namespace Pihrtsoft.Regexator.Builder
 
         public override string ToString()
         {
-            return ToString(new BuildSettings());
+            return ToString(new PatternSettings());
         }
 
-        public string ToString(BuildSettings settings)
+        public string ToString(PatternSettings settings)
         {
             if (settings == null) { throw new ArgumentNullException("settings"); }
             using (var context = new BuildContext() { Settings = settings })

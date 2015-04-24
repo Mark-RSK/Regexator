@@ -58,7 +58,7 @@
     <Compile Include="Builder\AtLeastQuantifier.cs" />
     <Compile Include="Builder\BalancingGroup.cs" />
     <Compile Include="Builder\BuildContext.cs" />
-    <Compile Include="Builder\BuildSettings.cs" />
+    <Compile Include="Builder\PatternSettings.cs" />
     <Compile Include="Builder\CharClass.cs" />
     <Compile Include="Builder\CharGroup\CharGroup.cs" />
     <Compile Include="Builder\CharItem\TextCharItem.cs" />

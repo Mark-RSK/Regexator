@@ -13,7 +13,7 @@ namespace Pihrtsoft.Regexator.Builder
     {
         private readonly HashSet<Expression> _expressions;
         private readonly TextWriter _writer;
-        private BuildSettings _settings;
+        private PatternSettings _settings;
         private bool _disposed;
 
         public BuildContext()
@@ -26,7 +26,7 @@ namespace Pihrtsoft.Regexator.Builder
             if (writer == null) { throw new ArgumentNullException("writer"); }
             _writer = writer;
             _expressions = new HashSet<Expression>();
-            _settings = new BuildSettings();
+            _settings = new PatternSettings();
         }
 
         public override string ToString()
@@ -62,7 +62,7 @@ namespace Pihrtsoft.Regexator.Builder
             get { return _expressions; }
         }
 
-        public BuildSettings Settings
+        public PatternSettings Settings
         {
             get { return _settings; }
             set

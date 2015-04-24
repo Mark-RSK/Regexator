@@ -5,10 +5,10 @@ using System;
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    public class BuildSettings
+    public class PatternSettings
         : ICloneable
     {
-        public BuildSettings()
+        public PatternSettings()
         {
             IdentifierSeparator = IdentifierSeparatorKind.LessThan;
             NonbacktrackingAny = true;
@@ -17,7 +17,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public object Clone()
         {
-            return new BuildSettings() {
+            return new PatternSettings() {
                 ConditionWithAssertion = ConditionWithAssertion,
                 IdentifierSeparator = IdentifierSeparator,
                 NonbacktrackingAny = NonbacktrackingAny,
