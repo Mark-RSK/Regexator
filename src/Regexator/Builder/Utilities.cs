@@ -75,7 +75,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static string Escape(int charCode, bool inCharGroup)
         {
-            if (charCode < 0 || charCode > 0xFFFF) { throw new OverflowException(); }
+            if (charCode < 0 || charCode > 0xFFFF) { throw new ArgumentOutOfRangeException("charCode"); }
             return EscapeInternal(charCode, inCharGroup);
         }
 

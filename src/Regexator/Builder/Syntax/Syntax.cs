@@ -105,6 +105,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static string Backreference(int groupNumber)
         {
+            if (groupNumber < 0) { throw new ArgumentOutOfRangeException("groupNumber"); }
             return @"\" + groupNumber;
         }
 

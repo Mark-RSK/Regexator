@@ -23,7 +23,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static string Unicode(int charCode)
         {
-            if (charCode < 0 || charCode > 0xFFFF) { throw new OverflowException(); }
+            if (charCode < 0 || charCode > 0xFFFF) { throw new ArgumentOutOfRangeException("charCode"); }
             return UnicodeInternal(charCode);
         }
 
