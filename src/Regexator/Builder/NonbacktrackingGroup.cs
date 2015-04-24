@@ -3,22 +3,22 @@
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal sealed class Nonbacktracking
+    internal sealed class NonbacktrackingGroup
         : GroupingConstruct
     {
-        internal Nonbacktracking(string value)
+        internal NonbacktrackingGroup(string value)
             : base(value)
         {
         }
 
-        internal Nonbacktracking(Expression childExpression)
+        internal NonbacktrackingGroup(Expression childExpression)
             : base(childExpression)
         {
         }
 
         internal override string Opening(BuildContext context)
         {
-            return Syntax.NonbacktrackingStart;
+            return Syntax.NonbacktrackingGroupStart;
         }
     }
 }

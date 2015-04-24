@@ -9,7 +9,7 @@ namespace Pihrtsoft.Regexator.Builder
     {
         internal const string SubexpressionStart = "(";
         internal const string NoncapturingGroupStart = "(?:";
-        internal const string NonbacktrackingStart = "(?>";
+        internal const string NonbacktrackingGroupStart = "(?>";
         internal const string GroupEnd = ")";
 
         public static string Group(string name, string value, IdentifierSeparatorKind separator)
@@ -61,10 +61,10 @@ namespace Pihrtsoft.Regexator.Builder
             return NoncapturingGroupStart + value + GroupEnd;
         }
 
-        public static string Nonbacktracking(string value)
+        public static string NonbacktrackingGroup(string value)
         {
             if (value == null) { throw new ArgumentNullException("value"); }
-            return NonbacktrackingStart + value + GroupEnd;
+            return NonbacktrackingGroupStart + value + GroupEnd;
         }
 
         public static string GroupOptions(InlineOptions applyOptions, string value)
