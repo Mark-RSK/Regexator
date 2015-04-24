@@ -54,5 +54,15 @@ namespace Pihrtsoft.Regexator.Builder
         {
             return Append(Expressions.NotWordBoundary());
         }
+
+        public QuantifiableExpression AsLine()
+        {
+            return StartOfLine().Append(First).EndOfLine();
+        }
+
+        public QuantifiableExpression AsEntireInput()
+        {
+            return Start().Append(First).End();
+        }
     }
 }
