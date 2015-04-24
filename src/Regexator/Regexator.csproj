@@ -102,7 +102,7 @@
     <Compile Include="Builder\InlineOptions.cs" />
     <Compile Include="Builder\NameBackreference.cs" />
     <Compile Include="Builder\NamedGroup.cs" />
-    <Compile Include="Builder\NonbacktrackingGroup.cs" />
+    <Compile Include="Builder\Nonbacktracking.cs" />
     <Compile Include="Builder\NoncapturingGroup.cs" />
     <Compile Include="Builder\NotCharGroup.cs" />
     <Compile Include="Builder\NumberBackreference.cs" />

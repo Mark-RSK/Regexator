@@ -57,12 +57,12 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifiableExpression Nonbacktracking(Expression expression)
         {
-            return new NonbacktrackingGroup(expression);
+            return new Nonbacktracking(expression);
         }
 
         public static QuantifiableExpression Nonbacktracking(string value)
         {
-            return new NonbacktrackingGroup(value);
+            return new Nonbacktracking(value);
         }
 
         public static QuantifiableExpression OptionsGroup(InlineOptions applyOptions, Expression expression)
