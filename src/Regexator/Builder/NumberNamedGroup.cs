@@ -5,26 +5,24 @@ using System;
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal sealed class NamedGroup
+    internal sealed class NumberNamedGroup
         : GroupingConstruct
     {
-        private readonly string _name;
+        private readonly int _name;
 
-        internal NamedGroup(string name, string value)
+        internal NumberNamedGroup(int name, string value)
             : base(value)
         {
-            if (name == null) { throw new ArgumentNullException("name"); }
             _name = name;
         }
 
-        internal NamedGroup(string name, Expression childExpression)
+        internal NumberNamedGroup(int name, Expression childExpression)
             : base(childExpression)
         {
-            if (name == null) { throw new ArgumentNullException("name"); }
             _name = name;
         }
 
-        public string Name
+        public int Name
         {
             get { return _name; }
         }

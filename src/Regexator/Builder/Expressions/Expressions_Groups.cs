@@ -12,7 +12,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifiableExpression Group(int name, Expression expression)
         {
-            return new NamedGroup(name, expression);
+            return new NumberNamedGroup(name, expression);
         }
 
         public static QuantifiableExpression Group(string name, string value)
@@ -22,7 +22,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifiableExpression Group(int name, string value)
         {
-            return new NamedGroup(name, value);
+            return new NumberNamedGroup(name, value);
         }
 
         public static QuantifiableExpression Subexpression(Expression expression)

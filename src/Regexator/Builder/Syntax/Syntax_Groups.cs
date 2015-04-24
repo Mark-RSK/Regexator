@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Globalization;
 
 namespace Pihrtsoft.Regexator.Builder
 {
@@ -15,6 +16,12 @@ namespace Pihrtsoft.Regexator.Builder
         public static string Group(string name, string value, IdentifierSeparatorKind separator)
         {
             return GroupStart(name, separator) + value + GroupEnd;
+        }
+
+        internal static string GroupStart(int name, IdentifierSeparatorKind separator)
+        {
+            if (name < 1) { throw new ArgumentOutOfRangeException("name"); }
+            return GroupStart(name.ToString(CultureInfo.InvariantCulture), separator);
         }
 
         internal static string GroupStart(string name, IdentifierSeparatorKind separator)

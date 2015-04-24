@@ -109,6 +109,7 @@
     <Compile Include="Builder\IfConstruct.cs" />
     <Compile Include="Builder\InlineOptions.cs" />
     <Compile Include="Builder\NameBackreference.cs" />
+    <Compile Include="Builder\NumberNamedGroup.cs" />
     <Compile Include="Builder\NamedGroup.cs" />
     <Compile Include="Builder\NonbacktrackingGroup.cs" />
     <Compile Include="Builder\NoncapturingGroup.cs" />
@@ -204,9 +205,7 @@
       <SubType>Designer</SubType>
     </CodeAnalysisDictionary>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Builder\_Dev\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
