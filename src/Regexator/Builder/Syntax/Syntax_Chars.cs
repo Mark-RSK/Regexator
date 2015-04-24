@@ -39,6 +39,7 @@ namespace Pihrtsoft.Regexator.Builder
         internal static string CharGroup(string value, bool negative)
         {
             if (value == null) { throw new ArgumentNullException("value"); }
+            if (value.Length == 0) { throw new ArgumentException("Character group cannot be empty.", "value"); }
             return (negative ? NotCharGroupStart : CharGroupStart) + value + CharGroupEnd;
         }
 
