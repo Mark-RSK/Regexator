@@ -7,57 +7,87 @@ namespace Pihrtsoft.Regexator.Builder
     {
         public static CharItem Chars(params char[] values)
         {
-            return CharItem.Create(values);
+            return new CharsCharItem(values);
         }
 
         public static CharItem Chars(params int[] values)
         {
-            return CharItem.Create(values);
+            return new CharCodeCharItem(values);
         }
 
         public static CharItem Chars(params AsciiChar[] values)
         {
-            return CharItem.Create(values);
+            return new AsciiCharItem(values);
         }
 
         public static CharItem Chars(params CharClass[] values)
         {
-            return CharItem.Create(values);
+            return new CharClassCharItem(values);
         }
 
         public static CharItem Chars(string value)
         {
-            return CharItem.Create(value);
+            return new TextCharItem(value);
         }
 
         public static CharItem Range(char first, char last)
         {
-            return CharItem.Create(first, last);
+            return new RangeCharItem(first, last);
         }
 
         public static CharItem Range(int first, int last)
         {
-            return CharItem.Create(first, last);
+            return new CodeRangeCharItem(first, last);
         }
 
         public static CharItem UnicodeBlocks(params UnicodeBlock[] blocks)
         {
-            return CharItem.Create(blocks);
+            return new UnicodeBlockCharItem(blocks);
         }
 
         public static CharItem NotUnicodeBlocks(params UnicodeBlock[] blocks)
         {
-            return CharItem.Create(true, blocks);
+            return new NotUnicodeBlockCharItem(blocks);
         }
 
         public static CharItem UnicodeCategories(params UnicodeCategory[] categories)
         {
-            return CharItem.Create(categories);
+            return new UnicodeCategoryCharItem(categories);
         }
 
         public static CharItem NotUnicodeCategories(params UnicodeCategory[] categories)
         {
-            return CharItem.Create(true, categories);
+            return new NotUnicodeCategoryCharItem(categories);
+        }
+
+        public static CharItem Digit()
+        {
+            return new CharClassCharItem(CharClass.Digit);
+        }
+
+        public static CharItem NotDigit()
+        {
+            return new CharClassCharItem(CharClass.NotDigit);
+        }
+
+        public static CharItem WhiteSpace()
+        {
+            return new CharClassCharItem(CharClass.WhiteSpace);
+        }
+
+        public static CharItem NotWhiteSpace()
+        {
+            return new CharClassCharItem(CharClass.NotWhiteSpace);
+        }
+
+        public static CharItem Word()
+        {
+            return new CharClassCharItem(CharClass.Word);
+        }
+
+        public static CharItem NotWord()
+        {
+            return new CharClassCharItem(CharClass.NotWord);
         }
 
         public static CharItem Alphanumeric()

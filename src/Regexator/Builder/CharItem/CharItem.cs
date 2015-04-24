@@ -2,75 +2,16 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    public sealed partial class CharItem
+    public abstract partial class CharItem
         : IBaseGroup, IExcludedGroup
     {
         private Collection<CharItem> _items;
-        private readonly string _value;
 
-        private CharItem(string value)
+        protected CharItem()
         {
-            Debug.Assert(value != null);
-            _value = value;
-        }
-
-        internal static CharItem Create(params char[] values)
-        {
-            return new CharItem(Syntax.Chars(values, true));
-        }
-
-        internal static CharItem Create(params int[] values)
-        {
-            return new CharItem(Syntax.Chars(values, true));
-        }
-
-        internal static CharItem Create(params AsciiChar[] values)
-        {
-            return new CharItem(Syntax.Chars(values, true));
-        }
-
-        internal static CharItem Create(params CharClass[] values)
-        {
-            return new CharItem(Syntax.CharClasses(values));
-        }
-
-        internal static CharItem Create(string value)
-        {
-            return new CharItem(Utilities.Escape(value, true));
-        }
-
-        internal static CharItem Create(char first, char last)
-        {
-            return new CharItem(Syntax.Range(first, last));
-        }
-
-        internal static CharItem Create(int first, int last)
-        {
-            return new CharItem(Syntax.Range(first, last));
-        }
-
-        internal static CharItem Create(params UnicodeBlock[] blocks)
-        {
-            return Create(false, blocks);
-        }
-
-        internal static CharItem Create(bool negative, params UnicodeBlock[] blocks)
-        {
-            return new CharItem(Syntax.UnicodeBlocks(negative, blocks));
-        }
-
-        internal static CharItem Create(params UnicodeCategory[] categories)
-        {
-            return Create(false, categories);
-        }
-
-        internal static CharItem Create(bool negative, params UnicodeCategory[] categories)
-        {
-            return new CharItem(Syntax.UnicodeCategories(negative, categories));
         }
 
         private CharItem Append(CharItem item)
@@ -85,8 +26,100 @@ namespace Pihrtsoft.Regexator.Builder
 
         public override string ToString()
         {
-            return _value;
+            return Content;
         }
+
+        public CharItem Chars(params char[] values)
+        {
+            return Append(CharItems.Chars(values));
+        }
+
+        public CharItem Chars(params int[] values)
+        {
+            return Append(CharItems.Chars(values));
+        }
+
+        public CharItem Chars(params AsciiChar[] values)
+        {
+            return Append(CharItems.Chars(values));
+        }
+
+        public CharItem Chars(params CharClass[] values)
+        {
+            return Append(CharItems.Chars(values));
+        }
+
+        public CharItem Chars(string value)
+        {
+            return Append(CharItems.Chars(value));
+        }
+
+        public CharItem Range(char first, char last)
+        {
+            return Append(CharItems.Range(first, last));
+        }
+
+        public CharItem Range(int first, int last)
+        {
+            return Append(CharItems.Range(first, last));
+        }
+
+        public CharItem UnicodeBlocks(params UnicodeBlock[] blocks)
+        {
+            return Append(CharItems.UnicodeBlocks(blocks));
+        }
+
+        public CharItem NotUnicodeBlocks(params UnicodeBlock[] blocks)
+        {
+            return Append(CharItems.NotUnicodeBlocks(blocks));
+        }
+
+        public CharItem UnicodeCategories(params UnicodeCategory[] categories)
+        {
+            return Append(CharItems.UnicodeCategories(categories));
+        }
+
+        public CharItem NotUnicodeCategories(params UnicodeCategory[] categories)
+        {
+            return Append(CharItems.NotUnicodeCategories(categories));
+        }
+
+        public CharItem Digit()
+        {
+            return Append(CharItems.Digit());
+        }
+
+        public CharItem NotDigit()
+        {
+            return Append(CharItems.NotDigit());
+        }
+
+        public CharItem WhiteSpace()
+        {
+            return Append(CharItems.WhiteSpace());
+        }
+
+        public CharItem NotWhiteSpace()
+        {
+            return Append(CharItems.NotWhiteSpace());
+        }
+
+        public CharItem Word()
+        {
+            return Append(CharItems.Word());
+        }
+
+        public CharItem NotWord()
+        {
+            return Append(CharItems.NotWord());
+        }
+
+        public CharItem Alphanumeric()
+        {
+            return Append(CharItems.Alphanumeric());
+        }
+
+        internal abstract string Content { get; }
 
         public string BaseGroupValue
         {
@@ -104,9 +137,9 @@ namespace Pihrtsoft.Regexator.Builder
             {
                 if (_items != null)
                 {
-                    return _value + string.Concat(_items);
+                    return Content + string.Concat(_items);
                 }
-                return _value;
+                return Content;
             }
         }
     }

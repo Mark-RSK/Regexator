@@ -3,186 +3,186 @@
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    public sealed partial class CharItem
+    public partial class CharItem
     {
         public CharItem Tab()
         {
-            return Append(Create(AsciiChar.Tab));
+            return Append(CharItems.Tab());
         }
 
         public CharItem Linefeed()
         {
-            return Append(Create(AsciiChar.Linefeed));
+            return Append(CharItems.Linefeed());
         }
 
         public CharItem CarriageReturn()
         {
-            return Append(Create(AsciiChar.CarriageReturn));
+            return Append(CharItems.CarriageReturn());
         }
 
         public CharItem Space()
         {
-            return Append(Create(AsciiChar.Space));
+            return Append(CharItems.Space());
         }
 
         public CharItem ExclamationMark()
         {
-            return Append(Create(AsciiChar.ExclamationMark));
+            return Append(CharItems.ExclamationMark());
         }
 
         public CharItem QuotationMark()
         {
-            return Append(Create(AsciiChar.QuotationMark));
+            return Append(CharItems.QuotationMark());
         }
 
         public CharItem NumberSign()
         {
-            return Append(Create(AsciiChar.NumberSign));
+            return Append(CharItems.NumberSign());
         }
 
         public CharItem Dollar()
         {
-            return Append(Create(AsciiChar.Dollar));
+            return Append(CharItems.Dollar());
         }
 
         public CharItem Percent()
         {
-            return Append(Create(AsciiChar.Percent));
+            return Append(CharItems.Percent());
         }
 
         public CharItem Ampersand()
         {
-            return Append(Create(AsciiChar.Ampersand));
+            return Append(CharItems.Ampersand());
         }
 
         public CharItem Apostrophe()
         {
-            return Append(Create(AsciiChar.Apostrophe));
+            return Append(CharItems.Apostrophe());
         }
 
         public CharItem LeftParenthesis()
         {
-            return Append(Create(AsciiChar.LeftParenthesis));
+            return Append(CharItems.LeftParenthesis());
         }
 
         public CharItem RightParenthesis()
         {
-            return Append(Create(AsciiChar.RightParenthesis));
+            return Append(CharItems.RightParenthesis());
         }
 
         public CharItem Asterisk()
         {
-            return Append(Create(AsciiChar.Asterisk));
+            return Append(CharItems.Asterisk());
         }
 
         public CharItem Plus()
         {
-            return Append(Create(AsciiChar.Plus));
+            return Append(CharItems.Plus());
         }
 
         public CharItem Comma()
         {
-            return Append(Create(AsciiChar.Comma));
+            return Append(CharItems.Comma());
         }
 
         public CharItem Hyphen()
         {
-            return Append(Create(AsciiChar.Hyphen));
+            return Append(CharItems.Hyphen());
         }
 
         public CharItem Period()
         {
-            return Append(Create(AsciiChar.Period));
+            return Append(CharItems.Period());
         }
 
         public CharItem Slash()
         {
-            return Append(Create(AsciiChar.Slash));
+            return Append(CharItems.Slash());
         }
 
         public CharItem Colon()
         {
-            return Append(Create(AsciiChar.Colon));
+            return Append(CharItems.Colon());
         }
 
         public CharItem Semicolon()
         {
-            return Append(Create(AsciiChar.Semicolon));
+            return Append(CharItems.Semicolon());
         }
 
         public CharItem LessThan()
         {
-            return Append(Create(AsciiChar.LessThan));
+            return Append(CharItems.LessThan());
         }
 
         public CharItem EqualsSign()
         {
-            return Append(Create(AsciiChar.EqualsSign));
+            return Append(CharItems.EqualsSign());
         }
 
         public CharItem GreaterThan()
         {
-            return Append(Create(AsciiChar.GreaterThan));
+            return Append(CharItems.GreaterThan());
         }
 
         public CharItem QuestionMark()
         {
-            return Append(Create(AsciiChar.QuestionMark));
+            return Append(CharItems.QuestionMark());
         }
 
         public CharItem At()
         {
-            return Append(Create(AsciiChar.At));
+            return Append(CharItems.At());
         }
 
         public CharItem LeftSquareBracket()
         {
-            return Append(Create(AsciiChar.LeftSquareBracket));
+            return Append(CharItems.LeftSquareBracket());
         }
 
         public CharItem Backslash()
         {
-            return Append(Create(AsciiChar.Backslash));
+            return Append(CharItems.Backslash());
         }
 
         public CharItem RightSquareBracket()
         {
-            return Append(Create(AsciiChar.RightSquareBracket));
+            return Append(CharItems.RightSquareBracket());
         }
 
         public CharItem CircumflexAccent()
         {
-            return Append(Create(AsciiChar.CircumflexAccent));
+            return Append(CharItems.CircumflexAccent());
         }
 
         public CharItem Underscore()
         {
-            return Append(Create(AsciiChar.Underscore));
+            return Append(CharItems.Underscore());
         }
 
         public CharItem GraveAccent()
         {
-            return Append(Create(AsciiChar.GraveAccent));
+            return Append(CharItems.GraveAccent());
         }
 
         public CharItem LeftCurlyBracket()
         {
-            return Append(Create(AsciiChar.LeftCurlyBracket));
+            return Append(CharItems.LeftCurlyBracket());
         }
 
         public CharItem VerticalLine()
         {
-            return Append(Create(AsciiChar.VerticalLine));
+            return Append(CharItems.VerticalLine());
         }
 
         public CharItem RightCurlyBracket()
         {
-            return Append(Create(AsciiChar.RightCurlyBracket));
+            return Append(CharItems.RightCurlyBracket());
         }
 
         public CharItem Tilde()
         {
-            return Append(Create(AsciiChar.Tilde));
+            return Append(CharItems.Tilde());
         }
     }
 }

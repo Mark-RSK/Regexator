@@ -21,7 +21,7 @@ namespace Pihrtsoft.Regexator.Samples
 
             Console.WriteLine("leading trailing whitespace:");
             Console.WriteLine(Expressions.Any(
-                Expressions.StartOfLine().WhiteSpaceExceptNewLine().OneMany(), 
+                Expressions.StartOfLine().WhiteSpaceExceptNewLine().OneMany(),
                 Expressions.WhiteSpaceExceptNewLine().OneMany().EndOfLineOrBeforeCarriageReturn()));
             Console.WriteLine("");
 

@@ -3,7 +3,7 @@
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    public class QuantifiableExpression
+    public abstract class QuantifiableExpression
         : Expression
     {
         protected QuantifiableExpression()
@@ -11,12 +11,12 @@ namespace Pihrtsoft.Regexator.Builder
         {
         }
 
-        internal QuantifiableExpression(string value)
+        protected QuantifiableExpression(string value)
             : base(value)
         {
         }
 
-        internal QuantifiableExpression(string value, bool escape)
+        protected QuantifiableExpression(string value, bool escape)
             : base(value, escape)
         {
         }
