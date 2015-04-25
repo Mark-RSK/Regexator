@@ -19,7 +19,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         internal override Expression ChildExpression
         {
-            get { return Utilities.CharGroupOrEmpty(_values); }
+            get { return ((_values.Length > 0) ? Expressions.Chars(_values) : Expression.Create()); }
         }
     }
 }
