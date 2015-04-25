@@ -9,7 +9,7 @@ namespace Pihrtsoft.Regexator.Builder
     {
         internal static Quantifier Maybe()
         {
-            return new SymbolQuantifier(QuantifierKind.Maybe);
+            return new MaybeQuantifier();
         }
 
         public static Quantifier Maybe(string value)
@@ -26,7 +26,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         internal static Quantifier MaybeMany()
         {
-            return new SymbolQuantifier(QuantifierKind.MaybeMany);
+            return new MaybeManyQuantifier();
         }
 
         public static Quantifier MaybeMany(string value)
@@ -43,7 +43,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         internal static Quantifier OneMany()
         {
-            return new SymbolQuantifier(QuantifierKind.OneMany);
+            return new OneManyQuantifier();
         }
 
         public static Quantifier OneMany(string value)

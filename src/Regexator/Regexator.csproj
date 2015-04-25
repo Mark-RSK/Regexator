@@ -86,7 +86,7 @@
     <Compile Include="Builder\CharItem\CharItem_Ascii.cs" />
     <Compile Include="Builder\CharSubtraction.cs" />
     <Compile Include="Builder\EscapeMode.cs" />
-    <Compile Include="Builder\ExactQuantifier.cs" />
+    <Compile Include="Builder\Quantifiers\ExactQuantifier.cs" />
     <Compile Include="Builder\ExpressionKind.cs" />
     <Compile Include="Builder\Expressions\Expressions.cs" />
     <Compile Include="Builder\Expressions\Expressions_Alternation.cs" />
@@ -109,7 +109,7 @@
     <Compile Include="Builder\Expression\Expression_Group.cs" />
     <Compile Include="Builder\Expression\Expression_Other.cs" />
     <Compile Include="Builder\Expression\Expression_Quantifier.cs" />
-    <Compile Include="Builder\FromToQuantifier.cs" />
+    <Compile Include="Builder\Quantifiers\FromToQuantifier.cs" />
     <Compile Include="Builder\GroupingConstruct.cs" />
     <Compile Include="Builder\IBaseGroup.cs" />
     <Compile Include="Builder\IdentifierSeparatorKind.cs" />
@@ -125,11 +125,14 @@
     <Compile Include="Builder\GroupOptions.cs" />
     <Compile Include="Builder\OrConstruct.cs" />
     <Compile Include="Builder\QuantifiableExpression.cs" />
-    <Compile Include="Builder\Quantifier.cs" />
+    <Compile Include="Builder\Quantifiers\OneManyQuantifier.cs" />
+    <Compile Include="Builder\Quantifiers\MaybeManyQuantifier.cs" />
+    <Compile Include="Builder\Quantifiers\Quantifier.cs" />
     <Compile Include="Builder\QuantifierKind.cs" />
+    <Compile Include="Builder\Quantifiers\MaybeQuantifier.cs" />
     <Compile Include="Builder\Subexpression.cs" />
     <Compile Include="Builder\Substitutions.cs" />
-    <Compile Include="Builder\SymbolQuantifier.cs" />
+    <Compile Include="Builder\Quantifiers\SymbolQuantifier.cs" />
     <Compile Include="Builder\Syntax\Syntax.cs" />
     <Compile Include="Builder\Syntax\Syntax_Anchors.cs" />
     <Compile Include="Builder\Syntax\Syntax_Chars.cs" />
