@@ -19,6 +19,42 @@ namespace Pihrtsoft.Regexator.Builder
             return (options & ~InlineRegexOptions) == RegexOptions.None;
         }
 
+        public static Expression CharGroupOrEmpty(params char[] values)
+        {
+            if (values == null) { throw new ArgumentNullException("values"); }
+            return ((values.Length > 0) ? Expressions.Chars(values) : Expression.Create());
+        }
+
+        public static Expression CharGroupOrEmpty(params int[] charCodes)
+        {
+            if (charCodes == null) { throw new ArgumentNullException("charCodes"); }
+            return ((charCodes.Length > 0) ? Expressions.Chars(charCodes) : Expression.Create());
+        }
+
+        public static Expression CharGroupOrEmpty(params AsciiChar[] values)
+        {
+            if (values == null) { throw new ArgumentNullException("values"); }
+            return ((values.Length > 0) ? Expressions.Chars(values) : Expression.Create());
+        }
+
+        public static Expression CharGroupOrEmpty(params CharClass[] values)
+        {
+            if (values == null) { throw new ArgumentNullException("values"); }
+            return ((values.Length > 0) ? Expressions.Chars(values) : Expression.Create());
+        }
+
+        public static Expression CharGroupOrEmpty(params UnicodeBlock[] blocks)
+        {
+            if (blocks == null) { throw new ArgumentNullException("blocks"); }
+            return ((blocks.Length > 0) ? Expressions.UnicodeBlock(blocks) : Expression.Create());
+        }
+
+        public static Expression CharGroupOrEmpty(params UnicodeCategory[] categories)
+        {
+            if (categories == null) { throw new ArgumentNullException("categories"); }
+            return ((categories.Length > 0) ? Expressions.UnicodeCategory(categories) : Expression.Create());
+        }
+
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         public static string Escape(int charCode)
         {
