@@ -11,7 +11,7 @@ namespace Pihrtsoft.Regexator.Builder
         public PatternSettings()
         {
             IdentifierSeparator = IdentifierSeparatorKind.LessThan;
-            NonbacktrackingAny = true;
+            NoncapturingAny = true;
             SeparatorAfterNumberBackreference = true;
         }
 
@@ -20,12 +20,12 @@ namespace Pihrtsoft.Regexator.Builder
             return new PatternSettings() {
                 ConditionWithAssertion = ConditionWithAssertion,
                 IdentifierSeparator = IdentifierSeparator,
-                NonbacktrackingAny = NonbacktrackingAny,
+                NoncapturingAny = NoncapturingAny,
                 SeparatorAfterNumberBackreference = SeparatorAfterNumberBackreference};
         }
 
         public IdentifierSeparatorKind IdentifierSeparator { get; set; }
-        public bool NonbacktrackingAny { get; set; }
+        public bool NoncapturingAny { get; set; }
         public bool ConditionWithAssertion { get; set; }
         public bool SeparatorAfterNumberBackreference { get; set; }
     }

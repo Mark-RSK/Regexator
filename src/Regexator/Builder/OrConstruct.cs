@@ -49,7 +49,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         internal override string Opening(BuildContext context)
         {
-            return context.Settings.NonbacktrackingAny ? Syntax.NoncapturingGroupStart : Syntax.SubexpressionStart;
+            return context.Settings.NoncapturingAny ? Syntax.NoncapturingGroupStart : Syntax.SubexpressionStart;
         }
 
         internal override string Closing
