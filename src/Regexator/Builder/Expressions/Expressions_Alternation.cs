@@ -77,7 +77,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static Expression Or
         {
-            get { return new Expression(Syntax.Or); }
+            get { return new OrExpression(); }
         }
     }
 }
