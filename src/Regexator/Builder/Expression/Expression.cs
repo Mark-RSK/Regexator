@@ -73,8 +73,12 @@ namespace Pihrtsoft.Regexator.Builder
         public T Append<T>(T expression) where T : Expression
         {
             if (expression == null) { throw new ArgumentNullException("expression"); }
-            _last = null;
-            Last.Next = expression.First;
+            _last = this;
+            while (_last.Next != null)
+            {
+                _last = _last.Next;
+            }
+            _last.Next = expression.First;
             expression.First = First;
             expression.Previous = this;
             return expression;
@@ -181,18 +185,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         internal Expression Last
         {
-            get 
-            {
-                if (_last == null)
-                {
-                    _last = this;
-                    while (_last.Next != null)
-                    {
-                        _last = _last.Next;
-                    }
-                }
-                return _last;
-            }
+            get { return _last ?? this; }
         }
 
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
