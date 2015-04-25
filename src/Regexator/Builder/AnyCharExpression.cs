@@ -3,16 +3,16 @@
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal sealed class AnyExpression
+    internal sealed class AnyCharExpression
         : QuantifiableExpression
     {
-        internal AnyExpression()
+        internal AnyCharExpression()
         {
         }
 
         internal override string Value
         {
-            get { return Syntax.Any; }
+            get { return Syntax.AnyChar; }
         }
     }
 }

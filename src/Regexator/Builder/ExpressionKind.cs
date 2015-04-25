@@ -13,7 +13,7 @@ namespace Pihrtsoft.Regexator.Builder
         CharSubtraction,
         Group,
         If,
-        Or,
+        Any,
         Quantifier
     }
 }

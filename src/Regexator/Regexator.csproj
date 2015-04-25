@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Builder\Alternations\AnyTextExpression.cs" />
     <Compile Include="Builder\Anchors\Anchor.cs" />
     <Compile Include="Builder\Anchors\EndOrBeforeEndingNewLine.cs" />
     <Compile Include="Builder\Anchors\NotWordBoundary.cs" />
@@ -59,9 +60,12 @@
     <Compile Include="Builder\Anchors\EndOfLine.cs" />
     <Compile Include="Builder\Anchors\EndOfInput.cs" />
     <Compile Include="Builder\Anchors\StartOfLine.cs" />
+    <Compile Include="Builder\Alternations\IfExpression.cs" />
+    <Compile Include="Builder\Alternations\GroupNumberIfExpression.cs" />
+    <Compile Include="Builder\Alternations\GroupNameIfExpression.cs" />
     <Compile Include="Builder\InlineCommentExpression.cs" />
     <Compile Include="Builder\InlineOptionsExpression.cs" />
-    <Compile Include="Builder\OrExpression.cs" />
+    <Compile Include="Builder\Alternations\OrExpression.cs" />
     <Compile Include="Builder\AsciiChar.cs" />
     <Compile Include="Builder\Assertion.cs" />
     <Compile Include="Builder\AssertionKind.cs" />
@@ -93,7 +97,7 @@
     <Compile Include="Builder\Quantifiers\ExactQuantifier.cs" />
     <Compile Include="Builder\ExpressionKind.cs" />
     <Compile Include="Builder\Expressions\Expressions.cs" />
-    <Compile Include="Builder\Expressions\Expressions_Alternation.cs" />
+    <Compile Include="Builder\Alternations\Expressions.cs" />
     <Compile Include="Builder\Expressions\Expressions_Anchor.cs" />
     <Compile Include="Builder\Expressions\Expressions_Ascii.cs" />
     <Compile Include="Builder\Expressions\Expressions_Assertion.cs" />
@@ -104,7 +108,7 @@
     <Compile Include="Builder\Expressions\UnicodeBlocks.cs" />
     <Compile Include="Builder\Expressions\UnicodeCategories.cs" />
     <Compile Include="Builder\Expression\Expression.cs" />
-    <Compile Include="Builder\Expression\Expression_Alternation.cs" />
+    <Compile Include="Builder\Alternations\Expression.cs" />
     <Compile Include="Builder\Expression\Expression_Anchors.cs" />
     <Compile Include="Builder\Expression\Expression_Ascii.cs" />
     <Compile Include="Builder\Expression\Expression_Assertion.cs" />
@@ -118,7 +122,7 @@
     <Compile Include="Builder\IBaseGroup.cs" />
     <Compile Include="Builder\IdentifierSeparatorKind.cs" />
     <Compile Include="Builder\IExcludedGroup.cs" />
-    <Compile Include="Builder\IfConstruct.cs" />
+    <Compile Include="Builder\Alternations\AlternationConstruct.cs" />
     <Compile Include="Builder\InlineOptions.cs" />
     <Compile Include="Builder\NameBackreference.cs" />
     <Compile Include="Builder\Groups\NumberNamedGroup.cs" />
@@ -127,7 +131,7 @@
     <Compile Include="Builder\Groups\NoncapturingGroup.cs" />
     <Compile Include="Builder\NumberBackreference.cs" />
     <Compile Include="Builder\Groups\GroupOptions.cs" />
-    <Compile Include="Builder\OrConstruct.cs" />
+    <Compile Include="Builder\Alternations\AnyExpression.cs" />
     <Compile Include="Builder\QuantifiableExpression.cs" />
     <Compile Include="Builder\Quantifiers\OneManyQuantifier.cs" />
     <Compile Include="Builder\Quantifiers\MaybeManyQuantifier.cs" />
@@ -149,7 +153,7 @@
     <Compile Include="Builder\CharCodeExpression.cs" />
     <Compile Include="Builder\AsciiCharExpression.cs" />
     <Compile Include="Builder\CharClassExpression.cs" />
-    <Compile Include="Builder\AnyExpression.cs" />
+    <Compile Include="Builder\AnyCharExpression.cs" />
     <Compile Include="Builder\CharGroup\NotCodeRangeGroup.cs" />
     <Compile Include="Builder\CharGroup\NotCharCodeGroup.cs" />
     <Compile Include="Builder\CharGroup\NotCharItemGroup.cs" />

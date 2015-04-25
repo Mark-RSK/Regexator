@@ -7,72 +7,72 @@ namespace Pihrtsoft.Regexator.Builder
     {
         public static QuantifiableExpression Any(params Expression[] expressions)
         {
-            return new OrConstruct(expressions);
+            return new AnyExpression(expressions);
         }
 
         public static QuantifiableExpression Any(params string[] values)
         {
-            return new OrConstruct(values);
+            return new AnyTextExpression(values);
         }
 
         public static QuantifiableExpression IfGroup(string groupName, Expression yes)
         {
-            return new IfConstruct(Syntax.IfGroupStart(groupName), yes);
+            return new GroupNameIfExpression(groupName, yes);
         }
 
         public static QuantifiableExpression IfGroup(string groupName, Expression yes, Expression no)
         {
-            return new IfConstruct(Syntax.IfGroupStart(groupName), yes, no);
+            return new GroupNameIfExpression(groupName, yes, no);
         }
 
         public static QuantifiableExpression IfGroup(string groupName, string yes)
         {
-            return new IfConstruct(Syntax.IfGroupStart(groupName), yes);
+            return new GroupNameIfExpression(groupName, yes);
         }
 
         public static QuantifiableExpression IfGroup(string groupName, string yes, string no)
         {
-            return new IfConstruct(Syntax.IfGroupStart(groupName), yes, no);
+            return new GroupNameIfExpression(groupName, yes, no);
         }
 
         public static QuantifiableExpression IfGroup(int groupNumber, Expression yes)
         {
-            return new IfConstruct(Syntax.IfGroupStart(groupNumber), yes);
+            return new GroupNumberIfExpression(groupNumber, yes);
         }
 
         public static QuantifiableExpression IfGroup(int groupNumber, Expression yes, Expression no)
         {
-            return new IfConstruct(Syntax.IfGroupStart(groupNumber), yes, no);
+            return new GroupNumberIfExpression(groupNumber, yes, no);
         }
 
         public static QuantifiableExpression IfGroup(int groupNumber, string yes)
         {
-            return new IfConstruct(Syntax.IfGroupStart(groupNumber), yes);
+            return new GroupNumberIfExpression(groupNumber, yes);
         }
 
         public static QuantifiableExpression IfGroup(int groupNumber, string yes, string no)
         {
-            return new IfConstruct(Syntax.IfGroupStart(groupNumber), yes, no);
+            return new GroupNumberIfExpression(groupNumber, yes, no);
         }
 
         public static QuantifiableExpression If(Expression condition, Expression yes)
         {
-            return new IfConstruct(condition, yes);
+            return new IfExpression(condition, yes);
         }
 
         public static QuantifiableExpression If(Expression condition, Expression yes, Expression no)
         {
-            return new IfConstruct(condition, yes, no);
+            return new IfExpression(condition, yes, no);
         }
 
         public static QuantifiableExpression If(Expression condition, string yes)
         {
-            return new IfConstruct(condition, yes);
+            return new IfExpression(condition, yes);
         }
 
         public static QuantifiableExpression If(Expression condition, string yes, string no)
         {
-            return new IfConstruct(condition, yes, no);
+            return new IfExpression(condition, yes, no);
         }
 
         public static Expression Or

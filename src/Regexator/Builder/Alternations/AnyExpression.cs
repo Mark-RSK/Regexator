@@ -3,34 +3,25 @@
 
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal sealed class OrConstruct
+    internal class AnyExpression
         : QuantifiableExpression
     {
-        private readonly Collection<Expression> _expressions;
+        private readonly Expression[] _expressions;
 
-        internal OrConstruct(params Expression[] expressions)
+        internal AnyExpression(params Expression[] expressions)
             : base()
         {
             if (expressions == null) { throw new ArgumentNullException("expressions"); }
-            _expressions = new Collection<Expression>(expressions);
-        }
-
-        internal OrConstruct(params string[] values)
-            : base()
-        {
-            if (values == null) { throw new ArgumentNullException("values"); }
-            _expressions = new Collection<Expression>(values.Select(f => Create(f)).ToArray());
+            _expressions = expressions;
         }
 
         internal override IEnumerable<string> EnumerateContent(BuildContext context)
         {
             bool isFirst = true;
-            foreach (var expression in OrExpressions)
+            foreach (var expression in _expressions)
             {
                 if (!isFirst)
                 {
@@ -57,14 +48,9 @@ namespace Pihrtsoft.Regexator.Builder
             get { return Syntax.GroupEnd; }
         }
 
-        public Collection<Expression> OrExpressions
-        {
-            get { return _expressions; }
-        }
-
         internal override ExpressionKind Kind
         {
-            get { return ExpressionKind.Or; }
+            get { return ExpressionKind.Any; }
         }
     }
 }

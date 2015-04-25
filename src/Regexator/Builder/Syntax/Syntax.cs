@@ -13,7 +13,7 @@ namespace Pihrtsoft.Regexator.Builder
         internal const string IfStart = "(?";
         internal const string InlineCommentStart = "(?#";
         public const string Or = "|";
-        public const string Any = ".";
+        public const string AnyChar = ".";
 
         public const char IgnoreCaseChar = 'i';
         public const char MultilineChar = 'm';
@@ -23,29 +23,16 @@ namespace Pihrtsoft.Regexator.Builder
 
         internal static readonly InlineOptions InlineOptions = InlineOptions.IgnoreCase | InlineOptions.Multiline | InlineOptions.ExplicitCapture | InlineOptions.Singleline | InlineOptions.IgnorePatternWhitespace;
 
-        public static string IfGroup(string groupName, string yes, string no)
+        internal static string IfGroupCondition(int groupNumber)
         {
-            if (yes == null) { throw new ArgumentNullException("yes"); }
-            if (no == null) { throw new ArgumentNullException("no"); }
-            return IfGroupStart(groupName) + yes + Or + no + GroupEnd;
+            if (groupNumber < 0) { throw new ArgumentOutOfRangeException("groupNumber"); }
+            return IfGroupCondition(groupNumber.ToString(CultureInfo.InvariantCulture));
         }
-
-        internal static string IfGroupStart(string groupName)
-        {
+        
+        internal static string IfGroupCondition(string groupName)
+        { 
             if (groupName == null) { throw new ArgumentNullException("groupName"); }
-            return IfStart + SubexpressionStart + groupName + GroupEnd;
-        }
-
-        public static string IfGroup(int groupNumber, string yes, string no)
-        {
-            if (groupNumber < 0) { throw new ArgumentOutOfRangeException("groupNumber"); }
-            return IfGroup(groupNumber.ToString(CultureInfo.InvariantCulture), yes, no);
-        }
-
-        internal static string IfGroupStart(int groupNumber)
-        {
-            if (groupNumber < 0) { throw new ArgumentOutOfRangeException("groupNumber"); }
-            return IfGroupStart(groupNumber.ToString(CultureInfo.InvariantCulture));
+            return SubexpressionStart + groupName + GroupEnd;
         }
 
         public static string Options(InlineOptions enableOptions)

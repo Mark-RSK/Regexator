@@ -167,7 +167,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifiableExpression Any()
         {
-            return new AnyExpression();
+            return new AnyCharExpression();
         }
 
         public static CharSubtraction WhiteSpaceExceptNewLine()
