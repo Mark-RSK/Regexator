@@ -28,9 +28,9 @@ namespace Pihrtsoft.Regexator.Builder
             if (groupNumber < 0) { throw new ArgumentOutOfRangeException("groupNumber"); }
             return IfGroupCondition(groupNumber.ToString(CultureInfo.InvariantCulture));
         }
-        
+
         internal static string IfGroupCondition(string groupName)
-        { 
+        {
             if (groupName == null) { throw new ArgumentNullException("groupName"); }
             return SubexpressionStart + groupName + GroupEnd;
         }
