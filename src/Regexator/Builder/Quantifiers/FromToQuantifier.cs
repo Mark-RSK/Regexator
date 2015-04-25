@@ -16,7 +16,7 @@ namespace Pihrtsoft.Regexator.Builder
             _maxCount = maxCount;
         }
 
-        protected override string QuantifierValue
+        protected override string Content
         {
             get { return Syntax.Count(_minCount, _maxCount); }
         }

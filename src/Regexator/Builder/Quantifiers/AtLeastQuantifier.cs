@@ -15,7 +15,7 @@ namespace Pihrtsoft.Regexator.Builder
             _minCount = minCount;
         }
 
-        protected override string QuantifierValue
+        protected override string Content
         {
             get { return Syntax.AtLeast(_minCount); }
         }

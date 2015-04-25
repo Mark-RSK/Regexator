@@ -6,7 +6,7 @@ namespace Pihrtsoft.Regexator.Builder
     internal sealed class OneManyQuantifier
         : Quantifier
     {
-        protected override string QuantifierValue
+        protected override string Content
         {
             get { return Syntax.OneMany; }
         }

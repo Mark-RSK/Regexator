@@ -14,7 +14,7 @@ namespace Pihrtsoft.Regexator.Builder
             _count = count;
         }
 
-        protected override string QuantifierValue
+        protected override string Content
         {
             get { return Syntax.Count(_count); }
         }

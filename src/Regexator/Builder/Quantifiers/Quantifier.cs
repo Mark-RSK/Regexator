@@ -14,13 +14,13 @@ namespace Pihrtsoft.Regexator.Builder
             return this;
         }
 
-        protected abstract string QuantifierValue { get; }
+        protected abstract string Content { get; }
 
         public abstract QuantifierKind QuantifierKind { get; }
 
         internal override string Value
         {
-            get { return IsLazy ? QuantifierValue + Syntax.Lazy : QuantifierValue; }
+            get { return IsLazy ? Content + Syntax.Lazy : Content; }
         }
 
         internal bool IsLazy
