@@ -21,13 +21,13 @@ namespace Pihrtsoft.Regexator.Builder
             _disableOptions = disableOptions;
         }
 
-        internal GroupOptions(InlineOptions applyOptions, Expression childExpression)
-            : this(applyOptions, InlineOptions.None, childExpression)
+        internal GroupOptions(InlineOptions applyOptions, Expression expression)
+            : this(applyOptions, InlineOptions.None, expression)
         {
         }
 
-        internal GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, Expression childExpression)
-            : base(childExpression)
+        internal GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, Expression expression)
+            : base(expression)
         {
             _applyOptions = applyOptions;
             _disableOptions = disableOptions;

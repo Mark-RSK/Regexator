@@ -17,8 +17,8 @@ namespace Pihrtsoft.Regexator.Builder
             _name = name;
         }
 
-        internal NamedGroup(string name, Expression childExpression)
-            : base(childExpression)
+        internal NamedGroup(string name, Expression expression)
+            : base(expression)
         {
             if (name == null) { throw new ArgumentNullException("name"); }
             _name = name;

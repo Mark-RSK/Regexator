@@ -15,13 +15,13 @@ namespace Pihrtsoft.Regexator.Builder
         public static Quantifier Maybe(string value)
         {
             if (value == null) { throw new ArgumentNullException("value"); }
-            return Subexpression(value).Maybe();
+            return QuantifierGroup(value).Maybe();
         }
 
         public static Quantifier Maybe(Expression value)
         {
             if (value == null) { throw new ArgumentNullException("value"); }
-            return Subexpression(value).Maybe();
+            return QuantifierGroup(value).Maybe();
         }
 
         internal static Quantifier MaybeMany()
@@ -32,13 +32,13 @@ namespace Pihrtsoft.Regexator.Builder
         public static Quantifier MaybeMany(string value)
         {
             if (value == null) { throw new ArgumentNullException("value"); }
-            return Subexpression(value).MaybeMany();
+            return QuantifierGroup(value).MaybeMany();
         }
 
         public static Quantifier MaybeMany(Expression value)
         {
             if (value == null) { throw new ArgumentNullException("value"); }
-            return Subexpression(value).MaybeMany();
+            return QuantifierGroup(value).MaybeMany();
         }
 
         internal static Quantifier OneMany()
@@ -49,13 +49,13 @@ namespace Pihrtsoft.Regexator.Builder
         public static Quantifier OneMany(string value)
         {
             if (value == null) { throw new ArgumentNullException("value"); }
-            return Subexpression(value).OneMany();
+            return QuantifierGroup(value).OneMany();
         }
 
         public static Quantifier OneMany(Expression value)
         {
             if (value == null) { throw new ArgumentNullException("value"); }
-            return Subexpression(value).OneMany();
+            return QuantifierGroup(value).OneMany();
         }
 
         internal static Quantifier Count(int exactCount)
@@ -63,14 +63,29 @@ namespace Pihrtsoft.Regexator.Builder
             return new ExactQuantifier(exactCount);
         }
 
+        public static Quantifier Count(int exactCount, Expression expression)
+        {
+            return QuantifierGroup(expression).Count(exactCount);
+        }
+
         internal static Quantifier AtLeast(int minCount)
         {
             return new AtLeastQuantifier(minCount);
         }
 
+        public static Quantifier AtLeast(int minCount, Expression expression)
+        {
+            return QuantifierGroup(expression).AtLeast(minCount);
+        }
+
         internal static Quantifier Count(int minCount, int maxCount)
         {
             return new FromToQuantifier(minCount, maxCount);
+        }
+
+        public static Quantifier Count(int minCount, int maxCount, Expression expression)
+        {
+            return QuantifierGroup(expression).Count(minCount, maxCount);
         }
     }
 }

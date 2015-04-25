@@ -3,22 +3,22 @@
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal sealed class NoncapturingGroup
+    internal sealed class QuantifierGroup
         : GroupingConstruct
     {
-        internal NoncapturingGroup(string value)
+        internal QuantifierGroup(string value)
             : base(value)
         {
         }
 
-        internal NoncapturingGroup(Expression expression)
+        internal QuantifierGroup(Expression expression)
             : base(expression)
         {
         }
 
         internal override string Opening(BuildContext context)
         {
-            return Syntax.NoncapturingGroupStart;
+            return context.Settings.NoncapturingQuantifierGroup ? Syntax.NoncapturingGroupStart : Syntax.SubexpressionStart;
         }
     }
 }

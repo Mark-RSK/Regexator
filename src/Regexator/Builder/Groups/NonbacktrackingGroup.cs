@@ -11,8 +11,8 @@ namespace Pihrtsoft.Regexator.Builder
         {
         }
 
-        internal NonbacktrackingGroup(Expression childExpression)
-            : base(childExpression)
+        internal NonbacktrackingGroup(Expression expression)
+            : base(expression)
         {
         }
 

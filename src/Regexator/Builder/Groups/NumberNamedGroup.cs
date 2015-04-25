@@ -16,8 +16,8 @@ namespace Pihrtsoft.Regexator.Builder
             _name = name;
         }
 
-        internal NumberNamedGroup(int name, Expression childExpression)
-            : base(childExpression)
+        internal NumberNamedGroup(int name, Expression expression)
+            : base(expression)
         {
             _name = name;
         }

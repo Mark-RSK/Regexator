@@ -34,5 +34,20 @@ namespace Pihrtsoft.Regexator.Builder
         {
             return Append(Expressions.OneMany(value));
         }
+
+        public Quantifier Count(int exactCount, Expression expression)
+        {
+            return Append(Expressions.Count(exactCount, expression));
+        }
+
+        public Quantifier AtLeast(int minCount, Expression expression)
+        {
+            return Append(Expressions.AtLeast(minCount, expression));
+        }
+
+        public Quantifier Count(int minCount, int maxCount, Expression expression)
+        {
+            return Append(Expressions.Count(minCount, maxCount, expression));
+        }
     }
 }

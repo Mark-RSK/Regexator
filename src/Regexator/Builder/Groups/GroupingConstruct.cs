@@ -8,17 +8,19 @@ namespace Pihrtsoft.Regexator.Builder
     internal abstract class GroupingConstruct
         : QuantifiableExpression
     {
-        private readonly Expression _childExpression;
+        private readonly Expression _expression;
+        private readonly string _value;
 
         internal GroupingConstruct(string value)
-            : base(value, true)
-        {
-        }
-
-        internal GroupingConstruct(Expression childExpression)
             : base()
         {
-            _childExpression = childExpression;
+            _value = value;
+        }
+
+        internal GroupingConstruct(Expression expression)
+            : base()
+        {
+            _expression = expression;
         }
 
         internal override IEnumerable<string> EnumerateContent(BuildContext context)
@@ -30,15 +32,20 @@ namespace Pihrtsoft.Regexator.Builder
                     yield return value;
                 }
             }
-            else if (Value != null)
+            else if (_value != null)
             {
                 yield return Value;
             }
         }
 
+        internal sealed override string Value
+        {
+            get { return (_value != null) ? Utilities.Escape(_value) : null; }
+        }
+
         internal Expression ChildExpression
         {
-            get { return _childExpression; }
+            get { return _expression; }
         }
 
         internal override string Closing

@@ -66,6 +66,7 @@
     <Compile Include="Builder\Groups\BalancingGroup.cs" />
     <Compile Include="Builder\BuildContext.cs" />
     <Compile Include="Builder\Anchors\StartOfInput.cs" />
+    <Compile Include="Builder\Groups\QuantifierGroup.cs" />
     <Compile Include="Builder\PatternSettings.cs" />
     <Compile Include="Builder\CharClass.cs" />
     <Compile Include="Builder\CharGroup\CharGroup.cs" />

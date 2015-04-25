@@ -21,8 +21,8 @@ namespace Pihrtsoft.Regexator.Builder
         }
 
 
-        internal BalancingGroup(string name1, string name2, Expression childExpression)
-            : base(childExpression)
+        internal BalancingGroup(string name1, string name2, Expression expression)
+            : base(expression)
         {
             if (name1 == null) { throw new ArgumentNullException("name1"); }
             if (name2 == null) { throw new ArgumentNullException("name2"); }

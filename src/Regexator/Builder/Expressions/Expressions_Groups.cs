@@ -84,5 +84,15 @@ namespace Pihrtsoft.Regexator.Builder
         {
             return new GroupOptions(applyOptions, disableOptions, value);
         }
+
+        internal static QuantifiableExpression QuantifierGroup(string value)
+        {
+            return new QuantifierGroup(value);
+        }
+
+        internal static QuantifiableExpression QuantifierGroup(Expression expression)
+        {
+            return new QuantifierGroup(expression);
+        }
     }
 }

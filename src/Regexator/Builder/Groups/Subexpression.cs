@@ -11,8 +11,8 @@ namespace Pihrtsoft.Regexator.Builder
         {
         }
 
-        internal Subexpression(Expression childExpression)
-            : base(childExpression)
+        internal Subexpression(Expression expression)
+            : base(expression)
         {
         }
 
