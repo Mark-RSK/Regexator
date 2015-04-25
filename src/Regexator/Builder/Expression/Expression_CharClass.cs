@@ -7,92 +7,92 @@ namespace Pihrtsoft.Regexator.Builder
     {
         public QuantifiableExpression Digit()
         {
-            return Append(Expressions.Digit());
+            return Append(CharClasses.Digit());
         }
 
         public Quantifier Digit(int count)
         {
-            return Append(Expressions.Digit(count));
+            return Append(CharClasses.Digit(count));
         }
 
         public Quantifier Digit(int minCount, int maxCount)
         {
-            return Append(Expressions.Digit(minCount, maxCount));
+            return Append(CharClasses.Digit(minCount, maxCount));
         }
 
         public QuantifiableExpression NotDigit()
         {
-            return Append(Expressions.NotDigit());
+            return Append(CharClasses.NotDigit());
         }
 
         public Quantifier NotDigit(int count)
         {
-            return Append(Expressions.NotDigit(count));
+            return Append(CharClasses.NotDigit(count));
         }
 
         public Quantifier NotDigit(int minCount, int maxCount)
         {
-            return Append(Expressions.NotDigit(minCount, maxCount));
+            return Append(CharClasses.NotDigit(minCount, maxCount));
         }
 
         public QuantifiableExpression WhiteSpace()
         {
-            return Append(Expressions.WhiteSpace());
+            return Append(CharClasses.WhiteSpace());
         }
 
         public Quantifier WhiteSpace(int count)
         {
-            return Append(Expressions.WhiteSpace(count));
+            return Append(CharClasses.WhiteSpace(count));
         }
 
         public Quantifier WhiteSpace(int minCount, int maxCount)
         {
-            return Append(Expressions.WhiteSpace(minCount, maxCount));
+            return Append(CharClasses.WhiteSpace(minCount, maxCount));
         }
 
         public QuantifiableExpression NotWhiteSpace()
         {
-            return Append(Expressions.NotWhiteSpace());
+            return Append(CharClasses.NotWhiteSpace());
         }
 
         public Quantifier NotWhiteSpace(int count)
         {
-            return Append(Expressions.NotWhiteSpace(count));
+            return Append(CharClasses.NotWhiteSpace(count));
         }
 
         public Quantifier NotWhiteSpace(int minCount, int maxCount)
         {
-            return Append(Expressions.NotWhiteSpace(minCount, maxCount));
+            return Append(CharClasses.NotWhiteSpace(minCount, maxCount));
         }
 
         public QuantifiableExpression Word()
         {
-            return Append(Expressions.Word());
+            return Append(CharClasses.Word());
         }
 
         public Quantifier Word(int count)
         {
-            return Append(Expressions.Word(count));
+            return Append(CharClasses.Word(count));
         }
 
         public Quantifier Word(int minCount, int maxCount)
         {
-            return Append(Expressions.Word(minCount, maxCount));
+            return Append(CharClasses.Word(minCount, maxCount));
         }
 
         public QuantifiableExpression NotWord()
         {
-            return Append(Expressions.NotWord());
+            return Append(CharClasses.NotWord());
         }
 
         public Quantifier NotWord(int count)
         {
-            return Append(Expressions.NotWord(count));
+            return Append(CharClasses.NotWord(count));
         }
 
         public Quantifier NotWord(int minCount, int maxCount)
         {
-            return Append(Expressions.NotWord(minCount, maxCount));
+            return Append(CharClasses.NotWord(minCount, maxCount));
         }
     }
 }

@@ -24,7 +24,7 @@ namespace Pihrtsoft.Regexator.Builder
             {
                 if (s_trimCommentRegex == null)
                 {
-                    s_trimCommentRegex = Expressions.Start().NotRightParenthesis().MaybeMany().ToRegex();
+                    s_trimCommentRegex = Anchors.Start().NotRightParenthesis().MaybeMany().ToRegex();
                 }
                 return s_trimCommentRegex;
             }

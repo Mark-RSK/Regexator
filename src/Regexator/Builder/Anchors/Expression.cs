@@ -7,17 +7,17 @@ namespace Pihrtsoft.Regexator.Builder
     {
         public QuantifiableExpression Start()
         {
-            return Append(Expressions.Start());
+            return Append(Anchors.Start());
         }
 
         public QuantifiableExpression StartOfLine()
         {
-            return Append(Expressions.StartOfLine());
+            return Append(Anchors.StartOfLine());
         }
 
         public QuantifiableExpression EndOfLine()
         {
-            return Append(Expressions.EndOfLine());
+            return Append(Anchors.EndOfLine());
         }
 
         public QuantifiableExpression EndOfLineOrBeforeCarriageReturn()
@@ -27,42 +27,42 @@ namespace Pihrtsoft.Regexator.Builder
 
         internal QuantifiableExpression EndOfLine(bool beforeCarriageReturn)
         {
-            return Append(Expressions.EndOfLine(beforeCarriageReturn));
+            return Append(Anchors.EndOfLine(beforeCarriageReturn));
         }
 
         public QuantifiableExpression End()
         {
-            return Append(Expressions.End());
+            return Append(Anchors.End());
         }
 
         public QuantifiableExpression EndOrBeforeEndingNewLine()
         {
-            return Append(Expressions.EndOrBeforeEndingNewLine());
+            return Append(Anchors.EndOrBeforeEndingNewLine());
         }
 
         public QuantifiableExpression PreviousMatchEnd()
         {
-            return Append(Expressions.PreviousMatchEnd());
+            return Append(Anchors.PreviousMatchEnd());
         }
 
         public QuantifiableExpression WordBoundary()
         {
-            return Append(Expressions.WordBoundary());
+            return Append(Anchors.WordBoundary());
         }
 
         public QuantifiableExpression NotWordBoundary()
         {
-            return Append(Expressions.NotWordBoundary());
+            return Append(Anchors.NotWordBoundary());
         }
 
         public QuantifiableExpression AsLine()
         {
-            return Expressions.StartOfLine().Append(this).EndOfLine();
+            return Anchors.StartOfLine().Append(this).EndOfLine();
         }
 
         public QuantifiableExpression AsEntireInput()
         {
-            return Expressions.Start().Append(this).End();
+            return Anchors.Start().Append(this).End();
         }
     }
 }

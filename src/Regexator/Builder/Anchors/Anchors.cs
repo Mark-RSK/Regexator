@@ -3,7 +3,7 @@
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    public static partial class Expressions
+    public static class Anchors
     {
         public static QuantifiableExpression Start()
         {
@@ -29,7 +29,7 @@ namespace Pihrtsoft.Regexator.Builder
         {
             if (beforeCarriageReturn)
             {
-                return CarriageReturn().Maybe().EndOfLine().AsLookahead();
+                return Characters.CarriageReturn().Maybe().EndOfLine().AsLookahead();
             }
             else
             {

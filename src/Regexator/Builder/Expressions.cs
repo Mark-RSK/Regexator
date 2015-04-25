@@ -1,65 +1,12 @@
 // Copyright (c) Josef Pihrt. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System;
+
 namespace Pihrtsoft.Regexator.Builder
 {
-    public static partial class Expressions
+    public static class Expressions
     {
-        public static QuantifiableExpression Char(char value)
-        {
-            return new CharExpression(value);
-        }
-
-        public static QuantifiableExpression Char(int charCode)
-        {
-            return new CharCodeExpression(charCode);
-        }
-
-        public static QuantifiableExpression Char(AsciiChar value)
-        {
-            return new AsciiCharExpression(value);
-        }
-
-        public static QuantifiableExpression Char(CharClass value)
-        {
-            return new CharClassExpression(value);
-        }
-
-        public static QuantifiableExpression UnicodeBlock(UnicodeBlock block)
-        {
-            return new UnicodeBlockExpression(block);
-        }
-
-        public static QuantifiableExpression UnicodeCategory(UnicodeCategory category)
-        {
-            return new UnicodeCategoryExpression(category);
-        }
-
-        public static CharGroup NotChar(char value)
-        {
-            return new NotCharsGroup(value);
-        }
-
-        public static CharGroup NotChar(int charCode)
-        {
-            return new NotCharCodeGroup(charCode);
-        }
-
-        public static CharGroup NotChar(AsciiChar value)
-        {
-            return new NotAsciiCharGroup(value);
-        }
-
-        public static QuantifiableExpression NotUnicodeBlock(UnicodeBlock block)
-        {
-            return new NotUnicodeBlockExpression(block);
-        }
-
-        public static QuantifiableExpression NotUnicodeCategory(UnicodeCategory category)
-        {
-            return new NotUnicodeCategoryExpression(category);
-        }
-
         public static CharGroup Chars(string value)
         {
             return new TextCharGroup(value);
@@ -170,9 +117,49 @@ namespace Pihrtsoft.Regexator.Builder
             return new AnyCharExpression();
         }
 
+        public static QuantifiableExpression Backreference(int groupNumber)
+        {
+            return new NumberBackreference(groupNumber);
+        }
+
+        public static QuantifiableExpression Backreference(string groupName)
+        {
+            return new NameBackreference(groupName);
+        }
+
+        public static Expression Options(InlineOptions applyOptions)
+        {
+            return new InlineOptionsExpression(applyOptions);
+        }
+
+        public static Expression Options(InlineOptions applyOptions, InlineOptions disableOptions)
+        {
+            return new InlineOptionsExpression(applyOptions, disableOptions);
+        }
+
+        public static Expression InlineComment(string value)
+        {
+            return new InlineCommentExpression(value);
+        }
+
         public static CharSubtraction WhiteSpaceExceptNewLine()
         {
             return new CharSubtraction(CharItems.WhiteSpace(), CharItems.CarriageReturn().Linefeed());
+        }
+
+        public static QuantifiableExpression NewLine()
+        {
+            return Characters.CarriageReturn().Maybe().Linefeed().AsNoncapturing();
+        }
+
+        public static Expression Text(string value)
+        {
+            return Expression.Create(value);
+        }
+
+        internal static QuantifiableExpression InsignificantSeparator()
+        {
+            return Groups.GroupOptions(InlineOptions.IgnorePatternWhitespace, new TextExpression(" ", false));
         }
     }
 }

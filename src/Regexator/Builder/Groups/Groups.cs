@@ -1,9 +1,11 @@
 // Copyright (c) Josef Pihrt. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System;
+
 namespace Pihrtsoft.Regexator.Builder
 {
-    public static partial class Expressions
+    public static partial class Groups
     {
         public static QuantifiableExpression Group(string name, Expression expression)
         {
@@ -93,6 +95,57 @@ namespace Pihrtsoft.Regexator.Builder
         internal static QuantifiableExpression QuantifierGroup(Expression expression)
         {
             return new QuantifierGroup(expression);
+        }
+
+        public static Quantifier Maybe(string value)
+        {
+            if (value == null) { throw new ArgumentNullException("value"); }
+            return QuantifierGroup(value).Maybe();
+        }
+
+        public static Quantifier Maybe(Expression value)
+        {
+            if (value == null) { throw new ArgumentNullException("value"); }
+            return QuantifierGroup(value).Maybe();
+        }
+
+        public static Quantifier MaybeMany(string value)
+        {
+            if (value == null) { throw new ArgumentNullException("value"); }
+            return QuantifierGroup(value).MaybeMany();
+        }
+
+        public static Quantifier MaybeMany(Expression value)
+        {
+            if (value == null) { throw new ArgumentNullException("value"); }
+            return QuantifierGroup(value).MaybeMany();
+        }
+
+        public static Quantifier OneMany(string value)
+        {
+            if (value == null) { throw new ArgumentNullException("value"); }
+            return QuantifierGroup(value).OneMany();
+        }
+
+        public static Quantifier OneMany(Expression value)
+        {
+            if (value == null) { throw new ArgumentNullException("value"); }
+            return QuantifierGroup(value).OneMany();
+        }
+
+        public static Quantifier Count(int exactCount, Expression expression)
+        {
+            return QuantifierGroup(expression).Count(exactCount);
+        }
+
+        public static Quantifier AtLeast(int minCount, Expression expression)
+        {
+            return QuantifierGroup(expression).AtLeast(minCount);
+        }
+
+        public static Quantifier Count(int minCount, int maxCount, Expression expression)
+        {
+            return Groups.QuantifierGroup(expression).Count(minCount, maxCount);
         }
     }
 }

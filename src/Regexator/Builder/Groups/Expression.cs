@@ -7,122 +7,122 @@ namespace Pihrtsoft.Regexator.Builder
     {
         public QuantifiableExpression Group(string name, Expression value)
         {
-            return Append(Expressions.Group(name, value));
+            return Append(Groups.Group(name, value));
         }
 
         public QuantifiableExpression Group(int name, Expression value)
         {
-            return Append(Expressions.Group(name, value));
+            return Append(Groups.Group(name, value));
         }
 
         public QuantifiableExpression Group(string name, string value)
         {
-            return Append(Expressions.Group(name, value));
+            return Append(Groups.Group(name, value));
         }
 
         public QuantifiableExpression Group(int name, string value)
         {
-            return Append(Expressions.Group(name, value));
+            return Append(Groups.Group(name, value));
         }
 
         public QuantifiableExpression AsGroup(string name)
         {
-            return Expressions.Group(name, this);
+            return Groups.Group(name, this);
         }
 
         public QuantifiableExpression AsGroup(int name)
         {
-            return Expressions.Group(name, this);
+            return Groups.Group(name, this);
         }
 
         public QuantifiableExpression Subexpression(Expression value)
         {
-            return Append(Expressions.Subexpression(value));
+            return Append(Groups.Subexpression(value));
         }
 
         public QuantifiableExpression Subexpression(string value)
         {
-            return Append(Expressions.Subexpression(value));
+            return Append(Groups.Subexpression(value));
         }
 
         public QuantifiableExpression AsSubexpression()
         {
-            return Expressions.Subexpression(this);
+            return Groups.Subexpression(this);
         }
 
         public QuantifiableExpression Noncapturing(Expression value)
         {
-            return Append(Expressions.Noncapturing(value));
+            return Append(Groups.Noncapturing(value));
         }
 
         public QuantifiableExpression Noncapturing(string value)
         {
-            return Append(Expressions.Noncapturing(value));
+            return Append(Groups.Noncapturing(value));
         }
 
         public QuantifiableExpression AsNoncapturing()
         {
-            return Expressions.Noncapturing(this);
+            return Groups.Noncapturing(this);
         }
 
         public QuantifiableExpression Nonbacktracking(Expression value)
         {
-            return Append(Expressions.Nonbacktracking(value));
+            return Append(Groups.Nonbacktracking(value));
         }
 
         public QuantifiableExpression Nonbacktracking(string value)
         {
-            return Append(Expressions.Nonbacktracking(value));
+            return Append(Groups.Nonbacktracking(value));
         }
 
         public QuantifiableExpression AsNonbacktracking()
         {
-            return Expressions.Nonbacktracking(this);
+            return Groups.Nonbacktracking(this);
         }
 
         public QuantifiableExpression Balancing(string name1, string name2, Expression value)
         {
-            return Append(Expressions.Balancing(name1, name2, value));
+            return Append(Groups.Balancing(name1, name2, value));
         }
 
         public QuantifiableExpression Balancing(string name1, string name2, string value)
         {
-            return Append(Expressions.Balancing(name1, name2, value));
+            return Append(Groups.Balancing(name1, name2, value));
         }
 
         public QuantifiableExpression AsBalancing(string name1, string name2)
         {
-            return Expressions.Balancing(name1, name2, this);
+            return Groups.Balancing(name1, name2, this);
         }
 
         public QuantifiableExpression GroupOptions(InlineOptions applyOptions, Expression value)
         {
-            return Append(Expressions.GroupOptions(applyOptions, value));
+            return Append(Groups.GroupOptions(applyOptions, value));
         }
 
         public QuantifiableExpression GroupOptions(InlineOptions applyOptions, string value)
         {
-            return Append(Expressions.GroupOptions(applyOptions, value));
+            return Append(Groups.GroupOptions(applyOptions, value));
         }
 
         public QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, Expression value)
         {
-            return Append(Expressions.GroupOptions(applyOptions, disableOptions, value));
+            return Append(Groups.GroupOptions(applyOptions, disableOptions, value));
         }
 
         public QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, string value)
         {
-            return Append(Expressions.GroupOptions(applyOptions, disableOptions, value));
+            return Append(Groups.GroupOptions(applyOptions, disableOptions, value));
         }
 
         public QuantifiableExpression AsGroupOptions(InlineOptions applyOptions)
         {
-            return Expressions.GroupOptions(applyOptions, this);
+            return Groups.GroupOptions(applyOptions, this);
         }
 
         public QuantifiableExpression AsGroupOptions(InlineOptions applyOptions, InlineOptions disableOptions)
         {
-            return Expressions.GroupOptions(applyOptions, disableOptions, this);
+            return Groups.GroupOptions(applyOptions, disableOptions, this);
         }
     }
 }

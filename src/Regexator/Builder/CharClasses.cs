@@ -3,7 +3,7 @@
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    public static partial class Expressions
+    public static class CharClasses
     {
         public static QuantifiableExpression Digit()
         {

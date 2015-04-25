@@ -3,7 +3,7 @@
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    public static partial class Expressions
+    public static class Alternations
     {
         public static QuantifiableExpression Any(params Expression[] expressions)
         {

@@ -5,61 +5,6 @@ namespace Pihrtsoft.Regexator.Builder
 {
     public partial class Expression
     {
-        public QuantifiableExpression Char(char value)
-        {
-            return Append(Expressions.Char(value));
-        }
-
-        public QuantifiableExpression Char(int charCode)
-        {
-            return Append(Expressions.Char(charCode));
-        }
-
-        public QuantifiableExpression Char(AsciiChar value)
-        {
-            return Append(Expressions.Char(value));
-        }
-
-        public QuantifiableExpression Char(CharClass value)
-        {
-            return Append(Expressions.Char(value));
-        }
-
-        public QuantifiableExpression UnicodeBlock(UnicodeBlock block)
-        {
-            return Append(Expressions.UnicodeBlock(block));
-        }
-
-        public QuantifiableExpression UnicodeCategory(UnicodeCategory category)
-        {
-            return Append(Expressions.UnicodeCategory(category));
-        }
-
-        public QuantifiableExpression NotChar(char value)
-        {
-            return Append(Expressions.NotChar(value));
-        }
-
-        public QuantifiableExpression NotChar(int charCode)
-        {
-            return Append(Expressions.NotChar(charCode));
-        }
-
-        public QuantifiableExpression NotChar(AsciiChar value)
-        {
-            return Append(Expressions.NotChar(value));
-        }
-
-        public QuantifiableExpression NotUnicodeBlock(UnicodeBlock block)
-        {
-            return Append(Expressions.NotUnicodeBlock(block));
-        }
-
-        public QuantifiableExpression NotUnicodeCategory(UnicodeCategory category)
-        {
-            return Append(Expressions.NotUnicodeCategory(category));
-        }
-
         public QuantifiableExpression Chars(string value)
         {
             return Append(Expressions.Chars(value));
