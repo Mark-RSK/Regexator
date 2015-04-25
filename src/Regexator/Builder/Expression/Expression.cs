@@ -13,6 +13,7 @@ namespace Pihrtsoft.Regexator.Builder
     public partial class Expression
     {
         private Expression _first;
+        private Expression _last;
         private Expression _previous;
         private Expression _next;
         private readonly string _value;
@@ -72,7 +73,8 @@ namespace Pihrtsoft.Regexator.Builder
         public T Append<T>(T expression) where T : Expression
         {
             if (expression == null) { throw new ArgumentNullException("expression"); }
-            Next = expression.First;
+            _last = null;
+            Last.Next = expression.First;
             expression.First = First;
             expression.Previous = this;
             return expression;
@@ -175,6 +177,22 @@ namespace Pihrtsoft.Regexator.Builder
         {
             get { return _first ?? this; }
             set { _first = value; }
+        }
+
+        internal Expression Last
+        {
+            get 
+            {
+                if (_last == null)
+                {
+                    _last = this;
+                    while (_last.Next != null)
+                    {
+                        _last = _last.Next;
+                    }
+                }
+                return _last;
+            }
         }
 
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
