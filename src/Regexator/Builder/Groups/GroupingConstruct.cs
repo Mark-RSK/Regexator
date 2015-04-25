@@ -11,6 +11,11 @@ namespace Pihrtsoft.Regexator.Builder
         private readonly Expression _expression;
         private readonly string _value;
 
+        internal GroupingConstruct()
+            : base()
+        {
+        }
+
         internal GroupingConstruct(string value)
             : base()
         {
@@ -43,7 +48,7 @@ namespace Pihrtsoft.Regexator.Builder
             get { return (_value != null) ? Utilities.Escape(_value) : null; }
         }
 
-        internal Expression ChildExpression
+        internal virtual Expression ChildExpression
         {
             get { return _expression; }
         }

@@ -11,16 +11,6 @@ namespace Pihrtsoft.Regexator.Builder
         {
         }
 
-        protected QuantifiableExpression(string value)
-            : base(value)
-        {
-        }
-
-        protected QuantifiableExpression(string value, bool escape)
-            : base(value, escape)
-        {
-        }
-
         public Quantifier Maybe()
         {
             return Append(Expressions.Maybe());

@@ -10,36 +10,22 @@ using System.Text.RegularExpressions;
 namespace Pihrtsoft.Regexator.Builder
 {
     [DebuggerDisplay("{Kind}: {Pattern}")]
-    public partial class Expression
+    public abstract partial class Expression
     {
         private Expression _previous;
-        private readonly string _value;
-        private readonly bool _escape;
 
         protected Expression()
         {
         }
 
-        protected Expression(string value)
-            : this(value, false)
-        {
-        }
-
-        internal Expression(string value, bool escape)
-        {
-            if (value == null) { throw new ArgumentNullException("value"); }
-            _value = value;
-            _escape = escape;
-        }
-
         public static Expression Create()
         {
-            return new Expression();
+            return new TextExpression();
         }
 
         public static Expression Create(string value)
         {
-            return new Expression(value, true);
+            return new TextExpression(value);
         }
 
         public Expression Append(string value)
@@ -59,7 +45,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         internal Expression AppendIf(bool condition, string value, bool escape)
         {
-            return AppendIf(condition, new Expression(value, escape));
+            return AppendIf(condition, new TextExpression(value, escape));
         }
 
         public Expression AppendIf(bool condition, Expression expression)
@@ -182,7 +168,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         internal virtual string Value
         {
-            get { return _escape ? Utilities.Escape(_value) : _value; }
+            get { return null; }
         }
 
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]

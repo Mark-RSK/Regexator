@@ -3,39 +3,15 @@
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal sealed class Assertion
+    internal class Assertion
         : GroupingConstruct
     {
         private readonly AssertionKind _assertionKind;
 
-        internal Assertion(AssertionKind kind, params char[] values)
-            : this(kind, Utilities.CharGroupOrEmpty(values))
+        protected Assertion(AssertionKind kind)
+            : base()
         {
-        }
-
-        internal Assertion(AssertionKind kind, params int[] charCodes)
-            : this(kind, Utilities.CharGroupOrEmpty(charCodes))
-        {
-        }
-
-        internal Assertion(AssertionKind kind, params AsciiChar[] values)
-            : this(kind, Utilities.CharGroupOrEmpty(values))
-        {
-        }
-
-        internal Assertion(AssertionKind kind, params CharClass[] values)
-            : this(kind, Utilities.CharGroupOrEmpty(values))
-        {
-        }
-
-        internal Assertion(AssertionKind kind, params UnicodeBlock[] blocks)
-            : this(kind, Utilities.CharGroupOrEmpty(blocks))
-        {
-        }
-
-        internal Assertion(AssertionKind kind, params UnicodeCategory[] categories)
-            : this(kind, Utilities.CharGroupOrEmpty(categories))
-        {
+            _assertionKind = kind;
         }
 
         internal Assertion(AssertionKind kind, Expression value)
