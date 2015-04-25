@@ -109,10 +109,20 @@ namespace Pihrtsoft.Regexator.Builder
 
         internal IEnumerable<string> EnumerateValues(BuildContext context)
         {
-            var items = new Stack<Expression>(EnumerateExpressions());
-            while (items.Count > 0)
+            if (Previous != null)
             {
-                foreach (var value in EnumerateValues(items.Pop(), context))
+                var items = new Stack<Expression>(EnumerateExpressions());
+                while (items.Count > 0)
+                {
+                    foreach (var value in EnumerateValues(items.Pop(), context))
+                    {
+                        yield return value;
+                    }
+                }
+            }
+            else
+            {
+                foreach (var value in EnumerateValues(this, context))
                 {
                     yield return value;
                 }
