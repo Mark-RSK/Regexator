@@ -62,7 +62,7 @@
     <Compile Include="Builder\AsciiChar.cs" />
     <Compile Include="Builder\Assertion.cs" />
     <Compile Include="Builder\AssertionKind.cs" />
-    <Compile Include="Builder\AtLeastQuantifier.cs" />
+    <Compile Include="Builder\Quantifiers\AtLeastQuantifier.cs" />
     <Compile Include="Builder\Groups\BalancingGroup.cs" />
     <Compile Include="Builder\BuildContext.cs" />
     <Compile Include="Builder\Anchors\StartOfInput.cs" />
@@ -133,7 +133,6 @@
     <Compile Include="Builder\Quantifiers\MaybeQuantifier.cs" />
     <Compile Include="Builder\Groups\Subexpression.cs" />
     <Compile Include="Builder\Substitutions.cs" />
-    <Compile Include="Builder\Quantifiers\SymbolQuantifier.cs" />
     <Compile Include="Builder\Syntax\Syntax.cs" />
     <Compile Include="Builder\Syntax\Syntax_Anchors.cs" />
     <Compile Include="Builder\Syntax\Syntax_Chars.cs" />
