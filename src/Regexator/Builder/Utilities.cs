@@ -12,7 +12,6 @@ namespace Pihrtsoft.Regexator.Builder
     internal static class Utilities
     {
         internal static readonly RegexOptions InlineRegexOptions = RegexOptions.IgnoreCase | RegexOptions.Multiline | RegexOptions.ExplicitCapture | RegexOptions.Singleline | RegexOptions.IgnorePatternWhitespace;
-        private static Regex s_trimCommentRegex;
 
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         public static bool IsValidInlineOptions(RegexOptions options)
@@ -54,11 +53,6 @@ namespace Pihrtsoft.Regexator.Builder
         {
             if (categories == null) { throw new ArgumentNullException("categories"); }
             return ((categories.Length > 0) ? Expressions.UnicodeCategory(categories) : Expression.Create());
-        }
-
-        public static string TrimInlineComment(string value)
-        {
-            return TrimCommentRegex.Match(value).Value;
         }
 
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
@@ -680,17 +674,5 @@ namespace Pihrtsoft.Regexator.Builder
             // 255 0xFF ÿ
             EscapeMode.None,
         };
-
-        private static Regex TrimCommentRegex
-        {
-            get
-            {
-                if (s_trimCommentRegex == null)
-                {
-                    s_trimCommentRegex = Expressions.Start().NotRightParenthesis().MaybeMany().ToRegex();
-                }
-                return s_trimCommentRegex;
-            }
-        }
     }
 }

@@ -59,6 +59,8 @@
     <Compile Include="Builder\Anchors\EndOfLine.cs" />
     <Compile Include="Builder\Anchors\EndOfInput.cs" />
     <Compile Include="Builder\Anchors\StartOfLine.cs" />
+    <Compile Include="Builder\InlineCommentExpression.cs" />
+    <Compile Include="Builder\InlineOptionsExpression.cs" />
     <Compile Include="Builder\OrExpression.cs" />
     <Compile Include="Builder\AsciiChar.cs" />
     <Compile Include="Builder\Assertion.cs" />

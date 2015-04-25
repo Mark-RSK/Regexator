@@ -20,7 +20,7 @@ namespace Pihrtsoft.Regexator.Builder
         {
         }
 
-        internal Expression(string value)
+        protected Expression(string value)
             : this(value, false)
         {
         }

@@ -19,18 +19,17 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static Expression Options(InlineOptions applyOptions)
         {
-            return Options(applyOptions, InlineOptions.None);
+            return new InlineOptionsExpression(applyOptions);
         }
 
         public static Expression Options(InlineOptions applyOptions, InlineOptions disableOptions)
         {
-            return new Expression(Syntax.Options(applyOptions, disableOptions));
+            return new InlineOptionsExpression(applyOptions, disableOptions);
         }
 
         public static Expression InlineComment(string value)
         {
-            if (value == null) { throw new ArgumentNullException("value"); }
-            return new Expression(Syntax.InlineComment(Utilities.TrimInlineComment(value)));
+            return new InlineCommentExpression(value);
         }
 
         public static QuantifiableExpression NewLine()
