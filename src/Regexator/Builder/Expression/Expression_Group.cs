@@ -27,12 +27,12 @@ namespace Pihrtsoft.Regexator.Builder
 
         public QuantifiableExpression AsGroup(string name)
         {
-            return Expressions.Group(name, First);
+            return Expressions.Group(name, this);
         }
 
         public QuantifiableExpression AsGroup(int name)
         {
-            return Expressions.Group(name, First);
+            return Expressions.Group(name, this);
         }
 
         public QuantifiableExpression Subexpression(Expression value)
@@ -47,7 +47,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public QuantifiableExpression AsSubexpression()
         {
-            return Expressions.Subexpression(First);
+            return Expressions.Subexpression(this);
         }
 
         public QuantifiableExpression Noncapturing(Expression value)
@@ -62,7 +62,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public QuantifiableExpression AsNoncapturing()
         {
-            return Expressions.Noncapturing(First);
+            return Expressions.Noncapturing(this);
         }
 
         public QuantifiableExpression Nonbacktracking(Expression value)
@@ -77,7 +77,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public QuantifiableExpression AsNonbacktracking()
         {
-            return Expressions.Nonbacktracking(First);
+            return Expressions.Nonbacktracking(this);
         }
 
         public QuantifiableExpression Balancing(string name1, string name2, Expression value)
@@ -92,7 +92,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public QuantifiableExpression AsBalancing(string name1, string name2)
         {
-            return Expressions.Balancing(name1, name2, First);
+            return Expressions.Balancing(name1, name2, this);
         }
 
         public QuantifiableExpression GroupOptions(InlineOptions applyOptions, Expression value)
@@ -117,12 +117,12 @@ namespace Pihrtsoft.Regexator.Builder
 
         public QuantifiableExpression AsGroupOptions(InlineOptions applyOptions)
         {
-            return Expressions.GroupOptions(applyOptions, First);
+            return Expressions.GroupOptions(applyOptions, this);
         }
 
         public QuantifiableExpression AsGroupOptions(InlineOptions applyOptions, InlineOptions disableOptions)
         {
-            return Expressions.GroupOptions(applyOptions, disableOptions, First);
+            return Expressions.GroupOptions(applyOptions, disableOptions, this);
         }
     }
 }

@@ -12,10 +12,7 @@ namespace Pihrtsoft.Regexator.Builder
     [DebuggerDisplay("{Kind}: {Pattern}")]
     public partial class Expression
     {
-        private Expression _first;
-        private Expression _last;
         private Expression _previous;
-        private Expression _next;
         private readonly string _value;
         private readonly bool _escape;
 
@@ -73,14 +70,12 @@ namespace Pihrtsoft.Regexator.Builder
         public T Append<T>(T expression) where T : Expression
         {
             if (expression == null) { throw new ArgumentNullException("expression"); }
-            _last = this;
-            while (_last.Next != null)
+            Expression first = expression;
+            while (first.Previous != null)
             {
-                _last = _last.Next;
+                first = first.Previous;
             }
-            _last.Next = expression.First;
-            expression.First = First;
-            expression.Previous = this;
+            first.Previous = this;
             return expression;
         }
 
@@ -114,14 +109,23 @@ namespace Pihrtsoft.Regexator.Builder
 
         internal IEnumerable<string> EnumerateValues(BuildContext context)
         {
-            Expression expression = First;
-            do
+            var items = new Stack<Expression>(EnumerateExpressions());
+            while (items.Count > 0)
             {
-                foreach (var value in EnumerateValues(expression, context))
+                foreach (var value in EnumerateValues(items.Pop(), context))
                 {
                     yield return value;
                 }
-                expression = expression.Next;
+            }
+        }
+
+        private IEnumerable<Expression> EnumerateExpressions()
+        {
+            Expression expression = this;
+            do
+            {
+                yield return expression;
+                expression = expression.Previous;
             } while (expression != null);
         }
 
@@ -177,28 +181,10 @@ namespace Pihrtsoft.Regexator.Builder
             get { return string.Concat(EnumerateValues(this, new BuildContext())); }
         }
 
-        internal Expression First
-        {
-            get { return _first ?? this; }
-            set { _first = value; }
-        }
-
-        internal Expression Last
-        {
-            get { return _last ?? this; }
-        }
-
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Expression Previous
         {
             get { return _previous; }
             set { _previous = value; }
-        }
-
-        internal Expression Next
-        {
-            get { return _next; }
-            set { _next = value; }
         }
 
         internal virtual ExpressionKind Kind

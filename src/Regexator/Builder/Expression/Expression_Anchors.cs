@@ -57,12 +57,12 @@ namespace Pihrtsoft.Regexator.Builder
 
         public QuantifiableExpression AsLine()
         {
-            return Expressions.StartOfLine().Append(First).EndOfLine();
+            return Expressions.StartOfLine().Append(this).EndOfLine();
         }
 
         public QuantifiableExpression AsEntireInput()
         {
-            return Expressions.Start().Append(First).End();
+            return Expressions.Start().Append(this).End();
         }
     }
 }

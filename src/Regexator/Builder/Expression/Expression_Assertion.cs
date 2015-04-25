@@ -167,22 +167,22 @@ namespace Pihrtsoft.Regexator.Builder
 
         public QuantifiableExpression AsLookahead()
         {
-            return Expressions.Lookahead(First);
+            return Expressions.Lookahead(this);
         }
 
         public QuantifiableExpression AsNotLookahead()
         {
-            return Expressions.NotLookahead(First);
+            return Expressions.NotLookahead(this);
         }
 
         public QuantifiableExpression AsLookbehind()
         {
-            return Expressions.Lookbehind(First);
+            return Expressions.Lookbehind(this);
         }
 
         public QuantifiableExpression AsNotLookbehind()
         {
-            return Expressions.NotLookbehind(First);
+            return Expressions.NotLookbehind(this);
         }
     }
 }
