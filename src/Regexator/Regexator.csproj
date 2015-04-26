@@ -108,7 +108,6 @@
     <Compile Include="Builder\Anchor\Anchors.cs" />
     <Compile Include="Builder\Characters.cs" />
     <Compile Include="Builder\Assertion\Assertions.cs" />
-    <Compile Include="Builder\CharClasses.cs" />
     <Compile Include="Builder\Group\Groups.cs" />
     <Compile Include="Builder\Quantifier\Quantifiers.cs" />
     <Compile Include="Builder\UnicodeBlocks.cs" />

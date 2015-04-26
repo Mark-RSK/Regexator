@@ -8,7 +8,7 @@ namespace Pihrtsoft.Regexator.Samples
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(CharClasses.WhiteSpace().AsSubexpression().Backreference(1));
+            Console.WriteLine(Characters.WhiteSpace().AsSubexpression().Backreference(1));
             Console.WriteLine("");
 
             Console.WriteLine("leading whitespace:");
