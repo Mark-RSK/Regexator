@@ -81,7 +81,7 @@
     <Compile Include="Builder\Group\BalancingGroup.cs" />
     <Compile Include="Builder\BuildContext.cs" />
     <Compile Include="Builder\Anchor\StartOfInput.cs" />
-    <Compile Include="Builder\Group\QuantifierGroup.cs" />
+    <Compile Include="Builder\Group\QuantifierSubexpression.cs" />
     <Compile Include="Builder\PatternSettings.cs" />
     <Compile Include="Builder\CharClass.cs" />
     <Compile Include="Builder\CharGroup\CharGroup.cs" />

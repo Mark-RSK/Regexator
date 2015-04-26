@@ -3,15 +3,15 @@
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal sealed class QuantifierGroup
+    internal sealed class QuantifierSubexpression
         : GroupExpression
     {
-        internal QuantifierGroup(string value)
+        internal QuantifierSubexpression(string value)
             : base(value)
         {
         }
 
-        internal QuantifierGroup(Expression expression)
+        internal QuantifierSubexpression(Expression expression)
             : base(expression)
         {
         }

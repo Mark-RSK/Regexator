@@ -89,12 +89,12 @@ namespace Pihrtsoft.Regexator.Builder
 
         internal static QuantifiableExpression QuantifierGroup(string value)
         {
-            return new QuantifierGroup(value);
+            return new QuantifierSubexpression(value);
         }
 
         internal static QuantifiableExpression QuantifierGroup(Expression expression)
         {
-            return new QuantifierGroup(expression);
+            return new QuantifierSubexpression(expression);
         }
 
         public static Quantifier Maybe(string value)
