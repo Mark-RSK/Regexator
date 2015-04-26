@@ -23,7 +23,8 @@ namespace Pihrtsoft.Regexator.Builder
                 IdentifierSeparator = IdentifierSeparator,
                 NoncapturingAny = NoncapturingAny,
                 NoncapturingQuantifierGroup = NoncapturingQuantifierGroup,
-                SeparatorAfterNumberBackreference = SeparatorAfterNumberBackreference};
+                SeparatorAfterNumberBackreference = SeparatorAfterNumberBackreference
+            };
         }
 
         public IdentifierSeparatorKind IdentifierSeparator { get; set; }
