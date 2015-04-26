@@ -3,7 +3,7 @@
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    public sealed class TextExpression
+    internal sealed class TextExpression
         : Expression
     {
         private readonly string _value;
