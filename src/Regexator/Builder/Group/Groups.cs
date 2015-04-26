@@ -133,32 +133,32 @@ namespace Pihrtsoft.Regexator.Builder
             return QuantifierGroup(value).OneMany();
         }
 
-        public static Quantifier Count(int exactCount, string value)
+        public static Quantifier Count(string value, int exactCount)
         {
             return QuantifierGroup(value).Count(exactCount);
         }
 
-        public static Quantifier Count(int exactCount, Expression expression)
+        public static Quantifier Count(Expression expression, int exactCount)
         {
             return QuantifierGroup(expression).Count(exactCount);
         }
 
-        public static Quantifier AtLeast(int minCount, string value)
+        public static Quantifier AtLeast(string value, int minCount)
         {
             return QuantifierGroup(value).AtLeast(minCount);
         }
 
-        public static Quantifier AtLeast(int minCount, Expression expression)
+        public static Quantifier AtLeast(Expression expression, int minCount)
         {
             return QuantifierGroup(expression).AtLeast(minCount);
         }
 
-        public static Quantifier Count(int minCount, int maxCount, string value)
+        public static Quantifier Count(string value, int minCount, int maxCount)
         {
             return Groups.QuantifierGroup(value).Count(minCount, maxCount);
         }
 
-        public static Quantifier Count(int minCount, int maxCount, Expression expression)
+        public static Quantifier Count(Expression expression, int minCount, int maxCount)
         {
             return Groups.QuantifierGroup(expression).Count(minCount, maxCount);
         }

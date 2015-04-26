@@ -35,34 +35,34 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Groups.OneMany(value));
         }
 
-        public Quantifier Count(int exactCount, string value)
+        public Quantifier Count(string value, int exactCount)
         {
-            return AppendInternal(Groups.Count(exactCount, value));
+            return AppendInternal(Groups.Count(value, exactCount));
         }
 
-        public Quantifier Count(int exactCount, Expression expression)
+        public Quantifier Count(Expression expression, int exactCount)
         {
-            return AppendInternal(Groups.Count(exactCount, expression));
+            return AppendInternal(Groups.Count(expression, exactCount));
         }
 
-        public Quantifier AtLeast(int minCount, string value)
+        public Quantifier AtLeast(string value, int minCount)
         {
-            return AppendInternal(Groups.AtLeast(minCount, value));
+            return AppendInternal(Groups.AtLeast(value, minCount));
         }
 
-        public Quantifier AtLeast(int minCount, Expression expression)
+        public Quantifier AtLeast(Expression expression, int minCount)
         {
-            return AppendInternal(Groups.AtLeast(minCount, expression));
+            return AppendInternal(Groups.AtLeast(expression, minCount));
         }
 
-        public Quantifier Count(int minCount, int maxCount, string value)
+        public Quantifier Count(string value, int minCount, int maxCount)
         {
-            return AppendInternal(Groups.Count(minCount, maxCount, value));
+            return AppendInternal(Groups.Count(value, minCount, maxCount));
         }
 
-        public Quantifier Count(int minCount, int maxCount, Expression expression)
+        public Quantifier Count(Expression expression, int minCount, int maxCount)
         {
-            return AppendInternal(Groups.Count(minCount, maxCount, expression));
+            return AppendInternal(Groups.Count(expression, minCount, maxCount));
         }
     }
 }
