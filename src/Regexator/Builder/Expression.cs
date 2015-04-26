@@ -53,7 +53,7 @@ namespace Pihrtsoft.Regexator.Builder
             return condition ? Append(expression) : this;
         }
 
-        public T Append<T>(T expression) where T : Expression
+        public TExpression Append<TExpression>(TExpression expression) where TExpression : Expression
         {
             if (expression == null) { throw new ArgumentNullException("expression"); }
             Expression first = expression;
