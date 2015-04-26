@@ -80,6 +80,29 @@ namespace Pihrtsoft.Regexator.Builder
             return new Regex(ToString(), options);
         }
 
+#if DEBUG
+        public Lazy<Regex> ToLazyRegex()
+        {
+            return ToLazyRegex(RegexOptions.None);
+        }
+
+        public Lazy<Regex> ToLazyRegex(RegexOptions options)
+        {
+            return ToLazyRegex(options, new PatternSettings());
+        }
+
+        public Lazy<Regex> ToLazyRegex(PatternSettings settings)
+        {
+            return ToLazyRegex(RegexOptions.None, settings);
+        }
+
+        public Lazy<Regex> ToLazyRegex(RegexOptions options, PatternSettings settings)
+        {
+            if (settings == null) { throw new ArgumentNullException("settings"); }
+            return new Lazy<Regex>(() => new Regex(ToString(settings), options));
+        }
+#endif
+
         public override string ToString()
         {
             return ToString(new PatternSettings());
