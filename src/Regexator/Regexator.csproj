@@ -69,6 +69,7 @@
     <Compile Include="Builder\Assertion\CharClassAssertion.cs" />
     <Compile Include="Builder\Assertion\UnicodeBlockAssertion.cs" />
     <Compile Include="Builder\Assertion\UnicodeCategoryAssertion.cs" />
+    <Compile Include="Builder\Expressions\ContainerExpression.cs" />
     <Compile Include="Builder\Expressions\InlineCommentExpression.cs" />
     <Compile Include="Builder\Expressions\InlineOptionsExpression.cs" />
     <Compile Include="Builder\Alternation\OrExpression.cs" />
