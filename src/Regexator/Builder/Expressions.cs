@@ -157,6 +157,11 @@ namespace Pihrtsoft.Regexator.Builder
             return Expression.Create(value);
         }
 
+        public static CharGroup Alphanumeric()
+        {
+            return Chars(CharItems.Alphanumeric());
+        }
+
         internal static QuantifiableExpression InsignificantSeparator()
         {
             return Groups.GroupOptions(InlineOptions.IgnorePatternWhitespace, new TextExpression(" ", false));

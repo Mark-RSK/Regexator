@@ -119,5 +119,10 @@ namespace Pihrtsoft.Regexator.Builder
         {
             return AppendInternal(Expressions.WhiteSpaceExceptNewLine());
         }
+
+        public CharGroup Alphanumeric()
+        {
+            return AppendInternal(Expressions.Alphanumeric());
+        }
     }
 }
