@@ -8,9 +8,6 @@ namespace Pihrtsoft.Regexator.Samples
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Characters.WhiteSpace().AsSubexpression().Backreference(1));
-            Console.WriteLine("");
-
             Console.WriteLine("leading whitespace:");
             Console.WriteLine(Anchors.StartOfLine().WhiteSpaceExceptNewLine().OneMany());
             Console.WriteLine("");
@@ -39,7 +36,7 @@ namespace Pihrtsoft.Regexator.Samples
             Console.WriteLine("");
 
             Console.WriteLine("first line:");
-            Console.WriteLine(Anchors.Start().Any().MaybeMany().Lazy().EndOfLineOrBeforeCarriageReturn());
+            Console.WriteLine(Expressions.Options(InlineOptions.Multiline).Start().Any().MaybeMany().Lazy().EndOfLineOrBeforeCarriageReturn());
             Console.WriteLine("");
 
             Console.WriteLine("lf without cr:");
