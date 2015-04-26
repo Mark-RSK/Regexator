@@ -20,7 +20,6 @@ namespace Pihrtsoft.Regexator.Builder
             _name2 = name2;
         }
 
-
         internal BalancingGroup(string name1, string name2, Expression expression)
             : base(expression)
         {
