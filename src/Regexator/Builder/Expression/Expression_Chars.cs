@@ -7,112 +7,112 @@ namespace Pihrtsoft.Regexator.Builder
     {
         public QuantifiableExpression Chars(string value)
         {
-            return AppendInternal(Expressions.Chars(value));
+            return AppendInternal(Groups.Chars(value));
         }
 
         public QuantifiableExpression Chars(CharItem item)
         {
-            return AppendInternal(Expressions.Chars(item));
+            return AppendInternal(Groups.Chars(item));
         }
 
         public QuantifiableExpression Chars(params char[] values)
         {
-            return AppendInternal(Expressions.Chars(values));
+            return AppendInternal(Groups.Chars(values));
         }
 
         public QuantifiableExpression Chars(params int[] charCodes)
         {
-            return AppendInternal(Expressions.Chars(charCodes));
+            return AppendInternal(Groups.Chars(charCodes));
         }
 
         public QuantifiableExpression Chars(params AsciiChar[] values)
         {
-            return AppendInternal(Expressions.Chars(values));
+            return AppendInternal(Groups.Chars(values));
         }
 
         public QuantifiableExpression Chars(params CharClass[] values)
         {
-            return AppendInternal(Expressions.Chars(values));
+            return AppendInternal(Groups.Chars(values));
         }
 
         public QuantifiableExpression UnicodeBlock(params UnicodeBlock[] blocks)
         {
-            return AppendInternal(Expressions.UnicodeBlock(blocks));
+            return AppendInternal(Groups.Chars(blocks));
         }
 
         public QuantifiableExpression UnicodeCategory(params UnicodeCategory[] categories)
         {
-            return AppendInternal(Expressions.UnicodeCategory(categories));
+            return AppendInternal(Groups.Chars(categories));
         }
 
         public QuantifiableExpression NotChars(string value)
         {
-            return AppendInternal(Expressions.NotChars(value));
+            return AppendInternal(Groups.NotChars(value));
         }
 
         public QuantifiableExpression NotChars(CharItem item)
         {
-            return AppendInternal(Expressions.NotChars(item));
+            return AppendInternal(Groups.NotChars(item));
         }
 
         public QuantifiableExpression NotChars(params char[] values)
         {
-            return AppendInternal(Expressions.NotChars(values));
+            return AppendInternal(Groups.NotChars(values));
         }
 
         public QuantifiableExpression NotChars(params int[] charCodes)
         {
-            return AppendInternal(Expressions.NotChars(charCodes));
+            return AppendInternal(Groups.NotChars(charCodes));
         }
 
         public QuantifiableExpression NotChars(params AsciiChar[] values)
         {
-            return AppendInternal(Expressions.NotChars(values));
+            return AppendInternal(Groups.NotChars(values));
         }
 
         public QuantifiableExpression NotUnicodeBlock(params UnicodeBlock[] blocks)
         {
-            return AppendInternal(Expressions.NotUnicodeBlock(blocks));
+            return AppendInternal(Groups.NotChars(blocks));
         }
 
         public QuantifiableExpression NotUnicodeCategory(params UnicodeCategory[] categories)
         {
-            return AppendInternal(Expressions.NotUnicodeCategory(categories));
+            return AppendInternal(Groups.NotChars(categories));
         }
 
         public QuantifiableExpression Range(char first, char last)
         {
-            return AppendInternal(Expressions.Range(first, last));
+            return AppendInternal(Groups.Range(first, last));
         }
 
         public QuantifiableExpression Range(int first, int last)
         {
-            return AppendInternal(Expressions.Range(first, last));
+            return AppendInternal(Groups.Range(first, last));
         }
 
         public QuantifiableExpression NotRange(char first, char last)
         {
-            return AppendInternal(Expressions.NotRange(first, last));
+            return AppendInternal(Groups.NotRange(first, last));
         }
 
         public QuantifiableExpression NotRange(int first, int last)
         {
-            return AppendInternal(Expressions.NotRange(first, last));
+            return AppendInternal(Groups.NotRange(first, last));
         }
 
         public QuantifiableExpression Subtraction(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
         {
-            return AppendInternal(Expressions.Subtraction(baseGroup, excludedGroup));
+            return AppendInternal(Groups.Subtraction(baseGroup, excludedGroup));
         }
 
         public QuantifiableExpression NotSubtraction(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
         {
-            return AppendInternal(Expressions.NotSubtraction(baseGroup, excludedGroup));
+            return AppendInternal(Groups.NotSubtraction(baseGroup, excludedGroup));
         }
 
         public QuantifiableExpression Any()
         {
-            return AppendInternal(Expressions.Any());
+            return AppendInternal(Characters.Any());
         }
 
         public QuantifiableExpression WhiteSpaceExceptNewLine()
@@ -122,7 +122,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public CharGroup Alphanumeric()
         {
-            return AppendInternal(Expressions.Alphanumeric());
+            return AppendInternal(Groups.Alphanumeric());
         }
     }
 }

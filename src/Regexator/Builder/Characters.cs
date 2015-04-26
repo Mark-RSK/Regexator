@@ -5,6 +5,11 @@ namespace Pihrtsoft.Regexator.Builder
 {
     public static class Characters
     {
+        public static QuantifiableExpression Any()
+        {
+            return new AnyCharExpression();
+        }
+
         public static QuantifiableExpression Digit()
         {
             return new CharClassExpression(CharClass.Digit);

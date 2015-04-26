@@ -5,7 +5,7 @@ using System;
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    public static partial class Groups
+    public static class Groups
     {
         public static QuantifiableExpression Group(string name, Expression expression)
         {
@@ -85,6 +85,116 @@ namespace Pihrtsoft.Regexator.Builder
         public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, string value)
         {
             return new GroupOptions(applyOptions, disableOptions, value);
+        }
+
+        public static CharGroup Chars(string value)
+        {
+            return new TextCharGroup(value);
+        }
+
+        public static CharGroup Chars(CharItem item)
+        {
+            return new CharItemGroup(item);
+        }
+
+        public static CharGroup Chars(params char[] values)
+        {
+            return new CharsGroup(values);
+        }
+
+        public static CharGroup Chars(params int[] charCodes)
+        {
+            return new CharCodeGroup(charCodes);
+        }
+
+        public static CharGroup Chars(params AsciiChar[] values)
+        {
+            return new AsciiCharGroup(values);
+        }
+
+        public static CharGroup Chars(params CharClass[] values)
+        {
+            return new CharClassGroup(values);
+        }
+
+        public static CharGroup Chars(params UnicodeBlock[] blocks)
+        {
+            return new UnicodeBlockGroup(blocks);
+        }
+
+        public static CharGroup Chars(params UnicodeCategory[] categories)
+        {
+            return new UnicodeCategoryGroup(categories);
+        }
+
+        public static CharGroup NotChars(string value)
+        {
+            return new NotTextCharGroup(value);
+        }
+
+        public static CharGroup NotChars(CharItem item)
+        {
+            return new NotCharItemGroup(item);
+        }
+
+        public static CharGroup NotChars(params char[] values)
+        {
+            return new NotCharsGroup(values);
+        }
+
+        public static CharGroup NotChars(params int[] charCodes)
+        {
+            return new NotCharCodeGroup(charCodes);
+        }
+
+        public static CharGroup NotChars(params AsciiChar[] values)
+        {
+            return new NotAsciiCharGroup(values);
+        }
+
+        public static CharGroup NotChars(params UnicodeBlock[] blocks)
+        {
+            return new NotUnicodeBlockGroup(blocks);
+        }
+
+        public static CharGroup NotChars(params UnicodeCategory[] categories)
+        {
+            return new NotUnicodeCategoryGroup(categories);
+        }
+
+        public static CharGroup Range(char first, char last)
+        {
+            return new CharRangeGroup(first, last);
+        }
+
+        public static CharGroup Range(int first, int last)
+        {
+            return new CodeRangeGroup(first, last);
+        }
+
+        public static CharGroup NotRange(char first, char last)
+        {
+            return new NotCharRangeGroup(first, last);
+        }
+
+        public static CharGroup NotRange(int first, int last)
+        {
+            return new NotCodeRangeGroup(first, last);
+        }
+
+        public static CharSubtraction Subtraction(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
+        {
+            return new CharSubtraction(baseGroup, excludedGroup);
+        }
+
+        public static CharSubtraction NotSubtraction(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
+        {
+            return new CharSubtraction(baseGroup, excludedGroup, true);
+        }
+
+        public static CharGroup Alphanumeric()
+        {
+            return Chars(CharItems.Alphanumeric());
         }
 
         internal static QuantifiableExpression QuantifierGroup(string value)

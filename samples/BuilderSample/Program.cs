@@ -44,7 +44,7 @@ namespace Pihrtsoft.Regexator.Samples
             Console.WriteLine("");
 
             Console.WriteLine("file name invalid chars:");
-            Console.WriteLine(Expressions.Chars(Path.GetInvalidFileNameChars()).AsNonbacktracking());
+            Console.WriteLine(Groups.Chars(Path.GetInvalidFileNameChars()).AsNonbacktracking());
             Console.WriteLine("");
 
             Console.ReadKey();
