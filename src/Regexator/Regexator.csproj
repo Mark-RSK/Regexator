@@ -127,7 +127,7 @@
     <Compile Include="Builder\IBaseGroup.cs" />
     <Compile Include="Builder\IdentifierSeparatorKind.cs" />
     <Compile Include="Builder\IExcludedGroup.cs" />
-    <Compile Include="Builder\Alternation\AlternationConstruct.cs" />
+    <Compile Include="Builder\Alternation\AlternationExpression.cs" />
     <Compile Include="Builder\InlineOptions.cs" />
     <Compile Include="Builder\Expressions\NameBackreference.cs" />
     <Compile Include="Builder\Group\NumberNamedGroup.cs" />

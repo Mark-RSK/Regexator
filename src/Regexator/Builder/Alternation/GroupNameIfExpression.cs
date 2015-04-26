@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace Pihrtsoft.Regexator.Builder
 {
     internal sealed class GroupNameIfExpression
-        : AlternationConstruct
+        : AlternationExpression
     {
         private readonly string _groupName;
 

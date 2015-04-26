@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace Pihrtsoft.Regexator.Builder
 {
     internal sealed class GroupNumberIfExpression
-        : AlternationConstruct
+        : AlternationExpression
     {
         private readonly int _groupNumber;
 

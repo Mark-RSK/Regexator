@@ -6,18 +6,18 @@ using System.Collections.Generic;
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal abstract class AlternationConstruct
+    internal abstract class AlternationExpression
         : QuantifiableExpression
     {
         private readonly Expression _yes;
         private readonly Expression _no;
 
-        protected AlternationConstruct(string yes, string no)
+        protected AlternationExpression(string yes, string no)
             : this(Create(yes), Create(no))
         {
         }
 
-        protected AlternationConstruct(Expression yes, Expression no)
+        protected AlternationExpression(Expression yes, Expression no)
             : base()
         {
             if (yes == null) { throw new ArgumentNullException("yes"); }
