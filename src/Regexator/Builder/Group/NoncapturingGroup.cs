@@ -4,7 +4,7 @@
 namespace Pihrtsoft.Regexator.Builder
 {
     internal sealed class NoncapturingGroup
-        : GroupingConstruct
+        : GroupExpression
     {
         internal NoncapturingGroup(string value)
             : base(value)

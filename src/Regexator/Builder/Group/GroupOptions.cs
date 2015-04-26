@@ -4,7 +4,7 @@
 namespace Pihrtsoft.Regexator.Builder
 {
     internal sealed class GroupOptions
-        : GroupingConstruct
+        : GroupExpression
     {
         private readonly InlineOptions _applyOptions;
         private readonly InlineOptions _disableOptions;

@@ -4,7 +4,7 @@
 namespace Pihrtsoft.Regexator.Builder
 {
     internal sealed class Subexpression
-        : GroupingConstruct
+        : GroupExpression
     {
         internal Subexpression(string value)
             : base(value)

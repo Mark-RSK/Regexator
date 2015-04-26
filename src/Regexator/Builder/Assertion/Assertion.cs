@@ -4,7 +4,7 @@
 namespace Pihrtsoft.Regexator.Builder
 {
     internal class Assertion
-        : GroupingConstruct
+        : GroupExpression
     {
         private readonly AssertionKind _assertionKind;
 

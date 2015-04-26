@@ -5,24 +5,24 @@ using System.Collections.Generic;
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal abstract class GroupingConstruct
+    internal abstract class GroupExpression
         : QuantifiableExpression
     {
         private readonly Expression _expression;
         private readonly string _value;
 
-        internal GroupingConstruct()
+        internal GroupExpression()
             : base()
         {
         }
 
-        internal GroupingConstruct(string value)
+        internal GroupExpression(string value)
             : base()
         {
             _value = value;
         }
 
-        internal GroupingConstruct(Expression expression)
+        internal GroupExpression(Expression expression)
             : base()
         {
             _expression = expression;

@@ -4,7 +4,7 @@
 namespace Pihrtsoft.Regexator.Builder
 {
     internal sealed class QuantifierGroup
-        : GroupingConstruct
+        : GroupExpression
     {
         internal QuantifierGroup(string value)
             : base(value)

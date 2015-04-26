@@ -6,7 +6,7 @@ using System;
 namespace Pihrtsoft.Regexator.Builder
 {
     internal sealed class NumberNamedGroup
-        : GroupingConstruct
+        : GroupExpression
     {
         private readonly int _name;
 

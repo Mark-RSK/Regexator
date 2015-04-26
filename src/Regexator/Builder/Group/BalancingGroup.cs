@@ -6,7 +6,7 @@ using System;
 namespace Pihrtsoft.Regexator.Builder
 {
     internal sealed class BalancingGroup
-        : GroupingConstruct
+        : GroupExpression
     {
         private readonly string _name1;
         private readonly string _name2;

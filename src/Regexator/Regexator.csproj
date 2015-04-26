@@ -123,7 +123,7 @@
     <Compile Include="Builder\Expression\Expression_Other.cs" />
     <Compile Include="Builder\Quantifier\Expression.cs" />
     <Compile Include="Builder\Quantifier\FromToQuantifier.cs" />
-    <Compile Include="Builder\Group\GroupingConstruct.cs" />
+    <Compile Include="Builder\Group\GroupExpression.cs" />
     <Compile Include="Builder\IBaseGroup.cs" />
     <Compile Include="Builder\IdentifierSeparatorKind.cs" />
     <Compile Include="Builder\IExcludedGroup.cs" />
