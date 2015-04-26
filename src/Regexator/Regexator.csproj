@@ -69,6 +69,10 @@
     <Compile Include="Builder\Assertion\CharClassAssertion.cs" />
     <Compile Include="Builder\Assertion\UnicodeBlockAssertion.cs" />
     <Compile Include="Builder\Assertion\UnicodeCategoryAssertion.cs" />
+    <Compile Include="Builder\Expressions\EntireInputExpression.cs" />
+    <Compile Include="Builder\Expressions\EnclosingExpression.cs" />
+    <Compile Include="Builder\Expressions\LineInvariantExpression.cs" />
+    <Compile Include="Builder\Expressions\LineExpression.cs" />
     <Compile Include="Builder\Expressions\ContainerExpression.cs" />
     <Compile Include="Builder\Expressions\InlineCommentExpression.cs" />
     <Compile Include="Builder\Expressions\InlineOptionsExpression.cs" />

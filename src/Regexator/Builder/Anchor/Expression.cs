@@ -67,12 +67,17 @@ namespace Pihrtsoft.Regexator.Builder
 
         public QuantifiableExpression AsLine()
         {
-            return Anchors.StartOfLine().AppendInternal(this).EndOfLine();
+            return Anchors.Line(this);
+        }
+
+        public QuantifiableExpression AsLineInvariant()
+        {
+            return Anchors.LineInvariant(this);
         }
 
         public QuantifiableExpression AsEntireInput()
         {
-            return Anchors.Start().AppendInternal(this).End();
+            return Anchors.EntireInput(this);
         }
     }
 }

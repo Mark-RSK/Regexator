@@ -71,5 +71,20 @@ namespace Pihrtsoft.Regexator.Builder
         {
             return new NotWordBoundary();
         }
+
+        public static QuantifiableExpression Line(Expression expression)
+        {
+            return new LineExpression(expression);
+        }
+
+        public static QuantifiableExpression LineInvariant(Expression expression)
+        {
+            return new LineInvariantExpression(expression);
+        }
+
+        public static QuantifiableExpression EntireInput(Expression expression)
+        {
+            return new EntireInputExpression(expression);
+        }
     }
 }
