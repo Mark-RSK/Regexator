@@ -3,34 +3,34 @@
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    public static class Quantifiers
+    internal static class Quantifiers
     {
-        internal static Quantifier Maybe()
+        public static Quantifier Maybe()
         {
             return new MaybeQuantifier();
         }
 
-        internal static Quantifier MaybeMany()
+        public static Quantifier MaybeMany()
         {
             return new MaybeManyQuantifier();
         }
 
-        internal static Quantifier OneMany()
+        public static Quantifier OneMany()
         {
             return new OneManyQuantifier();
         }
 
-        internal static Quantifier Count(int exactCount)
+        public static Quantifier Count(int exactCount)
         {
             return new ExactQuantifier(exactCount);
         }
 
-        internal static Quantifier AtLeast(int minCount)
+        public static Quantifier AtLeast(int minCount)
         {
             return new AtLeastQuantifier(minCount);
         }
 
-        internal static Quantifier Count(int minCount, int maxCount)
+        public static Quantifier Count(int minCount, int maxCount)
         {
             return new FromToQuantifier(minCount, maxCount);
         }
