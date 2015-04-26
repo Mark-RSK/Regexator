@@ -13,32 +13,32 @@ namespace Pihrtsoft.Regexator.Builder
 
         public Quantifier Maybe()
         {
-            return Append(Quantifiers.Maybe());
+            return AppendInternal(Quantifiers.Maybe());
         }
 
         public Quantifier MaybeMany()
         {
-            return Append(Quantifiers.MaybeMany());
+            return AppendInternal(Quantifiers.MaybeMany());
         }
 
         public Quantifier OneMany()
         {
-            return Append(Quantifiers.OneMany());
+            return AppendInternal(Quantifiers.OneMany());
         }
 
         public Quantifier Count(int exactCount)
         {
-            return Append(Quantifiers.Count(exactCount));
+            return AppendInternal(Quantifiers.Count(exactCount));
         }
 
         public Quantifier AtLeast(int minCount)
         {
-            return Append(Quantifiers.AtLeast(minCount));
+            return AppendInternal(Quantifiers.AtLeast(minCount));
         }
 
         public Quantifier Count(int minCount, int maxCount)
         {
-            return Append(Quantifiers.Count(minCount, maxCount));
+            return AppendInternal(Quantifiers.Count(minCount, maxCount));
         }
     }
 }

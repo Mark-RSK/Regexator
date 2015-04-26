@@ -7,162 +7,162 @@ namespace Pihrtsoft.Regexator.Builder
     {
         public QuantifiableExpression Lookahead(Expression value)
         {
-            return Append(Assertions.Lookahead(value));
+            return AppendInternal(Assertions.Lookahead(value));
         }
 
         public QuantifiableExpression Lookahead(string value)
         {
-            return Append(Assertions.Lookahead(value));
+            return AppendInternal(Assertions.Lookahead(value));
         }
 
         public QuantifiableExpression Lookahead(params char[] values)
         {
-            return Append(Assertions.Lookahead(values));
+            return AppendInternal(Assertions.Lookahead(values));
         }
 
         public QuantifiableExpression Lookahead(params int[] charCodes)
         {
-            return Append(Assertions.Lookahead(charCodes));
+            return AppendInternal(Assertions.Lookahead(charCodes));
         }
 
         public QuantifiableExpression Lookahead(params AsciiChar[] values)
         {
-            return Append(Assertions.Lookahead(values));
+            return AppendInternal(Assertions.Lookahead(values));
         }
 
         public QuantifiableExpression Lookahead(params CharClass[] values)
         {
-            return Append(Assertions.Lookahead(values));
+            return AppendInternal(Assertions.Lookahead(values));
         }
 
         public QuantifiableExpression Lookahead(params UnicodeBlock[] blocks)
         {
-            return Append(Assertions.Lookahead(blocks));
+            return AppendInternal(Assertions.Lookahead(blocks));
         }
 
         public QuantifiableExpression Lookahead(UnicodeCategory[] categories)
         {
-            return Append(Assertions.Lookahead(categories));
+            return AppendInternal(Assertions.Lookahead(categories));
         }
 
         public QuantifiableExpression NotLookahead(Expression value)
         {
-            return Append(Assertions.NotLookahead(value));
+            return AppendInternal(Assertions.NotLookahead(value));
         }
 
         public QuantifiableExpression NotLookahead(string value)
         {
-            return Append(Assertions.NotLookahead(value));
+            return AppendInternal(Assertions.NotLookahead(value));
         }
 
         public QuantifiableExpression NotLookahead(params char[] values)
         {
-            return Append(Assertions.NotLookahead(values));
+            return AppendInternal(Assertions.NotLookahead(values));
         }
 
         public QuantifiableExpression NotLookahead(params int[] charCodes)
         {
-            return Append(Assertions.NotLookahead(charCodes));
+            return AppendInternal(Assertions.NotLookahead(charCodes));
         }
 
         public QuantifiableExpression NotLookahead(params AsciiChar[] values)
         {
-            return Append(Assertions.NotLookahead(values));
+            return AppendInternal(Assertions.NotLookahead(values));
         }
 
         public QuantifiableExpression NotLookahead(params CharClass[] values)
         {
-            return Append(Assertions.NotLookahead(values));
+            return AppendInternal(Assertions.NotLookahead(values));
         }
 
         public QuantifiableExpression NotLookahead(params UnicodeBlock[] blocks)
         {
-            return Append(Assertions.NotLookahead(blocks));
+            return AppendInternal(Assertions.NotLookahead(blocks));
         }
 
         public QuantifiableExpression NotLookahead(UnicodeCategory[] categories)
         {
-            return Append(Assertions.NotLookahead(categories));
+            return AppendInternal(Assertions.NotLookahead(categories));
         }
 
         public QuantifiableExpression Lookbehind(Expression value)
         {
-            return Append(Assertions.Lookbehind(value));
+            return AppendInternal(Assertions.Lookbehind(value));
         }
 
         public QuantifiableExpression Lookbehind(string value)
         {
-            return Append(Assertions.Lookbehind(value));
+            return AppendInternal(Assertions.Lookbehind(value));
         }
 
         public QuantifiableExpression Lookbehind(params char[] values)
         {
-            return Append(Assertions.Lookbehind(values));
+            return AppendInternal(Assertions.Lookbehind(values));
         }
 
         public QuantifiableExpression Lookbehind(params int[] charCodes)
         {
-            return Append(Assertions.Lookbehind(charCodes));
+            return AppendInternal(Assertions.Lookbehind(charCodes));
         }
 
         public QuantifiableExpression Lookbehind(params AsciiChar[] values)
         {
-            return Append(Assertions.Lookbehind(values));
+            return AppendInternal(Assertions.Lookbehind(values));
         }
 
         public QuantifiableExpression Lookbehind(params CharClass[] values)
         {
-            return Append(Assertions.Lookbehind(values));
+            return AppendInternal(Assertions.Lookbehind(values));
         }
 
         public QuantifiableExpression Lookbehind(params UnicodeBlock[] blocks)
         {
-            return Append(Assertions.Lookbehind(blocks));
+            return AppendInternal(Assertions.Lookbehind(blocks));
         }
 
         public QuantifiableExpression Lookbehind(UnicodeCategory[] categories)
         {
-            return Append(Assertions.Lookbehind(categories));
+            return AppendInternal(Assertions.Lookbehind(categories));
         }
 
         public QuantifiableExpression NotLookbehind(Expression value)
         {
-            return Append(Assertions.NotLookbehind(value));
+            return AppendInternal(Assertions.NotLookbehind(value));
         }
 
         public QuantifiableExpression NotLookbehind(string value)
         {
-            return Append(Assertions.NotLookbehind(value));
+            return AppendInternal(Assertions.NotLookbehind(value));
         }
 
         public QuantifiableExpression NotLookbehind(params char[] values)
         {
-            return Append(Assertions.NotLookbehind(values));
+            return AppendInternal(Assertions.NotLookbehind(values));
         }
 
         public QuantifiableExpression NotLookbehind(params int[] charCodes)
         {
-            return Append(Assertions.NotLookbehind(charCodes));
+            return AppendInternal(Assertions.NotLookbehind(charCodes));
         }
 
         public QuantifiableExpression NotLookbehind(params AsciiChar[] values)
         {
-            return Append(Assertions.NotLookbehind(values));
+            return AppendInternal(Assertions.NotLookbehind(values));
         }
 
         public QuantifiableExpression NotLookbehind(params CharClass[] values)
         {
-            return Append(Assertions.NotLookbehind(values));
+            return AppendInternal(Assertions.NotLookbehind(values));
         }
 
         public QuantifiableExpression NotLookbehind(params UnicodeBlock[] blocks)
         {
-            return Append(Assertions.NotLookbehind(blocks));
+            return AppendInternal(Assertions.NotLookbehind(blocks));
         }
 
         public QuantifiableExpression NotLookbehind(UnicodeCategory[] categories)
         {
-            return Append(Assertions.NotLookbehind(categories));
+            return AppendInternal(Assertions.NotLookbehind(categories));
         }
 
         public QuantifiableExpression AsLookahead()

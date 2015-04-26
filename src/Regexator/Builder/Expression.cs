@@ -50,10 +50,10 @@ namespace Pihrtsoft.Regexator.Builder
 
         public Expression AppendIf(bool condition, Expression expression)
         {
-            return condition ? Append(expression) : this;
+            return condition ? AppendInternal(expression) : this;
         }
 
-        public TExpression Append<TExpression>(TExpression expression) where TExpression : Expression
+        internal TExpression AppendInternal<TExpression>(TExpression expression) where TExpression : Expression
         {
             if (expression == null) { throw new ArgumentNullException("expression"); }
             Expression first = expression;
@@ -63,6 +63,11 @@ namespace Pihrtsoft.Regexator.Builder
             }
             first.Previous = this;
             return expression;
+        }
+
+        public Expression Append(Expression expression)
+        {
+            return AppendInternal(new ContainerExpression(expression));
         }
 
         public Regex ToRegex()

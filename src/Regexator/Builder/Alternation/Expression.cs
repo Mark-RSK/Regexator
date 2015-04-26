@@ -7,77 +7,77 @@ namespace Pihrtsoft.Regexator.Builder
     {
         public QuantifiableExpression Any(params Expression[] expressions)
         {
-            return Append(Alternations.Any(expressions));
+            return AppendInternal(Alternations.Any(expressions));
         }
 
         public QuantifiableExpression Any(params string[] values)
         {
-            return Append(Alternations.Any(values));
+            return AppendInternal(Alternations.Any(values));
         }
 
         public QuantifiableExpression IfGroup(string groupName, Expression yes)
         {
-            return Append(Alternations.IfGroup(groupName, yes));
+            return AppendInternal(Alternations.IfGroup(groupName, yes));
         }
 
         public QuantifiableExpression IfGroup(string groupName, Expression yes, Expression no)
         {
-            return Append(Alternations.IfGroup(groupName, yes, no));
+            return AppendInternal(Alternations.IfGroup(groupName, yes, no));
         }
 
         public QuantifiableExpression IfGroup(string groupName, string yes)
         {
-            return Append(Alternations.IfGroup(groupName, yes));
+            return AppendInternal(Alternations.IfGroup(groupName, yes));
         }
 
         public QuantifiableExpression IfGroup(string groupName, string yes, string no)
         {
-            return Append(Alternations.IfGroup(groupName, yes, no));
+            return AppendInternal(Alternations.IfGroup(groupName, yes, no));
         }
 
         public QuantifiableExpression IfGroup(int groupNumber, Expression yes)
         {
-            return Append(Alternations.IfGroup(groupNumber, yes));
+            return AppendInternal(Alternations.IfGroup(groupNumber, yes));
         }
 
         public QuantifiableExpression IfGroup(int groupNumber, Expression yes, Expression no)
         {
-            return Append(Alternations.IfGroup(groupNumber, yes, no));
+            return AppendInternal(Alternations.IfGroup(groupNumber, yes, no));
         }
 
         public QuantifiableExpression IfGroup(int groupNumber, string yes)
         {
-            return Append(Alternations.IfGroup(groupNumber, yes));
+            return AppendInternal(Alternations.IfGroup(groupNumber, yes));
         }
 
         public QuantifiableExpression IfGroup(int groupNumber, string yes, string no)
         {
-            return Append(Alternations.IfGroup(groupNumber, yes, no));
+            return AppendInternal(Alternations.IfGroup(groupNumber, yes, no));
         }
 
         public QuantifiableExpression If(Expression condition, Expression yes)
         {
-            return Append(Alternations.If(condition, yes));
+            return AppendInternal(Alternations.If(condition, yes));
         }
 
         public QuantifiableExpression If(Expression condition, Expression yes, Expression no)
         {
-            return Append(Alternations.If(condition, yes, no));
+            return AppendInternal(Alternations.If(condition, yes, no));
         }
 
         public QuantifiableExpression If(Expression condition, string yes)
         {
-            return Append(Alternations.If(condition, yes));
+            return AppendInternal(Alternations.If(condition, yes));
         }
 
         public QuantifiableExpression If(Expression condition, string yes, string no)
         {
-            return Append(Alternations.If(condition, yes, no));
+            return AppendInternal(Alternations.If(condition, yes, no));
         }
 
         public Expression Or()
         {
-            return Append(Alternations.Or);
+            return AppendInternal(Alternations.Or);
         }
     }
 }

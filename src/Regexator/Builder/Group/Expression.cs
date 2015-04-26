@@ -7,22 +7,22 @@ namespace Pihrtsoft.Regexator.Builder
     {
         public QuantifiableExpression Group(string name, Expression value)
         {
-            return Append(Groups.Group(name, value));
+            return AppendInternal(Groups.Group(name, value));
         }
 
         public QuantifiableExpression Group(int name, Expression value)
         {
-            return Append(Groups.Group(name, value));
+            return AppendInternal(Groups.Group(name, value));
         }
 
         public QuantifiableExpression Group(string name, string value)
         {
-            return Append(Groups.Group(name, value));
+            return AppendInternal(Groups.Group(name, value));
         }
 
         public QuantifiableExpression Group(int name, string value)
         {
-            return Append(Groups.Group(name, value));
+            return AppendInternal(Groups.Group(name, value));
         }
 
         public QuantifiableExpression AsGroup(string name)
@@ -37,12 +37,12 @@ namespace Pihrtsoft.Regexator.Builder
 
         public QuantifiableExpression Subexpression(Expression value)
         {
-            return Append(Groups.Subexpression(value));
+            return AppendInternal(Groups.Subexpression(value));
         }
 
         public QuantifiableExpression Subexpression(string value)
         {
-            return Append(Groups.Subexpression(value));
+            return AppendInternal(Groups.Subexpression(value));
         }
 
         public QuantifiableExpression AsSubexpression()
@@ -52,12 +52,12 @@ namespace Pihrtsoft.Regexator.Builder
 
         public QuantifiableExpression Noncapturing(Expression value)
         {
-            return Append(Groups.Noncapturing(value));
+            return AppendInternal(Groups.Noncapturing(value));
         }
 
         public QuantifiableExpression Noncapturing(string value)
         {
-            return Append(Groups.Noncapturing(value));
+            return AppendInternal(Groups.Noncapturing(value));
         }
 
         public QuantifiableExpression AsNoncapturing()
@@ -67,12 +67,12 @@ namespace Pihrtsoft.Regexator.Builder
 
         public QuantifiableExpression Nonbacktracking(Expression value)
         {
-            return Append(Groups.Nonbacktracking(value));
+            return AppendInternal(Groups.Nonbacktracking(value));
         }
 
         public QuantifiableExpression Nonbacktracking(string value)
         {
-            return Append(Groups.Nonbacktracking(value));
+            return AppendInternal(Groups.Nonbacktracking(value));
         }
 
         public QuantifiableExpression AsNonbacktracking()
@@ -82,12 +82,12 @@ namespace Pihrtsoft.Regexator.Builder
 
         public QuantifiableExpression Balancing(string name1, string name2, Expression value)
         {
-            return Append(Groups.Balancing(name1, name2, value));
+            return AppendInternal(Groups.Balancing(name1, name2, value));
         }
 
         public QuantifiableExpression Balancing(string name1, string name2, string value)
         {
-            return Append(Groups.Balancing(name1, name2, value));
+            return AppendInternal(Groups.Balancing(name1, name2, value));
         }
 
         public QuantifiableExpression AsBalancing(string name1, string name2)
@@ -97,22 +97,22 @@ namespace Pihrtsoft.Regexator.Builder
 
         public QuantifiableExpression GroupOptions(InlineOptions applyOptions, Expression value)
         {
-            return Append(Groups.GroupOptions(applyOptions, value));
+            return AppendInternal(Groups.GroupOptions(applyOptions, value));
         }
 
         public QuantifiableExpression GroupOptions(InlineOptions applyOptions, string value)
         {
-            return Append(Groups.GroupOptions(applyOptions, value));
+            return AppendInternal(Groups.GroupOptions(applyOptions, value));
         }
 
         public QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, Expression value)
         {
-            return Append(Groups.GroupOptions(applyOptions, disableOptions, value));
+            return AppendInternal(Groups.GroupOptions(applyOptions, disableOptions, value));
         }
 
         public QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, string value)
         {
-            return Append(Groups.GroupOptions(applyOptions, disableOptions, value));
+            return AppendInternal(Groups.GroupOptions(applyOptions, disableOptions, value));
         }
 
         public QuantifiableExpression AsGroupOptions(InlineOptions applyOptions)

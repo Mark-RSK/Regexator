@@ -9,43 +9,43 @@ namespace Pihrtsoft.Regexator.Builder
     {
         public QuantifiableExpression Backreference(int groupNumber)
         {
-            return Append(Expressions.Backreference(groupNumber));
+            return AppendInternal(Expressions.Backreference(groupNumber));
         }
 
         public QuantifiableExpression Backreference(string groupName)
         {
-            return Append(Expressions.Backreference(groupName));
+            return AppendInternal(Expressions.Backreference(groupName));
         }
 
         public Expression Options(InlineOptions applyOptions)
         {
-            return Append(Expressions.Options(applyOptions));
+            return AppendInternal(Expressions.Options(applyOptions));
         }
 
         public Expression Options(InlineOptions applyOptions, InlineOptions disableOptions)
         {
-            return Append(Expressions.Options(applyOptions, disableOptions));
+            return AppendInternal(Expressions.Options(applyOptions, disableOptions));
         }
 
         public Expression InlineComment(string value)
         {
-            return Append(Expressions.InlineComment(value));
+            return AppendInternal(Expressions.InlineComment(value));
         }
 
         public QuantifiableExpression NewLine()
         {
-            return Append(Expressions.NewLine());
+            return AppendInternal(Expressions.NewLine());
         }
 
         public Expression Text(string value)
         {
-            return Append(Expressions.Text(value));
+            return AppendInternal(Expressions.Text(value));
         }
 
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal QuantifiableExpression InsignificantSeparator()
         {
-            return Append(Expressions.InsignificantSeparator());
+            return AppendInternal(Expressions.InsignificantSeparator());
         }
     }
 }
