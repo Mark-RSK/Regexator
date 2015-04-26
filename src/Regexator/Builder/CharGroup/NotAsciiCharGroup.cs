@@ -3,7 +3,7 @@
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    public class NotAsciiCharGroup
+    internal sealed class NotAsciiCharGroup
         : AsciiCharGroup
     {
         public NotAsciiCharGroup(params AsciiChar[] values)

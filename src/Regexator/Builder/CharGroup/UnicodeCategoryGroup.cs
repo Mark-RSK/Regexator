@@ -5,7 +5,7 @@ using System;
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    public class UnicodeCategoryGroup
+    internal class UnicodeCategoryGroup
         : CharGroup
     {
         private readonly UnicodeCategory[] _values;

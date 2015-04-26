@@ -5,7 +5,7 @@ using System;
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    public class CharItemGroup
+    internal class CharItemGroup
         : CharGroup
     {
         private readonly CharItem _item;

@@ -3,7 +3,7 @@
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    public class NotUnicodeBlockGroup
+    internal sealed class NotUnicodeBlockGroup
         : UnicodeBlockGroup
     {
         public NotUnicodeBlockGroup(params UnicodeBlock[] values)

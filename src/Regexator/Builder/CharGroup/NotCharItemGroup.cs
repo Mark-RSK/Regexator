@@ -3,7 +3,7 @@
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    public class NotCharItemGroup
+    internal sealed class NotCharItemGroup
         : CharItemGroup
     {
         public NotCharItemGroup(CharItem item)

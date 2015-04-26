@@ -5,7 +5,7 @@ using System;
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    public class AsciiCharGroup
+    internal class AsciiCharGroup
         : CharGroup
     {
         private readonly AsciiChar[] _values;
