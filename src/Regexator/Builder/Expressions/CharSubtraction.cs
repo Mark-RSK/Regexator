@@ -1,6 +1,8 @@
 // Copyright (c) Josef Pihrt. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System;
+
 namespace Pihrtsoft.Regexator.Builder
 {
     public sealed class CharSubtraction
@@ -18,6 +20,8 @@ namespace Pihrtsoft.Regexator.Builder
         internal CharSubtraction(IBaseGroup baseGroup, IExcludedGroup excludedGroup, bool negative)
             : base()
         {
+            if (baseGroup == null) { throw new ArgumentNullException("baseGroup"); }
+            if (excludedGroup == null) { throw new ArgumentNullException("excludedGroup"); }
             _baseGroup = baseGroup;
             _excludedGroup = excludedGroup;
             _negative = negative;

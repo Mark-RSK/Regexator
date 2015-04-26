@@ -18,21 +18,21 @@ namespace Pihrtsoft.Regexator.Builder
             return GroupStart(name, separator) + value + GroupEnd;
         }
 
-        internal static string GroupStart(int name, IdentifierSeparatorKind separator)
+        internal static string GroupStart(int groupName, IdentifierSeparatorKind separator)
         {
-            if (name < 1) { throw new ArgumentOutOfRangeException("name"); }
-            return GroupStart(name.ToString(CultureInfo.InvariantCulture), separator);
+            if (groupName < 1) { throw new ArgumentOutOfRangeException("groupName"); }
+            return GroupStart(groupName.ToString(CultureInfo.InvariantCulture), separator);
         }
 
-        internal static string GroupStart(string name, IdentifierSeparatorKind separator)
+        internal static string GroupStart(string groupName, IdentifierSeparatorKind separator)
         {
-            if (name == null) { throw new ArgumentNullException("name"); }
+            if (groupName == null) { throw new ArgumentNullException("groupName"); }
             switch (separator)
             {
                 case IdentifierSeparatorKind.LessThan:
-                    return @"(?<" + name + @">";
+                    return @"(?<" + groupName + @">";
                 case IdentifierSeparatorKind.Apostrophe:
-                    return @"(?'" + name + @"'";
+                    return @"(?'" + groupName + @"'";
             }
             return null;
         }

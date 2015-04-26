@@ -15,6 +15,7 @@ namespace Pihrtsoft.Regexator.Builder
             : base()
         {
             if (values == null) { throw new ArgumentNullException("values"); }
+            if (values.Length == 0) { throw new ArgumentException(); }
             _values = values;
         }
 

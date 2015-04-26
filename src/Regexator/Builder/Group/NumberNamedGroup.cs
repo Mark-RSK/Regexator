@@ -8,28 +8,30 @@ namespace Pihrtsoft.Regexator.Builder
     internal sealed class NumberNamedGroup
         : GroupExpression
     {
-        private readonly int _name;
+        private readonly int _groupName;
 
-        internal NumberNamedGroup(int name, string value)
+        internal NumberNamedGroup(int groupName, string value)
             : base(value)
         {
-            _name = name;
+            if (groupName < 1) { throw new ArgumentOutOfRangeException("groupName"); }
+            _groupName = groupName;
         }
 
-        internal NumberNamedGroup(int name, Expression expression)
+        internal NumberNamedGroup(int groupName, Expression expression)
             : base(expression)
         {
-            _name = name;
+            if (groupName < 1) { throw new ArgumentOutOfRangeException("groupName"); }
+            _groupName = groupName;
         }
 
-        public int Name
+        public int GroupName
         {
-            get { return _name; }
+            get { return _groupName; }
         }
 
         internal override string Opening(BuildContext context)
         {
-            return Syntax.GroupStart(Name, context.Settings.IdentifierSeparator);
+            return Syntax.GroupStart(GroupName, context.Settings.IdentifierSeparator);
         }
     }
 }

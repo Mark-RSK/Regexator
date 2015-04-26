@@ -1,6 +1,7 @@
 // Copyright (c) Josef Pihrt. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System;
 using System.Collections.Generic;
 
 namespace Pihrtsoft.Regexator.Builder
@@ -18,6 +19,7 @@ namespace Pihrtsoft.Regexator.Builder
         internal GroupNameIfExpression(string groupName, string yes, string no)
             : base(yes, no)
         {
+            if (groupName == null) { throw new ArgumentNullException("groupName"); }
             _groupName = groupName;
         }
 
@@ -29,6 +31,7 @@ namespace Pihrtsoft.Regexator.Builder
         internal GroupNameIfExpression(string groupName, Expression yes, Expression no)
             : base(yes, no)
         {
+            if (groupName == null) { throw new ArgumentNullException("groupName"); }
             _groupName = groupName;
         }
 

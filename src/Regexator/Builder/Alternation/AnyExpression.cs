@@ -11,10 +11,15 @@ namespace Pihrtsoft.Regexator.Builder
     {
         private readonly Expression[] _expressions;
 
+        protected AnyExpression()
+        {
+        }
+
         internal AnyExpression(params Expression[] expressions)
             : base()
         {
             if (expressions == null) { throw new ArgumentNullException("expressions"); }
+            if (expressions.Length == 0) { throw new ArgumentException(); }
             _expressions = expressions;
         }
 

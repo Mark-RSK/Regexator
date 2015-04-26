@@ -8,30 +8,30 @@ namespace Pihrtsoft.Regexator.Builder
     internal sealed class NamedGroup
         : GroupExpression
     {
-        private readonly string _name;
+        private readonly string _groupName;
 
-        internal NamedGroup(string name, string value)
+        internal NamedGroup(string groupName, string value)
             : base(value)
         {
-            if (name == null) { throw new ArgumentNullException("name"); }
-            _name = name;
+            if (groupName == null) { throw new ArgumentNullException("groupName"); }
+            _groupName = groupName;
         }
 
-        internal NamedGroup(string name, Expression expression)
+        internal NamedGroup(string groupName, Expression expression)
             : base(expression)
         {
-            if (name == null) { throw new ArgumentNullException("name"); }
-            _name = name;
+            if (groupName == null) { throw new ArgumentNullException("groupName"); }
+            _groupName = groupName;
         }
 
-        public string Name
+        public string GroupName
         {
-            get { return _name; }
+            get { return _groupName; }
         }
 
         internal override string Opening(BuildContext context)
         {
-            return Syntax.GroupStart(Name, context.Settings.IdentifierSeparator);
+            return Syntax.GroupStart(GroupName, context.Settings.IdentifierSeparator);
         }
     }
 }

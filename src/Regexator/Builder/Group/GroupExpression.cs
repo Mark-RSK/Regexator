@@ -1,6 +1,7 @@
 // Copyright (c) Josef Pihrt. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System;
 using System.Collections.Generic;
 
 namespace Pihrtsoft.Regexator.Builder
@@ -19,12 +20,14 @@ namespace Pihrtsoft.Regexator.Builder
         internal GroupExpression(string value)
             : base()
         {
+            if (value == null) { throw new ArgumentNullException("value"); }
             _value = value;
         }
 
         internal GroupExpression(Expression expression)
             : base()
         {
+            if (expression == null) { throw new ArgumentNullException("expression"); }
             _expression = expression;
         }
 

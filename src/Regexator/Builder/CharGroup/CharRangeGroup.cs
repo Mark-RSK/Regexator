@@ -17,7 +17,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public override string Content
         {
-            get { return Syntax.Char(_first, true) + "-" + Syntax.Char(_last, true); }
+            get { return Syntax.Range(_first, _last); }
         }
     }
 }

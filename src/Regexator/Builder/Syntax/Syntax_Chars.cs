@@ -94,6 +94,16 @@ namespace Pihrtsoft.Regexator.Builder
             return Utilities.Escape(charCode, inCharGroup);
         }
 
+        internal static string CharInternal(int charCode)
+        {
+            return CharInternal(charCode, false);
+        }
+
+        internal static string CharInternal(int charCode, bool inCharGroup)
+        {
+            return Utilities.EscapeInternal(charCode, inCharGroup);
+        }
+
         public static string Char(AsciiChar value)
         {
             return Char(value, false);
