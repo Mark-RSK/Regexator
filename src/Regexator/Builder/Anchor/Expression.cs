@@ -15,9 +15,19 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Anchors.StartOfLine());
         }
 
+        public QuantifiableExpression StartOfLineInvariant()
+        {
+            return AppendInternal(Anchors.StartOfLineInvariant());
+        }
+
         public QuantifiableExpression EndOfLine()
         {
             return AppendInternal(Anchors.EndOfLine());
+        }
+
+        public QuantifiableExpression EndOfLineInvariant()
+        {
+            return AppendInternal(Anchors.EndOfLineInvariant());
         }
 
         public QuantifiableExpression EndOfLineOrBeforeCarriageReturn()
