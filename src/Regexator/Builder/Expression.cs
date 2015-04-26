@@ -174,7 +174,13 @@ namespace Pihrtsoft.Regexator.Builder
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal string Pattern
         {
-            get { return string.Concat(EnumerateValues(this, new BuildContext())); }
+            get 
+            {
+                using (var context = new BuildContext())
+                {
+                    return string.Concat(EnumerateValues(this, context)); 
+                }
+            }
         }
 
         internal Expression Previous

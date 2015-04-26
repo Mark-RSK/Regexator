@@ -25,11 +25,6 @@ namespace Pihrtsoft.Regexator.Builder
             _escape = escape;
         }
 
-        public bool Escape
-        {
-            get { return _escape; }
-        }
-
         internal override string Value
         {
             get { return (_escape && _value != null) ? Utilities.Escape(_value) : _value; }
