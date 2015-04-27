@@ -5,20 +5,20 @@ using System;
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal class CharGroup
-        : CharGrouping
+    internal class TextCharGroup
+        : CharacterGroupExpression
     {
-        private readonly char[] _values;
+        private readonly string _value;
 
-        public CharGroup(params char[] values)
+        public TextCharGroup(string value)
         {
-            if (values == null) { throw new ArgumentNullException("values"); }
-            _values = values;
+            if (value == null) { throw new ArgumentNullException("value"); }
+            _value = value;
         }
 
         public override string Content
         {
-            get { return Syntax.Chars(_values, true); }
+            get { return Utilities.Escape(_value, true); }
         }
     }
 }

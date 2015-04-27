@@ -13,7 +13,7 @@ namespace Pihrtsoft.Regexator.Builder
         private readonly Expression _no;
 
         protected AlternationExpression(string yes, string no)
-            : this(Create(yes), Create(no))
+            : this(Expressions.Text(yes), Expressions.Text(no))
         {
         }
 

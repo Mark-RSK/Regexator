@@ -2,7 +2,6 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Pihrtsoft.Regexator.Builder
 {
@@ -35,23 +34,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static CharSubtraction WhiteSpaceExceptNewLine()
         {
-            return new CharSubtraction(CharItems.WhiteSpace(), CharItems.CarriageReturn().Linefeed());
-        }
-
-        public static QuantifiableExpression NewLine()
-        {
-            return Character.CarriageReturn().Maybe().Linefeed().AsNoncapturing();
-        }
-
-        public static Expression Text(string value)
-        {
-            return Expression.Create(value);
-        }
-
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal static QuantifiableExpression InsignificantSeparator()
-        {
-            return Grouping.GroupOptions(InlineOptions.IgnorePatternWhitespace, new TextExpression(" ", false));
+            return new CharSubtraction(CharacterItem.WhiteSpace(), CharacterItem.CarriageReturn().Linefeed());
         }
     }
 }

@@ -3,11 +3,11 @@
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal sealed class NotCharItemGroup
-        : CharItemGroup
+    internal sealed class NotCharCodeRangeGroup
+        : CharCodeRangeGroup
     {
-        public NotCharItemGroup(CharItem item)
-            : base(item)
+        public NotCharCodeRangeGroup(int first, int last)
+            : base(first, last)
         {
         }
 

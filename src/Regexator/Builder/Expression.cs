@@ -18,16 +18,6 @@ namespace Pihrtsoft.Regexator.Builder
         {
         }
 
-        public static Expression Create()
-        {
-            return new TextExpression();
-        }
-
-        public static Expression Create(string value)
-        {
-            return new TextExpression(value);
-        }
-
         public Expression Append(string value)
         {
             return Append(value, true);

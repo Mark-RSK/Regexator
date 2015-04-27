@@ -3,10 +3,10 @@
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal sealed class NotCharsGroup
+    internal sealed class NotCharGroup
         : CharGroup
     {
-        public NotCharsGroup(params char[] values)
+        public NotCharGroup(params char[] values)
             : base(values)
         {
         }

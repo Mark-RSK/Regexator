@@ -3,13 +3,13 @@
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal class CodeRangeGroup
-        : CharGrouping
+    internal class CharRangeGroup
+        : CharacterGroupExpression
     {
-        private readonly int _first;
-        private readonly int _last;
+        private readonly char _first;
+        private readonly char _last;
 
-        public CodeRangeGroup(int first, int last)
+        public CharRangeGroup(char first, char last)
         {
             _first = first;
             _last = last;

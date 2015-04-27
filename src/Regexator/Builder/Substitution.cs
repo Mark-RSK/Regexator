@@ -5,7 +5,7 @@ using System;
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    public static class Substitutions
+    public static class Substitution
     {
         /// <summary>
         /// Substitutes the last substring matched by the named group.

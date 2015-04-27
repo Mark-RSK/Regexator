@@ -13,30 +13,30 @@ namespace Pihrtsoft.Regexator.Samples
             Console.WriteLine("");
 
             Console.WriteLine("trailing whitespace:");
-            Console.WriteLine(Expressions.WhiteSpaceExceptNewLine().OneMany().EndOfLineOrBeforeCarriageReturn());
+            Console.WriteLine(Miscellaneous.WhiteSpaceExceptNewLine().OneMany().EndOfLineOrBeforeCarriageReturn());
             Console.WriteLine("");
 
             Console.WriteLine("leading trailing whitespace:");
             Console.WriteLine(Alternation.Any(
                 Anchor.StartOfLine().WhiteSpaceExceptNewLine().OneMany(),
-                Expressions.WhiteSpaceExceptNewLine().OneMany().EndOfLineOrBeforeCarriageReturn()));
+                Miscellaneous.WhiteSpaceExceptNewLine().OneMany().EndOfLineOrBeforeCarriageReturn()));
             Console.WriteLine("");
 
             Console.WriteLine("whitespace lines:");
-            Console.WriteLine(Expressions.Options(InlineOptions.Multiline).Any(
+            Console.WriteLine(Miscellaneous.Options(InlineOptions.Multiline).Any(
                 Anchor.StartOfLine().WhiteSpace().MaybeMany().NewLine(),
                 Expressions.NewLine().WhiteSpace().MaybeMany().End()));
             Console.WriteLine("");
 
             Console.WriteLine("empty lines:");
-            Console.WriteLine(Expressions.Options(InlineOptions.Multiline).Any(
+            Console.WriteLine(Miscellaneous.Options(InlineOptions.Multiline).Any(
                 Anchor.StartOfLine().NewLine(),
                 Expressions.NewLine().OneMany().End()
             ));
             Console.WriteLine("");
 
             Console.WriteLine("first line:");
-            Console.WriteLine(Expressions.Options(InlineOptions.Multiline).Start().Any().MaybeMany().Lazy().EndOfLineOrBeforeCarriageReturn());
+            Console.WriteLine(Miscellaneous.Options(InlineOptions.Multiline).Start().Any().MaybeMany().Lazy().EndOfLineOrBeforeCarriageReturn());
             Console.WriteLine("");
 
             Console.WriteLine("lf without cr:");

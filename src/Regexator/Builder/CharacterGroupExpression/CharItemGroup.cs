@@ -6,11 +6,11 @@ using System;
 namespace Pihrtsoft.Regexator.Builder
 {
     internal class CharItemGroup
-        : CharGrouping
+        : CharacterGroupExpression
     {
-        private readonly CharItem _item;
+        private readonly CharacterGroupItem _item;
 
-        public CharItemGroup(CharItem item)
+        public CharItemGroup(CharacterGroupItem item)
         {
             if (item == null) { throw new ArgumentNullException("item"); }
             _item = item;

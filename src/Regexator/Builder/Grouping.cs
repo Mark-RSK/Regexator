@@ -7,24 +7,14 @@ namespace Pihrtsoft.Regexator.Builder
 {
     public static class Grouping
     {
-        public static QuantifiableExpression Named(string name, Expression expression)
+        public static QuantifiableExpression NamedGroup(string name, Expression expression)
         {
             return new NamedGroup(name, expression);
         }
 
-        public static QuantifiableExpression Named(int name, Expression expression)
-        {
-            return new NumberNamedGroup(name, expression);
-        }
-
-        public static QuantifiableExpression Named(string name, string value)
+        public static QuantifiableExpression NamedGroup(string name, string value)
         {
             return new NamedGroup(name, value);
-        }
-
-        public static QuantifiableExpression Named(int name, string value)
-        {
-            return new NumberNamedGroup(name, value);
         }
 
         public static QuantifiableExpression Subexpression(Expression expression)
@@ -87,99 +77,99 @@ namespace Pihrtsoft.Regexator.Builder
             return new GroupOptions(applyOptions, disableOptions, value);
         }
 
-        public static CharGrouping Chars(string value)
+        public static CharacterGroupExpression Chars(string value)
         {
             return new TextCharGroup(value);
         }
 
-        public static CharGrouping Chars(CharItem item)
+        public static CharacterGroupExpression Chars(CharacterGroupItem item)
         {
             return new CharItemGroup(item);
         }
 
-        public static CharGrouping Chars(params char[] values)
+        public static CharacterGroupExpression Chars(params char[] values)
         {
             return new CharGroup(values);
         }
 
-        public static CharGrouping Chars(params int[] charCodes)
+        public static CharacterGroupExpression Chars(params int[] charCodes)
         {
             return new CharCodeGroup(charCodes);
         }
 
-        public static CharGrouping Chars(params AsciiChar[] values)
+        public static CharacterGroupExpression Chars(params AsciiChar[] values)
         {
             return new AsciiCharGroup(values);
         }
 
-        public static CharGrouping Chars(params CharClass[] values)
+        public static CharacterGroupExpression Chars(params CharClass[] values)
         {
             return new CharClassGroup(values);
         }
 
-        public static CharGrouping Chars(params UnicodeBlock[] blocks)
+        public static CharacterGroupExpression Chars(params UnicodeBlock[] blocks)
         {
             return new UnicodeBlockGroup(blocks);
         }
 
-        public static CharGrouping Chars(params UnicodeCategory[] categories)
+        public static CharacterGroupExpression Chars(params UnicodeCategory[] categories)
         {
             return new UnicodeCategoryGroup(categories);
         }
 
-        public static CharGrouping NotChars(string value)
+        public static CharacterGroupExpression NotChars(string value)
         {
             return new NotTextCharGroup(value);
         }
 
-        public static CharGrouping NotChars(CharItem item)
+        public static CharacterGroupExpression NotChars(CharacterGroupItem item)
         {
             return new NotCharItemGroup(item);
         }
 
-        public static CharGrouping NotChars(params char[] values)
+        public static CharacterGroupExpression NotChars(params char[] values)
         {
-            return new NotCharsGroup(values);
+            return new NotCharGroup(values);
         }
 
-        public static CharGrouping NotChars(params int[] charCodes)
+        public static CharacterGroupExpression NotChars(params int[] charCodes)
         {
             return new NotCharCodeGroup(charCodes);
         }
 
-        public static CharGrouping NotChars(params AsciiChar[] values)
+        public static CharacterGroupExpression NotChars(params AsciiChar[] values)
         {
             return new NotAsciiCharGroup(values);
         }
 
-        public static CharGrouping NotChars(params UnicodeBlock[] blocks)
+        public static CharacterGroupExpression NotChars(params UnicodeBlock[] blocks)
         {
             return new NotUnicodeBlockGroup(blocks);
         }
 
-        public static CharGrouping NotChars(params UnicodeCategory[] categories)
+        public static CharacterGroupExpression NotChars(params UnicodeCategory[] categories)
         {
             return new NotUnicodeCategoryGroup(categories);
         }
 
-        public static CharGrouping Range(char first, char last)
+        public static CharacterGroupExpression Range(char first, char last)
         {
             return new CharRangeGroup(first, last);
         }
 
-        public static CharGrouping Range(int first, int last)
+        public static CharacterGroupExpression Range(int first, int last)
         {
-            return new CodeRangeGroup(first, last);
+            return new CharCodeRangeGroup(first, last);
         }
 
-        public static CharGrouping NotRange(char first, char last)
+        public static CharacterGroupExpression NotRange(char first, char last)
         {
             return new NotCharRangeGroup(first, last);
         }
 
-        public static CharGrouping NotRange(int first, int last)
+        public static CharacterGroupExpression NotRange(int first, int last)
         {
-            return new NotCodeRangeGroup(first, last);
+            return new NotCharCodeRangeGroup(first, last);
         }
 
         public static CharSubtraction Subtraction(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
@@ -192,9 +182,9 @@ namespace Pihrtsoft.Regexator.Builder
             return new CharSubtraction(baseGroup, excludedGroup, true);
         }
 
-        public static CharGrouping Alphanumeric()
+        public static CharacterGroupExpression Alphanumeric()
         {
-            return Chars(CharItems.Alphanumeric());
+            return Chars(CharacterItem.Alphanumeric());
         }
 
         internal static QuantifiableExpression QuantifierGroup(string value)

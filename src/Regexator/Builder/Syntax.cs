@@ -135,12 +135,6 @@ namespace Pihrtsoft.Regexator.Builder
             return GroupStart(name, separator) + value + GroupEnd;
         }
 
-        internal static string GroupStart(int groupName, IdentifierSeparatorKind separator)
-        {
-            if (groupName < 1) { throw new ArgumentOutOfRangeException("groupName"); }
-            return GroupStart(groupName.ToString(CultureInfo.InvariantCulture), separator);
-        }
-
         internal static string GroupStart(string groupName, IdentifierSeparatorKind separator)
         {
             if (groupName == null) { throw new ArgumentNullException("groupName"); }

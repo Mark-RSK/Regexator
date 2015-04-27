@@ -7,34 +7,53 @@ namespace Pihrtsoft.Regexator.Builder
 {
     public static class Expressions
     {
-        public static QuantifiableExpression Backreference(int groupNumber)
+        public static Expression Empty()
         {
-            return new NumberBackreference(groupNumber);
+            return new TextExpression();
         }
 
-        public static QuantifiableExpression Backreference(string groupName)
+        public static Expression Text(string value)
         {
-            return new NameBackreference(groupName);
+            return new TextExpression(value);
         }
 
-        public static Expression Options(InlineOptions applyOptions)
+        public static Expression LeadingWhiteSpace()
         {
-            return new InlineOptionsExpression(applyOptions);
+            return Anchor.StartOfLine().WhiteSpaceExceptNewLine().OneMany();
         }
 
-        public static Expression Options(InlineOptions applyOptions, InlineOptions disableOptions)
+        public static QuantifiableExpression TrailingWhiteSpace()
         {
-            return new InlineOptionsExpression(applyOptions, disableOptions);
+            return Miscellaneous.WhiteSpaceExceptNewLine().OneMany().EndOfLineOrBeforeCarriageReturn();
         }
 
-        public static Expression InlineComment(string value)
+        public static QuantifiableExpression LeadingTrailingWhiteSpace()
         {
-            return new InlineCommentExpression(value);
+            return Alternation.Any(LeadingWhiteSpace(), TrailingWhiteSpace());
         }
 
-        public static CharSubtraction WhiteSpaceExceptNewLine()
+        public static QuantifiableExpression WhiteSpaceLines()
         {
-            return new CharSubtraction(CharItems.WhiteSpace(), CharItems.CarriageReturn().Linefeed());
+            return Miscellaneous.Options(InlineOptions.Multiline).Any(
+                Anchor.StartOfLine().WhiteSpace().MaybeMany().NewLine(),
+                NewLine().WhiteSpace().MaybeMany().End());
+        }
+
+        public static QuantifiableExpression EmptyLines()
+        {
+            return Miscellaneous.Options(InlineOptions.Multiline).Any(
+                Anchor.StartOfLine().NewLine(),
+                NewLine().OneMany().End());
+        }
+
+        public static QuantifiableExpression FirstLastEmptyLine()
+        {
+            return Alternation.Any(Anchor.Start().NewLine(), NewLine().End()).AsNonbacktracking();
+        }
+
+        public static QuantifiableExpression FirstLine()
+        {
+            return Miscellaneous.Options(InlineOptions.Multiline).Start().Any().MaybeMany().Lazy().EndOfLineOrBeforeCarriageReturn();
         }
 
         public static QuantifiableExpression NewLine()
@@ -42,9 +61,9 @@ namespace Pihrtsoft.Regexator.Builder
             return Character.CarriageReturn().Maybe().Linefeed().AsNoncapturing();
         }
 
-        public static Expression Text(string value)
+        public static QuantifiableExpression LinefeedWithoutCarriageReturn()
         {
-            return Expression.Create(value);
+            return Character.CarriageReturn().AsNotLookbehind().Linefeed().AsNonbacktracking();
         }
 
         internal static QuantifiableExpression InsignificantSeparator()

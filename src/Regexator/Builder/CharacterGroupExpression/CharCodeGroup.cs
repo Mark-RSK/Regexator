@@ -5,12 +5,12 @@ using System;
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal class UnicodeCategoryGroup
-        : CharGrouping
+    internal class CharCodeGroup
+        : CharacterGroupExpression
     {
-        private readonly UnicodeCategory[] _values;
+        private readonly int[] _values;
 
-        public UnicodeCategoryGroup(params UnicodeCategory[] values)
+        public CharCodeGroup(params int[] values)
         {
             if (values == null) { throw new ArgumentNullException("values"); }
             _values = values;
@@ -18,7 +18,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public override string Content
         {
-            get { return Syntax.UnicodeCategories(_values); }
+            get { return Syntax.Chars(_values, true); }
         }
     }
 }

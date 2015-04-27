@@ -3,186 +3,186 @@
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    public partial class CharItem
+    public partial class CharacterGroupItem
     {
-        public CharItem Tab()
+        public CharacterGroupItem Tab()
         {
-            return Append(CharItems.Tab());
+            return Append(CharacterItem.Tab());
         }
 
-        public CharItem Linefeed()
+        public CharacterGroupItem Linefeed()
         {
-            return Append(CharItems.Linefeed());
+            return Append(CharacterItem.Linefeed());
         }
 
-        public CharItem CarriageReturn()
+        public CharacterGroupItem CarriageReturn()
         {
-            return Append(CharItems.CarriageReturn());
+            return Append(CharacterItem.CarriageReturn());
         }
 
-        public CharItem Space()
+        public CharacterGroupItem Space()
         {
-            return Append(CharItems.Space());
+            return Append(CharacterItem.Space());
         }
 
-        public CharItem ExclamationMark()
+        public CharacterGroupItem ExclamationMark()
         {
-            return Append(CharItems.ExclamationMark());
+            return Append(CharacterItem.ExclamationMark());
         }
 
-        public CharItem QuotationMark()
+        public CharacterGroupItem QuotationMark()
         {
-            return Append(CharItems.QuotationMark());
+            return Append(CharacterItem.QuotationMark());
         }
 
-        public CharItem NumberSign()
+        public CharacterGroupItem NumberSign()
         {
-            return Append(CharItems.NumberSign());
+            return Append(CharacterItem.NumberSign());
         }
 
-        public CharItem Dollar()
+        public CharacterGroupItem Dollar()
         {
-            return Append(CharItems.Dollar());
+            return Append(CharacterItem.Dollar());
         }
 
-        public CharItem Percent()
+        public CharacterGroupItem Percent()
         {
-            return Append(CharItems.Percent());
+            return Append(CharacterItem.Percent());
         }
 
-        public CharItem Ampersand()
+        public CharacterGroupItem Ampersand()
         {
-            return Append(CharItems.Ampersand());
+            return Append(CharacterItem.Ampersand());
         }
 
-        public CharItem Apostrophe()
+        public CharacterGroupItem Apostrophe()
         {
-            return Append(CharItems.Apostrophe());
+            return Append(CharacterItem.Apostrophe());
         }
 
-        public CharItem LeftParenthesis()
+        public CharacterGroupItem LeftParenthesis()
         {
-            return Append(CharItems.LeftParenthesis());
+            return Append(CharacterItem.LeftParenthesis());
         }
 
-        public CharItem RightParenthesis()
+        public CharacterGroupItem RightParenthesis()
         {
-            return Append(CharItems.RightParenthesis());
+            return Append(CharacterItem.RightParenthesis());
         }
 
-        public CharItem Asterisk()
+        public CharacterGroupItem Asterisk()
         {
-            return Append(CharItems.Asterisk());
+            return Append(CharacterItem.Asterisk());
         }
 
-        public CharItem Plus()
+        public CharacterGroupItem Plus()
         {
-            return Append(CharItems.Plus());
+            return Append(CharacterItem.Plus());
         }
 
-        public CharItem Comma()
+        public CharacterGroupItem Comma()
         {
-            return Append(CharItems.Comma());
+            return Append(CharacterItem.Comma());
         }
 
-        public CharItem Hyphen()
+        public CharacterGroupItem Hyphen()
         {
-            return Append(CharItems.Hyphen());
+            return Append(CharacterItem.Hyphen());
         }
 
-        public CharItem Period()
+        public CharacterGroupItem Period()
         {
-            return Append(CharItems.Period());
+            return Append(CharacterItem.Period());
         }
 
-        public CharItem Slash()
+        public CharacterGroupItem Slash()
         {
-            return Append(CharItems.Slash());
+            return Append(CharacterItem.Slash());
         }
 
-        public CharItem Colon()
+        public CharacterGroupItem Colon()
         {
-            return Append(CharItems.Colon());
+            return Append(CharacterItem.Colon());
         }
 
-        public CharItem Semicolon()
+        public CharacterGroupItem Semicolon()
         {
-            return Append(CharItems.Semicolon());
+            return Append(CharacterItem.Semicolon());
         }
 
-        public CharItem LessThan()
+        public CharacterGroupItem LessThan()
         {
-            return Append(CharItems.LessThan());
+            return Append(CharacterItem.LessThan());
         }
 
-        public CharItem EqualsSign()
+        public CharacterGroupItem EqualsSign()
         {
-            return Append(CharItems.EqualsSign());
+            return Append(CharacterItem.EqualsSign());
         }
 
-        public CharItem GreaterThan()
+        public CharacterGroupItem GreaterThan()
         {
-            return Append(CharItems.GreaterThan());
+            return Append(CharacterItem.GreaterThan());
         }
 
-        public CharItem QuestionMark()
+        public CharacterGroupItem QuestionMark()
         {
-            return Append(CharItems.QuestionMark());
+            return Append(CharacterItem.QuestionMark());
         }
 
-        public CharItem At()
+        public CharacterGroupItem At()
         {
-            return Append(CharItems.At());
+            return Append(CharacterItem.At());
         }
 
-        public CharItem LeftSquareBracket()
+        public CharacterGroupItem LeftSquareBracket()
         {
-            return Append(CharItems.LeftSquareBracket());
+            return Append(CharacterItem.LeftSquareBracket());
         }
 
-        public CharItem Backslash()
+        public CharacterGroupItem Backslash()
         {
-            return Append(CharItems.Backslash());
+            return Append(CharacterItem.Backslash());
         }
 
-        public CharItem RightSquareBracket()
+        public CharacterGroupItem RightSquareBracket()
         {
-            return Append(CharItems.RightSquareBracket());
+            return Append(CharacterItem.RightSquareBracket());
         }
 
-        public CharItem CircumflexAccent()
+        public CharacterGroupItem CircumflexAccent()
         {
-            return Append(CharItems.CircumflexAccent());
+            return Append(CharacterItem.CircumflexAccent());
         }
 
-        public CharItem Underscore()
+        public CharacterGroupItem Underscore()
         {
-            return Append(CharItems.Underscore());
+            return Append(CharacterItem.Underscore());
         }
 
-        public CharItem GraveAccent()
+        public CharacterGroupItem GraveAccent()
         {
-            return Append(CharItems.GraveAccent());
+            return Append(CharacterItem.GraveAccent());
         }
 
-        public CharItem LeftCurlyBracket()
+        public CharacterGroupItem LeftCurlyBracket()
         {
-            return Append(CharItems.LeftCurlyBracket());
+            return Append(CharacterItem.LeftCurlyBracket());
         }
 
-        public CharItem VerticalLine()
+        public CharacterGroupItem VerticalLine()
         {
-            return Append(CharItems.VerticalLine());
+            return Append(CharacterItem.VerticalLine());
         }
 
-        public CharItem RightCurlyBracket()
+        public CharacterGroupItem RightCurlyBracket()
         {
-            return Append(CharItems.RightCurlyBracket());
+            return Append(CharacterItem.RightCurlyBracket());
         }
 
-        public CharItem Tilde()
+        public CharacterGroupItem Tilde()
         {
-            return Append(CharItems.Tilde());
+            return Append(CharacterItem.Tilde());
         }
     }
 }

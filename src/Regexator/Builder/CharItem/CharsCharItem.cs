@@ -6,7 +6,7 @@ using System;
 namespace Pihrtsoft.Regexator.Builder
 {
     internal sealed class CharsCharItem
-        : CharItem
+        : CharacterGroupItem
     {
         private readonly char[] _chars;
 
