@@ -3,17 +3,12 @@
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal sealed class NotCharsGroup
-        : CharGroup
+    internal sealed class StartOfLine
+        : AnchorExpression
     {
-        public NotCharsGroup(params char[] values)
-            : base(values)
+        internal override string Value
         {
-        }
-
-        public override bool Negative
-        {
-            get { return true; }
+            get { return Syntax.StartOfLine; }
         }
     }
 }

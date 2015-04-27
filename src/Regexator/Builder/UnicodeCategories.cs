@@ -7,1112 +7,1112 @@ namespace Pihrtsoft.Regexator.Builder
     {
         public static QuantifiableExpression AllControlCharacters()
         {
-            return Characters.UnicodeCategory(UnicodeCategory.AllControlCharacters);
+            return Character.UnicodeCategory(UnicodeCategory.AllControlCharacters);
         }
 
-        public static Quantifier AllControlCharacters(int exactCount)
+        public static QuantifierExpression AllControlCharacters(int exactCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.AllControlCharacters).Count(exactCount);
+            return Character.UnicodeCategory(UnicodeCategory.AllControlCharacters).Count(exactCount);
         }
 
-        public static Quantifier AllControlCharacters(int minCount, int maxCount)
+        public static QuantifierExpression AllControlCharacters(int minCount, int maxCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.AllControlCharacters).Count(minCount, maxCount);
+            return Character.UnicodeCategory(UnicodeCategory.AllControlCharacters).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotAllControlCharacters()
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.AllControlCharacters);
+            return Character.NotUnicodeCategory(UnicodeCategory.AllControlCharacters);
         }
 
-        public static Quantifier NotAllControlCharacters(int exactCount)
+        public static QuantifierExpression NotAllControlCharacters(int exactCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.AllControlCharacters).Count(exactCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.AllControlCharacters).Count(exactCount);
         }
 
-        public static Quantifier NotAllControlCharacters(int minCount, int maxCount)
+        public static QuantifierExpression NotAllControlCharacters(int minCount, int maxCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.AllControlCharacters).Count(minCount, maxCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.AllControlCharacters).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression AllDiacriticMarks()
         {
-            return Characters.UnicodeCategory(UnicodeCategory.AllDiacriticMarks);
+            return Character.UnicodeCategory(UnicodeCategory.AllDiacriticMarks);
         }
 
-        public static Quantifier AllDiacriticMarks(int exactCount)
+        public static QuantifierExpression AllDiacriticMarks(int exactCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.AllDiacriticMarks).Count(exactCount);
+            return Character.UnicodeCategory(UnicodeCategory.AllDiacriticMarks).Count(exactCount);
         }
 
-        public static Quantifier AllDiacriticMarks(int minCount, int maxCount)
+        public static QuantifierExpression AllDiacriticMarks(int minCount, int maxCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.AllDiacriticMarks).Count(minCount, maxCount);
+            return Character.UnicodeCategory(UnicodeCategory.AllDiacriticMarks).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotAllDiacriticMarks()
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.AllDiacriticMarks);
+            return Character.NotUnicodeCategory(UnicodeCategory.AllDiacriticMarks);
         }
 
-        public static Quantifier NotAllDiacriticMarks(int exactCount)
+        public static QuantifierExpression NotAllDiacriticMarks(int exactCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.AllDiacriticMarks).Count(exactCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.AllDiacriticMarks).Count(exactCount);
         }
 
-        public static Quantifier NotAllDiacriticMarks(int minCount, int maxCount)
+        public static QuantifierExpression NotAllDiacriticMarks(int minCount, int maxCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.AllDiacriticMarks).Count(minCount, maxCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.AllDiacriticMarks).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression AllLetterCharacters()
         {
-            return Characters.UnicodeCategory(UnicodeCategory.AllLetterCharacters);
+            return Character.UnicodeCategory(UnicodeCategory.AllLetterCharacters);
         }
 
-        public static Quantifier AllLetterCharacters(int exactCount)
+        public static QuantifierExpression AllLetterCharacters(int exactCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.AllLetterCharacters).Count(exactCount);
+            return Character.UnicodeCategory(UnicodeCategory.AllLetterCharacters).Count(exactCount);
         }
 
-        public static Quantifier AllLetterCharacters(int minCount, int maxCount)
+        public static QuantifierExpression AllLetterCharacters(int minCount, int maxCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.AllLetterCharacters).Count(minCount, maxCount);
+            return Character.UnicodeCategory(UnicodeCategory.AllLetterCharacters).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotAllLetterCharacters()
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.AllLetterCharacters);
+            return Character.NotUnicodeCategory(UnicodeCategory.AllLetterCharacters);
         }
 
-        public static Quantifier NotAllLetterCharacters(int exactCount)
+        public static QuantifierExpression NotAllLetterCharacters(int exactCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.AllLetterCharacters).Count(exactCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.AllLetterCharacters).Count(exactCount);
         }
 
-        public static Quantifier NotAllLetterCharacters(int minCount, int maxCount)
+        public static QuantifierExpression NotAllLetterCharacters(int minCount, int maxCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.AllLetterCharacters).Count(minCount, maxCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.AllLetterCharacters).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression AllNumbers()
         {
-            return Characters.UnicodeCategory(UnicodeCategory.AllNumbers);
+            return Character.UnicodeCategory(UnicodeCategory.AllNumbers);
         }
 
-        public static Quantifier AllNumbers(int exactCount)
+        public static QuantifierExpression AllNumbers(int exactCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.AllNumbers).Count(exactCount);
+            return Character.UnicodeCategory(UnicodeCategory.AllNumbers).Count(exactCount);
         }
 
-        public static Quantifier AllNumbers(int minCount, int maxCount)
+        public static QuantifierExpression AllNumbers(int minCount, int maxCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.AllNumbers).Count(minCount, maxCount);
+            return Character.UnicodeCategory(UnicodeCategory.AllNumbers).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotAllNumbers()
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.AllNumbers);
+            return Character.NotUnicodeCategory(UnicodeCategory.AllNumbers);
         }
 
-        public static Quantifier NotAllNumbers(int exactCount)
+        public static QuantifierExpression NotAllNumbers(int exactCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.AllNumbers).Count(exactCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.AllNumbers).Count(exactCount);
         }
 
-        public static Quantifier NotAllNumbers(int minCount, int maxCount)
+        public static QuantifierExpression NotAllNumbers(int minCount, int maxCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.AllNumbers).Count(minCount, maxCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.AllNumbers).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression AllPunctuationCharacters()
         {
-            return Characters.UnicodeCategory(UnicodeCategory.AllPunctuationCharacters);
+            return Character.UnicodeCategory(UnicodeCategory.AllPunctuationCharacters);
         }
 
-        public static Quantifier AllPunctuationCharacters(int exactCount)
+        public static QuantifierExpression AllPunctuationCharacters(int exactCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.AllPunctuationCharacters).Count(exactCount);
+            return Character.UnicodeCategory(UnicodeCategory.AllPunctuationCharacters).Count(exactCount);
         }
 
-        public static Quantifier AllPunctuationCharacters(int minCount, int maxCount)
+        public static QuantifierExpression AllPunctuationCharacters(int minCount, int maxCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.AllPunctuationCharacters).Count(minCount, maxCount);
+            return Character.UnicodeCategory(UnicodeCategory.AllPunctuationCharacters).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotAllPunctuationCharacters()
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.AllPunctuationCharacters);
+            return Character.NotUnicodeCategory(UnicodeCategory.AllPunctuationCharacters);
         }
 
-        public static Quantifier NotAllPunctuationCharacters(int exactCount)
+        public static QuantifierExpression NotAllPunctuationCharacters(int exactCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.AllPunctuationCharacters).Count(exactCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.AllPunctuationCharacters).Count(exactCount);
         }
 
-        public static Quantifier NotAllPunctuationCharacters(int minCount, int maxCount)
+        public static QuantifierExpression NotAllPunctuationCharacters(int minCount, int maxCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.AllPunctuationCharacters).Count(minCount, maxCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.AllPunctuationCharacters).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression AllSeparatorCharacters()
         {
-            return Characters.UnicodeCategory(UnicodeCategory.AllSeparatorCharacters);
+            return Character.UnicodeCategory(UnicodeCategory.AllSeparatorCharacters);
         }
 
-        public static Quantifier AllSeparatorCharacters(int exactCount)
+        public static QuantifierExpression AllSeparatorCharacters(int exactCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.AllSeparatorCharacters).Count(exactCount);
+            return Character.UnicodeCategory(UnicodeCategory.AllSeparatorCharacters).Count(exactCount);
         }
 
-        public static Quantifier AllSeparatorCharacters(int minCount, int maxCount)
+        public static QuantifierExpression AllSeparatorCharacters(int minCount, int maxCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.AllSeparatorCharacters).Count(minCount, maxCount);
+            return Character.UnicodeCategory(UnicodeCategory.AllSeparatorCharacters).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotAllSeparatorCharacters()
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.AllSeparatorCharacters);
+            return Character.NotUnicodeCategory(UnicodeCategory.AllSeparatorCharacters);
         }
 
-        public static Quantifier NotAllSeparatorCharacters(int exactCount)
+        public static QuantifierExpression NotAllSeparatorCharacters(int exactCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.AllSeparatorCharacters).Count(exactCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.AllSeparatorCharacters).Count(exactCount);
         }
 
-        public static Quantifier NotAllSeparatorCharacters(int minCount, int maxCount)
+        public static QuantifierExpression NotAllSeparatorCharacters(int minCount, int maxCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.AllSeparatorCharacters).Count(minCount, maxCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.AllSeparatorCharacters).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression AllSymbols()
         {
-            return Characters.UnicodeCategory(UnicodeCategory.AllSymbols);
+            return Character.UnicodeCategory(UnicodeCategory.AllSymbols);
         }
 
-        public static Quantifier AllSymbols(int exactCount)
+        public static QuantifierExpression AllSymbols(int exactCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.AllSymbols).Count(exactCount);
+            return Character.UnicodeCategory(UnicodeCategory.AllSymbols).Count(exactCount);
         }
 
-        public static Quantifier AllSymbols(int minCount, int maxCount)
+        public static QuantifierExpression AllSymbols(int minCount, int maxCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.AllSymbols).Count(minCount, maxCount);
+            return Character.UnicodeCategory(UnicodeCategory.AllSymbols).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotAllSymbols()
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.AllSymbols);
+            return Character.NotUnicodeCategory(UnicodeCategory.AllSymbols);
         }
 
-        public static Quantifier NotAllSymbols(int exactCount)
+        public static QuantifierExpression NotAllSymbols(int exactCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.AllSymbols).Count(exactCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.AllSymbols).Count(exactCount);
         }
 
-        public static Quantifier NotAllSymbols(int minCount, int maxCount)
+        public static QuantifierExpression NotAllSymbols(int minCount, int maxCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.AllSymbols).Count(minCount, maxCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.AllSymbols).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression LetterLowercase()
         {
-            return Characters.UnicodeCategory(UnicodeCategory.LetterLowercase);
+            return Character.UnicodeCategory(UnicodeCategory.LetterLowercase);
         }
 
-        public static Quantifier LetterLowercase(int exactCount)
+        public static QuantifierExpression LetterLowercase(int exactCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.LetterLowercase).Count(exactCount);
+            return Character.UnicodeCategory(UnicodeCategory.LetterLowercase).Count(exactCount);
         }
 
-        public static Quantifier LetterLowercase(int minCount, int maxCount)
+        public static QuantifierExpression LetterLowercase(int minCount, int maxCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.LetterLowercase).Count(minCount, maxCount);
+            return Character.UnicodeCategory(UnicodeCategory.LetterLowercase).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotLetterLowercase()
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.LetterLowercase);
+            return Character.NotUnicodeCategory(UnicodeCategory.LetterLowercase);
         }
 
-        public static Quantifier NotLetterLowercase(int exactCount)
+        public static QuantifierExpression NotLetterLowercase(int exactCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.LetterLowercase).Count(exactCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.LetterLowercase).Count(exactCount);
         }
 
-        public static Quantifier NotLetterLowercase(int minCount, int maxCount)
+        public static QuantifierExpression NotLetterLowercase(int minCount, int maxCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.LetterLowercase).Count(minCount, maxCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.LetterLowercase).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression LetterModifier()
         {
-            return Characters.UnicodeCategory(UnicodeCategory.LetterModifier);
+            return Character.UnicodeCategory(UnicodeCategory.LetterModifier);
         }
 
-        public static Quantifier LetterModifier(int exactCount)
+        public static QuantifierExpression LetterModifier(int exactCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.LetterModifier).Count(exactCount);
+            return Character.UnicodeCategory(UnicodeCategory.LetterModifier).Count(exactCount);
         }
 
-        public static Quantifier LetterModifier(int minCount, int maxCount)
+        public static QuantifierExpression LetterModifier(int minCount, int maxCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.LetterModifier).Count(minCount, maxCount);
+            return Character.UnicodeCategory(UnicodeCategory.LetterModifier).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotLetterModifier()
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.LetterModifier);
+            return Character.NotUnicodeCategory(UnicodeCategory.LetterModifier);
         }
 
-        public static Quantifier NotLetterModifier(int exactCount)
+        public static QuantifierExpression NotLetterModifier(int exactCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.LetterModifier).Count(exactCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.LetterModifier).Count(exactCount);
         }
 
-        public static Quantifier NotLetterModifier(int minCount, int maxCount)
+        public static QuantifierExpression NotLetterModifier(int minCount, int maxCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.LetterModifier).Count(minCount, maxCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.LetterModifier).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression LetterOther()
         {
-            return Characters.UnicodeCategory(UnicodeCategory.LetterOther);
+            return Character.UnicodeCategory(UnicodeCategory.LetterOther);
         }
 
-        public static Quantifier LetterOther(int exactCount)
+        public static QuantifierExpression LetterOther(int exactCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.LetterOther).Count(exactCount);
+            return Character.UnicodeCategory(UnicodeCategory.LetterOther).Count(exactCount);
         }
 
-        public static Quantifier LetterOther(int minCount, int maxCount)
+        public static QuantifierExpression LetterOther(int minCount, int maxCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.LetterOther).Count(minCount, maxCount);
+            return Character.UnicodeCategory(UnicodeCategory.LetterOther).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotLetterOther()
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.LetterOther);
+            return Character.NotUnicodeCategory(UnicodeCategory.LetterOther);
         }
 
-        public static Quantifier NotLetterOther(int exactCount)
+        public static QuantifierExpression NotLetterOther(int exactCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.LetterOther).Count(exactCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.LetterOther).Count(exactCount);
         }
 
-        public static Quantifier NotLetterOther(int minCount, int maxCount)
+        public static QuantifierExpression NotLetterOther(int minCount, int maxCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.LetterOther).Count(minCount, maxCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.LetterOther).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression LetterTitlecase()
         {
-            return Characters.UnicodeCategory(UnicodeCategory.LetterTitlecase);
+            return Character.UnicodeCategory(UnicodeCategory.LetterTitlecase);
         }
 
-        public static Quantifier LetterTitlecase(int exactCount)
+        public static QuantifierExpression LetterTitlecase(int exactCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.LetterTitlecase).Count(exactCount);
+            return Character.UnicodeCategory(UnicodeCategory.LetterTitlecase).Count(exactCount);
         }
 
-        public static Quantifier LetterTitlecase(int minCount, int maxCount)
+        public static QuantifierExpression LetterTitlecase(int minCount, int maxCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.LetterTitlecase).Count(minCount, maxCount);
+            return Character.UnicodeCategory(UnicodeCategory.LetterTitlecase).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotLetterTitlecase()
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.LetterTitlecase);
+            return Character.NotUnicodeCategory(UnicodeCategory.LetterTitlecase);
         }
 
-        public static Quantifier NotLetterTitlecase(int exactCount)
+        public static QuantifierExpression NotLetterTitlecase(int exactCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.LetterTitlecase).Count(exactCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.LetterTitlecase).Count(exactCount);
         }
 
-        public static Quantifier NotLetterTitlecase(int minCount, int maxCount)
+        public static QuantifierExpression NotLetterTitlecase(int minCount, int maxCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.LetterTitlecase).Count(minCount, maxCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.LetterTitlecase).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression LetterUppercase()
         {
-            return Characters.UnicodeCategory(UnicodeCategory.LetterUppercase);
+            return Character.UnicodeCategory(UnicodeCategory.LetterUppercase);
         }
 
-        public static Quantifier LetterUppercase(int exactCount)
+        public static QuantifierExpression LetterUppercase(int exactCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.LetterUppercase).Count(exactCount);
+            return Character.UnicodeCategory(UnicodeCategory.LetterUppercase).Count(exactCount);
         }
 
-        public static Quantifier LetterUppercase(int minCount, int maxCount)
+        public static QuantifierExpression LetterUppercase(int minCount, int maxCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.LetterUppercase).Count(minCount, maxCount);
+            return Character.UnicodeCategory(UnicodeCategory.LetterUppercase).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotLetterUppercase()
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.LetterUppercase);
+            return Character.NotUnicodeCategory(UnicodeCategory.LetterUppercase);
         }
 
-        public static Quantifier NotLetterUppercase(int exactCount)
+        public static QuantifierExpression NotLetterUppercase(int exactCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.LetterUppercase).Count(exactCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.LetterUppercase).Count(exactCount);
         }
 
-        public static Quantifier NotLetterUppercase(int minCount, int maxCount)
+        public static QuantifierExpression NotLetterUppercase(int minCount, int maxCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.LetterUppercase).Count(minCount, maxCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.LetterUppercase).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression MarkEnclosing()
         {
-            return Characters.UnicodeCategory(UnicodeCategory.MarkEnclosing);
+            return Character.UnicodeCategory(UnicodeCategory.MarkEnclosing);
         }
 
-        public static Quantifier MarkEnclosing(int exactCount)
+        public static QuantifierExpression MarkEnclosing(int exactCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.MarkEnclosing).Count(exactCount);
+            return Character.UnicodeCategory(UnicodeCategory.MarkEnclosing).Count(exactCount);
         }
 
-        public static Quantifier MarkEnclosing(int minCount, int maxCount)
+        public static QuantifierExpression MarkEnclosing(int minCount, int maxCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.MarkEnclosing).Count(minCount, maxCount);
+            return Character.UnicodeCategory(UnicodeCategory.MarkEnclosing).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotMarkEnclosing()
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.MarkEnclosing);
+            return Character.NotUnicodeCategory(UnicodeCategory.MarkEnclosing);
         }
 
-        public static Quantifier NotMarkEnclosing(int exactCount)
+        public static QuantifierExpression NotMarkEnclosing(int exactCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.MarkEnclosing).Count(exactCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.MarkEnclosing).Count(exactCount);
         }
 
-        public static Quantifier NotMarkEnclosing(int minCount, int maxCount)
+        public static QuantifierExpression NotMarkEnclosing(int minCount, int maxCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.MarkEnclosing).Count(minCount, maxCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.MarkEnclosing).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression MarkNonspacing()
         {
-            return Characters.UnicodeCategory(UnicodeCategory.MarkNonspacing);
+            return Character.UnicodeCategory(UnicodeCategory.MarkNonspacing);
         }
 
-        public static Quantifier MarkNonspacing(int exactCount)
+        public static QuantifierExpression MarkNonspacing(int exactCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.MarkNonspacing).Count(exactCount);
+            return Character.UnicodeCategory(UnicodeCategory.MarkNonspacing).Count(exactCount);
         }
 
-        public static Quantifier MarkNonspacing(int minCount, int maxCount)
+        public static QuantifierExpression MarkNonspacing(int minCount, int maxCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.MarkNonspacing).Count(minCount, maxCount);
+            return Character.UnicodeCategory(UnicodeCategory.MarkNonspacing).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotMarkNonspacing()
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.MarkNonspacing);
+            return Character.NotUnicodeCategory(UnicodeCategory.MarkNonspacing);
         }
 
-        public static Quantifier NotMarkNonspacing(int exactCount)
+        public static QuantifierExpression NotMarkNonspacing(int exactCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.MarkNonspacing).Count(exactCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.MarkNonspacing).Count(exactCount);
         }
 
-        public static Quantifier NotMarkNonspacing(int minCount, int maxCount)
+        public static QuantifierExpression NotMarkNonspacing(int minCount, int maxCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.MarkNonspacing).Count(minCount, maxCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.MarkNonspacing).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression MarkSpacingCombining()
         {
-            return Characters.UnicodeCategory(UnicodeCategory.MarkSpacingCombining);
+            return Character.UnicodeCategory(UnicodeCategory.MarkSpacingCombining);
         }
 
-        public static Quantifier MarkSpacingCombining(int exactCount)
+        public static QuantifierExpression MarkSpacingCombining(int exactCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.MarkSpacingCombining).Count(exactCount);
+            return Character.UnicodeCategory(UnicodeCategory.MarkSpacingCombining).Count(exactCount);
         }
 
-        public static Quantifier MarkSpacingCombining(int minCount, int maxCount)
+        public static QuantifierExpression MarkSpacingCombining(int minCount, int maxCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.MarkSpacingCombining).Count(minCount, maxCount);
+            return Character.UnicodeCategory(UnicodeCategory.MarkSpacingCombining).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotMarkSpacingCombining()
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.MarkSpacingCombining);
+            return Character.NotUnicodeCategory(UnicodeCategory.MarkSpacingCombining);
         }
 
-        public static Quantifier NotMarkSpacingCombining(int exactCount)
+        public static QuantifierExpression NotMarkSpacingCombining(int exactCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.MarkSpacingCombining).Count(exactCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.MarkSpacingCombining).Count(exactCount);
         }
 
-        public static Quantifier NotMarkSpacingCombining(int minCount, int maxCount)
+        public static QuantifierExpression NotMarkSpacingCombining(int minCount, int maxCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.MarkSpacingCombining).Count(minCount, maxCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.MarkSpacingCombining).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression NumberDecimalDigit()
         {
-            return Characters.UnicodeCategory(UnicodeCategory.NumberDecimalDigit);
+            return Character.UnicodeCategory(UnicodeCategory.NumberDecimalDigit);
         }
 
-        public static Quantifier NumberDecimalDigit(int exactCount)
+        public static QuantifierExpression NumberDecimalDigit(int exactCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.NumberDecimalDigit).Count(exactCount);
+            return Character.UnicodeCategory(UnicodeCategory.NumberDecimalDigit).Count(exactCount);
         }
 
-        public static Quantifier NumberDecimalDigit(int minCount, int maxCount)
+        public static QuantifierExpression NumberDecimalDigit(int minCount, int maxCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.NumberDecimalDigit).Count(minCount, maxCount);
+            return Character.UnicodeCategory(UnicodeCategory.NumberDecimalDigit).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotNumberDecimalDigit()
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.NumberDecimalDigit);
+            return Character.NotUnicodeCategory(UnicodeCategory.NumberDecimalDigit);
         }
 
-        public static Quantifier NotNumberDecimalDigit(int exactCount)
+        public static QuantifierExpression NotNumberDecimalDigit(int exactCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.NumberDecimalDigit).Count(exactCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.NumberDecimalDigit).Count(exactCount);
         }
 
-        public static Quantifier NotNumberDecimalDigit(int minCount, int maxCount)
+        public static QuantifierExpression NotNumberDecimalDigit(int minCount, int maxCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.NumberDecimalDigit).Count(minCount, maxCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.NumberDecimalDigit).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression NumberLetter()
         {
-            return Characters.UnicodeCategory(UnicodeCategory.NumberLetter);
+            return Character.UnicodeCategory(UnicodeCategory.NumberLetter);
         }
 
-        public static Quantifier NumberLetter(int exactCount)
+        public static QuantifierExpression NumberLetter(int exactCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.NumberLetter).Count(exactCount);
+            return Character.UnicodeCategory(UnicodeCategory.NumberLetter).Count(exactCount);
         }
 
-        public static Quantifier NumberLetter(int minCount, int maxCount)
+        public static QuantifierExpression NumberLetter(int minCount, int maxCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.NumberLetter).Count(minCount, maxCount);
+            return Character.UnicodeCategory(UnicodeCategory.NumberLetter).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotNumberLetter()
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.NumberLetter);
+            return Character.NotUnicodeCategory(UnicodeCategory.NumberLetter);
         }
 
-        public static Quantifier NotNumberLetter(int exactCount)
+        public static QuantifierExpression NotNumberLetter(int exactCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.NumberLetter).Count(exactCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.NumberLetter).Count(exactCount);
         }
 
-        public static Quantifier NotNumberLetter(int minCount, int maxCount)
+        public static QuantifierExpression NotNumberLetter(int minCount, int maxCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.NumberLetter).Count(minCount, maxCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.NumberLetter).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression NumberOther()
         {
-            return Characters.UnicodeCategory(UnicodeCategory.NumberOther);
+            return Character.UnicodeCategory(UnicodeCategory.NumberOther);
         }
 
-        public static Quantifier NumberOther(int exactCount)
+        public static QuantifierExpression NumberOther(int exactCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.NumberOther).Count(exactCount);
+            return Character.UnicodeCategory(UnicodeCategory.NumberOther).Count(exactCount);
         }
 
-        public static Quantifier NumberOther(int minCount, int maxCount)
+        public static QuantifierExpression NumberOther(int minCount, int maxCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.NumberOther).Count(minCount, maxCount);
+            return Character.UnicodeCategory(UnicodeCategory.NumberOther).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotNumberOther()
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.NumberOther);
+            return Character.NotUnicodeCategory(UnicodeCategory.NumberOther);
         }
 
-        public static Quantifier NotNumberOther(int exactCount)
+        public static QuantifierExpression NotNumberOther(int exactCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.NumberOther).Count(exactCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.NumberOther).Count(exactCount);
         }
 
-        public static Quantifier NotNumberOther(int minCount, int maxCount)
+        public static QuantifierExpression NotNumberOther(int minCount, int maxCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.NumberOther).Count(minCount, maxCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.NumberOther).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression OtherControl()
         {
-            return Characters.UnicodeCategory(UnicodeCategory.OtherControl);
+            return Character.UnicodeCategory(UnicodeCategory.OtherControl);
         }
 
-        public static Quantifier OtherControl(int exactCount)
+        public static QuantifierExpression OtherControl(int exactCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.OtherControl).Count(exactCount);
+            return Character.UnicodeCategory(UnicodeCategory.OtherControl).Count(exactCount);
         }
 
-        public static Quantifier OtherControl(int minCount, int maxCount)
+        public static QuantifierExpression OtherControl(int minCount, int maxCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.OtherControl).Count(minCount, maxCount);
+            return Character.UnicodeCategory(UnicodeCategory.OtherControl).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotOtherControl()
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.OtherControl);
+            return Character.NotUnicodeCategory(UnicodeCategory.OtherControl);
         }
 
-        public static Quantifier NotOtherControl(int exactCount)
+        public static QuantifierExpression NotOtherControl(int exactCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.OtherControl).Count(exactCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.OtherControl).Count(exactCount);
         }
 
-        public static Quantifier NotOtherControl(int minCount, int maxCount)
+        public static QuantifierExpression NotOtherControl(int minCount, int maxCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.OtherControl).Count(minCount, maxCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.OtherControl).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression OtherFormat()
         {
-            return Characters.UnicodeCategory(UnicodeCategory.OtherFormat);
+            return Character.UnicodeCategory(UnicodeCategory.OtherFormat);
         }
 
-        public static Quantifier OtherFormat(int exactCount)
+        public static QuantifierExpression OtherFormat(int exactCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.OtherFormat).Count(exactCount);
+            return Character.UnicodeCategory(UnicodeCategory.OtherFormat).Count(exactCount);
         }
 
-        public static Quantifier OtherFormat(int minCount, int maxCount)
+        public static QuantifierExpression OtherFormat(int minCount, int maxCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.OtherFormat).Count(minCount, maxCount);
+            return Character.UnicodeCategory(UnicodeCategory.OtherFormat).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotOtherFormat()
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.OtherFormat);
+            return Character.NotUnicodeCategory(UnicodeCategory.OtherFormat);
         }
 
-        public static Quantifier NotOtherFormat(int exactCount)
+        public static QuantifierExpression NotOtherFormat(int exactCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.OtherFormat).Count(exactCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.OtherFormat).Count(exactCount);
         }
 
-        public static Quantifier NotOtherFormat(int minCount, int maxCount)
+        public static QuantifierExpression NotOtherFormat(int minCount, int maxCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.OtherFormat).Count(minCount, maxCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.OtherFormat).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression OtherNotAssigned()
         {
-            return Characters.UnicodeCategory(UnicodeCategory.OtherNotAssigned);
+            return Character.UnicodeCategory(UnicodeCategory.OtherNotAssigned);
         }
 
-        public static Quantifier OtherNotAssigned(int exactCount)
+        public static QuantifierExpression OtherNotAssigned(int exactCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.OtherNotAssigned).Count(exactCount);
+            return Character.UnicodeCategory(UnicodeCategory.OtherNotAssigned).Count(exactCount);
         }
 
-        public static Quantifier OtherNotAssigned(int minCount, int maxCount)
+        public static QuantifierExpression OtherNotAssigned(int minCount, int maxCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.OtherNotAssigned).Count(minCount, maxCount);
+            return Character.UnicodeCategory(UnicodeCategory.OtherNotAssigned).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotOtherNotAssigned()
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.OtherNotAssigned);
+            return Character.NotUnicodeCategory(UnicodeCategory.OtherNotAssigned);
         }
 
-        public static Quantifier NotOtherNotAssigned(int exactCount)
+        public static QuantifierExpression NotOtherNotAssigned(int exactCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.OtherNotAssigned).Count(exactCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.OtherNotAssigned).Count(exactCount);
         }
 
-        public static Quantifier NotOtherNotAssigned(int minCount, int maxCount)
+        public static QuantifierExpression NotOtherNotAssigned(int minCount, int maxCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.OtherNotAssigned).Count(minCount, maxCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.OtherNotAssigned).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression OtherPrivateUse()
         {
-            return Characters.UnicodeCategory(UnicodeCategory.OtherPrivateUse);
+            return Character.UnicodeCategory(UnicodeCategory.OtherPrivateUse);
         }
 
-        public static Quantifier OtherPrivateUse(int exactCount)
+        public static QuantifierExpression OtherPrivateUse(int exactCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.OtherPrivateUse).Count(exactCount);
+            return Character.UnicodeCategory(UnicodeCategory.OtherPrivateUse).Count(exactCount);
         }
 
-        public static Quantifier OtherPrivateUse(int minCount, int maxCount)
+        public static QuantifierExpression OtherPrivateUse(int minCount, int maxCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.OtherPrivateUse).Count(minCount, maxCount);
+            return Character.UnicodeCategory(UnicodeCategory.OtherPrivateUse).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotOtherPrivateUse()
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.OtherPrivateUse);
+            return Character.NotUnicodeCategory(UnicodeCategory.OtherPrivateUse);
         }
 
-        public static Quantifier NotOtherPrivateUse(int exactCount)
+        public static QuantifierExpression NotOtherPrivateUse(int exactCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.OtherPrivateUse).Count(exactCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.OtherPrivateUse).Count(exactCount);
         }
 
-        public static Quantifier NotOtherPrivateUse(int minCount, int maxCount)
+        public static QuantifierExpression NotOtherPrivateUse(int minCount, int maxCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.OtherPrivateUse).Count(minCount, maxCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.OtherPrivateUse).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression OtherSurrogate()
         {
-            return Characters.UnicodeCategory(UnicodeCategory.OtherSurrogate);
+            return Character.UnicodeCategory(UnicodeCategory.OtherSurrogate);
         }
 
-        public static Quantifier OtherSurrogate(int exactCount)
+        public static QuantifierExpression OtherSurrogate(int exactCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.OtherSurrogate).Count(exactCount);
+            return Character.UnicodeCategory(UnicodeCategory.OtherSurrogate).Count(exactCount);
         }
 
-        public static Quantifier OtherSurrogate(int minCount, int maxCount)
+        public static QuantifierExpression OtherSurrogate(int minCount, int maxCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.OtherSurrogate).Count(minCount, maxCount);
+            return Character.UnicodeCategory(UnicodeCategory.OtherSurrogate).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotOtherSurrogate()
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.OtherSurrogate);
+            return Character.NotUnicodeCategory(UnicodeCategory.OtherSurrogate);
         }
 
-        public static Quantifier NotOtherSurrogate(int exactCount)
+        public static QuantifierExpression NotOtherSurrogate(int exactCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.OtherSurrogate).Count(exactCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.OtherSurrogate).Count(exactCount);
         }
 
-        public static Quantifier NotOtherSurrogate(int minCount, int maxCount)
+        public static QuantifierExpression NotOtherSurrogate(int minCount, int maxCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.OtherSurrogate).Count(minCount, maxCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.OtherSurrogate).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression PunctuationClose()
         {
-            return Characters.UnicodeCategory(UnicodeCategory.PunctuationClose);
+            return Character.UnicodeCategory(UnicodeCategory.PunctuationClose);
         }
 
-        public static Quantifier PunctuationClose(int exactCount)
+        public static QuantifierExpression PunctuationClose(int exactCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.PunctuationClose).Count(exactCount);
+            return Character.UnicodeCategory(UnicodeCategory.PunctuationClose).Count(exactCount);
         }
 
-        public static Quantifier PunctuationClose(int minCount, int maxCount)
+        public static QuantifierExpression PunctuationClose(int minCount, int maxCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.PunctuationClose).Count(minCount, maxCount);
+            return Character.UnicodeCategory(UnicodeCategory.PunctuationClose).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotPunctuationClose()
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.PunctuationClose);
+            return Character.NotUnicodeCategory(UnicodeCategory.PunctuationClose);
         }
 
-        public static Quantifier NotPunctuationClose(int exactCount)
+        public static QuantifierExpression NotPunctuationClose(int exactCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.PunctuationClose).Count(exactCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.PunctuationClose).Count(exactCount);
         }
 
-        public static Quantifier NotPunctuationClose(int minCount, int maxCount)
+        public static QuantifierExpression NotPunctuationClose(int minCount, int maxCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.PunctuationClose).Count(minCount, maxCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.PunctuationClose).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression PunctuationConnector()
         {
-            return Characters.UnicodeCategory(UnicodeCategory.PunctuationConnector);
+            return Character.UnicodeCategory(UnicodeCategory.PunctuationConnector);
         }
 
-        public static Quantifier PunctuationConnector(int exactCount)
+        public static QuantifierExpression PunctuationConnector(int exactCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.PunctuationConnector).Count(exactCount);
+            return Character.UnicodeCategory(UnicodeCategory.PunctuationConnector).Count(exactCount);
         }
 
-        public static Quantifier PunctuationConnector(int minCount, int maxCount)
+        public static QuantifierExpression PunctuationConnector(int minCount, int maxCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.PunctuationConnector).Count(minCount, maxCount);
+            return Character.UnicodeCategory(UnicodeCategory.PunctuationConnector).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotPunctuationConnector()
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.PunctuationConnector);
+            return Character.NotUnicodeCategory(UnicodeCategory.PunctuationConnector);
         }
 
-        public static Quantifier NotPunctuationConnector(int exactCount)
+        public static QuantifierExpression NotPunctuationConnector(int exactCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.PunctuationConnector).Count(exactCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.PunctuationConnector).Count(exactCount);
         }
 
-        public static Quantifier NotPunctuationConnector(int minCount, int maxCount)
+        public static QuantifierExpression NotPunctuationConnector(int minCount, int maxCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.PunctuationConnector).Count(minCount, maxCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.PunctuationConnector).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression PunctuationDash()
         {
-            return Characters.UnicodeCategory(UnicodeCategory.PunctuationDash);
+            return Character.UnicodeCategory(UnicodeCategory.PunctuationDash);
         }
 
-        public static Quantifier PunctuationDash(int exactCount)
+        public static QuantifierExpression PunctuationDash(int exactCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.PunctuationDash).Count(exactCount);
+            return Character.UnicodeCategory(UnicodeCategory.PunctuationDash).Count(exactCount);
         }
 
-        public static Quantifier PunctuationDash(int minCount, int maxCount)
+        public static QuantifierExpression PunctuationDash(int minCount, int maxCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.PunctuationDash).Count(minCount, maxCount);
+            return Character.UnicodeCategory(UnicodeCategory.PunctuationDash).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotPunctuationDash()
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.PunctuationDash);
+            return Character.NotUnicodeCategory(UnicodeCategory.PunctuationDash);
         }
 
-        public static Quantifier NotPunctuationDash(int exactCount)
+        public static QuantifierExpression NotPunctuationDash(int exactCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.PunctuationDash).Count(exactCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.PunctuationDash).Count(exactCount);
         }
 
-        public static Quantifier NotPunctuationDash(int minCount, int maxCount)
+        public static QuantifierExpression NotPunctuationDash(int minCount, int maxCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.PunctuationDash).Count(minCount, maxCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.PunctuationDash).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression PunctuationFinalQuote()
         {
-            return Characters.UnicodeCategory(UnicodeCategory.PunctuationFinalQuote);
+            return Character.UnicodeCategory(UnicodeCategory.PunctuationFinalQuote);
         }
 
-        public static Quantifier PunctuationFinalQuote(int exactCount)
+        public static QuantifierExpression PunctuationFinalQuote(int exactCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.PunctuationFinalQuote).Count(exactCount);
+            return Character.UnicodeCategory(UnicodeCategory.PunctuationFinalQuote).Count(exactCount);
         }
 
-        public static Quantifier PunctuationFinalQuote(int minCount, int maxCount)
+        public static QuantifierExpression PunctuationFinalQuote(int minCount, int maxCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.PunctuationFinalQuote).Count(minCount, maxCount);
+            return Character.UnicodeCategory(UnicodeCategory.PunctuationFinalQuote).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotPunctuationFinalQuote()
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.PunctuationFinalQuote);
+            return Character.NotUnicodeCategory(UnicodeCategory.PunctuationFinalQuote);
         }
 
-        public static Quantifier NotPunctuationFinalQuote(int exactCount)
+        public static QuantifierExpression NotPunctuationFinalQuote(int exactCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.PunctuationFinalQuote).Count(exactCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.PunctuationFinalQuote).Count(exactCount);
         }
 
-        public static Quantifier NotPunctuationFinalQuote(int minCount, int maxCount)
+        public static QuantifierExpression NotPunctuationFinalQuote(int minCount, int maxCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.PunctuationFinalQuote).Count(minCount, maxCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.PunctuationFinalQuote).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression PunctuationInitialQuote()
         {
-            return Characters.UnicodeCategory(UnicodeCategory.PunctuationInitialQuote);
+            return Character.UnicodeCategory(UnicodeCategory.PunctuationInitialQuote);
         }
 
-        public static Quantifier PunctuationInitialQuote(int exactCount)
+        public static QuantifierExpression PunctuationInitialQuote(int exactCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.PunctuationInitialQuote).Count(exactCount);
+            return Character.UnicodeCategory(UnicodeCategory.PunctuationInitialQuote).Count(exactCount);
         }
 
-        public static Quantifier PunctuationInitialQuote(int minCount, int maxCount)
+        public static QuantifierExpression PunctuationInitialQuote(int minCount, int maxCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.PunctuationInitialQuote).Count(minCount, maxCount);
+            return Character.UnicodeCategory(UnicodeCategory.PunctuationInitialQuote).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotPunctuationInitialQuote()
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.PunctuationInitialQuote);
+            return Character.NotUnicodeCategory(UnicodeCategory.PunctuationInitialQuote);
         }
 
-        public static Quantifier NotPunctuationInitialQuote(int exactCount)
+        public static QuantifierExpression NotPunctuationInitialQuote(int exactCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.PunctuationInitialQuote).Count(exactCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.PunctuationInitialQuote).Count(exactCount);
         }
 
-        public static Quantifier NotPunctuationInitialQuote(int minCount, int maxCount)
+        public static QuantifierExpression NotPunctuationInitialQuote(int minCount, int maxCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.PunctuationInitialQuote).Count(minCount, maxCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.PunctuationInitialQuote).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression PunctuationOpen()
         {
-            return Characters.UnicodeCategory(UnicodeCategory.PunctuationOpen);
+            return Character.UnicodeCategory(UnicodeCategory.PunctuationOpen);
         }
 
-        public static Quantifier PunctuationOpen(int exactCount)
+        public static QuantifierExpression PunctuationOpen(int exactCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.PunctuationOpen).Count(exactCount);
+            return Character.UnicodeCategory(UnicodeCategory.PunctuationOpen).Count(exactCount);
         }
 
-        public static Quantifier PunctuationOpen(int minCount, int maxCount)
+        public static QuantifierExpression PunctuationOpen(int minCount, int maxCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.PunctuationOpen).Count(minCount, maxCount);
+            return Character.UnicodeCategory(UnicodeCategory.PunctuationOpen).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotPunctuationOpen()
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.PunctuationOpen);
+            return Character.NotUnicodeCategory(UnicodeCategory.PunctuationOpen);
         }
 
-        public static Quantifier NotPunctuationOpen(int exactCount)
+        public static QuantifierExpression NotPunctuationOpen(int exactCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.PunctuationOpen).Count(exactCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.PunctuationOpen).Count(exactCount);
         }
 
-        public static Quantifier NotPunctuationOpen(int minCount, int maxCount)
+        public static QuantifierExpression NotPunctuationOpen(int minCount, int maxCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.PunctuationOpen).Count(minCount, maxCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.PunctuationOpen).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression PunctuationOther()
         {
-            return Characters.UnicodeCategory(UnicodeCategory.PunctuationOther);
+            return Character.UnicodeCategory(UnicodeCategory.PunctuationOther);
         }
 
-        public static Quantifier PunctuationOther(int exactCount)
+        public static QuantifierExpression PunctuationOther(int exactCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.PunctuationOther).Count(exactCount);
+            return Character.UnicodeCategory(UnicodeCategory.PunctuationOther).Count(exactCount);
         }
 
-        public static Quantifier PunctuationOther(int minCount, int maxCount)
+        public static QuantifierExpression PunctuationOther(int minCount, int maxCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.PunctuationOther).Count(minCount, maxCount);
+            return Character.UnicodeCategory(UnicodeCategory.PunctuationOther).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotPunctuationOther()
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.PunctuationOther);
+            return Character.NotUnicodeCategory(UnicodeCategory.PunctuationOther);
         }
 
-        public static Quantifier NotPunctuationOther(int exactCount)
+        public static QuantifierExpression NotPunctuationOther(int exactCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.PunctuationOther).Count(exactCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.PunctuationOther).Count(exactCount);
         }
 
-        public static Quantifier NotPunctuationOther(int minCount, int maxCount)
+        public static QuantifierExpression NotPunctuationOther(int minCount, int maxCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.PunctuationOther).Count(minCount, maxCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.PunctuationOther).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression SeparatorLine()
         {
-            return Characters.UnicodeCategory(UnicodeCategory.SeparatorLine);
+            return Character.UnicodeCategory(UnicodeCategory.SeparatorLine);
         }
 
-        public static Quantifier SeparatorLine(int exactCount)
+        public static QuantifierExpression SeparatorLine(int exactCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.SeparatorLine).Count(exactCount);
+            return Character.UnicodeCategory(UnicodeCategory.SeparatorLine).Count(exactCount);
         }
 
-        public static Quantifier SeparatorLine(int minCount, int maxCount)
+        public static QuantifierExpression SeparatorLine(int minCount, int maxCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.SeparatorLine).Count(minCount, maxCount);
+            return Character.UnicodeCategory(UnicodeCategory.SeparatorLine).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotSeparatorLine()
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.SeparatorLine);
+            return Character.NotUnicodeCategory(UnicodeCategory.SeparatorLine);
         }
 
-        public static Quantifier NotSeparatorLine(int exactCount)
+        public static QuantifierExpression NotSeparatorLine(int exactCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.SeparatorLine).Count(exactCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.SeparatorLine).Count(exactCount);
         }
 
-        public static Quantifier NotSeparatorLine(int minCount, int maxCount)
+        public static QuantifierExpression NotSeparatorLine(int minCount, int maxCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.SeparatorLine).Count(minCount, maxCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.SeparatorLine).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression SeparatorParagraph()
         {
-            return Characters.UnicodeCategory(UnicodeCategory.SeparatorParagraph);
+            return Character.UnicodeCategory(UnicodeCategory.SeparatorParagraph);
         }
 
-        public static Quantifier SeparatorParagraph(int exactCount)
+        public static QuantifierExpression SeparatorParagraph(int exactCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.SeparatorParagraph).Count(exactCount);
+            return Character.UnicodeCategory(UnicodeCategory.SeparatorParagraph).Count(exactCount);
         }
 
-        public static Quantifier SeparatorParagraph(int minCount, int maxCount)
+        public static QuantifierExpression SeparatorParagraph(int minCount, int maxCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.SeparatorParagraph).Count(minCount, maxCount);
+            return Character.UnicodeCategory(UnicodeCategory.SeparatorParagraph).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotSeparatorParagraph()
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.SeparatorParagraph);
+            return Character.NotUnicodeCategory(UnicodeCategory.SeparatorParagraph);
         }
 
-        public static Quantifier NotSeparatorParagraph(int exactCount)
+        public static QuantifierExpression NotSeparatorParagraph(int exactCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.SeparatorParagraph).Count(exactCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.SeparatorParagraph).Count(exactCount);
         }
 
-        public static Quantifier NotSeparatorParagraph(int minCount, int maxCount)
+        public static QuantifierExpression NotSeparatorParagraph(int minCount, int maxCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.SeparatorParagraph).Count(minCount, maxCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.SeparatorParagraph).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression SeparatorSpace()
         {
-            return Characters.UnicodeCategory(UnicodeCategory.SeparatorSpace);
+            return Character.UnicodeCategory(UnicodeCategory.SeparatorSpace);
         }
 
-        public static Quantifier SeparatorSpace(int exactCount)
+        public static QuantifierExpression SeparatorSpace(int exactCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.SeparatorSpace).Count(exactCount);
+            return Character.UnicodeCategory(UnicodeCategory.SeparatorSpace).Count(exactCount);
         }
 
-        public static Quantifier SeparatorSpace(int minCount, int maxCount)
+        public static QuantifierExpression SeparatorSpace(int minCount, int maxCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.SeparatorSpace).Count(minCount, maxCount);
+            return Character.UnicodeCategory(UnicodeCategory.SeparatorSpace).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotSeparatorSpace()
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.SeparatorSpace);
+            return Character.NotUnicodeCategory(UnicodeCategory.SeparatorSpace);
         }
 
-        public static Quantifier NotSeparatorSpace(int exactCount)
+        public static QuantifierExpression NotSeparatorSpace(int exactCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.SeparatorSpace).Count(exactCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.SeparatorSpace).Count(exactCount);
         }
 
-        public static Quantifier NotSeparatorSpace(int minCount, int maxCount)
+        public static QuantifierExpression NotSeparatorSpace(int minCount, int maxCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.SeparatorSpace).Count(minCount, maxCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.SeparatorSpace).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression SymbolCurrency()
         {
-            return Characters.UnicodeCategory(UnicodeCategory.SymbolCurrency);
+            return Character.UnicodeCategory(UnicodeCategory.SymbolCurrency);
         }
 
-        public static Quantifier SymbolCurrency(int exactCount)
+        public static QuantifierExpression SymbolCurrency(int exactCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.SymbolCurrency).Count(exactCount);
+            return Character.UnicodeCategory(UnicodeCategory.SymbolCurrency).Count(exactCount);
         }
 
-        public static Quantifier SymbolCurrency(int minCount, int maxCount)
+        public static QuantifierExpression SymbolCurrency(int minCount, int maxCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.SymbolCurrency).Count(minCount, maxCount);
+            return Character.UnicodeCategory(UnicodeCategory.SymbolCurrency).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotSymbolCurrency()
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.SymbolCurrency);
+            return Character.NotUnicodeCategory(UnicodeCategory.SymbolCurrency);
         }
 
-        public static Quantifier NotSymbolCurrency(int exactCount)
+        public static QuantifierExpression NotSymbolCurrency(int exactCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.SymbolCurrency).Count(exactCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.SymbolCurrency).Count(exactCount);
         }
 
-        public static Quantifier NotSymbolCurrency(int minCount, int maxCount)
+        public static QuantifierExpression NotSymbolCurrency(int minCount, int maxCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.SymbolCurrency).Count(minCount, maxCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.SymbolCurrency).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression SymbolMath()
         {
-            return Characters.UnicodeCategory(UnicodeCategory.SymbolMath);
+            return Character.UnicodeCategory(UnicodeCategory.SymbolMath);
         }
 
-        public static Quantifier SymbolMath(int exactCount)
+        public static QuantifierExpression SymbolMath(int exactCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.SymbolMath).Count(exactCount);
+            return Character.UnicodeCategory(UnicodeCategory.SymbolMath).Count(exactCount);
         }
 
-        public static Quantifier SymbolMath(int minCount, int maxCount)
+        public static QuantifierExpression SymbolMath(int minCount, int maxCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.SymbolMath).Count(minCount, maxCount);
+            return Character.UnicodeCategory(UnicodeCategory.SymbolMath).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotSymbolMath()
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.SymbolMath);
+            return Character.NotUnicodeCategory(UnicodeCategory.SymbolMath);
         }
 
-        public static Quantifier NotSymbolMath(int exactCount)
+        public static QuantifierExpression NotSymbolMath(int exactCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.SymbolMath).Count(exactCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.SymbolMath).Count(exactCount);
         }
 
-        public static Quantifier NotSymbolMath(int minCount, int maxCount)
+        public static QuantifierExpression NotSymbolMath(int minCount, int maxCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.SymbolMath).Count(minCount, maxCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.SymbolMath).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression SymbolModifier()
         {
-            return Characters.UnicodeCategory(UnicodeCategory.SymbolModifier);
+            return Character.UnicodeCategory(UnicodeCategory.SymbolModifier);
         }
 
-        public static Quantifier SymbolModifier(int exactCount)
+        public static QuantifierExpression SymbolModifier(int exactCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.SymbolModifier).Count(exactCount);
+            return Character.UnicodeCategory(UnicodeCategory.SymbolModifier).Count(exactCount);
         }
 
-        public static Quantifier SymbolModifier(int minCount, int maxCount)
+        public static QuantifierExpression SymbolModifier(int minCount, int maxCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.SymbolModifier).Count(minCount, maxCount);
+            return Character.UnicodeCategory(UnicodeCategory.SymbolModifier).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotSymbolModifier()
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.SymbolModifier);
+            return Character.NotUnicodeCategory(UnicodeCategory.SymbolModifier);
         }
 
-        public static Quantifier NotSymbolModifier(int exactCount)
+        public static QuantifierExpression NotSymbolModifier(int exactCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.SymbolModifier).Count(exactCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.SymbolModifier).Count(exactCount);
         }
 
-        public static Quantifier NotSymbolModifier(int minCount, int maxCount)
+        public static QuantifierExpression NotSymbolModifier(int minCount, int maxCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.SymbolModifier).Count(minCount, maxCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.SymbolModifier).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression SymbolOther()
         {
-            return Characters.UnicodeCategory(UnicodeCategory.SymbolOther);
+            return Character.UnicodeCategory(UnicodeCategory.SymbolOther);
         }
 
-        public static Quantifier SymbolOther(int exactCount)
+        public static QuantifierExpression SymbolOther(int exactCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.SymbolOther).Count(exactCount);
+            return Character.UnicodeCategory(UnicodeCategory.SymbolOther).Count(exactCount);
         }
 
-        public static Quantifier SymbolOther(int minCount, int maxCount)
+        public static QuantifierExpression SymbolOther(int minCount, int maxCount)
         {
-            return Characters.UnicodeCategory(UnicodeCategory.SymbolOther).Count(minCount, maxCount);
+            return Character.UnicodeCategory(UnicodeCategory.SymbolOther).Count(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotSymbolOther()
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.SymbolOther);
+            return Character.NotUnicodeCategory(UnicodeCategory.SymbolOther);
         }
 
-        public static Quantifier NotSymbolOther(int exactCount)
+        public static QuantifierExpression NotSymbolOther(int exactCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.SymbolOther).Count(exactCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.SymbolOther).Count(exactCount);
         }
 
-        public static Quantifier NotSymbolOther(int minCount, int maxCount)
+        public static QuantifierExpression NotSymbolOther(int minCount, int maxCount)
         {
-            return Characters.NotUnicodeCategory(UnicodeCategory.SymbolOther).Count(minCount, maxCount);
+            return Character.NotUnicodeCategory(UnicodeCategory.SymbolOther).Count(minCount, maxCount);
         }
     }
 }

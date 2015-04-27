@@ -4,7 +4,7 @@
 namespace Pihrtsoft.Regexator.Builder
 {
     internal class CharRangeGroup
-        : CharGroup
+        : CharGrouping
     {
         private readonly char _first;
         private readonly char _last;

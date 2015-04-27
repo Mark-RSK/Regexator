@@ -6,7 +6,7 @@ using System;
 namespace Pihrtsoft.Regexator.Builder
 {
     internal class TextCharGroup
-        : CharGroup
+        : CharGrouping
     {
         private readonly string _value;
 

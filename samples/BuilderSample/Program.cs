@@ -9,7 +9,7 @@ namespace Pihrtsoft.Regexator.Samples
         static void Main(string[] args)
         {
             Console.WriteLine("leading whitespace:");
-            Console.WriteLine(Anchors.StartOfLine().WhiteSpaceExceptNewLine().OneMany());
+            Console.WriteLine(Anchor.StartOfLine().WhiteSpaceExceptNewLine().OneMany());
             Console.WriteLine("");
 
             Console.WriteLine("trailing whitespace:");
@@ -17,20 +17,20 @@ namespace Pihrtsoft.Regexator.Samples
             Console.WriteLine("");
 
             Console.WriteLine("leading trailing whitespace:");
-            Console.WriteLine(Alternations.Any(
-                Anchors.StartOfLine().WhiteSpaceExceptNewLine().OneMany(),
+            Console.WriteLine(Alternation.Any(
+                Anchor.StartOfLine().WhiteSpaceExceptNewLine().OneMany(),
                 Expressions.WhiteSpaceExceptNewLine().OneMany().EndOfLineOrBeforeCarriageReturn()));
             Console.WriteLine("");
 
             Console.WriteLine("whitespace lines:");
             Console.WriteLine(Expressions.Options(InlineOptions.Multiline).Any(
-                Anchors.StartOfLine().WhiteSpace().MaybeMany().NewLine(),
+                Anchor.StartOfLine().WhiteSpace().MaybeMany().NewLine(),
                 Expressions.NewLine().WhiteSpace().MaybeMany().End()));
             Console.WriteLine("");
 
             Console.WriteLine("empty lines:");
             Console.WriteLine(Expressions.Options(InlineOptions.Multiline).Any(
-                Anchors.StartOfLine().NewLine(),
+                Anchor.StartOfLine().NewLine(),
                 Expressions.NewLine().OneMany().End()
             ));
             Console.WriteLine("");
@@ -40,11 +40,11 @@ namespace Pihrtsoft.Regexator.Samples
             Console.WriteLine("");
 
             Console.WriteLine("lf without cr:");
-            Console.WriteLine(Characters.CarriageReturn().AsNotLookbehind().Linefeed().AsNonbacktracking());
+            Console.WriteLine(Character.CarriageReturn().AsNotLookbehind().Linefeed().AsNonbacktracking());
             Console.WriteLine("");
 
             Console.WriteLine("file name invalid chars:");
-            Console.WriteLine(Groups.Chars(Path.GetInvalidFileNameChars()).AsNonbacktracking());
+            Console.WriteLine(Grouping.Chars(Path.GetInvalidFileNameChars()).AsNonbacktracking());
             Console.WriteLine("");
 
             Console.ReadKey();
