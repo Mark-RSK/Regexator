@@ -1,14 +1,17 @@
 // Copyright (c) Josef Pihrt. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 namespace Pihrtsoft.Regexator.Builder
 {
     public abstract partial class CharItem
         : IBaseGroup, IExcludedGroup
     {
-        private Collection<CharItem> _items;
+        private CharItem _previous;
 
         protected CharItem()
         {
@@ -16,12 +19,40 @@ namespace Pihrtsoft.Regexator.Builder
 
         private CharItem Append(CharItem item)
         {
-            if (_items == null)
+            if (item == null) { throw new ArgumentNullException("item"); }
+            CharItem first = item;
+            while (first.Previous != null)
             {
-                _items = new Collection<CharItem>();
+                first = first.Previous;
             }
-            _items.Add(item);
-            return this;
+            first.Previous = this;
+            return item;
+        }
+
+        internal IEnumerable<string> EnumerateValues()
+        {
+            if (Previous != null)
+            {
+                var items = new Stack<CharItem>(this.EnumerateExpressions());
+                while (items.Count > 0)
+                {
+                    yield return items.Pop().Content;
+                }
+            }
+            else
+            {
+                yield return Content;
+            }
+        }
+
+        private IEnumerable<CharItem> EnumerateExpressions()
+        {
+            CharItem item = this;
+            do
+            {
+                yield return item;
+                item = item.Previous;
+            } while (item != null);
         }
 
         public override string ToString()
@@ -143,14 +174,13 @@ namespace Pihrtsoft.Regexator.Builder
 
         internal string Value
         {
-            get
-            {
-                if (_items != null)
-                {
-                    return Content + string.Concat(_items);
-                }
-                return Content;
-            }
+            get { return string.Concat(EnumerateValues()); }
+        }
+
+        internal CharItem Previous
+        {
+            get { return _previous; }
+            set { _previous = value; }
         }
     }
 }
