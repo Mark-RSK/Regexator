@@ -115,8 +115,6 @@
     <Compile Include="Builder\Assertion.cs" />
     <Compile Include="Builder\Grouping.cs" />
     <Compile Include="Builder\Quantifier.cs" />
-    <Compile Include="Builder\UnicodeBlocks.cs" />
-    <Compile Include="Builder\UnicodeCategories.cs" />
     <Compile Include="Builder\Expression.cs" />
     <Compile Include="Builder\Expression_.cs" />
     <Compile Include="Builder\QuantifierExpression\FromToQuantifier.cs" />
