@@ -13,13 +13,13 @@ namespace Pihrtsoft.Regexator.Samples
             Console.WriteLine("");
 
             Console.WriteLine("trailing whitespace:");
-            Console.WriteLine(Miscellaneous.WhiteSpaceExceptNewLine().OneMany().EndOfLineOrBeforeCarriageReturn());
+            Console.WriteLine(Character.WhiteSpaceExceptNewLine().OneMany().EndOfLineOrBeforeCarriageReturn());
             Console.WriteLine("");
 
             Console.WriteLine("leading trailing whitespace:");
             Console.WriteLine(Alternation.Any(
                 Anchor.StartOfLine().WhiteSpaceExceptNewLine().OneMany(),
-                Miscellaneous.WhiteSpaceExceptNewLine().OneMany().EndOfLineOrBeforeCarriageReturn()));
+                Character.WhiteSpaceExceptNewLine().OneMany().EndOfLineOrBeforeCarriageReturn()));
             Console.WriteLine("");
 
             Console.WriteLine("whitespace lines:");
@@ -44,7 +44,7 @@ namespace Pihrtsoft.Regexator.Samples
             Console.WriteLine("");
 
             Console.WriteLine("file name invalid chars:");
-            Console.WriteLine(Grouping.Chars(Path.GetInvalidFileNameChars()).AsNonbacktracking());
+            Console.WriteLine(Character.Group(Path.GetInvalidFileNameChars()).AsNonbacktracking());
             Console.WriteLine("");
 
             Console.ReadKey();

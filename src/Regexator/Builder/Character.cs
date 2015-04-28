@@ -5,6 +5,116 @@ namespace Pihrtsoft.Regexator.Builder
 {
     public static class Character
     {
+        public static CharGroupExpression Group(string value)
+        {
+            return new TextCharGroup(value);
+        }
+
+        public static CharGroupExpression Group(CharGroupItem item)
+        {
+            return new CharItemGroup(item);
+        }
+
+        public static CharGroupExpression Group(params char[] values)
+        {
+            return new CharGroup(values);
+        }
+
+        public static CharGroupExpression Group(params int[] charCodes)
+        {
+            return new CharCodeGroup(charCodes);
+        }
+
+        public static CharGroupExpression Group(params AsciiChar[] values)
+        {
+            return new AsciiCharGroup(values);
+        }
+
+        public static CharGroupExpression Group(params CharClass[] values)
+        {
+            return new CharClassGroup(values);
+        }
+
+        public static CharGroupExpression Group(params UnicodeBlock[] blocks)
+        {
+            return new UnicodeBlockGroup(blocks);
+        }
+
+        public static CharGroupExpression Group(params UnicodeCategory[] categories)
+        {
+            return new UnicodeCategoryGroup(categories);
+        }
+
+        public static CharGroupExpression NotGroup(string value)
+        {
+            return new NotTextCharGroup(value);
+        }
+
+        public static CharGroupExpression NotGroup(CharGroupItem item)
+        {
+            return new NotCharItemGroup(item);
+        }
+
+        public static CharGroupExpression NotGroup(params char[] values)
+        {
+            return new NotCharGroup(values);
+        }
+
+        public static CharGroupExpression NotGroup(params int[] charCodes)
+        {
+            return new NotCharCodeGroup(charCodes);
+        }
+
+        public static CharGroupExpression NotGroup(params AsciiChar[] values)
+        {
+            return new NotAsciiCharGroup(values);
+        }
+
+        public static CharGroupExpression NotGroup(params UnicodeBlock[] blocks)
+        {
+            return new NotUnicodeBlockGroup(blocks);
+        }
+
+        public static CharGroupExpression NotGroup(params UnicodeCategory[] categories)
+        {
+            return new NotUnicodeCategoryGroup(categories);
+        }
+
+        public static CharGroupExpression Range(char first, char last)
+        {
+            return new CharRangeGroup(first, last);
+        }
+
+        public static CharGroupExpression Range(int first, int last)
+        {
+            return new CharCodeRangeGroup(first, last);
+        }
+
+        public static CharGroupExpression NotRange(char first, char last)
+        {
+            return new NotCharRangeGroup(first, last);
+        }
+
+        public static CharGroupExpression NotRange(int first, int last)
+        {
+            return new NotCharCodeRangeGroup(first, last);
+        }
+
+        public static CharSubtraction Subtraction(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
+        {
+            return new CharSubtraction(baseGroup, excludedGroup);
+        }
+
+        public static CharSubtraction NotSubtraction(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
+        {
+            return new CharSubtraction(baseGroup, excludedGroup, true);
+        }
+
+        public static CharGroupExpression Alphanumeric()
+        {
+            return Group(CharItems.Alphanumeric());
+        }
+
         public static QuantifiableExpression Any()
         {
             return new AnyCharExpression();
@@ -1233,6 +1343,11 @@ namespace Pihrtsoft.Regexator.Builder
         public static QuantifierExpression NotTilde(int minCount, int maxCount)
         {
             return NotChar(AsciiChar.Tilde).Count(minCount, maxCount);
+        }
+
+        public static CharSubtraction WhiteSpaceExceptNewLine()
+        {
+            return new CharSubtraction(CharItems.WhiteSpace(), CharItems.CarriageReturn().Linefeed());
         }
     }
 }
