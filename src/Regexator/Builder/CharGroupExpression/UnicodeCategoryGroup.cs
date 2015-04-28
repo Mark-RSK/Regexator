@@ -5,20 +5,20 @@ using System;
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal sealed class CharClassCharItem
-        : CharacterGroupItem
+    internal class UnicodeCategoryGroup
+        : CharGroupExpression
     {
-        private readonly CharClass[] _values;
+        private readonly UnicodeCategory[] _values;
 
-        public CharClassCharItem(params CharClass[] values)
+        public UnicodeCategoryGroup(params UnicodeCategory[] values)
         {
             if (values == null) { throw new ArgumentNullException("values"); }
             _values = values;
         }
 
-        internal override string Content
+        public override string Content
         {
-            get { return Syntax.CharClasses(_values); }
+            get { return Syntax.UnicodeCategories(_values); }
         }
     }
 }

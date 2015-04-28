@@ -5,12 +5,12 @@ using System;
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal class CharClassGroup
-        : CharacterGroupExpression
+    internal class CharGroup
+        : CharGroupExpression
     {
-        private readonly CharClass[] _values;
+        private readonly char[] _values;
 
-        public CharClassGroup(params CharClass[] values)
+        public CharGroup(params char[] values)
         {
             if (values == null) { throw new ArgumentNullException("values"); }
             _values = values;
@@ -18,7 +18,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public override string Content
         {
-            get { return Syntax.CharClasses(_values); }
+            get { return Syntax.Chars(_values, true); }
         }
     }
 }

@@ -3,284 +3,284 @@
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    public static class CharacterItem
+    public static class CharItems
     {
-        public static CharacterGroupItem Chars(params char[] values)
+        public static CharGroupItem Chars(params char[] values)
         {
             return new CharsCharItem(values);
         }
 
-        public static CharacterGroupItem Chars(params int[] values)
+        public static CharGroupItem Chars(params int[] values)
         {
             return new CharCodeCharItem(values);
         }
 
-        public static CharacterGroupItem Chars(params AsciiChar[] values)
+        public static CharGroupItem Chars(params AsciiChar[] values)
         {
             return new AsciiCharItem(values);
         }
 
-        public static CharacterGroupItem Chars(params CharClass[] values)
+        public static CharGroupItem Chars(params CharClass[] values)
         {
             return new CharClassCharItem(values);
         }
 
-        public static CharacterGroupItem Chars(string value)
+        public static CharGroupItem Chars(string value)
         {
             return new TextCharItem(value);
         }
 
-        public static CharacterGroupItem Range(char first, char last)
+        public static CharGroupItem Range(char first, char last)
         {
             return new RangeCharItem(first, last);
         }
 
-        public static CharacterGroupItem Range(int first, int last)
+        public static CharGroupItem Range(int first, int last)
         {
             return new CodeRangeCharItem(first, last);
         }
 
-        public static CharacterGroupItem UnicodeBlocks(params UnicodeBlock[] blocks)
+        public static CharGroupItem UnicodeBlocks(params UnicodeBlock[] blocks)
         {
             return new UnicodeBlockCharItem(blocks);
         }
 
-        public static CharacterGroupItem NotUnicodeBlocks(params UnicodeBlock[] blocks)
+        public static CharGroupItem NotUnicodeBlocks(params UnicodeBlock[] blocks)
         {
             return new NotUnicodeBlockCharItem(blocks);
         }
 
-        public static CharacterGroupItem UnicodeCategories(params UnicodeCategory[] categories)
+        public static CharGroupItem UnicodeCategories(params UnicodeCategory[] categories)
         {
             return new UnicodeCategoryCharItem(categories);
         }
 
-        public static CharacterGroupItem NotUnicodeCategories(params UnicodeCategory[] categories)
+        public static CharGroupItem NotUnicodeCategories(params UnicodeCategory[] categories)
         {
             return new NotUnicodeCategoryCharItem(categories);
         }
 
-        public static CharacterGroupItem Digit()
+        public static CharGroupItem Digit()
         {
             return new CharClassCharItem(CharClass.Digit);
         }
 
-        public static CharacterGroupItem NotDigit()
+        public static CharGroupItem NotDigit()
         {
             return new CharClassCharItem(CharClass.NotDigit);
         }
 
-        public static CharacterGroupItem WhiteSpace()
+        public static CharGroupItem WhiteSpace()
         {
             return new CharClassCharItem(CharClass.WhiteSpace);
         }
 
-        public static CharacterGroupItem NotWhiteSpace()
+        public static CharGroupItem NotWhiteSpace()
         {
             return new CharClassCharItem(CharClass.NotWhiteSpace);
         }
 
-        public static CharacterGroupItem Word()
+        public static CharGroupItem Word()
         {
             return new CharClassCharItem(CharClass.Word);
         }
 
-        public static CharacterGroupItem NotWord()
+        public static CharGroupItem NotWord()
         {
             return new CharClassCharItem(CharClass.NotWord);
         }
 
-        public static CharacterGroupItem Alphanumeric()
+        public static CharGroupItem Alphanumeric()
         {
             return LatinAlphabet().DigitAsRange();
         }
 
-        public static CharacterGroupItem LatinAlphabet()
+        public static CharGroupItem LatinAlphabet()
         {
             return Range('a', 'z').Range('A', 'Z');
         }
 
-        public static CharacterGroupItem DigitAsRange()
+        public static CharGroupItem DigitAsRange()
         {
             return Range('0', '9');
         }
 
-        public static CharacterGroupItem Tab()
+        public static CharGroupItem Tab()
         {
             return new AsciiCharItem(AsciiChar.Tab);
         }
 
-        public static CharacterGroupItem Linefeed()
+        public static CharGroupItem Linefeed()
         {
             return new AsciiCharItem(AsciiChar.Linefeed);
         }
 
-        public static CharacterGroupItem CarriageReturn()
+        public static CharGroupItem CarriageReturn()
         {
             return new AsciiCharItem(AsciiChar.CarriageReturn);
         }
 
-        public static CharacterGroupItem Space()
+        public static CharGroupItem Space()
         {
             return new AsciiCharItem(AsciiChar.Space);
         }
 
-        public static CharacterGroupItem ExclamationMark()
+        public static CharGroupItem ExclamationMark()
         {
             return new AsciiCharItem(AsciiChar.ExclamationMark);
         }
 
-        public static CharacterGroupItem QuotationMark()
+        public static CharGroupItem QuotationMark()
         {
             return new AsciiCharItem(AsciiChar.QuotationMark);
         }
 
-        public static CharacterGroupItem NumberSign()
+        public static CharGroupItem NumberSign()
         {
             return new AsciiCharItem(AsciiChar.NumberSign);
         }
 
-        public static CharacterGroupItem Dollar()
+        public static CharGroupItem Dollar()
         {
             return new AsciiCharItem(AsciiChar.Dollar);
         }
 
-        public static CharacterGroupItem Percent()
+        public static CharGroupItem Percent()
         {
             return new AsciiCharItem(AsciiChar.Percent);
         }
 
-        public static CharacterGroupItem Ampersand()
+        public static CharGroupItem Ampersand()
         {
             return new AsciiCharItem(AsciiChar.Ampersand);
         }
 
-        public static CharacterGroupItem Apostrophe()
+        public static CharGroupItem Apostrophe()
         {
             return new AsciiCharItem(AsciiChar.Apostrophe);
         }
 
-        public static CharacterGroupItem LeftParenthesis()
+        public static CharGroupItem LeftParenthesis()
         {
             return new AsciiCharItem(AsciiChar.LeftParenthesis);
         }
 
-        public static CharacterGroupItem RightParenthesis()
+        public static CharGroupItem RightParenthesis()
         {
             return new AsciiCharItem(AsciiChar.RightParenthesis);
         }
 
-        public static CharacterGroupItem Asterisk()
+        public static CharGroupItem Asterisk()
         {
             return new AsciiCharItem(AsciiChar.Asterisk);
         }
 
-        public static CharacterGroupItem Plus()
+        public static CharGroupItem Plus()
         {
             return new AsciiCharItem(AsciiChar.Plus);
         }
 
-        public static CharacterGroupItem Comma()
+        public static CharGroupItem Comma()
         {
             return new AsciiCharItem(AsciiChar.Comma);
         }
 
-        public static CharacterGroupItem Hyphen()
+        public static CharGroupItem Hyphen()
         {
             return new AsciiCharItem(AsciiChar.Hyphen);
         }
 
-        public static CharacterGroupItem Period()
+        public static CharGroupItem Period()
         {
             return new AsciiCharItem(AsciiChar.Period);
         }
 
-        public static CharacterGroupItem Slash()
+        public static CharGroupItem Slash()
         {
             return new AsciiCharItem(AsciiChar.Slash);
         }
 
-        public static CharacterGroupItem Colon()
+        public static CharGroupItem Colon()
         {
             return new AsciiCharItem(AsciiChar.Colon);
         }
 
-        public static CharacterGroupItem Semicolon()
+        public static CharGroupItem Semicolon()
         {
             return new AsciiCharItem(AsciiChar.Semicolon);
         }
 
-        public static CharacterGroupItem LessThan()
+        public static CharGroupItem LessThan()
         {
             return new AsciiCharItem(AsciiChar.LessThan);
         }
 
-        public static CharacterGroupItem EqualsSign()
+        public static CharGroupItem EqualsSign()
         {
             return new AsciiCharItem(AsciiChar.EqualsSign);
         }
 
-        public static CharacterGroupItem GreaterThan()
+        public static CharGroupItem GreaterThan()
         {
             return new AsciiCharItem(AsciiChar.GreaterThan);
         }
 
-        public static CharacterGroupItem QuestionMark()
+        public static CharGroupItem QuestionMark()
         {
             return new AsciiCharItem(AsciiChar.QuestionMark);
         }
 
-        public static CharacterGroupItem At()
+        public static CharGroupItem At()
         {
             return new AsciiCharItem(AsciiChar.At);
         }
 
-        public static CharacterGroupItem LeftSquareBracket()
+        public static CharGroupItem LeftSquareBracket()
         {
             return new AsciiCharItem(AsciiChar.LeftSquareBracket);
         }
 
-        public static CharacterGroupItem Backslash()
+        public static CharGroupItem Backslash()
         {
             return new AsciiCharItem(AsciiChar.Backslash);
         }
 
-        public static CharacterGroupItem RightSquareBracket()
+        public static CharGroupItem RightSquareBracket()
         {
             return new AsciiCharItem(AsciiChar.RightSquareBracket);
         }
 
-        public static CharacterGroupItem CircumflexAccent()
+        public static CharGroupItem CircumflexAccent()
         {
             return new AsciiCharItem(AsciiChar.CircumflexAccent);
         }
 
-        public static CharacterGroupItem Underscore()
+        public static CharGroupItem Underscore()
         {
             return new AsciiCharItem(AsciiChar.Underscore);
         }
 
-        public static CharacterGroupItem GraveAccent()
+        public static CharGroupItem GraveAccent()
         {
             return new AsciiCharItem(AsciiChar.GraveAccent);
         }
 
-        public static CharacterGroupItem LeftCurlyBracket()
+        public static CharGroupItem LeftCurlyBracket()
         {
             return new AsciiCharItem(AsciiChar.LeftCurlyBracket);
         }
 
-        public static CharacterGroupItem VerticalLine()
+        public static CharGroupItem VerticalLine()
         {
             return new AsciiCharItem(AsciiChar.VerticalLine);
         }
 
-        public static CharacterGroupItem RightCurlyBracket()
+        public static CharGroupItem RightCurlyBracket()
         {
             return new AsciiCharItem(AsciiChar.RightCurlyBracket);
         }
 
-        public static CharacterGroupItem Tilde()
+        public static CharGroupItem Tilde()
         {
             return new AsciiCharItem(AsciiChar.Tilde);
         }

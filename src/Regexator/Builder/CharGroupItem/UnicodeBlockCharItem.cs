@@ -6,7 +6,7 @@ using System;
 namespace Pihrtsoft.Regexator.Builder
 {
     internal class UnicodeBlockCharItem
-        : CharacterGroupItem
+        : CharGroupItem
     {
         private readonly UnicodeBlock[] _blocks;
 

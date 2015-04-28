@@ -77,97 +77,97 @@ namespace Pihrtsoft.Regexator.Builder
             return new GroupOptions(applyOptions, disableOptions, value);
         }
 
-        public static CharacterGroupExpression Chars(string value)
+        public static CharGroupExpression Chars(string value)
         {
             return new TextCharGroup(value);
         }
 
-        public static CharacterGroupExpression Chars(CharacterGroupItem item)
+        public static CharGroupExpression Chars(CharGroupItem item)
         {
             return new CharItemGroup(item);
         }
 
-        public static CharacterGroupExpression Chars(params char[] values)
+        public static CharGroupExpression Chars(params char[] values)
         {
             return new CharGroup(values);
         }
 
-        public static CharacterGroupExpression Chars(params int[] charCodes)
+        public static CharGroupExpression Chars(params int[] charCodes)
         {
             return new CharCodeGroup(charCodes);
         }
 
-        public static CharacterGroupExpression Chars(params AsciiChar[] values)
+        public static CharGroupExpression Chars(params AsciiChar[] values)
         {
             return new AsciiCharGroup(values);
         }
 
-        public static CharacterGroupExpression Chars(params CharClass[] values)
+        public static CharGroupExpression Chars(params CharClass[] values)
         {
             return new CharClassGroup(values);
         }
 
-        public static CharacterGroupExpression Chars(params UnicodeBlock[] blocks)
+        public static CharGroupExpression Chars(params UnicodeBlock[] blocks)
         {
             return new UnicodeBlockGroup(blocks);
         }
 
-        public static CharacterGroupExpression Chars(params UnicodeCategory[] categories)
+        public static CharGroupExpression Chars(params UnicodeCategory[] categories)
         {
             return new UnicodeCategoryGroup(categories);
         }
 
-        public static CharacterGroupExpression NotChars(string value)
+        public static CharGroupExpression NotChars(string value)
         {
             return new NotTextCharGroup(value);
         }
 
-        public static CharacterGroupExpression NotChars(CharacterGroupItem item)
+        public static CharGroupExpression NotChars(CharGroupItem item)
         {
             return new NotCharItemGroup(item);
         }
 
-        public static CharacterGroupExpression NotChars(params char[] values)
+        public static CharGroupExpression NotChars(params char[] values)
         {
             return new NotCharGroup(values);
         }
 
-        public static CharacterGroupExpression NotChars(params int[] charCodes)
+        public static CharGroupExpression NotChars(params int[] charCodes)
         {
             return new NotCharCodeGroup(charCodes);
         }
 
-        public static CharacterGroupExpression NotChars(params AsciiChar[] values)
+        public static CharGroupExpression NotChars(params AsciiChar[] values)
         {
             return new NotAsciiCharGroup(values);
         }
 
-        public static CharacterGroupExpression NotChars(params UnicodeBlock[] blocks)
+        public static CharGroupExpression NotChars(params UnicodeBlock[] blocks)
         {
             return new NotUnicodeBlockGroup(blocks);
         }
 
-        public static CharacterGroupExpression NotChars(params UnicodeCategory[] categories)
+        public static CharGroupExpression NotChars(params UnicodeCategory[] categories)
         {
             return new NotUnicodeCategoryGroup(categories);
         }
 
-        public static CharacterGroupExpression Range(char first, char last)
+        public static CharGroupExpression Range(char first, char last)
         {
             return new CharRangeGroup(first, last);
         }
 
-        public static CharacterGroupExpression Range(int first, int last)
+        public static CharGroupExpression Range(int first, int last)
         {
             return new CharCodeRangeGroup(first, last);
         }
 
-        public static CharacterGroupExpression NotRange(char first, char last)
+        public static CharGroupExpression NotRange(char first, char last)
         {
             return new NotCharRangeGroup(first, last);
         }
 
-        public static CharacterGroupExpression NotRange(int first, int last)
+        public static CharGroupExpression NotRange(int first, int last)
         {
             return new NotCharCodeRangeGroup(first, last);
         }
@@ -182,9 +182,9 @@ namespace Pihrtsoft.Regexator.Builder
             return new CharSubtraction(baseGroup, excludedGroup, true);
         }
 
-        public static CharacterGroupExpression Alphanumeric()
+        public static CharGroupExpression Alphanumeric()
         {
-            return Chars(CharacterItem.Alphanumeric());
+            return Chars(CharItems.Alphanumeric());
         }
 
         internal static QuantifiableExpression QuantifierGroup(string value)

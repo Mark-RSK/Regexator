@@ -130,17 +130,17 @@ namespace Pihrtsoft.Regexator.Builder
             return new UnicodeCategoryExpression(category);
         }
 
-        public static CharacterGroupExpression NotChar(char value)
+        public static CharGroupExpression NotChar(char value)
         {
             return new NotCharGroup(value);
         }
 
-        public static CharacterGroupExpression NotChar(int charCode)
+        public static CharGroupExpression NotChar(int charCode)
         {
             return new NotCharCodeGroup(charCode);
         }
 
-        public static CharacterGroupExpression NotChar(AsciiChar value)
+        public static CharGroupExpression NotChar(AsciiChar value)
         {
             return new NotAsciiCharGroup(value);
         }

@@ -3,19 +3,19 @@
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal sealed class CodeRangeCharItem
-        : CharacterGroupItem
+    internal class CharCodeRangeGroup
+        : CharGroupExpression
     {
         private readonly int _first;
         private readonly int _last;
 
-        public CodeRangeCharItem(int first, int last)
+        public CharCodeRangeGroup(int first, int last)
         {
             _first = first;
             _last = last;
         }
 
-        internal override string Content
+        public override string Content
         {
             get { return Syntax.Range(_first, _last); }
         }

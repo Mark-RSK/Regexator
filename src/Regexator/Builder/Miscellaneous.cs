@@ -34,7 +34,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static CharSubtraction WhiteSpaceExceptNewLine()
         {
-            return new CharSubtraction(CharacterItem.WhiteSpace(), CharacterItem.CarriageReturn().Linefeed());
+            return new CharSubtraction(CharItems.WhiteSpace(), CharItems.CarriageReturn().Linefeed());
         }
     }
 }

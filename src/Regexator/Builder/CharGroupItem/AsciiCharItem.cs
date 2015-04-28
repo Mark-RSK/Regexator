@@ -5,18 +5,18 @@ using System;
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal class CharCodeGroup
-        : CharacterGroupExpression
+    internal sealed class AsciiCharItem
+        : CharGroupItem
     {
-        private readonly int[] _values;
+        private readonly AsciiChar[] _values;
 
-        public CharCodeGroup(params int[] values)
+        public AsciiCharItem(params AsciiChar[] values)
         {
             if (values == null) { throw new ArgumentNullException("values"); }
             _values = values;
         }
 
-        public override string Content
+        internal override string Content
         {
             get { return Syntax.Chars(_values, true); }
         }

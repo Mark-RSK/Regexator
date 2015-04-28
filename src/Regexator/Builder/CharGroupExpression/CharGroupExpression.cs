@@ -3,10 +3,10 @@
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    public abstract class CharacterGroupExpression
+    public abstract class CharGroupExpression
         : QuantifiableExpression, IBaseGroup, IExcludedGroup
     {
-        protected CharacterGroupExpression()
+        protected CharGroupExpression()
         {
         }
 
