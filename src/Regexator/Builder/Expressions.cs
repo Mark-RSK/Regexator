@@ -46,11 +46,6 @@ namespace Pihrtsoft.Regexator.Builder
                 NewLine().OneMany().End());
         }
 
-        public static QuantifiableExpression FirstLastEmptyLine()
-        {
-            return Alternation.Any(Anchor.Start().NewLine(), NewLine().End()).AsNonbacktracking();
-        }
-
         public static QuantifiableExpression FirstLine()
         {
             return Miscellaneous.Options(InlineOptions.Multiline).Start().Any().MaybeMany().Lazy().EndOfLineOrBeforeCarriageReturn();
