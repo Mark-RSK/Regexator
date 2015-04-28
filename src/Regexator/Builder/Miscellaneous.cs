@@ -31,10 +31,5 @@ namespace Pihrtsoft.Regexator.Builder
         {
             return new InlineCommentExpression(value);
         }
-
-        public static CharSubtraction WhiteSpaceExceptNewLine()
-        {
-            return new CharSubtraction(CharItems.WhiteSpace(), CharItems.CarriageReturn().Linefeed());
-        }
     }
 }

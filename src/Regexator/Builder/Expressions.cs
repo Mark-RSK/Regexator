@@ -17,6 +17,11 @@ namespace Pihrtsoft.Regexator.Builder
             return new TextExpression(value);
         }
 
+        public static CharSubtraction WhiteSpaceExceptNewLine()
+        {
+            return new CharSubtraction(CharItems.WhiteSpace(), CharItems.CarriageReturn().Linefeed());
+        }
+
         public static Expression LeadingWhiteSpace()
         {
             return Anchor.StartOfLine().WhiteSpaceExceptNewLine().OneMany();
@@ -24,7 +29,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifiableExpression TrailingWhiteSpace()
         {
-            return Miscellaneous.WhiteSpaceExceptNewLine().OneMany().EndOfLineOrBeforeCarriageReturn();
+            return WhiteSpaceExceptNewLine().OneMany().EndOfLineOrBeforeCarriageReturn();
         }
 
         public static QuantifiableExpression LeadingTrailingWhiteSpace()
