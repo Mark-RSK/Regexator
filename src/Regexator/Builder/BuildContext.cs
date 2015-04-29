@@ -17,14 +17,8 @@ namespace Pihrtsoft.Regexator.Builder
         private bool _disposed;
 
         public BuildContext()
-            : this(new StringWriter(CultureInfo.CurrentCulture))
         {
-        }
-
-        public BuildContext(TextWriter writer)
-        {
-            if (writer == null) { throw new ArgumentNullException("writer"); }
-            _writer = writer;
+            _writer = new StringWriter(CultureInfo.CurrentCulture);
             _expressions = new HashSet<Expression>();
             _settings = new PatternSettings();
         }
