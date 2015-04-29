@@ -137,6 +137,16 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Anchors.WordBoundary());
         }
 
+        public QuantifiableExpression WordBoundary(string value)
+        {
+            return AppendInternal(Anchors.WordBoundary(value));
+        }
+
+        public QuantifiableExpression WordBoundary(Expression expression)
+        {
+            return AppendInternal(Anchors.WordBoundary(expression));
+        }
+
         public QuantifiableExpression NotWordBoundary()
         {
             return AppendInternal(Anchors.NotWordBoundary());
@@ -561,6 +571,18 @@ namespace Pihrtsoft.Regexator.Builder
         {
             return AppendInternal(Characters.Any());
         }
+
+        public QuantifiableExpression AnyInvariant()
+        {
+            return AppendInternal(Characters.AnyInvariant());
+        }
+
+#if DEBUG
+        public Expression AnyMaybeManyLazy()
+        {
+            return AppendInternal(Characters.AnyMaybeManyLazy());
+        }
+#endif
 
         public QuantifiableExpression Digit()
         {

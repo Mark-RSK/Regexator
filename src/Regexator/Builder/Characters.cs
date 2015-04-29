@@ -120,6 +120,18 @@ namespace Pihrtsoft.Regexator.Builder
             return new AnyCharExpression();
         }
 
+        public static CharGroupExpression AnyInvariant()
+        {
+            return Group(CharGroupItems.WhiteSpace().NotWhiteSpace());
+        }
+
+#if DEBUG
+        public static Expression AnyMaybeManyLazy()
+        {
+            return Any().MaybeMany().Lazy();
+        }
+#endif
+
         public static QuantifiableExpression Digit()
         {
             return new CharClassExpression(CharClass.Digit);

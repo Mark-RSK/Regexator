@@ -8,6 +8,17 @@ namespace Pihrtsoft.Regexator.Samples
     {
         static void Main(string[] args)
         {
+            Console.WriteLine(@"\A(?=.*?\bword1\b)(?=.*?\bword2\b).*\z");
+            Console.WriteLine(Assertions.Lookahead(Characters.AnyMaybeManyLazy().WordBoundary("word1"))
+                .Lookahead(Characters.AnyMaybeManyLazy().WordBoundary("word2")).Any().MaybeMany()
+                .AsEntireInput());
+
+            Console.WriteLine(@"^(?=[\s\S]*?\bword1\b)(?=[\s\S]*?\bword2\b)[\s\S]*");
+            Console.WriteLine(Anchors.StartOfLine()
+                .Lookahead(Characters.AnyInvariant().MaybeMany().Lazy().WordBoundary("word1"))
+                .Lookahead(Characters.AnyInvariant().MaybeMany().Lazy().WordBoundary("word2"))
+                .AnyInvariant().MaybeMany());
+
             Console.WriteLine("leading whitespace:");
             Console.WriteLine(Anchors.StartOfLine().WhiteSpaceExceptNewLine().OneMany());
             Console.WriteLine("");

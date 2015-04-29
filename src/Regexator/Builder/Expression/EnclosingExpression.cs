@@ -6,24 +6,31 @@ using System.Collections.Generic;
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal abstract class EnclosingExpression
+    internal sealed class EnclosingExpression
         : QuantifiableExpression
     {
         private readonly Expression _expression;
+        private readonly Expression _before;
+        private readonly Expression _after;
 
-        protected EnclosingExpression(Expression expression)
+        public EnclosingExpression(string value, Expression beforeExpression, Expression afterExpression)
+            : this(new TextExpression(value), beforeExpression, afterExpression)
         {
-            if (expression == null) { throw new ArgumentNullException("expression"); }
-            _expression = expression;
         }
 
-        protected abstract IEnumerable<string> EnumerateStart(BuildContext context);
-
-        protected abstract IEnumerable<string> EnumerateEnd(BuildContext context);
+        public EnclosingExpression(Expression expression, Expression beforeExpression, Expression afterExpression)
+        {
+            if (expression == null) { throw new ArgumentNullException("expression"); }
+            if (beforeExpression == null) { throw new ArgumentNullException("beforeExpression"); }
+            if (afterExpression == null) { throw new ArgumentNullException("afterExpression"); }
+            _expression = expression;
+            _before = beforeExpression;
+            _after = afterExpression;
+        }
 
         internal override IEnumerable<string> EnumerateContent(BuildContext context)
         {
-            foreach (var value in EnumerateStart(context))
+            foreach (var value in _before.EnumerateValues(context))
             {
                 yield return value;
             }
@@ -31,7 +38,7 @@ namespace Pihrtsoft.Regexator.Builder
             {
                 yield return value;
             }
-            foreach (var value in EnumerateEnd(context))
+            foreach (var value in _after.EnumerateValues(context))
             {
                 yield return value;
             }
