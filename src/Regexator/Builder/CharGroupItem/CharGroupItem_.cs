@@ -7,182 +7,182 @@ namespace Pihrtsoft.Regexator.Builder
     {
         public CharGroupItem Tab()
         {
-            return Append(CharItems.Tab());
+            return Append(CharGroupItems.Tab());
         }
 
         public CharGroupItem Linefeed()
         {
-            return Append(CharItems.Linefeed());
+            return Append(CharGroupItems.Linefeed());
         }
 
         public CharGroupItem CarriageReturn()
         {
-            return Append(CharItems.CarriageReturn());
+            return Append(CharGroupItems.CarriageReturn());
         }
 
         public CharGroupItem Space()
         {
-            return Append(CharItems.Space());
+            return Append(CharGroupItems.Space());
         }
 
         public CharGroupItem ExclamationMark()
         {
-            return Append(CharItems.ExclamationMark());
+            return Append(CharGroupItems.ExclamationMark());
         }
 
         public CharGroupItem QuotationMark()
         {
-            return Append(CharItems.QuotationMark());
+            return Append(CharGroupItems.QuotationMark());
         }
 
         public CharGroupItem NumberSign()
         {
-            return Append(CharItems.NumberSign());
+            return Append(CharGroupItems.NumberSign());
         }
 
         public CharGroupItem Dollar()
         {
-            return Append(CharItems.Dollar());
+            return Append(CharGroupItems.Dollar());
         }
 
         public CharGroupItem Percent()
         {
-            return Append(CharItems.Percent());
+            return Append(CharGroupItems.Percent());
         }
 
         public CharGroupItem Ampersand()
         {
-            return Append(CharItems.Ampersand());
+            return Append(CharGroupItems.Ampersand());
         }
 
         public CharGroupItem Apostrophe()
         {
-            return Append(CharItems.Apostrophe());
+            return Append(CharGroupItems.Apostrophe());
         }
 
         public CharGroupItem LeftParenthesis()
         {
-            return Append(CharItems.LeftParenthesis());
+            return Append(CharGroupItems.LeftParenthesis());
         }
 
         public CharGroupItem RightParenthesis()
         {
-            return Append(CharItems.RightParenthesis());
+            return Append(CharGroupItems.RightParenthesis());
         }
 
         public CharGroupItem Asterisk()
         {
-            return Append(CharItems.Asterisk());
+            return Append(CharGroupItems.Asterisk());
         }
 
         public CharGroupItem Plus()
         {
-            return Append(CharItems.Plus());
+            return Append(CharGroupItems.Plus());
         }
 
         public CharGroupItem Comma()
         {
-            return Append(CharItems.Comma());
+            return Append(CharGroupItems.Comma());
         }
 
         public CharGroupItem Hyphen()
         {
-            return Append(CharItems.Hyphen());
+            return Append(CharGroupItems.Hyphen());
         }
 
         public CharGroupItem Period()
         {
-            return Append(CharItems.Period());
+            return Append(CharGroupItems.Period());
         }
 
         public CharGroupItem Slash()
         {
-            return Append(CharItems.Slash());
+            return Append(CharGroupItems.Slash());
         }
 
         public CharGroupItem Colon()
         {
-            return Append(CharItems.Colon());
+            return Append(CharGroupItems.Colon());
         }
 
         public CharGroupItem Semicolon()
         {
-            return Append(CharItems.Semicolon());
+            return Append(CharGroupItems.Semicolon());
         }
 
         public CharGroupItem LessThan()
         {
-            return Append(CharItems.LessThan());
+            return Append(CharGroupItems.LessThan());
         }
 
         public CharGroupItem EqualsSign()
         {
-            return Append(CharItems.EqualsSign());
+            return Append(CharGroupItems.EqualsSign());
         }
 
         public CharGroupItem GreaterThan()
         {
-            return Append(CharItems.GreaterThan());
+            return Append(CharGroupItems.GreaterThan());
         }
 
         public CharGroupItem QuestionMark()
         {
-            return Append(CharItems.QuestionMark());
+            return Append(CharGroupItems.QuestionMark());
         }
 
         public CharGroupItem At()
         {
-            return Append(CharItems.At());
+            return Append(CharGroupItems.At());
         }
 
         public CharGroupItem LeftSquareBracket()
         {
-            return Append(CharItems.LeftSquareBracket());
+            return Append(CharGroupItems.LeftSquareBracket());
         }
 
         public CharGroupItem Backslash()
         {
-            return Append(CharItems.Backslash());
+            return Append(CharGroupItems.Backslash());
         }
 
         public CharGroupItem RightSquareBracket()
         {
-            return Append(CharItems.RightSquareBracket());
+            return Append(CharGroupItems.RightSquareBracket());
         }
 
         public CharGroupItem CircumflexAccent()
         {
-            return Append(CharItems.CircumflexAccent());
+            return Append(CharGroupItems.CircumflexAccent());
         }
 
         public CharGroupItem Underscore()
         {
-            return Append(CharItems.Underscore());
+            return Append(CharGroupItems.Underscore());
         }
 
         public CharGroupItem GraveAccent()
         {
-            return Append(CharItems.GraveAccent());
+            return Append(CharGroupItems.GraveAccent());
         }
 
         public CharGroupItem LeftCurlyBracket()
         {
-            return Append(CharItems.LeftCurlyBracket());
+            return Append(CharGroupItems.LeftCurlyBracket());
         }
 
         public CharGroupItem VerticalLine()
         {
-            return Append(CharItems.VerticalLine());
+            return Append(CharGroupItems.VerticalLine());
         }
 
         public CharGroupItem RightCurlyBracket()
         {
-            return Append(CharItems.RightCurlyBracket());
+            return Append(CharGroupItems.RightCurlyBracket());
         }
 
         public CharGroupItem Tilde()
         {
-            return Append(CharItems.Tilde());
+            return Append(CharGroupItems.Tilde());
         }
     }
 }

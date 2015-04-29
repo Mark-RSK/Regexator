@@ -10,7 +10,7 @@ namespace Pihrtsoft.Regexator.Builder
         : Expression
     {
         private readonly string _value;
-        private static readonly Lazy<Regex> s_trimCommentRegex = new Lazy<Regex>(() => Anchor.Start().NotRightParenthesis().MaybeMany().ToRegex());
+        private static readonly Lazy<Regex> s_trimCommentRegex = new Lazy<Regex>(() => Anchors.Start().NotRightParenthesis().MaybeMany().ToRegex());
 
         internal InlineCommentExpression(string value)
         {

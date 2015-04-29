@@ -3,7 +3,7 @@
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    public static class Assertion
+    public static class Assertions
     {
         public static QuantifiableExpression Lookahead(Expression value)
         {

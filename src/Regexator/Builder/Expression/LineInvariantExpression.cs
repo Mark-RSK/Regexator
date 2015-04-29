@@ -15,7 +15,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         protected override IEnumerable<string> EnumerateStart(BuildContext context)
         {
-            foreach (var value in Anchor.StartOfLineInvariant().EnumerateValues(context))
+            foreach (var value in Anchors.StartOfLineInvariant().EnumerateValues(context))
             {
                 yield return value;
             }
@@ -23,7 +23,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         protected override IEnumerable<string> EnumerateEnd(BuildContext context)
         {
-            foreach (var value in Anchor.EndOfLineInvariant().EnumerateValues(context))
+            foreach (var value in Anchors.EndOfLineInvariant().EnumerateValues(context))
             {
                 yield return value;
             }

@@ -60,102 +60,102 @@ namespace Pihrtsoft.Regexator.Builder
 
         public CharGroupItem Chars(params char[] values)
         {
-            return Append(CharItems.Chars(values));
+            return Append(CharGroupItems.Chars(values));
         }
 
         public CharGroupItem Chars(params int[] values)
         {
-            return Append(CharItems.Chars(values));
+            return Append(CharGroupItems.Chars(values));
         }
 
         public CharGroupItem Chars(params AsciiChar[] values)
         {
-            return Append(CharItems.Chars(values));
+            return Append(CharGroupItems.Chars(values));
         }
 
         public CharGroupItem Chars(params CharClass[] values)
         {
-            return Append(CharItems.Chars(values));
+            return Append(CharGroupItems.Chars(values));
         }
 
         public CharGroupItem Chars(string value)
         {
-            return Append(CharItems.Chars(value));
+            return Append(CharGroupItems.Chars(value));
         }
 
         public CharGroupItem Range(char first, char last)
         {
-            return Append(CharItems.Range(first, last));
+            return Append(CharGroupItems.Range(first, last));
         }
 
         public CharGroupItem Range(int first, int last)
         {
-            return Append(CharItems.Range(first, last));
+            return Append(CharGroupItems.Range(first, last));
         }
 
         public CharGroupItem UnicodeBlocks(params UnicodeBlock[] blocks)
         {
-            return Append(CharItems.UnicodeBlocks(blocks));
+            return Append(CharGroupItems.UnicodeBlocks(blocks));
         }
 
         public CharGroupItem NotUnicodeBlocks(params UnicodeBlock[] blocks)
         {
-            return Append(CharItems.NotUnicodeBlocks(blocks));
+            return Append(CharGroupItems.NotUnicodeBlocks(blocks));
         }
 
         public CharGroupItem UnicodeCategories(params UnicodeCategory[] categories)
         {
-            return Append(CharItems.UnicodeCategories(categories));
+            return Append(CharGroupItems.UnicodeCategories(categories));
         }
 
         public CharGroupItem NotUnicodeCategories(params UnicodeCategory[] categories)
         {
-            return Append(CharItems.NotUnicodeCategories(categories));
+            return Append(CharGroupItems.NotUnicodeCategories(categories));
         }
 
         public CharGroupItem Digit()
         {
-            return Append(CharItems.Digit());
+            return Append(CharGroupItems.Digit());
         }
 
         public CharGroupItem NotDigit()
         {
-            return Append(CharItems.NotDigit());
+            return Append(CharGroupItems.NotDigit());
         }
 
         public CharGroupItem WhiteSpace()
         {
-            return Append(CharItems.WhiteSpace());
+            return Append(CharGroupItems.WhiteSpace());
         }
 
         public CharGroupItem NotWhiteSpace()
         {
-            return Append(CharItems.NotWhiteSpace());
+            return Append(CharGroupItems.NotWhiteSpace());
         }
 
         public CharGroupItem Word()
         {
-            return Append(CharItems.Word());
+            return Append(CharGroupItems.Word());
         }
 
         public CharGroupItem NotWord()
         {
-            return Append(CharItems.NotWord());
+            return Append(CharGroupItems.NotWord());
         }
 
         public CharGroupItem Alphanumeric()
         {
-            return Append(CharItems.Alphanumeric());
+            return Append(CharGroupItems.Alphanumeric());
         }
 
         public CharGroupItem LatinAlphabet()
         {
-            return Append(CharItems.LatinAlphabet());
+            return Append(CharGroupItems.LatinAlphabet());
         }
 
         public CharGroupItem DigitAsRange()
         {
-            return Append(CharItems.DigitAsRange());
+            return Append(CharGroupItems.DigitAsRange());
         }
 
         internal abstract string Content { get; }

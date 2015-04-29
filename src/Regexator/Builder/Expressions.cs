@@ -1,8 +1,6 @@
 // Copyright (c) Josef Pihrt. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-using System;
-
 namespace Pihrtsoft.Regexator.Builder
 {
     public static class Expressions
@@ -19,30 +17,30 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static Expression LeadingWhiteSpace()
         {
-            return Anchor.StartOfLine().WhiteSpaceExceptNewLine().OneMany();
+            return Anchors.StartOfLine().WhiteSpaceExceptNewLine().OneMany();
         }
 
         public static QuantifiableExpression TrailingWhiteSpace()
         {
-            return Character.WhiteSpaceExceptNewLine().OneMany().EndOfLineOrBeforeCarriageReturn();
+            return Characters.WhiteSpaceExceptNewLine().OneMany().EndOfLineOrBeforeCarriageReturn();
         }
 
         public static QuantifiableExpression LeadingTrailingWhiteSpace()
         {
-            return Alternation.Any(LeadingWhiteSpace(), TrailingWhiteSpace());
+            return Alternations.Any(LeadingWhiteSpace(), TrailingWhiteSpace());
         }
 
         public static QuantifiableExpression WhiteSpaceLines()
         {
             return Miscellaneous.Options(InlineOptions.Multiline).Any(
-                Anchor.StartOfLine().WhiteSpace().MaybeMany().NewLine(),
+                Anchors.StartOfLine().WhiteSpace().MaybeMany().NewLine(),
                 NewLine().WhiteSpace().MaybeMany().End());
         }
 
         public static QuantifiableExpression EmptyLines()
         {
             return Miscellaneous.Options(InlineOptions.Multiline).Any(
-                Anchor.StartOfLine().NewLine(),
+                Anchors.StartOfLine().NewLine(),
                 NewLine().OneMany().End());
         }
 
@@ -53,17 +51,17 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifiableExpression NewLine()
         {
-            return Character.CarriageReturn().Maybe().Linefeed().AsNoncapturing();
+            return Characters.CarriageReturn().Maybe().Linefeed().AsNoncapturing();
         }
 
         public static QuantifiableExpression LinefeedWithoutCarriageReturn()
         {
-            return Character.CarriageReturn().AsNotLookbehind().Linefeed().AsNonbacktracking();
+            return Characters.CarriageReturn().AsNotLookbehind().Linefeed().AsNonbacktracking();
         }
 
         internal static QuantifiableExpression InsignificantSeparator()
         {
-            return Grouping.GroupOptions(InlineOptions.IgnorePatternWhitespace, new TextExpression(" ", false));
+            return Groupings.GroupOptions(InlineOptions.IgnorePatternWhitespace, new TextExpression(" ", false));
         }
     }
 }

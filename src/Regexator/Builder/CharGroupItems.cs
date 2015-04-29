@@ -3,7 +3,7 @@
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    public static class CharItems
+    public static class CharGroupItems
     {
         public static CharGroupItem Chars(params char[] values)
         {

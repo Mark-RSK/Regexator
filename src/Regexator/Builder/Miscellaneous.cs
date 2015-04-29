@@ -9,12 +9,12 @@ namespace Pihrtsoft.Regexator.Builder
     {
         public static QuantifiableExpression Backreference(int groupNumber)
         {
-            return new NumberBackreference(groupNumber);
+            return new NumberBackreferenceExpression(groupNumber);
         }
 
         public static QuantifiableExpression Backreference(string groupName)
         {
-            return new NameBackreference(groupName);
+            return new NameBackreferenceExpression(groupName);
         }
 
         public static Expression Options(InlineOptions applyOptions)
@@ -27,7 +27,7 @@ namespace Pihrtsoft.Regexator.Builder
             return new InlineOptionsExpression(applyOptions, disableOptions);
         }
 
-        public static Expression InlineComment(string value)
+        public static Expression Comment(string value)
         {
             return new InlineCommentExpression(value);
         }

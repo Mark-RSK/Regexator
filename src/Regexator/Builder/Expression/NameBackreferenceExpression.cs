@@ -6,12 +6,12 @@ using System.Collections.Generic;
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal sealed class NameBackreference
+    internal sealed class NameBackreferenceExpression
         : QuantifiableExpression
     {
         private readonly string _groupName;
 
-        internal NameBackreference(string groupName)
+        internal NameBackreferenceExpression(string groupName)
             : base()
         {
             if (groupName == null) { throw new ArgumentNullException("groupName"); }

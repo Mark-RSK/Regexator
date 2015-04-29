@@ -3,7 +3,7 @@
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    public static class Anchor
+    public static class Anchors
     {
         public static QuantifiableExpression Start()
         {
@@ -17,7 +17,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifiableExpression StartOfLineInvariant()
         {
-            return Alternation.Any(Start(), Character.Linefeed().AsLookbehind());
+            return Alternations.Any(Start(), Characters.Linefeed().AsLookbehind());
         }
 
         public static QuantifiableExpression EndOfLine()
@@ -27,7 +27,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifiableExpression EndOfLineInvariant()
         {
-            return Alternation.Any(Character.Linefeed().AsLookahead(), End());
+            return Alternations.Any(Characters.Linefeed().AsLookahead(), End());
         }
 
         public static QuantifiableExpression EndOfLineOrBeforeCarriageReturn()
@@ -39,7 +39,7 @@ namespace Pihrtsoft.Regexator.Builder
         {
             if (beforeCarriageReturn)
             {
-                return Character.CarriageReturn().Maybe().EndOfLine().AsLookahead();
+                return Characters.CarriageReturn().Maybe().EndOfLine().AsLookahead();
             }
             else
             {

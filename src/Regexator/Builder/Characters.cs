@@ -3,7 +3,7 @@
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    public static class Character
+    public static class Characters
     {
         public static CharGroupExpression Group(string value)
         {
@@ -112,7 +112,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static CharGroupExpression Alphanumeric()
         {
-            return Group(CharItems.Alphanumeric());
+            return Group(CharGroupItems.Alphanumeric());
         }
 
         public static QuantifiableExpression Any()
@@ -1347,7 +1347,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static CharSubtraction WhiteSpaceExceptNewLine()
         {
-            return new CharSubtraction(CharItems.WhiteSpace(), CharItems.CarriageReturn().Linefeed());
+            return new CharSubtraction(CharGroupItems.WhiteSpace(), CharGroupItems.CarriageReturn().Linefeed());
         }
     }
 }

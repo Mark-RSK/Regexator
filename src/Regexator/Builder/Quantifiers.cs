@@ -3,7 +3,7 @@
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal static class Quantifier
+    internal static class Quantifiers
     {
         public static QuantifierExpression Maybe()
         {

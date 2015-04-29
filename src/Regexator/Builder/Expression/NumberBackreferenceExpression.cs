@@ -6,12 +6,12 @@ using System.Collections.Generic;
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal sealed class NumberBackreference
+    internal sealed class NumberBackreferenceExpression
         : QuantifiableExpression
     {
         private readonly int _groupNumber;
 
-        internal NumberBackreference(int groupNumber)
+        internal NumberBackreferenceExpression(int groupNumber)
             : base()
         {
             if (groupNumber < 0) { throw new ArgumentOutOfRangeException("groupNumber"); }
