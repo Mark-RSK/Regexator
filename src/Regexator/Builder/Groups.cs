@@ -5,7 +5,7 @@ using System;
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    public static class Groupings
+    public static class Groups
     {
         public static QuantifiableExpression NamedGroup(string name, Expression expression)
         {
@@ -145,12 +145,12 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression Count(string value, int minCount, int maxCount)
         {
-            return Groupings.QuantifierGroup(value).Count(minCount, maxCount);
+            return Groups.QuantifierGroup(value).Count(minCount, maxCount);
         }
 
         public static QuantifierExpression Count(Expression expression, int minCount, int maxCount)
         {
-            return Groupings.QuantifierGroup(expression).Count(minCount, maxCount);
+            return Groups.QuantifierGroup(expression).Count(minCount, maxCount);
         }
     }
 }
