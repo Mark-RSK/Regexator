@@ -56,9 +56,9 @@ namespace Pihrtsoft.Regexator.Builder
             get { return _expression; }
         }
 
-        internal override string Closing
+        internal override string Closing(BuildContext context)
         {
-            get { return Syntax.GroupEnd; }
+            return Syntax.GroupEnd;
         }
 
         internal override ExpressionKind Kind

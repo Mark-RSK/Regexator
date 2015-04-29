@@ -158,9 +158,10 @@ namespace Pihrtsoft.Regexator.Builder
             {
                 yield return value;
             }
-            if (expression.Closing != null)
+            string closing = expression.Closing(context);
+            if (closing != null)
             {
-                yield return expression.Closing;
+                yield return closing;
             }
             context.Expressions.Remove(expression);
         }
@@ -179,9 +180,9 @@ namespace Pihrtsoft.Regexator.Builder
             return null;
         }
 
-        internal virtual string Closing
+        internal virtual string Closing(BuildContext context)
         {
-            get { return null; }
+            return null;
         }
 
         internal virtual string Value

@@ -52,9 +52,9 @@ namespace Pihrtsoft.Regexator.Builder
             return Syntax.IfStart;
         }
 
-        internal override string Closing
+        internal override string Closing(BuildContext context)
         {
-            get { return Syntax.GroupEnd; }
+            return Syntax.GroupEnd;
         }
 
         public Expression YesExpression

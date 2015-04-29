@@ -48,9 +48,9 @@ namespace Pihrtsoft.Regexator.Builder
             return context.Settings.NoncapturingAny ? Syntax.NoncapturingGroupStart : Syntax.SubexpressionStart;
         }
 
-        internal override string Closing
+        internal override string Closing(BuildContext context)
         {
-            get { return Syntax.GroupEnd; }
+            return Syntax.GroupEnd;
         }
 
         internal override ExpressionKind Kind
