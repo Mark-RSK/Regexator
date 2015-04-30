@@ -6,9 +6,9 @@ namespace Pihrtsoft.Regexator.Builder
     internal sealed class NotWordBoundary
         : AnchorExpression
     {
-        internal override string Value
+        internal override string Value(BuildContext context)
         {
-            get { return Syntax.NotWordBoundary; }
+            return Syntax.NotWordBoundary;
         }
     }
 }

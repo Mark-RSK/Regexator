@@ -13,9 +13,9 @@ namespace Pihrtsoft.Regexator.Builder
             _value = value;
         }
 
-        internal override string Value
+        internal override string Value(BuildContext context)
         {
-            get { return Syntax.CharClass(_value); }
+            return Syntax.CharClass(_value);
         }
     }
 }

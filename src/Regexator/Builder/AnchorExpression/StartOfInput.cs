@@ -6,9 +6,9 @@ namespace Pihrtsoft.Regexator.Builder
     internal sealed class StartOfInput
         : AnchorExpression
     {
-        internal override string Value
+        internal override string Value(BuildContext context)
         {
-            get { return Syntax.Start; }
+            return Syntax.Start;
         }
     }
 }

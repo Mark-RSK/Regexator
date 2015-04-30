@@ -23,7 +23,8 @@ namespace Pihrtsoft.Regexator.Builder
                 IdentifierSeparator = IdentifierSeparator,
                 NoncapturingAny = NoncapturingAny,
                 NoncapturingQuantifierGroup = NoncapturingQuantifierGroup,
-                SeparatorAfterNumberBackreference = SeparatorAfterNumberBackreference
+                SeparatorAfterNumberBackreference = SeparatorAfterNumberBackreference,
+                UseInvariant = UseInvariant
             };
         }
 
@@ -32,5 +33,6 @@ namespace Pihrtsoft.Regexator.Builder
         public bool NoncapturingQuantifierGroup { get; set; }
         public bool ConditionWithAssertion { get; set; }
         public bool SeparatorAfterNumberBackreference { get; set; }
+        public bool UseInvariant { get; set; }
     }
 }

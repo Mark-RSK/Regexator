@@ -29,10 +29,15 @@ namespace Pihrtsoft.Regexator.Builder
 
         public string ExcludedGroupValue
         {
-            get { return Value; }
+            get { return ValueInternal; }
         }
 
-        internal override string Value
+        internal override string Value(BuildContext context)
+        {
+            return ValueInternal;
+        }
+
+        private string ValueInternal
         {
             get { return Syntax.CharGroup(_baseGroup.BaseGroupValue + "-" + _excludedGroup.ExcludedGroupValue, _negative); }
         }

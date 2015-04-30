@@ -168,7 +168,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         internal virtual IEnumerable<string> EnumerateContent(BuildContext context)
         {
-            string value = Value;
+            string value = Value(context);
             if (value != null)
             {
                 yield return value;
@@ -185,9 +185,9 @@ namespace Pihrtsoft.Regexator.Builder
             return null;
         }
 
-        internal virtual string Value
+        internal virtual string Value(BuildContext context)
         {
-            get { return null; }
+            return null;
         }
 
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]

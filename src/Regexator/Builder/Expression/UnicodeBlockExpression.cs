@@ -18,9 +18,9 @@ namespace Pihrtsoft.Regexator.Builder
             get { return _block; }
         }
 
-        internal override string Value
+        internal override string Value(BuildContext context)
         {
-            get { return Syntax.UnicodeBlock(_block); }
+            return Syntax.UnicodeBlock(_block);
         }
     }
 }

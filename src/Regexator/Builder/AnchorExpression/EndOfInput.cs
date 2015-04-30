@@ -6,9 +6,9 @@ namespace Pihrtsoft.Regexator.Builder
     internal sealed class EndOfInput
         : AnchorExpression
     {
-        internal override string Value
+        internal override string Value(BuildContext context)
         {
-            get { return Syntax.End; }
+            return Syntax.End;
         }
     }
 }

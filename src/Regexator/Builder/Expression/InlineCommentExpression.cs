@@ -18,9 +18,9 @@ namespace Pihrtsoft.Regexator.Builder
             _value = value;
         }
 
-        internal override string Value
+        internal override string Value(BuildContext context)
         {
-            get { return Syntax.InlineComment(s_trimCommentRegex.Value.Match(_value).Value); }
+            return Syntax.InlineComment(s_trimCommentRegex.Value.Match(_value).Value);
         }
     }
 }

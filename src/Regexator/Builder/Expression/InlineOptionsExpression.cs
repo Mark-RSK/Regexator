@@ -20,9 +20,9 @@ namespace Pihrtsoft.Regexator.Builder
             _disableOptions = disableOptions;
         }
 
-        internal override string Value
+        internal override string Value(BuildContext context)
         {
-            get { return Syntax.Options(_applyOptions, _disableOptions); }
+            return Syntax.Options(_applyOptions, _disableOptions);
         }
     }
 }

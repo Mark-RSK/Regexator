@@ -42,13 +42,13 @@ namespace Pihrtsoft.Regexator.Builder
             }
             else if (_value != null)
             {
-                yield return Value;
+                yield return Value(context);
             }
         }
 
-        internal sealed override string Value
+        internal sealed override string Value(BuildContext context)
         {
-            get { return (_value != null) ? Utilities.Escape(_value) : null; }
+            return (_value != null) ? Utilities.Escape(_value) : null;
         }
 
         internal virtual Expression ChildExpression

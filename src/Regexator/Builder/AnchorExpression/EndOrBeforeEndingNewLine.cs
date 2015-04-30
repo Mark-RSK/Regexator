@@ -6,9 +6,9 @@ namespace Pihrtsoft.Regexator.Builder
     internal sealed class EndOrBeforeEndingNewLine
         : AnchorExpression
     {
-        internal override string Value
+        internal override string Value(BuildContext context)
         {
-            get { return Syntax.EndOrBeforeEndingNewLine; }
+            return Syntax.EndOrBeforeEndingNewLine;
         }
     }
 }

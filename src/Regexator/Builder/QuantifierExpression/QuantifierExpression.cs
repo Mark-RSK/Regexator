@@ -18,9 +18,9 @@ namespace Pihrtsoft.Regexator.Builder
 
         public abstract QuantifierKind QuantifierKind { get; }
 
-        internal override string Value
+        internal override string Value(BuildContext context)
         {
-            get { return IsLazy ? Content + Syntax.Lazy : Content; }
+            return IsLazy ? Content + Syntax.Lazy : Content;
         }
 
         internal bool IsLazy

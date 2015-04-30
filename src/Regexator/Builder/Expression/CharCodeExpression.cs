@@ -16,9 +16,9 @@ namespace Pihrtsoft.Regexator.Builder
             _charCode = charCode;
         }
 
-        internal override string Value
+        internal override string Value(BuildContext context)
         {
-            get { return Syntax.CharInternal(_charCode); }
+            return Syntax.CharInternal(_charCode);
         }
     }
 }

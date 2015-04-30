@@ -10,9 +10,9 @@ namespace Pihrtsoft.Regexator.Builder
         {
         }
 
-        internal override string Value
+        internal override string Value(BuildContext context)
         {
-            get { return Syntax.AnyChar; }
+            return context.Settings.UseInvariant ? Characters.AnyInvariant().Value(context) : Syntax.AnyChar;
         }
     }
 }
