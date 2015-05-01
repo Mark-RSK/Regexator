@@ -6,9 +6,27 @@ namespace Pihrtsoft.Regexator.Builder.Samples
 {
     class Program
     {
+#if DEBUG
+        public static Expression Words(params string[] values)
+        {
+            //if (values == null) { throw new ArgumentNullException("values"); }
+            if (values.Length > 0)
+            {
+                Expression e = Alternations.IfGroup(values.Length - 1, Expressions.Never());
+                for (int i = values.Length - 2; i >= 0; i--)
+                {
+                    e = e.Append(Alternations.IfGroup(i, e));
+                }
+                return e;
+            }
+            return Expressions.Empty();
+        }
+#endif
         static void Main(string[] args)
         {
-            Console.WriteLine(@"\b(?:(?>(word1)|(word2)|(word3)|(?(1)|(?(2)|(?(3)|(?!))))\w+)\b");
+            //Console.WriteLine(@"\b(?:(?>(word1)|(word2)|(word3)|(?(1)|(?(2)|(?(3)|(?!))))\w+)\b");
+            Console.WriteLine(Alternations.IfGroup(1, Expressions.Never()));
+            Console.WriteLine(Words("word1", "word2", "word3"));
 
             Console.WriteLine(Quantifiers.OneMany(Assertions.NotLookahead("cat").Word()).SurroundWordBoundary());
 

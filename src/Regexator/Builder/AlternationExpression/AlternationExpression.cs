@@ -31,7 +31,7 @@ namespace Pihrtsoft.Regexator.Builder
         {
             foreach (var value in EnumerateCondition(context))
             {
-                yield return Value(context);
+                yield return value;
             }
             foreach (var value in YesExpression.EnumerateValues(context))
             {
