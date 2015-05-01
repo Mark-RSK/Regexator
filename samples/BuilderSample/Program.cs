@@ -1,34 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Pihrtsoft.Regexator.Builder;
 
 namespace Pihrtsoft.Regexator.Builder.Samples
 {
+
     class Program
     {
-#if DEBUG
-        public static Expression Words(params string[] values)
-        {
-            if (values == null) { throw new ArgumentNullException("values"); }
-            if (values.Length > 0)
-            {
-                Expression e = Alternations.IfGroup(values.Length, Expressions.Never());
-                for (int i = values.Length - 1; i >= 1; i--)
-                {
-                    e = e.Append(Alternations.IfGroup(i, e));
-                }
-                return e;
-            }
-            return Expressions.Empty();
-        }
-#endif
         static void Main(string[] args)
         {
-            //Console.WriteLine(@"\b(?:(?>(word1)|(word2)|(word3)|(?(1)|(?(2)|(?(3)|(?!))))\w+)\b");
-            Console.WriteLine(Alternations.IfGroup(1, Expressions.Never()));
-            Console.WriteLine(Words("word1", "word2", "word3"));
-
-            Console.WriteLine(Quantifiers.OneMany(Assertions.NotLookahead("cat").Word()).SurroundWordBoundary());
+            Console.WriteLine("repeated word");
+            Console.WriteLine(Characters);
+            Console.WriteLine("");
 
             Console.WriteLine("any word");
             Console.WriteLine(Anchors.WordBoundary(Alternations.Any("word1", "word2", "word3")));

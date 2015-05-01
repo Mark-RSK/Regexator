@@ -115,6 +115,16 @@ namespace Pihrtsoft.Regexator.Builder
             return Group(CharGroupItems.Alphanumeric());
         }
 
+        public static CharGroupExpression LatinAlphabet()
+        {
+            return Group(CharGroupItems.LatinAlphabet());
+        }
+
+        public static CharGroupExpression DigitAsRange()
+        {
+            return Group(CharGroupItems.DigitAsRange());
+        }
+
         public static QuantifiableExpression Any()
         {
             return new AnyCharExpression();
