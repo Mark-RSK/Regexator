@@ -9,11 +9,11 @@ namespace Pihrtsoft.Regexator.Builder.Samples
 #if DEBUG
         public static Expression Words(params string[] values)
         {
-            //if (values == null) { throw new ArgumentNullException("values"); }
+            if (values == null) { throw new ArgumentNullException("values"); }
             if (values.Length > 0)
             {
-                Expression e = Alternations.IfGroup(values.Length - 1, Expressions.Never());
-                for (int i = values.Length - 2; i >= 0; i--)
+                Expression e = Alternations.IfGroup(values.Length, Expressions.Never());
+                for (int i = values.Length - 1; i >= 1; i--)
                 {
                     e = e.Append(Alternations.IfGroup(i, e));
                 }

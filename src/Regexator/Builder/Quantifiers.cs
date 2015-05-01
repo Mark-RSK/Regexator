@@ -1,8 +1,6 @@
 // Copyright (c) Josef Pihrt. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-using System;
-
 namespace Pihrtsoft.Regexator.Builder
 {
     public static class Quantifiers
@@ -49,37 +47,31 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression Maybe(string value)
         {
-            if (value == null) { throw new ArgumentNullException("value"); }
             return QuantifierGroup(value).Maybe();
         }
 
         public static QuantifierExpression Maybe(Expression value)
         {
-            if (value == null) { throw new ArgumentNullException("value"); }
             return QuantifierGroup(value).Maybe();
         }
 
         public static QuantifierExpression MaybeMany(string value)
         {
-            if (value == null) { throw new ArgumentNullException("value"); }
             return QuantifierGroup(value).MaybeMany();
         }
 
         public static QuantifierExpression MaybeMany(Expression value)
         {
-            if (value == null) { throw new ArgumentNullException("value"); }
             return QuantifierGroup(value).MaybeMany();
         }
 
         public static QuantifierExpression OneMany(string value)
         {
-            if (value == null) { throw new ArgumentNullException("value"); }
             return QuantifierGroup(value).OneMany();
         }
 
         public static QuantifierExpression OneMany(Expression value)
         {
-            if (value == null) { throw new ArgumentNullException("value"); }
             return QuantifierGroup(value).OneMany();
         }
 
