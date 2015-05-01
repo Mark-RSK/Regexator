@@ -25,6 +25,11 @@ namespace Pihrtsoft.Regexator.Builder
             return new SurroundExpression(expresion, beforeExpression, afterExpression);
         }
 
+        public static QuantifiableExpression Never()
+        {
+            return Assertions.NotLookahead(string.Empty);
+        }
+
         public static Expression LeadingWhiteSpace()
         {
             return Anchors.StartOfLine().WhiteSpaceExceptNewLine().OneMany();

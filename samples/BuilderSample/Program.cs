@@ -8,6 +8,8 @@ namespace Pihrtsoft.Regexator.Builder.Samples
     {
         static void Main(string[] args)
         {
+            Console.WriteLine(@"\b(?:(?>(word1)|(word2)|(word3)|(?(1)|(?(2)|(?(3)|(?!))))\w+)\b");
+
             Console.WriteLine(Quantifiers.OneMany(Assertions.NotLookahead("cat").Word()).SurroundWordBoundary());
 
             Console.WriteLine("any word");
