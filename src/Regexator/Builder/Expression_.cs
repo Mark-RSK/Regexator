@@ -1816,62 +1816,62 @@ namespace Pihrtsoft.Regexator.Builder
 
         public QuantifierExpression Maybe(string value)
         {
-            return AppendInternal(Groups.Maybe(value));
+            return AppendInternal(Quantifiers.Maybe(value));
         }
 
         public QuantifierExpression Maybe(Expression value)
         {
-            return AppendInternal(Groups.Maybe(value));
+            return AppendInternal(Quantifiers.Maybe(value));
         }
 
         public QuantifierExpression MaybeMany(string value)
         {
-            return AppendInternal(Groups.MaybeMany(value));
+            return AppendInternal(Quantifiers.MaybeMany(value));
         }
 
         public QuantifierExpression MaybeMany(Expression value)
         {
-            return AppendInternal(Groups.MaybeMany(value));
+            return AppendInternal(Quantifiers.MaybeMany(value));
         }
 
         public QuantifierExpression OneMany(string value)
         {
-            return AppendInternal(Groups.OneMany(value));
+            return AppendInternal(Quantifiers.OneMany(value));
         }
 
         public QuantifierExpression OneMany(Expression value)
         {
-            return AppendInternal(Groups.OneMany(value));
+            return AppendInternal(Quantifiers.OneMany(value));
         }
 
         public QuantifierExpression Count(string value, int exactCount)
         {
-            return AppendInternal(Groups.Count(value, exactCount));
+            return AppendInternal(Quantifiers.Count(value, exactCount));
         }
 
         public QuantifierExpression Count(Expression expression, int exactCount)
         {
-            return AppendInternal(Groups.Count(expression, exactCount));
+            return AppendInternal(Quantifiers.Count(expression, exactCount));
         }
 
         public QuantifierExpression AtLeast(string value, int minCount)
         {
-            return AppendInternal(Groups.AtLeast(value, minCount));
+            return AppendInternal(Quantifiers.AtLeast(value, minCount));
         }
 
         public QuantifierExpression AtLeast(Expression expression, int minCount)
         {
-            return AppendInternal(Groups.AtLeast(expression, minCount));
+            return AppendInternal(Quantifiers.AtLeast(expression, minCount));
         }
 
         public QuantifierExpression Count(string value, int minCount, int maxCount)
         {
-            return AppendInternal(Groups.Count(value, minCount, maxCount));
+            return AppendInternal(Quantifiers.Count(value, minCount, maxCount));
         }
 
         public QuantifierExpression Count(Expression expression, int minCount, int maxCount)
         {
-            return AppendInternal(Groups.Count(expression, minCount, maxCount));
+            return AppendInternal(Quantifiers.Count(expression, minCount, maxCount));
         }
 
         public QuantifiableExpression Backreference(int groupNumber)

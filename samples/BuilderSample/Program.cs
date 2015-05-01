@@ -8,7 +8,7 @@ namespace Pihrtsoft.Regexator.Builder.Samples
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Groups.OneMany(Assertions.NotLookahead("cat").Word()).SurroundWordBoundary());
+            Console.WriteLine(Quantifiers.OneMany(Assertions.NotLookahead("cat").Word()).SurroundWordBoundary());
 
             Console.WriteLine("any word");
             Console.WriteLine(Anchors.WordBoundary(Alternations.Any("word1", "word2", "word3")));
