@@ -12,7 +12,7 @@ namespace Pihrtsoft.Regexator.Builder.Samples
         static void Main(string[] args)
         {
             Console.WriteLine("repeated word");
-            Console.WriteLine(Characters);
+            Console.WriteLine(Characters.LatinAlphabet().OneMany().AsSubexpression().WhiteSpace().OneMany().Backreference(1).SurroundWordBoundary());
             Console.WriteLine("");
 
             Console.WriteLine("any word");
