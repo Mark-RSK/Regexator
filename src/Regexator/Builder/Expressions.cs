@@ -15,6 +15,16 @@ namespace Pihrtsoft.Regexator.Builder
             return new TextExpression(value);
         }
 
+        public static Expression Surround(string value, Expression beforeExpression, Expression afterExpression)
+        {
+            return new SurroundExpression(value, beforeExpression, afterExpression);
+        }
+
+        public static Expression Surround(Expression expresion, Expression beforeExpression, Expression afterExpression)
+        {
+            return new SurroundExpression(expresion, beforeExpression, afterExpression);
+        }
+
         public static Expression LeadingWhiteSpace()
         {
             return Anchors.StartOfLine().WhiteSpaceExceptNewLine().OneMany();

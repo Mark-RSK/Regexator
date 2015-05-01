@@ -67,14 +67,14 @@ namespace Pihrtsoft.Regexator.Builder
             return new WordBoundary();
         }
 
-        public static QuantifiableExpression WordBoundary(string value)
+        public static Expression WordBoundary(string value)
         {
-            return new EnclosingExpression(value, WordBoundary(), WordBoundary());
+            return Expressions.Surround(value, WordBoundary(), WordBoundary());
         }
 
-        public static QuantifiableExpression WordBoundary(Expression expression)
+        public static Expression WordBoundary(Expression expression)
         {
-            return new EnclosingExpression(expression, WordBoundary(), WordBoundary());
+            return Expressions.Surround(expression, WordBoundary(), WordBoundary());
         }
 
         public static QuantifiableExpression NotWordBoundary()
@@ -82,19 +82,19 @@ namespace Pihrtsoft.Regexator.Builder
             return new NotWordBoundary();
         }
 
-        public static QuantifiableExpression Line(Expression expression)
+        public static Expression Line(Expression expression)
         {
-            return new EnclosingExpression(expression, StartOfLine(), EndOfLine());
+            return Expressions.Surround(expression, StartOfLine(), EndOfLine());
         }
 
-        public static QuantifiableExpression LineInvariant(Expression expression)
+        public static Expression LineInvariant(Expression expression)
         {
-            return new EnclosingExpression(expression, StartOfLineInvariant(), EndOfLineInvariant());
+            return Expressions.Surround(expression, StartOfLineInvariant(), EndOfLineInvariant());
         }
 
-        public static QuantifiableExpression EntireInput(Expression expression)
+        public static Expression EntireInput(Expression expression)
         {
-            return new EnclosingExpression(expression, Start(), End());
+            return Expressions.Surround(expression, Start(), End());
         }
     }
 }

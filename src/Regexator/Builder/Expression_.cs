@@ -137,12 +137,12 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Anchors.WordBoundary());
         }
 
-        public QuantifiableExpression WordBoundary(string value)
+        public Expression WordBoundary(string value)
         {
             return AppendInternal(Anchors.WordBoundary(value));
         }
 
-        public QuantifiableExpression WordBoundary(Expression expression)
+        public Expression WordBoundary(Expression expression)
         {
             return AppendInternal(Anchors.WordBoundary(expression));
         }
@@ -152,17 +152,22 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Anchors.NotWordBoundary());
         }
 
-        public QuantifiableExpression AsLine()
+        public Expression SurroundWordBoundary()
+        {
+            return Anchors.WordBoundary(this);
+        }
+
+        public Expression AsLine()
         {
             return Anchors.Line(this);
         }
 
-        public QuantifiableExpression AsLineInvariant()
+        public Expression AsLineInvariant()
         {
             return Anchors.LineInvariant(this);
         }
 
-        public QuantifiableExpression AsEntireInput()
+        public Expression AsEntireInput()
         {
             return Anchors.EntireInput(this);
         }

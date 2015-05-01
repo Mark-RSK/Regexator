@@ -6,19 +6,19 @@ using System.Collections.Generic;
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal sealed class EnclosingExpression
+    internal sealed class SurroundExpression
         : QuantifiableExpression
     {
         private readonly Expression _expression;
         private readonly Expression _before;
         private readonly Expression _after;
 
-        public EnclosingExpression(string value, Expression beforeExpression, Expression afterExpression)
+        public SurroundExpression(string value, Expression beforeExpression, Expression afterExpression)
             : this(new TextExpression(value), beforeExpression, afterExpression)
         {
         }
 
-        public EnclosingExpression(Expression expression, Expression beforeExpression, Expression afterExpression)
+        public SurroundExpression(Expression expression, Expression beforeExpression, Expression afterExpression)
         {
             if (expression == null) { throw new ArgumentNullException("expression"); }
             if (beforeExpression == null) { throw new ArgumentNullException("beforeExpression"); }

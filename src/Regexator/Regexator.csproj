@@ -69,7 +69,7 @@
     <Compile Include="Builder\AssertionExpression\CharClassAssertion.cs" />
     <Compile Include="Builder\AssertionExpression\UnicodeBlockAssertion.cs" />
     <Compile Include="Builder\AssertionExpression\UnicodeCategoryAssertion.cs" />
-    <Compile Include="Builder\Expression\EnclosingExpression.cs" />
+    <Compile Include="Builder\Expression\SurroundExpression.cs" />
     <Compile Include="Builder\Miscellaneous.cs" />
     <Compile Include="Builder\Expression\ContainerExpression.cs" />
     <Compile Include="Builder\Expression\InlineCommentExpression.cs" />
