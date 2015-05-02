@@ -15,14 +15,14 @@ namespace Pihrtsoft.Regexator.Builder
             return new TextExpression(value);
         }
 
-        public static Expression Surround(string value, Expression beforeExpression, Expression afterExpression)
+        internal static Expression Surround(string value, Expression beforeExpression, Expression afterExpression)
         {
             return new SurroundExpression(value, beforeExpression, afterExpression);
         }
 
-        public static Expression Surround(Expression expresion, Expression beforeExpression, Expression afterExpression)
+        internal static Expression Surround(Expression expression, Expression beforeExpression, Expression afterExpression)
         {
-            return new SurroundExpression(expresion, beforeExpression, afterExpression);
+            return new SurroundExpression(expression, beforeExpression, afterExpression);
         }
 
         public static QuantifiableExpression Never()

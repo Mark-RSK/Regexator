@@ -1,19 +1,16 @@
 ﻿// Copyright (c) Josef Pihrt. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-using System;
-
 namespace Pihrtsoft.Regexator.Builder
 {
     internal class UnicodeBlockCharItem
         : CharGroupItem
     {
-        private readonly UnicodeBlock[] _blocks;
+        private readonly UnicodeBlock _block;
 
-        public UnicodeBlockCharItem(params UnicodeBlock[] blocks)
+        public UnicodeBlockCharItem(UnicodeBlock block)
         {
-            if (blocks == null) { throw new ArgumentNullException("blocks"); }
-            _blocks = blocks;
+            _block = block;
         }
 
         public virtual bool Negative
@@ -23,7 +20,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         internal override string Content
         {
-            get { return Syntax.UnicodeBlocks(Negative, _blocks); }
+            get { return Syntax.UnicodeBlock(_block, Negative); }
         }
     }
 }

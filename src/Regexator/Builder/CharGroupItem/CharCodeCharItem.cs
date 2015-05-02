@@ -8,17 +8,17 @@ namespace Pihrtsoft.Regexator.Builder
     internal sealed class CharCodeCharItem
         : CharGroupItem
     {
-        private readonly int[] _charCodes;
+        private readonly int _charCode;
 
-        public CharCodeCharItem(params int[] charCodes)
+        public CharCodeCharItem(int charCode)
         {
-            if (charCodes == null) { throw new ArgumentNullException("charCodes"); }
-            _charCodes = charCodes;
+            if (charCode < 0 || charCode > 0xFFFF) { throw new ArgumentOutOfRangeException("charCode"); }
+            _charCode = charCode;
         }
 
         internal override string Content
         {
-            get { return Syntax.Chars(_charCodes, true); }
+            get { return Syntax.CharInternal(_charCode, true); }
         }
     }
 }

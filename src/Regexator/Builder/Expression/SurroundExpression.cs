@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace Pihrtsoft.Regexator.Builder
 {
     internal sealed class SurroundExpression
-        : QuantifiableExpression
+        : Expression
     {
         private readonly Expression _expression;
         private readonly Expression _before;

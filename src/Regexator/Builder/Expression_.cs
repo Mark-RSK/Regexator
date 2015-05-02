@@ -1,6 +1,7 @@
 // Copyright (c) Josef Pihrt. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Pihrtsoft.Regexator.Builder
@@ -182,34 +183,34 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Assertions.Lookahead(value));
         }
 
-        public QuantifiableExpression Lookahead(params char[] values)
+        public QuantifiableExpression Lookahead(char value)
         {
-            return AppendInternal(Assertions.Lookahead(values));
+            return AppendInternal(Assertions.Lookahead(value));
         }
 
-        public QuantifiableExpression Lookahead(params int[] charCodes)
+        public QuantifiableExpression Lookahead(int charCode)
         {
-            return AppendInternal(Assertions.Lookahead(charCodes));
+            return AppendInternal(Assertions.Lookahead(charCode));
         }
 
-        public QuantifiableExpression Lookahead(params AsciiChar[] values)
+        public QuantifiableExpression Lookahead(AsciiChar value)
         {
-            return AppendInternal(Assertions.Lookahead(values));
+            return AppendInternal(Assertions.Lookahead(value));
         }
 
-        public QuantifiableExpression Lookahead(params CharClass[] values)
+        public QuantifiableExpression Lookahead(CharClass value)
         {
-            return AppendInternal(Assertions.Lookahead(values));
+            return AppendInternal(Assertions.Lookahead(value));
         }
 
-        public QuantifiableExpression Lookahead(params UnicodeBlock[] blocks)
+        public QuantifiableExpression Lookahead(UnicodeBlock block)
         {
-            return AppendInternal(Assertions.Lookahead(blocks));
+            return AppendInternal(Assertions.Lookahead(block));
         }
 
-        public QuantifiableExpression Lookahead(UnicodeCategory[] categories)
+        public QuantifiableExpression Lookahead(UnicodeCategory category)
         {
-            return AppendInternal(Assertions.Lookahead(categories));
+            return AppendInternal(Assertions.Lookahead(category));
         }
 
         public QuantifiableExpression NotLookahead(Expression value)
@@ -222,34 +223,34 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Assertions.NotLookahead(value));
         }
 
-        public QuantifiableExpression NotLookahead(params char[] values)
+        public QuantifiableExpression NotLookahead(char value)
         {
-            return AppendInternal(Assertions.NotLookahead(values));
+            return AppendInternal(Assertions.NotLookahead(value));
         }
 
-        public QuantifiableExpression NotLookahead(params int[] charCodes)
+        public QuantifiableExpression NotLookahead(int charCode)
         {
-            return AppendInternal(Assertions.NotLookahead(charCodes));
+            return AppendInternal(Assertions.NotLookahead(charCode));
         }
 
-        public QuantifiableExpression NotLookahead(params AsciiChar[] values)
+        public QuantifiableExpression NotLookahead(AsciiChar value)
         {
-            return AppendInternal(Assertions.NotLookahead(values));
+            return AppendInternal(Assertions.NotLookahead(value));
         }
 
-        public QuantifiableExpression NotLookahead(params CharClass[] values)
+        public QuantifiableExpression NotLookahead(CharClass value)
         {
-            return AppendInternal(Assertions.NotLookahead(values));
+            return AppendInternal(Assertions.NotLookahead(value));
         }
 
-        public QuantifiableExpression NotLookahead(params UnicodeBlock[] blocks)
+        public QuantifiableExpression NotLookahead(UnicodeBlock block)
         {
-            return AppendInternal(Assertions.NotLookahead(blocks));
+            return AppendInternal(Assertions.NotLookahead(block));
         }
 
-        public QuantifiableExpression NotLookahead(UnicodeCategory[] categories)
+        public QuantifiableExpression NotLookahead(UnicodeCategory category)
         {
-            return AppendInternal(Assertions.NotLookahead(categories));
+            return AppendInternal(Assertions.NotLookahead(category));
         }
 
         public QuantifiableExpression Lookbehind(Expression value)
@@ -262,34 +263,34 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Assertions.Lookbehind(value));
         }
 
-        public QuantifiableExpression Lookbehind(params char[] values)
+        public QuantifiableExpression Lookbehind(char value)
         {
-            return AppendInternal(Assertions.Lookbehind(values));
+            return AppendInternal(Assertions.Lookbehind(value));
         }
 
-        public QuantifiableExpression Lookbehind(params int[] charCodes)
+        public QuantifiableExpression Lookbehind(int charCodes)
         {
             return AppendInternal(Assertions.Lookbehind(charCodes));
         }
 
-        public QuantifiableExpression Lookbehind(params AsciiChar[] values)
+        public QuantifiableExpression Lookbehind(AsciiChar value)
         {
-            return AppendInternal(Assertions.Lookbehind(values));
+            return AppendInternal(Assertions.Lookbehind(value));
         }
 
-        public QuantifiableExpression Lookbehind(params CharClass[] values)
+        public QuantifiableExpression Lookbehind(CharClass value)
         {
-            return AppendInternal(Assertions.Lookbehind(values));
+            return AppendInternal(Assertions.Lookbehind(value));
         }
 
-        public QuantifiableExpression Lookbehind(params UnicodeBlock[] blocks)
+        public QuantifiableExpression Lookbehind(UnicodeBlock block)
         {
-            return AppendInternal(Assertions.Lookbehind(blocks));
+            return AppendInternal(Assertions.Lookbehind(block));
         }
 
-        public QuantifiableExpression Lookbehind(UnicodeCategory[] categories)
+        public QuantifiableExpression Lookbehind(UnicodeCategory category)
         {
-            return AppendInternal(Assertions.Lookbehind(categories));
+            return AppendInternal(Assertions.Lookbehind(category));
         }
 
         public QuantifiableExpression NotLookbehind(Expression value)
@@ -302,34 +303,34 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Assertions.NotLookbehind(value));
         }
 
-        public QuantifiableExpression NotLookbehind(params char[] values)
+        public QuantifiableExpression NotLookbehind(char value)
         {
-            return AppendInternal(Assertions.NotLookbehind(values));
+            return AppendInternal(Assertions.NotLookbehind(value));
         }
 
-        public QuantifiableExpression NotLookbehind(params int[] charCodes)
+        public QuantifiableExpression NotLookbehind(int charCode)
         {
-            return AppendInternal(Assertions.NotLookbehind(charCodes));
+            return AppendInternal(Assertions.NotLookbehind(charCode));
         }
 
-        public QuantifiableExpression NotLookbehind(params AsciiChar[] values)
+        public QuantifiableExpression NotLookbehind(AsciiChar value)
         {
-            return AppendInternal(Assertions.NotLookbehind(values));
+            return AppendInternal(Assertions.NotLookbehind(value));
         }
 
-        public QuantifiableExpression NotLookbehind(params CharClass[] values)
+        public QuantifiableExpression NotLookbehind(CharClass value)
         {
-            return AppendInternal(Assertions.NotLookbehind(values));
+            return AppendInternal(Assertions.NotLookbehind(value));
         }
 
-        public QuantifiableExpression NotLookbehind(params UnicodeBlock[] blocks)
+        public QuantifiableExpression NotLookbehind(UnicodeBlock block)
         {
-            return AppendInternal(Assertions.NotLookbehind(blocks));
+            return AppendInternal(Assertions.NotLookbehind(block));
         }
 
-        public QuantifiableExpression NotLookbehind(UnicodeCategory[] categories)
+        public QuantifiableExpression NotLookbehind(UnicodeCategory category)
         {
-            return AppendInternal(Assertions.NotLookbehind(categories));
+            return AppendInternal(Assertions.NotLookbehind(category));
         }
 
         public QuantifiableExpression AsLookahead()
@@ -467,32 +468,32 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Characters.Group(item));
         }
 
-        public QuantifiableExpression Chars(params char[] values)
+        public QuantifiableExpression Chars(IEnumerable<char> values)
         {
             return AppendInternal(Characters.Group(values));
         }
 
-        public QuantifiableExpression Chars(params int[] charCodes)
+        public QuantifiableExpression Chars(IEnumerable<int> charCodes)
         {
             return AppendInternal(Characters.Group(charCodes));
         }
 
-        public QuantifiableExpression Chars(params AsciiChar[] values)
+        public QuantifiableExpression Chars(IEnumerable<AsciiChar> values)
         {
             return AppendInternal(Characters.Group(values));
         }
 
-        public QuantifiableExpression Chars(params CharClass[] values)
+        public QuantifiableExpression Chars(IEnumerable<CharClass> values)
         {
             return AppendInternal(Characters.Group(values));
         }
 
-        public QuantifiableExpression Chars(params UnicodeBlock[] blocks)
+        public QuantifiableExpression Chars(IEnumerable<UnicodeBlock> blocks)
         {
             return AppendInternal(Characters.Group(blocks));
         }
 
-        public QuantifiableExpression Chars(params UnicodeCategory[] categories)
+        public QuantifiableExpression Chars(IEnumerable<UnicodeCategory> categories)
         {
             return AppendInternal(Characters.Group(categories));
         }
@@ -507,27 +508,27 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Characters.NotGroup(item));
         }
 
-        public QuantifiableExpression NotChars(params char[] values)
+        public QuantifiableExpression NotChars(IEnumerable<char> values)
         {
             return AppendInternal(Characters.NotGroup(values));
         }
 
-        public QuantifiableExpression NotChars(params int[] charCodes)
+        public QuantifiableExpression NotChars(IEnumerable<int> charCodes)
         {
             return AppendInternal(Characters.NotGroup(charCodes));
         }
 
-        public QuantifiableExpression NotChars(params AsciiChar[] values)
+        public QuantifiableExpression NotChars(IEnumerable<AsciiChar> values)
         {
             return AppendInternal(Characters.NotGroup(values));
         }
 
-        public QuantifiableExpression NotChars(params UnicodeBlock[] blocks)
+        public QuantifiableExpression NotChars(IEnumerable<UnicodeBlock> blocks)
         {
             return AppendInternal(Characters.NotGroup(blocks));
         }
 
-        public QuantifiableExpression NotChars(params UnicodeCategory[] categories)
+        public QuantifiableExpression NotChars(IEnumerable<UnicodeCategory> categories)
         {
             return AppendInternal(Characters.NotGroup(categories));
         }

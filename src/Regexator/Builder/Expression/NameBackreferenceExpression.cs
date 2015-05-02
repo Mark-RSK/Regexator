@@ -2,7 +2,6 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
-using System.Collections.Generic;
 
 namespace Pihrtsoft.Regexator.Builder
 {
@@ -18,9 +17,9 @@ namespace Pihrtsoft.Regexator.Builder
             _groupName = groupName;
         }
 
-        internal override IEnumerable<string> EnumerateContent(BuildContext context)
+        internal override string Value(BuildContext context)
         {
-            yield return Syntax.Backreference(GroupName, context.Settings.IdentifierSeparator);
+            return Syntax.Backreference(GroupName, context.Settings.IdentifierSeparator);
         }
 
         public string GroupName

@@ -2,15 +2,22 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Collections.Generic;
 
 namespace Pihrtsoft.Regexator.Builder
 {
     internal class AsciiCharGroup
         : CharGroupExpression
     {
-        private readonly AsciiChar[] _values;
+        private readonly IEnumerable<AsciiChar> _values;
+        private readonly AsciiChar _value;
 
-        public AsciiCharGroup(params AsciiChar[] values)
+        public AsciiCharGroup(AsciiChar value)
+        {
+            _value = value;
+        }
+
+        public AsciiCharGroup(IEnumerable<AsciiChar> values)
         {
             if (values == null) { throw new ArgumentNullException("values"); }
             _values = values;
@@ -18,7 +25,17 @@ namespace Pihrtsoft.Regexator.Builder
 
         public override string Content
         {
-            get { return Syntax.Chars(_values, true); }
+            get 
+            {
+                if (_values != null)
+                {
+                    return Syntax.Chars(_values, true); 
+                }
+                else
+                {
+                    return Syntax.Char(_value, true);
+                }
+            }
         }
     }
 }

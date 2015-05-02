@@ -5,29 +5,24 @@ namespace Pihrtsoft.Regexator.Builder
 {
     public static class CharGroupItems
     {
-        public static CharGroupItem Chars(params char[] values)
+        public static CharGroupItem Char(char value)
         {
-            return new CharsCharItem(values);
+            return new CharCharItem(value);
         }
 
-        public static CharGroupItem Chars(params int[] values)
+        public static CharGroupItem Char(int value)
         {
-            return new CharCodeCharItem(values);
+            return new CharCodeCharItem(value);
         }
 
-        public static CharGroupItem Chars(params AsciiChar[] values)
+        public static CharGroupItem Char(AsciiChar value)
         {
-            return new AsciiCharItem(values);
+            return new AsciiCharItem(value);
         }
 
-        public static CharGroupItem Chars(params CharClass[] values)
+        public static CharGroupItem Char(string chars)
         {
-            return new CharClassCharItem(values);
-        }
-
-        public static CharGroupItem Chars(string value)
-        {
-            return new TextCharItem(value);
+            return new TextCharItem(chars);
         }
 
         public static CharGroupItem Range(char first, char last)
@@ -40,24 +35,24 @@ namespace Pihrtsoft.Regexator.Builder
             return new CodeRangeCharItem(first, last);
         }
 
-        public static CharGroupItem UnicodeBlocks(params UnicodeBlock[] blocks)
+        public static CharGroupItem UnicodeBlock(UnicodeBlock block)
         {
-            return new UnicodeBlockCharItem(blocks);
+            return new UnicodeBlockCharItem(block);
         }
 
-        public static CharGroupItem NotUnicodeBlocks(params UnicodeBlock[] blocks)
+        public static CharGroupItem NotUnicodeBlock(UnicodeBlock block)
         {
-            return new NotUnicodeBlockCharItem(blocks);
+            return new NotUnicodeBlockCharItem(block);
         }
 
-        public static CharGroupItem UnicodeCategories(params UnicodeCategory[] categories)
+        public static CharGroupItem UnicodeCategory(UnicodeCategory category)
         {
-            return new UnicodeCategoryCharItem(categories);
+            return new UnicodeCategoryCharItem(category);
         }
 
-        public static CharGroupItem NotUnicodeCategories(params UnicodeCategory[] categories)
+        public static CharGroupItem NotUnicodeCategory(UnicodeCategory category)
         {
-            return new NotUnicodeCategoryCharItem(categories);
+            return new NotUnicodeCategoryCharItem(category);
         }
 
         public static CharGroupItem Digit()

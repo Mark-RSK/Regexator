@@ -1,18 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using Pihrtsoft.Regexator.Builder;
 
 namespace Pihrtsoft.Regexator.Builder.Samples
 {
-
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        internal static void Main(string[] args)
         {
             Console.WriteLine("repeated word");
-            Console.WriteLine(Characters.LatinAlphabet().OneMany().AsSubexpression().WhiteSpace().OneMany().Backreference(1).SurroundWordBoundary());
+            Console.WriteLine(Characters.LatinAlphabet().OneMany().AsSubexpression()
+                .WhiteSpace().OneMany()
+                .Backreference(1)
+                .SurroundWordBoundary());
             Console.WriteLine("");
 
             Console.WriteLine("any word");

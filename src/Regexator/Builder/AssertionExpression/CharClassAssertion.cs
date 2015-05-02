@@ -1,25 +1,22 @@
 // Copyright (c) Josef Pihrt. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-using System;
-
 namespace Pihrtsoft.Regexator.Builder
 {
     internal sealed class CharClassAssertion
         : AssertionExpression
     {
-        private readonly CharClass[] _values;
+        private readonly CharClass _value;
 
-        internal CharClassAssertion(AssertionKind kind, params CharClass[] values)
+        internal CharClassAssertion(AssertionKind kind, CharClass value)
             : base(kind)
         {
-            if (values == null) { throw new ArgumentNullException("values"); }
-            _values = values;
+            _value = value;
         }
 
-        internal override Expression ChildExpression
+        internal override string Value(BuildContext context)
         {
-            get { return ((_values.Length > 0) ? Characters.Group(_values) : Expressions.Empty()); }
+            return Syntax.CharClass(_value);
         }
     }
 }

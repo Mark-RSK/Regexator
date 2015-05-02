@@ -6,8 +6,8 @@ namespace Pihrtsoft.Regexator.Builder
     internal sealed class NotUnicodeBlockCharItem
         : UnicodeBlockCharItem
     {
-        public NotUnicodeBlockCharItem(params UnicodeBlock[] blocks)
-            : base(blocks)
+        public NotUnicodeBlockCharItem(UnicodeBlock block)
+            : base(block)
         {
         }
 

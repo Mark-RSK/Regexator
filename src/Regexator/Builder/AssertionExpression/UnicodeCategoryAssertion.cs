@@ -8,18 +8,17 @@ namespace Pihrtsoft.Regexator.Builder
     internal sealed class UnicodeCategoryAssertion
         : AssertionExpression
     {
-        private readonly UnicodeCategory[] _categories;
+        private readonly UnicodeCategory _category;
 
-        internal UnicodeCategoryAssertion(AssertionKind kind, params UnicodeCategory[] categories)
+        internal UnicodeCategoryAssertion(AssertionKind kind, UnicodeCategory category)
             : base(kind)
         {
-            if (categories == null) { throw new ArgumentNullException("categories"); }
-            _categories = categories;
+            _category = category;
         }
 
-        internal override Expression ChildExpression
+        internal override string Value(BuildContext context)
         {
-            get { return ((_categories.Length > 0) ? Characters.Group(_categories) : Expressions.Empty()); }
+            return Syntax.UnicodeCategory(_category);
         }
     }
 }

@@ -8,18 +8,17 @@ namespace Pihrtsoft.Regexator.Builder
     internal sealed class UnicodeBlockAssertion
         : AssertionExpression
     {
-        private readonly UnicodeBlock[] _blocks;
+        private readonly UnicodeBlock _block;
 
-        internal UnicodeBlockAssertion(AssertionKind kind, params UnicodeBlock[] blocks)
+        internal UnicodeBlockAssertion(AssertionKind kind, UnicodeBlock block)
             : base(kind)
         {
-            if (blocks == null) { throw new ArgumentNullException("blocks"); }
-            _blocks = blocks;
+            _block = block;
         }
 
-        internal override Expression ChildExpression
+        internal override string Value(BuildContext context)
         {
-            get { return ((_blocks.Length > 0) ? Characters.Group(_blocks) : Expressions.Empty()); }
+            return Syntax.UnicodeBlock(_block);
         }
     }
 }

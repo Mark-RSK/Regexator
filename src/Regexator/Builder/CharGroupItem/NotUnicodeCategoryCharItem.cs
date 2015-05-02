@@ -6,9 +6,8 @@ namespace Pihrtsoft.Regexator.Builder
     internal sealed class NotUnicodeCategoryCharItem
         : UnicodeCategoryCharItem
     {
-
-        public NotUnicodeCategoryCharItem(params UnicodeCategory[] categories)
-            : base(categories)
+        public NotUnicodeCategoryCharItem(UnicodeCategory category)
+            : base(category)
         {
         }
 

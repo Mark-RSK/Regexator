@@ -1,24 +1,21 @@
 ﻿// Copyright (c) Josef Pihrt. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-using System;
-
 namespace Pihrtsoft.Regexator.Builder
 {
     internal sealed class AsciiCharItem
         : CharGroupItem
     {
-        private readonly AsciiChar[] _values;
+        private readonly AsciiChar _value;
 
-        public AsciiCharItem(params AsciiChar[] values)
+        public AsciiCharItem(AsciiChar value)
         {
-            if (values == null) { throw new ArgumentNullException("values"); }
-            _values = values;
+            _value = value;
         }
 
         internal override string Content
         {
-            get { return Syntax.Chars(_values, true); }
+            get { return Syntax.Char(_value, true); }
         }
     }
 }

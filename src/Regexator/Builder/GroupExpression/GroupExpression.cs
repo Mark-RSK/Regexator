@@ -40,13 +40,14 @@ namespace Pihrtsoft.Regexator.Builder
                     yield return value;
                 }
             }
-            else if (_value != null)
+            string s = Value(context);
+            if (s != null)
             {
-                yield return Value(context);
+                yield return s;
             }
         }
 
-        internal sealed override string Value(BuildContext context)
+        internal override string Value(BuildContext context)
         {
             return (_value != null) ? Utilities.Escape(_value) : null;
         }

@@ -69,6 +69,7 @@
     <Compile Include="Builder\AssertionExpression\CharClassAssertion.cs" />
     <Compile Include="Builder\AssertionExpression\UnicodeBlockAssertion.cs" />
     <Compile Include="Builder\AssertionExpression\UnicodeCategoryAssertion.cs" />
+    <Compile Include="Builder\Expression\NotCharSubtraction.cs" />
     <Compile Include="Builder\Expression\SurroundExpression.cs" />
     <Compile Include="Builder\Miscellaneous.cs" />
     <Compile Include="Builder\Expression\ContainerExpression.cs" />
@@ -89,7 +90,7 @@
     <Compile Include="Builder\CharGroupExpression\CharGroupExpression.cs" />
     <Compile Include="Builder\CharGroupItem\TextCharItem.cs" />
     <Compile Include="Builder\CharGroupItem\CharCodeCharItem.cs" />
-    <Compile Include="Builder\CharGroupItem\CharsCharItem.cs" />
+    <Compile Include="Builder\CharGroupItem\CharCharItem.cs" />
     <Compile Include="Builder\CharGroupItem\CodeRangeCharItem.cs" />
     <Compile Include="Builder\CharGroupItem\RangeCharItem.cs" />
     <Compile Include="Builder\CharGroupItem\AsciiCharItem.cs" />

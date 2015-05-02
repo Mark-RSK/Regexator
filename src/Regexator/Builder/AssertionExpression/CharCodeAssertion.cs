@@ -8,18 +8,18 @@ namespace Pihrtsoft.Regexator.Builder
     internal sealed class CharCodeAssertion
         : AssertionExpression
     {
-        private readonly int[] _charCodes;
+        private readonly int _charCode;
 
-        internal CharCodeAssertion(AssertionKind kind, params int[] charCodes)
+        internal CharCodeAssertion(AssertionKind kind, int charCode)
             : base(kind)
         {
-            if (charCodes == null) { throw new ArgumentNullException("charCodes"); }
-            _charCodes = charCodes;
+            if (charCode < 0 || charCode > 0xFFFF) { throw new ArgumentOutOfRangeException("charCode"); }
+            _charCode = charCode;
         }
 
-        internal override Expression ChildExpression
+        internal override string Value(BuildContext context)
         {
-            get { return ((_charCodes.Length > 0) ? Characters.Group(_charCodes) : Expressions.Empty()); }
+            return Syntax.CharInternal(_charCode);
         }
     }
 }

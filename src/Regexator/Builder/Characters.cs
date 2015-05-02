@@ -1,13 +1,15 @@
 // Copyright (c) Josef Pihrt. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System.Collections.Generic;
+
 namespace Pihrtsoft.Regexator.Builder
 {
     public static class Characters
     {
-        public static CharGroupExpression Group(string value)
+        public static CharGroupExpression Group(string chars)
         {
-            return new TextCharGroup(value);
+            return new TextCharGroup(chars);
         }
 
         public static CharGroupExpression Group(CharGroupItem item)
@@ -15,32 +17,32 @@ namespace Pihrtsoft.Regexator.Builder
             return new CharItemGroup(item);
         }
 
-        public static CharGroupExpression Group(params char[] values)
+        public static CharGroupExpression Group(IEnumerable<char> values)
         {
             return new CharGroup(values);
         }
 
-        public static CharGroupExpression Group(params int[] charCodes)
+        public static CharGroupExpression Group(IEnumerable<int> charCodes)
         {
             return new CharCodeGroup(charCodes);
         }
 
-        public static CharGroupExpression Group(params AsciiChar[] values)
+        public static CharGroupExpression Group(IEnumerable<AsciiChar> values)
         {
             return new AsciiCharGroup(values);
         }
 
-        public static CharGroupExpression Group(params CharClass[] values)
+        public static CharGroupExpression Group(IEnumerable<CharClass> values)
         {
             return new CharClassGroup(values);
         }
 
-        public static CharGroupExpression Group(params UnicodeBlock[] blocks)
+        public static CharGroupExpression Group(IEnumerable<UnicodeBlock> blocks)
         {
             return new UnicodeBlockGroup(blocks);
         }
 
-        public static CharGroupExpression Group(params UnicodeCategory[] categories)
+        public static CharGroupExpression Group(IEnumerable<UnicodeCategory> categories)
         {
             return new UnicodeCategoryGroup(categories);
         }
@@ -55,27 +57,27 @@ namespace Pihrtsoft.Regexator.Builder
             return new NotCharItemGroup(item);
         }
 
-        public static CharGroupExpression NotGroup(params char[] values)
+        public static CharGroupExpression NotGroup(IEnumerable<char> values)
         {
             return new NotCharGroup(values);
         }
 
-        public static CharGroupExpression NotGroup(params int[] charCodes)
+        public static CharGroupExpression NotGroup(IEnumerable<int> charCodes)
         {
             return new NotCharCodeGroup(charCodes);
         }
 
-        public static CharGroupExpression NotGroup(params AsciiChar[] values)
+        public static CharGroupExpression NotGroup(IEnumerable<AsciiChar> values)
         {
             return new NotAsciiCharGroup(values);
         }
 
-        public static CharGroupExpression NotGroup(params UnicodeBlock[] blocks)
+        public static CharGroupExpression NotGroup(IEnumerable<UnicodeBlock> blocks)
         {
             return new NotUnicodeBlockGroup(blocks);
         }
 
-        public static CharGroupExpression NotGroup(params UnicodeCategory[] categories)
+        public static CharGroupExpression NotGroup(IEnumerable<UnicodeCategory> categories)
         {
             return new NotUnicodeCategoryGroup(categories);
         }
@@ -107,7 +109,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static CharSubtraction NotSubtraction(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
         {
-            return new CharSubtraction(baseGroup, excludedGroup, true);
+            return new NotCharSubtraction(baseGroup, excludedGroup);
         }
 
         public static CharGroupExpression Alphanumeric()

@@ -1,24 +1,21 @@
 ﻿// Copyright (c) Josef Pihrt. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-using System;
-
 namespace Pihrtsoft.Regexator.Builder
 {
     internal sealed class CharClassCharItem
         : CharGroupItem
     {
-        private readonly CharClass[] _values;
+        private readonly CharClass _value;
 
-        public CharClassCharItem(params CharClass[] values)
+        public CharClassCharItem(CharClass value)
         {
-            if (values == null) { throw new ArgumentNullException("values"); }
-            _values = values;
+            _value = value;
         }
 
         internal override string Content
         {
-            get { return Syntax.CharClasses(_values); }
+            get { return Syntax.CharClass(_value); }
         }
     }
 }

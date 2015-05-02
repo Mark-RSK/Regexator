@@ -58,29 +58,24 @@ namespace Pihrtsoft.Regexator.Builder
             return Content;
         }
 
-        public CharGroupItem Chars(params char[] values)
+        public CharGroupItem Char(char value)
         {
-            return Append(CharGroupItems.Chars(values));
+            return Append(CharGroupItems.Char(value));
         }
 
-        public CharGroupItem Chars(params int[] values)
+        public CharGroupItem Char(int value)
         {
-            return Append(CharGroupItems.Chars(values));
+            return Append(CharGroupItems.Char(value));
         }
 
-        public CharGroupItem Chars(params AsciiChar[] values)
+        public CharGroupItem Char(AsciiChar value)
         {
-            return Append(CharGroupItems.Chars(values));
+            return Append(CharGroupItems.Char(value));
         }
 
-        public CharGroupItem Chars(params CharClass[] values)
+        public CharGroupItem Char(string chars)
         {
-            return Append(CharGroupItems.Chars(values));
-        }
-
-        public CharGroupItem Chars(string value)
-        {
-            return Append(CharGroupItems.Chars(value));
+            return Append(CharGroupItems.Char(chars));
         }
 
         public CharGroupItem Range(char first, char last)
@@ -93,24 +88,24 @@ namespace Pihrtsoft.Regexator.Builder
             return Append(CharGroupItems.Range(first, last));
         }
 
-        public CharGroupItem UnicodeBlocks(params UnicodeBlock[] blocks)
+        public CharGroupItem UnicodeBlock(UnicodeBlock block)
         {
-            return Append(CharGroupItems.UnicodeBlocks(blocks));
+            return Append(CharGroupItems.UnicodeBlock(block));
         }
 
-        public CharGroupItem NotUnicodeBlocks(params UnicodeBlock[] blocks)
+        public CharGroupItem NotUnicodeBlock(UnicodeBlock block)
         {
-            return Append(CharGroupItems.NotUnicodeBlocks(blocks));
+            return Append(CharGroupItems.NotUnicodeBlock(block));
         }
 
-        public CharGroupItem UnicodeCategories(params UnicodeCategory[] categories)
+        public CharGroupItem UnicodeCategory(UnicodeCategory category)
         {
-            return Append(CharGroupItems.UnicodeCategories(categories));
+            return Append(CharGroupItems.UnicodeCategory(category));
         }
 
-        public CharGroupItem NotUnicodeCategories(params UnicodeCategory[] categories)
+        public CharGroupItem NotUnicodeCategory(UnicodeCategory category)
         {
-            return Append(CharGroupItems.NotUnicodeCategories(categories));
+            return Append(CharGroupItems.NotUnicodeCategory(category));
         }
 
         public CharGroupItem Digit()

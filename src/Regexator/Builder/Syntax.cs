@@ -14,6 +14,7 @@ namespace Pihrtsoft.Regexator.Builder
     {
         internal const string IfStart = "(?";
         internal const string InlineCommentStart = "(?#";
+
         public const string Or = "|";
 
         public const string Start = @"\A";
@@ -243,7 +244,7 @@ namespace Pihrtsoft.Regexator.Builder
             return string.Empty;
         }
 
-        public static string CharClasses(params CharClass[] values)
+        public static string CharClasses(IEnumerable<CharClass> values)
         {
             if (values == null) { throw new ArgumentNullException("values"); }
             return string.Concat(values.Select(f => CharClass(f)));
@@ -257,6 +258,11 @@ namespace Pihrtsoft.Regexator.Builder
         public static string Range(int first, int last)
         {
             return Syntax.Char(first, true) + "-" + Syntax.Char(last, true);
+        }
+
+        internal static string RangeInternal(int first, int last)
+        {
+            return Syntax.CharInternal(first, true) + "-" + Syntax.CharInternal(last, true);
         }
 
         public static string Char(char value, bool inCharGroup)
@@ -363,12 +369,12 @@ namespace Pihrtsoft.Regexator.Builder
             return (negative ? NotUnicodeStart : UnicodeStart) + GetUnicodeBlockValue(block) + UnicodeEnd;
         }
 
-        public static string UnicodeBlocks(params UnicodeBlock[] blocks)
+        public static string UnicodeBlocks(IEnumerable<UnicodeBlock> blocks)
         {
-            return UnicodeBlocks(false, blocks);
+            return UnicodeBlocks(blocks, false);
         }
 
-        public static string UnicodeBlocks(bool negative, params UnicodeBlock[] blocks)
+        public static string UnicodeBlocks(IEnumerable<UnicodeBlock> blocks, bool negative)
         {
             if (blocks == null) { throw new ArgumentNullException("blocks"); }
             return string.Concat(blocks.Select(f => UnicodeBlock(f, negative)));
@@ -389,12 +395,12 @@ namespace Pihrtsoft.Regexator.Builder
             return (negative ? NotUnicodeStart : UnicodeStart) + GetUnicodeCategoryValue(category) + UnicodeEnd;
         }
 
-        public static string UnicodeCategories(params UnicodeCategory[] categories)
+        public static string UnicodeCategories(IEnumerable<UnicodeCategory> categories)
         {
-            return UnicodeCategories(false, categories);
+            return UnicodeCategories(categories, false);
         }
 
-        public static string UnicodeCategories(bool negative, params UnicodeCategory[] categories)
+        public static string UnicodeCategories(IEnumerable<UnicodeCategory> categories, bool negative)
         {
             if (categories == null) { throw new ArgumentNullException("categories"); }
             return string.Concat(categories.Select(f => UnicodeCategory(f, negative)));

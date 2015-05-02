@@ -8,17 +8,17 @@ namespace Pihrtsoft.Regexator.Builder
     internal sealed class TextCharItem
         : CharGroupItem
     {
-        private readonly string _value;
+        private readonly string _chars;
 
-        public TextCharItem(string value)
+        public TextCharItem(string chars)
         {
-            if (value == null) { throw new ArgumentNullException("value"); }
-            _value = value;
+            if (chars == null) { throw new ArgumentNullException("chars"); }
+            _chars = chars;
         }
 
         internal override string Content
         {
-            get { return Utilities.Escape(_value, true); }
+            get { return Utilities.Escape(_chars, true); }
         }
     }
 }

@@ -1,19 +1,16 @@
 ﻿// Copyright (c) Josef Pihrt. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-using System;
-
 namespace Pihrtsoft.Regexator.Builder
 {
     internal class UnicodeCategoryCharItem
         : CharGroupItem
     {
-        private readonly UnicodeCategory[] _categories;
+        private readonly UnicodeCategory _category;
 
-        public UnicodeCategoryCharItem(params UnicodeCategory[] categories)
+        public UnicodeCategoryCharItem(UnicodeCategory category)
         {
-            if (categories == null) { throw new ArgumentNullException("categories"); }
-            _categories = categories;
+            _category = category;
         }
 
         public virtual bool Negative
@@ -23,7 +20,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         internal override string Content
         {
-            get { return Syntax.UnicodeCategories(Negative, _categories); }
+            get { return Syntax.UnicodeCategory(_category, Negative); }
         }
     }
 }
