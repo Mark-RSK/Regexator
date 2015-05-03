@@ -11,7 +11,7 @@ namespace Pihrtsoft.Regexator.Builder.Samples
             Console.WriteLine(Characters.LatinAlphabet().OneMany().AsSubexpression()
                 .WhiteSpace().OneMany()
                 .Backreference(1)
-                .SurroundWordBoundary());
+                .AsWordBoundary());
             Console.WriteLine("");
 
             Console.WriteLine("any word");

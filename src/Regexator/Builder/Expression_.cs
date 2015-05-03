@@ -153,7 +153,7 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Anchors.NotWordBoundary());
         }
 
-        public Expression SurroundWordBoundary()
+        public Expression AsWordBoundary()
         {
             return Anchors.WordBoundary(this);
         }
