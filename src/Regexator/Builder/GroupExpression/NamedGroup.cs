@@ -31,7 +31,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         internal override string Opening(BuildContext context)
         {
-            return Syntax.GroupStart(GroupName, context.Settings.IdentifierSeparator);
+            return Syntax.GroupStart(GroupName, context.Settings.IdentifierBoundary);
         }
     }
 }

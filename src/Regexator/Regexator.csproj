@@ -118,7 +118,7 @@
     <Compile Include="Builder\QuantifierExpression\CountRangeQuantifier.cs" />
     <Compile Include="Builder\GroupExpression\GroupExpression.cs" />
     <Compile Include="Builder\IBaseGroup.cs" />
-    <Compile Include="Builder\IdentifierSeparatorKind.cs" />
+    <Compile Include="Builder\IdentifierBoundary.cs" />
     <Compile Include="Builder\IExcludedGroup.cs" />
     <Compile Include="Builder\AlternationExpression\AlternationExpression.cs" />
     <Compile Include="Builder\InlineOptions.cs" />

@@ -118,51 +118,51 @@ namespace Pihrtsoft.Regexator.Builder
             return @"\" + groupNumber;
         }
 
-        public static string Backreference(string groupName, IdentifierSeparatorKind separator)
+        public static string Backreference(string groupName, IdentifierBoundary separator)
         {
             if (groupName == null) { throw new ArgumentNullException("groupName"); }
             switch (separator)
             {
-                case IdentifierSeparatorKind.LessThan:
+                case IdentifierBoundary.LessThan:
                     return @"\k<" + groupName + ">";
-                case IdentifierSeparatorKind.Apostrophe:
+                case IdentifierBoundary.Apostrophe:
                     return @"\k'" + groupName + "'";
             }
             return null;
         }
 
-        public static string Group(string name, string value, IdentifierSeparatorKind separator)
+        public static string Group(string name, string value, IdentifierBoundary separator)
         {
             return GroupStart(name, separator) + value + GroupEnd;
         }
 
-        internal static string GroupStart(string groupName, IdentifierSeparatorKind separator)
+        internal static string GroupStart(string groupName, IdentifierBoundary separator)
         {
             if (groupName == null) { throw new ArgumentNullException("groupName"); }
             switch (separator)
             {
-                case IdentifierSeparatorKind.LessThan:
+                case IdentifierBoundary.LessThan:
                     return @"(?<" + groupName + @">";
-                case IdentifierSeparatorKind.Apostrophe:
+                case IdentifierBoundary.Apostrophe:
                     return @"(?'" + groupName + @"'";
             }
             return null;
         }
 
-        public static string BalancingGroup(string name1, string name2, string value, IdentifierSeparatorKind separator)
+        public static string BalancingGroup(string name1, string name2, string value, IdentifierBoundary separator)
         {
             return BalancingGroupStart(name1, name2, separator) + value + GroupEnd;
         }
 
-        internal static string BalancingGroupStart(string name1, string name2, IdentifierSeparatorKind separator)
+        internal static string BalancingGroupStart(string name1, string name2, IdentifierBoundary separator)
         {
             if (name1 == null) { throw new ArgumentNullException("name1"); }
             if (name2 == null) { throw new ArgumentNullException("name2"); }
             switch (separator)
             {
-                case IdentifierSeparatorKind.LessThan:
+                case IdentifierBoundary.LessThan:
                     return @"(?<" + name1 + "-" + name2 + @">";
-                case IdentifierSeparatorKind.Apostrophe:
+                case IdentifierBoundary.Apostrophe:
                     return @"(?'" + name1 + "-" + name2 + @"'";
             }
             return null;

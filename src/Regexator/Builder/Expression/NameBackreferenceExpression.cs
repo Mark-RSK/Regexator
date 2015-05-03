@@ -19,7 +19,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         internal override string Value(BuildContext context)
         {
-            return Syntax.Backreference(GroupName, context.Settings.IdentifierSeparator);
+            return Syntax.Backreference(GroupName, context.Settings.IdentifierBoundary);
         }
 
         public string GroupName

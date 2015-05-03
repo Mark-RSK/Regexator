@@ -3,7 +3,7 @@
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    public enum IdentifierSeparatorKind
+    public enum IdentifierBoundary
     {
         LessThan,
         Apostrophe
