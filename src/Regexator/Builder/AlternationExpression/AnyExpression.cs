@@ -9,17 +9,23 @@ namespace Pihrtsoft.Regexator.Builder
     internal class AnyExpression
         : QuantifiableExpression
     {
-        private readonly Expression[] _expressions;
+        private readonly IEnumerable<Expression> _expressions;
 
         protected AnyExpression()
         {
+        }
+
+        internal AnyExpression(IEnumerable<Expression> expressions)
+            : base()
+        {
+            if (expressions == null) { throw new ArgumentNullException("expressions"); }
+            _expressions = expressions;
         }
 
         internal AnyExpression(params Expression[] expressions)
             : base()
         {
             if (expressions == null) { throw new ArgumentNullException("expressions"); }
-            if (expressions.Length == 0) { throw new ArgumentException(); }
             _expressions = expressions;
         }
 

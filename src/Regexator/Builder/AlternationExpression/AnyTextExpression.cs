@@ -9,13 +9,19 @@ namespace Pihrtsoft.Regexator.Builder
     internal sealed class AnyTextExpression
         : AnyExpression
     {
-        private readonly string[] _values;
+        private readonly IEnumerable<string> _values;
+
+        internal AnyTextExpression(IEnumerable<string> values)
+            : base()
+        {
+            if (values == null) { throw new ArgumentNullException("values"); }
+            _values = values;
+        }
 
         internal AnyTextExpression(params string[] values)
             : base()
         {
             if (values == null) { throw new ArgumentNullException("values"); }
-            if (values.Length == 0) { throw new ArgumentException(); }
             _values = values;
         }
 
