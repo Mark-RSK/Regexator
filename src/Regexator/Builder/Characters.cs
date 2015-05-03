@@ -154,7 +154,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression Digit(int minCount, int maxCount)
         {
-            return new CharClassExpression(CharClass.Digit).Count(minCount, maxCount);
+            return new CharClassExpression(CharClass.Digit).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotDigit()
@@ -169,7 +169,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression NotDigit(int minCount, int maxCount)
         {
-            return new CharClassExpression(CharClass.NotDigit).Count(minCount, maxCount);
+            return new CharClassExpression(CharClass.NotDigit).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression WhiteSpace()
@@ -184,7 +184,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression WhiteSpace(int minCount, int maxCount)
         {
-            return new CharClassExpression(CharClass.WhiteSpace).Count(minCount, maxCount);
+            return new CharClassExpression(CharClass.WhiteSpace).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotWhiteSpace()
@@ -199,7 +199,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression NotWhiteSpace(int minCount, int maxCount)
         {
-            return new CharClassExpression(CharClass.NotWhiteSpace).Count(minCount, maxCount);
+            return new CharClassExpression(CharClass.NotWhiteSpace).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression Word()
@@ -214,7 +214,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression Word(int minCount, int maxCount)
         {
-            return new CharClassExpression(CharClass.Word).Count(minCount, maxCount);
+            return new CharClassExpression(CharClass.Word).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotWord()
@@ -229,7 +229,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression NotWord(int minCount, int maxCount)
         {
-            return new CharClassExpression(CharClass.NotWord).Count(minCount, maxCount);
+            return new CharClassExpression(CharClass.NotWord).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression Char(char value)
@@ -299,7 +299,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression Tab(int minCount, int maxCount)
         {
-            return Char(AsciiChar.Tab).Count(minCount, maxCount);
+            return Char(AsciiChar.Tab).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotTab()
@@ -314,7 +314,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression NotTab(int minCount, int maxCount)
         {
-            return NotChar(AsciiChar.Tab).Count(minCount, maxCount);
+            return NotChar(AsciiChar.Tab).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression Linefeed()
@@ -329,7 +329,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression Linefeed(int minCount, int maxCount)
         {
-            return Char(AsciiChar.Linefeed).Count(minCount, maxCount);
+            return Char(AsciiChar.Linefeed).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotLinefeed()
@@ -344,7 +344,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression NotLinefeed(int minCount, int maxCount)
         {
-            return NotChar(AsciiChar.Linefeed).Count(minCount, maxCount);
+            return NotChar(AsciiChar.Linefeed).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression CarriageReturn()
@@ -359,7 +359,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression CarriageReturn(int minCount, int maxCount)
         {
-            return Char(AsciiChar.CarriageReturn).Count(minCount, maxCount);
+            return Char(AsciiChar.CarriageReturn).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotCarriageReturn()
@@ -374,7 +374,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression NotCarriageReturn(int minCount, int maxCount)
         {
-            return NotChar(AsciiChar.CarriageReturn).Count(minCount, maxCount);
+            return NotChar(AsciiChar.CarriageReturn).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression Space()
@@ -389,7 +389,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression Space(int minCount, int maxCount)
         {
-            return Char(AsciiChar.Space).Count(minCount, maxCount);
+            return Char(AsciiChar.Space).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotSpace()
@@ -404,7 +404,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression NotSpace(int minCount, int maxCount)
         {
-            return NotChar(AsciiChar.Space).Count(minCount, maxCount);
+            return NotChar(AsciiChar.Space).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression ExclamationMark()
@@ -419,7 +419,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression ExclamationMark(int minCount, int maxCount)
         {
-            return Char(AsciiChar.ExclamationMark).Count(minCount, maxCount);
+            return Char(AsciiChar.ExclamationMark).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotExclamationMark()
@@ -434,7 +434,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression NotExclamationMark(int minCount, int maxCount)
         {
-            return NotChar(AsciiChar.ExclamationMark).Count(minCount, maxCount);
+            return NotChar(AsciiChar.ExclamationMark).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression QuotationMark()
@@ -449,7 +449,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression QuotationMark(int minCount, int maxCount)
         {
-            return Char(AsciiChar.QuotationMark).Count(minCount, maxCount);
+            return Char(AsciiChar.QuotationMark).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotQuotationMark()
@@ -464,7 +464,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression NotQuotationMark(int minCount, int maxCount)
         {
-            return NotChar(AsciiChar.QuotationMark).Count(minCount, maxCount);
+            return NotChar(AsciiChar.QuotationMark).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression NumberSign()
@@ -479,7 +479,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression NumberSign(int minCount, int maxCount)
         {
-            return Char(AsciiChar.NumberSign).Count(minCount, maxCount);
+            return Char(AsciiChar.NumberSign).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotNumberSign()
@@ -494,7 +494,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression NotNumberSign(int minCount, int maxCount)
         {
-            return NotChar(AsciiChar.NumberSign).Count(minCount, maxCount);
+            return NotChar(AsciiChar.NumberSign).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression Dollar()
@@ -509,7 +509,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression Dollar(int minCount, int maxCount)
         {
-            return Char(AsciiChar.Dollar).Count(minCount, maxCount);
+            return Char(AsciiChar.Dollar).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotDollar()
@@ -524,7 +524,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression NotDollar(int minCount, int maxCount)
         {
-            return NotChar(AsciiChar.Dollar).Count(minCount, maxCount);
+            return NotChar(AsciiChar.Dollar).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression Percent()
@@ -539,7 +539,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression Percent(int minCount, int maxCount)
         {
-            return Char(AsciiChar.Percent).Count(minCount, maxCount);
+            return Char(AsciiChar.Percent).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotPercent()
@@ -554,7 +554,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression NotPercent(int minCount, int maxCount)
         {
-            return NotChar(AsciiChar.Percent).Count(minCount, maxCount);
+            return NotChar(AsciiChar.Percent).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression Ampersand()
@@ -569,7 +569,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression Ampersand(int minCount, int maxCount)
         {
-            return Char(AsciiChar.Ampersand).Count(minCount, maxCount);
+            return Char(AsciiChar.Ampersand).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotAmpersand()
@@ -584,7 +584,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression NotAmpersand(int minCount, int maxCount)
         {
-            return NotChar(AsciiChar.Ampersand).Count(minCount, maxCount);
+            return NotChar(AsciiChar.Ampersand).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression Apostrophe()
@@ -599,7 +599,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression Apostrophe(int minCount, int maxCount)
         {
-            return Char(AsciiChar.Apostrophe).Count(minCount, maxCount);
+            return Char(AsciiChar.Apostrophe).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotApostrophe()
@@ -614,7 +614,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression NotApostrophe(int minCount, int maxCount)
         {
-            return NotChar(AsciiChar.Apostrophe).Count(minCount, maxCount);
+            return NotChar(AsciiChar.Apostrophe).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression LeftParenthesis()
@@ -629,7 +629,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression LeftParenthesis(int minCount, int maxCount)
         {
-            return Char(AsciiChar.LeftParenthesis).Count(minCount, maxCount);
+            return Char(AsciiChar.LeftParenthesis).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotLeftParenthesis()
@@ -644,7 +644,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression NotLeftParenthesis(int minCount, int maxCount)
         {
-            return NotChar(AsciiChar.LeftParenthesis).Count(minCount, maxCount);
+            return NotChar(AsciiChar.LeftParenthesis).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression RightParenthesis()
@@ -659,7 +659,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression RightParenthesis(int minCount, int maxCount)
         {
-            return Char(AsciiChar.RightParenthesis).Count(minCount, maxCount);
+            return Char(AsciiChar.RightParenthesis).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotRightParenthesis()
@@ -674,7 +674,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression NotRightParenthesis(int minCount, int maxCount)
         {
-            return NotChar(AsciiChar.RightParenthesis).Count(minCount, maxCount);
+            return NotChar(AsciiChar.RightParenthesis).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression Asterisk()
@@ -689,7 +689,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression Asterisk(int minCount, int maxCount)
         {
-            return Char(AsciiChar.Asterisk).Count(minCount, maxCount);
+            return Char(AsciiChar.Asterisk).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotAsterisk()
@@ -704,7 +704,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression NotAsterisk(int minCount, int maxCount)
         {
-            return NotChar(AsciiChar.Asterisk).Count(minCount, maxCount);
+            return NotChar(AsciiChar.Asterisk).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression Plus()
@@ -719,7 +719,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression Plus(int minCount, int maxCount)
         {
-            return Char(AsciiChar.Plus).Count(minCount, maxCount);
+            return Char(AsciiChar.Plus).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotPlus()
@@ -734,7 +734,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression NotPlus(int minCount, int maxCount)
         {
-            return NotChar(AsciiChar.Plus).Count(minCount, maxCount);
+            return NotChar(AsciiChar.Plus).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression Comma()
@@ -749,7 +749,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression Comma(int minCount, int maxCount)
         {
-            return Char(AsciiChar.Comma).Count(minCount, maxCount);
+            return Char(AsciiChar.Comma).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotComma()
@@ -764,7 +764,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression NotComma(int minCount, int maxCount)
         {
-            return NotChar(AsciiChar.Comma).Count(minCount, maxCount);
+            return NotChar(AsciiChar.Comma).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression Hyphen()
@@ -779,7 +779,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression Hyphen(int minCount, int maxCount)
         {
-            return Char(AsciiChar.Hyphen).Count(minCount, maxCount);
+            return Char(AsciiChar.Hyphen).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotHyphen()
@@ -794,7 +794,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression NotHyphen(int minCount, int maxCount)
         {
-            return NotChar(AsciiChar.Hyphen).Count(minCount, maxCount);
+            return NotChar(AsciiChar.Hyphen).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression Period()
@@ -809,7 +809,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression Period(int minCount, int maxCount)
         {
-            return Char(AsciiChar.Period).Count(minCount, maxCount);
+            return Char(AsciiChar.Period).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotPeriod()
@@ -824,7 +824,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression NotPeriod(int minCount, int maxCount)
         {
-            return NotChar(AsciiChar.Period).Count(minCount, maxCount);
+            return NotChar(AsciiChar.Period).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression Slash()
@@ -839,7 +839,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression Slash(int minCount, int maxCount)
         {
-            return Char(AsciiChar.Slash).Count(minCount, maxCount);
+            return Char(AsciiChar.Slash).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotSlash()
@@ -854,7 +854,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression NotSlash(int minCount, int maxCount)
         {
-            return NotChar(AsciiChar.Slash).Count(minCount, maxCount);
+            return NotChar(AsciiChar.Slash).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression Colon()
@@ -869,7 +869,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression Colon(int minCount, int maxCount)
         {
-            return Char(AsciiChar.Colon).Count(minCount, maxCount);
+            return Char(AsciiChar.Colon).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotColon()
@@ -884,7 +884,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression NotColon(int minCount, int maxCount)
         {
-            return NotChar(AsciiChar.Colon).Count(minCount, maxCount);
+            return NotChar(AsciiChar.Colon).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression Semicolon()
@@ -899,7 +899,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression Semicolon(int minCount, int maxCount)
         {
-            return Char(AsciiChar.Semicolon).Count(minCount, maxCount);
+            return Char(AsciiChar.Semicolon).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotSemicolon()
@@ -914,7 +914,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression NotSemicolon(int minCount, int maxCount)
         {
-            return NotChar(AsciiChar.Semicolon).Count(minCount, maxCount);
+            return NotChar(AsciiChar.Semicolon).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression LessThan()
@@ -929,7 +929,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression LessThan(int minCount, int maxCount)
         {
-            return Char(AsciiChar.LessThan).Count(minCount, maxCount);
+            return Char(AsciiChar.LessThan).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotLessThan()
@@ -944,7 +944,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression NotLessThan(int minCount, int maxCount)
         {
-            return NotChar(AsciiChar.LessThan).Count(minCount, maxCount);
+            return NotChar(AsciiChar.LessThan).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression EqualsSign()
@@ -959,7 +959,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression EqualsSign(int minCount, int maxCount)
         {
-            return Char(AsciiChar.EqualsSign).Count(minCount, maxCount);
+            return Char(AsciiChar.EqualsSign).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotEqualsSign()
@@ -974,7 +974,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression NotEqualsSign(int minCount, int maxCount)
         {
-            return NotChar(AsciiChar.EqualsSign).Count(minCount, maxCount);
+            return NotChar(AsciiChar.EqualsSign).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression GreaterThan()
@@ -989,7 +989,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression GreaterThan(int minCount, int maxCount)
         {
-            return Char(AsciiChar.GreaterThan).Count(minCount, maxCount);
+            return Char(AsciiChar.GreaterThan).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotGreaterThan()
@@ -1004,7 +1004,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression NotGreaterThan(int minCount, int maxCount)
         {
-            return NotChar(AsciiChar.GreaterThan).Count(minCount, maxCount);
+            return NotChar(AsciiChar.GreaterThan).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression QuestionMark()
@@ -1019,7 +1019,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression QuestionMark(int minCount, int maxCount)
         {
-            return Char(AsciiChar.QuestionMark).Count(minCount, maxCount);
+            return Char(AsciiChar.QuestionMark).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotQuestionMark()
@@ -1034,7 +1034,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression NotQuestionMark(int minCount, int maxCount)
         {
-            return NotChar(AsciiChar.QuestionMark).Count(minCount, maxCount);
+            return NotChar(AsciiChar.QuestionMark).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression At()
@@ -1049,7 +1049,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression At(int minCount, int maxCount)
         {
-            return Char(AsciiChar.At).Count(minCount, maxCount);
+            return Char(AsciiChar.At).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotAt()
@@ -1064,7 +1064,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression NotAt(int minCount, int maxCount)
         {
-            return NotChar(AsciiChar.At).Count(minCount, maxCount);
+            return NotChar(AsciiChar.At).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression LeftSquareBracket()
@@ -1079,7 +1079,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression LeftSquareBracket(int minCount, int maxCount)
         {
-            return Char(AsciiChar.LeftSquareBracket).Count(minCount, maxCount);
+            return Char(AsciiChar.LeftSquareBracket).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotLeftSquareBracket()
@@ -1094,7 +1094,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression NotLeftSquareBracket(int minCount, int maxCount)
         {
-            return NotChar(AsciiChar.LeftSquareBracket).Count(minCount, maxCount);
+            return NotChar(AsciiChar.LeftSquareBracket).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression Backslash()
@@ -1109,7 +1109,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression Backslash(int minCount, int maxCount)
         {
-            return Char(AsciiChar.Backslash).Count(minCount, maxCount);
+            return Char(AsciiChar.Backslash).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotBackslash()
@@ -1124,7 +1124,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression NotBackslash(int minCount, int maxCount)
         {
-            return NotChar(AsciiChar.Backslash).Count(minCount, maxCount);
+            return NotChar(AsciiChar.Backslash).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression RightSquareBracket()
@@ -1139,7 +1139,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression RightSquareBracket(int minCount, int maxCount)
         {
-            return Char(AsciiChar.RightSquareBracket).Count(minCount, maxCount);
+            return Char(AsciiChar.RightSquareBracket).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotRightSquareBracket()
@@ -1154,7 +1154,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression NotRightSquareBracket(int minCount, int maxCount)
         {
-            return NotChar(AsciiChar.RightSquareBracket).Count(minCount, maxCount);
+            return NotChar(AsciiChar.RightSquareBracket).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression CircumflexAccent()
@@ -1169,7 +1169,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression CircumflexAccent(int minCount, int maxCount)
         {
-            return Char(AsciiChar.CircumflexAccent).Count(minCount, maxCount);
+            return Char(AsciiChar.CircumflexAccent).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotCircumflexAccent()
@@ -1184,7 +1184,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression NotCircumflexAccent(int minCount, int maxCount)
         {
-            return NotChar(AsciiChar.CircumflexAccent).Count(minCount, maxCount);
+            return NotChar(AsciiChar.CircumflexAccent).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression Underscore()
@@ -1199,7 +1199,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression Underscore(int minCount, int maxCount)
         {
-            return Char(AsciiChar.Underscore).Count(minCount, maxCount);
+            return Char(AsciiChar.Underscore).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotUnderscore()
@@ -1214,7 +1214,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression NotUnderscore(int minCount, int maxCount)
         {
-            return NotChar(AsciiChar.Underscore).Count(minCount, maxCount);
+            return NotChar(AsciiChar.Underscore).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression GraveAccent()
@@ -1229,7 +1229,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression GraveAccent(int minCount, int maxCount)
         {
-            return Char(AsciiChar.GraveAccent).Count(minCount, maxCount);
+            return Char(AsciiChar.GraveAccent).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotGraveAccent()
@@ -1244,7 +1244,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression NotGraveAccent(int minCount, int maxCount)
         {
-            return NotChar(AsciiChar.GraveAccent).Count(minCount, maxCount);
+            return NotChar(AsciiChar.GraveAccent).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression LeftCurlyBracket()
@@ -1259,7 +1259,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression LeftCurlyBracket(int minCount, int maxCount)
         {
-            return Char(AsciiChar.LeftCurlyBracket).Count(minCount, maxCount);
+            return Char(AsciiChar.LeftCurlyBracket).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotLeftCurlyBracket()
@@ -1274,7 +1274,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression NotLeftCurlyBracket(int minCount, int maxCount)
         {
-            return NotChar(AsciiChar.LeftCurlyBracket).Count(minCount, maxCount);
+            return NotChar(AsciiChar.LeftCurlyBracket).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression VerticalLine()
@@ -1289,7 +1289,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression VerticalLine(int minCount, int maxCount)
         {
-            return Char(AsciiChar.VerticalLine).Count(minCount, maxCount);
+            return Char(AsciiChar.VerticalLine).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotVerticalLine()
@@ -1304,7 +1304,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression NotVerticalLine(int minCount, int maxCount)
         {
-            return NotChar(AsciiChar.VerticalLine).Count(minCount, maxCount);
+            return NotChar(AsciiChar.VerticalLine).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression RightCurlyBracket()
@@ -1319,7 +1319,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression RightCurlyBracket(int minCount, int maxCount)
         {
-            return Char(AsciiChar.RightCurlyBracket).Count(minCount, maxCount);
+            return Char(AsciiChar.RightCurlyBracket).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotRightCurlyBracket()
@@ -1334,7 +1334,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression NotRightCurlyBracket(int minCount, int maxCount)
         {
-            return NotChar(AsciiChar.RightCurlyBracket).Count(minCount, maxCount);
+            return NotChar(AsciiChar.RightCurlyBracket).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression Tilde()
@@ -1349,7 +1349,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression Tilde(int minCount, int maxCount)
         {
-            return Char(AsciiChar.Tilde).Count(minCount, maxCount);
+            return Char(AsciiChar.Tilde).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression NotTilde()
@@ -1364,7 +1364,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifierExpression NotTilde(int minCount, int maxCount)
         {
-            return NotChar(AsciiChar.Tilde).Count(minCount, maxCount);
+            return NotChar(AsciiChar.Tilde).CountRange(minCount, maxCount);
         }
 
         public static CharSubtraction WhiteSpaceExceptNewLine()

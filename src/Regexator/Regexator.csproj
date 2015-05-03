@@ -80,7 +80,7 @@
     <Compile Include="Builder\AssertionExpression\AssertionExpression.cs" />
     <Compile Include="Builder\AssertionKind.cs" />
     <Compile Include="Builder\Expression\TextExpression.cs" />
-    <Compile Include="Builder\QuantifierExpression\AtLeastQuantifier.cs" />
+    <Compile Include="Builder\QuantifierExpression\CountFromQuantifier.cs" />
     <Compile Include="Builder\GroupExpression\BalancingGroup.cs" />
     <Compile Include="Builder\BuildContext.cs" />
     <Compile Include="Builder\AnchorExpression\StartOfInput.cs" />
@@ -104,7 +104,7 @@
     <Compile Include="Builder\CharGroupItem\CharGroupItem_.cs" />
     <Compile Include="Builder\Expression\CharSubtraction.cs" />
     <Compile Include="Builder\EscapeMode.cs" />
-    <Compile Include="Builder\QuantifierExpression\ExactQuantifier.cs" />
+    <Compile Include="Builder\QuantifierExpression\CountQuantifier.cs" />
     <Compile Include="Builder\ExpressionKind.cs" />
     <Compile Include="Builder\Expressions.cs" />
     <Compile Include="Builder\Alternations.cs" />
@@ -115,7 +115,7 @@
     <Compile Include="Builder\Quantifiers.cs" />
     <Compile Include="Builder\Expression.cs" />
     <Compile Include="Builder\Expression_.cs" />
-    <Compile Include="Builder\QuantifierExpression\FromToQuantifier.cs" />
+    <Compile Include="Builder\QuantifierExpression\CountRangeQuantifier.cs" />
     <Compile Include="Builder\GroupExpression\GroupExpression.cs" />
     <Compile Include="Builder\IBaseGroup.cs" />
     <Compile Include="Builder\IdentifierSeparatorKind.cs" />

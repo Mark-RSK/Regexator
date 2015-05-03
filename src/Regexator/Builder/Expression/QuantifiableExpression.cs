@@ -31,14 +31,14 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Quantifiers.Count(exactCount));
         }
 
-        public QuantifierExpression AtLeast(int minCount)
+        public QuantifierExpression CountFrom(int minCount)
         {
-            return AppendInternal(Quantifiers.AtLeast(minCount));
+            return AppendInternal(Quantifiers.CountFrom(minCount));
         }
 
-        public QuantifierExpression Count(int minCount, int maxCount)
+        public QuantifierExpression CountRange(int minCount, int maxCount)
         {
-            return AppendInternal(Quantifiers.Count(minCount, maxCount));
+            return AppendInternal(Quantifiers.CountRange(minCount, maxCount));
         }
     }
 }

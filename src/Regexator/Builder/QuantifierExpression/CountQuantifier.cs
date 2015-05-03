@@ -5,12 +5,12 @@ using System;
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal sealed class ExactQuantifier
+    internal sealed class CountQuantifier
         : QuantifierExpression
     {
         private readonly int _count;
 
-        internal ExactQuantifier(int count)
+        internal CountQuantifier(int count)
             : base()
         {
             if (count < 0) { throw new ArgumentOutOfRangeException("count"); }
@@ -24,7 +24,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public override QuantifierKind QuantifierKind
         {
-            get { return QuantifierKind.Exact; }
+            get { return QuantifierKind.Count; }
         }
     }
 }

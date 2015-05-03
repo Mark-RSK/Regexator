@@ -5,12 +5,12 @@ using System;
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal sealed class AtLeastQuantifier
+    internal sealed class CountFromQuantifier
         : QuantifierExpression
     {
         private readonly int _minCount;
 
-        internal AtLeastQuantifier(int minCount)
+        internal CountFromQuantifier(int minCount)
             : base()
         {
             if (minCount < 0) { throw new ArgumentOutOfRangeException("minCount"); }
@@ -19,12 +19,12 @@ namespace Pihrtsoft.Regexator.Builder
 
         protected override string Content
         {
-            get { return Syntax.AtLeast(_minCount); }
+            get { return Syntax.CountFrom(_minCount); }
         }
 
         public override QuantifierKind QuantifierKind
         {
-            get { return QuantifierKind.AtLeast; }
+            get { return QuantifierKind.CountFrom; }
         }
     }
 }

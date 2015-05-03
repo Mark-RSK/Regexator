@@ -5,13 +5,13 @@ using System;
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal sealed class FromToQuantifier
+    internal sealed class CountRangeQuantifier
         : QuantifierExpression
     {
         private readonly int _minCount;
         private readonly int _maxCount;
 
-        internal FromToQuantifier(int minCount, int maxCount)
+        internal CountRangeQuantifier(int minCount, int maxCount)
             : base()
         {
             if (minCount < 0) { throw new ArgumentOutOfRangeException("minCount"); }
@@ -22,12 +22,12 @@ namespace Pihrtsoft.Regexator.Builder
 
         protected override string Content
         {
-            get { return Syntax.Count(_minCount, _maxCount); }
+            get { return Syntax.CountRange(_minCount, _maxCount); }
         }
 
         public override QuantifierKind QuantifierKind
         {
-            get { return QuantifierKind.FromTo; }
+            get { return QuantifierKind.CountRange; }
         }
     }
 }

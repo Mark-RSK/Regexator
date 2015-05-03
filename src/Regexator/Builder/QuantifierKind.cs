@@ -8,8 +8,8 @@ namespace Pihrtsoft.Regexator.Builder
         Maybe,
         MaybeMany,
         OneMany,
-        Exact,
-        AtLeast,
-        FromTo
+        Count,
+        CountFrom,
+        CountRange
     }
 }

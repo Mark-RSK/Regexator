@@ -412,13 +412,13 @@ namespace Pihrtsoft.Regexator.Builder
             return "{" + exactCount + "}";
         }
 
-        public static string AtLeast(int minCount)
+        public static string CountFrom(int minCount)
         {
             if (minCount < 0) { throw new ArgumentOutOfRangeException("minCount"); }
             return "{" + minCount + ",}";
         }
 
-        public static string Count(int minCount, int maxCount)
+        public static string CountRange(int minCount, int maxCount)
         {
             if (minCount < 0) { throw new ArgumentOutOfRangeException("minCount"); }
             if (maxCount < minCount) { throw new ArgumentOutOfRangeException("maxCount"); }

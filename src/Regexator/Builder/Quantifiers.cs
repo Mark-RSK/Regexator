@@ -22,17 +22,17 @@ namespace Pihrtsoft.Regexator.Builder
 
         internal static QuantifierExpression Count(int exactCount)
         {
-            return new ExactQuantifier(exactCount);
+            return new CountQuantifier(exactCount);
         }
 
-        internal static QuantifierExpression AtLeast(int minCount)
+        internal static QuantifierExpression CountFrom(int minCount)
         {
-            return new AtLeastQuantifier(minCount);
+            return new CountFromQuantifier(minCount);
         }
 
-        internal static QuantifierExpression Count(int minCount, int maxCount)
+        internal static QuantifierExpression CountRange(int minCount, int maxCount)
         {
-            return new FromToQuantifier(minCount, maxCount);
+            return new CountRangeQuantifier(minCount, maxCount);
         }
 
         internal static QuantifiableExpression QuantifierGroup(string value)
@@ -85,24 +85,24 @@ namespace Pihrtsoft.Regexator.Builder
             return QuantifierGroup(expression).Count(exactCount);
         }
 
-        public static QuantifierExpression AtLeast(string value, int minCount)
+        public static QuantifierExpression CountFrom(string value, int minCount)
         {
-            return QuantifierGroup(value).AtLeast(minCount);
+            return QuantifierGroup(value).CountFrom(minCount);
         }
 
-        public static QuantifierExpression AtLeast(Expression expression, int minCount)
+        public static QuantifierExpression CountFrom(Expression expression, int minCount)
         {
-            return QuantifierGroup(expression).AtLeast(minCount);
+            return QuantifierGroup(expression).CountFrom(minCount);
         }
 
-        public static QuantifierExpression Count(string value, int minCount, int maxCount)
+        public static QuantifierExpression CountRange(string value, int minCount, int maxCount)
         {
-            return QuantifierGroup(value).Count(minCount, maxCount);
+            return QuantifierGroup(value).CountRange(minCount, maxCount);
         }
 
-        public static QuantifierExpression Count(Expression expression, int minCount, int maxCount)
+        public static QuantifierExpression CountRange(Expression expression, int minCount, int maxCount)
         {
-            return QuantifierGroup(expression).Count(minCount, maxCount);
+            return QuantifierGroup(expression).CountRange(minCount, maxCount);
         }
     }
 }
