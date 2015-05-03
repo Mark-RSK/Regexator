@@ -8,9 +8,19 @@ namespace Pihrtsoft.Regexator.Builder
 {
     public partial class Expression
     {
+        public QuantifiableExpression Any(IEnumerable<Expression> expressions)
+        {
+            return AppendInternal(Alternations.Any(expressions));
+        }
+
         public QuantifiableExpression Any(params Expression[] expressions)
         {
             return AppendInternal(Alternations.Any(expressions));
+        }
+
+        public QuantifiableExpression Any(IEnumerable<string> values)
+        {
+            return AppendInternal(Alternations.Any(values));
         }
 
         public QuantifiableExpression Any(params string[] values)

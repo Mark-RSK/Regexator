@@ -1,13 +1,25 @@
 // Copyright (c) Josef Pihrt. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System.Collections.Generic;
+
 namespace Pihrtsoft.Regexator.Builder
 {
     public static class Alternations
     {
+        public static QuantifiableExpression Any(IEnumerable<Expression> expressions)
+        {
+            return new AnyExpression(expressions);
+        }
+
         public static QuantifiableExpression Any(params Expression[] expressions)
         {
             return new AnyExpression(expressions);
+        }
+
+        public static QuantifiableExpression Any(IEnumerable<string> values)
+        {
+            return new AnyTextExpression(values);
         }
 
         public static QuantifiableExpression Any(params string[] values)
