@@ -26,11 +26,11 @@ namespace Pihrtsoft.Regexator.Builder
 
         public override string Content
         {
-            get 
+            get
             {
                 if (_charCodes != null)
                 {
-                    return Syntax.Chars(_charCodes, true); 
+                    return Syntax.Chars(_charCodes, true);
                 }
                 else
                 {
