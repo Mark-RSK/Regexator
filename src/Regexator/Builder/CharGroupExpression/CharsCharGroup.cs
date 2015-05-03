@@ -5,12 +5,12 @@ using System;
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal class TextCharGroup
+    internal class CharsCharGroup
         : CharGroupExpression
     {
         private readonly string _chars;
 
-        public TextCharGroup(string chars)
+        public CharsCharGroup(string chars)
         {
             if (chars == null) { throw new ArgumentNullException("chars"); }
             _chars = chars;

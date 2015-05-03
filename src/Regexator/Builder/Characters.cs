@@ -9,7 +9,7 @@ namespace Pihrtsoft.Regexator.Builder
     {
         public static CharGroupExpression Group(string chars)
         {
-            return new TextCharGroup(chars);
+            return new CharsCharGroup(chars);
         }
 
         public static CharGroupExpression Group(CharGroupItem item)
@@ -49,7 +49,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static CharGroupExpression NotGroup(string value)
         {
-            return new NotTextCharGroup(value);
+            return new NotCharsCharGroup(value);
         }
 
         public static CharGroupExpression NotGroup(CharGroupItem item)

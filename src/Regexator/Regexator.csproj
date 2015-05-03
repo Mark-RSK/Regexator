@@ -154,12 +154,12 @@
     <Compile Include="Builder\CharGroupExpression\NotUnicodeBlockGroup.cs" />
     <Compile Include="Builder\Expression\NotUnicodeBlockExpression.cs" />
     <Compile Include="Builder\Expression\NotUnicodeCategoryExpression.cs" />
-    <Compile Include="Builder\CharGroupExpression\NotTextCharGroup.cs" />
+    <Compile Include="Builder\CharGroupExpression\NotCharsCharGroup.cs" />
     <Compile Include="Builder\Expression\UnicodeCategoryExpression.cs" />
     <Compile Include="Builder\Expression\UnicodeBlockExpression.cs" />
     <Compile Include="Builder\CharGroupExpression\CharCodeRangeGroup.cs" />
     <Compile Include="Builder\CharGroupExpression\CharRangeGroup.cs" />
-    <Compile Include="Builder\CharGroupExpression\TextCharGroup.cs" />
+    <Compile Include="Builder\CharGroupExpression\CharsCharGroup.cs" />
     <Compile Include="Builder\CharGroupExpression\CharItemGroup.cs" />
     <Compile Include="Builder\CharGroupExpression\CharCodeGroup.cs" />
     <Compile Include="Builder\CharGroupExpression\CharGroup.cs" />
