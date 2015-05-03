@@ -20,7 +20,7 @@ namespace Pihrtsoft.Regexator.Builder
             return new AsciiCharItem(value);
         }
 
-        public static CharGroupItem Char(string chars)
+        public static CharGroupItem Chars(string chars)
         {
             return new CharsCharItem(chars);
         }
