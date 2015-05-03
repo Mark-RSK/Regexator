@@ -137,12 +137,10 @@ namespace Pihrtsoft.Regexator.Builder
             return Group(CharGroupItems.WhiteSpace().NotWhiteSpace());
         }
 
-#if DEBUG
         public static Expression AnyMaybeManyLazy()
         {
             return Any().MaybeMany().Lazy();
         }
-#endif
 
         public static QuantifiableExpression Digit()
         {
