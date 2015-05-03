@@ -5,12 +5,12 @@ using System;
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal sealed class TextCharItem
+    internal sealed class CharsCharItem
         : CharGroupItem
     {
         private readonly string _chars;
 
-        public TextCharItem(string chars)
+        public CharsCharItem(string chars)
         {
             if (chars == null) { throw new ArgumentNullException("chars"); }
             _chars = chars;

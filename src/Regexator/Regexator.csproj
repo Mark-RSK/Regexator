@@ -88,7 +88,7 @@
     <Compile Include="Builder\PatternSettings.cs" />
     <Compile Include="Builder\CharClass.cs" />
     <Compile Include="Builder\CharGroupExpression\CharGroupExpression.cs" />
-    <Compile Include="Builder\CharGroupItem\TextCharItem.cs" />
+    <Compile Include="Builder\CharGroupItem\CharsCharItem.cs" />
     <Compile Include="Builder\CharGroupItem\CharCodeCharItem.cs" />
     <Compile Include="Builder\CharGroupItem\CharCharItem.cs" />
     <Compile Include="Builder\CharGroupItem\CodeRangeCharItem.cs" />

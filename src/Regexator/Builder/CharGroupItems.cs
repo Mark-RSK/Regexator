@@ -22,7 +22,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static CharGroupItem Char(string chars)
         {
-            return new TextCharItem(chars);
+            return new CharsCharItem(chars);
         }
 
         public static CharGroupItem Range(char first, char last)
