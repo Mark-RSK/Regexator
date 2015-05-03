@@ -20,9 +20,9 @@ namespace Pihrtsoft.Regexator.Builder
             return new AsciiCharItem(value);
         }
 
-        public static CharGroupItem Chars(string chars)
+        public static CharGroupItem Chars(string characters)
         {
-            return new CharsCharItem(chars);
+            return new CharsCharItem(characters);
         }
 
         public static CharGroupItem Range(char first, char last)

@@ -10,10 +10,10 @@ namespace Pihrtsoft.Regexator.Builder
     {
         private readonly string _chars;
 
-        public CharsCharItem(string chars)
+        public CharsCharItem(string characters)
         {
-            if (chars == null) { throw new ArgumentNullException("chars"); }
-            _chars = chars;
+            if (characters == null) { throw new ArgumentNullException("characters"); }
+            _chars = characters;
         }
 
         internal override string Content
