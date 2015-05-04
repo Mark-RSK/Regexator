@@ -43,15 +43,23 @@ namespace Pihrtsoft.Regexator.Builder
             {
                 switch (s_escapeModes[charCode])
                 {
+                    case EscapeMode.Backslash:
+                        {
+                            return EscapeChar(charCode);
+                        }
                     case EscapeMode.Metachar:
                         {
-                            return @"\" + ((char)charCode).ToString();
+                            if (!inCharGroup)
+                            {
+                                return EscapeChar(charCode);
+                            }
+                            break;
                         }
                     case EscapeMode.CharGroupMetachar:
                         {
                             if (inCharGroup)
                             {
-                                return @"\" + ((char)charCode).ToString();
+                                return EscapeChar(charCode);
                             }
                             break;
                         }
@@ -83,6 +91,11 @@ namespace Pihrtsoft.Regexator.Builder
                 }
             }
             return ((char)charCode).ToString();
+        }
+
+        private static string EscapeChar(int charCode)
+        {
+            return @"\" + ((char)charCode).ToString();
         }
 
         public static string Escape(string input)
@@ -310,7 +323,7 @@ namespace Pihrtsoft.Regexator.Builder
             // 91 0x5B [
             EscapeMode.Metachar,
             // 92 0x5C \
-            EscapeMode.Metachar,
+            EscapeMode.Backslash,
             // 93 0x5D ]
             EscapeMode.CharGroupMetachar,
             // 94 0x5E ^

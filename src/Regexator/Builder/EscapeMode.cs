@@ -6,6 +6,7 @@ namespace Pihrtsoft.Regexator.Builder
     internal enum EscapeMode
     {
         None,
+        Backslash,
         Metachar,
         CharGroupMetachar,
         Control,
