@@ -87,7 +87,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static CharGroupItem Alphanumeric()
         {
-            return LatinAlphabet().DigitAsRange();
+            return LatinAlphabet().ArabicDigit();
         }
 
         public static CharGroupItem LatinAlphabet()
@@ -95,7 +95,7 @@ namespace Pihrtsoft.Regexator.Builder
             return Range('a', 'z').Range('A', 'Z');
         }
 
-        public static CharGroupItem DigitAsRange()
+        public static CharGroupItem ArabicDigit()
         {
             return Range('0', '9');
         }

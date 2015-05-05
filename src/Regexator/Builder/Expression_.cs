@@ -600,6 +600,11 @@ namespace Pihrtsoft.Regexator.Builder
         }
 #endif
 
+        public QuantifiableExpression ArabicDigit()
+        {
+            return AppendInternal(Characters.ArabicDigit());
+        }
+
         public QuantifiableExpression Digit()
         {
             return AppendInternal(Characters.Digit());

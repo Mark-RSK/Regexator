@@ -122,9 +122,9 @@ namespace Pihrtsoft.Regexator.Builder
             return Group(CharGroupItems.LatinAlphabet());
         }
 
-        public static CharGroupExpression DigitAsRange()
+        public static CharGroupExpression ArabicDigit()
         {
-            return Group(CharGroupItems.DigitAsRange());
+            return Group(CharGroupItems.ArabicDigit());
         }
 
         public static QuantifiableExpression Any()
