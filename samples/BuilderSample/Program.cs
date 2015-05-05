@@ -10,7 +10,7 @@ namespace Pihrtsoft.Regexator.Builder.Samples
             Console.WriteLine("valid group name");
             Console.WriteLine(Alternations.Any(
                 Characters.ArabicDigitRange(1, 9).ArabicDigit().MaybeMany(),
-                Characters.Subtraction(CharGroupItems.Word(), CharGroupItems.ArabicDigit()).Word().MaybeMany()
+                Characters.WordExceptArabicDigit().Word().MaybeMany()
             ).AsEntireInput());
             Console.WriteLine("");
 
