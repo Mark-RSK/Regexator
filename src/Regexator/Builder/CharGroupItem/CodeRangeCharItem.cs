@@ -11,12 +11,12 @@ namespace Pihrtsoft.Regexator.Builder
         private readonly int _first;
         private readonly int _last;
 
-        public CodeRangeCharItem(int first, int last)
+        public CodeRangeCharItem(int firstCharCode, int lastCharCode)
         {
-            if (first < 0 || first > 0xFFFF) { throw new ArgumentOutOfRangeException("first"); }
-            if (last < 0 || last > 0xFFFF) { throw new ArgumentOutOfRangeException("last"); }
-            _first = first;
-            _last = last;
+            if (firstCharCode < 0 || firstCharCode > 0xFFFF) { throw new ArgumentOutOfRangeException("first"); }
+            if (lastCharCode < 0 || lastCharCode > 0xFFFF) { throw new ArgumentOutOfRangeException("last"); }
+            _first = firstCharCode;
+            _last = lastCharCode;
         }
 
         internal override string Content

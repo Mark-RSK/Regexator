@@ -30,9 +30,9 @@ namespace Pihrtsoft.Regexator.Builder
             return new RangeCharItem(first, last);
         }
 
-        public static CharGroupItem Range(int first, int last)
+        public static CharGroupItem Range(int firstCharCode, int lastCharCode)
         {
-            return new CodeRangeCharItem(first, last);
+            return new CodeRangeCharItem(firstCharCode, lastCharCode);
         }
 
         public static CharGroupItem UnicodeBlock(UnicodeBlock block)

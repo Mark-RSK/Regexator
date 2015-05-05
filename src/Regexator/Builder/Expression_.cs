@@ -548,9 +548,9 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Characters.Range(first, last));
         }
 
-        public QuantifiableExpression Range(int first, int last)
+        public QuantifiableExpression Range(int firstCharCode, int lastCharCode)
         {
-            return AppendInternal(Characters.Range(first, last));
+            return AppendInternal(Characters.Range(firstCharCode, lastCharCode));
         }
 
         public QuantifiableExpression NotRange(char first, char last)
@@ -558,9 +558,9 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Characters.NotRange(first, last));
         }
 
-        public QuantifiableExpression NotRange(int first, int last)
+        public QuantifiableExpression NotRange(int firstCharCode, int lastCharCode)
         {
-            return AppendInternal(Characters.NotRange(first, last));
+            return AppendInternal(Characters.NotRange(firstCharCode, lastCharCode));
         }
 
         public QuantifiableExpression Subtraction(IBaseGroup baseGroup, IExcludedGroup excludedGroup)

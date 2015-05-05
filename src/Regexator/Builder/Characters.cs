@@ -87,9 +87,9 @@ namespace Pihrtsoft.Regexator.Builder
             return new CharRangeGroup(first, last);
         }
 
-        public static CharGroupExpression Range(int first, int last)
+        public static CharGroupExpression Range(int firstCharCode, int lastCharCode)
         {
-            return new CharCodeRangeGroup(first, last);
+            return new CharCodeRangeGroup(firstCharCode, lastCharCode);
         }
 
         public static CharGroupExpression NotRange(char first, char last)
@@ -97,9 +97,9 @@ namespace Pihrtsoft.Regexator.Builder
             return new NotCharRangeGroup(first, last);
         }
 
-        public static CharGroupExpression NotRange(int first, int last)
+        public static CharGroupExpression NotRange(int firstCharCode, int lastCharCode)
         {
-            return new NotCharCodeRangeGroup(first, last);
+            return new NotCharCodeRangeGroup(firstCharCode, lastCharCode);
         }
 
         public static CharSubtraction Subtraction(IBaseGroup baseGroup, IExcludedGroup excludedGroup)

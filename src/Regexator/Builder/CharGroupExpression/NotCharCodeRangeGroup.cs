@@ -6,8 +6,8 @@ namespace Pihrtsoft.Regexator.Builder
     internal sealed class NotCharCodeRangeGroup
         : CharCodeRangeGroup
     {
-        public NotCharCodeRangeGroup(int first, int last)
-            : base(first, last)
+        public NotCharCodeRangeGroup(int firstCharCode, int lastCharCode)
+            : base(firstCharCode, lastCharCode)
         {
         }
 

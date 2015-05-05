@@ -83,9 +83,9 @@ namespace Pihrtsoft.Regexator.Builder
             return Append(CharGroupItems.Range(first, last));
         }
 
-        public CharGroupItem Range(int first, int last)
+        public CharGroupItem Range(int firstCharCode, int lastCharCode)
         {
-            return Append(CharGroupItems.Range(first, last));
+            return Append(CharGroupItems.Range(firstCharCode, lastCharCode));
         }
 
         public CharGroupItem UnicodeBlock(UnicodeBlock block)

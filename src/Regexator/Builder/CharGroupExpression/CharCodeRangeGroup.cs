@@ -9,10 +9,10 @@ namespace Pihrtsoft.Regexator.Builder
         private readonly int _first;
         private readonly int _last;
 
-        public CharCodeRangeGroup(int first, int last)
+        public CharCodeRangeGroup(int firstCharCode, int lastCharCode)
         {
-            _first = first;
-            _last = last;
+            _first = firstCharCode;
+            _last = lastCharCode;
         }
 
         public override string Content

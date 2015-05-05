@@ -255,14 +255,14 @@ namespace Pihrtsoft.Regexator.Builder
             return Syntax.Char(first, true) + "-" + Syntax.Char(last, true);
         }
 
-        public static string Range(int first, int last)
+        public static string Range(int firstCharCode, int lastCharCode)
         {
-            return Syntax.Char(first, true) + "-" + Syntax.Char(last, true);
+            return Syntax.Char(firstCharCode, true) + "-" + Syntax.Char(lastCharCode, true);
         }
 
-        internal static string RangeInternal(int first, int last)
+        internal static string RangeInternal(int firstCharCode, int lastCharCode)
         {
-            return Syntax.CharInternal(first, true) + "-" + Syntax.CharInternal(last, true);
+            return Syntax.CharInternal(firstCharCode, true) + "-" + Syntax.CharInternal(lastCharCode, true);
         }
 
         public static string Char(char value, bool inCharGroup)
