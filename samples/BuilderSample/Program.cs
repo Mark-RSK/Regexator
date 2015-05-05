@@ -7,6 +7,13 @@ namespace Pihrtsoft.Regexator.Builder.Samples
     {
         internal static void Main(string[] args)
         {
+            Console.WriteLine("valid group name");
+            Console.WriteLine(Alternations.Any(
+                Characters.ArabicDigitRange(1, 9).ArabicDigit().MaybeMany(),
+                Characters.Subtraction(CharGroupItems.Word(), CharGroupItems.ArabicDigit()).Word().MaybeMany()
+            ).AsEntireInput());
+            Console.WriteLine("");
+
             Console.WriteLine("repeated word");
             Console.WriteLine(Characters.LatinAlphabet().OneMany().AsSubexpression()
                 .WhiteSpace().OneMany()

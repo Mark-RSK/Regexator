@@ -265,6 +265,18 @@ namespace Pihrtsoft.Regexator.Builder
             return Syntax.CharInternal(firstCharCode, true) + "-" + Syntax.CharInternal(lastCharCode, true);
         }
 
+        public static string ArabicDigitRange(int first, int last)
+        {
+            if (first < 0 || first > 9) { throw new ArgumentOutOfRangeException("first"); }
+            if (last < 0 || last > 9 || last < first) { throw new ArgumentOutOfRangeException("last"); }
+            return ArabicDigitRangeInternal(first, last);
+        }
+
+        internal static string ArabicDigitRangeInternal(int first, int last)
+        {
+            return RangeInternal((char)('0' + first), (char)('0' + last));
+        }
+
         public static string Char(char value, bool inCharGroup)
         {
             return Utilities.EscapeInternal((int)value, inCharGroup);

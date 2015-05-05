@@ -102,6 +102,16 @@ namespace Pihrtsoft.Regexator.Builder
             return new NotCharCodeRangeGroup(firstCharCode, lastCharCode);
         }
 
+        public static CharGroupExpression ArabicDigitRange(int first, int last)
+        {
+            return new ArabicDigitRangeGroup(first, last);
+        }
+
+        public static CharGroupExpression NotArabicDigitRange(int first, int last)
+        {
+            return new NotArabicDigitRangeGroup(first, last);
+        }
+
         public static CharSubtraction Subtraction(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
         {
             return new CharSubtraction(baseGroup, excludedGroup);
