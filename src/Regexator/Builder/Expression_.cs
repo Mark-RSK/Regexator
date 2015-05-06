@@ -1865,36 +1865,6 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Quantifiers.OneMany(value));
         }
 
-        public QuantifierExpression Count(string value, int exactCount)
-        {
-            return AppendInternal(Quantifiers.Count(value, exactCount));
-        }
-
-        public QuantifierExpression Count(Expression expression, int exactCount)
-        {
-            return AppendInternal(Quantifiers.Count(expression, exactCount));
-        }
-
-        public QuantifierExpression CountFrom(string value, int minCount)
-        {
-            return AppendInternal(Quantifiers.CountFrom(value, minCount));
-        }
-
-        public QuantifierExpression CountFrom(Expression expression, int minCount)
-        {
-            return AppendInternal(Quantifiers.CountFrom(expression, minCount));
-        }
-
-        public QuantifierExpression CountRange(string value, int minCount, int maxCount)
-        {
-            return AppendInternal(Quantifiers.CountRange(value, minCount, maxCount));
-        }
-
-        public QuantifierExpression CountRange(Expression expression, int minCount, int maxCount)
-        {
-            return AppendInternal(Quantifiers.CountRange(expression, minCount, maxCount));
-        }
-
         public QuantifiableExpression Backreference(int groupNumber)
         {
             return AppendInternal(Miscellaneous.Backreference(groupNumber));

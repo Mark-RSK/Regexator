@@ -74,35 +74,5 @@ namespace Pihrtsoft.Regexator.Builder
         {
             return QuantifierGroup(value).OneMany();
         }
-
-        public static QuantifierExpression Count(string value, int exactCount)
-        {
-            return QuantifierGroup(value).Count(exactCount);
-        }
-
-        public static QuantifierExpression Count(Expression expression, int exactCount)
-        {
-            return QuantifierGroup(expression).Count(exactCount);
-        }
-
-        public static QuantifierExpression CountFrom(string value, int minCount)
-        {
-            return QuantifierGroup(value).CountFrom(minCount);
-        }
-
-        public static QuantifierExpression CountFrom(Expression expression, int minCount)
-        {
-            return QuantifierGroup(expression).CountFrom(minCount);
-        }
-
-        public static QuantifierExpression CountRange(string value, int minCount, int maxCount)
-        {
-            return QuantifierGroup(value).CountRange(minCount, maxCount);
-        }
-
-        public static QuantifierExpression CountRange(Expression expression, int minCount, int maxCount)
-        {
-            return QuantifierGroup(expression).CountRange(minCount, maxCount);
-        }
     }
 }
