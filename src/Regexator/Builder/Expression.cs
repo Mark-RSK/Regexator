@@ -46,7 +46,6 @@ namespace Pihrtsoft.Regexator.Builder
         internal TExpression AppendInternal<TExpression>(TExpression expression) where TExpression : Expression
         {
             if (expression == null) { throw new ArgumentNullException("expression"); }
-            Debug.Assert(expression.Previous == null);
             Expression first = expression;
             while (first.Previous != null)
             {
