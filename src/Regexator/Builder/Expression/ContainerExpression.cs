@@ -11,13 +11,13 @@ namespace Pihrtsoft.Regexator.Builder
     {
         private readonly Expression _expression;
 
-        internal ContainerExpression(Expression expression)
+        public ContainerExpression(Expression expression)
         {
             if (expression == null) { throw new ArgumentNullException("expression"); }
             _expression = expression;
         }
 
-        internal override IEnumerable<string> EnumerateContent(BuildContext context)
+        public override IEnumerable<string> EnumerateContent(BuildContext context)
         {
             foreach (var value in _expression.EnumerateValues(context))
             {
