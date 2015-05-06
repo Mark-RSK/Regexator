@@ -12,6 +12,27 @@ namespace Pihrtsoft.Regexator.Builder
     internal static class Utilities
     {
         internal static readonly RegexOptions InlineRegexOptions = RegexOptions.IgnoreCase | RegexOptions.Multiline | RegexOptions.ExplicitCapture | RegexOptions.Singleline | RegexOptions.IgnorePatternWhitespace;
+        private static Regex _isValidGroupName;
+
+        public static bool IsValidGroupName(string value)
+        {
+            if (value == null) { throw new ArgumentNullException("value"); }
+            if (value.Length > 0)
+            {
+                Match match = IsValidGroupNameRegex.Match(value);
+                if (match.Success)
+                {
+                    Group g = match.Groups[1];
+                    if (g.Success && g.Value.Length > 9)
+                    {
+                        int result;
+                        return (int.TryParse(g.Value, out result));
+                    }
+                    return true;
+                }
+            }
+            return false;
+        }
 
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         public static bool IsValidInlineOptions(RegexOptions options)
@@ -135,6 +156,22 @@ namespace Pihrtsoft.Regexator.Builder
                 }
             }
             return input;
+        }
+
+        internal static Regex IsValidGroupNameRegex
+        {
+            get
+            {
+                if (_isValidGroupName == null)
+                {
+                    _isValidGroupName = Alternations.Any(
+                        Groups.NamedGroup("1", Characters.ArabicDigitRange(1, 9).ArabicDigit().MaybeMany()),
+                        Characters.WordExceptArabicDigit().Word().MaybeMany()
+                    ).AsEntireInput().ToRegex();
+
+                }
+                return _isValidGroupName;
+            }
         }
 
         private static readonly EscapeMode[] s_escapeModes = new EscapeMode[] {
