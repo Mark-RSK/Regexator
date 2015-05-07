@@ -48,7 +48,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         internal override string Value(BuildContext context)
         {
-            return (_value != null) ? Utilities.Escape(_value) : null;
+            return (_value != null) ? RegexUtilities.Escape(_value) : null;
         }
 
         internal virtual Expression ChildExpression

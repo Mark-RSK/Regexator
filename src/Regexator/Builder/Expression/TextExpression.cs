@@ -26,7 +26,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         internal override string Value(BuildContext context)
         {
-            return (_escape && _value != null) ? Utilities.Escape(_value) : _value;
+            return (_escape && _value != null) ? RegexUtilities.Escape(_value) : _value;
         }
     }
 }

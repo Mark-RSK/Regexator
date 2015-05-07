@@ -17,7 +17,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         internal override string Content
         {
-            get { return Utilities.Escape(_chars, true); }
+            get { return RegexUtilities.Escape(_chars, true); }
         }
     }
 }

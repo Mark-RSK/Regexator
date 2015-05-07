@@ -5,10 +5,11 @@ using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
+using Pihrtsoft.Regexator.Builder;
 
-namespace Pihrtsoft.Regexator.Builder
+namespace Pihrtsoft.Regexator
 {
-    internal static class Utilities
+    public static class RegexUtilities
     {
         internal static readonly RegexOptions InlineRegexOptions = RegexOptions.IgnoreCase | RegexOptions.Multiline | RegexOptions.ExplicitCapture | RegexOptions.Singleline | RegexOptions.IgnorePatternWhitespace;
         private static Regex _isValidGroupName;
@@ -33,7 +34,7 @@ namespace Pihrtsoft.Regexator.Builder
             return false;
         }
 
-        public static void CheckGroupName(string groupName)
+        internal static void CheckGroupName(string groupName)
         {
             if (!IsValidGroupName(groupName))
             {
@@ -41,13 +42,21 @@ namespace Pihrtsoft.Regexator.Builder
             }
         }
 
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         public static bool IsValidInlineOptions(RegexOptions options)
         {
             return (options & ~InlineRegexOptions) == RegexOptions.None;
         }
 
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        public static string Escape(char value)
+        { 
+            return Escape(value, false);
+        }
+
+        public static string Escape(char value, bool inCharGroup)
+        {
+            return EscapeInternal((int)value, inCharGroup);
+        }
+
         public static string Escape(int charCode)
         {
             return Escape(charCode, false);

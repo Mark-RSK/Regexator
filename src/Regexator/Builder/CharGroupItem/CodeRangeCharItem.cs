@@ -12,8 +12,8 @@ namespace Pihrtsoft.Regexator.Builder
 
         public CodeRangeCharItem(int firstCharCode, int lastCharCode)
         {
-            if (firstCharCode < 0 || firstCharCode > 0xFFFF) { throw new ArgumentOutOfRangeException("first"); }
-            if (lastCharCode < 0 || lastCharCode > 0xFFFF) { throw new ArgumentOutOfRangeException("last"); }
+            if (firstCharCode < 0 || firstCharCode > 0xFFFF) { throw new ArgumentOutOfRangeException("firstCharCode"); }
+            if (lastCharCode < 0 || lastCharCode > 0xFFFF) { throw new ArgumentOutOfRangeException("lastCharCode"); }
             _first = firstCharCode;
             _last = lastCharCode;
         }

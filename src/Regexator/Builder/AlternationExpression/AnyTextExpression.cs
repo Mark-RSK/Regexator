@@ -37,7 +37,7 @@ namespace Pihrtsoft.Regexator.Builder
                 {
                     isFirst = false;
                 }
-                yield return Utilities.Escape(value);
+                yield return RegexUtilities.Escape(value);
             }
         }
     }

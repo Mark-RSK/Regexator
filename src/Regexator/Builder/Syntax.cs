@@ -138,7 +138,7 @@ namespace Pihrtsoft.Regexator.Builder
         internal static string GroupStart(string groupName, IdentifierBoundary boundary)
         {
             if (groupName == null) { throw new ArgumentNullException("groupName"); }
-            Utilities.CheckGroupName(groupName);
+            RegexUtilities.CheckGroupName(groupName);
             switch (boundary)
             {
                 case IdentifierBoundary.LessThan:
@@ -279,7 +279,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static string Char(char value, bool inCharGroup)
         {
-            return Utilities.EscapeInternal((int)value, inCharGroup);
+            return RegexUtilities.EscapeInternal((int)value, inCharGroup);
         }
 
         public static string Char(int charCode)
@@ -289,7 +289,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static string Char(int charCode, bool inCharGroup)
         {
-            return Utilities.Escape(charCode, inCharGroup);
+            return RegexUtilities.Escape(charCode, inCharGroup);
         }
 
         internal static string CharInternal(int charCode)
@@ -299,7 +299,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         internal static string CharInternal(int charCode, bool inCharGroup)
         {
-            return Utilities.EscapeInternal(charCode, inCharGroup);
+            return RegexUtilities.EscapeInternal(charCode, inCharGroup);
         }
 
         public static string Char(AsciiChar value)
@@ -309,7 +309,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static string Char(AsciiChar value, bool inCharGroup)
         {
-            return Utilities.EscapeInternal((int)value, inCharGroup);
+            return RegexUtilities.EscapeInternal((int)value, inCharGroup);
         }
 
         public static string Char(char value)

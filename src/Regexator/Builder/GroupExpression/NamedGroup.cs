@@ -20,7 +20,7 @@ namespace Pihrtsoft.Regexator.Builder
             if (groupName == null) { throw new ArgumentNullException("groupName"); }
             if (checkGroupName)
             {
-                Utilities.CheckGroupName(groupName);
+                RegexUtilities.CheckGroupName(groupName);
             }
             _groupName = groupName;
         }
@@ -36,7 +36,7 @@ namespace Pihrtsoft.Regexator.Builder
             if (groupName == null) { throw new ArgumentNullException("groupName"); }
             if (checkGroupName)
             {
-                Utilities.CheckGroupName(groupName);
+                RegexUtilities.CheckGroupName(groupName);
             }
             _groupName = groupName;
         }
