@@ -17,7 +17,36 @@ namespace Pihrtsoft.Regexator.Builder
 
         internal override string Opening(BuildContext context)
         {
-            return context.Settings.NoncapturingQuantifierGroup ? Syntax.NoncapturingGroupStart : Syntax.SubexpressionStart;
+            if (EncloseRequired)
+            {
+                return context.Settings.NoncapturingQuantifierGroup ? Syntax.NoncapturingGroupStart : Syntax.SubexpressionStart;
+            }
+            else
+            {
+                return string.Empty;
+            }
+        }
+
+        internal override string Closing(BuildContext context)
+        {
+            if (EncloseRequired)
+            {
+                return base.Closing(context);
+            }
+            else
+            {
+                return string.Empty;
+            }
+        }
+
+        private bool EncloseRequired
+        {
+            get
+            {
+                return ChildExpression == null || 
+                    !(ChildExpression is QuantifiableExpression) || 
+                    ChildExpression.Previous != null;
+            }
         }
     }
 }
