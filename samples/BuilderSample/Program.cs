@@ -61,7 +61,7 @@ namespace Pihrtsoft.Regexator.Builder.Samples
             Console.WriteLine("");
 
             Console.WriteLine("file name invalid chars:");
-            Console.WriteLine(Characters.Group(Path.GetInvalidFileNameChars()).AsNonbacktracking());
+            Console.WriteLine(Characters.Char(Path.GetInvalidFileNameChars()).AsNonbacktracking());
             Console.WriteLine("");
 
             Console.ReadKey();

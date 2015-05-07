@@ -467,79 +467,79 @@ namespace Pihrtsoft.Regexator.Builder
             return Groups.GroupOptions(applyOptions, disableOptions, this);
         }
 
-        public QuantifiableExpression Chars(string value)
+        public QuantifiableExpression Char(string chars)
         {
-            return AppendInternal(Characters.Group(value));
+            return AppendInternal(Characters.Char(chars));
         }
 
-        public QuantifiableExpression Chars(CharGroupItem item)
+        public QuantifiableExpression Char(CharGroupItem item)
         {
-            return AppendInternal(Characters.Group(item));
+            return AppendInternal(Characters.Char(item));
         }
 
-        public QuantifiableExpression Chars(IEnumerable<char> values)
+        public QuantifiableExpression Char(IEnumerable<char> values)
         {
-            return AppendInternal(Characters.Group(values));
+            return AppendInternal(Characters.Char(values));
         }
 
-        public QuantifiableExpression Chars(IEnumerable<int> charCodes)
+        public QuantifiableExpression Char(IEnumerable<int> charCodes)
         {
-            return AppendInternal(Characters.Group(charCodes));
+            return AppendInternal(Characters.Char(charCodes));
         }
 
-        public QuantifiableExpression Chars(IEnumerable<AsciiChar> values)
+        public QuantifiableExpression Char(IEnumerable<AsciiChar> values)
         {
-            return AppendInternal(Characters.Group(values));
+            return AppendInternal(Characters.Char(values));
         }
 
-        public QuantifiableExpression Chars(IEnumerable<CharClass> values)
+        public QuantifiableExpression Char(IEnumerable<CharClass> values)
         {
-            return AppendInternal(Characters.Group(values));
+            return AppendInternal(Characters.Char(values));
         }
 
-        public QuantifiableExpression Chars(IEnumerable<UnicodeBlock> blocks)
+        public QuantifiableExpression Char(IEnumerable<UnicodeBlock> blocks)
         {
-            return AppendInternal(Characters.Group(blocks));
+            return AppendInternal(Characters.Char(blocks));
         }
 
-        public QuantifiableExpression Chars(IEnumerable<UnicodeCategory> categories)
+        public QuantifiableExpression Char(IEnumerable<UnicodeCategory> categories)
         {
-            return AppendInternal(Characters.Group(categories));
+            return AppendInternal(Characters.Char(categories));
         }
 
-        public QuantifiableExpression NotChars(string value)
+        public QuantifiableExpression NotChar(string chars)
         {
-            return AppendInternal(Characters.NotGroup(value));
+            return AppendInternal(Characters.NotChar(chars));
         }
 
-        public QuantifiableExpression NotChars(CharGroupItem item)
+        public QuantifiableExpression NotChar(CharGroupItem item)
         {
-            return AppendInternal(Characters.NotGroup(item));
+            return AppendInternal(Characters.NotChar(item));
         }
 
-        public QuantifiableExpression NotChars(IEnumerable<char> values)
+        public QuantifiableExpression NotChar(IEnumerable<char> values)
         {
-            return AppendInternal(Characters.NotGroup(values));
+            return AppendInternal(Characters.NotChar(values));
         }
 
-        public QuantifiableExpression NotChars(IEnumerable<int> charCodes)
+        public QuantifiableExpression NotChar(IEnumerable<int> charCodes)
         {
-            return AppendInternal(Characters.NotGroup(charCodes));
+            return AppendInternal(Characters.NotChar(charCodes));
         }
 
-        public QuantifiableExpression NotChars(IEnumerable<AsciiChar> values)
+        public QuantifiableExpression NotChar(IEnumerable<AsciiChar> values)
         {
-            return AppendInternal(Characters.NotGroup(values));
+            return AppendInternal(Characters.NotChar(values));
         }
 
-        public QuantifiableExpression NotChars(IEnumerable<UnicodeBlock> blocks)
+        public QuantifiableExpression NotChar(IEnumerable<UnicodeBlock> blocks)
         {
-            return AppendInternal(Characters.NotGroup(blocks));
+            return AppendInternal(Characters.NotChar(blocks));
         }
 
-        public QuantifiableExpression NotChars(IEnumerable<UnicodeCategory> categories)
+        public QuantifiableExpression NotChar(IEnumerable<UnicodeCategory> categories)
         {
-            return AppendInternal(Characters.NotGroup(categories));
+            return AppendInternal(Characters.NotChar(categories));
         }
 
         public QuantifiableExpression Range(char first, char last)

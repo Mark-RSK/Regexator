@@ -9,13 +9,13 @@ namespace Pihrtsoft.Regexator.Builder
     {
         private readonly string _chars;
 
-        public CharsCharItem(string characters)
+        public CharsCharItem(string chars)
         {
-            if (characters == null)
+            if (chars == null)
             {
-                throw new ArgumentNullException("characters");
+                throw new ArgumentNullException("chars");
             }
-            _chars = characters;
+            _chars = chars;
         }
 
         internal override string Content

@@ -75,9 +75,9 @@ namespace Pihrtsoft.Regexator.Builder
             return Append(CharGroupItems.Char(value));
         }
 
-        public CharGroupItem Chars(string characters)
+        public CharGroupItem Char(string chars)
         {
-            return Append(CharGroupItems.Chars(characters));
+            return Append(CharGroupItems.Char(chars));
         }
 
         public CharGroupItem Range(char first, char last)

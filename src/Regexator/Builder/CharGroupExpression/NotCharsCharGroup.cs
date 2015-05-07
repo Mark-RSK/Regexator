@@ -5,8 +5,8 @@ namespace Pihrtsoft.Regexator.Builder
     internal sealed class NotCharsCharGroup
         : CharsCharGroup
     {
-        public NotCharsCharGroup(string value)
-            : base(value)
+        public NotCharsCharGroup(string chars)
+            : base(chars)
         {
         }
 

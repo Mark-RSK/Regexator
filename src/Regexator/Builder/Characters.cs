@@ -6,77 +6,77 @@ namespace Pihrtsoft.Regexator.Builder
 {
     public static class Characters
     {
-        public static CharGroupExpression Group(string chars)
+        public static CharGroupExpression Char(string chars)
         {
             return new CharsCharGroup(chars);
         }
 
-        public static CharGroupExpression Group(CharGroupItem item)
+        public static CharGroupExpression Char(CharGroupItem item)
         {
             return new CharItemGroup(item);
         }
 
-        public static CharGroupExpression Group(IEnumerable<char> values)
+        public static CharGroupExpression Char(IEnumerable<char> values)
         {
             return new CharGroup(values);
         }
 
-        public static CharGroupExpression Group(IEnumerable<int> charCodes)
+        public static CharGroupExpression Char(IEnumerable<int> charCodes)
         {
             return new CharCodeGroup(charCodes);
         }
 
-        public static CharGroupExpression Group(IEnumerable<AsciiChar> values)
+        public static CharGroupExpression Char(IEnumerable<AsciiChar> values)
         {
             return new AsciiCharGroup(values);
         }
 
-        public static CharGroupExpression Group(IEnumerable<CharClass> values)
+        public static CharGroupExpression Char(IEnumerable<CharClass> values)
         {
             return new CharClassGroup(values);
         }
 
-        public static CharGroupExpression Group(IEnumerable<UnicodeBlock> blocks)
+        public static CharGroupExpression Char(IEnumerable<UnicodeBlock> blocks)
         {
             return new UnicodeBlockGroup(blocks);
         }
 
-        public static CharGroupExpression Group(IEnumerable<UnicodeCategory> categories)
+        public static CharGroupExpression Char(IEnumerable<UnicodeCategory> categories)
         {
             return new UnicodeCategoryGroup(categories);
         }
 
-        public static CharGroupExpression NotGroup(string value)
+        public static CharGroupExpression NotChar(string chars)
         {
-            return new NotCharsCharGroup(value);
+            return new NotCharsCharGroup(chars);
         }
 
-        public static CharGroupExpression NotGroup(CharGroupItem item)
+        public static CharGroupExpression NotChar(CharGroupItem item)
         {
             return new NotCharItemGroup(item);
         }
 
-        public static CharGroupExpression NotGroup(IEnumerable<char> values)
+        public static CharGroupExpression NotChar(IEnumerable<char> values)
         {
             return new NotCharGroup(values);
         }
 
-        public static CharGroupExpression NotGroup(IEnumerable<int> charCodes)
+        public static CharGroupExpression NotChar(IEnumerable<int> charCodes)
         {
             return new NotCharCodeGroup(charCodes);
         }
 
-        public static CharGroupExpression NotGroup(IEnumerable<AsciiChar> values)
+        public static CharGroupExpression NotChar(IEnumerable<AsciiChar> values)
         {
             return new NotAsciiCharGroup(values);
         }
 
-        public static CharGroupExpression NotGroup(IEnumerable<UnicodeBlock> blocks)
+        public static CharGroupExpression NotChar(IEnumerable<UnicodeBlock> blocks)
         {
             return new NotUnicodeBlockGroup(blocks);
         }
 
-        public static CharGroupExpression NotGroup(IEnumerable<UnicodeCategory> categories)
+        public static CharGroupExpression NotChar(IEnumerable<UnicodeCategory> categories)
         {
             return new NotUnicodeCategoryGroup(categories);
         }
@@ -123,17 +123,17 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static CharGroupExpression Alphanumeric()
         {
-            return Group(CharGroupItems.Alphanumeric());
+            return Char(CharGroupItems.Alphanumeric());
         }
 
         public static CharGroupExpression LatinAlphabet()
         {
-            return Group(CharGroupItems.LatinAlphabet());
+            return Char(CharGroupItems.LatinAlphabet());
         }
 
         public static CharGroupExpression ArabicDigit()
         {
-            return Group(CharGroupItems.ArabicDigit());
+            return Char(CharGroupItems.ArabicDigit());
         }
 
         public static QuantifiableExpression Any()
@@ -143,7 +143,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static CharGroupExpression AnyInvariant()
         {
-            return Group(CharGroupItems.WhiteSpace().NotWhiteSpace());
+            return Char(CharGroupItems.WhiteSpace().NotWhiteSpace());
         }
 
         public static Expression AnyMaybeManyLazy()
