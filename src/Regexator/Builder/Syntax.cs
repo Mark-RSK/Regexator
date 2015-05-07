@@ -131,15 +131,16 @@ namespace Pihrtsoft.Regexator.Builder
             return null;
         }
 
-        public static string Group(string name, string value, IdentifierBoundary separator)
+        public static string Group(string groupName, string value, IdentifierBoundary boundary)
         {
-            return GroupStart(name, separator) + value + GroupEnd;
+            return GroupStart(groupName, boundary) + value + GroupEnd;
         }
 
-        internal static string GroupStart(string groupName, IdentifierBoundary separator)
+        internal static string GroupStart(string groupName, IdentifierBoundary boundary)
         {
             if (groupName == null) { throw new ArgumentNullException("groupName"); }
-            switch (separator)
+            Utilities.CheckGroupName(groupName);
+            switch (boundary)
             {
                 case IdentifierBoundary.LessThan:
                     return @"(?<" + groupName + @">";

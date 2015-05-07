@@ -17,7 +17,7 @@ namespace Pihrtsoft.Regexator.Builder
             _expression = expression;
         }
 
-        public override IEnumerable<string> EnumerateContent(BuildContext context)
+        internal override IEnumerable<string> EnumerateContent(BuildContext context)
         {
             foreach (var value in _expression.EnumerateValues(context))
             {

@@ -14,12 +14,12 @@ namespace Pihrtsoft.Regexator.Builder
         internal static readonly RegexOptions InlineRegexOptions = RegexOptions.IgnoreCase | RegexOptions.Multiline | RegexOptions.ExplicitCapture | RegexOptions.Singleline | RegexOptions.IgnorePatternWhitespace;
         private static Regex _isValidGroupName;
 
-        public static bool IsValidGroupName(string value)
+        public static bool IsValidGroupName(string groupName)
         {
-            if (value == null) { throw new ArgumentNullException("value"); }
-            if (value.Length > 0)
+            if (groupName == null) { throw new ArgumentNullException("groupName"); }
+            if (groupName.Length > 0)
             {
-                Match match = IsValidGroupNameRegex.Match(value);
+                Match match = IsValidGroupNameRegex.Match(groupName);
                 if (match.Success)
                 {
                     Group g = match.Groups[1];
@@ -32,6 +32,14 @@ namespace Pihrtsoft.Regexator.Builder
                 }
             }
             return false;
+        }
+
+        public static void CheckGroupName(string groupName)
+        {
+            if (!IsValidGroupName(groupName))
+            {
+                throw new ArgumentException("Invalid group name.", "groupName");
+            }
         }
 
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
@@ -165,7 +173,7 @@ namespace Pihrtsoft.Regexator.Builder
                 if (_isValidGroupName == null)
                 {
                     _isValidGroupName = Alternations.Any(
-                        Groups.NamedGroup("1", Characters.ArabicDigitRange(1, 9).ArabicDigit().MaybeMany()),
+                        Characters.ArabicDigitRange(1, 9).ArabicDigit().MaybeMany().AsSubexpression(),
                         Characters.WordExceptArabicDigit().Word().MaybeMany()
                     ).AsEntireInput().ToRegex();
 

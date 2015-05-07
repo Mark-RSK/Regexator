@@ -11,16 +11,34 @@ namespace Pihrtsoft.Regexator.Builder
         private readonly string _groupName;
 
         internal NamedGroup(string groupName, string value)
+            : this(groupName, value, true)
+        {
+        }
+
+        internal NamedGroup(string groupName, string value, bool checkGroupName)
             : base(value)
         {
             if (groupName == null) { throw new ArgumentNullException("groupName"); }
+            if (checkGroupName)
+            {
+                Utilities.CheckGroupName(groupName);
+            }
             _groupName = groupName;
         }
 
         internal NamedGroup(string groupName, Expression expression)
+            : this(groupName, expression, true)
+        {
+        }
+
+        internal NamedGroup(string groupName, Expression expression, bool checkGroupName)
             : base(expression)
         {
             if (groupName == null) { throw new ArgumentNullException("groupName"); }
+            if (checkGroupName)
+            {
+                Utilities.CheckGroupName(groupName);
+            }
             _groupName = groupName;
         }
 
