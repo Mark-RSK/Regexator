@@ -35,6 +35,11 @@ namespace Pihrtsoft.Regexator.Builder
             return new CodeRangeCharItem(firstCharCode, lastCharCode);
         }
 
+        public static CharGroupItem ArabicDigitRange(int first, int last)
+        {
+            return new ArabicDigitRangeCharItem(first, last);
+        }
+
         public static CharGroupItem UnicodeBlock(UnicodeBlock block)
         {
             return new UnicodeBlockCharItem(block);

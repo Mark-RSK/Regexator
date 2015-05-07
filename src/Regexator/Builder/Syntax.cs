@@ -269,7 +269,7 @@ namespace Pihrtsoft.Regexator.Builder
         public static string ArabicDigitRange(int first, int last)
         {
             if (first < 0 || first > 9) { throw new ArgumentOutOfRangeException("first"); }
-            if (last < 0 || last > 9 || last < first) { throw new ArgumentOutOfRangeException("last"); }
+            if (last < first || last > 9) { throw new ArgumentOutOfRangeException("last"); }
             return ArabicDigitRangeInternal(first, last);
         }
 

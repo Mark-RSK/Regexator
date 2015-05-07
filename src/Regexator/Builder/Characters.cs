@@ -92,6 +92,11 @@ namespace Pihrtsoft.Regexator.Builder
             return new CharCodeRangeGroup(firstCharCode, lastCharCode);
         }
 
+        public static CharGroupExpression ArabicDigitRange(int first, int last)
+        {
+            return new ArabicDigitRangeGroup(first, last);
+        }
+
         public static CharGroupExpression NotRange(char first, char last)
         {
             return new NotCharRangeGroup(first, last);
@@ -100,11 +105,6 @@ namespace Pihrtsoft.Regexator.Builder
         public static CharGroupExpression NotRange(int firstCharCode, int lastCharCode)
         {
             return new NotCharCodeRangeGroup(firstCharCode, lastCharCode);
-        }
-
-        public static CharGroupExpression ArabicDigitRange(int first, int last)
-        {
-            return new ArabicDigitRangeGroup(first, last);
         }
 
         public static CharGroupExpression NotArabicDigitRange(int first, int last)

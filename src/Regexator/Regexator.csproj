@@ -71,6 +71,7 @@
     <Compile Include="Builder\AssertionExpression\UnicodeCategoryAssertion.cs" />
     <Compile Include="Builder\CharGroupExpression\ArabicDigitRangeGroup.cs" />
     <Compile Include="Builder\CharGroupExpression\NotArabicDigitRangeGroup.cs" />
+    <Compile Include="Builder\CharGroupItem\ArabicDigitRangeCharItem.cs" />
     <Compile Include="Builder\Expression\NotCharSubtraction.cs" />
     <Compile Include="Builder\Expression\SurroundExpression.cs" />
     <Compile Include="Builder\Miscellaneous.cs" />
