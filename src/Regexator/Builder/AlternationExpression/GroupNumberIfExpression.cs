@@ -18,7 +18,10 @@ namespace Pihrtsoft.Regexator.Builder
         internal GroupNumberIfExpression(int groupNumber, string yes, string no)
             : base(yes, no)
         {
-            if (groupNumber < 0) { throw new ArgumentOutOfRangeException("groupNumber"); }
+            if (groupNumber < 0)
+            {
+                throw new ArgumentOutOfRangeException("groupNumber");
+            }
             _groupNumber = groupNumber;
         }
 
@@ -30,7 +33,10 @@ namespace Pihrtsoft.Regexator.Builder
         internal GroupNumberIfExpression(int groupNumber, Expression yes, Expression no)
             : base(yes, no)
         {
-            if (groupNumber < 0) { throw new ArgumentOutOfRangeException("groupNumber"); }
+            if (groupNumber < 0)
+            {
+                throw new ArgumentOutOfRangeException("groupNumber");
+            }
             _groupNumber = groupNumber;
         }
 

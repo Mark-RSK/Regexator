@@ -13,13 +13,19 @@ namespace Pihrtsoft.Regexator.Builder
 
         public CharCodeGroup(int charCode)
         {
-            if (charCode < 0 || charCode > 0xFFFF) { throw new ArgumentOutOfRangeException("charCode"); }
+            if (charCode < 0 || charCode > 0xFFFF)
+            {
+                throw new ArgumentOutOfRangeException("charCode");
+            }
             _charCode = charCode;
         }
 
         public CharCodeGroup(IEnumerable<int> charCodes)
         {
-            if (charCodes == null) { throw new ArgumentNullException("charCodes"); }
+            if (charCodes == null)
+            {
+                throw new ArgumentNullException("charCodes");
+            }
             _charCodes = charCodes;
         }
 

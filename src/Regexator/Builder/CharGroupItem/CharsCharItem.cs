@@ -11,7 +11,10 @@ namespace Pihrtsoft.Regexator.Builder
 
         public CharsCharItem(string characters)
         {
-            if (characters == null) { throw new ArgumentNullException("characters"); }
+            if (characters == null)
+            {
+                throw new ArgumentNullException("characters");
+            }
             _chars = characters;
         }
 

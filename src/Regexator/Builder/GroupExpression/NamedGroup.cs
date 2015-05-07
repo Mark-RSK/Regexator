@@ -17,7 +17,10 @@ namespace Pihrtsoft.Regexator.Builder
         internal NamedGroup(string groupName, string value, bool checkGroupName)
             : base(value)
         {
-            if (groupName == null) { throw new ArgumentNullException("groupName"); }
+            if (groupName == null)
+            {
+                throw new ArgumentNullException("groupName");
+            }
             if (checkGroupName)
             {
                 RegexUtilities.CheckGroupName(groupName);
@@ -33,7 +36,10 @@ namespace Pihrtsoft.Regexator.Builder
         internal NamedGroup(string groupName, Expression expression, bool checkGroupName)
             : base(expression)
         {
-            if (groupName == null) { throw new ArgumentNullException("groupName"); }
+            if (groupName == null)
+            {
+                throw new ArgumentNullException("groupName");
+            }
             if (checkGroupName)
             {
                 RegexUtilities.CheckGroupName(groupName);

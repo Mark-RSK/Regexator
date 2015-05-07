@@ -23,19 +23,28 @@ namespace Pihrtsoft.Regexator
 
         private static GroupInfo[] Initialize(Regex regex)
         {
-            if (regex == null) { throw new ArgumentNullException("regex"); }
+            if (regex == null)
+            {
+                throw new ArgumentNullException("regex");
+            }
             return regex.GetGroupNames().Select((n, i) => new GroupInfo(i, n)).ToArray();
         }
 
         public bool Contains(string groupName)
         {
-            if (groupName == null) { throw new ArgumentNullException("groupName"); }
+            if (groupName == null)
+            {
+                throw new ArgumentNullException("groupName");
+            }
             return _names.ContainsKey(groupName);
         }
 
         public bool Contains(int groupIndex)
         {
-            if (groupIndex < 0) { throw new ArgumentOutOfRangeException("groupIndex"); }
+            if (groupIndex < 0)
+            {
+                throw new ArgumentOutOfRangeException("groupIndex");
+            }
             return _indexes.ContainsKey(groupIndex);
         }
 
@@ -53,7 +62,10 @@ namespace Pihrtsoft.Regexator
         {
             get
             {
-                if (groupName == null) { throw new ArgumentNullException("groupName"); }
+                if (groupName == null)
+                {
+                    throw new ArgumentNullException("groupName");
+                }
                 try
                 {
                     return _names[groupName];

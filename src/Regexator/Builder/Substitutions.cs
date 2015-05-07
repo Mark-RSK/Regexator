@@ -9,12 +9,15 @@ namespace Pihrtsoft.Regexator.Builder
         /// <summary>
         /// Substitutes the last substring matched by the named group.
         /// </summary>
-        /// <param name="name">Group name</param>
+        /// <param name="groupName">Group name</param>
         /// <returns>Substitution expression</returns>
-        public static string NamedGroup(string name)
+        public static string NamedGroup(string groupName)
         {
-            if (name == null) { throw new ArgumentNullException("name"); }
-            return "${" + name + "}";
+            if (groupName == null)
+            {
+                throw new ArgumentNullException("groupName");
+            }
+            return "${" + groupName + "}";
         }
 
         /// <summary>

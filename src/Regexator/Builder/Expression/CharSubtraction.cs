@@ -12,8 +12,14 @@ namespace Pihrtsoft.Regexator.Builder
 
         internal CharSubtraction(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
         {
-            if (baseGroup == null) { throw new ArgumentNullException("baseGroup"); }
-            if (excludedGroup == null) { throw new ArgumentNullException("excludedGroup"); }
+            if (baseGroup == null)
+            {
+                throw new ArgumentNullException("baseGroup");
+            }
+            if (excludedGroup == null)
+            {
+                throw new ArgumentNullException("excludedGroup");
+            }
             _baseGroup = baseGroup;
             _excludedGroup = excludedGroup;
         }

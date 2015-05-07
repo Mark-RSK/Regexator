@@ -18,7 +18,10 @@ namespace Pihrtsoft.Regexator.Builder
 
         public AsciiCharGroup(IEnumerable<AsciiChar> values)
         {
-            if (values == null) { throw new ArgumentNullException("values"); }
+            if (values == null)
+            {
+                throw new ArgumentNullException("values");
+            }
             _values = values;
         }
 

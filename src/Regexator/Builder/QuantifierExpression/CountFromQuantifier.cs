@@ -12,7 +12,10 @@ namespace Pihrtsoft.Regexator.Builder
         internal CountFromQuantifier(int minCount)
             : base()
         {
-            if (minCount < 0) { throw new ArgumentOutOfRangeException("minCount"); }
+            if (minCount < 0)
+            {
+                throw new ArgumentOutOfRangeException("minCount");
+            }
             _minCount = minCount;
         }
 

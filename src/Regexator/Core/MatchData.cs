@@ -26,9 +26,18 @@ namespace Pihrtsoft.Regexator
 
         public MatchData(Regex regex, string input, int limit)
         {
-            if (regex == null) { throw new ArgumentNullException("regex"); }
-            if (input == null) { throw new ArgumentNullException("input"); }
-            if (limit < 0) { throw new ArgumentOutOfRangeException("limit"); }
+            if (regex == null)
+            {
+                throw new ArgumentNullException("regex");
+            }
+            if (input == null)
+            {
+                throw new ArgumentNullException("input");
+            }
+            if (limit < 0)
+            {
+                throw new ArgumentOutOfRangeException("limit");
+            }
             _regex = regex;
             _groupInfos = new GroupInfoCollection(regex);
             _input = input;

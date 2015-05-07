@@ -37,7 +37,10 @@ namespace Pihrtsoft.Regexator
 
         public GroupSettings(GroupSortProperty sortPropertyName, ListSortDirection sortDirection, IList<string> ignoredGroups)
         {
-            if (ignoredGroups == null) { throw new ArgumentNullException("ignoredGroups"); }
+            if (ignoredGroups == null)
+            {
+                throw new ArgumentNullException("ignoredGroups");
+            }
             _sortPropertyName = sortPropertyName;
             _sortDirection = sortDirection;
             _ignoredGroups = new ReadOnlyCollection<string>(ignoredGroups);
@@ -48,7 +51,10 @@ namespace Pihrtsoft.Regexator
 
         public static bool HasDefaultValues(GroupSettings settings)
         {
-            if (settings == null) { throw new ArgumentNullException("settings"); }
+            if (settings == null)
+            {
+                throw new ArgumentNullException("settings");
+            }
             return settings.IgnoredGroups.Count == 0 &&
                 settings.SortProperty == GroupSettings.DefaultSortProperty &&
                 settings.SortDirection == GroupSettings.DefaultSortDirection;
@@ -56,7 +62,10 @@ namespace Pihrtsoft.Regexator
 
         public bool IsIgnored(GroupInfo info)
         {
-            if (info == null) { throw new ArgumentNullException("info"); }
+            if (info == null)
+            {
+                throw new ArgumentNullException("info");
+            }
             return IsIgnored(info.Name);
         }
 

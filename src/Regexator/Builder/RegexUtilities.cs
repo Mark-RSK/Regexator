@@ -16,7 +16,10 @@ namespace Pihrtsoft.Regexator
 
         public static bool IsValidGroupName(string groupName)
         {
-            if (groupName == null) { throw new ArgumentNullException("groupName"); }
+            if (groupName == null)
+            {
+                throw new ArgumentNullException("groupName");
+            }
             if (groupName.Length > 0)
             {
                 Match match = IsValidGroupNameRegex.Match(groupName);
@@ -48,7 +51,7 @@ namespace Pihrtsoft.Regexator
         }
 
         public static string Escape(char value)
-        { 
+        {
             return Escape(value, false);
         }
 
@@ -70,7 +73,10 @@ namespace Pihrtsoft.Regexator
 
         public static string Escape(int charCode, bool inCharGroup)
         {
-            if (charCode < 0 || charCode > 0xFFFF) { throw new ArgumentOutOfRangeException("charCode"); }
+            if (charCode < 0 || charCode > 0xFFFF)
+            {
+                throw new ArgumentOutOfRangeException("charCode");
+            }
             return EscapeInternal(charCode, inCharGroup);
         }
 
@@ -142,7 +148,10 @@ namespace Pihrtsoft.Regexator
 
         public static string Escape(string input, bool inCharGroup)
         {
-            if (input == null) { throw new ArgumentNullException("input"); }
+            if (input == null)
+            {
+                throw new ArgumentNullException("input");
+            }
             for (int i = 0; i < input.Length; i++)
             {
                 if (s_escapeModes[input[i]] != EscapeMode.None)

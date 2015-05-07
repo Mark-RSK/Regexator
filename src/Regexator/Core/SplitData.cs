@@ -25,9 +25,18 @@ namespace Pihrtsoft.Regexator
 
         public SplitData(Regex regex, string input, int limit)
         {
-            if (regex == null) { throw new ArgumentNullException("regex"); }
-            if (input == null) { throw new ArgumentNullException("input"); }
-            if (limit < 0) { throw new ArgumentOutOfRangeException("limit"); }
+            if (regex == null)
+            {
+                throw new ArgumentNullException("regex");
+            }
+            if (input == null)
+            {
+                throw new ArgumentNullException("input");
+            }
+            if (limit < 0)
+            {
+                throw new ArgumentOutOfRangeException("limit");
+            }
             _regex = regex;
             _input = input;
             _limit = limit;

@@ -18,7 +18,10 @@ namespace Pihrtsoft.Regexator.Builder
         internal IfExpression(Expression condition, string yes, string no)
             : base(yes, no)
         {
-            if (condition == null) { throw new ArgumentNullException("condition"); }
+            if (condition == null)
+            {
+                throw new ArgumentNullException("condition");
+            }
             _condition = condition;
         }
 
@@ -30,7 +33,10 @@ namespace Pihrtsoft.Regexator.Builder
         internal IfExpression(Expression condition, Expression yes, Expression no)
             : base(yes, no)
         {
-            if (condition == null) { throw new ArgumentNullException("condition"); }
+            if (condition == null)
+            {
+                throw new ArgumentNullException("condition");
+            }
             _condition = condition;
         }
 

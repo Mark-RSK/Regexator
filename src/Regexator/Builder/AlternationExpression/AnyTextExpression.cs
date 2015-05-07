@@ -13,14 +13,20 @@ namespace Pihrtsoft.Regexator.Builder
         internal AnyTextExpression(IEnumerable<string> values)
             : base()
         {
-            if (values == null) { throw new ArgumentNullException("values"); }
+            if (values == null)
+            {
+                throw new ArgumentNullException("values");
+            }
             _values = values;
         }
 
         internal AnyTextExpression(params string[] values)
             : base()
         {
-            if (values == null) { throw new ArgumentNullException("values"); }
+            if (values == null)
+            {
+                throw new ArgumentNullException("values");
+            }
             _values = values;
         }
 

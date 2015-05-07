@@ -12,7 +12,10 @@ namespace Pihrtsoft.Regexator.Builder
 
         public CharClassGroup(IEnumerable<CharClass> values)
         {
-            if (values == null) { throw new ArgumentNullException("values"); }
+            if (values == null)
+            {
+                throw new ArgumentNullException("values");
+            }
             _values = values;
         }
 

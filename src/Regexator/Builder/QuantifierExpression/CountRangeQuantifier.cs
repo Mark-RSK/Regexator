@@ -13,8 +13,14 @@ namespace Pihrtsoft.Regexator.Builder
         internal CountRangeQuantifier(int minCount, int maxCount)
             : base()
         {
-            if (minCount < 0) { throw new ArgumentOutOfRangeException("minCount"); }
-            if (maxCount < minCount) { throw new ArgumentOutOfRangeException("maxCount"); }
+            if (minCount < 0)
+            {
+                throw new ArgumentOutOfRangeException("minCount");
+            }
+            if (maxCount < minCount)
+            {
+                throw new ArgumentOutOfRangeException("maxCount");
+            }
             _minCount = minCount;
             _maxCount = maxCount;
         }

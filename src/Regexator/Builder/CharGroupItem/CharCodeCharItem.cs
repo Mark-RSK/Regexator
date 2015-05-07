@@ -11,7 +11,10 @@ namespace Pihrtsoft.Regexator.Builder
 
         public CharCodeCharItem(int charCode)
         {
-            if (charCode < 0 || charCode > 0xFFFF) { throw new ArgumentOutOfRangeException("charCode"); }
+            if (charCode < 0 || charCode > 0xFFFF)
+            {
+                throw new ArgumentOutOfRangeException("charCode");
+            }
             _charCode = charCode;
         }
 

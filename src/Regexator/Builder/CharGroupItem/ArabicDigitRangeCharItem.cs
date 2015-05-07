@@ -12,8 +12,14 @@ namespace Pihrtsoft.Regexator.Builder
 
         public ArabicDigitRangeCharItem(int first, int last)
         {
-            if (first < 0 || first > 9) { throw new ArgumentOutOfRangeException("first"); }
-            if (last < first || last > 9) { throw new ArgumentOutOfRangeException("last"); }
+            if (first < 0 || first > 9)
+            {
+                throw new ArgumentOutOfRangeException("first");
+            }
+            if (last < first || last > 9)
+            {
+                throw new ArgumentOutOfRangeException("last");
+            }
             _first = first;
             _last = last;
         }

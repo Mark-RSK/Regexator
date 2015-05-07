@@ -12,7 +12,10 @@ namespace Pihrtsoft.Regexator.Builder
 
         public UnicodeCategoryGroup(IEnumerable<UnicodeCategory> values)
         {
-            if (values == null) { throw new ArgumentNullException("values"); }
+            if (values == null)
+            {
+                throw new ArgumentNullException("values");
+            }
             _values = values;
         }
 

@@ -25,7 +25,10 @@ namespace Pihrtsoft.Regexator
 
         public MatchSplitItem(SplitData data)
         {
-            if (data == null) { throw new ArgumentNullException("data"); }
+            if (data == null)
+            {
+                throw new ArgumentNullException("data");
+            }
             _context = new SplitContext(data);
             _match = data.Match();
             _success = true;

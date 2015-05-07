@@ -12,7 +12,10 @@ namespace Pihrtsoft.Regexator.Builder
 
         public ContainerExpression(Expression expression)
         {
-            if (expression == null) { throw new ArgumentNullException("expression"); }
+            if (expression == null)
+            {
+                throw new ArgumentNullException("expression");
+            }
             _expression = expression;
         }
 

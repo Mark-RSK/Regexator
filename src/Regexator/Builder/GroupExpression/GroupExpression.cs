@@ -19,14 +19,20 @@ namespace Pihrtsoft.Regexator.Builder
         internal GroupExpression(string value)
             : base()
         {
-            if (value == null) { throw new ArgumentNullException("value"); }
+            if (value == null)
+            {
+                throw new ArgumentNullException("value");
+            }
             _value = value;
         }
 
         internal GroupExpression(Expression expression)
             : base()
         {
-            if (expression == null) { throw new ArgumentNullException("expression"); }
+            if (expression == null)
+            {
+                throw new ArgumentNullException("expression");
+            }
             _expression = expression;
         }
 

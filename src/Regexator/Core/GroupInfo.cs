@@ -20,7 +20,10 @@ namespace Pihrtsoft.Regexator
 
         protected GroupInfo(GroupInfo info)
         {
-            if (info == null) { throw new ArgumentNullException("info"); }
+            if (info == null)
+            {
+                throw new ArgumentNullException("info");
+            }
             _index = info.Index;
             _name = info.Name;
         }

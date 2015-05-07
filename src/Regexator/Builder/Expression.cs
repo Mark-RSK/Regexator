@@ -44,7 +44,10 @@ namespace Pihrtsoft.Regexator.Builder
 
         internal TExpression AppendInternal<TExpression>(TExpression expression) where TExpression : Expression
         {
-            if (expression == null) { throw new ArgumentNullException("expression"); }
+            if (expression == null)
+            {
+                throw new ArgumentNullException("expression");
+            }
             Expression first = expression;
             while (first.Previous != null)
             {
@@ -76,7 +79,10 @@ namespace Pihrtsoft.Regexator.Builder
 
         public string ToString(PatternSettings settings)
         {
-            if (settings == null) { throw new ArgumentNullException("settings"); }
+            if (settings == null)
+            {
+                throw new ArgumentNullException("settings");
+            }
             using (var context = new BuildContext() { Settings = settings })
             {
                 foreach (var value in EnumerateValues(context))

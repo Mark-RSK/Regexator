@@ -13,8 +13,14 @@ namespace Pihrtsoft.Regexator.Builder
         internal BalancingGroup(string name1, string name2, string value)
             : base(value)
         {
-            if (name1 == null) { throw new ArgumentNullException("name1"); }
-            if (name2 == null) { throw new ArgumentNullException("name2"); }
+            if (name1 == null)
+            {
+                throw new ArgumentNullException("name1");
+            }
+            if (name2 == null)
+            {
+                throw new ArgumentNullException("name2");
+            }
             _name1 = name1;
             _name2 = name2;
         }
@@ -22,8 +28,14 @@ namespace Pihrtsoft.Regexator.Builder
         internal BalancingGroup(string name1, string name2, Expression expression)
             : base(expression)
         {
-            if (name1 == null) { throw new ArgumentNullException("name1"); }
-            if (name2 == null) { throw new ArgumentNullException("name2"); }
+            if (name1 == null)
+            {
+                throw new ArgumentNullException("name1");
+            }
+            if (name2 == null)
+            {
+                throw new ArgumentNullException("name2");
+            }
             _name1 = name1;
             _name2 = name2;
         }

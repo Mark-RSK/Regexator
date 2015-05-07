@@ -13,7 +13,10 @@ namespace Pihrtsoft.Regexator.Builder
 
         internal InlineCommentExpression(string value)
         {
-            if (value == null) { throw new ArgumentNullException("value"); }
+            if (value == null)
+            {
+                throw new ArgumentNullException("value");
+            }
             _value = value;
         }
 

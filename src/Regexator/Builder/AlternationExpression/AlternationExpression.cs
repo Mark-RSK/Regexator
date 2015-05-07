@@ -19,7 +19,10 @@ namespace Pihrtsoft.Regexator.Builder
         protected AlternationExpression(Expression yes, Expression no)
             : base()
         {
-            if (yes == null) { throw new ArgumentNullException("yes"); }
+            if (yes == null)
+            {
+                throw new ArgumentNullException("yes");
+            }
             _yes = yes;
             _no = no;
         }

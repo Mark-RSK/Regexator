@@ -12,8 +12,14 @@ namespace Pihrtsoft.Regexator.Builder
 
         public ArabicDigitRangeGroup(int first, int last)
         {
-            if (first < 0 || first > 9) { throw new ArgumentOutOfRangeException("first"); }
-            if (last < 0 || last > 9 || last < first) { throw new ArgumentOutOfRangeException("last"); }
+            if (first < 0 || first > 9)
+            {
+                throw new ArgumentOutOfRangeException("first");
+            }
+            if (last < 0 || last > 9 || last < first)
+            {
+                throw new ArgumentOutOfRangeException("last");
+            }
             _first = first;
             _last = last;
         }

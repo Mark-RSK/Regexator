@@ -12,7 +12,10 @@ namespace Pihrtsoft.Regexator.Builder
         internal NameBackreferenceExpression(string groupName)
             : base()
         {
-            if (groupName == null) { throw new ArgumentNullException("groupName"); }
+            if (groupName == null)
+            {
+                throw new ArgumentNullException("groupName");
+            }
             _groupName = groupName;
         }
 

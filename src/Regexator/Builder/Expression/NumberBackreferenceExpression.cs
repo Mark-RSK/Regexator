@@ -13,7 +13,10 @@ namespace Pihrtsoft.Regexator.Builder
         internal NumberBackreferenceExpression(int groupNumber)
             : base()
         {
-            if (groupNumber < 0) { throw new ArgumentOutOfRangeException("groupNumber"); }
+            if (groupNumber < 0)
+            {
+                throw new ArgumentOutOfRangeException("groupNumber");
+            }
             _groupNumber = groupNumber;
         }
 

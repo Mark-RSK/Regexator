@@ -16,7 +16,10 @@ namespace Pihrtsoft.Regexator.Builder
 
         private CharGroupItem Append(CharGroupItem item)
         {
-            if (item == null) { throw new ArgumentNullException("item"); }
+            if (item == null)
+            {
+                throw new ArgumentNullException("item");
+            }
             CharGroupItem first = item;
             while (first.Previous != null)
             {

@@ -38,10 +38,22 @@ namespace Pihrtsoft.Regexator
 
         public ReplaceData(Regex regex, string input, string replacement, ResultMode resultMode, int limit)
         {
-            if (regex == null) { throw new ArgumentNullException("regex"); }
-            if (input == null) { throw new ArgumentNullException("input"); }
-            if (replacement == null) { throw new ArgumentNullException("replacement"); }
-            if (limit < 0) { throw new ArgumentOutOfRangeException("limit"); }
+            if (regex == null)
+            {
+                throw new ArgumentNullException("regex");
+            }
+            if (input == null)
+            {
+                throw new ArgumentNullException("input");
+            }
+            if (replacement == null)
+            {
+                throw new ArgumentNullException("replacement");
+            }
+            if (limit < 0)
+            {
+                throw new ArgumentOutOfRangeException("limit");
+            }
             _regex = regex;
             _input = input;
             _replacement = replacement;

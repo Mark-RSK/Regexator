@@ -17,14 +17,20 @@ namespace Pihrtsoft.Regexator.Builder
         internal AnyExpression(IEnumerable<Expression> expressions)
             : base()
         {
-            if (expressions == null) { throw new ArgumentNullException("expressions"); }
+            if (expressions == null)
+            {
+                throw new ArgumentNullException("expressions");
+            }
             _expressions = expressions;
         }
 
         internal AnyExpression(params Expression[] expressions)
             : base()
         {
-            if (expressions == null) { throw new ArgumentNullException("expressions"); }
+            if (expressions == null)
+            {
+                throw new ArgumentNullException("expressions");
+            }
             _expressions = expressions;
         }
 

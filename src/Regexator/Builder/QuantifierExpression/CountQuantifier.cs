@@ -12,7 +12,10 @@ namespace Pihrtsoft.Regexator.Builder
         internal CountQuantifier(int count)
             : base()
         {
-            if (count < 0) { throw new ArgumentOutOfRangeException("count"); }
+            if (count < 0)
+            {
+                throw new ArgumentOutOfRangeException("count");
+            }
             _count = count;
         }
 

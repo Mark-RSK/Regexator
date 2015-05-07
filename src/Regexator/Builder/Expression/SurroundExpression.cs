@@ -19,9 +19,18 @@ namespace Pihrtsoft.Regexator.Builder
 
         public SurroundExpression(Expression expression, Expression beforeExpression, Expression afterExpression)
         {
-            if (expression == null) { throw new ArgumentNullException("expression"); }
-            if (beforeExpression == null) { throw new ArgumentNullException("beforeExpression"); }
-            if (afterExpression == null) { throw new ArgumentNullException("afterExpression"); }
+            if (expression == null)
+            {
+                throw new ArgumentNullException("expression");
+            }
+            if (beforeExpression == null)
+            {
+                throw new ArgumentNullException("beforeExpression");
+            }
+            if (afterExpression == null)
+            {
+                throw new ArgumentNullException("afterExpression");
+            }
             _expression = expression;
             _before = beforeExpression;
             _after = afterExpression;

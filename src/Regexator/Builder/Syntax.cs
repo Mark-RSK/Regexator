@@ -81,13 +81,19 @@ namespace Pihrtsoft.Regexator.Builder
 
         internal static string IfGroupCondition(int groupNumber)
         {
-            if (groupNumber < 0) { throw new ArgumentOutOfRangeException("groupNumber"); }
+            if (groupNumber < 0)
+            {
+                throw new ArgumentOutOfRangeException("groupNumber");
+            }
             return IfGroupCondition(groupNumber.ToString(CultureInfo.InvariantCulture));
         }
 
         internal static string IfGroupCondition(string groupName)
         {
-            if (groupName == null) { throw new ArgumentNullException("groupName"); }
+            if (groupName == null)
+            {
+                throw new ArgumentNullException("groupName");
+            }
             return SubexpressionStart + groupName + GroupEnd;
         }
 
@@ -113,13 +119,19 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static string Backreference(int groupNumber)
         {
-            if (groupNumber < 0) { throw new ArgumentOutOfRangeException("groupNumber"); }
+            if (groupNumber < 0)
+            {
+                throw new ArgumentOutOfRangeException("groupNumber");
+            }
             return @"\" + groupNumber;
         }
 
         public static string Backreference(string groupName, IdentifierBoundary separator)
         {
-            if (groupName == null) { throw new ArgumentNullException("groupName"); }
+            if (groupName == null)
+            {
+                throw new ArgumentNullException("groupName");
+            }
             switch (separator)
             {
                 case IdentifierBoundary.LessThan:
@@ -137,7 +149,10 @@ namespace Pihrtsoft.Regexator.Builder
 
         internal static string GroupStart(string groupName, IdentifierBoundary boundary)
         {
-            if (groupName == null) { throw new ArgumentNullException("groupName"); }
+            if (groupName == null)
+            {
+                throw new ArgumentNullException("groupName");
+            }
             RegexUtilities.CheckGroupName(groupName);
             switch (boundary)
             {
@@ -156,8 +171,14 @@ namespace Pihrtsoft.Regexator.Builder
 
         internal static string BalancingGroupStart(string name1, string name2, IdentifierBoundary separator)
         {
-            if (name1 == null) { throw new ArgumentNullException("name1"); }
-            if (name2 == null) { throw new ArgumentNullException("name2"); }
+            if (name1 == null)
+            {
+                throw new ArgumentNullException("name1");
+            }
+            if (name2 == null)
+            {
+                throw new ArgumentNullException("name2");
+            }
             switch (separator)
             {
                 case IdentifierBoundary.LessThan:
@@ -170,19 +191,28 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static string Subexpression(string value)
         {
-            if (value == null) { throw new ArgumentNullException("value"); }
+            if (value == null)
+            {
+                throw new ArgumentNullException("value");
+            }
             return SubexpressionStart + value + GroupEnd;
         }
 
         public static string NoncapturingGroup(string value)
         {
-            if (value == null) { throw new ArgumentNullException("value"); }
+            if (value == null)
+            {
+                throw new ArgumentNullException("value");
+            }
             return NoncapturingGroupStart + value + GroupEnd;
         }
 
         public static string NonbacktrackingGroup(string value)
         {
-            if (value == null) { throw new ArgumentNullException("value"); }
+            if (value == null)
+            {
+                throw new ArgumentNullException("value");
+            }
             return NonbacktrackingGroupStart + value + GroupEnd;
         }
 
@@ -219,8 +249,14 @@ namespace Pihrtsoft.Regexator.Builder
 
         internal static string CharGroup(string value, bool negative)
         {
-            if (value == null) { throw new ArgumentNullException("value"); }
-            if (value.Length == 0) { throw new ArgumentException("Character group cannot be empty.", "value"); }
+            if (value == null)
+            {
+                throw new ArgumentNullException("value");
+            }
+            if (value.Length == 0)
+            {
+                throw new ArgumentException("Character group cannot be empty.", "value");
+            }
             return (negative ? NotCharGroupStart : CharGroupStart) + value + CharGroupEnd;
         }
 
@@ -246,7 +282,10 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static string CharClasses(IEnumerable<CharClass> values)
         {
-            if (values == null) { throw new ArgumentNullException("values"); }
+            if (values == null)
+            {
+                throw new ArgumentNullException("values");
+            }
             return string.Concat(values.Select(f => CharClass(f)));
         }
 
@@ -267,8 +306,14 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static string ArabicDigitRange(int first, int last)
         {
-            if (first < 0 || first > 9) { throw new ArgumentOutOfRangeException("first"); }
-            if (last < first || last > 9) { throw new ArgumentOutOfRangeException("last"); }
+            if (first < 0 || first > 9)
+            {
+                throw new ArgumentOutOfRangeException("first");
+            }
+            if (last < first || last > 9)
+            {
+                throw new ArgumentOutOfRangeException("last");
+            }
             return ArabicDigitRangeInternal(first, last);
         }
 
@@ -324,7 +369,10 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static string Chars(IEnumerable<char> values, bool inCharGroup)
         {
-            if (values == null) { throw new ArgumentNullException("values"); }
+            if (values == null)
+            {
+                throw new ArgumentNullException("values");
+            }
             return string.Concat(values.Select(f => Char(f, inCharGroup)));
         }
 
@@ -335,7 +383,10 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static string Chars(IEnumerable<int> charCodes, bool inCharGroup)
         {
-            if (charCodes == null) { throw new ArgumentNullException("charCodes"); }
+            if (charCodes == null)
+            {
+                throw new ArgumentNullException("charCodes");
+            }
             return string.Concat(charCodes.Select(f => Char(f, inCharGroup)));
         }
 
@@ -346,7 +397,10 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static string Chars(IEnumerable<AsciiChar> values, bool inCharGroup)
         {
-            if (values == null) { throw new ArgumentNullException("values"); }
+            if (values == null)
+            {
+                throw new ArgumentNullException("values");
+            }
             return string.Concat(values.Select(f => Char(f, inCharGroup)));
         }
 
@@ -357,7 +411,10 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static string Unicode(int charCode)
         {
-            if (charCode < 0 || charCode > 0xFFFF) { throw new ArgumentOutOfRangeException("charCode"); }
+            if (charCode < 0 || charCode > 0xFFFF)
+            {
+                throw new ArgumentOutOfRangeException("charCode");
+            }
             return UnicodeInternal(charCode);
         }
 
@@ -388,7 +445,10 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static string UnicodeBlocks(IEnumerable<UnicodeBlock> blocks, bool negative)
         {
-            if (blocks == null) { throw new ArgumentNullException("blocks"); }
+            if (blocks == null)
+            {
+                throw new ArgumentNullException("blocks");
+            }
             return string.Concat(blocks.Select(f => UnicodeBlock(f, negative)));
         }
 
@@ -414,26 +474,41 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static string UnicodeCategories(IEnumerable<UnicodeCategory> categories, bool negative)
         {
-            if (categories == null) { throw new ArgumentNullException("categories"); }
+            if (categories == null)
+            {
+                throw new ArgumentNullException("categories");
+            }
             return string.Concat(categories.Select(f => UnicodeCategory(f, negative)));
         }
 
         public static string Count(int exactCount)
         {
-            if (exactCount < 0) { throw new ArgumentOutOfRangeException("exactCount"); }
+            if (exactCount < 0)
+            {
+                throw new ArgumentOutOfRangeException("exactCount");
+            }
             return "{" + exactCount + "}";
         }
 
         public static string CountFrom(int minCount)
         {
-            if (minCount < 0) { throw new ArgumentOutOfRangeException("minCount"); }
+            if (minCount < 0)
+            {
+                throw new ArgumentOutOfRangeException("minCount");
+            }
             return "{" + minCount + ",}";
         }
 
         public static string CountRange(int minCount, int maxCount)
         {
-            if (minCount < 0) { throw new ArgumentOutOfRangeException("minCount"); }
-            if (maxCount < minCount) { throw new ArgumentOutOfRangeException("maxCount"); }
+            if (minCount < 0)
+            {
+                throw new ArgumentOutOfRangeException("minCount");
+            }
+            if (maxCount < minCount)
+            {
+                throw new ArgumentOutOfRangeException("maxCount");
+            }
             return "{" + minCount + "," + maxCount + "}";
         }
 

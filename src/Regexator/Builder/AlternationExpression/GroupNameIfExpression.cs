@@ -18,7 +18,10 @@ namespace Pihrtsoft.Regexator.Builder
         internal GroupNameIfExpression(string groupName, string yes, string no)
             : base(yes, no)
         {
-            if (groupName == null) { throw new ArgumentNullException("groupName"); }
+            if (groupName == null)
+            {
+                throw new ArgumentNullException("groupName");
+            }
             _groupName = groupName;
         }
 
@@ -30,7 +33,10 @@ namespace Pihrtsoft.Regexator.Builder
         internal GroupNameIfExpression(string groupName, Expression yes, Expression no)
             : base(yes, no)
         {
-            if (groupName == null) { throw new ArgumentNullException("groupName"); }
+            if (groupName == null)
+            {
+                throw new ArgumentNullException("groupName");
+            }
             _groupName = groupName;
         }
 
