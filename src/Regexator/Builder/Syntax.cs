@@ -77,11 +77,12 @@ namespace Pihrtsoft.Regexator.Builder
         public const char SinglelineChar = 's';
         public const char IgnorePatternWhiteSpaceChar = 'x';
 
-        public const string SubstituteLastCapturedGroup = "$+";
-        public const string SubstituteEntireInput = "$_";
-        public const string SubstituteEntireMatch = "$&";
-        public const string SubstituteAfterMatch = "$'";
-        public const string SubstituteBeforeMatch = "$`";
+        public const string SubstitutionMetachar = "$";
+        public const string SubstituteLastCapturedGroup = SubstitutionMetachar + "+";
+        public const string SubstituteEntireInput = SubstitutionMetachar + "_";
+        public const string SubstituteEntireMatch = SubstitutionMetachar + "&";
+        public const string SubstituteAfterMatch = SubstitutionMetachar + "'";
+        public const string SubstituteBeforeMatch = SubstitutionMetachar + "`";
 
         internal static readonly InlineOptions InlineOptions = InlineOptions.IgnoreCase | InlineOptions.Multiline | InlineOptions.ExplicitCapture | InlineOptions.Singleline | InlineOptions.IgnorePatternWhitespace;
 
