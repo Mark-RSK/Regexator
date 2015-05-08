@@ -31,7 +31,7 @@ namespace Pihrtsoft.Regexator.Builder
             {
                 if (_values != null)
                 {
-                    return Syntax.Chars(_values, true);
+                    return Syntax.Char(_values, true);
                 }
                 else
                 {

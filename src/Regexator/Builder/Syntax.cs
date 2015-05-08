@@ -369,12 +369,12 @@ namespace Pihrtsoft.Regexator.Builder
             return Char(value, false);
         }
 
-        public static string Chars(IEnumerable<char> values)
+        public static string Char(IEnumerable<char> values)
         {
-            return Chars(values, false);
+            return Char(values, false);
         }
 
-        public static string Chars(IEnumerable<char> values, bool inCharGroup)
+        public static string Char(IEnumerable<char> values, bool inCharGroup)
         {
             if (values == null)
             {
@@ -383,12 +383,12 @@ namespace Pihrtsoft.Regexator.Builder
             return string.Concat(values.Select(f => Char(f, inCharGroup)));
         }
 
-        public static string Chars(IEnumerable<int> charCodes)
+        public static string Char(IEnumerable<int> charCodes)
         {
-            return Chars(charCodes, false);
+            return Char(charCodes, false);
         }
 
-        public static string Chars(IEnumerable<int> charCodes, bool inCharGroup)
+        public static string Char(IEnumerable<int> charCodes, bool inCharGroup)
         {
             if (charCodes == null)
             {
@@ -397,12 +397,12 @@ namespace Pihrtsoft.Regexator.Builder
             return string.Concat(charCodes.Select(f => Char(f, inCharGroup)));
         }
 
-        public static string Chars(IEnumerable<AsciiChar> values)
+        public static string Char(IEnumerable<AsciiChar> values)
         {
-            return Chars(values, false);
+            return Char(values, false);
         }
 
-        public static string Chars(IEnumerable<AsciiChar> values, bool inCharGroup)
+        public static string Char(IEnumerable<AsciiChar> values, bool inCharGroup)
         {
             if (values == null)
             {
