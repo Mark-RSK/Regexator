@@ -117,7 +117,7 @@
     <Compile Include="Builder\Expressions.cs" />
     <Compile Include="Builder\Alternations.cs" />
     <Compile Include="Builder\Anchors.cs" />
-    <Compile Include="Builder\Characters.cs" />
+    <Compile Include="Builder\Chars.cs" />
     <Compile Include="Builder\Assertions.cs" />
     <Compile Include="Builder\Groups.cs" />
     <Compile Include="Builder\Quantifiers.cs" />
