@@ -143,7 +143,7 @@
     <Compile Include="Builder\Syntax.cs" />
     <Compile Include="Builder\UnicodeBlock.cs" />
     <Compile Include="Builder\UnicodeCategory.cs" />
-    <Compile Include="Builder\RegexUtilities.cs" />
+    <Compile Include="Core\RegexUtilities.cs" />
     <Compile Include="Builder\CharGroupExpression\NotAsciiCharGroup.cs" />
     <Compile Include="Builder\Expression\CharCodeExpression.cs" />
     <Compile Include="Builder\Expression\AsciiCharExpression.cs" />
