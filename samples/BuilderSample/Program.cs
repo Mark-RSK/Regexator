@@ -7,6 +7,8 @@ namespace Pihrtsoft.Regexator.Builder.Samples
     {
         internal static void Main(string[] args)
         {
+            Console.WriteLine(Characters.Word().OneMany().AsWordBoundary());
+
             Console.WriteLine("repeated word");
             Console.WriteLine(Characters.Word().OneMany().AsSubexpression()
                 .WhiteSpace().OneMany()
