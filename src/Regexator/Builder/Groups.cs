@@ -6,12 +6,12 @@ namespace Pihrtsoft.Regexator.Builder
     {
         public static QuantifiableExpression NamedGroup(string name, Expression expression)
         {
-            return new NamedGroup(name, expression);
+            return new NamedGroupExpression(name, expression);
         }
 
         public static QuantifiableExpression NamedGroup(string name, string value)
         {
-            return new NamedGroup(name, value);
+            return new NamedGroupExpression(name, value);
         }
 
         public static QuantifiableExpression Subexpression(Expression expression)
@@ -36,12 +36,12 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifiableExpression Balancing(string name1, string name2, Expression expression)
         {
-            return new BalancingGroup(name1, name2, expression);
+            return new BalancingGroupExpression(name1, name2, expression);
         }
 
         public static QuantifiableExpression Balancing(string name1, string name2, string value)
         {
-            return new BalancingGroup(name1, name2, value);
+            return new BalancingGroupExpression(name1, name2, value);
         }
 
         public static QuantifiableExpression Nonbacktracking(Expression expression)
@@ -56,22 +56,22 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, Expression expression)
         {
-            return new GroupOptions(applyOptions, expression);
+            return new GroupOptionsExpression(applyOptions, expression);
         }
 
         public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, string value)
         {
-            return new GroupOptions(applyOptions, value);
+            return new GroupOptionsExpression(applyOptions, value);
         }
 
         public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, Expression expression)
         {
-            return new GroupOptions(applyOptions, disableOptions, expression);
+            return new GroupOptionsExpression(applyOptions, disableOptions, expression);
         }
 
         public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, string value)
         {
-            return new GroupOptions(applyOptions, disableOptions, value);
+            return new GroupOptionsExpression(applyOptions, disableOptions, value);
         }
     }
 }

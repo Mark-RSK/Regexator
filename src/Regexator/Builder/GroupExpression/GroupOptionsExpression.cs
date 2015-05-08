@@ -2,30 +2,30 @@
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal sealed class GroupOptions
+    internal sealed class GroupOptionsExpression
         : GroupExpression
     {
         private readonly InlineOptions _applyOptions;
         private readonly InlineOptions _disableOptions;
 
-        internal GroupOptions(InlineOptions applyOptions, string value)
+        internal GroupOptionsExpression(InlineOptions applyOptions, string value)
             : this(applyOptions, InlineOptions.None, value)
         {
         }
 
-        internal GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, string value)
+        internal GroupOptionsExpression(InlineOptions applyOptions, InlineOptions disableOptions, string value)
             : base(value)
         {
             _applyOptions = applyOptions;
             _disableOptions = disableOptions;
         }
 
-        internal GroupOptions(InlineOptions applyOptions, Expression expression)
+        internal GroupOptionsExpression(InlineOptions applyOptions, Expression expression)
             : this(applyOptions, InlineOptions.None, expression)
         {
         }
 
-        internal GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, Expression expression)
+        internal GroupOptionsExpression(InlineOptions applyOptions, InlineOptions disableOptions, Expression expression)
             : base(expression)
         {
             _applyOptions = applyOptions;

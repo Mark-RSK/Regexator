@@ -89,7 +89,7 @@
     <Compile Include="Builder\AssertionKind.cs" />
     <Compile Include="Builder\Expression\TextExpression.cs" />
     <Compile Include="Builder\QuantifierExpression\CountFromQuantifier.cs" />
-    <Compile Include="Builder\GroupExpression\BalancingGroup.cs" />
+    <Compile Include="Builder\GroupExpression\BalancingGroupExpression.cs" />
     <Compile Include="Builder\BuildContext.cs" />
     <Compile Include="Builder\AnchorExpression\StartOfInput.cs" />
     <Compile Include="Builder\GroupExpression\QuantifierSubexpression.cs" />
@@ -131,11 +131,11 @@
     <Compile Include="Builder\AlternationExpression\AlternationExpression.cs" />
     <Compile Include="Builder\InlineOptions.cs" />
     <Compile Include="Builder\Expression\NameBackreferenceExpression.cs" />
-    <Compile Include="Builder\GroupExpression\NamedGroup.cs" />
+    <Compile Include="Builder\GroupExpression\NamedGroupExpression.cs" />
     <Compile Include="Builder\GroupExpression\NonbacktrackingExpression.cs" />
     <Compile Include="Builder\GroupExpression\NoncapturingExpression.cs" />
     <Compile Include="Builder\Expression\NumberBackreferenceExpression.cs" />
-    <Compile Include="Builder\GroupExpression\GroupOptions.cs" />
+    <Compile Include="Builder\GroupExpression\GroupOptionsExpression.cs" />
     <Compile Include="Builder\AlternationExpression\AnyExpression.cs" />
     <Compile Include="Builder\Expression\QuantifiableExpression.cs" />
     <Compile Include="Builder\QuantifierExpression\OneManyQuantifier.cs" />

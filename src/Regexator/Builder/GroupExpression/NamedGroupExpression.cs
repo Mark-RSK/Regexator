@@ -4,17 +4,17 @@ using System;
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal sealed class NamedGroup
+    internal sealed class NamedGroupExpression
         : GroupExpression
     {
         private readonly string _groupName;
 
-        internal NamedGroup(string groupName, string value)
+        internal NamedGroupExpression(string groupName, string value)
             : this(groupName, value, true)
         {
         }
 
-        internal NamedGroup(string groupName, string value, bool checkGroupName)
+        internal NamedGroupExpression(string groupName, string value, bool checkGroupName)
             : base(value)
         {
             if (groupName == null)
@@ -28,12 +28,12 @@ namespace Pihrtsoft.Regexator.Builder
             _groupName = groupName;
         }
 
-        internal NamedGroup(string groupName, Expression expression)
+        internal NamedGroupExpression(string groupName, Expression expression)
             : this(groupName, expression, true)
         {
         }
 
-        internal NamedGroup(string groupName, Expression expression, bool checkGroupName)
+        internal NamedGroupExpression(string groupName, Expression expression, bool checkGroupName)
             : base(expression)
         {
             if (groupName == null)

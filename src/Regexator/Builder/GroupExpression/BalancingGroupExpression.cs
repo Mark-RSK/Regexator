@@ -4,13 +4,13 @@ using System;
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal sealed class BalancingGroup
+    internal sealed class BalancingGroupExpression
         : GroupExpression
     {
         private readonly string _name1;
         private readonly string _name2;
 
-        internal BalancingGroup(string name1, string name2, string value)
+        internal BalancingGroupExpression(string name1, string name2, string value)
             : base(value)
         {
             if (name1 == null)
@@ -25,7 +25,7 @@ namespace Pihrtsoft.Regexator.Builder
             _name2 = name2;
         }
 
-        internal BalancingGroup(string name1, string name2, Expression expression)
+        internal BalancingGroupExpression(string name1, string name2, Expression expression)
             : base(expression)
         {
             if (name1 == null)
