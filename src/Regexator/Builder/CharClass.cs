@@ -5,10 +5,10 @@ namespace Pihrtsoft.Regexator.Builder
     public enum CharClass
     {
         Digit,
-        Word,
+        WordChar,
         WhiteSpace,
         NotDigit,
-        NotWord,
+        NotWordChar,
         NotWhiteSpace
     }
 }

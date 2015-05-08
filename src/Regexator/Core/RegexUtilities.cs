@@ -228,7 +228,7 @@ namespace Pihrtsoft.Regexator
                 {
                     _isValidGroupName = Alternations.Any(
                         Characters.ArabicDigitRange(1, 9).ArabicDigit().MaybeMany().AsSubexpression(),
-                        Characters.WordExceptArabicDigit().Word().MaybeMany()
+                        Characters.WordExceptArabicDigit().WordChar().MaybeMany()
                     ).AsEntireInput().ToRegex();
 
                 }

@@ -7,17 +7,17 @@ namespace Pihrtsoft.Regexator.Builder.Samples
     {
         internal static void Main(string[] args)
         {
-            Console.WriteLine(Characters.Word().OneMany().AsWordBoundary());
+            Console.WriteLine(Characters.WordChar().OneMany().AsWordBoundary());
 
             Console.WriteLine("repeated word");
-            Console.WriteLine(Characters.Word().OneMany().AsSubexpression()
+            Console.WriteLine(Characters.WordChar().OneMany().AsSubexpression()
                 .WhiteSpace().OneMany()
                 .Backreference(1)
                 .AsWordBoundary());
             Console.WriteLine("");
 
             Console.WriteLine("any word");
-            Console.WriteLine(Anchors.WordBoundary(Alternations.Any("word1", "word2", "word3")));
+            Console.WriteLine(Alternations.Any("word1", "word2", "word3").AsWordBoundary());
             Console.WriteLine("");
 
             Console.WriteLine("words in any order:");

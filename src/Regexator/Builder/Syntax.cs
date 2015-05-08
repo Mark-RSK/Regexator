@@ -40,8 +40,8 @@ namespace Pihrtsoft.Regexator.Builder
         public const string NotDigit = @"\D";
         public const string WhiteSpace = @"\s";
         public const string NotWhiteSpace = @"\S";
-        public const string Word = @"\w";
-        public const string NotWord = @"\W";
+        public const string WordChar = @"\w";
+        public const string NotWordChar = @"\W";
         public const string Bell = @"\a";
         public const string Backspace = @"\b";
         public const string Escape = @"\e";
@@ -273,14 +273,14 @@ namespace Pihrtsoft.Regexator.Builder
             {
                 case Builder.CharClass.Digit:
                     return Digit;
-                case Builder.CharClass.Word:
-                    return Word;
+                case Builder.CharClass.WordChar:
+                    return WordChar;
                 case Builder.CharClass.WhiteSpace:
                     return WhiteSpace;
                 case Builder.CharClass.NotDigit:
                     return NotDigit;
-                case Builder.CharClass.NotWord:
-                    return NotWord;
+                case Builder.CharClass.NotWordChar:
+                    return NotWordChar;
                 case Builder.CharClass.NotWhiteSpace:
                     return NotWhiteSpace;
             }

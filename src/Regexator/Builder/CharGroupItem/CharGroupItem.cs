@@ -135,14 +135,14 @@ namespace Pihrtsoft.Regexator.Builder
             return Append(CharGroupItems.NotWhiteSpace());
         }
 
-        public CharGroupItem Word()
+        public CharGroupItem WordChar()
         {
-            return Append(CharGroupItems.Word());
+            return Append(CharGroupItems.WordChar());
         }
 
-        public CharGroupItem NotWord()
+        public CharGroupItem NotWordChar()
         {
-            return Append(CharGroupItems.NotWord());
+            return Append(CharGroupItems.NotWordChar());
         }
 
         public CharGroupItem Alphanumeric()

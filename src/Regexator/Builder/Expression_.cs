@@ -679,34 +679,34 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Characters.NotWhiteSpace(minCount, maxCount));
         }
 
-        public QuantifiableExpression Word()
+        public QuantifiableExpression WordChar()
         {
-            return AppendInternal(Characters.Word());
+            return AppendInternal(Characters.WordChar());
         }
 
-        public QuantifierExpression Word(int count)
+        public QuantifierExpression WordChar(int count)
         {
-            return AppendInternal(Characters.Word(count));
+            return AppendInternal(Characters.WordChar(count));
         }
 
-        public QuantifierExpression Word(int minCount, int maxCount)
+        public QuantifierExpression WordChar(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.Word(minCount, maxCount));
+            return AppendInternal(Characters.WordChar(minCount, maxCount));
         }
 
-        public QuantifiableExpression NotWord()
+        public QuantifiableExpression NotWordChar()
         {
-            return AppendInternal(Characters.NotWord());
+            return AppendInternal(Characters.NotWordChar());
         }
 
-        public QuantifierExpression NotWord(int count)
+        public QuantifierExpression NotWordChar(int count)
         {
-            return AppendInternal(Characters.NotWord(count));
+            return AppendInternal(Characters.NotWordChar(count));
         }
 
-        public QuantifierExpression NotWord(int minCount, int maxCount)
+        public QuantifierExpression NotWordChar(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.NotWord(minCount, maxCount));
+            return AppendInternal(Characters.NotWordChar(minCount, maxCount));
         }
 
         public QuantifiableExpression Char(char value)

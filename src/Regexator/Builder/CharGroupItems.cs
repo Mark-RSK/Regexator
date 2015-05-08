@@ -79,14 +79,14 @@ namespace Pihrtsoft.Regexator.Builder
             return new CharClassCharItem(CharClass.NotWhiteSpace);
         }
 
-        public static CharGroupItem Word()
+        public static CharGroupItem WordChar()
         {
-            return new CharClassCharItem(CharClass.Word);
+            return new CharClassCharItem(CharClass.WordChar);
         }
 
-        public static CharGroupItem NotWord()
+        public static CharGroupItem NotWordChar()
         {
-            return new CharClassCharItem(CharClass.NotWord);
+            return new CharClassCharItem(CharClass.NotWordChar);
         }
 
         public static CharGroupItem Alphanumeric()

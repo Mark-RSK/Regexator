@@ -211,34 +211,34 @@ namespace Pihrtsoft.Regexator.Builder
             return new CharClassExpression(CharClass.NotWhiteSpace).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression Word()
+        public static QuantifiableExpression WordChar()
         {
-            return new CharClassExpression(CharClass.Word);
+            return new CharClassExpression(CharClass.WordChar);
         }
 
-        public static QuantifierExpression Word(int count)
+        public static QuantifierExpression WordChar(int count)
         {
-            return new CharClassExpression(CharClass.Word).Count(count);
+            return new CharClassExpression(CharClass.WordChar).Count(count);
         }
 
-        public static QuantifierExpression Word(int minCount, int maxCount)
+        public static QuantifierExpression WordChar(int minCount, int maxCount)
         {
-            return new CharClassExpression(CharClass.Word).CountRange(minCount, maxCount);
+            return new CharClassExpression(CharClass.WordChar).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression NotWord()
+        public static QuantifiableExpression NotWordChar()
         {
-            return new CharClassExpression(CharClass.NotWord);
+            return new CharClassExpression(CharClass.NotWordChar);
         }
 
-        public static QuantifierExpression NotWord(int count)
+        public static QuantifierExpression NotWordChar(int count)
         {
-            return new CharClassExpression(CharClass.NotWord).Count(count);
+            return new CharClassExpression(CharClass.NotWordChar).Count(count);
         }
 
-        public static QuantifierExpression NotWord(int minCount, int maxCount)
+        public static QuantifierExpression NotWordChar(int minCount, int maxCount)
         {
-            return new CharClassExpression(CharClass.NotWord).CountRange(minCount, maxCount);
+            return new CharClassExpression(CharClass.NotWordChar).CountRange(minCount, maxCount);
         }
 
         public static QuantifiableExpression Char(char value)
@@ -1383,7 +1383,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static CharSubtraction WordExceptArabicDigit()
         {
-            return new CharSubtraction(CharGroupItems.Word(), CharGroupItems.ArabicDigit());
+            return new CharSubtraction(CharGroupItems.WordChar(), CharGroupItems.ArabicDigit());
         }
     }
 }
