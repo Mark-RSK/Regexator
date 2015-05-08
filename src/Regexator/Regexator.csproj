@@ -72,6 +72,11 @@
     <Compile Include="Builder\CharGroupExpression\ArabicDigitRangeGroup.cs" />
     <Compile Include="Builder\CharGroupExpression\NotArabicDigitRangeGroup.cs" />
     <Compile Include="Builder\CharGroupItem\ArabicDigitRangeCharItem.cs" />
+    <Compile Include="Builder\Substitution\BeforeMatchSubstitution.cs" />
+    <Compile Include="Builder\Substitution\AfterMatchSubstitution.cs" />
+    <Compile Include="Builder\Substitution\EntireMatchSubstitution.cs" />
+    <Compile Include="Builder\Substitution\EntireInputSubstitution.cs" />
+    <Compile Include="Builder\Substitution\Substitution.cs" />
     <Compile Include="Builder\Expression\NotCharSubtraction.cs" />
     <Compile Include="Builder\Expression\SurroundExpression.cs" />
     <Compile Include="Builder\Miscellaneous.cs" />
@@ -140,6 +145,9 @@
     <Compile Include="Builder\QuantifierExpression\MaybeQuantifier.cs" />
     <Compile Include="Builder\GroupExpression\Subexpression.cs" />
     <Compile Include="Builder\Substitutions.cs" />
+    <Compile Include="Builder\Substitution\NamedGroupSubstitution.cs" />
+    <Compile Include="Builder\Substitution\LastCapturedGroupSubstitution.cs" />
+    <Compile Include="Builder\Substitution\TextSubstitution.cs" />
     <Compile Include="Builder\Syntax.cs" />
     <Compile Include="Builder\UnicodeBlock.cs" />
     <Compile Include="Builder\UnicodeCategory.cs" />

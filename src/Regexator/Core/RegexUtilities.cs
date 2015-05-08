@@ -183,6 +183,43 @@ namespace Pihrtsoft.Regexator
             return input;
         }
 
+        public static string EscapeSubstitution(string input)
+        {
+            if (input == null)
+            {
+                throw new ArgumentNullException("input");
+            }
+            for (int i = 0; i < input.Length; i++)
+            {
+                if (input[i] == '$')
+                {
+                    StringBuilder sb = new StringBuilder();
+                    char ch = input[i];
+                    int lastPos;
+                    sb.Append(input, 0, i);
+                    do
+                    {
+                        sb.Append("$$");
+                        i++;
+                        lastPos = i;
+                        while (i < input.Length)
+                        {
+                            ch = input[i];
+                            if (ch == '$')
+                            {
+                                break;
+                            }
+                            i++;
+                        }
+                        sb.Append(input, lastPos, i - lastPos);
+
+                    } while (i < input.Length);
+                    return sb.ToString();
+                }
+            }
+            return input;
+        }
+
         internal static Regex IsValidGroupNameRegex
         {
             get

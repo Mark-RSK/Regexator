@@ -77,6 +77,12 @@ namespace Pihrtsoft.Regexator.Builder
         public const char SinglelineChar = 's';
         public const char IgnorePatternWhiteSpaceChar = 'x';
 
+        public const string SubstituteLastCapturedGroup = "$+";
+        public const string SubstituteEntireInput = "$_";
+        public const string SubstituteEntireMatch = "$&";
+        public const string SubstituteAfterMatch = "$'";
+        public const string SubstituteBeforeMatch = "$`";
+
         internal static readonly InlineOptions InlineOptions = InlineOptions.IgnoreCase | InlineOptions.Multiline | InlineOptions.ExplicitCapture | InlineOptions.Singleline | InlineOptions.IgnorePatternWhitespace;
 
         internal static string IfGroupCondition(int groupNumber)
@@ -144,16 +150,16 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static string Group(string groupName, string value, IdentifierBoundary boundary)
         {
-            return GroupStart(groupName, boundary) + value + GroupEnd;
-        }
-
-        internal static string GroupStart(string groupName, IdentifierBoundary boundary)
-        {
             if (groupName == null)
             {
                 throw new ArgumentNullException("groupName");
             }
             RegexUtilities.CheckGroupName(groupName);
+            return GroupStart(groupName, boundary) + value + GroupEnd;
+        }
+
+        internal static string GroupStart(string groupName, IdentifierBoundary boundary)
+        {
             switch (boundary)
             {
                 case IdentifierBoundary.LessThan:
@@ -877,6 +883,21 @@ namespace Pihrtsoft.Regexator.Builder
                     Debug.Assert(false);
                     return string.Empty;
             }
+        }
+
+        public static string SubstituteNamedGroup(string groupName)
+        {
+            if (groupName == null)
+            {
+                throw new ArgumentNullException("groupName");
+            }
+            RegexUtilities.CheckGroupName(groupName);
+            return SubstituteNamedGroupInternal(groupName);
+        }
+
+        internal static string SubstituteNamedGroupInternal(string groupName)
+        {
+            return "${" + groupName + "}";
         }
     }
 }

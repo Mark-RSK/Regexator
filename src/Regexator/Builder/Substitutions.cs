@@ -1,72 +1,42 @@
 // Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-using System;
-
 namespace Pihrtsoft.Regexator.Builder
 {
     public static class Substitutions
     {
-        /// <summary>
-        /// Substitutes the last substring matched by the named group.
-        /// </summary>
-        /// <param name="groupName">Group name</param>
-        /// <returns>Substitution expression</returns>
-        public static string NamedGroup(string groupName)
+        public static Substitution NamedGroup(string groupName)
         {
-            if (groupName == null)
-            {
-                throw new ArgumentNullException("groupName");
-            }
-            return "${" + groupName + "}";
+            return new NamedGroupSubstitution(groupName);
         }
 
-        /// <summary>
-        /// Substitutes the last substring matched by the numbered group
-        /// </summary>
-        /// <returns></returns>
-        public static string LastCapturedGroup
+        public static Substitution LastCapturedGroup()
         {
-            get { return "$+"; }
+            return new LastCapturedGroupSubstitution();
         }
 
-        /// <summary>
-        /// Substitutes the entire input string.
-        /// </summary>
-        public static string EntireInput
+        public static Substitution EntireInput()
         {
-            get { return "$_"; }
+            return new EntireInputSubstitution();
         }
 
-        /// <summary>
-        /// Substitutes the entire match.
-        /// </summary>
-        public static string EntireMatch
+        public static Substitution EntireMatch()
         {
-            get { return "$&"; }
+            return new EntireMatchSubstitution();
         }
 
-        /// <summary>
-        /// Substitutes a literal "$".
-        /// </summary>
-        public static string Dollar
+        public static Substitution AfterMatch()
         {
-            get { return "$$"; }
+            return new AfterMatchSubstitution();
         }
 
-        /// <summary>
-        /// Substitutes all the text of the input string after the match.
-        /// </summary>
-        public static string AfterMatch
+        public static Substitution BeforeMatch()
         {
-            get { return "$'"; }
+            return new BeforeMatchSubstitution();
         }
 
-        /// <summary>
-        /// Substitutes all the text of the input string before the match.
-        /// </summary>
-        public static string BeforeMatch
+        public static Substitution Text(string value)
         {
-            get { return "$`"; }
+            return new TextSubstitution(value);
         }
     }
 }
