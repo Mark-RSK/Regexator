@@ -469,1379 +469,1379 @@ namespace Pihrtsoft.Regexator.Builder
 
         public QuantifiableExpression Char(string chars)
         {
-            return AppendInternal(Characters.Char(chars));
+            return AppendInternal(Chars.Char(chars));
         }
 
         public QuantifiableExpression Char(CharGroupItem item)
         {
-            return AppendInternal(Characters.Char(item));
+            return AppendInternal(Chars.Char(item));
         }
 
         public QuantifiableExpression Char(IEnumerable<char> values)
         {
-            return AppendInternal(Characters.Char(values));
+            return AppendInternal(Chars.Char(values));
         }
 
         public QuantifiableExpression Char(IEnumerable<int> charCodes)
         {
-            return AppendInternal(Characters.Char(charCodes));
+            return AppendInternal(Chars.Char(charCodes));
         }
 
         public QuantifiableExpression Char(IEnumerable<AsciiChar> values)
         {
-            return AppendInternal(Characters.Char(values));
+            return AppendInternal(Chars.Char(values));
         }
 
         public QuantifiableExpression Char(IEnumerable<CharClass> values)
         {
-            return AppendInternal(Characters.Char(values));
+            return AppendInternal(Chars.Char(values));
         }
 
         public QuantifiableExpression Char(IEnumerable<UnicodeBlock> blocks)
         {
-            return AppendInternal(Characters.Char(blocks));
+            return AppendInternal(Chars.Char(blocks));
         }
 
         public QuantifiableExpression Char(IEnumerable<UnicodeCategory> categories)
         {
-            return AppendInternal(Characters.Char(categories));
+            return AppendInternal(Chars.Char(categories));
         }
 
         public QuantifiableExpression NotChar(string chars)
         {
-            return AppendInternal(Characters.NotChar(chars));
+            return AppendInternal(Chars.NotChar(chars));
         }
 
         public QuantifiableExpression NotChar(CharGroupItem item)
         {
-            return AppendInternal(Characters.NotChar(item));
+            return AppendInternal(Chars.NotChar(item));
         }
 
         public QuantifiableExpression NotChar(IEnumerable<char> values)
         {
-            return AppendInternal(Characters.NotChar(values));
+            return AppendInternal(Chars.NotChar(values));
         }
 
         public QuantifiableExpression NotChar(IEnumerable<int> charCodes)
         {
-            return AppendInternal(Characters.NotChar(charCodes));
+            return AppendInternal(Chars.NotChar(charCodes));
         }
 
         public QuantifiableExpression NotChar(IEnumerable<AsciiChar> values)
         {
-            return AppendInternal(Characters.NotChar(values));
+            return AppendInternal(Chars.NotChar(values));
         }
 
         public QuantifiableExpression NotChar(IEnumerable<UnicodeBlock> blocks)
         {
-            return AppendInternal(Characters.NotChar(blocks));
+            return AppendInternal(Chars.NotChar(blocks));
         }
 
         public QuantifiableExpression NotChar(IEnumerable<UnicodeCategory> categories)
         {
-            return AppendInternal(Characters.NotChar(categories));
+            return AppendInternal(Chars.NotChar(categories));
         }
 
         public QuantifiableExpression Range(char first, char last)
         {
-            return AppendInternal(Characters.Range(first, last));
+            return AppendInternal(Chars.Range(first, last));
         }
 
         public QuantifiableExpression Range(int firstCharCode, int lastCharCode)
         {
-            return AppendInternal(Characters.Range(firstCharCode, lastCharCode));
+            return AppendInternal(Chars.Range(firstCharCode, lastCharCode));
         }
 
         public QuantifiableExpression ArabicDigitRange(int first, int last)
         {
-            return AppendInternal(Characters.ArabicDigitRange(first, last));
+            return AppendInternal(Chars.ArabicDigitRange(first, last));
         }
 
         public QuantifiableExpression NotRange(char first, char last)
         {
-            return AppendInternal(Characters.NotRange(first, last));
+            return AppendInternal(Chars.NotRange(first, last));
         }
 
         public QuantifiableExpression NotRange(int firstCharCode, int lastCharCode)
         {
-            return AppendInternal(Characters.NotRange(firstCharCode, lastCharCode));
+            return AppendInternal(Chars.NotRange(firstCharCode, lastCharCode));
         }
 
         public QuantifiableExpression NotArabicDigitRange(int first, int last)
         {
-            return AppendInternal(Characters.NotArabicDigitRange(first, last));
+            return AppendInternal(Chars.NotArabicDigitRange(first, last));
         }
 
         public QuantifiableExpression Subtraction(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
         {
-            return AppendInternal(Characters.Subtraction(baseGroup, excludedGroup));
+            return AppendInternal(Chars.Subtraction(baseGroup, excludedGroup));
         }
 
         public QuantifiableExpression NotSubtraction(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
         {
-            return AppendInternal(Characters.NotSubtraction(baseGroup, excludedGroup));
+            return AppendInternal(Chars.NotSubtraction(baseGroup, excludedGroup));
         }
 
         public QuantifiableExpression WhiteSpaceExceptNewLine()
         {
-            return AppendInternal(Characters.WhiteSpaceExceptNewLine());
+            return AppendInternal(Chars.WhiteSpaceExceptNewLine());
         }
 
         public QuantifiableExpression WordExceptArabicDigit()
         {
-            return AppendInternal(Characters.WordExceptArabicDigit());
+            return AppendInternal(Chars.WordExceptArabicDigit());
         }
 
         public CharGroupExpression Alphanumeric()
         {
-            return AppendInternal(Characters.Alphanumeric());
+            return AppendInternal(Chars.Alphanumeric());
         }
 
         public QuantifiableExpression Any()
         {
-            return AppendInternal(Characters.Any());
+            return AppendInternal(Chars.Any());
         }
 
         public QuantifiableExpression AnyInvariant()
         {
-            return AppendInternal(Characters.AnyInvariant());
+            return AppendInternal(Chars.AnyInvariant());
         }
 
 #if DEBUG
         public Expression AnyMaybeManyLazy()
         {
-            return AppendInternal(Characters.AnyMaybeManyLazy());
+            return AppendInternal(Chars.AnyMaybeManyLazy());
         }
 #endif
 
         public QuantifiableExpression ArabicDigit()
         {
-            return AppendInternal(Characters.ArabicDigit());
+            return AppendInternal(Chars.ArabicDigit());
         }
 
         public QuantifiableExpression Digit()
         {
-            return AppendInternal(Characters.Digit());
+            return AppendInternal(Chars.Digit());
         }
 
         public QuantifierExpression Digit(int count)
         {
-            return AppendInternal(Characters.Digit(count));
+            return AppendInternal(Chars.Digit(count));
         }
 
         public QuantifierExpression Digit(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.Digit(minCount, maxCount));
+            return AppendInternal(Chars.Digit(minCount, maxCount));
         }
 
         public QuantifiableExpression NotDigit()
         {
-            return AppendInternal(Characters.NotDigit());
+            return AppendInternal(Chars.NotDigit());
         }
 
         public QuantifierExpression NotDigit(int count)
         {
-            return AppendInternal(Characters.NotDigit(count));
+            return AppendInternal(Chars.NotDigit(count));
         }
 
         public QuantifierExpression NotDigit(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.NotDigit(minCount, maxCount));
+            return AppendInternal(Chars.NotDigit(minCount, maxCount));
         }
 
         public QuantifiableExpression WhiteSpace()
         {
-            return AppendInternal(Characters.WhiteSpace());
+            return AppendInternal(Chars.WhiteSpace());
         }
 
         public QuantifierExpression WhiteSpace(int count)
         {
-            return AppendInternal(Characters.WhiteSpace(count));
+            return AppendInternal(Chars.WhiteSpace(count));
         }
 
         public QuantifierExpression WhiteSpace(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.WhiteSpace(minCount, maxCount));
+            return AppendInternal(Chars.WhiteSpace(minCount, maxCount));
         }
 
         public QuantifiableExpression NotWhiteSpace()
         {
-            return AppendInternal(Characters.NotWhiteSpace());
+            return AppendInternal(Chars.NotWhiteSpace());
         }
 
         public QuantifierExpression NotWhiteSpace(int count)
         {
-            return AppendInternal(Characters.NotWhiteSpace(count));
+            return AppendInternal(Chars.NotWhiteSpace(count));
         }
 
         public QuantifierExpression NotWhiteSpace(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.NotWhiteSpace(minCount, maxCount));
+            return AppendInternal(Chars.NotWhiteSpace(minCount, maxCount));
         }
 
         public QuantifiableExpression WordChar()
         {
-            return AppendInternal(Characters.WordChar());
+            return AppendInternal(Chars.WordChar());
         }
 
         public QuantifierExpression WordChar(int count)
         {
-            return AppendInternal(Characters.WordChar(count));
+            return AppendInternal(Chars.WordChar(count));
         }
 
         public QuantifierExpression WordChar(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.WordChar(minCount, maxCount));
+            return AppendInternal(Chars.WordChar(minCount, maxCount));
         }
 
         public QuantifiableExpression NotWordChar()
         {
-            return AppendInternal(Characters.NotWordChar());
+            return AppendInternal(Chars.NotWordChar());
         }
 
         public QuantifierExpression NotWordChar(int count)
         {
-            return AppendInternal(Characters.NotWordChar(count));
+            return AppendInternal(Chars.NotWordChar(count));
         }
 
         public QuantifierExpression NotWordChar(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.NotWordChar(minCount, maxCount));
+            return AppendInternal(Chars.NotWordChar(minCount, maxCount));
         }
 
         public QuantifiableExpression Char(char value)
         {
-            return AppendInternal(Characters.Char(value));
+            return AppendInternal(Chars.Char(value));
         }
 
         public QuantifiableExpression Char(int charCode)
         {
-            return AppendInternal(Characters.Char(charCode));
+            return AppendInternal(Chars.Char(charCode));
         }
 
         public QuantifiableExpression Char(AsciiChar value)
         {
-            return AppendInternal(Characters.Char(value));
+            return AppendInternal(Chars.Char(value));
         }
 
         public QuantifiableExpression Char(CharClass value)
         {
-            return AppendInternal(Characters.Char(value));
+            return AppendInternal(Chars.Char(value));
         }
 
         public QuantifiableExpression UnicodeBlock(UnicodeBlock block)
         {
-            return AppendInternal(Characters.UnicodeBlock(block));
+            return AppendInternal(Chars.UnicodeBlock(block));
         }
 
         public QuantifiableExpression UnicodeCategory(UnicodeCategory category)
         {
-            return AppendInternal(Characters.UnicodeCategory(category));
+            return AppendInternal(Chars.UnicodeCategory(category));
         }
 
         public QuantifiableExpression NotChar(char value)
         {
-            return AppendInternal(Characters.NotChar(value));
+            return AppendInternal(Chars.NotChar(value));
         }
 
         public QuantifiableExpression NotChar(int charCode)
         {
-            return AppendInternal(Characters.NotChar(charCode));
+            return AppendInternal(Chars.NotChar(charCode));
         }
 
         public QuantifiableExpression NotChar(AsciiChar value)
         {
-            return AppendInternal(Characters.NotChar(value));
+            return AppendInternal(Chars.NotChar(value));
         }
 
         public QuantifiableExpression NotUnicodeBlock(UnicodeBlock block)
         {
-            return AppendInternal(Characters.NotUnicodeBlock(block));
+            return AppendInternal(Chars.NotUnicodeBlock(block));
         }
 
         public QuantifiableExpression NotUnicodeCategory(UnicodeCategory category)
         {
-            return AppendInternal(Characters.NotUnicodeCategory(category));
+            return AppendInternal(Chars.NotUnicodeCategory(category));
         }
 
         public QuantifiableExpression Tab()
         {
-            return AppendInternal(Characters.Tab());
+            return AppendInternal(Chars.Tab());
         }
 
         public QuantifierExpression Tab(int exactCount)
         {
-            return AppendInternal(Characters.Tab(exactCount));
+            return AppendInternal(Chars.Tab(exactCount));
         }
 
         public QuantifierExpression Tab(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.Tab(minCount, maxCount));
+            return AppendInternal(Chars.Tab(minCount, maxCount));
         }
 
         public QuantifiableExpression NotTab()
         {
-            return AppendInternal(Characters.NotTab());
+            return AppendInternal(Chars.NotTab());
         }
 
         public QuantifierExpression NotTab(int exactCount)
         {
-            return AppendInternal(Characters.NotTab(exactCount));
+            return AppendInternal(Chars.NotTab(exactCount));
         }
 
         public QuantifierExpression NotTab(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.NotTab(minCount, maxCount));
+            return AppendInternal(Chars.NotTab(minCount, maxCount));
         }
 
         public QuantifiableExpression Linefeed()
         {
-            return AppendInternal(Characters.Linefeed());
+            return AppendInternal(Chars.Linefeed());
         }
 
         public QuantifierExpression Linefeed(int exactCount)
         {
-            return AppendInternal(Characters.Linefeed(exactCount));
+            return AppendInternal(Chars.Linefeed(exactCount));
         }
 
         public QuantifierExpression Linefeed(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.Linefeed(minCount, maxCount));
+            return AppendInternal(Chars.Linefeed(minCount, maxCount));
         }
 
         public QuantifiableExpression NotLinefeed()
         {
-            return AppendInternal(Characters.NotLinefeed());
+            return AppendInternal(Chars.NotLinefeed());
         }
 
         public QuantifierExpression NotLinefeed(int exactCount)
         {
-            return AppendInternal(Characters.NotLinefeed(exactCount));
+            return AppendInternal(Chars.NotLinefeed(exactCount));
         }
 
         public QuantifierExpression NotLinefeed(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.NotLinefeed(minCount, maxCount));
+            return AppendInternal(Chars.NotLinefeed(minCount, maxCount));
         }
 
         public QuantifiableExpression CarriageReturn()
         {
-            return AppendInternal(Characters.CarriageReturn());
+            return AppendInternal(Chars.CarriageReturn());
         }
 
         public QuantifierExpression CarriageReturn(int exactCount)
         {
-            return AppendInternal(Characters.CarriageReturn(exactCount));
+            return AppendInternal(Chars.CarriageReturn(exactCount));
         }
 
         public QuantifierExpression CarriageReturn(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.CarriageReturn(minCount, maxCount));
+            return AppendInternal(Chars.CarriageReturn(minCount, maxCount));
         }
 
         public QuantifiableExpression NotCarriageReturn()
         {
-            return AppendInternal(Characters.NotCarriageReturn());
+            return AppendInternal(Chars.NotCarriageReturn());
         }
 
         public QuantifierExpression NotCarriageReturn(int exactCount)
         {
-            return AppendInternal(Characters.NotCarriageReturn(exactCount));
+            return AppendInternal(Chars.NotCarriageReturn(exactCount));
         }
 
         public QuantifierExpression NotCarriageReturn(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.NotCarriageReturn(minCount, maxCount));
+            return AppendInternal(Chars.NotCarriageReturn(minCount, maxCount));
         }
 
         public QuantifiableExpression Space()
         {
-            return AppendInternal(Characters.Space());
+            return AppendInternal(Chars.Space());
         }
 
         public QuantifierExpression Space(int exactCount)
         {
-            return AppendInternal(Characters.Space(exactCount));
+            return AppendInternal(Chars.Space(exactCount));
         }
 
         public QuantifierExpression Space(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.Space(minCount, maxCount));
+            return AppendInternal(Chars.Space(minCount, maxCount));
         }
 
         public QuantifiableExpression NotSpace()
         {
-            return AppendInternal(Characters.NotSpace());
+            return AppendInternal(Chars.NotSpace());
         }
 
         public QuantifierExpression NotSpace(int exactCount)
         {
-            return AppendInternal(Characters.NotSpace(exactCount));
+            return AppendInternal(Chars.NotSpace(exactCount));
         }
 
         public QuantifierExpression NotSpace(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.NotSpace(minCount, maxCount));
+            return AppendInternal(Chars.NotSpace(minCount, maxCount));
         }
 
         public QuantifiableExpression ExclamationMark()
         {
-            return AppendInternal(Characters.ExclamationMark());
+            return AppendInternal(Chars.ExclamationMark());
         }
 
         public QuantifierExpression ExclamationMark(int exactCount)
         {
-            return AppendInternal(Characters.ExclamationMark(exactCount));
+            return AppendInternal(Chars.ExclamationMark(exactCount));
         }
 
         public QuantifierExpression ExclamationMark(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.ExclamationMark(minCount, maxCount));
+            return AppendInternal(Chars.ExclamationMark(minCount, maxCount));
         }
 
         public QuantifiableExpression NotExclamationMark()
         {
-            return AppendInternal(Characters.NotExclamationMark());
+            return AppendInternal(Chars.NotExclamationMark());
         }
 
         public QuantifierExpression NotExclamationMark(int exactCount)
         {
-            return AppendInternal(Characters.NotExclamationMark(exactCount));
+            return AppendInternal(Chars.NotExclamationMark(exactCount));
         }
 
         public QuantifierExpression NotExclamationMark(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.NotExclamationMark(minCount, maxCount));
+            return AppendInternal(Chars.NotExclamationMark(minCount, maxCount));
         }
 
         public QuantifiableExpression QuotationMark()
         {
-            return AppendInternal(Characters.QuotationMark());
+            return AppendInternal(Chars.QuotationMark());
         }
 
         public QuantifierExpression QuotationMark(int exactCount)
         {
-            return AppendInternal(Characters.QuotationMark(exactCount));
+            return AppendInternal(Chars.QuotationMark(exactCount));
         }
 
         public QuantifierExpression QuotationMark(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.QuotationMark(minCount, maxCount));
+            return AppendInternal(Chars.QuotationMark(minCount, maxCount));
         }
 
         public QuantifiableExpression NotQuotationMark()
         {
-            return AppendInternal(Characters.NotQuotationMark());
+            return AppendInternal(Chars.NotQuotationMark());
         }
 
         public QuantifierExpression NotQuotationMark(int exactCount)
         {
-            return AppendInternal(Characters.NotQuotationMark(exactCount));
+            return AppendInternal(Chars.NotQuotationMark(exactCount));
         }
 
         public QuantifierExpression NotQuotationMark(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.NotQuotationMark(minCount, maxCount));
+            return AppendInternal(Chars.NotQuotationMark(minCount, maxCount));
         }
 
         public QuantifiableExpression NumberSign()
         {
-            return AppendInternal(Characters.NumberSign());
+            return AppendInternal(Chars.NumberSign());
         }
 
         public QuantifierExpression NumberSign(int exactCount)
         {
-            return AppendInternal(Characters.NumberSign(exactCount));
+            return AppendInternal(Chars.NumberSign(exactCount));
         }
 
         public QuantifierExpression NumberSign(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.NumberSign(minCount, maxCount));
+            return AppendInternal(Chars.NumberSign(minCount, maxCount));
         }
 
         public QuantifiableExpression NotNumberSign()
         {
-            return AppendInternal(Characters.NotNumberSign());
+            return AppendInternal(Chars.NotNumberSign());
         }
 
         public QuantifierExpression NotNumberSign(int exactCount)
         {
-            return AppendInternal(Characters.NotNumberSign(exactCount));
+            return AppendInternal(Chars.NotNumberSign(exactCount));
         }
 
         public QuantifierExpression NotNumberSign(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.NotNumberSign(minCount, maxCount));
+            return AppendInternal(Chars.NotNumberSign(minCount, maxCount));
         }
 
         public QuantifiableExpression Dollar()
         {
-            return AppendInternal(Characters.Dollar());
+            return AppendInternal(Chars.Dollar());
         }
 
         public QuantifierExpression Dollar(int exactCount)
         {
-            return AppendInternal(Characters.Dollar(exactCount));
+            return AppendInternal(Chars.Dollar(exactCount));
         }
 
         public QuantifierExpression Dollar(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.Dollar(minCount, maxCount));
+            return AppendInternal(Chars.Dollar(minCount, maxCount));
         }
 
         public QuantifiableExpression NotDollar()
         {
-            return AppendInternal(Characters.NotDollar());
+            return AppendInternal(Chars.NotDollar());
         }
 
         public QuantifierExpression NotDollar(int exactCount)
         {
-            return AppendInternal(Characters.NotDollar(exactCount));
+            return AppendInternal(Chars.NotDollar(exactCount));
         }
 
         public QuantifierExpression NotDollar(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.NotDollar(minCount, maxCount));
+            return AppendInternal(Chars.NotDollar(minCount, maxCount));
         }
 
         public QuantifiableExpression Percent()
         {
-            return AppendInternal(Characters.Percent());
+            return AppendInternal(Chars.Percent());
         }
 
         public QuantifierExpression Percent(int exactCount)
         {
-            return AppendInternal(Characters.Percent(exactCount));
+            return AppendInternal(Chars.Percent(exactCount));
         }
 
         public QuantifierExpression Percent(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.Percent(minCount, maxCount));
+            return AppendInternal(Chars.Percent(minCount, maxCount));
         }
 
         public QuantifiableExpression NotPercent()
         {
-            return AppendInternal(Characters.NotPercent());
+            return AppendInternal(Chars.NotPercent());
         }
 
         public QuantifierExpression NotPercent(int exactCount)
         {
-            return AppendInternal(Characters.NotPercent(exactCount));
+            return AppendInternal(Chars.NotPercent(exactCount));
         }
 
         public QuantifierExpression NotPercent(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.NotPercent(minCount, maxCount));
+            return AppendInternal(Chars.NotPercent(minCount, maxCount));
         }
 
         public QuantifiableExpression Ampersand()
         {
-            return AppendInternal(Characters.Ampersand());
+            return AppendInternal(Chars.Ampersand());
         }
 
         public QuantifierExpression Ampersand(int exactCount)
         {
-            return AppendInternal(Characters.Ampersand(exactCount));
+            return AppendInternal(Chars.Ampersand(exactCount));
         }
 
         public QuantifierExpression Ampersand(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.Ampersand(minCount, maxCount));
+            return AppendInternal(Chars.Ampersand(minCount, maxCount));
         }
 
         public QuantifiableExpression NotAmpersand()
         {
-            return AppendInternal(Characters.NotAmpersand());
+            return AppendInternal(Chars.NotAmpersand());
         }
 
         public QuantifierExpression NotAmpersand(int exactCount)
         {
-            return AppendInternal(Characters.NotAmpersand(exactCount));
+            return AppendInternal(Chars.NotAmpersand(exactCount));
         }
 
         public QuantifierExpression NotAmpersand(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.NotAmpersand(minCount, maxCount));
+            return AppendInternal(Chars.NotAmpersand(minCount, maxCount));
         }
 
         public QuantifiableExpression Apostrophe()
         {
-            return AppendInternal(Characters.Apostrophe());
+            return AppendInternal(Chars.Apostrophe());
         }
 
         public QuantifierExpression Apostrophe(int exactCount)
         {
-            return AppendInternal(Characters.Apostrophe(exactCount));
+            return AppendInternal(Chars.Apostrophe(exactCount));
         }
 
         public QuantifierExpression Apostrophe(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.Apostrophe(minCount, maxCount));
+            return AppendInternal(Chars.Apostrophe(minCount, maxCount));
         }
 
         public QuantifiableExpression NotApostrophe()
         {
-            return AppendInternal(Characters.NotApostrophe());
+            return AppendInternal(Chars.NotApostrophe());
         }
 
         public QuantifierExpression NotApostrophe(int exactCount)
         {
-            return AppendInternal(Characters.NotApostrophe(exactCount));
+            return AppendInternal(Chars.NotApostrophe(exactCount));
         }
 
         public QuantifierExpression NotApostrophe(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.NotApostrophe(minCount, maxCount));
+            return AppendInternal(Chars.NotApostrophe(minCount, maxCount));
         }
 
         public QuantifiableExpression LeftParenthesis()
         {
-            return AppendInternal(Characters.LeftParenthesis());
+            return AppendInternal(Chars.LeftParenthesis());
         }
 
         public QuantifierExpression LeftParenthesis(int exactCount)
         {
-            return AppendInternal(Characters.LeftParenthesis(exactCount));
+            return AppendInternal(Chars.LeftParenthesis(exactCount));
         }
 
         public QuantifierExpression LeftParenthesis(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.LeftParenthesis(minCount, maxCount));
+            return AppendInternal(Chars.LeftParenthesis(minCount, maxCount));
         }
 
         public QuantifiableExpression NotLeftParenthesis()
         {
-            return AppendInternal(Characters.NotLeftParenthesis());
+            return AppendInternal(Chars.NotLeftParenthesis());
         }
 
         public QuantifierExpression NotLeftParenthesis(int exactCount)
         {
-            return AppendInternal(Characters.NotLeftParenthesis(exactCount));
+            return AppendInternal(Chars.NotLeftParenthesis(exactCount));
         }
 
         public QuantifierExpression NotLeftParenthesis(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.NotLeftParenthesis(minCount, maxCount));
+            return AppendInternal(Chars.NotLeftParenthesis(minCount, maxCount));
         }
 
         public QuantifiableExpression RightParenthesis()
         {
-            return AppendInternal(Characters.RightParenthesis());
+            return AppendInternal(Chars.RightParenthesis());
         }
 
         public QuantifierExpression RightParenthesis(int exactCount)
         {
-            return AppendInternal(Characters.RightParenthesis(exactCount));
+            return AppendInternal(Chars.RightParenthesis(exactCount));
         }
 
         public QuantifierExpression RightParenthesis(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.RightParenthesis(minCount, maxCount));
+            return AppendInternal(Chars.RightParenthesis(minCount, maxCount));
         }
 
         public QuantifiableExpression NotRightParenthesis()
         {
-            return AppendInternal(Characters.NotRightParenthesis());
+            return AppendInternal(Chars.NotRightParenthesis());
         }
 
         public QuantifierExpression NotRightParenthesis(int exactCount)
         {
-            return AppendInternal(Characters.NotRightParenthesis(exactCount));
+            return AppendInternal(Chars.NotRightParenthesis(exactCount));
         }
 
         public QuantifierExpression NotRightParenthesis(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.NotRightParenthesis(minCount, maxCount));
+            return AppendInternal(Chars.NotRightParenthesis(minCount, maxCount));
         }
 
         public QuantifiableExpression Asterisk()
         {
-            return AppendInternal(Characters.Asterisk());
+            return AppendInternal(Chars.Asterisk());
         }
 
         public QuantifierExpression Asterisk(int exactCount)
         {
-            return AppendInternal(Characters.Asterisk(exactCount));
+            return AppendInternal(Chars.Asterisk(exactCount));
         }
 
         public QuantifierExpression Asterisk(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.Asterisk(minCount, maxCount));
+            return AppendInternal(Chars.Asterisk(minCount, maxCount));
         }
 
         public QuantifiableExpression NotAsterisk()
         {
-            return AppendInternal(Characters.NotAsterisk());
+            return AppendInternal(Chars.NotAsterisk());
         }
 
         public QuantifierExpression NotAsterisk(int exactCount)
         {
-            return AppendInternal(Characters.NotAsterisk(exactCount));
+            return AppendInternal(Chars.NotAsterisk(exactCount));
         }
 
         public QuantifierExpression NotAsterisk(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.NotAsterisk(minCount, maxCount));
+            return AppendInternal(Chars.NotAsterisk(minCount, maxCount));
         }
 
         public QuantifiableExpression Plus()
         {
-            return AppendInternal(Characters.Plus());
+            return AppendInternal(Chars.Plus());
         }
 
         public QuantifierExpression Plus(int exactCount)
         {
-            return AppendInternal(Characters.Plus(exactCount));
+            return AppendInternal(Chars.Plus(exactCount));
         }
 
         public QuantifierExpression Plus(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.Plus(minCount, maxCount));
+            return AppendInternal(Chars.Plus(minCount, maxCount));
         }
 
         public QuantifiableExpression NotPlus()
         {
-            return AppendInternal(Characters.NotPlus());
+            return AppendInternal(Chars.NotPlus());
         }
 
         public QuantifierExpression NotPlus(int exactCount)
         {
-            return AppendInternal(Characters.NotPlus(exactCount));
+            return AppendInternal(Chars.NotPlus(exactCount));
         }
 
         public QuantifierExpression NotPlus(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.NotPlus(minCount, maxCount));
+            return AppendInternal(Chars.NotPlus(minCount, maxCount));
         }
 
         public QuantifiableExpression Comma()
         {
-            return AppendInternal(Characters.Comma());
+            return AppendInternal(Chars.Comma());
         }
 
         public QuantifierExpression Comma(int exactCount)
         {
-            return AppendInternal(Characters.Comma(exactCount));
+            return AppendInternal(Chars.Comma(exactCount));
         }
 
         public QuantifierExpression Comma(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.Comma(minCount, maxCount));
+            return AppendInternal(Chars.Comma(minCount, maxCount));
         }
 
         public QuantifiableExpression NotComma()
         {
-            return AppendInternal(Characters.NotComma());
+            return AppendInternal(Chars.NotComma());
         }
 
         public QuantifierExpression NotComma(int exactCount)
         {
-            return AppendInternal(Characters.NotComma(exactCount));
+            return AppendInternal(Chars.NotComma(exactCount));
         }
 
         public QuantifierExpression NotComma(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.NotComma(minCount, maxCount));
+            return AppendInternal(Chars.NotComma(minCount, maxCount));
         }
 
         public QuantifiableExpression Hyphen()
         {
-            return AppendInternal(Characters.Hyphen());
+            return AppendInternal(Chars.Hyphen());
         }
 
         public QuantifierExpression Hyphen(int exactCount)
         {
-            return AppendInternal(Characters.Hyphen(exactCount));
+            return AppendInternal(Chars.Hyphen(exactCount));
         }
 
         public QuantifierExpression Hyphen(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.Hyphen(minCount, maxCount));
+            return AppendInternal(Chars.Hyphen(minCount, maxCount));
         }
 
         public QuantifiableExpression NotHyphen()
         {
-            return AppendInternal(Characters.NotHyphen());
+            return AppendInternal(Chars.NotHyphen());
         }
 
         public QuantifierExpression NotHyphen(int exactCount)
         {
-            return AppendInternal(Characters.NotHyphen(exactCount));
+            return AppendInternal(Chars.NotHyphen(exactCount));
         }
 
         public QuantifierExpression NotHyphen(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.NotHyphen(minCount, maxCount));
+            return AppendInternal(Chars.NotHyphen(minCount, maxCount));
         }
 
         public QuantifiableExpression Period()
         {
-            return AppendInternal(Characters.Period());
+            return AppendInternal(Chars.Period());
         }
 
         public QuantifierExpression Period(int exactCount)
         {
-            return AppendInternal(Characters.Period(exactCount));
+            return AppendInternal(Chars.Period(exactCount));
         }
 
         public QuantifierExpression Period(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.Period(minCount, maxCount));
+            return AppendInternal(Chars.Period(minCount, maxCount));
         }
 
         public QuantifiableExpression NotPeriod()
         {
-            return AppendInternal(Characters.NotPeriod());
+            return AppendInternal(Chars.NotPeriod());
         }
 
         public QuantifierExpression NotPeriod(int exactCount)
         {
-            return AppendInternal(Characters.NotPeriod(exactCount));
+            return AppendInternal(Chars.NotPeriod(exactCount));
         }
 
         public QuantifierExpression NotPeriod(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.NotPeriod(minCount, maxCount));
+            return AppendInternal(Chars.NotPeriod(minCount, maxCount));
         }
 
         public QuantifiableExpression Slash()
         {
-            return AppendInternal(Characters.Slash());
+            return AppendInternal(Chars.Slash());
         }
 
         public QuantifierExpression Slash(int exactCount)
         {
-            return AppendInternal(Characters.Slash(exactCount));
+            return AppendInternal(Chars.Slash(exactCount));
         }
 
         public QuantifierExpression Slash(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.Slash(minCount, maxCount));
+            return AppendInternal(Chars.Slash(minCount, maxCount));
         }
 
         public QuantifiableExpression NotSlash()
         {
-            return AppendInternal(Characters.NotSlash());
+            return AppendInternal(Chars.NotSlash());
         }
 
         public QuantifierExpression NotSlash(int exactCount)
         {
-            return AppendInternal(Characters.NotSlash(exactCount));
+            return AppendInternal(Chars.NotSlash(exactCount));
         }
 
         public QuantifierExpression NotSlash(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.NotSlash(minCount, maxCount));
+            return AppendInternal(Chars.NotSlash(minCount, maxCount));
         }
 
         public QuantifiableExpression Colon()
         {
-            return AppendInternal(Characters.Colon());
+            return AppendInternal(Chars.Colon());
         }
 
         public QuantifierExpression Colon(int exactCount)
         {
-            return AppendInternal(Characters.Colon(exactCount));
+            return AppendInternal(Chars.Colon(exactCount));
         }
 
         public QuantifierExpression Colon(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.Colon(minCount, maxCount));
+            return AppendInternal(Chars.Colon(minCount, maxCount));
         }
 
         public QuantifiableExpression NotColon()
         {
-            return AppendInternal(Characters.NotColon());
+            return AppendInternal(Chars.NotColon());
         }
 
         public QuantifierExpression NotColon(int exactCount)
         {
-            return AppendInternal(Characters.NotColon(exactCount));
+            return AppendInternal(Chars.NotColon(exactCount));
         }
 
         public QuantifierExpression NotColon(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.NotColon(minCount, maxCount));
+            return AppendInternal(Chars.NotColon(minCount, maxCount));
         }
 
         public QuantifiableExpression Semicolon()
         {
-            return AppendInternal(Characters.Semicolon());
+            return AppendInternal(Chars.Semicolon());
         }
 
         public QuantifierExpression Semicolon(int exactCount)
         {
-            return AppendInternal(Characters.Semicolon(exactCount));
+            return AppendInternal(Chars.Semicolon(exactCount));
         }
 
         public QuantifierExpression Semicolon(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.Semicolon(minCount, maxCount));
+            return AppendInternal(Chars.Semicolon(minCount, maxCount));
         }
 
         public QuantifiableExpression NotSemicolon()
         {
-            return AppendInternal(Characters.NotSemicolon());
+            return AppendInternal(Chars.NotSemicolon());
         }
 
         public QuantifierExpression NotSemicolon(int exactCount)
         {
-            return AppendInternal(Characters.NotSemicolon(exactCount));
+            return AppendInternal(Chars.NotSemicolon(exactCount));
         }
 
         public QuantifierExpression NotSemicolon(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.NotSemicolon(minCount, maxCount));
+            return AppendInternal(Chars.NotSemicolon(minCount, maxCount));
         }
 
         public QuantifiableExpression LessThan()
         {
-            return AppendInternal(Characters.LessThan());
+            return AppendInternal(Chars.LessThan());
         }
 
         public QuantifierExpression LessThan(int exactCount)
         {
-            return AppendInternal(Characters.LessThan(exactCount));
+            return AppendInternal(Chars.LessThan(exactCount));
         }
 
         public QuantifierExpression LessThan(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.LessThan(minCount, maxCount));
+            return AppendInternal(Chars.LessThan(minCount, maxCount));
         }
 
         public QuantifiableExpression NotLessThan()
         {
-            return AppendInternal(Characters.NotLessThan());
+            return AppendInternal(Chars.NotLessThan());
         }
 
         public QuantifierExpression NotLessThan(int exactCount)
         {
-            return AppendInternal(Characters.NotLessThan(exactCount));
+            return AppendInternal(Chars.NotLessThan(exactCount));
         }
 
         public QuantifierExpression NotLessThan(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.NotLessThan(minCount, maxCount));
+            return AppendInternal(Chars.NotLessThan(minCount, maxCount));
         }
 
         public QuantifiableExpression EqualsSign()
         {
-            return AppendInternal(Characters.EqualsSign());
+            return AppendInternal(Chars.EqualsSign());
         }
 
         public QuantifierExpression EqualsSign(int exactCount)
         {
-            return AppendInternal(Characters.EqualsSign(exactCount));
+            return AppendInternal(Chars.EqualsSign(exactCount));
         }
 
         public QuantifierExpression EqualsSign(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.EqualsSign(minCount, maxCount));
+            return AppendInternal(Chars.EqualsSign(minCount, maxCount));
         }
 
         public QuantifiableExpression NotEqualsSign()
         {
-            return AppendInternal(Characters.NotEqualsSign());
+            return AppendInternal(Chars.NotEqualsSign());
         }
 
         public QuantifierExpression NotEqualsSign(int exactCount)
         {
-            return AppendInternal(Characters.NotEqualsSign(exactCount));
+            return AppendInternal(Chars.NotEqualsSign(exactCount));
         }
 
         public QuantifierExpression NotEqualsSign(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.NotEqualsSign(minCount, maxCount));
+            return AppendInternal(Chars.NotEqualsSign(minCount, maxCount));
         }
 
         public QuantifiableExpression GreaterThan()
         {
-            return AppendInternal(Characters.GreaterThan());
+            return AppendInternal(Chars.GreaterThan());
         }
 
         public QuantifierExpression GreaterThan(int exactCount)
         {
-            return AppendInternal(Characters.GreaterThan(exactCount));
+            return AppendInternal(Chars.GreaterThan(exactCount));
         }
 
         public QuantifierExpression GreaterThan(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.GreaterThan(minCount, maxCount));
+            return AppendInternal(Chars.GreaterThan(minCount, maxCount));
         }
 
         public QuantifiableExpression NotGreaterThan()
         {
-            return AppendInternal(Characters.NotGreaterThan());
+            return AppendInternal(Chars.NotGreaterThan());
         }
 
         public QuantifierExpression NotGreaterThan(int exactCount)
         {
-            return AppendInternal(Characters.NotGreaterThan(exactCount));
+            return AppendInternal(Chars.NotGreaterThan(exactCount));
         }
 
         public QuantifierExpression NotGreaterThan(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.NotGreaterThan(minCount, maxCount));
+            return AppendInternal(Chars.NotGreaterThan(minCount, maxCount));
         }
 
         public QuantifiableExpression QuestionMark()
         {
-            return AppendInternal(Characters.QuestionMark());
+            return AppendInternal(Chars.QuestionMark());
         }
 
         public QuantifierExpression QuestionMark(int exactCount)
         {
-            return AppendInternal(Characters.QuestionMark(exactCount));
+            return AppendInternal(Chars.QuestionMark(exactCount));
         }
 
         public QuantifierExpression QuestionMark(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.QuestionMark(minCount, maxCount));
+            return AppendInternal(Chars.QuestionMark(minCount, maxCount));
         }
 
         public QuantifiableExpression NotQuestionMark()
         {
-            return AppendInternal(Characters.NotQuestionMark());
+            return AppendInternal(Chars.NotQuestionMark());
         }
 
         public QuantifierExpression NotQuestionMark(int exactCount)
         {
-            return AppendInternal(Characters.NotQuestionMark(exactCount));
+            return AppendInternal(Chars.NotQuestionMark(exactCount));
         }
 
         public QuantifierExpression NotQuestionMark(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.NotQuestionMark(minCount, maxCount));
+            return AppendInternal(Chars.NotQuestionMark(minCount, maxCount));
         }
 
         public QuantifiableExpression At()
         {
-            return AppendInternal(Characters.At());
+            return AppendInternal(Chars.At());
         }
 
         public QuantifierExpression At(int exactCount)
         {
-            return AppendInternal(Characters.At(exactCount));
+            return AppendInternal(Chars.At(exactCount));
         }
 
         public QuantifierExpression At(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.At(minCount, maxCount));
+            return AppendInternal(Chars.At(minCount, maxCount));
         }
 
         public QuantifiableExpression NotAt()
         {
-            return AppendInternal(Characters.NotAt());
+            return AppendInternal(Chars.NotAt());
         }
 
         public QuantifierExpression NotAt(int exactCount)
         {
-            return AppendInternal(Characters.NotAt(exactCount));
+            return AppendInternal(Chars.NotAt(exactCount));
         }
 
         public QuantifierExpression NotAt(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.NotAt(minCount, maxCount));
+            return AppendInternal(Chars.NotAt(minCount, maxCount));
         }
 
         public QuantifiableExpression LeftSquareBracket()
         {
-            return AppendInternal(Characters.LeftSquareBracket());
+            return AppendInternal(Chars.LeftSquareBracket());
         }
 
         public QuantifierExpression LeftSquareBracket(int exactCount)
         {
-            return AppendInternal(Characters.LeftSquareBracket(exactCount));
+            return AppendInternal(Chars.LeftSquareBracket(exactCount));
         }
 
         public QuantifierExpression LeftSquareBracket(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.LeftSquareBracket(minCount, maxCount));
+            return AppendInternal(Chars.LeftSquareBracket(minCount, maxCount));
         }
 
         public QuantifiableExpression NotLeftSquareBracket()
         {
-            return AppendInternal(Characters.NotLeftSquareBracket());
+            return AppendInternal(Chars.NotLeftSquareBracket());
         }
 
         public QuantifierExpression NotLeftSquareBracket(int exactCount)
         {
-            return AppendInternal(Characters.NotLeftSquareBracket(exactCount));
+            return AppendInternal(Chars.NotLeftSquareBracket(exactCount));
         }
 
         public QuantifierExpression NotLeftSquareBracket(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.NotLeftSquareBracket(minCount, maxCount));
+            return AppendInternal(Chars.NotLeftSquareBracket(minCount, maxCount));
         }
 
         public QuantifiableExpression Backslash()
         {
-            return AppendInternal(Characters.Backslash());
+            return AppendInternal(Chars.Backslash());
         }
 
         public QuantifierExpression Backslash(int exactCount)
         {
-            return AppendInternal(Characters.Backslash(exactCount));
+            return AppendInternal(Chars.Backslash(exactCount));
         }
 
         public QuantifierExpression Backslash(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.Backslash(minCount, maxCount));
+            return AppendInternal(Chars.Backslash(minCount, maxCount));
         }
 
         public QuantifiableExpression NotBackslash()
         {
-            return AppendInternal(Characters.NotBackslash());
+            return AppendInternal(Chars.NotBackslash());
         }
 
         public QuantifierExpression NotBackslash(int exactCount)
         {
-            return AppendInternal(Characters.NotBackslash(exactCount));
+            return AppendInternal(Chars.NotBackslash(exactCount));
         }
 
         public QuantifierExpression NotBackslash(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.NotBackslash(minCount, maxCount));
+            return AppendInternal(Chars.NotBackslash(minCount, maxCount));
         }
 
         public QuantifiableExpression RightSquareBracket()
         {
-            return AppendInternal(Characters.RightSquareBracket());
+            return AppendInternal(Chars.RightSquareBracket());
         }
 
         public QuantifierExpression RightSquareBracket(int exactCount)
         {
-            return AppendInternal(Characters.RightSquareBracket(exactCount));
+            return AppendInternal(Chars.RightSquareBracket(exactCount));
         }
 
         public QuantifierExpression RightSquareBracket(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.RightSquareBracket(minCount, maxCount));
+            return AppendInternal(Chars.RightSquareBracket(minCount, maxCount));
         }
 
         public QuantifiableExpression NotRightSquareBracket()
         {
-            return AppendInternal(Characters.NotRightSquareBracket());
+            return AppendInternal(Chars.NotRightSquareBracket());
         }
 
         public QuantifierExpression NotRightSquareBracket(int exactCount)
         {
-            return AppendInternal(Characters.NotRightSquareBracket(exactCount));
+            return AppendInternal(Chars.NotRightSquareBracket(exactCount));
         }
 
         public QuantifierExpression NotRightSquareBracket(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.NotRightSquareBracket(minCount, maxCount));
+            return AppendInternal(Chars.NotRightSquareBracket(minCount, maxCount));
         }
 
         public QuantifiableExpression CircumflexAccent()
         {
-            return AppendInternal(Characters.CircumflexAccent());
+            return AppendInternal(Chars.CircumflexAccent());
         }
 
         public QuantifierExpression CircumflexAccent(int exactCount)
         {
-            return AppendInternal(Characters.CircumflexAccent(exactCount));
+            return AppendInternal(Chars.CircumflexAccent(exactCount));
         }
 
         public QuantifierExpression CircumflexAccent(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.CircumflexAccent(minCount, maxCount));
+            return AppendInternal(Chars.CircumflexAccent(minCount, maxCount));
         }
 
         public QuantifiableExpression NotCircumflexAccent()
         {
-            return AppendInternal(Characters.NotCircumflexAccent());
+            return AppendInternal(Chars.NotCircumflexAccent());
         }
 
         public QuantifierExpression NotCircumflexAccent(int exactCount)
         {
-            return AppendInternal(Characters.NotCircumflexAccent(exactCount));
+            return AppendInternal(Chars.NotCircumflexAccent(exactCount));
         }
 
         public QuantifierExpression NotCircumflexAccent(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.NotCircumflexAccent(minCount, maxCount));
+            return AppendInternal(Chars.NotCircumflexAccent(minCount, maxCount));
         }
 
         public QuantifiableExpression Underscore()
         {
-            return AppendInternal(Characters.Underscore());
+            return AppendInternal(Chars.Underscore());
         }
 
         public QuantifierExpression Underscore(int exactCount)
         {
-            return AppendInternal(Characters.Underscore(exactCount));
+            return AppendInternal(Chars.Underscore(exactCount));
         }
 
         public QuantifierExpression Underscore(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.Underscore(minCount, maxCount));
+            return AppendInternal(Chars.Underscore(minCount, maxCount));
         }
 
         public QuantifiableExpression NotUnderscore()
         {
-            return AppendInternal(Characters.NotUnderscore());
+            return AppendInternal(Chars.NotUnderscore());
         }
 
         public QuantifierExpression NotUnderscore(int exactCount)
         {
-            return AppendInternal(Characters.NotUnderscore(exactCount));
+            return AppendInternal(Chars.NotUnderscore(exactCount));
         }
 
         public QuantifierExpression NotUnderscore(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.NotUnderscore(minCount, maxCount));
+            return AppendInternal(Chars.NotUnderscore(minCount, maxCount));
         }
 
         public QuantifiableExpression GraveAccent()
         {
-            return AppendInternal(Characters.GraveAccent());
+            return AppendInternal(Chars.GraveAccent());
         }
 
         public QuantifierExpression GraveAccent(int exactCount)
         {
-            return AppendInternal(Characters.GraveAccent(exactCount));
+            return AppendInternal(Chars.GraveAccent(exactCount));
         }
 
         public QuantifierExpression GraveAccent(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.GraveAccent(minCount, maxCount));
+            return AppendInternal(Chars.GraveAccent(minCount, maxCount));
         }
 
         public QuantifiableExpression NotGraveAccent()
         {
-            return AppendInternal(Characters.NotGraveAccent());
+            return AppendInternal(Chars.NotGraveAccent());
         }
 
         public QuantifierExpression NotGraveAccent(int exactCount)
         {
-            return AppendInternal(Characters.NotGraveAccent(exactCount));
+            return AppendInternal(Chars.NotGraveAccent(exactCount));
         }
 
         public QuantifierExpression NotGraveAccent(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.NotGraveAccent(minCount, maxCount));
+            return AppendInternal(Chars.NotGraveAccent(minCount, maxCount));
         }
 
         public QuantifiableExpression LeftCurlyBracket()
         {
-            return AppendInternal(Characters.LeftCurlyBracket());
+            return AppendInternal(Chars.LeftCurlyBracket());
         }
 
         public QuantifierExpression LeftCurlyBracket(int exactCount)
         {
-            return AppendInternal(Characters.LeftCurlyBracket(exactCount));
+            return AppendInternal(Chars.LeftCurlyBracket(exactCount));
         }
 
         public QuantifierExpression LeftCurlyBracket(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.LeftCurlyBracket(minCount, maxCount));
+            return AppendInternal(Chars.LeftCurlyBracket(minCount, maxCount));
         }
 
         public QuantifiableExpression NotLeftCurlyBracket()
         {
-            return AppendInternal(Characters.NotLeftCurlyBracket());
+            return AppendInternal(Chars.NotLeftCurlyBracket());
         }
 
         public QuantifierExpression NotLeftCurlyBracket(int exactCount)
         {
-            return AppendInternal(Characters.NotLeftCurlyBracket(exactCount));
+            return AppendInternal(Chars.NotLeftCurlyBracket(exactCount));
         }
 
         public QuantifierExpression NotLeftCurlyBracket(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.NotLeftCurlyBracket(minCount, maxCount));
+            return AppendInternal(Chars.NotLeftCurlyBracket(minCount, maxCount));
         }
 
         public QuantifiableExpression VerticalLine()
         {
-            return AppendInternal(Characters.VerticalLine());
+            return AppendInternal(Chars.VerticalLine());
         }
 
         public QuantifierExpression VerticalLine(int exactCount)
         {
-            return AppendInternal(Characters.VerticalLine(exactCount));
+            return AppendInternal(Chars.VerticalLine(exactCount));
         }
 
         public QuantifierExpression VerticalLine(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.VerticalLine(minCount, maxCount));
+            return AppendInternal(Chars.VerticalLine(minCount, maxCount));
         }
 
         public QuantifiableExpression NotVerticalLine()
         {
-            return AppendInternal(Characters.NotVerticalLine());
+            return AppendInternal(Chars.NotVerticalLine());
         }
 
         public QuantifierExpression NotVerticalLine(int exactCount)
         {
-            return AppendInternal(Characters.NotVerticalLine(exactCount));
+            return AppendInternal(Chars.NotVerticalLine(exactCount));
         }
 
         public QuantifierExpression NotVerticalLine(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.NotVerticalLine(minCount, maxCount));
+            return AppendInternal(Chars.NotVerticalLine(minCount, maxCount));
         }
 
         public QuantifiableExpression RightCurlyBracket()
         {
-            return AppendInternal(Characters.RightCurlyBracket());
+            return AppendInternal(Chars.RightCurlyBracket());
         }
 
         public QuantifierExpression RightCurlyBracket(int exactCount)
         {
-            return AppendInternal(Characters.RightCurlyBracket(exactCount));
+            return AppendInternal(Chars.RightCurlyBracket(exactCount));
         }
 
         public QuantifierExpression RightCurlyBracket(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.RightCurlyBracket(minCount, maxCount));
+            return AppendInternal(Chars.RightCurlyBracket(minCount, maxCount));
         }
 
         public QuantifiableExpression NotRightCurlyBracket()
         {
-            return AppendInternal(Characters.NotRightCurlyBracket());
+            return AppendInternal(Chars.NotRightCurlyBracket());
         }
 
         public QuantifierExpression NotRightCurlyBracket(int exactCount)
         {
-            return AppendInternal(Characters.NotRightCurlyBracket(exactCount));
+            return AppendInternal(Chars.NotRightCurlyBracket(exactCount));
         }
 
         public QuantifierExpression NotRightCurlyBracket(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.NotRightCurlyBracket(minCount, maxCount));
+            return AppendInternal(Chars.NotRightCurlyBracket(minCount, maxCount));
         }
 
         public QuantifiableExpression Tilde()
         {
-            return AppendInternal(Characters.Tilde());
+            return AppendInternal(Chars.Tilde());
         }
 
         public QuantifierExpression Tilde(int exactCount)
         {
-            return AppendInternal(Characters.Tilde(exactCount));
+            return AppendInternal(Chars.Tilde(exactCount));
         }
 
         public QuantifierExpression Tilde(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.Tilde(minCount, maxCount));
+            return AppendInternal(Chars.Tilde(minCount, maxCount));
         }
 
         public QuantifiableExpression NotTilde()
         {
-            return AppendInternal(Characters.NotTilde());
+            return AppendInternal(Chars.NotTilde());
         }
 
         public QuantifierExpression NotTilde(int exactCount)
         {
-            return AppendInternal(Characters.NotTilde(exactCount));
+            return AppendInternal(Chars.NotTilde(exactCount));
         }
 
         public QuantifierExpression NotTilde(int minCount, int maxCount)
         {
-            return AppendInternal(Characters.NotTilde(minCount, maxCount));
+            return AppendInternal(Chars.NotTilde(minCount, maxCount));
         }
 
         public QuantifierExpression Maybe(string value)

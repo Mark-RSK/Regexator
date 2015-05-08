@@ -16,7 +16,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifiableExpression StartOfLineInvariant()
         {
-            return Alternations.Any(Start(), Characters.Linefeed().AsLookbehind());
+            return Alternations.Any(Start(), Chars.Linefeed().AsLookbehind());
         }
 
         public static QuantifiableExpression EndOfLine()
@@ -26,7 +26,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifiableExpression EndOfLineInvariant()
         {
-            return Alternations.Any(Characters.Linefeed().AsLookahead(), End());
+            return Alternations.Any(Chars.Linefeed().AsLookahead(), End());
         }
 
         public static QuantifiableExpression EndOfLineOrBeforeCarriageReturn()
@@ -38,7 +38,7 @@ namespace Pihrtsoft.Regexator.Builder
         {
             if (beforeCarriageReturn)
             {
-                return Characters.CarriageReturn().Maybe().EndOfLine().AsLookahead();
+                return Chars.CarriageReturn().Maybe().EndOfLine().AsLookahead();
             }
             else
             {

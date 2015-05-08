@@ -36,7 +36,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifiableExpression TrailingWhiteSpace()
         {
-            return Characters.WhiteSpaceExceptNewLine().OneMany().EndOfLineOrBeforeCarriageReturn();
+            return Chars.WhiteSpaceExceptNewLine().OneMany().EndOfLineOrBeforeCarriageReturn();
         }
 
         public static QuantifiableExpression LeadingTrailingWhiteSpace()
@@ -65,12 +65,12 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifiableExpression NewLine()
         {
-            return Characters.CarriageReturn().Maybe().Linefeed().AsNoncapturing();
+            return Chars.CarriageReturn().Maybe().Linefeed().AsNoncapturing();
         }
 
         public static QuantifiableExpression LinefeedWithoutCarriageReturn()
         {
-            return Characters.CarriageReturn().AsNotLookbehind().Linefeed().AsNonbacktracking();
+            return Chars.CarriageReturn().AsNotLookbehind().Linefeed().AsNonbacktracking();
         }
 
         internal static QuantifiableExpression InsignificantSeparator()

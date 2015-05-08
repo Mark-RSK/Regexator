@@ -227,8 +227,8 @@ namespace Pihrtsoft.Regexator
                 if (_isValidGroupName == null)
                 {
                     _isValidGroupName = Alternations.Any(
-                        Characters.ArabicDigitRange(1, 9).ArabicDigit().MaybeMany().AsSubexpression(),
-                        Characters.WordExceptArabicDigit().WordChar().MaybeMany()
+                        Chars.ArabicDigitRange(1, 9).ArabicDigit().MaybeMany().AsSubexpression(),
+                        Chars.WordExceptArabicDigit().WordChar().MaybeMany()
                     ).AsEntireInput().ToRegex();
 
                 }

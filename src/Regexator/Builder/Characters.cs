@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    public static class Characters
+    public static class Chars
     {
         public static CharGroupExpression Char(string chars)
         {

@@ -9,17 +9,17 @@ namespace Pihrtsoft.Regexator.Builder.Samples
         {
             Console.WriteLine(Alternations.Any(
                 Groups
-                    .NamedGroup("y", Characters.Digit(2))
-                    .NamedGroup("m", Characters.Digit(2))
-                    .NamedGroup("d", Characters.Digit(2))
-                    .Maybe(Characters.Slash().Digit(4)),
+                    .NamedGroup("y", Chars.Digit(2))
+                    .NamedGroup("m", Chars.Digit(2))
+                    .NamedGroup("d", Chars.Digit(2))
+                    .Maybe(Chars.Slash().Digit(4)),
                 Groups
-                    .NamedGroup("d", Characters.Digit(2)).Period()
-                    .NamedGroup("m", Characters.Digit(2)).Period()
-                    .NamedGroup("y", Characters.Digit(4))));
+                    .NamedGroup("d", Chars.Digit(2)).Period()
+                    .NamedGroup("m", Chars.Digit(2)).Period()
+                    .NamedGroup("y", Chars.Digit(4))));
 
             Console.WriteLine("repeated word");
-            Console.WriteLine(Characters.WordChar().OneMany().AsSubexpression()
+            Console.WriteLine(Chars.WordChar().OneMany().AsSubexpression()
                 .WhiteSpace().OneMany()
                 .Backreference(1)
                 .AsWordBoundary());
@@ -31,8 +31,8 @@ namespace Pihrtsoft.Regexator.Builder.Samples
 
             Console.WriteLine("words in any order:");
             Console.WriteLine(Anchors.StartOfLine()
-                .Lookahead(Characters.AnyInvariant().MaybeMany().Lazy().WordBoundary("word1"))
-                .Lookahead(Characters.AnyInvariant().MaybeMany().Lazy().WordBoundary("word2"))
+                .Lookahead(Chars.AnyInvariant().MaybeMany().Lazy().WordBoundary("word1"))
+                .Lookahead(Chars.AnyInvariant().MaybeMany().Lazy().WordBoundary("word2"))
                 .AnyInvariant().MaybeMany());
             Console.WriteLine("");
 
@@ -41,13 +41,13 @@ namespace Pihrtsoft.Regexator.Builder.Samples
             Console.WriteLine("");
 
             Console.WriteLine("trailing whitespace:");
-            Console.WriteLine(Characters.WhiteSpaceExceptNewLine().OneMany().EndOfLineOrBeforeCarriageReturn());
+            Console.WriteLine(Chars.WhiteSpaceExceptNewLine().OneMany().EndOfLineOrBeforeCarriageReturn());
             Console.WriteLine("");
 
             Console.WriteLine("leading trailing whitespace:");
             Console.WriteLine(Alternations.Any(
                 Anchors.StartOfLine().WhiteSpaceExceptNewLine().OneMany(),
-                Characters.WhiteSpaceExceptNewLine().OneMany().EndOfLineOrBeforeCarriageReturn()));
+                Chars.WhiteSpaceExceptNewLine().OneMany().EndOfLineOrBeforeCarriageReturn()));
             Console.WriteLine("");
 
             Console.WriteLine("whitespace lines:");
@@ -68,11 +68,11 @@ namespace Pihrtsoft.Regexator.Builder.Samples
             Console.WriteLine("");
 
             Console.WriteLine("lf without cr:");
-            Console.WriteLine(Characters.CarriageReturn().AsNotLookbehind().Linefeed().AsNonbacktracking());
+            Console.WriteLine(Chars.CarriageReturn().AsNotLookbehind().Linefeed().AsNonbacktracking());
             Console.WriteLine("");
 
             Console.WriteLine("file name invalid chars:");
-            Console.WriteLine(Characters.Char(Path.GetInvalidFileNameChars()).AsNonbacktracking());
+            Console.WriteLine(Chars.Char(Path.GetInvalidFileNameChars()).AsNonbacktracking());
             Console.WriteLine("");
 
             Console.ReadKey();

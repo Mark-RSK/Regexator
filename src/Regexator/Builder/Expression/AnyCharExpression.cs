@@ -11,7 +11,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         internal override string Value(BuildContext context)
         {
-            return context.Settings.UseInvariant ? Characters.AnyInvariant().Value(context) : Syntax.AnyChar;
+            return context.Settings.UseInvariant ? Chars.AnyInvariant().Value(context) : Syntax.AnyChar;
         }
     }
 }
