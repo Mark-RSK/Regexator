@@ -12,7 +12,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         internal override string Value(BuildContext context)
         {
-            return Syntax.UnicodeCategory(Category, true);
+            return Syntax.GeneralCategory(Category, true);
         }
     }
 }

@@ -49,12 +49,12 @@ namespace Pihrtsoft.Regexator.Builder
             return new NotNamedBlockCharItem(block);
         }
 
-        public static CharGroupItem UnicodeCategory(GeneralCategory category)
+        public static CharGroupItem GeneralCategory(GeneralCategory category)
         {
             return new GeneralCategoryCharItem(category);
         }
 
-        public static CharGroupItem NotUnicodeCategory(GeneralCategory category)
+        public static CharGroupItem NotGeneralCategory(GeneralCategory category)
         {
             return new NotGeneralCategoryCharItem(category);
         }

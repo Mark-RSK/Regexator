@@ -105,14 +105,14 @@ namespace Pihrtsoft.Regexator.Builder
             return Append(CharGroupItems.NotNamedBlock(block));
         }
 
-        public CharGroupItem UnicodeCategory(GeneralCategory category)
+        public CharGroupItem GeneralCategory(GeneralCategory category)
         {
-            return Append(CharGroupItems.UnicodeCategory(category));
+            return Append(CharGroupItems.GeneralCategory(category));
         }
 
-        public CharGroupItem NotUnicodeCategory(GeneralCategory category)
+        public CharGroupItem NotGeneralCategory(GeneralCategory category)
         {
-            return Append(CharGroupItems.NotUnicodeCategory(category));
+            return Append(CharGroupItems.NotGeneralCategory(category));
         }
 
         public CharGroupItem Digit()

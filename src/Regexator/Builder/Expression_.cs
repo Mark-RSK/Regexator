@@ -734,9 +734,9 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Chars.NamedBlock(block));
         }
 
-        public QuantifiableExpression UnicodeCategory(GeneralCategory category)
+        public QuantifiableExpression GeneralCategory(GeneralCategory category)
         {
-            return AppendInternal(Chars.UnicodeCategory(category));
+            return AppendInternal(Chars.GeneralCategory(category));
         }
 
         public QuantifiableExpression NotChar(char value)
@@ -759,9 +759,9 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Chars.NotNamedBlock(block));
         }
 
-        public QuantifiableExpression NotUnicodeCategory(GeneralCategory category)
+        public QuantifiableExpression NotGeneralCategory(GeneralCategory category)
         {
-            return AppendInternal(Chars.NotUnicodeCategory(category));
+            return AppendInternal(Chars.NotGeneralCategory(category));
         }
 
         public QuantifiableExpression Tab()

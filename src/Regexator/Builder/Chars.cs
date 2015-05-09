@@ -266,7 +266,7 @@ namespace Pihrtsoft.Regexator.Builder
             return new NamedBlockExpression(block);
         }
 
-        public static QuantifiableExpression UnicodeCategory(GeneralCategory category)
+        public static QuantifiableExpression GeneralCategory(GeneralCategory category)
         {
             return new GeneralCategoryExpression(category);
         }
@@ -291,7 +291,7 @@ namespace Pihrtsoft.Regexator.Builder
             return new NotNamedBlockExpression(block);
         }
 
-        public static QuantifiableExpression NotUnicodeCategory(GeneralCategory category)
+        public static QuantifiableExpression NotGeneralCategory(GeneralCategory category)
         {
             return new NotGeneralCategoryExpression(category);
         }

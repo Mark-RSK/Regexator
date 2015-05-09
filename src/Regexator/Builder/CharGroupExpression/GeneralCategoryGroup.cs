@@ -21,7 +21,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public override string Content
         {
-            get { return Syntax.UnicodeCategories(_values); }
+            get { return Syntax.GeneralCategories(_values); }
         }
     }
 }

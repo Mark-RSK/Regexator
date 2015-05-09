@@ -19,7 +19,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         internal override string Content
         {
-            get { return Syntax.UnicodeCategory(_category, Negative); }
+            get { return Syntax.GeneralCategory(_category, Negative); }
         }
     }
 }

@@ -459,33 +459,33 @@ namespace Pihrtsoft.Regexator.Builder
             return string.Concat(blocks.Select(f => NamedBlock(f, negative)));
         }
 
-        public static string UnicodeCategory(GeneralCategory category)
+        public static string GeneralCategory(GeneralCategory category)
         {
-            return UnicodeCategory(category, false);
+            return GeneralCategory(category, false);
         }
 
-        public static string NotUnicodeCategory(GeneralCategory category)
+        public static string NotGeneralCategory(GeneralCategory category)
         {
-            return UnicodeCategory(category, true);
+            return GeneralCategory(category, true);
         }
 
-        public static string UnicodeCategory(GeneralCategory category, bool negative)
+        public static string GeneralCategory(GeneralCategory category, bool negative)
         {
-            return (negative ? NotUnicodeStart : UnicodeStart) + GetUnicodeCategoryValue(category) + UnicodeEnd;
+            return (negative ? NotUnicodeStart : UnicodeStart) + GetGeneralCategoryValue(category) + UnicodeEnd;
         }
 
-        public static string UnicodeCategories(IEnumerable<GeneralCategory> categories)
+        public static string GeneralCategories(IEnumerable<GeneralCategory> categories)
         {
-            return UnicodeCategories(categories, false);
+            return GeneralCategories(categories, false);
         }
 
-        public static string UnicodeCategories(IEnumerable<GeneralCategory> categories, bool negative)
+        public static string GeneralCategories(IEnumerable<GeneralCategory> categories, bool negative)
         {
             if (categories == null)
             {
                 throw new ArgumentNullException("categories");
             }
-            return string.Concat(categories.Select(f => UnicodeCategory(f, negative)));
+            return string.Concat(categories.Select(f => GeneralCategory(f, negative)));
         }
 
         public static string Count(int exactCount)
@@ -575,7 +575,7 @@ namespace Pihrtsoft.Regexator.Builder
         }
 
         [SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
-        public static string GetUnicodeCategoryValue(GeneralCategory category)
+        public static string GetGeneralCategoryValue(GeneralCategory category)
         {
             switch (category)
             {
