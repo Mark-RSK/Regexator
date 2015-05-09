@@ -2,10 +2,10 @@
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal sealed class NotUnicodeCategoryExpression
-        : UnicodeCategoryExpression
+    internal sealed class NotGeneralCategoryExpression
+        : GeneralCategoryExpression
     {
-        internal NotUnicodeCategoryExpression(UnicodeCategory category)
+        internal NotGeneralCategoryExpression(GeneralCategory category)
             : base(category)
         {
         }

@@ -39,9 +39,9 @@ namespace Pihrtsoft.Regexator.Builder
             return new NamedBlockAssertion(AssertionKind.Lookahead, block);
         }
 
-        public static QuantifiableExpression Lookahead(UnicodeCategory category)
+        public static QuantifiableExpression Lookahead(GeneralCategory category)
         {
-            return new UnicodeCategoryAssertion(AssertionKind.Lookahead, category);
+            return new GeneralCategoryAssertion(AssertionKind.Lookahead, category);
         }
 
         public static QuantifiableExpression NotLookahead(Expression value)
@@ -79,9 +79,9 @@ namespace Pihrtsoft.Regexator.Builder
             return new NamedBlockAssertion(AssertionKind.NotLookahead, block);
         }
 
-        public static QuantifiableExpression NotLookahead(UnicodeCategory category)
+        public static QuantifiableExpression NotLookahead(GeneralCategory category)
         {
-            return new UnicodeCategoryAssertion(AssertionKind.NotLookahead, category);
+            return new GeneralCategoryAssertion(AssertionKind.NotLookahead, category);
         }
 
         public static QuantifiableExpression Lookbehind(Expression value)
@@ -119,9 +119,9 @@ namespace Pihrtsoft.Regexator.Builder
             return new NamedBlockAssertion(AssertionKind.Lookbehind, block);
         }
 
-        public static QuantifiableExpression Lookbehind(UnicodeCategory category)
+        public static QuantifiableExpression Lookbehind(GeneralCategory category)
         {
-            return new UnicodeCategoryAssertion(AssertionKind.Lookbehind, category);
+            return new GeneralCategoryAssertion(AssertionKind.Lookbehind, category);
         }
 
         public static QuantifiableExpression NotLookbehind(Expression value)
@@ -159,9 +159,9 @@ namespace Pihrtsoft.Regexator.Builder
             return new NamedBlockAssertion(AssertionKind.NotLookbehind, block);
         }
 
-        public static QuantifiableExpression NotLookbehind(UnicodeCategory category)
+        public static QuantifiableExpression NotLookbehind(GeneralCategory category)
         {
-            return new UnicodeCategoryAssertion(AssertionKind.NotLookbehind, category);
+            return new GeneralCategoryAssertion(AssertionKind.NotLookbehind, category);
         }
     }
 }

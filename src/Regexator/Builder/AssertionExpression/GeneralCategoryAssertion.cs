@@ -4,12 +4,12 @@ using System;
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal sealed class UnicodeCategoryAssertion
+    internal sealed class GeneralCategoryAssertion
         : AssertionExpression
     {
-        private readonly UnicodeCategory _category;
+        private readonly GeneralCategory _category;
 
-        internal UnicodeCategoryAssertion(AssertionKind kind, UnicodeCategory category)
+        internal GeneralCategoryAssertion(AssertionKind kind, GeneralCategory category)
             : base(kind)
         {
             _category = category;

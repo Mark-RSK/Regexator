@@ -105,12 +105,12 @@ namespace Pihrtsoft.Regexator.Builder
             return Append(CharGroupItems.NotUnicodeBlock(block));
         }
 
-        public CharGroupItem UnicodeCategory(UnicodeCategory category)
+        public CharGroupItem UnicodeCategory(GeneralCategory category)
         {
             return Append(CharGroupItems.UnicodeCategory(category));
         }
 
-        public CharGroupItem NotUnicodeCategory(UnicodeCategory category)
+        public CharGroupItem NotUnicodeCategory(GeneralCategory category)
         {
             return Append(CharGroupItems.NotUnicodeCategory(category));
         }

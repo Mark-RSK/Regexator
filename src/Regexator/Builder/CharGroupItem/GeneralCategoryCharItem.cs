@@ -2,12 +2,12 @@
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal class UnicodeCategoryCharItem
+    internal class GeneralCategoryCharItem
         : CharGroupItem
     {
-        private readonly UnicodeCategory _category;
+        private readonly GeneralCategory _category;
 
-        public UnicodeCategoryCharItem(UnicodeCategory category)
+        public GeneralCategoryCharItem(GeneralCategory category)
         {
             _category = category;
         }

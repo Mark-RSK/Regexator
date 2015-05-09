@@ -41,9 +41,9 @@ namespace Pihrtsoft.Regexator.Builder
             return new NamedBlockGroup(blocks);
         }
 
-        public static CharGroupExpression Char(IEnumerable<UnicodeCategory> categories)
+        public static CharGroupExpression Char(IEnumerable<GeneralCategory> categories)
         {
-            return new UnicodeCategoryGroup(categories);
+            return new GeneralCategoryGroup(categories);
         }
 
         public static CharGroupExpression NotChar(string chars)
@@ -76,9 +76,9 @@ namespace Pihrtsoft.Regexator.Builder
             return new NotNamedBlockGroup(blocks);
         }
 
-        public static CharGroupExpression NotChar(IEnumerable<UnicodeCategory> categories)
+        public static CharGroupExpression NotChar(IEnumerable<GeneralCategory> categories)
         {
-            return new NotUnicodeCategoryGroup(categories);
+            return new NotGeneralCategoryGroup(categories);
         }
 
         public static CharGroupExpression Range(char first, char last)
@@ -266,9 +266,9 @@ namespace Pihrtsoft.Regexator.Builder
             return new NamedBlockExpression(block);
         }
 
-        public static QuantifiableExpression UnicodeCategory(UnicodeCategory category)
+        public static QuantifiableExpression UnicodeCategory(GeneralCategory category)
         {
-            return new UnicodeCategoryExpression(category);
+            return new GeneralCategoryExpression(category);
         }
 
         public static CharGroupExpression NotChar(char value)
@@ -291,9 +291,9 @@ namespace Pihrtsoft.Regexator.Builder
             return new NotNamedBlockExpression(block);
         }
 
-        public static QuantifiableExpression NotUnicodeCategory(UnicodeCategory category)
+        public static QuantifiableExpression NotUnicodeCategory(GeneralCategory category)
         {
-            return new NotUnicodeCategoryExpression(category);
+            return new NotGeneralCategoryExpression(category);
         }
 
         public static QuantifiableExpression Tab()

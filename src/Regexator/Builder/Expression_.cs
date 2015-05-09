@@ -217,7 +217,7 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Assertions.Lookahead(block));
         }
 
-        public QuantifiableExpression Lookahead(UnicodeCategory category)
+        public QuantifiableExpression Lookahead(GeneralCategory category)
         {
             return AppendInternal(Assertions.Lookahead(category));
         }
@@ -257,7 +257,7 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Assertions.NotLookahead(block));
         }
 
-        public QuantifiableExpression NotLookahead(UnicodeCategory category)
+        public QuantifiableExpression NotLookahead(GeneralCategory category)
         {
             return AppendInternal(Assertions.NotLookahead(category));
         }
@@ -297,7 +297,7 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Assertions.Lookbehind(block));
         }
 
-        public QuantifiableExpression Lookbehind(UnicodeCategory category)
+        public QuantifiableExpression Lookbehind(GeneralCategory category)
         {
             return AppendInternal(Assertions.Lookbehind(category));
         }
@@ -337,7 +337,7 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Assertions.NotLookbehind(block));
         }
 
-        public QuantifiableExpression NotLookbehind(UnicodeCategory category)
+        public QuantifiableExpression NotLookbehind(GeneralCategory category)
         {
             return AppendInternal(Assertions.NotLookbehind(category));
         }
@@ -502,7 +502,7 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Chars.Char(blocks));
         }
 
-        public QuantifiableExpression Char(IEnumerable<UnicodeCategory> categories)
+        public QuantifiableExpression Char(IEnumerable<GeneralCategory> categories)
         {
             return AppendInternal(Chars.Char(categories));
         }
@@ -537,7 +537,7 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Chars.NotChar(blocks));
         }
 
-        public QuantifiableExpression NotChar(IEnumerable<UnicodeCategory> categories)
+        public QuantifiableExpression NotChar(IEnumerable<GeneralCategory> categories)
         {
             return AppendInternal(Chars.NotChar(categories));
         }
@@ -734,7 +734,7 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Chars.UnicodeBlock(block));
         }
 
-        public QuantifiableExpression UnicodeCategory(UnicodeCategory category)
+        public QuantifiableExpression UnicodeCategory(GeneralCategory category)
         {
             return AppendInternal(Chars.UnicodeCategory(category));
         }
@@ -759,7 +759,7 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Chars.NotUnicodeBlock(block));
         }
 
-        public QuantifiableExpression NotUnicodeCategory(UnicodeCategory category)
+        public QuantifiableExpression NotUnicodeCategory(GeneralCategory category)
         {
             return AppendInternal(Chars.NotUnicodeCategory(category));
         }

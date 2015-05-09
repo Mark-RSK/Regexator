@@ -1,12 +1,14 @@
 ﻿// Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System.Collections.Generic;
+
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal sealed class NotUnicodeCategoryCharItem
-        : UnicodeCategoryCharItem
+    internal sealed class NotGeneralCategoryGroup
+        : GeneralCategoryGroup
     {
-        public NotUnicodeCategoryCharItem(UnicodeCategory category)
-            : base(category)
+        public NotGeneralCategoryGroup(IEnumerable<GeneralCategory> values)
+            : base(values)
         {
         }
 

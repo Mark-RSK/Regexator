@@ -2,7 +2,7 @@
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    public enum UnicodeCategory
+    public enum GeneralCategory
     {
         ///<summary>All control characters. This includes the Cc, Cf, Cs, Co, and Cn categories.</summary>
         AllControlCharacters,

@@ -2,17 +2,17 @@
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal class UnicodeCategoryExpression
+    internal class GeneralCategoryExpression
         : QuantifiableExpression
     {
-        private readonly UnicodeCategory _category;
+        private readonly GeneralCategory _category;
 
-        internal UnicodeCategoryExpression(UnicodeCategory category)
+        internal GeneralCategoryExpression(GeneralCategory category)
         {
             _category = category;
         }
 
-        public UnicodeCategory Category
+        public GeneralCategory Category
         {
             get { return _category; }
         }

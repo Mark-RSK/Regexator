@@ -49,14 +49,14 @@ namespace Pihrtsoft.Regexator.Builder
             return new NotNamedBlockCharItem(block);
         }
 
-        public static CharGroupItem UnicodeCategory(UnicodeCategory category)
+        public static CharGroupItem UnicodeCategory(GeneralCategory category)
         {
-            return new UnicodeCategoryCharItem(category);
+            return new GeneralCategoryCharItem(category);
         }
 
-        public static CharGroupItem NotUnicodeCategory(UnicodeCategory category)
+        public static CharGroupItem NotUnicodeCategory(GeneralCategory category)
         {
-            return new NotUnicodeCategoryCharItem(category);
+            return new NotGeneralCategoryCharItem(category);
         }
 
         public static CharGroupItem Digit()

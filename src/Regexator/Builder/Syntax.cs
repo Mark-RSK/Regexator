@@ -459,27 +459,27 @@ namespace Pihrtsoft.Regexator.Builder
             return string.Concat(blocks.Select(f => UnicodeBlock(f, negative)));
         }
 
-        public static string UnicodeCategory(UnicodeCategory category)
+        public static string UnicodeCategory(GeneralCategory category)
         {
             return UnicodeCategory(category, false);
         }
 
-        public static string NotUnicodeCategory(UnicodeCategory category)
+        public static string NotUnicodeCategory(GeneralCategory category)
         {
             return UnicodeCategory(category, true);
         }
 
-        public static string UnicodeCategory(UnicodeCategory category, bool negative)
+        public static string UnicodeCategory(GeneralCategory category, bool negative)
         {
             return (negative ? NotUnicodeStart : UnicodeStart) + GetUnicodeCategoryValue(category) + UnicodeEnd;
         }
 
-        public static string UnicodeCategories(IEnumerable<UnicodeCategory> categories)
+        public static string UnicodeCategories(IEnumerable<GeneralCategory> categories)
         {
             return UnicodeCategories(categories, false);
         }
 
-        public static string UnicodeCategories(IEnumerable<UnicodeCategory> categories, bool negative)
+        public static string UnicodeCategories(IEnumerable<GeneralCategory> categories, bool negative)
         {
             if (categories == null)
             {
@@ -575,83 +575,83 @@ namespace Pihrtsoft.Regexator.Builder
         }
 
         [SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
-        public static string GetUnicodeCategoryValue(UnicodeCategory category)
+        public static string GetUnicodeCategoryValue(GeneralCategory category)
         {
             switch (category)
             {
-                case Builder.UnicodeCategory.AllControlCharacters:
+                case Builder.GeneralCategory.AllControlCharacters:
                     return "C";
-                case Builder.UnicodeCategory.AllDiacriticMarks:
+                case Builder.GeneralCategory.AllDiacriticMarks:
                     return "M";
-                case Builder.UnicodeCategory.AllLetterCharacters:
+                case Builder.GeneralCategory.AllLetterCharacters:
                     return "L";
-                case Builder.UnicodeCategory.AllNumbers:
+                case Builder.GeneralCategory.AllNumbers:
                     return "N";
-                case Builder.UnicodeCategory.AllPunctuationCharacters:
+                case Builder.GeneralCategory.AllPunctuationCharacters:
                     return "P";
-                case Builder.UnicodeCategory.AllSeparatorCharacters:
+                case Builder.GeneralCategory.AllSeparatorCharacters:
                     return "Z";
-                case Builder.UnicodeCategory.AllSymbols:
+                case Builder.GeneralCategory.AllSymbols:
                     return "S";
-                case Builder.UnicodeCategory.LetterLowercase:
+                case Builder.GeneralCategory.LetterLowercase:
                     return "Ll";
-                case Builder.UnicodeCategory.LetterModifier:
+                case Builder.GeneralCategory.LetterModifier:
                     return "Lm";
-                case Builder.UnicodeCategory.LetterOther:
+                case Builder.GeneralCategory.LetterOther:
                     return "Lo";
-                case Builder.UnicodeCategory.LetterTitlecase:
+                case Builder.GeneralCategory.LetterTitlecase:
                     return "Lt";
-                case Builder.UnicodeCategory.LetterUppercase:
+                case Builder.GeneralCategory.LetterUppercase:
                     return "Lu";
-                case Builder.UnicodeCategory.MarkEnclosing:
+                case Builder.GeneralCategory.MarkEnclosing:
                     return "Me";
-                case Builder.UnicodeCategory.MarkNonspacing:
+                case Builder.GeneralCategory.MarkNonspacing:
                     return "Mn";
-                case Builder.UnicodeCategory.MarkSpacingCombining:
+                case Builder.GeneralCategory.MarkSpacingCombining:
                     return "Mc";
-                case Builder.UnicodeCategory.NumberDecimalDigit:
+                case Builder.GeneralCategory.NumberDecimalDigit:
                     return "Nd";
-                case Builder.UnicodeCategory.NumberLetter:
+                case Builder.GeneralCategory.NumberLetter:
                     return "Nl";
-                case Builder.UnicodeCategory.NumberOther:
+                case Builder.GeneralCategory.NumberOther:
                     return "No";
-                case Builder.UnicodeCategory.OtherControl:
+                case Builder.GeneralCategory.OtherControl:
                     return "Cc";
-                case Builder.UnicodeCategory.OtherFormat:
+                case Builder.GeneralCategory.OtherFormat:
                     return "Cf";
-                case Builder.UnicodeCategory.OtherNotAssigned:
+                case Builder.GeneralCategory.OtherNotAssigned:
                     return "Cn";
-                case Builder.UnicodeCategory.OtherPrivateUse:
+                case Builder.GeneralCategory.OtherPrivateUse:
                     return "Co";
-                case Builder.UnicodeCategory.OtherSurrogate:
+                case Builder.GeneralCategory.OtherSurrogate:
                     return "Cs";
-                case Builder.UnicodeCategory.PunctuationClose:
+                case Builder.GeneralCategory.PunctuationClose:
                     return "Pe";
-                case Builder.UnicodeCategory.PunctuationConnector:
+                case Builder.GeneralCategory.PunctuationConnector:
                     return "Pc";
-                case Builder.UnicodeCategory.PunctuationDash:
+                case Builder.GeneralCategory.PunctuationDash:
                     return "Pd";
-                case Builder.UnicodeCategory.PunctuationFinalQuote:
+                case Builder.GeneralCategory.PunctuationFinalQuote:
                     return "Pf";
-                case Builder.UnicodeCategory.PunctuationInitialQuote:
+                case Builder.GeneralCategory.PunctuationInitialQuote:
                     return "Pi";
-                case Builder.UnicodeCategory.PunctuationOpen:
+                case Builder.GeneralCategory.PunctuationOpen:
                     return "Ps";
-                case Builder.UnicodeCategory.PunctuationOther:
+                case Builder.GeneralCategory.PunctuationOther:
                     return "Po";
-                case Builder.UnicodeCategory.SeparatorLine:
+                case Builder.GeneralCategory.SeparatorLine:
                     return "Zl";
-                case Builder.UnicodeCategory.SeparatorParagraph:
+                case Builder.GeneralCategory.SeparatorParagraph:
                     return "Zp";
-                case Builder.UnicodeCategory.SeparatorSpace:
+                case Builder.GeneralCategory.SeparatorSpace:
                     return "Zs";
-                case Builder.UnicodeCategory.SymbolCurrency:
+                case Builder.GeneralCategory.SymbolCurrency:
                     return "Sc";
-                case Builder.UnicodeCategory.SymbolMath:
+                case Builder.GeneralCategory.SymbolMath:
                     return "Sm";
-                case Builder.UnicodeCategory.SymbolModifier:
+                case Builder.GeneralCategory.SymbolModifier:
                     return "Sk";
-                case Builder.UnicodeCategory.SymbolOther:
+                case Builder.GeneralCategory.SymbolOther:
                     return "So";
                 default:
                     Debug.Assert(false);
