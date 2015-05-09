@@ -95,14 +95,14 @@ namespace Pihrtsoft.Regexator.Builder
             return Append(CharGroupItems.ArabicDigitRange(first, last));
         }
 
-        public CharGroupItem UnicodeBlock(NamedBlock block)
+        public CharGroupItem NamedBlock(NamedBlock block)
         {
-            return Append(CharGroupItems.UnicodeBlock(block));
+            return Append(CharGroupItems.NamedBlock(block));
         }
 
-        public CharGroupItem NotUnicodeBlock(NamedBlock block)
+        public CharGroupItem NotNamedBlock(NamedBlock block)
         {
-            return Append(CharGroupItems.NotUnicodeBlock(block));
+            return Append(CharGroupItems.NotNamedBlock(block));
         }
 
         public CharGroupItem UnicodeCategory(GeneralCategory category)

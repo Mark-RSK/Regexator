@@ -21,7 +21,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public override string Content
         {
-            get { return Syntax.UnicodeBlocks(_values); }
+            get { return Syntax.NamedBlocks(_values); }
         }
     }
 }

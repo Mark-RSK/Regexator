@@ -261,7 +261,7 @@ namespace Pihrtsoft.Regexator.Builder
             return new CharClassExpression(value);
         }
 
-        public static QuantifiableExpression UnicodeBlock(NamedBlock block)
+        public static QuantifiableExpression NamedBlock(NamedBlock block)
         {
             return new NamedBlockExpression(block);
         }
@@ -286,7 +286,7 @@ namespace Pihrtsoft.Regexator.Builder
             return new NotAsciiCharGroup(value);
         }
 
-        public static QuantifiableExpression NotUnicodeBlock(NamedBlock block)
+        public static QuantifiableExpression NotNamedBlock(NamedBlock block)
         {
             return new NotNamedBlockExpression(block);
         }

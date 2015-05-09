@@ -12,7 +12,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         internal override string Value(BuildContext context)
         {
-            return Syntax.UnicodeBlock(Block, true);
+            return Syntax.NamedBlock(Block, true);
         }
     }
 }

@@ -19,7 +19,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         internal override string Content
         {
-            get { return Syntax.UnicodeBlock(_block, Negative); }
+            get { return Syntax.NamedBlock(_block, Negative); }
         }
     }
 }

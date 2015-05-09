@@ -430,33 +430,33 @@ namespace Pihrtsoft.Regexator.Builder
             return HexUnicodeStart + charCode.ToString("X4", CultureInfo.InvariantCulture);
         }
 
-        public static string UnicodeBlock(NamedBlock block)
+        public static string NamedBlock(NamedBlock block)
         {
-            return UnicodeBlock(block, false);
+            return NamedBlock(block, false);
         }
 
-        public static string NotUnicodeBlock(NamedBlock block)
+        public static string NotNamedBlock(NamedBlock block)
         {
-            return UnicodeBlock(block, true);
+            return NamedBlock(block, true);
         }
 
-        public static string UnicodeBlock(NamedBlock block, bool negative)
+        public static string NamedBlock(NamedBlock block, bool negative)
         {
-            return (negative ? NotUnicodeStart : UnicodeStart) + GetUnicodeBlockValue(block) + UnicodeEnd;
+            return (negative ? NotUnicodeStart : UnicodeStart) + GetNamedBlockValue(block) + UnicodeEnd;
         }
 
-        public static string UnicodeBlocks(IEnumerable<NamedBlock> blocks)
+        public static string NamedBlocks(IEnumerable<NamedBlock> blocks)
         {
-            return UnicodeBlocks(blocks, false);
+            return NamedBlocks(blocks, false);
         }
 
-        public static string UnicodeBlocks(IEnumerable<NamedBlock> blocks, bool negative)
+        public static string NamedBlocks(IEnumerable<NamedBlock> blocks, bool negative)
         {
             if (blocks == null)
             {
                 throw new ArgumentNullException("blocks");
             }
-            return string.Concat(blocks.Select(f => UnicodeBlock(f, negative)));
+            return string.Concat(blocks.Select(f => NamedBlock(f, negative)));
         }
 
         public static string UnicodeCategory(GeneralCategory category)
@@ -660,7 +660,7 @@ namespace Pihrtsoft.Regexator.Builder
         }
 
         [SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
-        public static string GetUnicodeBlockValue(NamedBlock block)
+        public static string GetNamedBlockValue(NamedBlock block)
         {
             switch (block)
             {
