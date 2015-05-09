@@ -67,7 +67,7 @@
     <Compile Include="Builder\AssertionExpression\CharAssertion.cs" />
     <Compile Include="Builder\AssertionExpression\AsciiCharAssertion.cs" />
     <Compile Include="Builder\AssertionExpression\CharClassAssertion.cs" />
-    <Compile Include="Builder\AssertionExpression\UnicodeBlockAssertion.cs" />
+    <Compile Include="Builder\AssertionExpression\NamedBlockAssertion.cs" />
     <Compile Include="Builder\AssertionExpression\UnicodeCategoryAssertion.cs" />
     <Compile Include="Builder\CharGroupExpression\ArabicDigitRangeGroup.cs" />
     <Compile Include="Builder\CharGroupExpression\NotArabicDigitRangeGroup.cs" />
@@ -104,9 +104,9 @@
     <Compile Include="Builder\CharGroupItem\AsciiCharItem.cs" />
     <Compile Include="Builder\CharGroupItem\CharClassCharItem.cs" />
     <Compile Include="Builder\CharGroupItem\NotUnicodeCategoryCharItem.cs" />
-    <Compile Include="Builder\CharGroupItem\NotUnicodeBlockCharItem.cs" />
+    <Compile Include="Builder\CharGroupItem\NotNamedBlockCharItem.cs" />
     <Compile Include="Builder\CharGroupItem\UnicodeCategoryCharItem.cs" />
-    <Compile Include="Builder\CharGroupItem\UnicodeBlockCharItem.cs" />
+    <Compile Include="Builder\CharGroupItem\NamedBlockCharItem.cs" />
     <Compile Include="Builder\CharGroupItem\CharGroupItem.cs" />
     <Compile Include="Builder\CharGroupItems.cs" />
     <Compile Include="Builder\CharGroupItem\CharGroupItem_.cs" />
@@ -149,7 +149,7 @@
     <Compile Include="Builder\Substitution\LastCapturedGroupSubstitution.cs" />
     <Compile Include="Builder\Substitution\TextSubstitution.cs" />
     <Compile Include="Builder\Syntax.cs" />
-    <Compile Include="Builder\UnicodeBlock.cs" />
+    <Compile Include="Builder\NamedBlock.cs" />
     <Compile Include="Builder\UnicodeCategory.cs" />
     <Compile Include="Core\RegexUtilities.cs" />
     <Compile Include="Builder\CharGroupExpression\NotAsciiCharGroup.cs" />
@@ -162,12 +162,12 @@
     <Compile Include="Builder\CharGroupExpression\NotCharItemGroup.cs" />
     <Compile Include="Builder\CharGroupExpression\NotCharRangeGroup.cs" />
     <Compile Include="Builder\CharGroupExpression\NotCharGroup.cs" />
-    <Compile Include="Builder\CharGroupExpression\NotUnicodeBlockGroup.cs" />
-    <Compile Include="Builder\Expression\NotUnicodeBlockExpression.cs" />
+    <Compile Include="Builder\CharGroupExpression\NotNamedBlockGroup.cs" />
+    <Compile Include="Builder\Expression\NotNamedBlockExpression.cs" />
     <Compile Include="Builder\Expression\NotUnicodeCategoryExpression.cs" />
     <Compile Include="Builder\CharGroupExpression\NotCharsCharGroup.cs" />
     <Compile Include="Builder\Expression\UnicodeCategoryExpression.cs" />
-    <Compile Include="Builder\Expression\UnicodeBlockExpression.cs" />
+    <Compile Include="Builder\Expression\NamedBlockExpression.cs" />
     <Compile Include="Builder\CharGroupExpression\CharCodeRangeGroup.cs" />
     <Compile Include="Builder\CharGroupExpression\CharRangeGroup.cs" />
     <Compile Include="Builder\CharGroupExpression\CharsCharGroup.cs" />
@@ -177,7 +177,7 @@
     <Compile Include="Builder\CharGroupExpression\CharClassGroup.cs" />
     <Compile Include="Builder\CharGroupExpression\NotUnicodeCategoryGroup.cs" />
     <Compile Include="Builder\CharGroupExpression\UnicodeCategoryGroup.cs" />
-    <Compile Include="Builder\CharGroupExpression\UnicodeBlockGroup.cs" />
+    <Compile Include="Builder\CharGroupExpression\NamedBlockGroup.cs" />
     <Compile Include="Builder\CharGroupExpression\AsciiCharGroup.cs" />
     <Compile Include="Builder\Expression\CharExpression.cs" />
     <Compile Include="Core\CaptureItemEqualityComparer.cs" />

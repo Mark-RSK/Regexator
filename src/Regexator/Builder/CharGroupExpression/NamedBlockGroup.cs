@@ -5,12 +5,12 @@ using System.Collections.Generic;
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal class UnicodeBlockGroup
+    internal class NamedBlockGroup
         : CharGroupExpression
     {
-        private readonly IEnumerable<UnicodeBlock> _values;
+        private readonly IEnumerable<NamedBlock> _values;
 
-        public UnicodeBlockGroup(IEnumerable<UnicodeBlock> values)
+        public NamedBlockGroup(IEnumerable<NamedBlock> values)
         {
             if (values == null)
             {

@@ -2,7 +2,7 @@
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    public enum UnicodeBlock
+    public enum NamedBlock
     {
         ///<summary>Code point range FB00 - FB4F</summary>
         AlphabeticPresentationForms,

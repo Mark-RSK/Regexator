@@ -2,17 +2,17 @@
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal sealed class NotUnicodeBlockCharItem
-        : UnicodeBlockCharItem
+    internal sealed class NotNamedBlockExpression
+        : NamedBlockExpression
     {
-        public NotUnicodeBlockCharItem(UnicodeBlock block)
+        internal NotNamedBlockExpression(NamedBlock block)
             : base(block)
         {
         }
 
-        public override bool Negative
+        internal override string Value(BuildContext context)
         {
-            get { return true; }
+            return Syntax.UnicodeBlock(Block, true);
         }
     }
 }

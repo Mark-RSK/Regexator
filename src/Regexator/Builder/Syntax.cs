@@ -430,27 +430,27 @@ namespace Pihrtsoft.Regexator.Builder
             return HexUnicodeStart + charCode.ToString("X4", CultureInfo.InvariantCulture);
         }
 
-        public static string UnicodeBlock(UnicodeBlock block)
+        public static string UnicodeBlock(NamedBlock block)
         {
             return UnicodeBlock(block, false);
         }
 
-        public static string NotUnicodeBlock(UnicodeBlock block)
+        public static string NotUnicodeBlock(NamedBlock block)
         {
             return UnicodeBlock(block, true);
         }
 
-        public static string UnicodeBlock(UnicodeBlock block, bool negative)
+        public static string UnicodeBlock(NamedBlock block, bool negative)
         {
             return (negative ? NotUnicodeStart : UnicodeStart) + GetUnicodeBlockValue(block) + UnicodeEnd;
         }
 
-        public static string UnicodeBlocks(IEnumerable<UnicodeBlock> blocks)
+        public static string UnicodeBlocks(IEnumerable<NamedBlock> blocks)
         {
             return UnicodeBlocks(blocks, false);
         }
 
-        public static string UnicodeBlocks(IEnumerable<UnicodeBlock> blocks, bool negative)
+        public static string UnicodeBlocks(IEnumerable<NamedBlock> blocks, bool negative)
         {
             if (blocks == null)
             {
@@ -660,225 +660,225 @@ namespace Pihrtsoft.Regexator.Builder
         }
 
         [SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
-        public static string GetUnicodeBlockValue(UnicodeBlock block)
+        public static string GetUnicodeBlockValue(NamedBlock block)
         {
             switch (block)
             {
-                case Builder.UnicodeBlock.AlphabeticPresentationForms:
+                case Builder.NamedBlock.AlphabeticPresentationForms:
                     return "IsAlphabeticPresentationForms";
-                case Builder.UnicodeBlock.Arabic:
+                case Builder.NamedBlock.Arabic:
                     return "IsArabic";
-                case Builder.UnicodeBlock.ArabicPresentationFormsA:
+                case Builder.NamedBlock.ArabicPresentationFormsA:
                     return "IsArabicPresentationForms-A";
-                case Builder.UnicodeBlock.ArabicPresentationFormsB:
+                case Builder.NamedBlock.ArabicPresentationFormsB:
                     return "IsArabicPresentationForms-B";
-                case Builder.UnicodeBlock.Armenian:
+                case Builder.NamedBlock.Armenian:
                     return "IsArmenian";
-                case Builder.UnicodeBlock.Arrows:
+                case Builder.NamedBlock.Arrows:
                     return "IsArrows";
-                case Builder.UnicodeBlock.BasicLatin:
+                case Builder.NamedBlock.BasicLatin:
                     return "IsBasicLatin";
-                case Builder.UnicodeBlock.Bengali:
+                case Builder.NamedBlock.Bengali:
                     return "IsBengali";
-                case Builder.UnicodeBlock.BlockElements:
+                case Builder.NamedBlock.BlockElements:
                     return "IsBlockElements";
-                case Builder.UnicodeBlock.Bopomofo:
+                case Builder.NamedBlock.Bopomofo:
                     return "IsBopomofo";
-                case Builder.UnicodeBlock.BopomofoExtended:
+                case Builder.NamedBlock.BopomofoExtended:
                     return "IsBopomofoExtended";
-                case Builder.UnicodeBlock.BoxDrawing:
+                case Builder.NamedBlock.BoxDrawing:
                     return "IsBoxDrawing";
-                case Builder.UnicodeBlock.BraillePatterns:
+                case Builder.NamedBlock.BraillePatterns:
                     return "IsBraillePatterns";
-                case Builder.UnicodeBlock.Buhid:
+                case Builder.NamedBlock.Buhid:
                     return "IsBuhid";
-                case Builder.UnicodeBlock.CJKCompatibility:
+                case Builder.NamedBlock.CJKCompatibility:
                     return "IsCJKCompatibility";
-                case Builder.UnicodeBlock.CJKCompatibilityForms:
+                case Builder.NamedBlock.CJKCompatibilityForms:
                     return "IsCJKCompatibilityForms";
-                case Builder.UnicodeBlock.CJKCompatibilityIdeographs:
+                case Builder.NamedBlock.CJKCompatibilityIdeographs:
                     return "IsCJKCompatibilityIdeographs";
-                case Builder.UnicodeBlock.CJKRadicalsSupplement:
+                case Builder.NamedBlock.CJKRadicalsSupplement:
                     return "IsCJKRadicalsSupplement";
-                case Builder.UnicodeBlock.CJKSymbolsAndPunctuation:
+                case Builder.NamedBlock.CJKSymbolsAndPunctuation:
                     return "IsCJKSymbolsandPunctuation";
-                case Builder.UnicodeBlock.CJKUnifiedIdeographs:
+                case Builder.NamedBlock.CJKUnifiedIdeographs:
                     return "IsCJKUnifiedIdeographs";
-                case Builder.UnicodeBlock.CJKUnifiedIdeographsExtensionA:
+                case Builder.NamedBlock.CJKUnifiedIdeographsExtensionA:
                     return "IsCJKUnifiedIdeographsExtensionA";
-                case Builder.UnicodeBlock.CombiningDiacriticalMarks:
+                case Builder.NamedBlock.CombiningDiacriticalMarks:
                     return "IsCombiningDiacriticalMarks";
-                case Builder.UnicodeBlock.CombiningDiacriticalMarksForSymbols:
+                case Builder.NamedBlock.CombiningDiacriticalMarksForSymbols:
                     return "IsCombiningDiacriticalMarksforSymbols";
-                case Builder.UnicodeBlock.CombiningHalfMarks:
+                case Builder.NamedBlock.CombiningHalfMarks:
                     return "IsCombiningHalfMarks";
-                case Builder.UnicodeBlock.CombiningMarksForSymbols:
+                case Builder.NamedBlock.CombiningMarksForSymbols:
                     return "IsCombiningMarksforSymbols";
-                case Builder.UnicodeBlock.ControlPictures:
+                case Builder.NamedBlock.ControlPictures:
                     return "IsControlPictures";
-                case Builder.UnicodeBlock.CurrencySymbols:
+                case Builder.NamedBlock.CurrencySymbols:
                     return "IsCurrencySymbols";
-                case Builder.UnicodeBlock.Cyrillic:
+                case Builder.NamedBlock.Cyrillic:
                     return "IsCyrillic";
-                case Builder.UnicodeBlock.CyrillicSupplement:
+                case Builder.NamedBlock.CyrillicSupplement:
                     return "IsCyrillicSupplement";
-                case Builder.UnicodeBlock.Devanagari:
+                case Builder.NamedBlock.Devanagari:
                     return "IsDevanagari";
-                case Builder.UnicodeBlock.Dingbats:
+                case Builder.NamedBlock.Dingbats:
                     return "IsDingbats";
-                case Builder.UnicodeBlock.EnclosedAlphanumerics:
+                case Builder.NamedBlock.EnclosedAlphanumerics:
                     return "IsEnclosedAlphanumerics";
-                case Builder.UnicodeBlock.EnclosedCJKLettersAndMonths:
+                case Builder.NamedBlock.EnclosedCJKLettersAndMonths:
                     return "IsEnclosedCJKLettersandMonths";
-                case Builder.UnicodeBlock.Ethiopic:
+                case Builder.NamedBlock.Ethiopic:
                     return "IsEthiopic";
-                case Builder.UnicodeBlock.GeneralPunctuation:
+                case Builder.NamedBlock.GeneralPunctuation:
                     return "IsGeneralPunctuation";
-                case Builder.UnicodeBlock.GeometricShapes:
+                case Builder.NamedBlock.GeometricShapes:
                     return "IsGeometricShapes";
-                case Builder.UnicodeBlock.Georgian:
+                case Builder.NamedBlock.Georgian:
                     return "IsGeorgian";
-                case Builder.UnicodeBlock.Greek:
+                case Builder.NamedBlock.Greek:
                     return "IsGreek";
-                case Builder.UnicodeBlock.GreekAndCoptic:
+                case Builder.NamedBlock.GreekAndCoptic:
                     return "IsGreekandCoptic";
-                case Builder.UnicodeBlock.GreekExtended:
+                case Builder.NamedBlock.GreekExtended:
                     return "IsGreekExtended";
-                case Builder.UnicodeBlock.Gujarati:
+                case Builder.NamedBlock.Gujarati:
                     return "IsGujarati";
-                case Builder.UnicodeBlock.Gurmukhi:
+                case Builder.NamedBlock.Gurmukhi:
                     return "IsGurmukhi";
-                case Builder.UnicodeBlock.HalfWidthAndFullWidthForms:
+                case Builder.NamedBlock.HalfWidthAndFullWidthForms:
                     return "IsHalfwidthandFullwidthForms";
-                case Builder.UnicodeBlock.HangulCompatibilityJamo:
+                case Builder.NamedBlock.HangulCompatibilityJamo:
                     return "IsHangulCompatibilityJamo";
-                case Builder.UnicodeBlock.HangulJamo:
+                case Builder.NamedBlock.HangulJamo:
                     return "IsHangulJamo";
-                case Builder.UnicodeBlock.HangulSyllables:
+                case Builder.NamedBlock.HangulSyllables:
                     return "IsHangulSyllables";
-                case Builder.UnicodeBlock.Hanunoo:
+                case Builder.NamedBlock.Hanunoo:
                     return "IsHanunoo";
-                case Builder.UnicodeBlock.Hebrew:
+                case Builder.NamedBlock.Hebrew:
                     return "IsHebrew";
-                case Builder.UnicodeBlock.HighPrivateUseSurrogates:
+                case Builder.NamedBlock.HighPrivateUseSurrogates:
                     return "IsHighPrivateUseSurrogates";
-                case Builder.UnicodeBlock.HighSurrogates:
+                case Builder.NamedBlock.HighSurrogates:
                     return "IsHighSurrogates";
-                case Builder.UnicodeBlock.Hiragana:
+                case Builder.NamedBlock.Hiragana:
                     return "IsHiragana";
-                case Builder.UnicodeBlock.Cherokee:
+                case Builder.NamedBlock.Cherokee:
                     return "IsCherokee";
-                case Builder.UnicodeBlock.IdeographicDescriptionCharacters:
+                case Builder.NamedBlock.IdeographicDescriptionCharacters:
                     return "IsIdeographicDescriptionCharacters";
-                case Builder.UnicodeBlock.IPAExtensions:
+                case Builder.NamedBlock.IPAExtensions:
                     return "IsIPAExtensions";
-                case Builder.UnicodeBlock.Kanbun:
+                case Builder.NamedBlock.Kanbun:
                     return "IsKanbun";
-                case Builder.UnicodeBlock.KangxiRadicals:
+                case Builder.NamedBlock.KangxiRadicals:
                     return "IsKangxiRadicals";
-                case Builder.UnicodeBlock.Kannada:
+                case Builder.NamedBlock.Kannada:
                     return "IsKannada";
-                case Builder.UnicodeBlock.Katakana:
+                case Builder.NamedBlock.Katakana:
                     return "IsKatakana";
-                case Builder.UnicodeBlock.KatakanaPhoneticExtensions:
+                case Builder.NamedBlock.KatakanaPhoneticExtensions:
                     return "IsKatakanaPhoneticExtensions";
-                case Builder.UnicodeBlock.Khmer:
+                case Builder.NamedBlock.Khmer:
                     return "IsKhmer";
-                case Builder.UnicodeBlock.KhmerSymbols:
+                case Builder.NamedBlock.KhmerSymbols:
                     return "IsKhmerSymbols";
-                case Builder.UnicodeBlock.Lao:
+                case Builder.NamedBlock.Lao:
                     return "IsLao";
-                case Builder.UnicodeBlock.Latin1Supplement:
+                case Builder.NamedBlock.Latin1Supplement:
                     return "IsLatin-1Supplement";
-                case Builder.UnicodeBlock.LatinExtendedA:
+                case Builder.NamedBlock.LatinExtendedA:
                     return "IsLatinExtended-A";
-                case Builder.UnicodeBlock.LatinExtendedAdditional:
+                case Builder.NamedBlock.LatinExtendedAdditional:
                     return "IsLatinExtendedAdditional";
-                case Builder.UnicodeBlock.LatinExtendedB:
+                case Builder.NamedBlock.LatinExtendedB:
                     return "IsLatinExtended-B";
-                case Builder.UnicodeBlock.LetterLikeSymbols:
+                case Builder.NamedBlock.LetterLikeSymbols:
                     return "IsLetterlikeSymbols";
-                case Builder.UnicodeBlock.Limbu:
+                case Builder.NamedBlock.Limbu:
                     return "IsLimbu";
-                case Builder.UnicodeBlock.LowSurrogates:
+                case Builder.NamedBlock.LowSurrogates:
                     return "IsLowSurrogates";
-                case Builder.UnicodeBlock.Malayalam:
+                case Builder.NamedBlock.Malayalam:
                     return "IsMalayalam";
-                case Builder.UnicodeBlock.MathematicalOperators:
+                case Builder.NamedBlock.MathematicalOperators:
                     return "IsMathematicalOperators";
-                case Builder.UnicodeBlock.MiscellaneousMathematicalSymbolsA:
+                case Builder.NamedBlock.MiscellaneousMathematicalSymbolsA:
                     return "IsMiscellaneousMathematicalSymbols-A";
-                case Builder.UnicodeBlock.MiscellaneousMathematicalSymbolsB:
+                case Builder.NamedBlock.MiscellaneousMathematicalSymbolsB:
                     return "IsMiscellaneousMathematicalSymbols-B";
-                case Builder.UnicodeBlock.MiscellaneousSymbols:
+                case Builder.NamedBlock.MiscellaneousSymbols:
                     return "IsMiscellaneousSymbols";
-                case Builder.UnicodeBlock.MiscellaneousSymbolsAndArrows:
+                case Builder.NamedBlock.MiscellaneousSymbolsAndArrows:
                     return "IsMiscellaneousSymbolsandArrows";
-                case Builder.UnicodeBlock.MiscellaneousTechnical:
+                case Builder.NamedBlock.MiscellaneousTechnical:
                     return "IsMiscellaneousTechnical";
-                case Builder.UnicodeBlock.Mongolian:
+                case Builder.NamedBlock.Mongolian:
                     return "IsMongolian";
-                case Builder.UnicodeBlock.Myanmar:
+                case Builder.NamedBlock.Myanmar:
                     return "IsMyanmar";
-                case Builder.UnicodeBlock.NumberForms:
+                case Builder.NamedBlock.NumberForms:
                     return "IsNumberForms";
-                case Builder.UnicodeBlock.Ogham:
+                case Builder.NamedBlock.Ogham:
                     return "IsOgham";
-                case Builder.UnicodeBlock.OpticalCharacterRecognition:
+                case Builder.NamedBlock.OpticalCharacterRecognition:
                     return "IsOpticalCharacterRecognition";
-                case Builder.UnicodeBlock.Oriya:
+                case Builder.NamedBlock.Oriya:
                     return "IsOriya";
-                case Builder.UnicodeBlock.PhoneticExtensions:
+                case Builder.NamedBlock.PhoneticExtensions:
                     return "IsPhoneticExtensions";
-                case Builder.UnicodeBlock.PrivateUse:
+                case Builder.NamedBlock.PrivateUse:
                     return "IsPrivateUse";
-                case Builder.UnicodeBlock.PrivateUseArea:
+                case Builder.NamedBlock.PrivateUseArea:
                     return "IsPrivateUseArea";
-                case Builder.UnicodeBlock.Runic:
+                case Builder.NamedBlock.Runic:
                     return "IsRunic";
-                case Builder.UnicodeBlock.Sinhala:
+                case Builder.NamedBlock.Sinhala:
                     return "IsSinhala";
-                case Builder.UnicodeBlock.SmallFormVariants:
+                case Builder.NamedBlock.SmallFormVariants:
                     return "IsSmallFormVariants";
-                case Builder.UnicodeBlock.SpacingModifierLetters:
+                case Builder.NamedBlock.SpacingModifierLetters:
                     return "IsSpacingModifierLetters";
-                case Builder.UnicodeBlock.Specials:
+                case Builder.NamedBlock.Specials:
                     return "IsSpecials";
-                case Builder.UnicodeBlock.SuperscriptsAndSubscripts:
+                case Builder.NamedBlock.SuperscriptsAndSubscripts:
                     return "IsSuperscriptsandSubscripts";
-                case Builder.UnicodeBlock.SupplementalArrowsA:
+                case Builder.NamedBlock.SupplementalArrowsA:
                     return "IsSupplementalArrows-A";
-                case Builder.UnicodeBlock.SupplementalArrowsB:
+                case Builder.NamedBlock.SupplementalArrowsB:
                     return "IsSupplementalArrows-B";
-                case Builder.UnicodeBlock.SupplementalMathematicalOperators:
+                case Builder.NamedBlock.SupplementalMathematicalOperators:
                     return "IsSupplementalMathematicalOperators";
-                case Builder.UnicodeBlock.Syriac:
+                case Builder.NamedBlock.Syriac:
                     return "IsSyriac";
-                case Builder.UnicodeBlock.Tagalog:
+                case Builder.NamedBlock.Tagalog:
                     return "IsTagalog";
-                case Builder.UnicodeBlock.Tagbanwa:
+                case Builder.NamedBlock.Tagbanwa:
                     return "IsTagbanwa";
-                case Builder.UnicodeBlock.TaiLe:
+                case Builder.NamedBlock.TaiLe:
                     return "IsTaiLe";
-                case Builder.UnicodeBlock.Tamil:
+                case Builder.NamedBlock.Tamil:
                     return "IsTamil";
-                case Builder.UnicodeBlock.Telugu:
+                case Builder.NamedBlock.Telugu:
                     return "IsTelugu";
-                case Builder.UnicodeBlock.Thaana:
+                case Builder.NamedBlock.Thaana:
                     return "IsThaana";
-                case Builder.UnicodeBlock.Thai:
+                case Builder.NamedBlock.Thai:
                     return "IsThai";
-                case Builder.UnicodeBlock.Tibetan:
+                case Builder.NamedBlock.Tibetan:
                     return "IsTibetan";
-                case Builder.UnicodeBlock.UnifiedCanadianAboriginalSyllabics:
+                case Builder.NamedBlock.UnifiedCanadianAboriginalSyllabics:
                     return "IsUnifiedCanadianAboriginalSyllabics";
-                case Builder.UnicodeBlock.VariationSelectors:
+                case Builder.NamedBlock.VariationSelectors:
                     return "IsVariationSelectors";
-                case Builder.UnicodeBlock.YijingHexagramSymbols:
+                case Builder.NamedBlock.YijingHexagramSymbols:
                     return "IsYijingHexagramSymbols";
-                case Builder.UnicodeBlock.YiRadicals:
+                case Builder.NamedBlock.YiRadicals:
                     return "IsYiRadicals";
-                case Builder.UnicodeBlock.YiSyllables:
+                case Builder.NamedBlock.YiSyllables:
                     return "IsYiSyllables";
                 default:
                     Debug.Assert(false);

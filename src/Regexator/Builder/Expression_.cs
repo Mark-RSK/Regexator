@@ -212,7 +212,7 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Assertions.Lookahead(value));
         }
 
-        public QuantifiableExpression Lookahead(UnicodeBlock block)
+        public QuantifiableExpression Lookahead(NamedBlock block)
         {
             return AppendInternal(Assertions.Lookahead(block));
         }
@@ -252,7 +252,7 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Assertions.NotLookahead(value));
         }
 
-        public QuantifiableExpression NotLookahead(UnicodeBlock block)
+        public QuantifiableExpression NotLookahead(NamedBlock block)
         {
             return AppendInternal(Assertions.NotLookahead(block));
         }
@@ -292,7 +292,7 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Assertions.Lookbehind(value));
         }
 
-        public QuantifiableExpression Lookbehind(UnicodeBlock block)
+        public QuantifiableExpression Lookbehind(NamedBlock block)
         {
             return AppendInternal(Assertions.Lookbehind(block));
         }
@@ -332,7 +332,7 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Assertions.NotLookbehind(value));
         }
 
-        public QuantifiableExpression NotLookbehind(UnicodeBlock block)
+        public QuantifiableExpression NotLookbehind(NamedBlock block)
         {
             return AppendInternal(Assertions.NotLookbehind(block));
         }
@@ -497,7 +497,7 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Chars.Char(values));
         }
 
-        public QuantifiableExpression Char(IEnumerable<UnicodeBlock> blocks)
+        public QuantifiableExpression Char(IEnumerable<NamedBlock> blocks)
         {
             return AppendInternal(Chars.Char(blocks));
         }
@@ -532,7 +532,7 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Chars.NotChar(values));
         }
 
-        public QuantifiableExpression NotChar(IEnumerable<UnicodeBlock> blocks)
+        public QuantifiableExpression NotChar(IEnumerable<NamedBlock> blocks)
         {
             return AppendInternal(Chars.NotChar(blocks));
         }
@@ -729,7 +729,7 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Chars.Char(value));
         }
 
-        public QuantifiableExpression UnicodeBlock(UnicodeBlock block)
+        public QuantifiableExpression UnicodeBlock(NamedBlock block)
         {
             return AppendInternal(Chars.UnicodeBlock(block));
         }
@@ -754,7 +754,7 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Chars.NotChar(value));
         }
 
-        public QuantifiableExpression NotUnicodeBlock(UnicodeBlock block)
+        public QuantifiableExpression NotUnicodeBlock(NamedBlock block)
         {
             return AppendInternal(Chars.NotUnicodeBlock(block));
         }

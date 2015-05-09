@@ -4,10 +4,10 @@ using System.Collections.Generic;
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal sealed class NotUnicodeBlockGroup
-        : UnicodeBlockGroup
+    internal sealed class NotNamedBlockGroup
+        : NamedBlockGroup
     {
-        public NotUnicodeBlockGroup(IEnumerable<UnicodeBlock> values)
+        public NotNamedBlockGroup(IEnumerable<NamedBlock> values)
             : base(values)
         {
         }

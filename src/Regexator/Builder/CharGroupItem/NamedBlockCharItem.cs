@@ -2,12 +2,12 @@
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal class UnicodeBlockCharItem
+    internal class NamedBlockCharItem
         : CharGroupItem
     {
-        private readonly UnicodeBlock _block;
+        private readonly NamedBlock _block;
 
-        public UnicodeBlockCharItem(UnicodeBlock block)
+        public NamedBlockCharItem(NamedBlock block)
         {
             _block = block;
         }

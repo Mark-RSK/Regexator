@@ -2,17 +2,17 @@
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal class UnicodeBlockExpression
+    internal class NamedBlockExpression
         : QuantifiableExpression
     {
-        private readonly UnicodeBlock _block;
+        private readonly NamedBlock _block;
 
-        internal UnicodeBlockExpression(UnicodeBlock block)
+        internal NamedBlockExpression(NamedBlock block)
         {
             _block = block;
         }
 
-        public UnicodeBlock Block
+        public NamedBlock Block
         {
             get { return _block; }
         }

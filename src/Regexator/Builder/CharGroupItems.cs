@@ -39,14 +39,14 @@ namespace Pihrtsoft.Regexator.Builder
             return new ArabicDigitRangeCharItem(first, last);
         }
 
-        public static CharGroupItem UnicodeBlock(UnicodeBlock block)
+        public static CharGroupItem UnicodeBlock(NamedBlock block)
         {
-            return new UnicodeBlockCharItem(block);
+            return new NamedBlockCharItem(block);
         }
 
-        public static CharGroupItem NotUnicodeBlock(UnicodeBlock block)
+        public static CharGroupItem NotUnicodeBlock(NamedBlock block)
         {
-            return new NotUnicodeBlockCharItem(block);
+            return new NotNamedBlockCharItem(block);
         }
 
         public static CharGroupItem UnicodeCategory(UnicodeCategory category)

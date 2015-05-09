@@ -4,12 +4,12 @@ using System;
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    internal sealed class UnicodeBlockAssertion
+    internal sealed class NamedBlockAssertion
         : AssertionExpression
     {
-        private readonly UnicodeBlock _block;
+        private readonly NamedBlock _block;
 
-        internal UnicodeBlockAssertion(AssertionKind kind, UnicodeBlock block)
+        internal NamedBlockAssertion(AssertionKind kind, NamedBlock block)
             : base(kind)
         {
             _block = block;

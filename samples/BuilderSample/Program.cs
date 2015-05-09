@@ -7,17 +7,6 @@ namespace Pihrtsoft.Regexator.Builder.Samples
     {
         internal static void Main(string[] args)
         {
-            Console.WriteLine(Alternations.Any(
-                Groups
-                    .NamedGroup("y", Chars.Digit(2))
-                    .NamedGroup("m", Chars.Digit(2))
-                    .NamedGroup("d", Chars.Digit(2))
-                    .Maybe(Chars.Slash().Digit(4)),
-                Groups
-                    .NamedGroup("d", Chars.Digit(2)).Period()
-                    .NamedGroup("m", Chars.Digit(2)).Period()
-                    .NamedGroup("y", Chars.Digit(4))));
-
             Console.WriteLine("repeated word");
             Console.WriteLine(Chars.WordChar().OneMany().AsSubexpression()
                 .WhiteSpace().OneMany()

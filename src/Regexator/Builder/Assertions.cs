@@ -34,9 +34,9 @@ namespace Pihrtsoft.Regexator.Builder
             return new CharClassAssertion(AssertionKind.Lookahead, value);
         }
 
-        public static QuantifiableExpression Lookahead(UnicodeBlock block)
+        public static QuantifiableExpression Lookahead(NamedBlock block)
         {
-            return new UnicodeBlockAssertion(AssertionKind.Lookahead, block);
+            return new NamedBlockAssertion(AssertionKind.Lookahead, block);
         }
 
         public static QuantifiableExpression Lookahead(UnicodeCategory category)
@@ -74,9 +74,9 @@ namespace Pihrtsoft.Regexator.Builder
             return new CharClassAssertion(AssertionKind.NotLookahead, value);
         }
 
-        public static QuantifiableExpression NotLookahead(UnicodeBlock block)
+        public static QuantifiableExpression NotLookahead(NamedBlock block)
         {
-            return new UnicodeBlockAssertion(AssertionKind.NotLookahead, block);
+            return new NamedBlockAssertion(AssertionKind.NotLookahead, block);
         }
 
         public static QuantifiableExpression NotLookahead(UnicodeCategory category)
@@ -114,9 +114,9 @@ namespace Pihrtsoft.Regexator.Builder
             return new CharClassAssertion(AssertionKind.Lookbehind, value);
         }
 
-        public static QuantifiableExpression Lookbehind(UnicodeBlock block)
+        public static QuantifiableExpression Lookbehind(NamedBlock block)
         {
-            return new UnicodeBlockAssertion(AssertionKind.Lookbehind, block);
+            return new NamedBlockAssertion(AssertionKind.Lookbehind, block);
         }
 
         public static QuantifiableExpression Lookbehind(UnicodeCategory category)
@@ -154,9 +154,9 @@ namespace Pihrtsoft.Regexator.Builder
             return new CharClassAssertion(AssertionKind.NotLookbehind, value);
         }
 
-        public static QuantifiableExpression NotLookbehind(UnicodeBlock block)
+        public static QuantifiableExpression NotLookbehind(NamedBlock block)
         {
-            return new UnicodeBlockAssertion(AssertionKind.NotLookbehind, block);
+            return new NamedBlockAssertion(AssertionKind.NotLookbehind, block);
         }
 
         public static QuantifiableExpression NotLookbehind(UnicodeCategory category)
