@@ -430,6 +430,24 @@ namespace Pihrtsoft.Regexator.Builder
             return HexUnicodeStart + charCode.ToString("X4", CultureInfo.InvariantCulture);
         }
 
+        public static string AsciiHexadecimal(int charCode)
+        {
+            if (charCode < 0 || charCode > 0xFF)
+            {
+                throw new ArgumentOutOfRangeException("charCode");
+            }
+            return AsciiStart + charCode.ToString("X2", CultureInfo.InvariantCulture);
+        }
+
+        public static string AsciiOctal(int charCode)
+        {
+            if (charCode < 0 || charCode > 0xFF)
+            {
+                throw new ArgumentOutOfRangeException("charCode");
+            }
+            return @"\" + Convert.ToString(charCode, 8).PadLeft(2, '0');
+        }
+
         public static string NamedBlock(NamedBlock block)
         {
             return NamedBlock(block, false);
