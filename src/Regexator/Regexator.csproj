@@ -151,6 +151,7 @@
     <Compile Include="Builder\Syntax.cs" />
     <Compile Include="Builder\NamedBlock.cs" />
     <Compile Include="Builder\GeneralCategory.cs" />
+    <Compile Include="Core\CharMatchInfo.cs" />
     <Compile Include="Core\RegexUtilities.cs" />
     <Compile Include="Builder\CharGroupExpression\NotAsciiCharGroup.cs" />
     <Compile Include="Builder\Expression\CharCodeExpression.cs" />

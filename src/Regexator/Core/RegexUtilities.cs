@@ -1,8 +1,10 @@
 // Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
+using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using Pihrtsoft.Regexator.Builder;
@@ -220,6 +222,91 @@ namespace Pihrtsoft.Regexator
             return input;
         }
 
+        internal static IEnumerable<string> GetMatchingPatterns(char value)
+        {
+            return GetMatchingPatterns(value, RegexOptions.None);
+        }
+
+        internal static IEnumerable<string> GetMatchingPatterns(char value, RegexOptions options)
+        {
+            return GetMatchingPatterns((int)value, options);
+        }
+
+        internal static IEnumerable<string> GetMatchingPatterns(int charCode)
+        { 
+            return GetMatchingPatterns(charCode, RegexOptions.None);
+        }
+
+        public static IEnumerable<string> GetMatchingPatterns(int charCode, RegexOptions options)
+        {
+            if (charCode < 0 || charCode > 0xFFFF)
+            {
+                throw new ArgumentOutOfRangeException("charCode");
+            }
+            yield return Syntax.Unicode(charCode);
+            if (charCode <= 0xFF)
+            {
+                yield return Syntax.AsciiStart + charCode.ToString("X2");
+                yield return @"\" + Convert.ToString(charCode, 8).PadLeft(2, '0');
+                if (charCode > 0 && charCode <= 0x1A)
+                {
+                    yield return Syntax.AsciiControlStart + Convert.ToChar('a' + charCode - 1);
+                    yield return Syntax.AsciiControlStart + Convert.ToChar('A' + charCode - 1);
+                }
+            }
+            switch (charCode)
+            {
+                case 7:
+                    yield return Syntax.Bell;
+                    break;
+                //char group only
+                //case 8:
+                //    yield return Syntax.Backspace;
+                //    break;
+                case 9:
+                    yield return Syntax.Tab;
+                    break;
+                case 10:
+                    yield return Syntax.Linefeed;
+                    break;
+                case 11:
+                    yield return Syntax.VerticalTab;
+                    break;
+                case 12:
+                    yield return Syntax.FormFeed;
+                    break;
+                case 13:
+                    yield return Syntax.CarriageReturn;
+                    break;
+                case 27:
+                    yield return Syntax.Escape;
+                    break;
+            }
+            string s = ((char)charCode).ToString();
+            foreach (var pattern in s_charClassPatterns)
+            {
+                if (Regex.IsMatch(s, pattern, options))
+                {
+                    yield return pattern;
+                }
+            }
+            foreach (var pattern in s_generalCategoriesPatterns)
+            {
+                if (Regex.IsMatch(s, pattern, options))
+                {
+                    yield return pattern;
+                }
+            }
+            foreach (var pattern in s_namedBlocksPatterns)
+            {
+                if (Regex.IsMatch(s, pattern, options))
+                {
+                    yield return pattern;
+                    yield break;
+                }
+            }
+        }
+
         internal static Regex IsValidGroupNameRegex
         {
             get
@@ -236,6 +323,9 @@ namespace Pihrtsoft.Regexator
             }
         }
 
+        private static readonly string[] s_generalCategoriesPatterns = Enum.GetValues(typeof(GeneralCategory)).Cast<GeneralCategory>().Select(f => Syntax.GeneralCategory(f)).ToArray();
+        private static readonly string[] s_namedBlocksPatterns = Enum.GetValues(typeof(NamedBlock)).Cast<NamedBlock>().Select(f => Syntax.NamedBlock(f)).ToArray();
+        private static readonly string[] s_charClassPatterns = new string[] { Syntax.Digit, Syntax.NotDigit, Syntax.WhiteSpace, Syntax.NotWhiteSpace, Syntax.WordChar, Syntax.NotWordChar };
         private static readonly EscapeMode[] s_escapeModes = new EscapeMode[] {
             // 0 0x00
             EscapeMode.Control,

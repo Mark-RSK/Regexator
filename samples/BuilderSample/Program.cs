@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace Pihrtsoft.Regexator.Builder.Samples
 {
@@ -7,6 +9,29 @@ namespace Pihrtsoft.Regexator.Builder.Samples
     {
         internal static void Main(string[] args)
         {
+            Debug.WriteLine(0x100);
+            for (int i = 0; i < 0x100; i++)
+            {
+                Debug.WriteLine(i);
+                Debug.Indent();
+                foreach (var item in RegexUtilities.GetMatchingPatterns(i, RegexOptions.None))
+                {
+                    try
+                    {
+                        if (!Regex.IsMatch(Convert.ToChar(i).ToString(), item))
+                        {
+                            Debug.Write("ERROR: ");
+                        }
+                    }
+                    catch (ArgumentException)
+                    {
+                        Debug.Write("ERROR: ");
+                    }
+                    Debug.WriteLine(item);
+                }
+                Debug.Unindent();
+            }
+
             Console.WriteLine("repeated word");
             Console.WriteLine(Chars.WordChar().OneMany().AsSubexpression()
                 .WhiteSpace().OneMany()
