@@ -379,7 +379,6 @@ namespace Pihrtsoft.Regexator
             }
         }
 
-        private static readonly string[] s_generalCategoriesPatterns = Enum.GetValues(typeof(GeneralCategory)).Cast<GeneralCategory>().Select(f => Syntax.GeneralCategory(f)).ToArray();
         private static readonly string[] s_namedBlocksPatterns = Enum.GetValues(typeof(NamedBlock)).Cast<NamedBlock>().Select(f => Syntax.NamedBlock(f)).ToArray();
         private static readonly string[] s_charClassPatterns = new string[] { Syntax.Digit, Syntax.NotDigit, Syntax.WhiteSpace, Syntax.NotWhiteSpace, Syntax.WordChar, Syntax.NotWordChar };
         private static readonly EscapeMode[] s_escapeModes = new EscapeMode[] {
