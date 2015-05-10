@@ -2,8 +2,10 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using Pihrtsoft.Regexator.Builder;
@@ -341,11 +343,14 @@ namespace Pihrtsoft.Regexator
                     yield return new CharMatchInfo(pattern, "Character class");
                 }
             }
-            foreach (var pattern in s_generalCategoriesPatterns)
+            foreach (var category in Enum.GetValues(typeof(GeneralCategory)).Cast<GeneralCategory>())
             {
+                string pattern = Syntax.GeneralCategory(category);
                 if (Regex.IsMatch(s, pattern, options))
                 {
-                    yield return new CharMatchInfo(pattern, "Unicode general category");
+                    MemberInfo[] info = typeof(GeneralCategory).GetMember(category.ToString());
+                    object[] attributes = info[0].GetCustomAttributes(typeof(DescriptionAttribute), false);
+                    yield return new CharMatchInfo(pattern, string.Format("Unicode general category: {0}", ((DescriptionAttribute)attributes[0]).Description));
                 }
             }
             foreach (var pattern in s_namedBlocksPatterns)
