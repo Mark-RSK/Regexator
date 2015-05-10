@@ -14,11 +14,11 @@ namespace Pihrtsoft.Regexator.Builder.Samples
             {
                 Debug.WriteLine(i);
                 Debug.Indent();
-                foreach (var item in RegexUtilities.GetMatchingPatterns(i, RegexOptions.None))
+                foreach (var item in RegexUtilities.GetMatchingPatterns(i, false, RegexOptions.None))
                 {
                     try
                     {
-                        if (!Regex.IsMatch(Convert.ToChar(i).ToString(), item))
+                        if (!Regex.IsMatch(Convert.ToChar(i).ToString(), item.Pattern))
                         {
                             Debug.Write("ERROR: ");
                         }
@@ -27,7 +27,7 @@ namespace Pihrtsoft.Regexator.Builder.Samples
                     {
                         Debug.Write("ERROR: ");
                     }
-                    Debug.WriteLine(item);
+                    Debug.WriteLine(string.Format("{0} {1}", item.Pattern, item.Comment));
                 }
                 Debug.Unindent();
             }

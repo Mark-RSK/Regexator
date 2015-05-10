@@ -3,7 +3,6 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -110,7 +109,7 @@ namespace Pihrtsoft.Regexator
                         }
                     case EscapeMode.Control:
                         {
-                            return Syntax.AsciiStart + charCode.ToString("X2", CultureInfo.InvariantCulture);
+                            return Syntax.AsciiHexadecimal(charCode);
                         }
                     case EscapeMode.SpecialControl:
                         {
@@ -222,86 +221,138 @@ namespace Pihrtsoft.Regexator
             return input;
         }
 
-        internal static IEnumerable<string> GetMatchingPatterns(char value)
+        internal static IEnumerable<CharMatchInfo> GetMatchingPatterns(char value)
         {
-            return GetMatchingPatterns(value, RegexOptions.None);
+            return GetMatchingPatterns(value, false);
         }
 
-        internal static IEnumerable<string> GetMatchingPatterns(char value, RegexOptions options)
+        internal static IEnumerable<CharMatchInfo> GetMatchingPatterns(char value, bool inCharGroup)
         {
-            return GetMatchingPatterns((int)value, options);
+            return GetMatchingPatterns(value, inCharGroup, RegexOptions.None);
         }
 
-        internal static IEnumerable<string> GetMatchingPatterns(int charCode)
+        internal static IEnumerable<CharMatchInfo> GetMatchingPatterns(char value, RegexOptions options)
+        {
+            return GetMatchingPatterns(value, false, options);
+        }
+
+        internal static IEnumerable<CharMatchInfo> GetMatchingPatterns(char value, bool inCharGroup, RegexOptions options)
+        {
+            return GetMatchingPatterns((int)value, inCharGroup, options);
+        }
+
+        internal static IEnumerable<CharMatchInfo> GetMatchingPatterns(int charCode)
         { 
             return GetMatchingPatterns(charCode, RegexOptions.None);
         }
 
-        public static IEnumerable<string> GetMatchingPatterns(int charCode, RegexOptions options)
+        internal static IEnumerable<CharMatchInfo> GetMatchingPatterns(int charCode, bool inCharGroup)
+        {
+            return GetMatchingPatterns(charCode, inCharGroup, RegexOptions.None);
+        }
+
+        internal static IEnumerable<CharMatchInfo> GetMatchingPatterns(int charCode, RegexOptions options)
+        {
+            return GetMatchingPatterns(charCode, false, options);
+        }
+
+        public static IEnumerable<CharMatchInfo> GetMatchingPatterns(int charCode, bool inCharGroup, RegexOptions options)
         {
             if (charCode < 0 || charCode > 0xFFFF)
             {
                 throw new ArgumentOutOfRangeException("charCode");
             }
-            yield return Syntax.Unicode(charCode);
+            yield return new CharMatchInfo(Syntax.Unicode(charCode), "Unicode character (hexadecimal four digits)");
             if (charCode <= 0xFF)
             {
-                yield return Syntax.AsciiStart + charCode.ToString("X2");
-                yield return @"\" + Convert.ToString(charCode, 8).PadLeft(2, '0');
+                switch (s_escapeModes[charCode])
+                {
+                    case EscapeMode.Backslash:
+                        {
+                            yield return new CharMatchInfo(EscapeChar(charCode), "Escaped character");
+                            break;
+                        }
+                    case EscapeMode.Metachar:
+                        {
+                            if (!inCharGroup)
+                            {
+                                yield return new CharMatchInfo(EscapeChar(charCode), "Escaped character");
+                            }
+                            break;
+                        }
+                    case EscapeMode.CharGroupMetachar:
+                        {
+                            if (inCharGroup)
+                            {
+                                yield return new CharMatchInfo(EscapeChar(charCode), "Escaped character");
+                            }
+                            break;
+                        }
+                    case EscapeMode.Control:
+                        {
+                            if (inCharGroup && charCode == 8)
+                            {
+                                yield return new CharMatchInfo(Syntax.Backspace, "Escaped character");
+                            }
+                            break;
+                        }
+                    case EscapeMode.SpecialControl:
+                        {
+                            switch (charCode)
+                            {
+                                case 7:
+                                    yield return new CharMatchInfo(Syntax.Bell);
+                                    break;
+                                case 9:
+                                    yield return new CharMatchInfo(Syntax.Tab);
+                                    break;
+                                case 10:
+                                    yield return new CharMatchInfo(Syntax.Linefeed);
+                                    break;
+                                case 11:
+                                    yield return new CharMatchInfo(Syntax.VerticalTab);
+                                    break;
+                                case 12:
+                                    yield return new CharMatchInfo(Syntax.FormFeed);
+                                    break;
+                                case 13:
+                                    yield return new CharMatchInfo(Syntax.CarriageReturn);
+                                    break;
+                                case 27:
+                                    yield return new CharMatchInfo(Syntax.Escape);
+                                    break;
+                            }
+                            break;
+                        }
+                }
+                yield return new CharMatchInfo(Syntax.AsciiHexadecimal(charCode), "Ascii character (hexadecimal two digits)");
+                yield return new CharMatchInfo(Syntax.AsciiOctal(charCode), "Ascii character (octal two or three digits)");
                 if (charCode > 0 && charCode <= 0x1A)
                 {
-                    yield return Syntax.AsciiControlStart + Convert.ToChar('a' + charCode - 1);
-                    yield return Syntax.AsciiControlStart + Convert.ToChar('A' + charCode - 1);
+                    yield return new CharMatchInfo(Syntax.AsciiControlStart + Convert.ToChar('a' + charCode - 1), "Ascii control character");
+                    yield return new CharMatchInfo(Syntax.AsciiControlStart + Convert.ToChar('A' + charCode - 1), "Ascii control character");
                 }
-            }
-            switch (charCode)
-            {
-                case 7:
-                    yield return Syntax.Bell;
-                    break;
-                //char group only
-                //case 8:
-                //    yield return Syntax.Backspace;
-                //    break;
-                case 9:
-                    yield return Syntax.Tab;
-                    break;
-                case 10:
-                    yield return Syntax.Linefeed;
-                    break;
-                case 11:
-                    yield return Syntax.VerticalTab;
-                    break;
-                case 12:
-                    yield return Syntax.FormFeed;
-                    break;
-                case 13:
-                    yield return Syntax.CarriageReturn;
-                    break;
-                case 27:
-                    yield return Syntax.Escape;
-                    break;
             }
             string s = ((char)charCode).ToString();
             foreach (var pattern in s_charClassPatterns)
             {
                 if (Regex.IsMatch(s, pattern, options))
                 {
-                    yield return pattern;
+                    yield return new CharMatchInfo(pattern, "Character class");
                 }
             }
             foreach (var pattern in s_generalCategoriesPatterns)
             {
                 if (Regex.IsMatch(s, pattern, options))
                 {
-                    yield return pattern;
+                    yield return new CharMatchInfo(pattern, "Unicode general category");
                 }
             }
             foreach (var pattern in s_namedBlocksPatterns)
             {
                 if (Regex.IsMatch(s, pattern, options))
                 {
-                    yield return pattern;
+                    yield return new CharMatchInfo(pattern, "Unicode named block");
                     yield break;
                 }
             }
