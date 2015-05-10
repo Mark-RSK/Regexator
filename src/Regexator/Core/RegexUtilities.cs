@@ -223,37 +223,37 @@ namespace Pihrtsoft.Regexator
             return input;
         }
 
-        internal static IEnumerable<CharMatchInfo> GetMatchingPatterns(char value)
+        public static IEnumerable<CharMatchInfo> GetMatchingPatterns(char value)
         {
             return GetMatchingPatterns(value, false);
         }
 
-        internal static IEnumerable<CharMatchInfo> GetMatchingPatterns(char value, bool inCharGroup)
+        public static IEnumerable<CharMatchInfo> GetMatchingPatterns(char value, bool inCharGroup)
         {
             return GetMatchingPatterns(value, inCharGroup, RegexOptions.None);
         }
 
-        internal static IEnumerable<CharMatchInfo> GetMatchingPatterns(char value, RegexOptions options)
+        public static IEnumerable<CharMatchInfo> GetMatchingPatterns(char value, RegexOptions options)
         {
             return GetMatchingPatterns(value, false, options);
         }
 
-        internal static IEnumerable<CharMatchInfo> GetMatchingPatterns(char value, bool inCharGroup, RegexOptions options)
+        public static IEnumerable<CharMatchInfo> GetMatchingPatterns(char value, bool inCharGroup, RegexOptions options)
         {
             return GetMatchingPatterns((int)value, inCharGroup, options);
         }
 
-        internal static IEnumerable<CharMatchInfo> GetMatchingPatterns(int charCode)
+        public static IEnumerable<CharMatchInfo> GetMatchingPatterns(int charCode)
         { 
             return GetMatchingPatterns(charCode, RegexOptions.None);
         }
 
-        internal static IEnumerable<CharMatchInfo> GetMatchingPatterns(int charCode, bool inCharGroup)
+        public static IEnumerable<CharMatchInfo> GetMatchingPatterns(int charCode, bool inCharGroup)
         {
             return GetMatchingPatterns(charCode, inCharGroup, RegexOptions.None);
         }
 
-        internal static IEnumerable<CharMatchInfo> GetMatchingPatterns(int charCode, RegexOptions options)
+        public static IEnumerable<CharMatchInfo> GetMatchingPatterns(int charCode, RegexOptions options)
         {
             return GetMatchingPatterns(charCode, false, options);
         }

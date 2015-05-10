@@ -9,29 +9,6 @@ namespace Pihrtsoft.Regexator.Builder.Samples
     {
         internal static void Main(string[] args)
         {
-            Debug.WriteLine(0x100);
-            for (int i = 0; i < 0x100; i++)
-            {
-                Debug.WriteLine(i);
-                Debug.Indent();
-                foreach (var item in RegexUtilities.GetMatchingPatterns(i, false, RegexOptions.None))
-                {
-                    try
-                    {
-                        if (!Regex.IsMatch(Convert.ToChar(i).ToString(), item.Pattern))
-                        {
-                            Debug.Write("ERROR: ");
-                        }
-                    }
-                    catch (ArgumentException)
-                    {
-                        Debug.Write("ERROR: ");
-                    }
-                    Debug.WriteLine(string.Format("{0} {1}", item.Pattern, item.Comment));
-                }
-                Debug.Unindent();
-            }
-
             Console.WriteLine("repeated word");
             Console.WriteLine(Chars.WordChar().OneMany().AsSubexpression()
                 .WhiteSpace().OneMany()
