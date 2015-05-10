@@ -264,7 +264,7 @@ namespace Pihrtsoft.Regexator
             {
                 throw new ArgumentOutOfRangeException("charCode");
             }
-            yield return new CharMatchInfo(Syntax.Unicode(charCode), "Unicode character (hexadecimal four digits)");
+
             if (charCode <= 0xFF)
             {
                 switch (s_escapeModes[charCode])
@@ -280,6 +280,10 @@ namespace Pihrtsoft.Regexator
                             {
                                 yield return new CharMatchInfo(EscapeChar(charCode), "Escaped character");
                             }
+                            else
+                            {
+                                yield return new CharMatchInfo(((char)charCode).ToString());
+                            }
                             break;
                         }
                     case EscapeMode.CharGroupMetachar:
@@ -287,6 +291,10 @@ namespace Pihrtsoft.Regexator
                             if (inCharGroup)
                             {
                                 yield return new CharMatchInfo(EscapeChar(charCode), "Escaped character");
+                            }
+                            else
+                            {
+                                yield return new CharMatchInfo(((char)charCode).ToString());
                             }
                             break;
                         }
@@ -326,23 +334,54 @@ namespace Pihrtsoft.Regexator
                             }
                             break;
                         }
+                    default:
+                        yield return new CharMatchInfo(((char)charCode).ToString());
+                        break;
+
                 }
-                yield return new CharMatchInfo(Syntax.AsciiHexadecimal(charCode), "Ascii character (hexadecimal two digits)");
-                yield return new CharMatchInfo(Syntax.AsciiOctal(charCode), "Ascii character (octal two or three digits)");
+
+                yield return new CharMatchInfo(Syntax.Unicode(charCode), "Unicode character (four hexadecimal digits)");
+
+                yield return new CharMatchInfo(Syntax.AsciiHexadecimal(charCode), "ASCII character (two hexadecimal digits)");
+
+                yield return new CharMatchInfo(Syntax.AsciiOctal(charCode), "ASCII character (two or three octal digits)");
+
                 if (charCode > 0 && charCode <= 0x1A)
                 {
-                    yield return new CharMatchInfo(Syntax.AsciiControlStart + Convert.ToChar('a' + charCode - 1), "Ascii control character");
-                    yield return new CharMatchInfo(Syntax.AsciiControlStart + Convert.ToChar('A' + charCode - 1), "Ascii control character");
-                }
+                    yield return new CharMatchInfo(Syntax.AsciiControlStart + Convert.ToChar('a' + charCode - 1), "ASCII control character");
+                    yield return new CharMatchInfo(Syntax.AsciiControlStart + Convert.ToChar('A' + charCode - 1), "ASCII control character");
+                } 
             }
+
             string s = ((char)charCode).ToString();
-            foreach (var pattern in s_charClassPatterns)
+
+            if (Regex.IsMatch(s, @"\d", options))
             {
-                if (Regex.IsMatch(s, pattern, options))
-                {
-                    yield return new CharMatchInfo(pattern, "Character class");
-                }
+                yield return new CharMatchInfo(@"\d", "Digit character");
             }
+            else
+            {
+                yield return new CharMatchInfo(@"\D", "Non-digit character");
+            }
+
+            if (Regex.IsMatch(s, @"\s", options))
+            {
+                yield return new CharMatchInfo(@"\s", "White-space character");
+            }
+            else
+            {
+                yield return new CharMatchInfo(@"\S", "Non-white-space character");
+            }
+
+            if (Regex.IsMatch(s, @"\w", options))
+            {
+                yield return new CharMatchInfo(@"\w", "Word character");
+            }
+            else
+            {
+                yield return new CharMatchInfo(@"\W", "Non-word character");
+            }
+
             foreach (var category in Enum.GetValues(typeof(GeneralCategory)).Cast<GeneralCategory>())
             {
                 string pattern = Syntax.GeneralCategory(category);
@@ -353,6 +392,7 @@ namespace Pihrtsoft.Regexator
                     yield return new CharMatchInfo(pattern, string.Format("Unicode general category: {0}", ((DescriptionAttribute)attributes[0]).Description));
                 }
             }
+
             foreach (var pattern in s_namedBlocksPatterns)
             {
                 if (Regex.IsMatch(s, pattern, options))
@@ -380,7 +420,6 @@ namespace Pihrtsoft.Regexator
         }
 
         private static readonly string[] s_namedBlocksPatterns = Enum.GetValues(typeof(NamedBlock)).Cast<NamedBlock>().Select(f => Syntax.NamedBlock(f)).ToArray();
-        private static readonly string[] s_charClassPatterns = new string[] { Syntax.Digit, Syntax.NotDigit, Syntax.WhiteSpace, Syntax.NotWhiteSpace, Syntax.WordChar, Syntax.NotWordChar };
         private static readonly EscapeMode[] s_escapeModes = new EscapeMode[] {
             // 0 0x00
             EscapeMode.Control,
