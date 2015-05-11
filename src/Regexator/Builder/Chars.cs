@@ -131,6 +131,11 @@ namespace Pihrtsoft.Regexator.Builder
             return Char(CharGroupItems.ArabicDigit());
         }
 
+        public static CharGroupExpression NotArabicDigit()
+        {
+            return NotChar(CharGroupItems.ArabicDigit());
+        }
+
         public static QuantifiableExpression Any()
         {
             return new AnyCharExpression();

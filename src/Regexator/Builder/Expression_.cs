@@ -609,6 +609,11 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Chars.ArabicDigit());
         }
 
+        public QuantifiableExpression NotArabicDigit()
+        {
+            return AppendInternal(Chars.NotArabicDigit());
+        }
+
         public QuantifiableExpression Digit()
         {
             return AppendInternal(Chars.Digit());
