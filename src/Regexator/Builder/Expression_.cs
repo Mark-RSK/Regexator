@@ -587,11 +587,6 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Chars.WhiteSpaceExceptNewLine());
         }
 
-        public QuantifiableExpression WordExceptArabicDigit()
-        {
-            return AppendInternal(Chars.WordExceptArabicDigit());
-        }
-
         public CharGroupExpression Alphanumeric()
         {
             return AppendInternal(Chars.Alphanumeric());

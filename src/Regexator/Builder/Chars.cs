@@ -1380,10 +1380,5 @@ namespace Pihrtsoft.Regexator.Builder
         {
             return new CharSubtraction(CharGroupItems.WhiteSpace(), CharGroupItems.CarriageReturn().Linefeed());
         }
-
-        public static CharSubtraction WordExceptArabicDigit()
-        {
-            return new CharSubtraction(CharGroupItems.WordChar(), CharGroupItems.ArabicDigit());
-        }
     }
 }
