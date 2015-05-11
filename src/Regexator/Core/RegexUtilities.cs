@@ -410,7 +410,7 @@ namespace Pihrtsoft.Regexator
                 if (_isValidGroupName == null)
                 {
                     _isValidGroupName = Alternations.Any(
-                        Chars.ArabicDigitRange(1, 9).ArabicDigit().MaybeMany().AsSubexpression(),
+                        Chars.Range('1', '9').ArabicDigit().MaybeMany().AsSubexpression(),
                         Chars.Subtraction(CharGroupItems.WordChar(), CharGroupItems.ArabicDigit()).WordChar().MaybeMany()
                     ).AsEntireInput().ToRegex();
 

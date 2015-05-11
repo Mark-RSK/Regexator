@@ -69,9 +69,6 @@
     <Compile Include="Builder\AssertionExpression\CharClassAssertion.cs" />
     <Compile Include="Builder\AssertionExpression\NamedBlockAssertion.cs" />
     <Compile Include="Builder\AssertionExpression\GeneralCategoryAssertion.cs" />
-    <Compile Include="Builder\CharGroupExpression\ArabicDigitRangeGroup.cs" />
-    <Compile Include="Builder\CharGroupExpression\NotArabicDigitRangeGroup.cs" />
-    <Compile Include="Builder\CharGroupItem\ArabicDigitRangeCharItem.cs" />
     <Compile Include="Builder\Substitution\BeforeMatchSubstitution.cs" />
     <Compile Include="Builder\Substitution\AfterMatchSubstitution.cs" />
     <Compile Include="Builder\Substitution\EntireMatchSubstitution.cs" />

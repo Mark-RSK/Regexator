@@ -90,11 +90,6 @@ namespace Pihrtsoft.Regexator.Builder
             return Append(CharGroupItems.Range(firstCharCode, lastCharCode));
         }
 
-        public CharGroupItem ArabicDigitRange(int first, int last)
-        {
-            return Append(CharGroupItems.ArabicDigitRange(first, last));
-        }
-
         public CharGroupItem NamedBlock(NamedBlock block)
         {
             return Append(CharGroupItems.NamedBlock(block));

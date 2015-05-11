@@ -552,11 +552,6 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Chars.Range(firstCharCode, lastCharCode));
         }
 
-        public QuantifiableExpression ArabicDigitRange(int first, int last)
-        {
-            return AppendInternal(Chars.ArabicDigitRange(first, last));
-        }
-
         public QuantifiableExpression NotRange(char first, char last)
         {
             return AppendInternal(Chars.NotRange(first, last));
@@ -565,11 +560,6 @@ namespace Pihrtsoft.Regexator.Builder
         public QuantifiableExpression NotRange(int firstCharCode, int lastCharCode)
         {
             return AppendInternal(Chars.NotRange(firstCharCode, lastCharCode));
-        }
-
-        public QuantifiableExpression NotArabicDigitRange(int first, int last)
-        {
-            return AppendInternal(Chars.NotArabicDigitRange(first, last));
         }
 
         public QuantifiableExpression Subtraction(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
