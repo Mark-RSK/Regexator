@@ -126,6 +126,11 @@ namespace Pihrtsoft.Regexator.Builder
             return Char(CharGroupItems.LatinLetter());
         }
 
+        public static CharGroupExpression NotLatinLetter()
+        {
+            return NotChar(CharGroupItems.LatinLetter());
+        }
+
         public static CharGroupExpression ArabicDigit()
         {
             return Char(CharGroupItems.ArabicDigit());

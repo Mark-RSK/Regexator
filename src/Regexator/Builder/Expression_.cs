@@ -587,6 +587,16 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Chars.NotAlphanumeric());
         }
 
+        public CharGroupExpression LatinLetter()
+        {
+            return AppendInternal(Chars.LatinLetter());
+        }
+
+        public CharGroupExpression NotLatinLetter()
+        {
+            return AppendInternal(Chars.NotLatinLetter());
+        }
+
         public QuantifiableExpression Any()
         {
             return AppendInternal(Chars.Any());
