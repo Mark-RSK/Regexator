@@ -421,7 +421,6 @@ namespace Pihrtsoft.Regexator
             }
         }
 
-        private static readonly string[] s_namedBlocksPatterns = Enum.GetValues(typeof(NamedBlock)).Cast<NamedBlock>().Select(f => Syntax.NamedBlock(f)).ToArray();
         private static readonly EscapeMode[] s_escapeModes = new EscapeMode[] {
             // 0 0x00
             EscapeMode.Control,
