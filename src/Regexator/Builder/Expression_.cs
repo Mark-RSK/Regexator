@@ -607,12 +607,10 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Chars.AnyInvariant());
         }
 
-#if DEBUG
         public Expression AnyMaybeManyLazy()
         {
             return AppendInternal(Chars.AnyMaybeManyLazy());
         }
-#endif
 
         public QuantifiableExpression ArabicDigit()
         {
