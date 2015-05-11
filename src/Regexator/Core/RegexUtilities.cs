@@ -393,11 +393,14 @@ namespace Pihrtsoft.Regexator
                 }
             }
 
-            foreach (var pattern in s_namedBlocksPatterns)
+            foreach (var block in Enum.GetValues(typeof(NamedBlock)).Cast<NamedBlock>())
             {
+                string pattern = Syntax.NamedBlock(block);
                 if (Regex.IsMatch(s, pattern, options))
                 {
-                    yield return new CharMatchInfo(pattern, "Unicode named block");
+                    MemberInfo[] info = typeof(NamedBlock).GetMember(block.ToString());
+                    object[] attributes = info[0].GetCustomAttributes(typeof(DescriptionAttribute), false);
+                    yield return new CharMatchInfo(pattern, string.Format("Unicode named block: {0}", ((DescriptionAttribute)attributes[0]).Description));
                     yield break;
                 }
             }
