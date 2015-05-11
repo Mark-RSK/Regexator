@@ -366,11 +366,11 @@ namespace Pihrtsoft.Regexator
 
             if (Regex.IsMatch(s, @"\s", options))
             {
-                yield return new CharMatchInfo(@"\s", "White-space character");
+                yield return new CharMatchInfo(@"\s", "Whitespace character");
             }
             else
             {
-                yield return new CharMatchInfo(@"\S", "Non-white-space character");
+                yield return new CharMatchInfo(@"\S", "Non-whitespace character");
             }
 
             if (Regex.IsMatch(s, @"\w", options))
@@ -413,7 +413,6 @@ namespace Pihrtsoft.Regexator
                         Chars.Range('1', '9').ArabicDigit().MaybeMany().AsSubexpression(),
                         Chars.Subtract(CharGroupItems.WordChar(), CharGroupItems.ArabicDigit()).WordChar().MaybeMany()
                     ).AsEntireInput().ToRegex();
-
                 }
                 return _isValidGroupName;
             }
