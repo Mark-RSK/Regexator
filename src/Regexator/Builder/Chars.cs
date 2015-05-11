@@ -101,12 +101,12 @@ namespace Pihrtsoft.Regexator.Builder
             return new NotCharCodeRangeGroup(firstCharCode, lastCharCode);
         }
 
-        public static CharSubtraction Subtraction(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
+        public static CharSubtraction Subtract(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
         {
             return new CharSubtraction(baseGroup, excludedGroup);
         }
 
-        public static CharSubtraction NotSubtraction(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
+        public static CharSubtraction NotSubtract(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
         {
             return new NotCharSubtraction(baseGroup, excludedGroup);
         }

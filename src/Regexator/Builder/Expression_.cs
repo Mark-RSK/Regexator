@@ -562,14 +562,14 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Chars.NotRange(firstCharCode, lastCharCode));
         }
 
-        public QuantifiableExpression Subtraction(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
+        public QuantifiableExpression Subtract(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
         {
-            return AppendInternal(Chars.Subtraction(baseGroup, excludedGroup));
+            return AppendInternal(Chars.Subtract(baseGroup, excludedGroup));
         }
 
-        public QuantifiableExpression NotSubtraction(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
+        public QuantifiableExpression NotSubtract(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
         {
-            return AppendInternal(Chars.NotSubtraction(baseGroup, excludedGroup));
+            return AppendInternal(Chars.NotSubtract(baseGroup, excludedGroup));
         }
 
         public QuantifiableExpression WhiteSpaceExceptNewLine()
