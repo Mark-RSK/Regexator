@@ -86,10 +86,10 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static CharGroupItem Alphanumeric()
         {
-            return LatinAlphabet().ArabicDigit();
+            return LatinLetter().ArabicDigit();
         }
 
-        public static CharGroupItem LatinAlphabet()
+        public static CharGroupItem LatinLetter()
         {
             return Range('a', 'z').Range('A', 'Z');
         }

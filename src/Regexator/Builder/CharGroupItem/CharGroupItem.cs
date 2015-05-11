@@ -145,9 +145,9 @@ namespace Pihrtsoft.Regexator.Builder
             return Append(CharGroupItems.Alphanumeric());
         }
 
-        public CharGroupItem LatinAlphabet()
+        public CharGroupItem LatinLetter()
         {
-            return Append(CharGroupItems.LatinAlphabet());
+            return Append(CharGroupItems.LatinLetter());
         }
 
         public CharGroupItem ArabicDigit()
