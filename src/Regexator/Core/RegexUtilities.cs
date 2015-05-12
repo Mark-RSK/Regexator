@@ -414,7 +414,7 @@ namespace Pihrtsoft.Regexator
                 {
                     _isValidGroupName = Alternations.Any(
                         Chars.Range('1', '9').ArabicDigit().MaybeMany().AsSubexpression(),
-                        Chars.Subtract(CharGroupItems.WordChar(), CharGroupItems.ArabicDigit()).WordChar().MaybeMany()
+                        Chars.WordChar().Except(Chars.ArabicDigit()).WordChar().MaybeMany()
                     ).AsEntireInput().ToRegex();
                 }
                 return _isValidGroupName;

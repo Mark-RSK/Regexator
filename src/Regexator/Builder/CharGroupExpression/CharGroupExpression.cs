@@ -9,6 +9,11 @@ namespace Pihrtsoft.Regexator.Builder
         {
         }
 
+        public CharSubtraction Except(IExcludedGroup excludedGroup)
+        {
+            return new CharSubtraction(this, excludedGroup);
+        }
+
         public abstract string Content { get; }
 
         public string BaseGroupValue

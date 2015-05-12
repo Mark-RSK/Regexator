@@ -9,6 +9,12 @@ namespace Pihrtsoft.Regexator.Builder
         : CharGroupExpression
     {
         private readonly IEnumerable<GeneralCategory> _values;
+        private readonly GeneralCategory _value;
+
+        public GeneralCategoryGroup(GeneralCategory value)
+        {
+            _value = value;
+        }
 
         public GeneralCategoryGroup(IEnumerable<GeneralCategory> values)
         {
@@ -21,7 +27,17 @@ namespace Pihrtsoft.Regexator.Builder
 
         public override string Content
         {
-            get { return Syntax.GeneralCategories(_values); }
+            get 
+            {
+                if (_values != null)
+                {
+                    return Syntax.GeneralCategories(_values); 
+                }
+                else
+                {
+                    return Syntax.GeneralCategory(_value); 
+                }
+            }
         }
     }
 }

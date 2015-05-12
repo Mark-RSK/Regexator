@@ -9,6 +9,12 @@ namespace Pihrtsoft.Regexator.Builder
         : CharGroupExpression
     {
         private readonly IEnumerable<CharClass> _values;
+        private readonly CharClass _value;
+
+        public CharClassGroup(CharClass value)
+        {
+            _value = value;
+        }
 
         public CharClassGroup(IEnumerable<CharClass> values)
         {
@@ -21,7 +27,17 @@ namespace Pihrtsoft.Regexator.Builder
 
         public override string Content
         {
-            get { return Syntax.CharClasses(_values); }
+            get 
+            {
+                if (_values != null)
+                {
+                    return Syntax.CharClasses(_values); 
+                }
+                else
+                {
+                    return Syntax.CharClass(_value); 
+                }
+            }
         }
     }
 }

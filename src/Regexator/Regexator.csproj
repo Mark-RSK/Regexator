@@ -69,6 +69,7 @@
     <Compile Include="Builder\AssertionExpression\CharClassAssertion.cs" />
     <Compile Include="Builder\AssertionExpression\NamedBlockAssertion.cs" />
     <Compile Include="Builder\AssertionExpression\GeneralCategoryAssertion.cs" />
+    <Compile Include="Builder\Expression\CharacterExpression.cs" />
     <Compile Include="Builder\Substitution\BeforeMatchSubstitution.cs" />
     <Compile Include="Builder\Substitution\AfterMatchSubstitution.cs" />
     <Compile Include="Builder\Substitution\EntireMatchSubstitution.cs" />

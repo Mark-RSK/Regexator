@@ -5,7 +5,7 @@ using System;
 namespace Pihrtsoft.Regexator.Builder
 {
     internal sealed class CharCodeExpression
-        : QuantifiableExpression
+        : CharacterExpression
     {
         private readonly int _charCode;
 
@@ -16,6 +16,11 @@ namespace Pihrtsoft.Regexator.Builder
                 throw new ArgumentOutOfRangeException("charCode");
             }
             _charCode = charCode;
+        }
+
+        protected override CharGroupExpression ToGroup()
+        {
+            return new CharCodeGroup(_charCode);
         }
 
         internal override string Value(BuildContext context)

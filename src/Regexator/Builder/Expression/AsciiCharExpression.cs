@@ -3,13 +3,18 @@
 namespace Pihrtsoft.Regexator.Builder
 {
     internal sealed class AsciiCharExpression
-        : QuantifiableExpression
+        : CharacterExpression
     {
         private readonly AsciiChar _value;
 
         internal AsciiCharExpression(AsciiChar value)
         {
             _value = value;
+        }
+
+        protected override CharGroupExpression ToGroup()
+        {
+            return new AsciiCharGroup(_value);
         }
 
         internal override string Value(BuildContext context)

@@ -3,7 +3,7 @@
 namespace Pihrtsoft.Regexator.Builder
 {
     internal class NamedBlockExpression
-        : QuantifiableExpression
+        : CharacterExpression
     {
         private readonly NamedBlock _block;
 
@@ -15,6 +15,11 @@ namespace Pihrtsoft.Regexator.Builder
         public NamedBlock Block
         {
             get { return _block; }
+        }
+
+        protected override CharGroupExpression ToGroup()
+        {
+            return new NamedBlockGroup(_block);
         }
 
         internal override string Value(BuildContext context)

@@ -156,7 +156,7 @@ namespace Pihrtsoft.Regexator.Builder
             return Any().MaybeMany().Lazy();
         }
 
-        public static QuantifiableExpression Digit()
+        public static CharacterExpression Digit()
         {
             return new CharClassExpression(CharClass.Digit);
         }
@@ -171,7 +171,7 @@ namespace Pihrtsoft.Regexator.Builder
             return new CharClassExpression(CharClass.Digit).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression NotDigit()
+        public static CharacterExpression NotDigit()
         {
             return new CharClassExpression(CharClass.NotDigit);
         }
@@ -186,7 +186,7 @@ namespace Pihrtsoft.Regexator.Builder
             return new CharClassExpression(CharClass.NotDigit).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression WhiteSpace()
+        public static CharacterExpression WhiteSpace()
         {
             return new CharClassExpression(CharClass.WhiteSpace);
         }
@@ -201,7 +201,7 @@ namespace Pihrtsoft.Regexator.Builder
             return new CharClassExpression(CharClass.WhiteSpace).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression NotWhiteSpace()
+        public static CharacterExpression NotWhiteSpace()
         {
             return new CharClassExpression(CharClass.NotWhiteSpace);
         }
@@ -216,7 +216,7 @@ namespace Pihrtsoft.Regexator.Builder
             return new CharClassExpression(CharClass.NotWhiteSpace).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression WordChar()
+        public static CharacterExpression WordChar()
         {
             return new CharClassExpression(CharClass.WordChar);
         }
@@ -231,7 +231,7 @@ namespace Pihrtsoft.Regexator.Builder
             return new CharClassExpression(CharClass.WordChar).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression NotWordChar()
+        public static CharacterExpression NotWordChar()
         {
             return new CharClassExpression(CharClass.NotWordChar);
         }
@@ -246,32 +246,32 @@ namespace Pihrtsoft.Regexator.Builder
             return new CharClassExpression(CharClass.NotWordChar).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression Char(char value)
+        public static CharacterExpression Char(char value)
         {
             return new CharExpression(value);
         }
 
-        public static QuantifiableExpression Char(int charCode)
+        public static CharacterExpression Char(int charCode)
         {
             return new CharCodeExpression(charCode);
         }
 
-        public static QuantifiableExpression Char(AsciiChar value)
+        public static CharacterExpression Char(AsciiChar value)
         {
             return new AsciiCharExpression(value);
         }
 
-        public static QuantifiableExpression Char(CharClass value)
+        public static CharacterExpression Char(CharClass value)
         {
             return new CharClassExpression(value);
         }
 
-        public static QuantifiableExpression NamedBlock(NamedBlock block)
+        public static CharacterExpression NamedBlock(NamedBlock block)
         {
             return new NamedBlockExpression(block);
         }
 
-        public static QuantifiableExpression GeneralCategory(GeneralCategory category)
+        public static CharacterExpression GeneralCategory(GeneralCategory category)
         {
             return new GeneralCategoryExpression(category);
         }
@@ -291,17 +291,17 @@ namespace Pihrtsoft.Regexator.Builder
             return new NotAsciiCharGroup(value);
         }
 
-        public static QuantifiableExpression NotNamedBlock(NamedBlock block)
+        public static CharacterExpression NotNamedBlock(NamedBlock block)
         {
             return new NotNamedBlockExpression(block);
         }
 
-        public static QuantifiableExpression NotGeneralCategory(GeneralCategory category)
+        public static CharacterExpression NotGeneralCategory(GeneralCategory category)
         {
             return new NotGeneralCategoryExpression(category);
         }
 
-        public static QuantifiableExpression Tab()
+        public static CharacterExpression Tab()
         {
             return Char(AsciiChar.Tab);
         }
@@ -331,7 +331,7 @@ namespace Pihrtsoft.Regexator.Builder
             return NotChar(AsciiChar.Tab).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression Linefeed()
+        public static CharacterExpression Linefeed()
         {
             return Char(AsciiChar.Linefeed);
         }
@@ -361,7 +361,7 @@ namespace Pihrtsoft.Regexator.Builder
             return NotChar(AsciiChar.Linefeed).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression CarriageReturn()
+        public static CharacterExpression CarriageReturn()
         {
             return Char(AsciiChar.CarriageReturn);
         }
@@ -391,7 +391,7 @@ namespace Pihrtsoft.Regexator.Builder
             return NotChar(AsciiChar.CarriageReturn).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression Space()
+        public static CharacterExpression Space()
         {
             return Char(AsciiChar.Space);
         }
@@ -421,7 +421,7 @@ namespace Pihrtsoft.Regexator.Builder
             return NotChar(AsciiChar.Space).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression ExclamationMark()
+        public static CharacterExpression ExclamationMark()
         {
             return Char(AsciiChar.ExclamationMark);
         }
@@ -451,7 +451,7 @@ namespace Pihrtsoft.Regexator.Builder
             return NotChar(AsciiChar.ExclamationMark).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression QuotationMark()
+        public static CharacterExpression QuotationMark()
         {
             return Char(AsciiChar.QuotationMark);
         }
@@ -481,7 +481,7 @@ namespace Pihrtsoft.Regexator.Builder
             return NotChar(AsciiChar.QuotationMark).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression NumberSign()
+        public static CharacterExpression NumberSign()
         {
             return Char(AsciiChar.NumberSign);
         }
@@ -511,7 +511,7 @@ namespace Pihrtsoft.Regexator.Builder
             return NotChar(AsciiChar.NumberSign).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression Dollar()
+        public static CharacterExpression Dollar()
         {
             return Char(AsciiChar.Dollar);
         }
@@ -541,7 +541,7 @@ namespace Pihrtsoft.Regexator.Builder
             return NotChar(AsciiChar.Dollar).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression Percent()
+        public static CharacterExpression Percent()
         {
             return Char(AsciiChar.Percent);
         }
@@ -571,7 +571,7 @@ namespace Pihrtsoft.Regexator.Builder
             return NotChar(AsciiChar.Percent).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression Ampersand()
+        public static CharacterExpression Ampersand()
         {
             return Char(AsciiChar.Ampersand);
         }
@@ -601,7 +601,7 @@ namespace Pihrtsoft.Regexator.Builder
             return NotChar(AsciiChar.Ampersand).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression Apostrophe()
+        public static CharacterExpression Apostrophe()
         {
             return Char(AsciiChar.Apostrophe);
         }
@@ -631,7 +631,7 @@ namespace Pihrtsoft.Regexator.Builder
             return NotChar(AsciiChar.Apostrophe).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression LeftParenthesis()
+        public static CharacterExpression LeftParenthesis()
         {
             return Char(AsciiChar.LeftParenthesis);
         }
@@ -661,7 +661,7 @@ namespace Pihrtsoft.Regexator.Builder
             return NotChar(AsciiChar.LeftParenthesis).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression RightParenthesis()
+        public static CharacterExpression RightParenthesis()
         {
             return Char(AsciiChar.RightParenthesis);
         }
@@ -691,7 +691,7 @@ namespace Pihrtsoft.Regexator.Builder
             return NotChar(AsciiChar.RightParenthesis).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression Asterisk()
+        public static CharacterExpression Asterisk()
         {
             return Char(AsciiChar.Asterisk);
         }
@@ -721,7 +721,7 @@ namespace Pihrtsoft.Regexator.Builder
             return NotChar(AsciiChar.Asterisk).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression Plus()
+        public static CharacterExpression Plus()
         {
             return Char(AsciiChar.Plus);
         }
@@ -751,7 +751,7 @@ namespace Pihrtsoft.Regexator.Builder
             return NotChar(AsciiChar.Plus).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression Comma()
+        public static CharacterExpression Comma()
         {
             return Char(AsciiChar.Comma);
         }
@@ -781,7 +781,7 @@ namespace Pihrtsoft.Regexator.Builder
             return NotChar(AsciiChar.Comma).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression Hyphen()
+        public static CharacterExpression Hyphen()
         {
             return Char(AsciiChar.Hyphen);
         }
@@ -811,7 +811,7 @@ namespace Pihrtsoft.Regexator.Builder
             return NotChar(AsciiChar.Hyphen).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression Period()
+        public static CharacterExpression Period()
         {
             return Char(AsciiChar.Period);
         }
@@ -841,7 +841,7 @@ namespace Pihrtsoft.Regexator.Builder
             return NotChar(AsciiChar.Period).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression Slash()
+        public static CharacterExpression Slash()
         {
             return Char(AsciiChar.Slash);
         }
@@ -871,7 +871,7 @@ namespace Pihrtsoft.Regexator.Builder
             return NotChar(AsciiChar.Slash).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression Colon()
+        public static CharacterExpression Colon()
         {
             return Char(AsciiChar.Colon);
         }
@@ -901,7 +901,7 @@ namespace Pihrtsoft.Regexator.Builder
             return NotChar(AsciiChar.Colon).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression Semicolon()
+        public static CharacterExpression Semicolon()
         {
             return Char(AsciiChar.Semicolon);
         }
@@ -931,7 +931,7 @@ namespace Pihrtsoft.Regexator.Builder
             return NotChar(AsciiChar.Semicolon).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression LessThan()
+        public static CharacterExpression LessThan()
         {
             return Char(AsciiChar.LessThan);
         }
@@ -961,7 +961,7 @@ namespace Pihrtsoft.Regexator.Builder
             return NotChar(AsciiChar.LessThan).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression EqualsSign()
+        public static CharacterExpression EqualsSign()
         {
             return Char(AsciiChar.EqualsSign);
         }
@@ -991,7 +991,7 @@ namespace Pihrtsoft.Regexator.Builder
             return NotChar(AsciiChar.EqualsSign).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression GreaterThan()
+        public static CharacterExpression GreaterThan()
         {
             return Char(AsciiChar.GreaterThan);
         }
@@ -1021,7 +1021,7 @@ namespace Pihrtsoft.Regexator.Builder
             return NotChar(AsciiChar.GreaterThan).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression QuestionMark()
+        public static CharacterExpression QuestionMark()
         {
             return Char(AsciiChar.QuestionMark);
         }
@@ -1051,7 +1051,7 @@ namespace Pihrtsoft.Regexator.Builder
             return NotChar(AsciiChar.QuestionMark).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression At()
+        public static CharacterExpression At()
         {
             return Char(AsciiChar.At);
         }
@@ -1081,7 +1081,7 @@ namespace Pihrtsoft.Regexator.Builder
             return NotChar(AsciiChar.At).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression LeftSquareBracket()
+        public static CharacterExpression LeftSquareBracket()
         {
             return Char(AsciiChar.LeftSquareBracket);
         }
@@ -1111,7 +1111,7 @@ namespace Pihrtsoft.Regexator.Builder
             return NotChar(AsciiChar.LeftSquareBracket).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression Backslash()
+        public static CharacterExpression Backslash()
         {
             return Char(AsciiChar.Backslash);
         }
@@ -1141,7 +1141,7 @@ namespace Pihrtsoft.Regexator.Builder
             return NotChar(AsciiChar.Backslash).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression RightSquareBracket()
+        public static CharacterExpression RightSquareBracket()
         {
             return Char(AsciiChar.RightSquareBracket);
         }
@@ -1171,7 +1171,7 @@ namespace Pihrtsoft.Regexator.Builder
             return NotChar(AsciiChar.RightSquareBracket).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression CircumflexAccent()
+        public static CharacterExpression CircumflexAccent()
         {
             return Char(AsciiChar.CircumflexAccent);
         }
@@ -1201,7 +1201,7 @@ namespace Pihrtsoft.Regexator.Builder
             return NotChar(AsciiChar.CircumflexAccent).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression Underscore()
+        public static CharacterExpression Underscore()
         {
             return Char(AsciiChar.Underscore);
         }
@@ -1231,7 +1231,7 @@ namespace Pihrtsoft.Regexator.Builder
             return NotChar(AsciiChar.Underscore).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression GraveAccent()
+        public static CharacterExpression GraveAccent()
         {
             return Char(AsciiChar.GraveAccent);
         }
@@ -1261,7 +1261,7 @@ namespace Pihrtsoft.Regexator.Builder
             return NotChar(AsciiChar.GraveAccent).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression LeftCurlyBracket()
+        public static CharacterExpression LeftCurlyBracket()
         {
             return Char(AsciiChar.LeftCurlyBracket);
         }
@@ -1291,7 +1291,7 @@ namespace Pihrtsoft.Regexator.Builder
             return NotChar(AsciiChar.LeftCurlyBracket).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression VerticalLine()
+        public static CharacterExpression VerticalLine()
         {
             return Char(AsciiChar.VerticalLine);
         }
@@ -1321,7 +1321,7 @@ namespace Pihrtsoft.Regexator.Builder
             return NotChar(AsciiChar.VerticalLine).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression RightCurlyBracket()
+        public static CharacterExpression RightCurlyBracket()
         {
             return Char(AsciiChar.RightCurlyBracket);
         }
@@ -1351,7 +1351,7 @@ namespace Pihrtsoft.Regexator.Builder
             return NotChar(AsciiChar.RightCurlyBracket).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression Tilde()
+        public static CharacterExpression Tilde()
         {
             return Char(AsciiChar.Tilde);
         }

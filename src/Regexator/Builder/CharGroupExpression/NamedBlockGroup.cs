@@ -9,6 +9,12 @@ namespace Pihrtsoft.Regexator.Builder
         : CharGroupExpression
     {
         private readonly IEnumerable<NamedBlock> _values;
+        private readonly NamedBlock _value;
+
+        public NamedBlockGroup(NamedBlock value)
+        {
+            _value = value;
+        }
 
         public NamedBlockGroup(IEnumerable<NamedBlock> values)
         {
@@ -21,7 +27,17 @@ namespace Pihrtsoft.Regexator.Builder
 
         public override string Content
         {
-            get { return Syntax.NamedBlocks(_values); }
+            get 
+            {
+                if (_values != null)
+                {
+                    return Syntax.NamedBlocks(_values); 
+                }
+                else
+                {
+                    return Syntax.NamedBlock(_value);
+                }
+            }
         }
     }
 }

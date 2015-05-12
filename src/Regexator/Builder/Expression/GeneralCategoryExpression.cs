@@ -3,7 +3,7 @@
 namespace Pihrtsoft.Regexator.Builder
 {
     internal class GeneralCategoryExpression
-        : QuantifiableExpression
+        : CharacterExpression
     {
         private readonly GeneralCategory _category;
 
@@ -12,14 +12,19 @@ namespace Pihrtsoft.Regexator.Builder
             _category = category;
         }
 
-        public GeneralCategory Category
+        protected override CharGroupExpression ToGroup()
         {
-            get { return _category; }
+            return new GeneralCategoryGroup(_category);
         }
 
         internal override string Value(BuildContext context)
         {
             return Syntax.GeneralCategory(_category);
+        }
+
+        public GeneralCategory Category
+        {
+            get { return _category; }
         }
     }
 }
