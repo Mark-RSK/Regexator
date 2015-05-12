@@ -111,6 +111,11 @@ namespace Pihrtsoft.Regexator.Builder
             return new NotCharSubtraction(baseGroup, excludedGroup);
         }
 
+        public static CharGroupExpression NewLineChar()
+        {
+            return Char(CharGroupItems.CarriageReturn().Linefeed());
+        }
+
         public static CharGroupExpression Alphanumeric()
         {
             return Char(CharGroupItems.Alphanumeric());
@@ -1383,7 +1388,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static CharSubtraction WhiteSpaceExceptNewLine()
         {
-            return new CharSubtraction(CharGroupItems.WhiteSpace(), CharGroupItems.CarriageReturn().Linefeed());
+            return Chars.WhiteSpace().Except(Chars.NewLineChar());
         }
     }
 }
