@@ -13,11 +13,11 @@ namespace Pihrtsoft.Regexator.Builder.Samples
             Console.WriteLine(Chars.WordChar().OneMany().AsSubexpression()
                 .WhiteSpace().OneMany()
                 .Backreference(1)
-                .AsWordBoundary());
+                .Surround(Anchors.WordBoundary()));
             Console.WriteLine("");
 
             Console.WriteLine("any word");
-            Console.WriteLine(Alternations.Any("word1", "word2", "word3").AsWordBoundary());
+            Console.WriteLine(Alternations.Any("word1", "word2", "word3").Surround(Anchors.WordBoundary()));
             Console.WriteLine("");
 
             Console.WriteLine("words in any order:");
