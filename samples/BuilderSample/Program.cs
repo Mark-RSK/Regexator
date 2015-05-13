@@ -14,6 +14,12 @@ namespace Pihrtsoft.Regexator.Builder.Samples
                 .WhiteSpace().OneMany()
                 .Backreference(1)
                 .Surround(Anchors.WordBoundary()));
+
+            Console.WriteLine(Anchors.Word(
+                Chars.WordChar().OneMany().AsSubexpression()
+                .WhiteSpace().OneMany()
+                .Backreference(1)));
+
             Console.WriteLine("");
 
             Console.WriteLine("any word");
@@ -22,8 +28,8 @@ namespace Pihrtsoft.Regexator.Builder.Samples
 
             Console.WriteLine("words in any order:");
             Console.WriteLine(Anchors.StartOfLine()
-                .Lookahead(Chars.AnyInvariant().MaybeMany().Lazy().WordBoundary("word1"))
-                .Lookahead(Chars.AnyInvariant().MaybeMany().Lazy().WordBoundary("word2"))
+                .Lookahead(Chars.AnyInvariant().MaybeMany().Lazy().Word("word1"))
+                .Lookahead(Chars.AnyInvariant().MaybeMany().Lazy().Word("word2"))
                 .AnyInvariant().MaybeMany());
             Console.WriteLine("");
 

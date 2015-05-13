@@ -66,14 +66,14 @@ namespace Pihrtsoft.Regexator.Builder
             return new WordBoundary();
         }
 
-        public static Expression WordBoundary(string value)
+        public static Expression Word(string value)
         {
-            return Expressions.Surround(value, WordBoundary(), WordBoundary());
+            return Expressions.Surround(value, WordBoundary());
         }
 
-        public static Expression WordBoundary(Expression expression)
+        public static Expression Word(Expression expression)
         {
-            return Expressions.Surround(expression, WordBoundary(), WordBoundary());
+            return Expressions.Surround(expression, WordBoundary());
         }
 
         public static QuantifiableExpression NotWordBoundary()

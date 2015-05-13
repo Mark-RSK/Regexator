@@ -152,14 +152,14 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Anchors.WordBoundary());
         }
 
-        public Expression WordBoundary(string value)
+        public Expression Word(string value)
         {
-            return AppendInternal(Anchors.WordBoundary(value));
+            return AppendInternal(Anchors.Word(value));
         }
 
-        public Expression WordBoundary(Expression expression)
+        public Expression Word(Expression expression)
         {
-            return AppendInternal(Anchors.WordBoundary(expression));
+            return AppendInternal(Anchors.Word(expression));
         }
 
         public QuantifiableExpression NotWordBoundary()
