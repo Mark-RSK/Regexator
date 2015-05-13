@@ -14,12 +14,6 @@ namespace Pihrtsoft.Regexator.Builder.Samples
                 .WhiteSpace().OneMany()
                 .Backreference(1)
                 .Surround(Anchors.WordBoundary()));
-
-            Console.WriteLine(Anchors.Word(
-                Chars.WordChar().OneMany().AsSubexpression()
-                .WhiteSpace().OneMany()
-                .Backreference(1)));
-
             Console.WriteLine("");
 
             Console.WriteLine("any word");

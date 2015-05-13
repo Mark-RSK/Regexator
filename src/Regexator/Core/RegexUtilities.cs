@@ -265,6 +265,58 @@ namespace Pihrtsoft.Regexator
                 throw new ArgumentOutOfRangeException("charCode");
             }
 
+            string s = ((char)charCode).ToString();
+
+            if (Regex.IsMatch(s, @"\d", options))
+            {
+                yield return new CharMatchInfo(@"\d", "Digit character");
+            }
+            else
+            {
+                yield return new CharMatchInfo(@"\D", "Non-digit character");
+            }
+
+            if (Regex.IsMatch(s, @"\s", options))
+            {
+                yield return new CharMatchInfo(@"\s", "Whitespace character");
+            }
+            else
+            {
+                yield return new CharMatchInfo(@"\S", "Non-whitespace character");
+            }
+
+            if (Regex.IsMatch(s, @"\w", options))
+            {
+                yield return new CharMatchInfo(@"\w", "Word character");
+            }
+            else
+            {
+                yield return new CharMatchInfo(@"\W", "Non-word character");
+            }
+
+            foreach (var category in Enum.GetValues(typeof(GeneralCategory)).Cast<GeneralCategory>())
+            {
+                string pattern = Syntax.GeneralCategory(category);
+                if (Regex.IsMatch(s, pattern, options))
+                {
+                    MemberInfo[] info = typeof(GeneralCategory).GetMember(category.ToString());
+                    object[] attributes = info[0].GetCustomAttributes(typeof(DescriptionAttribute), false);
+                    yield return new CharMatchInfo(pattern, string.Format("Unicode general category: {0}", ((DescriptionAttribute)attributes[0]).Description));
+                }
+            }
+
+            foreach (var block in Enum.GetValues(typeof(NamedBlock)).Cast<NamedBlock>())
+            {
+                string pattern = Syntax.NamedBlock(block);
+                if (Regex.IsMatch(s, pattern, options))
+                {
+                    MemberInfo[] info = typeof(NamedBlock).GetMember(block.ToString());
+                    object[] attributes = info[0].GetCustomAttributes(typeof(DescriptionAttribute), false);
+                    yield return new CharMatchInfo(pattern, string.Format("Unicode named block: {0}", ((DescriptionAttribute)attributes[0]).Description));
+                    yield break;
+                }
+            }
+
             if (charCode <= 0xFF)
             {
                 switch (s_escapeModes[charCode])
@@ -351,58 +403,6 @@ namespace Pihrtsoft.Regexator
                     yield return new CharMatchInfo(Syntax.AsciiControlStart + Convert.ToChar('a' + charCode - 1), "ASCII control character");
                     yield return new CharMatchInfo(Syntax.AsciiControlStart + Convert.ToChar('A' + charCode - 1), "ASCII control character");
                 } 
-            }
-
-            string s = ((char)charCode).ToString();
-
-            if (Regex.IsMatch(s, @"\d", options))
-            {
-                yield return new CharMatchInfo(@"\d", "Digit character");
-            }
-            else
-            {
-                yield return new CharMatchInfo(@"\D", "Non-digit character");
-            }
-
-            if (Regex.IsMatch(s, @"\s", options))
-            {
-                yield return new CharMatchInfo(@"\s", "Whitespace character");
-            }
-            else
-            {
-                yield return new CharMatchInfo(@"\S", "Non-whitespace character");
-            }
-
-            if (Regex.IsMatch(s, @"\w", options))
-            {
-                yield return new CharMatchInfo(@"\w", "Word character");
-            }
-            else
-            {
-                yield return new CharMatchInfo(@"\W", "Non-word character");
-            }
-
-            foreach (var category in Enum.GetValues(typeof(GeneralCategory)).Cast<GeneralCategory>())
-            {
-                string pattern = Syntax.GeneralCategory(category);
-                if (Regex.IsMatch(s, pattern, options))
-                {
-                    MemberInfo[] info = typeof(GeneralCategory).GetMember(category.ToString());
-                    object[] attributes = info[0].GetCustomAttributes(typeof(DescriptionAttribute), false);
-                    yield return new CharMatchInfo(pattern, string.Format("Unicode general category: {0}", ((DescriptionAttribute)attributes[0]).Description));
-                }
-            }
-
-            foreach (var block in Enum.GetValues(typeof(NamedBlock)).Cast<NamedBlock>())
-            {
-                string pattern = Syntax.NamedBlock(block);
-                if (Regex.IsMatch(s, pattern, options))
-                {
-                    MemberInfo[] info = typeof(NamedBlock).GetMember(block.ToString());
-                    object[] attributes = info[0].GetCustomAttributes(typeof(DescriptionAttribute), false);
-                    yield return new CharMatchInfo(pattern, string.Format("Unicode named block: {0}", ((DescriptionAttribute)attributes[0]).Description));
-                    yield break;
-                }
             }
         }
 
