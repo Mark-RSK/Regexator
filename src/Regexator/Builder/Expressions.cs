@@ -14,9 +14,19 @@ namespace Pihrtsoft.Regexator.Builder
             return new TextExpression(value);
         }
 
+        internal static Expression Surround(string value, Expression surroundExpression)
+        {
+            return new SurroundExpression(value, surroundExpression, surroundExpression);
+        }
+
         internal static Expression Surround(string value, Expression beforeExpression, Expression afterExpression)
         {
             return new SurroundExpression(value, beforeExpression, afterExpression);
+        }
+
+        internal static Expression Surround(Expression expression, Expression surroundExpression)
+        {
+            return new SurroundExpression(expression, surroundExpression, surroundExpression);
         }
 
         internal static Expression Surround(Expression expression, Expression beforeExpression, Expression afterExpression)
