@@ -131,9 +131,29 @@ namespace Pihrtsoft.Regexator.Builder
             return Char(CharGroupItems.LatinLetter());
         }
 
+        public static CharGroupExpression LatinLetterLower()
+        {
+            return Char(CharGroupItems.LatinLetterLower());
+        }
+
+        public static CharGroupExpression LatinLetterUpper()
+        {
+            return Char(CharGroupItems.LatinLetterUpper());
+        }
+
         public static CharGroupExpression NotLatinLetter()
         {
             return NotChar(CharGroupItems.LatinLetter());
+        }
+
+        public static CharGroupExpression NotLatinLetterLower()
+        {
+            return NotChar(CharGroupItems.LatinLetterLower());
+        }
+
+        public static CharGroupExpression NotLatinLetterUpper()
+        {
+            return NotChar(CharGroupItems.LatinLetterUpper());
         }
 
         public static CharGroupExpression ArabicDigit()

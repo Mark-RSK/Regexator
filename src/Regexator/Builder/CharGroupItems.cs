@@ -91,7 +91,17 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static CharGroupItem LatinLetter()
         {
-            return Range('a', 'z').Range('A', 'Z');
+            return LatinLetterLower().LatinLetterUpper();
+        }
+
+        public static CharGroupItem LatinLetterLower()
+        {
+            return Range('a', 'z');
+        }
+
+        public static CharGroupItem LatinLetterUpper()
+        {
+            return Range('A', 'Z');
         }
 
         public static CharGroupItem ArabicDigit()

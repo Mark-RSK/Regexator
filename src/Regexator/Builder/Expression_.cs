@@ -592,9 +592,29 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Chars.LatinLetter());
         }
 
+        public CharGroupExpression LatinLetterLower()
+        {
+            return AppendInternal(Chars.LatinLetterLower());
+        }
+
+        public CharGroupExpression LatinLetterUpper()
+        {
+            return AppendInternal(Chars.LatinLetterUpper());
+        }
+
         public CharGroupExpression NotLatinLetter()
         {
             return AppendInternal(Chars.NotLatinLetter());
+        }
+
+        public CharGroupExpression NotLatinLetterLower()
+        {
+            return AppendInternal(Chars.NotLatinLetterLower());
+        }
+
+        public CharGroupExpression NotLatinLetterUpper()
+        {
+            return AppendInternal(Chars.NotLatinLetterUpper());
         }
 
         public QuantifiableExpression Any()

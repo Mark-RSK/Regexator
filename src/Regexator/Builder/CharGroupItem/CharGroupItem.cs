@@ -150,6 +150,16 @@ namespace Pihrtsoft.Regexator.Builder
             return Append(CharGroupItems.LatinLetter());
         }
 
+        public CharGroupItem LatinLetterLower()
+        {
+            return Append(CharGroupItems.LatinLetterLower());
+        }
+
+        public CharGroupItem LatinLetterUpper()
+        {
+            return Append(CharGroupItems.LatinLetterUpper());
+        }
+        
         public CharGroupItem ArabicDigit()
         {
             return Append(CharGroupItems.ArabicDigit());
