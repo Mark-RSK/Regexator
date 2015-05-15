@@ -17,7 +17,7 @@ namespace Pihrtsoft.Regexator.Builder
             get { return _block; }
         }
 
-        protected override CharGroupExpression ToGroup()
+        public override CharGroupExpression ToGroup()
         {
             return new NamedBlockGroup(_block);
         }

@@ -9,7 +9,7 @@ namespace Pihrtsoft.Regexator.Builder
         {
         }
 
-        protected abstract CharGroupExpression ToGroup();
+        public abstract CharGroupExpression ToGroup();
 
         public CharSubtraction Except(IExcludedGroup excludedGroup)
         {

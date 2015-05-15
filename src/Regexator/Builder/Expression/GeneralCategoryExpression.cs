@@ -12,7 +12,7 @@ namespace Pihrtsoft.Regexator.Builder
             _category = category;
         }
 
-        protected override CharGroupExpression ToGroup()
+        public override CharGroupExpression ToGroup()
         {
             return new GeneralCategoryGroup(_category);
         }

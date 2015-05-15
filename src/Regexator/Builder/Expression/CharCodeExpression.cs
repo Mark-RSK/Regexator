@@ -18,7 +18,7 @@ namespace Pihrtsoft.Regexator.Builder
             _charCode = charCode;
         }
 
-        protected override CharGroupExpression ToGroup()
+        public override CharGroupExpression ToGroup()
         {
             return new CharCodeGroup(_charCode);
         }
