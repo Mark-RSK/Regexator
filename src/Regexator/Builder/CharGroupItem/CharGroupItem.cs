@@ -165,6 +165,16 @@ namespace Pihrtsoft.Regexator.Builder
             return Append(CharGroupItems.ArabicDigit());
         }
 
+        public CharGroupExpression ToGroup()
+        {
+            return new CharItemGroup(this);
+        }
+
+        public CharGroupExpression ToNotGroup()
+        {
+            return new NotCharItemGroup(this);
+        }
+
         internal abstract string Content { get; }
 
         public string BaseGroupValue
