@@ -109,6 +109,11 @@ namespace Pihrtsoft.Regexator.Builder
             return Range('0', '9');
         }
 
+        public static CharGroupItem NewLineChar()
+        {
+            return CarriageReturn().Linefeed();
+        }
+
         public static CharGroupItem Tab()
         {
             return new AsciiCharItem(AsciiChar.Tab);
