@@ -65,7 +65,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifiableExpression FirstLine()
         {
-            return Miscellaneous.Options(InlineOptions.Multiline).Start().Any().MaybeMany().Lazy().EndOfLineOrBeforeCarriageReturn();
+            return Miscellaneous.Options(InlineOptions.Multiline).Start().AnyMaybeManyLazy().EndOfLineOrBeforeCarriageReturn();
         }
 
         public static QuantifiableExpression NewLine()

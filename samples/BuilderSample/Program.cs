@@ -55,7 +55,7 @@ namespace Pihrtsoft.Regexator.Builder.Samples
             Console.WriteLine("");
 
             Console.WriteLine("first line:");
-            Console.WriteLine(Miscellaneous.Options(InlineOptions.Multiline).Start().Any().MaybeMany().Lazy().EndOfLineOrBeforeCarriageReturn());
+            Console.WriteLine(Miscellaneous.Options(InlineOptions.Multiline).Start().AnyMaybeManyLazy().EndOfLineOrBeforeCarriageReturn());
             Console.WriteLine("");
 
             Console.WriteLine("lf without cr:");
