@@ -8,7 +8,7 @@ namespace Pihrtsoft.Regexator.Builder
     public partial class Expression
     {
         public Expression Surround(Expression expression)
-        { 
+        {
             return Expressions.Surround(this, expression);
         }
 

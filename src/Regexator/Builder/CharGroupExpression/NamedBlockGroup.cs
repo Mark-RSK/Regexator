@@ -27,11 +27,11 @@ namespace Pihrtsoft.Regexator.Builder
 
         public override string Content
         {
-            get 
+            get
             {
                 if (_values != null)
                 {
-                    return Syntax.NamedBlocks(_values); 
+                    return Syntax.NamedBlocks(_values);
                 }
                 else
                 {

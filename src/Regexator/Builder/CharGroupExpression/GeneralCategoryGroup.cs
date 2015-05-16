@@ -27,15 +27,15 @@ namespace Pihrtsoft.Regexator.Builder
 
         public override string Content
         {
-            get 
+            get
             {
                 if (_values != null)
                 {
-                    return Syntax.GeneralCategories(_values); 
+                    return Syntax.GeneralCategories(_values);
                 }
                 else
                 {
-                    return Syntax.GeneralCategory(_value); 
+                    return Syntax.GeneralCategory(_value);
                 }
             }
         }

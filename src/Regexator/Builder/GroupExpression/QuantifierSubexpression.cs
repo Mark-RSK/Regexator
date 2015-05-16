@@ -43,8 +43,8 @@ namespace Pihrtsoft.Regexator.Builder
         {
             get
             {
-                return ChildExpression == null || 
-                    !(ChildExpression is QuantifiableExpression) || 
+                return ChildExpression == null ||
+                    !(ChildExpression is QuantifiableExpression) ||
                     ChildExpression.Previous != null;
             }
         }

@@ -244,7 +244,7 @@ namespace Pihrtsoft.Regexator
         }
 
         public static IEnumerable<CharMatchInfo> GetMatchingPatterns(int charCode)
-        { 
+        {
             return GetMatchingPatterns(charCode, RegexOptions.None);
         }
 
@@ -402,7 +402,7 @@ namespace Pihrtsoft.Regexator
                 {
                     yield return new CharMatchInfo(Syntax.AsciiControlStart + Convert.ToChar('a' + charCode - 1), "ASCII control character");
                     yield return new CharMatchInfo(Syntax.AsciiControlStart + Convert.ToChar('A' + charCode - 1), "ASCII control character");
-                } 
+                }
             }
         }
 

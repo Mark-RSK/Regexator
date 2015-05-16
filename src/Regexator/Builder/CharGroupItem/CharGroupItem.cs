@@ -159,7 +159,7 @@ namespace Pihrtsoft.Regexator.Builder
         {
             return Append(CharGroupItems.LatinLetterUpper());
         }
-        
+
         public CharGroupItem ArabicDigit()
         {
             return Append(CharGroupItems.ArabicDigit());
