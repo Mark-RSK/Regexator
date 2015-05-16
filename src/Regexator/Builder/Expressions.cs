@@ -31,7 +31,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifiableExpression Never()
         {
-            return Assertions.NotLookahead(string.Empty);
+            return Anchors.NotLookahead(string.Empty);
         }
 
         public static Expression LeadingWhiteSpace()
