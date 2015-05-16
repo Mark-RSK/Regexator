@@ -313,7 +313,7 @@ namespace Pihrtsoft.Regexator
                     MemberInfo[] info = typeof(NamedBlock).GetMember(block.ToString());
                     object[] attributes = info[0].GetCustomAttributes(typeof(DescriptionAttribute), false);
                     yield return new CharMatchInfo(pattern, string.Format("Unicode named block: {0}", ((DescriptionAttribute)attributes[0]).Description));
-                    yield break;
+                    break;
                 }
             }
 
