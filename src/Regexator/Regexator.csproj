@@ -67,7 +67,6 @@
     <Compile Include="Builder\AssertionExpression\CharCodeAssertion.cs" />
     <Compile Include="Builder\AssertionExpression\CharAssertion.cs" />
     <Compile Include="Builder\AssertionExpression\AsciiCharAssertion.cs" />
-    <Compile Include="Builder\AssertionExpression\CharClassAssertion.cs" />
     <Compile Include="Builder\AssertionExpression\NamedBlockAssertion.cs" />
     <Compile Include="Builder\AssertionExpression\GeneralCategoryAssertion.cs" />
     <Compile Include="Builder\Expression\CharacterExpression.cs" />
