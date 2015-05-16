@@ -170,7 +170,7 @@ namespace Pihrtsoft.Regexator.Builder
             return new CharItemGroup(this);
         }
 
-        public CharGroupExpression ToNotGroup()
+        public CharGroupExpression ToNegativeGroup()
         {
             return new NotCharItemGroup(this);
         }
