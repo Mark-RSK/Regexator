@@ -207,11 +207,6 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Assertions.Lookahead(value));
         }
 
-        public QuantifiableExpression Lookahead(CharClass value)
-        {
-            return AppendInternal(Assertions.Lookahead(value));
-        }
-
         public QuantifiableExpression Lookahead(NamedBlock block)
         {
             return AppendInternal(Assertions.Lookahead(block));
@@ -243,11 +238,6 @@ namespace Pihrtsoft.Regexator.Builder
         }
 
         public QuantifiableExpression NotLookahead(AsciiChar value)
-        {
-            return AppendInternal(Assertions.NotLookahead(value));
-        }
-
-        public QuantifiableExpression NotLookahead(CharClass value)
         {
             return AppendInternal(Assertions.NotLookahead(value));
         }
@@ -287,11 +277,6 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Assertions.Lookbehind(value));
         }
 
-        public QuantifiableExpression Lookbehind(CharClass value)
-        {
-            return AppendInternal(Assertions.Lookbehind(value));
-        }
-
         public QuantifiableExpression Lookbehind(NamedBlock block)
         {
             return AppendInternal(Assertions.Lookbehind(block));
@@ -323,11 +308,6 @@ namespace Pihrtsoft.Regexator.Builder
         }
 
         public QuantifiableExpression NotLookbehind(AsciiChar value)
-        {
-            return AppendInternal(Assertions.NotLookbehind(value));
-        }
-
-        public QuantifiableExpression NotLookbehind(CharClass value)
         {
             return AppendInternal(Assertions.NotLookbehind(value));
         }
@@ -488,11 +468,6 @@ namespace Pihrtsoft.Regexator.Builder
         }
 
         public QuantifiableExpression Char(IEnumerable<AsciiChar> values)
-        {
-            return AppendInternal(Chars.Char(values));
-        }
-
-        public QuantifiableExpression Char(IEnumerable<CharClass> values)
         {
             return AppendInternal(Chars.Char(values));
         }
@@ -743,11 +718,6 @@ namespace Pihrtsoft.Regexator.Builder
         }
 
         public QuantifiableExpression Char(AsciiChar value)
-        {
-            return AppendInternal(Chars.Char(value));
-        }
-
-        public QuantifiableExpression Char(CharClass value)
         {
             return AppendInternal(Chars.Char(value));
         }

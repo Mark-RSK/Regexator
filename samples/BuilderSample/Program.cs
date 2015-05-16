@@ -9,8 +9,6 @@ namespace Pihrtsoft.Regexator.Builder.Samples
     {
         internal static void Main(string[] args)
         {
-            Console.WriteLine(Chars.WhiteSpace().ToGroup());
-
             Console.WriteLine("repeated word");
             Console.WriteLine(Chars.WordChar().OneMany().AsSubexpression()
                 .WhiteSpace().OneMany()

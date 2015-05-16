@@ -31,11 +31,6 @@ namespace Pihrtsoft.Regexator.Builder
             return new AsciiCharGroup(values);
         }
 
-        public static CharGroupExpression Char(IEnumerable<CharClass> values)
-        {
-            return new CharClassGroup(values);
-        }
-
         public static CharGroupExpression Char(IEnumerable<NamedBlock> blocks)
         {
             return new NamedBlockGroup(blocks);
@@ -284,11 +279,6 @@ namespace Pihrtsoft.Regexator.Builder
         public static CharacterExpression Char(AsciiChar value)
         {
             return new AsciiCharExpression(value);
-        }
-
-        public static CharacterExpression Char(CharClass value)
-        {
-            return new CharClassExpression(value);
         }
 
         public static CharacterExpression NamedBlock(NamedBlock block)

@@ -29,11 +29,6 @@ namespace Pihrtsoft.Regexator.Builder
             return new AsciiCharAssertion(AssertionKind.Lookahead, value);
         }
 
-        public static QuantifiableExpression Lookahead(CharClass value)
-        {
-            return new CharClassAssertion(AssertionKind.Lookahead, value);
-        }
-
         public static QuantifiableExpression Lookahead(NamedBlock block)
         {
             return new NamedBlockAssertion(AssertionKind.Lookahead, block);
@@ -67,11 +62,6 @@ namespace Pihrtsoft.Regexator.Builder
         public static QuantifiableExpression NotLookahead(AsciiChar value)
         {
             return new AsciiCharAssertion(AssertionKind.NotLookahead, value);
-        }
-
-        public static QuantifiableExpression NotLookahead(CharClass value)
-        {
-            return new CharClassAssertion(AssertionKind.NotLookahead, value);
         }
 
         public static QuantifiableExpression NotLookahead(NamedBlock block)
@@ -109,11 +99,6 @@ namespace Pihrtsoft.Regexator.Builder
             return new AsciiCharAssertion(AssertionKind.Lookbehind, value);
         }
 
-        public static QuantifiableExpression Lookbehind(CharClass value)
-        {
-            return new CharClassAssertion(AssertionKind.Lookbehind, value);
-        }
-
         public static QuantifiableExpression Lookbehind(NamedBlock block)
         {
             return new NamedBlockAssertion(AssertionKind.Lookbehind, block);
@@ -147,11 +132,6 @@ namespace Pihrtsoft.Regexator.Builder
         public static QuantifiableExpression NotLookbehind(AsciiChar value)
         {
             return new AsciiCharAssertion(AssertionKind.NotLookbehind, value);
-        }
-
-        public static QuantifiableExpression NotLookbehind(CharClass value)
-        {
-            return new CharClassAssertion(AssertionKind.NotLookbehind, value);
         }
 
         public static QuantifiableExpression NotLookbehind(NamedBlock block)
