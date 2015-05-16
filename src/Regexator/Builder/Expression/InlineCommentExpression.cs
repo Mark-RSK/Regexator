@@ -8,21 +8,21 @@ namespace Pihrtsoft.Regexator.Builder
     internal sealed class InlineCommentExpression
         : Expression
     {
-        private readonly string _value;
+        private readonly string _comment;
         private static readonly Lazy<Regex> s_trimCommentRegex = new Lazy<Regex>(() => Anchors.Start().NotRightParenthesis().MaybeMany().ToRegex());
 
-        internal InlineCommentExpression(string value)
+        internal InlineCommentExpression(string comment)
         {
-            if (value == null)
+            if (comment == null)
             {
-                throw new ArgumentNullException("value");
+                throw new ArgumentNullException("comment");
             }
-            _value = value;
+            _comment = comment;
         }
 
         internal override string Value(BuildContext context)
         {
-            return Syntax.InlineComment(s_trimCommentRegex.Value.Match(_value).Value);
+            return Syntax.InlineComment(s_trimCommentRegex.Value.Match(_comment).Value);
         }
     }
 }

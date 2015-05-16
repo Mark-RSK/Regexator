@@ -5,7 +5,7 @@ namespace Pihrtsoft.Regexator.Builder
     internal sealed class TextExpression
         : Expression
     {
-        private readonly string _value;
+        private readonly string _text;
         private readonly bool _escape;
 
         internal TextExpression()
@@ -13,20 +13,20 @@ namespace Pihrtsoft.Regexator.Builder
         {
         }
 
-        internal TextExpression(string value)
-            : this(value, true)
+        internal TextExpression(string text)
+            : this(text, true)
         {
         }
 
-        internal TextExpression(string value, bool escape)
+        internal TextExpression(string text, bool escape)
         {
-            _value = value;
+            _text = text;
             _escape = escape;
         }
 
         internal override string Value(BuildContext context)
         {
-            return (_escape && _value != null) ? RegexUtilities.Escape(_value) : _value;
+            return (_escape && _text != null) ? RegexUtilities.Escape(_text) : _text;
         }
     }
 }

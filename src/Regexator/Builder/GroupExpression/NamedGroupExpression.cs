@@ -9,13 +9,13 @@ namespace Pihrtsoft.Regexator.Builder
     {
         private readonly string _groupName;
 
-        internal NamedGroupExpression(string groupName, string value)
-            : this(groupName, value, true)
+        internal NamedGroupExpression(string groupName, string text)
+            : this(groupName, text, true)
         {
         }
 
-        internal NamedGroupExpression(string groupName, string value, bool checkGroupName)
-            : base(value)
+        internal NamedGroupExpression(string groupName, string text, bool checkGroupName)
+            : base(text)
         {
             if (groupName == null)
             {

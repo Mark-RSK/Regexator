@@ -8,13 +8,13 @@ namespace Pihrtsoft.Regexator.Builder
         private readonly InlineOptions _applyOptions;
         private readonly InlineOptions _disableOptions;
 
-        internal GroupOptionsExpression(InlineOptions applyOptions, string value)
-            : this(applyOptions, InlineOptions.None, value)
+        internal GroupOptionsExpression(InlineOptions applyOptions, string text)
+            : this(applyOptions, InlineOptions.None, text)
         {
         }
 
-        internal GroupOptionsExpression(InlineOptions applyOptions, InlineOptions disableOptions, string value)
-            : base(value)
+        internal GroupOptionsExpression(InlineOptions applyOptions, InlineOptions disableOptions, string text)
+            : base(text)
         {
             _applyOptions = applyOptions;
             _disableOptions = disableOptions;

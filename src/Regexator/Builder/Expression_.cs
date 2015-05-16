@@ -152,9 +152,9 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Anchors.WordBoundary());
         }
 
-        public Expression Word(string value)
+        public Expression Word(string text)
         {
-            return AppendInternal(Anchors.Word(value));
+            return AppendInternal(Anchors.Word(text));
         }
 
         public Expression Word(Expression expression)
@@ -182,14 +182,14 @@ namespace Pihrtsoft.Regexator.Builder
             return Anchors.EntireInput(this);
         }
 
-        public QuantifiableExpression Lookahead(Expression value)
+        public QuantifiableExpression Lookahead(Expression expression)
         {
-            return AppendInternal(Anchors.Lookahead(value));
+            return AppendInternal(Anchors.Lookahead(expression));
         }
 
-        public QuantifiableExpression Lookahead(string value)
+        public QuantifiableExpression Lookahead(string text)
         {
-            return AppendInternal(Anchors.Lookahead(value));
+            return AppendInternal(Anchors.Lookahead(text));
         }
 
         public QuantifiableExpression Lookahead(CharGroupItem item)
@@ -222,14 +222,14 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Anchors.Lookahead(category));
         }
 
-        public QuantifiableExpression NotLookahead(Expression value)
+        public QuantifiableExpression NotLookahead(Expression expression)
         {
-            return AppendInternal(Anchors.NotLookahead(value));
+            return AppendInternal(Anchors.NotLookahead(expression));
         }
 
-        public QuantifiableExpression NotLookahead(string value)
+        public QuantifiableExpression NotLookahead(string text)
         {
-            return AppendInternal(Anchors.NotLookahead(value));
+            return AppendInternal(Anchors.NotLookahead(text));
         }
 
         public QuantifiableExpression NotLookahead(CharGroupItem item)
@@ -262,14 +262,14 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Anchors.NotLookahead(category));
         }
 
-        public QuantifiableExpression Lookbehind(Expression value)
+        public QuantifiableExpression Lookbehind(Expression expression)
         {
-            return AppendInternal(Anchors.Lookbehind(value));
+            return AppendInternal(Anchors.Lookbehind(expression));
         }
 
-        public QuantifiableExpression Lookbehind(string value)
+        public QuantifiableExpression Lookbehind(string text)
         {
-            return AppendInternal(Anchors.Lookbehind(value));
+            return AppendInternal(Anchors.Lookbehind(text));
         }
 
         public QuantifiableExpression Lookbehind(CharGroupItem item)
@@ -302,14 +302,14 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Anchors.Lookbehind(category));
         }
 
-        public QuantifiableExpression NotLookbehind(Expression value)
+        public QuantifiableExpression NotLookbehind(Expression expression)
         {
-            return AppendInternal(Anchors.NotLookbehind(value));
+            return AppendInternal(Anchors.NotLookbehind(expression));
         }
 
-        public QuantifiableExpression NotLookbehind(string value)
+        public QuantifiableExpression NotLookbehind(string text)
         {
-            return AppendInternal(Anchors.NotLookbehind(value));
+            return AppendInternal(Anchors.NotLookbehind(text));
         }
 
         public QuantifiableExpression NotLookbehind(CharGroupItem item)
@@ -362,14 +362,14 @@ namespace Pihrtsoft.Regexator.Builder
             return Anchors.NotLookbehind(this);
         }
 
-        public QuantifiableExpression NamedGroup(string name, Expression value)
+        public QuantifiableExpression NamedGroup(string name, Expression expression)
         {
-            return AppendInternal(Groups.NamedGroup(name, value));
+            return AppendInternal(Groups.NamedGroup(name, expression));
         }
 
-        public QuantifiableExpression NamedGroup(string name, string value)
+        public QuantifiableExpression NamedGroup(string name, string text)
         {
-            return AppendInternal(Groups.NamedGroup(name, value));
+            return AppendInternal(Groups.NamedGroup(name, text));
         }
 
         public QuantifiableExpression AsNamedGroup(string name)
@@ -377,14 +377,14 @@ namespace Pihrtsoft.Regexator.Builder
             return Groups.NamedGroup(name, this);
         }
 
-        public QuantifiableExpression Subexpression(Expression value)
+        public QuantifiableExpression Subexpression(Expression expression)
         {
-            return AppendInternal(Groups.Subexpression(value));
+            return AppendInternal(Groups.Subexpression(expression));
         }
 
-        public QuantifiableExpression Subexpression(string value)
+        public QuantifiableExpression Subexpression(string text)
         {
-            return AppendInternal(Groups.Subexpression(value));
+            return AppendInternal(Groups.Subexpression(text));
         }
 
         public QuantifiableExpression AsSubexpression()
@@ -392,14 +392,14 @@ namespace Pihrtsoft.Regexator.Builder
             return Groups.Subexpression(this);
         }
 
-        public QuantifiableExpression Noncapturing(Expression value)
+        public QuantifiableExpression Noncapturing(Expression expression)
         {
-            return AppendInternal(Groups.Noncapturing(value));
+            return AppendInternal(Groups.Noncapturing(expression));
         }
 
-        public QuantifiableExpression Noncapturing(string value)
+        public QuantifiableExpression Noncapturing(string text)
         {
-            return AppendInternal(Groups.Noncapturing(value));
+            return AppendInternal(Groups.Noncapturing(text));
         }
 
         public QuantifiableExpression AsNoncapturing()
@@ -407,14 +407,14 @@ namespace Pihrtsoft.Regexator.Builder
             return Groups.Noncapturing(this);
         }
 
-        public QuantifiableExpression Nonbacktracking(Expression value)
+        public QuantifiableExpression Nonbacktracking(Expression expression)
         {
-            return AppendInternal(Groups.Nonbacktracking(value));
+            return AppendInternal(Groups.Nonbacktracking(expression));
         }
 
-        public QuantifiableExpression Nonbacktracking(string value)
+        public QuantifiableExpression Nonbacktracking(string text)
         {
-            return AppendInternal(Groups.Nonbacktracking(value));
+            return AppendInternal(Groups.Nonbacktracking(text));
         }
 
         public QuantifiableExpression AsNonbacktracking()
@@ -422,14 +422,14 @@ namespace Pihrtsoft.Regexator.Builder
             return Groups.Nonbacktracking(this);
         }
 
-        public QuantifiableExpression Balancing(string name1, string name2, Expression value)
+        public QuantifiableExpression Balancing(string name1, string name2, Expression expression)
         {
-            return AppendInternal(Groups.Balancing(name1, name2, value));
+            return AppendInternal(Groups.Balancing(name1, name2, expression));
         }
 
-        public QuantifiableExpression Balancing(string name1, string name2, string value)
+        public QuantifiableExpression Balancing(string name1, string name2, string text)
         {
-            return AppendInternal(Groups.Balancing(name1, name2, value));
+            return AppendInternal(Groups.Balancing(name1, name2, text));
         }
 
         public QuantifiableExpression AsBalancing(string name1, string name2)
@@ -437,24 +437,24 @@ namespace Pihrtsoft.Regexator.Builder
             return Groups.Balancing(name1, name2, this);
         }
 
-        public QuantifiableExpression GroupOptions(InlineOptions applyOptions, Expression value)
+        public QuantifiableExpression GroupOptions(InlineOptions applyOptions, Expression expression)
         {
-            return AppendInternal(Groups.GroupOptions(applyOptions, value));
+            return AppendInternal(Groups.GroupOptions(applyOptions, expression));
         }
 
-        public QuantifiableExpression GroupOptions(InlineOptions applyOptions, string value)
+        public QuantifiableExpression GroupOptions(InlineOptions applyOptions, string text)
         {
-            return AppendInternal(Groups.GroupOptions(applyOptions, value));
+            return AppendInternal(Groups.GroupOptions(applyOptions, text));
         }
 
-        public QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, Expression value)
+        public QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, Expression expression)
         {
-            return AppendInternal(Groups.GroupOptions(applyOptions, disableOptions, value));
+            return AppendInternal(Groups.GroupOptions(applyOptions, disableOptions, expression));
         }
 
-        public QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, string value)
+        public QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, string text)
         {
-            return AppendInternal(Groups.GroupOptions(applyOptions, disableOptions, value));
+            return AppendInternal(Groups.GroupOptions(applyOptions, disableOptions, text));
         }
 
         public QuantifiableExpression AsGroupOptions(InlineOptions applyOptions)
@@ -1857,34 +1857,34 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Chars.NotTilde(minCount, maxCount));
         }
 
-        public QuantifierExpression Maybe(string value)
+        public QuantifierExpression Maybe(string text)
         {
-            return AppendInternal(Quantifiers.Maybe(value));
+            return AppendInternal(Quantifiers.Maybe(text));
         }
 
-        public QuantifierExpression Maybe(Expression value)
+        public QuantifierExpression Maybe(Expression expression)
         {
-            return AppendInternal(Quantifiers.Maybe(value));
+            return AppendInternal(Quantifiers.Maybe(expression));
         }
 
-        public QuantifierExpression MaybeMany(string value)
+        public QuantifierExpression MaybeMany(string text)
         {
-            return AppendInternal(Quantifiers.MaybeMany(value));
+            return AppendInternal(Quantifiers.MaybeMany(text));
         }
 
-        public QuantifierExpression MaybeMany(Expression value)
+        public QuantifierExpression MaybeMany(Expression expression)
         {
-            return AppendInternal(Quantifiers.MaybeMany(value));
+            return AppendInternal(Quantifiers.MaybeMany(expression));
         }
 
-        public QuantifierExpression OneMany(string value)
+        public QuantifierExpression OneMany(string text)
         {
-            return AppendInternal(Quantifiers.OneMany(value));
+            return AppendInternal(Quantifiers.OneMany(text));
         }
 
-        public QuantifierExpression OneMany(Expression value)
+        public QuantifierExpression OneMany(Expression expression)
         {
-            return AppendInternal(Quantifiers.OneMany(value));
+            return AppendInternal(Quantifiers.OneMany(expression));
         }
 
         public QuantifiableExpression Backreference(int groupNumber)

@@ -9,21 +9,21 @@ namespace Pihrtsoft.Regexator.Builder
         : QuantifiableExpression
     {
         private readonly Expression _expression;
-        private readonly string _value;
+        private readonly string _text;
 
         internal GroupExpression()
             : base()
         {
         }
 
-        internal GroupExpression(string value)
+        internal GroupExpression(string text)
             : base()
         {
-            if (value == null)
+            if (text == null)
             {
-                throw new ArgumentNullException("value");
+                throw new ArgumentNullException("text");
             }
-            _value = value;
+            _text = text;
         }
 
         internal GroupExpression(Expression expression)
@@ -54,7 +54,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         internal override string Value(BuildContext context)
         {
-            return (_value != null) ? RegexUtilities.Escape(_value) : null;
+            return (_text != null) ? RegexUtilities.Escape(_text) : null;
         }
 
         internal virtual Expression ChildExpression

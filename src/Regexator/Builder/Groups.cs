@@ -9,9 +9,9 @@ namespace Pihrtsoft.Regexator.Builder
             return new NamedGroupExpression(name, expression);
         }
 
-        public static QuantifiableExpression NamedGroup(string name, string value)
+        public static QuantifiableExpression NamedGroup(string name, string text)
         {
-            return new NamedGroupExpression(name, value);
+            return new NamedGroupExpression(name, text);
         }
 
         public static QuantifiableExpression Subexpression(Expression expression)
@@ -19,9 +19,9 @@ namespace Pihrtsoft.Regexator.Builder
             return new Subexpression(expression);
         }
 
-        public static QuantifiableExpression Subexpression(string value)
+        public static QuantifiableExpression Subexpression(string text)
         {
-            return new Subexpression(value);
+            return new Subexpression(text);
         }
 
         public static QuantifiableExpression Noncapturing(Expression expression)
@@ -29,9 +29,9 @@ namespace Pihrtsoft.Regexator.Builder
             return new NoncapturingExpression(expression);
         }
 
-        public static QuantifiableExpression Noncapturing(string value)
+        public static QuantifiableExpression Noncapturing(string text)
         {
-            return new NoncapturingExpression(value);
+            return new NoncapturingExpression(text);
         }
 
         public static QuantifiableExpression Balancing(string name1, string name2, Expression expression)
@@ -39,9 +39,9 @@ namespace Pihrtsoft.Regexator.Builder
             return new BalancingGroupExpression(name1, name2, expression);
         }
 
-        public static QuantifiableExpression Balancing(string name1, string name2, string value)
+        public static QuantifiableExpression Balancing(string name1, string name2, string text)
         {
-            return new BalancingGroupExpression(name1, name2, value);
+            return new BalancingGroupExpression(name1, name2, text);
         }
 
         public static QuantifiableExpression Nonbacktracking(Expression expression)
@@ -49,9 +49,9 @@ namespace Pihrtsoft.Regexator.Builder
             return new NonbacktrackingExpression(expression);
         }
 
-        public static QuantifiableExpression Nonbacktracking(string value)
+        public static QuantifiableExpression Nonbacktracking(string text)
         {
-            return new NonbacktrackingExpression(value);
+            return new NonbacktrackingExpression(text);
         }
 
         public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, Expression expression)
@@ -59,9 +59,9 @@ namespace Pihrtsoft.Regexator.Builder
             return new GroupOptionsExpression(applyOptions, expression);
         }
 
-        public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, string value)
+        public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, string text)
         {
-            return new GroupOptionsExpression(applyOptions, value);
+            return new GroupOptionsExpression(applyOptions, text);
         }
 
         public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, Expression expression)
@@ -69,9 +69,9 @@ namespace Pihrtsoft.Regexator.Builder
             return new GroupOptionsExpression(applyOptions, disableOptions, expression);
         }
 
-        public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, string value)
+        public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, string text)
         {
-            return new GroupOptionsExpression(applyOptions, disableOptions, value);
+            return new GroupOptionsExpression(applyOptions, disableOptions, text);
         }
     }
 }

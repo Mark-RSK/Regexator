@@ -150,10 +150,10 @@ namespace Pihrtsoft.Regexator.Builder
 
         internal virtual IEnumerable<string> EnumerateContent(BuildContext context)
         {
-            string value = Value(context);
-            if (value != null)
+            string s = Value(context);
+            if (s != null)
             {
-                yield return value;
+                yield return s;
             }
         }
 

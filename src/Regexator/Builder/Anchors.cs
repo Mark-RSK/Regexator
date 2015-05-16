@@ -4,14 +4,14 @@ namespace Pihrtsoft.Regexator.Builder
 {
     public static class Anchors
     {
-        public static QuantifiableExpression Lookahead(Expression value)
+        public static QuantifiableExpression Lookahead(Expression expression)
         {
-            return new AssertionExpression(AssertionKind.Lookahead, value);
+            return new AssertionExpression(AssertionKind.Lookahead, expression);
         }
 
-        public static QuantifiableExpression Lookahead(string value)
+        public static QuantifiableExpression Lookahead(string text)
         {
-            return new AssertionExpression(AssertionKind.Lookahead, value);
+            return new AssertionExpression(AssertionKind.Lookahead, text);
         }
 
         public static QuantifiableExpression Lookahead(CharGroupItem item)
@@ -44,14 +44,14 @@ namespace Pihrtsoft.Regexator.Builder
             return new GeneralCategoryAssertion(AssertionKind.Lookahead, category);
         }
 
-        public static QuantifiableExpression NotLookahead(Expression value)
+        public static QuantifiableExpression NotLookahead(Expression expression)
         {
-            return new AssertionExpression(AssertionKind.NotLookahead, value);
+            return new AssertionExpression(AssertionKind.NotLookahead, expression);
         }
 
-        public static QuantifiableExpression NotLookahead(string value)
+        public static QuantifiableExpression NotLookahead(string text)
         {
-            return new AssertionExpression(AssertionKind.NotLookahead, value);
+            return new AssertionExpression(AssertionKind.NotLookahead, text);
         }
 
         public static QuantifiableExpression NotLookahead(CharGroupItem item)
@@ -84,14 +84,14 @@ namespace Pihrtsoft.Regexator.Builder
             return new GeneralCategoryAssertion(AssertionKind.NotLookahead, category);
         }
 
-        public static QuantifiableExpression Lookbehind(Expression value)
+        public static QuantifiableExpression Lookbehind(Expression expression)
         {
-            return new AssertionExpression(AssertionKind.Lookbehind, value);
+            return new AssertionExpression(AssertionKind.Lookbehind, expression);
         }
 
-        public static QuantifiableExpression Lookbehind(string value)
+        public static QuantifiableExpression Lookbehind(string text)
         {
-            return new AssertionExpression(AssertionKind.Lookbehind, value);
+            return new AssertionExpression(AssertionKind.Lookbehind, text);
         }
 
         public static QuantifiableExpression Lookbehind(CharGroupItem item)
@@ -124,14 +124,14 @@ namespace Pihrtsoft.Regexator.Builder
             return new GeneralCategoryAssertion(AssertionKind.Lookbehind, category);
         }
 
-        public static QuantifiableExpression NotLookbehind(Expression value)
+        public static QuantifiableExpression NotLookbehind(Expression expression)
         {
-            return new AssertionExpression(AssertionKind.NotLookbehind, value);
+            return new AssertionExpression(AssertionKind.NotLookbehind, expression);
         }
 
-        public static QuantifiableExpression NotLookbehind(string value)
+        public static QuantifiableExpression NotLookbehind(string text)
         {
-            return new AssertionExpression(AssertionKind.NotLookbehind, value);
+            return new AssertionExpression(AssertionKind.NotLookbehind, text);
         }
 
         public static QuantifiableExpression NotLookbehind(CharGroupItem item)
@@ -226,9 +226,9 @@ namespace Pihrtsoft.Regexator.Builder
             return new WordBoundary();
         }
 
-        public static Expression Word(string value)
+        public static Expression Word(string text)
         {
-            return Expressions.Surround(value, WordBoundary());
+            return Expressions.Surround(text, WordBoundary());
         }
 
         public static Expression Word(Expression expression)

@@ -9,6 +9,14 @@ namespace Pihrtsoft.Regexator.Builder.Samples
     {
         internal static void Main(string[] args)
         {
+            Console.WriteLine("digits inside b element value");
+            Console.WriteLine(Chars
+                .Digit().OneMany()
+                .Lookahead(Quantifiers
+                    .MaybeMany(Anchors.NotLookahead("<b>").Any())
+                    .Text("</b>")));
+            Console.WriteLine("");
+
             Console.WriteLine("repeated word");
             Console.WriteLine(Chars.WordChar().OneMany().AsSubexpression()
                 .WhiteSpace().OneMany()

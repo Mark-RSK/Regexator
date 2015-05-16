@@ -5,8 +5,8 @@ namespace Pihrtsoft.Regexator.Builder
     internal sealed class Subexpression
         : GroupExpression
     {
-        internal Subexpression(string value)
-            : base(value)
+        internal Subexpression(string text)
+            : base(text)
         {
         }
 

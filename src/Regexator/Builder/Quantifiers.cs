@@ -34,9 +34,9 @@ namespace Pihrtsoft.Regexator.Builder
             return new CountRangeQuantifier(minCount, maxCount);
         }
 
-        internal static QuantifiableExpression QuantifierGroup(string value)
+        internal static QuantifiableExpression QuantifierGroup(string text)
         {
-            return new QuantifierSubexpression(value);
+            return new QuantifierSubexpression(text);
         }
 
         internal static QuantifiableExpression QuantifierGroup(Expression expression)
@@ -44,34 +44,34 @@ namespace Pihrtsoft.Regexator.Builder
             return new QuantifierSubexpression(expression);
         }
 
-        public static QuantifierExpression Maybe(string value)
+        public static QuantifierExpression Maybe(string text)
         {
-            return QuantifierGroup(value).Maybe();
+            return QuantifierGroup(text).Maybe();
         }
 
-        public static QuantifierExpression Maybe(Expression value)
+        public static QuantifierExpression Maybe(Expression expression)
         {
-            return QuantifierGroup(value).Maybe();
+            return QuantifierGroup(expression).Maybe();
         }
 
-        public static QuantifierExpression MaybeMany(string value)
+        public static QuantifierExpression MaybeMany(string text)
         {
-            return QuantifierGroup(value).MaybeMany();
+            return QuantifierGroup(text).MaybeMany();
         }
 
-        public static QuantifierExpression MaybeMany(Expression value)
+        public static QuantifierExpression MaybeMany(Expression expression)
         {
-            return QuantifierGroup(value).MaybeMany();
+            return QuantifierGroup(expression).MaybeMany();
         }
 
-        public static QuantifierExpression OneMany(string value)
+        public static QuantifierExpression OneMany(string text)
         {
-            return QuantifierGroup(value).OneMany();
+            return QuantifierGroup(text).OneMany();
         }
 
-        public static QuantifierExpression OneMany(Expression value)
+        public static QuantifierExpression OneMany(Expression expression)
         {
-            return QuantifierGroup(value).OneMany();
+            return QuantifierGroup(expression).OneMany();
         }
     }
 }

@@ -5,8 +5,8 @@ namespace Pihrtsoft.Regexator.Builder
     internal sealed class NoncapturingExpression
         : GroupExpression
     {
-        internal NoncapturingExpression(string value)
-            : base(value)
+        internal NoncapturingExpression(string text)
+            : base(text)
         {
         }
 

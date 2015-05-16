@@ -10,8 +10,8 @@ namespace Pihrtsoft.Regexator.Builder
         private readonly string _name1;
         private readonly string _name2;
 
-        internal BalancingGroupExpression(string name1, string name2, string value)
-            : base(value)
+        internal BalancingGroupExpression(string name1, string name2, string text)
+            : base(text)
         {
             if (name1 == null)
             {

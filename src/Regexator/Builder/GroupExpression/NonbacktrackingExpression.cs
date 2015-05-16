@@ -5,8 +5,8 @@ namespace Pihrtsoft.Regexator.Builder
     internal sealed class NonbacktrackingExpression
         : GroupExpression
     {
-        internal NonbacktrackingExpression(string value)
-            : base(value)
+        internal NonbacktrackingExpression(string text)
+            : base(text)
         {
         }
 

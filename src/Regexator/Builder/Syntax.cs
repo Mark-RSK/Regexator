@@ -104,24 +104,24 @@ namespace Pihrtsoft.Regexator.Builder
             return SubexpressionStart + groupName + GroupEnd;
         }
 
-        public static string Lookahead(string value)
+        public static string Lookahead(string text)
         {
-            return LookaheadStart + value + GroupEnd;
+            return LookaheadStart + text + GroupEnd;
         }
 
-        public static string NotLookahead(string value)
+        public static string NotLookahead(string text)
         {
-            return NotLookaheadStart + value + GroupEnd;
+            return NotLookaheadStart + text + GroupEnd;
         }
 
-        public static string Lookbehind(string value)
+        public static string Lookbehind(string text)
         {
-            return LookbehindStart + value + GroupEnd;
+            return LookbehindStart + text + GroupEnd;
         }
 
-        public static string NotLookbehind(string value)
+        public static string NotLookbehind(string text)
         {
-            return NotLookbehindStart + value + GroupEnd;
+            return NotLookbehindStart + text + GroupEnd;
         }
 
         public static string Backreference(int groupNumber)
@@ -149,14 +149,14 @@ namespace Pihrtsoft.Regexator.Builder
             return null;
         }
 
-        public static string Group(string groupName, string value, IdentifierBoundary boundary)
+        public static string Group(string groupName, string text, IdentifierBoundary boundary)
         {
             if (groupName == null)
             {
                 throw new ArgumentNullException("groupName");
             }
             RegexUtilities.CheckGroupName(groupName);
-            return GroupStart(groupName, boundary) + value + GroupEnd;
+            return GroupStart(groupName, boundary) + text + GroupEnd;
         }
 
         internal static string GroupStart(string groupName, IdentifierBoundary boundary)
@@ -171,9 +171,9 @@ namespace Pihrtsoft.Regexator.Builder
             return null;
         }
 
-        public static string BalancingGroup(string name1, string name2, string value, IdentifierBoundary separator)
+        public static string BalancingGroup(string name1, string name2, string text, IdentifierBoundary separator)
         {
-            return BalancingGroupStart(name1, name2, separator) + value + GroupEnd;
+            return BalancingGroupStart(name1, name2, separator) + text + GroupEnd;
         }
 
         internal static string BalancingGroupStart(string name1, string name2, IdentifierBoundary separator)
@@ -196,41 +196,41 @@ namespace Pihrtsoft.Regexator.Builder
             return null;
         }
 
-        public static string Subexpression(string value)
+        public static string Subexpression(string text)
         {
-            if (value == null)
+            if (text == null)
             {
                 throw new ArgumentNullException("value");
             }
-            return SubexpressionStart + value + GroupEnd;
+            return SubexpressionStart + text + GroupEnd;
         }
 
-        public static string NoncapturingGroup(string value)
+        public static string NoncapturingGroup(string text)
         {
-            if (value == null)
+            if (text == null)
             {
                 throw new ArgumentNullException("value");
             }
-            return NoncapturingGroupStart + value + GroupEnd;
+            return NoncapturingGroupStart + text + GroupEnd;
         }
 
-        public static string NonbacktrackingGroup(string value)
+        public static string NonbacktrackingGroup(string text)
         {
-            if (value == null)
+            if (text == null)
             {
                 throw new ArgumentNullException("value");
             }
-            return NonbacktrackingGroupStart + value + GroupEnd;
+            return NonbacktrackingGroupStart + text + GroupEnd;
         }
 
-        public static string GroupOptions(InlineOptions applyOptions, string value)
+        public static string GroupOptions(InlineOptions applyOptions, string text)
         {
-            return GroupOptions(applyOptions, InlineOptions.None, value);
+            return GroupOptions(applyOptions, InlineOptions.None, text);
         }
 
-        public static string GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, string value)
+        public static string GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, string text)
         {
-            return GroupOptionsStart(applyOptions, disableOptions) + value + GroupEnd;
+            return GroupOptionsStart(applyOptions, disableOptions) + text + GroupEnd;
         }
 
         internal static string GroupOptionsStart(InlineOptions applyOptions, InlineOptions disableOptions)
@@ -569,9 +569,9 @@ namespace Pihrtsoft.Regexator.Builder
             }
         }
 
-        public static string InlineComment(string value)
+        public static string InlineComment(string comment)
         {
-            return InlineCommentStart + value + GroupEnd;
+            return InlineCommentStart + comment + GroupEnd;
         }
 
         [SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]

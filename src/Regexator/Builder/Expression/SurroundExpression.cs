@@ -12,8 +12,8 @@ namespace Pihrtsoft.Regexator.Builder
         private readonly Expression _before;
         private readonly Expression _after;
 
-        public SurroundExpression(string value, Expression beforeExpression, Expression afterExpression)
-            : this(new TextExpression(value), beforeExpression, afterExpression)
+        public SurroundExpression(string text, Expression beforeExpression, Expression afterExpression)
+            : this(new TextExpression(text), beforeExpression, afterExpression)
         {
         }
 

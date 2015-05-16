@@ -7,20 +7,20 @@ namespace Pihrtsoft.Regexator.Builder
     internal sealed class TextSubstitution
         : Substitution
     {
-        private readonly string _value;
+        private readonly string _text;
 
-        internal TextSubstitution(string value)
+        internal TextSubstitution(string text)
         {
-            if (value == null)
+            if (text == null)
             {
-                throw new ArgumentNullException("value");
+                throw new ArgumentNullException("text");
             }
-            _value = value;
+            _text = text;
         }
 
         internal override string Value
         {
-            get { return RegexUtilities.EscapeSubstitution(_value); }
+            get { return RegexUtilities.EscapeSubstitution(_text); }
         }
     }
 }

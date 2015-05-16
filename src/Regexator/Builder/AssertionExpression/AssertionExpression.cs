@@ -13,14 +13,14 @@ namespace Pihrtsoft.Regexator.Builder
             _assertionKind = kind;
         }
 
-        internal AssertionExpression(AssertionKind kind, Expression value)
-            : base(value)
+        internal AssertionExpression(AssertionKind kind, Expression expression)
+            : base(expression)
         {
             _assertionKind = kind;
         }
 
-        internal AssertionExpression(AssertionKind kind, string value)
-            : base(value)
+        internal AssertionExpression(AssertionKind kind, string text)
+            : base(text)
         {
             _assertionKind = kind;
         }
