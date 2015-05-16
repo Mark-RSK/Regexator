@@ -63,6 +63,7 @@
     <Compile Include="Builder\AlternationExpression\IfExpression.cs" />
     <Compile Include="Builder\AlternationExpression\GroupNumberIfExpression.cs" />
     <Compile Include="Builder\AlternationExpression\GroupNameIfExpression.cs" />
+    <Compile Include="Builder\AssertionExpression\CharGroupAssertion.cs" />
     <Compile Include="Builder\AssertionExpression\CharCodeAssertion.cs" />
     <Compile Include="Builder\AssertionExpression\CharAssertion.cs" />
     <Compile Include="Builder\AssertionExpression\AsciiCharAssertion.cs" />

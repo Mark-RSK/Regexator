@@ -14,6 +14,11 @@ namespace Pihrtsoft.Regexator.Builder
             return new AssertionExpression(AssertionKind.Lookahead, value);
         }
 
+        public static QuantifiableExpression Lookahead(CharGroupItem item)
+        {
+            return new CharGroupAssertion(AssertionKind.Lookahead, item);
+        }
+
         public static QuantifiableExpression Lookahead(char value)
         {
             return new CharAssertion(AssertionKind.Lookahead, value);
@@ -47,6 +52,11 @@ namespace Pihrtsoft.Regexator.Builder
         public static QuantifiableExpression NotLookahead(string value)
         {
             return new AssertionExpression(AssertionKind.NotLookahead, value);
+        }
+
+        public static QuantifiableExpression NotLookahead(CharGroupItem item)
+        {
+            return new CharGroupAssertion(AssertionKind.NotLookahead, item);
         }
 
         public static QuantifiableExpression NotLookahead(char value)
@@ -84,6 +94,11 @@ namespace Pihrtsoft.Regexator.Builder
             return new AssertionExpression(AssertionKind.Lookbehind, value);
         }
 
+        public static QuantifiableExpression Lookbehind(CharGroupItem item)
+        {
+            return new CharGroupAssertion(AssertionKind.Lookbehind, item);
+        }
+
         public static QuantifiableExpression Lookbehind(char value)
         {
             return new CharAssertion(AssertionKind.Lookbehind, value);
@@ -117,6 +132,11 @@ namespace Pihrtsoft.Regexator.Builder
         public static QuantifiableExpression NotLookbehind(string value)
         {
             return new AssertionExpression(AssertionKind.NotLookbehind, value);
+        }
+
+        public static QuantifiableExpression NotLookbehind(CharGroupItem item)
+        {
+            return new CharGroupAssertion(AssertionKind.NotLookbehind, item);
         }
 
         public static QuantifiableExpression NotLookbehind(char value)

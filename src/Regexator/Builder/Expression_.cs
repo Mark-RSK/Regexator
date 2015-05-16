@@ -192,6 +192,11 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Assertions.Lookahead(value));
         }
 
+        public QuantifiableExpression Lookahead(CharGroupItem item)
+        {
+            return AppendInternal(Assertions.Lookahead(item));
+        }
+
         public QuantifiableExpression Lookahead(char value)
         {
             return AppendInternal(Assertions.Lookahead(value));
@@ -225,6 +230,11 @@ namespace Pihrtsoft.Regexator.Builder
         public QuantifiableExpression NotLookahead(string value)
         {
             return AppendInternal(Assertions.NotLookahead(value));
+        }
+
+        public QuantifiableExpression NotLookahead(CharGroupItem item)
+        {
+            return AppendInternal(Assertions.NotLookahead(item));
         }
 
         public QuantifiableExpression NotLookahead(char value)
@@ -262,6 +272,11 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Assertions.Lookbehind(value));
         }
 
+        public QuantifiableExpression Lookbehind(CharGroupItem item)
+        {
+            return AppendInternal(Assertions.Lookbehind(item));
+        }
+
         public QuantifiableExpression Lookbehind(char value)
         {
             return AppendInternal(Assertions.Lookbehind(value));
@@ -295,6 +310,11 @@ namespace Pihrtsoft.Regexator.Builder
         public QuantifiableExpression NotLookbehind(string value)
         {
             return AppendInternal(Assertions.NotLookbehind(value));
+        }
+
+        public QuantifiableExpression NotLookbehind(CharGroupItem item)
+        {
+            return AppendInternal(Assertions.NotLookbehind(item));
         }
 
         public QuantifiableExpression NotLookbehind(char value)
