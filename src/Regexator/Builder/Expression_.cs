@@ -927,34 +927,34 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Chars.NotExclamationMark(minCount, maxCount));
         }
 
-        public QuantifiableExpression QuotationMark()
+        public QuantifiableExpression QuoteMark()
         {
-            return AppendInternal(Chars.QuotationMark());
+            return AppendInternal(Chars.QuoteMark());
         }
 
-        public QuantifierExpression QuotationMark(int exactCount)
+        public QuantifierExpression QuoteMark(int exactCount)
         {
-            return AppendInternal(Chars.QuotationMark(exactCount));
+            return AppendInternal(Chars.QuoteMark(exactCount));
         }
 
-        public QuantifierExpression QuotationMark(int minCount, int maxCount)
+        public QuantifierExpression QuoteMark(int minCount, int maxCount)
         {
-            return AppendInternal(Chars.QuotationMark(minCount, maxCount));
+            return AppendInternal(Chars.QuoteMark(minCount, maxCount));
         }
 
-        public QuantifiableExpression NotQuotationMark()
+        public QuantifiableExpression NotQuoteMark()
         {
-            return AppendInternal(Chars.NotQuotationMark());
+            return AppendInternal(Chars.NotQuoteMark());
         }
 
-        public QuantifierExpression NotQuotationMark(int exactCount)
+        public QuantifierExpression NotQuoteMark(int exactCount)
         {
-            return AppendInternal(Chars.NotQuotationMark(exactCount));
+            return AppendInternal(Chars.NotQuoteMark(exactCount));
         }
 
-        public QuantifierExpression NotQuotationMark(int minCount, int maxCount)
+        public QuantifierExpression NotQuoteMark(int minCount, int maxCount)
         {
-            return AppendInternal(Chars.NotQuotationMark(minCount, maxCount));
+            return AppendInternal(Chars.NotQuoteMark(minCount, maxCount));
         }
 
         public QuantifiableExpression NumberSign()

@@ -139,9 +139,9 @@ namespace Pihrtsoft.Regexator.Builder
             return new AsciiCharItem(AsciiChar.ExclamationMark);
         }
 
-        public static CharGroupItem QuotationMark()
+        public static CharGroupItem QuoteMark()
         {
-            return new AsciiCharItem(AsciiChar.QuotationMark);
+            return new AsciiCharItem(AsciiChar.QuoteMark);
         }
 
         public static CharGroupItem NumberSign()

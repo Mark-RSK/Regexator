@@ -38,7 +38,7 @@ namespace Pihrtsoft.Regexator.Builder
         InformationSeparatorOne = 31,
         Space = 32,
         ExclamationMark = 33,
-        QuotationMark = 34,
+        QuoteMark = 34,
         NumberSign = 35,
         Dollar = 36,
         Percent = 37,

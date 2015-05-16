@@ -29,9 +29,9 @@ namespace Pihrtsoft.Regexator.Builder
             return Append(CharGroupItems.ExclamationMark());
         }
 
-        public CharGroupItem QuotationMark()
+        public CharGroupItem QuoteMark()
         {
-            return Append(CharGroupItems.QuotationMark());
+            return Append(CharGroupItems.QuoteMark());
         }
 
         public CharGroupItem NumberSign()

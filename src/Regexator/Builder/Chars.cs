@@ -466,34 +466,34 @@ namespace Pihrtsoft.Regexator.Builder
             return NotChar(AsciiChar.ExclamationMark).CountRange(minCount, maxCount);
         }
 
-        public static CharacterExpression QuotationMark()
+        public static CharacterExpression QuoteMark()
         {
-            return Char(AsciiChar.QuotationMark);
+            return Char(AsciiChar.QuoteMark);
         }
 
-        public static QuantifierExpression QuotationMark(int exactCount)
+        public static QuantifierExpression QuoteMark(int exactCount)
         {
-            return Char(AsciiChar.QuotationMark).Count(exactCount);
+            return Char(AsciiChar.QuoteMark).Count(exactCount);
         }
 
-        public static QuantifierExpression QuotationMark(int minCount, int maxCount)
+        public static QuantifierExpression QuoteMark(int minCount, int maxCount)
         {
-            return Char(AsciiChar.QuotationMark).CountRange(minCount, maxCount);
+            return Char(AsciiChar.QuoteMark).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression NotQuotationMark()
+        public static QuantifiableExpression NotQuoteMark()
         {
-            return NotChar(AsciiChar.QuotationMark);
+            return NotChar(AsciiChar.QuoteMark);
         }
 
-        public static QuantifierExpression NotQuotationMark(int exactCount)
+        public static QuantifierExpression NotQuoteMark(int exactCount)
         {
-            return NotChar(AsciiChar.QuotationMark).Count(exactCount);
+            return NotChar(AsciiChar.QuoteMark).Count(exactCount);
         }
 
-        public static QuantifierExpression NotQuotationMark(int minCount, int maxCount)
+        public static QuantifierExpression NotQuoteMark(int minCount, int maxCount)
         {
-            return NotChar(AsciiChar.QuotationMark).CountRange(minCount, maxCount);
+            return NotChar(AsciiChar.QuoteMark).CountRange(minCount, maxCount);
         }
 
         public static CharacterExpression NumberSign()

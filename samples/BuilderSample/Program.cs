@@ -9,6 +9,14 @@ namespace Pihrtsoft.Regexator.Builder
     {
         internal static void Main(string[] args)
         {
+            Console.WriteLine("quoted text");
+            Console.WriteLine(Anchors
+                .Lookbehind(Chars.QuoteMark())
+                .NotChar(CharGroupItems.QuoteMark().NewLineChar()).MaybeMany()
+                .MaybeMany(Chars.QuoteMark().QuoteMark().NotChar(CharGroupItems.QuoteMark().NewLineChar()).MaybeMany())
+                .Lookahead(Chars.QuoteMark()));
+            Console.WriteLine("");
+
             Console.WriteLine("digits inside b element value");
             Console.WriteLine(Chars
                 .Digit().OneMany()
