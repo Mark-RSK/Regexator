@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Text.RegularExpressions;
 
-namespace Pihrtsoft.Regexator.Builder.Samples
+namespace Pihrtsoft.Regexator.Builder
 {
     internal class Program
     {

@@ -200,7 +200,7 @@ namespace Pihrtsoft.Regexator.Builder
         {
             if (text == null)
             {
-                throw new ArgumentNullException("value");
+                throw new ArgumentNullException("text");
             }
             return SubexpressionStart + text + GroupEnd;
         }
@@ -209,7 +209,7 @@ namespace Pihrtsoft.Regexator.Builder
         {
             if (text == null)
             {
-                throw new ArgumentNullException("value");
+                throw new ArgumentNullException("text");
             }
             return NoncapturingGroupStart + text + GroupEnd;
         }
@@ -218,7 +218,7 @@ namespace Pihrtsoft.Regexator.Builder
         {
             if (text == null)
             {
-                throw new ArgumentNullException("value");
+                throw new ArgumentNullException("text");
             }
             return NonbacktrackingGroupStart + text + GroupEnd;
         }
