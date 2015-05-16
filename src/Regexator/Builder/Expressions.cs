@@ -77,10 +77,5 @@ namespace Pihrtsoft.Regexator.Builder
         {
             return Chars.CarriageReturn().AsNotLookbehind().Linefeed().AsNonbacktracking();
         }
-
-        internal static QuantifiableExpression InsignificantSeparator()
-        {
-            return Groups.GroupOptions(InlineOptions.IgnorePatternWhitespace, new TextExpression(" ", false));
-        }
     }
 }

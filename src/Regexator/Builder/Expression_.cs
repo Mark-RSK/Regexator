@@ -1921,11 +1921,5 @@ namespace Pihrtsoft.Regexator.Builder
         {
             return AppendInternal(Expressions.Text(value));
         }
-
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal QuantifiableExpression InsignificantSeparator()
-        {
-            return AppendInternal(Expressions.InsignificantSeparator());
-        }
     }
 }

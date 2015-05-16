@@ -24,7 +24,7 @@ namespace Pihrtsoft.Regexator.Builder
         {
             if (context.Settings.SeparatorAfterNumberBackreference)
             {
-                yield return Syntax.Backreference(GroupNumber) + Expressions.InsignificantSeparator();
+                yield return Syntax.Backreference(GroupNumber) + Groups.Noncapturing(string.Empty);
             }
             else
             {
