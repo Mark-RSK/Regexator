@@ -15,6 +15,10 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifiableExpression Any(Func<Expression, Expression> selector, IEnumerable<Expression> expressions)
         {
+            if (expressions == null)
+            {
+                throw new ArgumentNullException("expressions");
+            }
             return new AnyExpression(expressions.Select(selector));
         }
 
@@ -25,6 +29,10 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifiableExpression Any(Func<Expression, Expression> selector, params Expression[] expressions)
         {
+            if (expressions == null)
+            {
+                throw new ArgumentNullException("expressions");
+            }
             return new AnyExpression(expressions.Select(selector));
         }
 
@@ -35,6 +43,10 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifiableExpression Any(Func<string, Expression> selector, IEnumerable<string> values)
         {
+            if (values == null)
+            {
+                throw new ArgumentNullException("values");
+            }
             return new AnyExpression(values.Select(selector));
         }
 
@@ -45,6 +57,10 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifiableExpression Any(Func<string, Expression> selector, params string[] values)
         {
+            if (values == null)
+            {
+                throw new ArgumentNullException("values");
+            }
             return new AnyExpression(values.Select(selector));
         }
 
