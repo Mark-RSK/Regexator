@@ -11,7 +11,12 @@ namespace Pihrtsoft.Regexator.Builder
         private readonly IEnumerable<string> _values;
 
         internal AnyTextExpression(IEnumerable<string> values)
-            : base()
+            : this(true, values)
+        {
+        }
+
+        internal AnyTextExpression(bool noncapturing, IEnumerable<string> values)
+            : base(noncapturing)
         {
             if (values == null)
             {
@@ -21,7 +26,12 @@ namespace Pihrtsoft.Regexator.Builder
         }
 
         internal AnyTextExpression(params string[] values)
-            : base()
+            : this(true, values)
+        {
+        }
+
+        internal AnyTextExpression(bool noncapturing, params string[] values)
+            : base(noncapturing)
         {
             if (values == null)
             {

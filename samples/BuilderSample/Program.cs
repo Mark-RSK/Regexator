@@ -1,10 +1,9 @@
-﻿using System;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Text.RegularExpressions;
+﻿// Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-namespace Pihrtsoft.Regexator.Builder
+using System;
+using System.IO;
+
+namespace Pihrtsoft.Regexator.Builder.Samples
 {
     internal class Program
     {
@@ -15,7 +14,8 @@ namespace Pihrtsoft.Regexator.Builder
                 .WordBoundary()
                 .Noncapturing(Alternations
                     .Any(f => Groups.Subexpression(f), "one", "two", "three")
-                    .Any(Chars.Comma(), Anchors.WordBoundary())
+                    .WordBoundary()
+                    .NotWordChar().MaybeMany().Lazy()
                 ).Count(3)
                 .RequireGroups(1, 2, 3));
             Console.WriteLine("");
