@@ -9,12 +9,24 @@ namespace Pihrtsoft.Regexator.Builder
     {
         internal static void Main(string[] args)
         {
-            Console.WriteLine("quoted text");
+            Console.WriteLine("multiple words");
             Console.WriteLine(Anchors
-                .Lookbehind(Chars.QuoteMark())
-                .NotChar(CharGroupItems.QuoteMark().NewLineChar()).MaybeMany()
-                .MaybeMany(Chars.QuoteMark().QuoteMark().NotChar(CharGroupItems.QuoteMark().NewLineChar()).MaybeMany())
-                .Lookahead(Chars.QuoteMark()));
+                .WordBoundary()
+                .Noncapturing(
+                    Groups.Noncapturing(
+                        Alternations
+                            .Any(Groups.Subexpression("one"), Groups.Subexpression("two"), Groups.Subexpression("three")))
+                            .Any(Chars.Comma(), Anchors.WordBoundary())
+                ).Count(3)
+                .RequireGroups(1, 2, 3));
+
+            var quotedChar = CharGroupItems.QuoteMark().NewLineChar().ToNegativeGroup().MaybeMany();
+
+            Console.WriteLine("quoted text");
+            Console.WriteLine(
+                quotedChar
+                .MaybeMany(Chars.QuoteMark(2).Append(quotedChar))
+                .Surround(Chars.QuoteMark()));
             Console.WriteLine("");
 
             Console.WriteLine("digits inside b element value");

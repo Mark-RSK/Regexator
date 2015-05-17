@@ -1,12 +1,47 @@
 // Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Pihrtsoft.Regexator.Builder
 {
     public partial class Expression
     {
+        public QuantifiableExpression RequireGroup(string groupName)
+        {
+            RegexUtilities.CheckGroupName(groupName);
+            return AppendInternal(Alternations.IfGroup(groupName, Expressions.Empty(), Expressions.Never()));
+        }
+
+        public QuantifiableExpression RequireGroups(string groupName1, string groupName2)
+        {
+            return RequireGroup(groupName1).RequireGroup(groupName2);
+        }
+
+        public QuantifiableExpression RequireGroups(string groupName1, string groupName2, string groupName3)
+        {
+            return RequireGroups(groupName1, groupName2).RequireGroup(groupName3);
+        }
+
+        public QuantifiableExpression RequireGroup(int groupNumber)
+        {
+            if (groupNumber < 0)
+            {
+                throw new ArgumentOutOfRangeException("groupNumber");
+            }
+            return AppendInternal(Alternations.IfGroup(groupNumber, Expressions.Empty(), Expressions.Never()));
+        }
+
+        public QuantifiableExpression RequireGroups(int groupNumber1, int groupNumber2)
+        {
+            return RequireGroup(groupNumber1).RequireGroup(groupNumber2);
+        }
+
+        public QuantifiableExpression RequireGroups(int groupNumber1, int groupNumber2, int groupNumber3)
+        {
+            return RequireGroups(groupNumber1, groupNumber2).RequireGroup(groupNumber3);
+        }
+
         public Expression Surround(Expression expression)
         {
             return Expressions.Surround(this, expression);
