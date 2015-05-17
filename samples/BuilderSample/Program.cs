@@ -19,6 +19,22 @@ namespace Pihrtsoft.Regexator.Builder
                             .Any(Chars.Comma(), Anchors.WordBoundary())
                 ).Count(3)
                 .RequireGroups(1, 2, 3));
+            Console.WriteLine("");
+
+            Console.WriteLine("multiple words 2");
+            Console.WriteLine(Anchors
+                .WordBoundary()
+                .Noncapturing(
+                    Groups.Noncapturing(
+                        Alternations.Any(Expressions.Text("one").Subexpression(), Expressions.Text("two").Subexpression(), Expressions.Text("three").Subexpression())
+                    )
+                    .WordBoundary()
+                    .NotWordChar().MaybeMany().Lazy()
+                ).CountFrom(3)
+                .Backreference(1)
+                .Backreference(2)
+                .Backreference(3));
+            Console.WriteLine("");
 
             var quotedChar = CharGroupItems.QuoteMark().NewLineChar().ToNegativeGroup().MaybeMany();
 

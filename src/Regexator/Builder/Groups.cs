@@ -14,14 +14,19 @@ namespace Pihrtsoft.Regexator.Builder
             return new NamedGroupExpression(name, text);
         }
 
-        public static QuantifiableExpression Subexpression(Expression expression)
+        public static QuantifiableExpression Subexpression()
         {
-            return new Subexpression(expression);
+            return new Subexpression(string.Empty);
         }
 
         public static QuantifiableExpression Subexpression(string text)
         {
             return new Subexpression(text);
+        }
+
+        public static QuantifiableExpression Subexpression(Expression expression)
+        {
+            return new Subexpression(expression);
         }
 
         public static QuantifiableExpression Noncapturing(Expression expression)

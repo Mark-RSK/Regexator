@@ -412,14 +412,19 @@ namespace Pihrtsoft.Regexator.Builder
             return Groups.NamedGroup(name, this);
         }
 
-        public QuantifiableExpression Subexpression(Expression expression)
+        public QuantifiableExpression Subexpression()
         {
-            return AppendInternal(Groups.Subexpression(expression));
+            return AppendInternal(Groups.Subexpression());
         }
 
         public QuantifiableExpression Subexpression(string text)
         {
             return AppendInternal(Groups.Subexpression(text));
+        }
+
+        public QuantifiableExpression Subexpression(Expression expression)
+        {
+            return AppendInternal(Groups.Subexpression(expression));
         }
 
         public QuantifiableExpression AsSubexpression()
