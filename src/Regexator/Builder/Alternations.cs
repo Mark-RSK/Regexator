@@ -1,6 +1,8 @@
 // Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Pihrtsoft.Regexator.Builder
 {
@@ -11,9 +13,19 @@ namespace Pihrtsoft.Regexator.Builder
             return new AnyExpression(expressions);
         }
 
+        public static QuantifiableExpression Any(Func<Expression, Expression> selector, IEnumerable<Expression> expressions)
+        {
+            return new AnyExpression(expressions.Select(selector));
+        }
+
         public static QuantifiableExpression Any(params Expression[] expressions)
         {
             return new AnyExpression(expressions);
+        }
+
+        public static QuantifiableExpression Any(Func<Expression, Expression> selector, params Expression[] expressions)
+        {
+            return new AnyExpression(expressions.Select(selector));
         }
 
         public static QuantifiableExpression Any(IEnumerable<string> values)
@@ -21,9 +33,19 @@ namespace Pihrtsoft.Regexator.Builder
             return new AnyTextExpression(values);
         }
 
+        public static QuantifiableExpression Any(Func<string, Expression> selector, IEnumerable<string> values)
+        {
+            return new AnyExpression(values.Select(selector));
+        }
+
         public static QuantifiableExpression Any(params string[] values)
         {
             return new AnyTextExpression(values);
+        }
+
+        public static QuantifiableExpression Any(Func<string, Expression> selector, params string[] values)
+        {
+            return new AnyExpression(values.Select(selector));
         }
 
         public static QuantifiableExpression IfGroup(string groupName, Expression yes)

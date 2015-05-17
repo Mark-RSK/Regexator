@@ -15,7 +15,7 @@ namespace Pihrtsoft.Regexator.Builder
                 .Noncapturing(
                     Groups.Noncapturing(
                         Alternations
-                            .Any(Groups.Subexpression("one"), Groups.Subexpression("two"), Groups.Subexpression("three")))
+                            .Any(f => Groups.Subexpression(f), "one", "two", "three"))
                             .Any(Chars.Comma(), Anchors.WordBoundary())
                 ).Count(3)
                 .RequireGroups(1, 2, 3));
@@ -24,10 +24,8 @@ namespace Pihrtsoft.Regexator.Builder
             Console.WriteLine("multiple words 2");
             Console.WriteLine(Anchors
                 .WordBoundary()
-                .Noncapturing(
-                    Groups.Noncapturing(
-                        Alternations.Any(Expressions.Text("one").Subexpression(), Expressions.Text("two").Subexpression(), Expressions.Text("three").Subexpression())
-                    )
+                .Noncapturing(Groups
+                    .Noncapturing(Alternations.Any(f => Expressions.Text(f).Subexpression(), "one", "two", "three"))
                     .WordBoundary()
                     .NotWordChar().MaybeMany().Lazy()
                 ).CountFrom(3)
