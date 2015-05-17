@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace Pihrtsoft.Regexator.Builder
@@ -12,11 +13,9 @@ namespace Pihrtsoft.Regexator.Builder
             Console.WriteLine("multiple words");
             Console.WriteLine(Anchors
                 .WordBoundary()
-                .Noncapturing(
-                    Groups.Noncapturing(
-                        Alternations
-                            .Any(f => Groups.Subexpression(f), "one", "two", "three"))
-                            .Any(Chars.Comma(), Anchors.WordBoundary())
+                .Noncapturing(Alternations
+                    .Any(f => Groups.Subexpression(f), "one", "two", "three")
+                    .Any(Chars.Comma(), Anchors.WordBoundary())
                 ).Count(3)
                 .RequireGroups(1, 2, 3));
             Console.WriteLine("");
@@ -24,8 +23,8 @@ namespace Pihrtsoft.Regexator.Builder
             Console.WriteLine("multiple words 2");
             Console.WriteLine(Anchors
                 .WordBoundary()
-                .Noncapturing(Groups
-                    .Noncapturing(Alternations.Any(f => Expressions.Text(f).Subexpression(), "one", "two", "three"))
+                .Noncapturing(Alternations
+                    .Any(f => Expressions.Text(f).Subexpression(), "one", "two", "three")
                     .WordBoundary()
                     .NotWordChar().MaybeMany().Lazy()
                 ).CountFrom(3)
