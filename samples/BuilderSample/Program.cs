@@ -100,7 +100,7 @@ namespace Pihrtsoft.Regexator.Builder.Samples
             Console.WriteLine("");
 
             Console.WriteLine("lf without cr:");
-            Console.WriteLine(Chars.CarriageReturn().AsNotAssertionBack().Linefeed().AsNonbacktracking());
+            Console.WriteLine(Chars.CarriageReturn().AsNotAssertBack().Linefeed().AsNonbacktracking());
             Console.WriteLine("");
 
             Console.WriteLine("file name invalid chars:");

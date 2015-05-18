@@ -75,7 +75,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifiableExpression LinefeedWithoutCarriageReturn()
         {
-            return Chars.CarriageReturn().AsNotAssertionBack().Linefeed().AsNonbacktracking();
+            return Chars.CarriageReturn().AsNotAssertBack().Linefeed().AsNonbacktracking();
         }
     }
 }

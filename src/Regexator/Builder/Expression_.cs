@@ -377,22 +377,22 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Anchors.NotAssertBack(category));
         }
 
-        public QuantifiableExpression AsAssertion()
+        public QuantifiableExpression AsAssert()
         {
             return Anchors.Assert(this);
         }
 
-        public QuantifiableExpression AsNotAssertion()
+        public QuantifiableExpression AsNotAssert()
         {
             return Anchors.NotAssert(this);
         }
 
-        public QuantifiableExpression AsAssertionBack()
+        public QuantifiableExpression AsAssertBack()
         {
             return Anchors.AssertBack(this);
         }
 
-        public QuantifiableExpression AsNotAssertionBack()
+        public QuantifiableExpression AsNotAssertBack()
         {
             return Anchors.NotAssertBack(this);
         }
