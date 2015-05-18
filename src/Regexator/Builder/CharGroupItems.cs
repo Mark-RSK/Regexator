@@ -109,6 +109,11 @@ namespace Pihrtsoft.Regexator.Builder
             return Range('0', '9');
         }
 
+        public static CharGroupItem HexadecimalDigit()
+        {
+            return ArabicDigit().Range('a', 'f').Range('A', 'F');
+        }
+
         public static CharGroupItem NewLineChar()
         {
             return CarriageReturn().Linefeed();
