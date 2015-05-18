@@ -78,5 +78,45 @@ namespace Pihrtsoft.Regexator.Builder
         {
             return new GroupOptionsExpression(applyOptions, disableOptions, text);
         }
+
+        public static QuantifierExpression Maybe(string text)
+        {
+            return QuantifierGroup(text).Maybe();
+        }
+
+        public static QuantifierExpression Maybe(Expression expression)
+        {
+            return QuantifierGroup(expression).Maybe();
+        }
+
+        public static QuantifierExpression MaybeMany(string text)
+        {
+            return QuantifierGroup(text).MaybeMany();
+        }
+
+        public static QuantifierExpression MaybeMany(Expression expression)
+        {
+            return QuantifierGroup(expression).MaybeMany();
+        }
+
+        public static QuantifierExpression OneMany(string text)
+        {
+            return QuantifierGroup(text).OneMany();
+        }
+
+        public static QuantifierExpression OneMany(Expression expression)
+        {
+            return QuantifierGroup(expression).OneMany();
+        }
+
+        internal static QuantifiableExpression QuantifierGroup(string text)
+        {
+            return new QuantifierSubexpression(text);
+        }
+
+        internal static QuantifiableExpression QuantifierGroup(Expression expression)
+        {
+            return new QuantifierSubexpression(expression);
+        }
     }
 }

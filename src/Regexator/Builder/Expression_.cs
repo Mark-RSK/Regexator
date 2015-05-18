@@ -1909,32 +1909,32 @@ namespace Pihrtsoft.Regexator.Builder
 
         public QuantifierExpression Maybe(string text)
         {
-            return AppendInternal(Quantifiers.Maybe(text));
+            return AppendInternal(Groups.Maybe(text));
         }
 
         public QuantifierExpression Maybe(Expression expression)
         {
-            return AppendInternal(Quantifiers.Maybe(expression));
+            return AppendInternal(Groups.Maybe(expression));
         }
 
         public QuantifierExpression MaybeMany(string text)
         {
-            return AppendInternal(Quantifiers.MaybeMany(text));
+            return AppendInternal(Groups.MaybeMany(text));
         }
 
         public QuantifierExpression MaybeMany(Expression expression)
         {
-            return AppendInternal(Quantifiers.MaybeMany(expression));
+            return AppendInternal(Groups.MaybeMany(expression));
         }
 
         public QuantifierExpression OneMany(string text)
         {
-            return AppendInternal(Quantifiers.OneMany(text));
+            return AppendInternal(Groups.OneMany(text));
         }
 
         public QuantifierExpression OneMany(Expression expression)
         {
-            return AppendInternal(Quantifiers.OneMany(expression));
+            return AppendInternal(Groups.OneMany(expression));
         }
 
         public QuantifiableExpression Backreference(int groupNumber)

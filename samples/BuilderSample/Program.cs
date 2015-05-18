@@ -45,7 +45,7 @@ namespace Pihrtsoft.Regexator.Builder.Samples
             Console.WriteLine("digits inside b element value");
             Console.WriteLine(Chars
                 .Digit().OneMany()
-                .Assert(Quantifiers
+                .Assert(Groups
                     .MaybeMany(Anchors.NotAssert("<b>").Any())
                     .Text("</b>")));
             Console.WriteLine("");
