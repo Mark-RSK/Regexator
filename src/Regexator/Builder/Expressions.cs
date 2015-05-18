@@ -31,7 +31,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifiableExpression Never()
         {
-            return Anchors.NotLookahead(string.Empty);
+            return Anchors.NotAssert(string.Empty);
         }
 
         public static Expression LeadingWhiteSpace()
@@ -75,7 +75,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifiableExpression LinefeedWithoutCarriageReturn()
         {
-            return Chars.CarriageReturn().AsNotLookbehind().Linefeed().AsNonbacktracking();
+            return Chars.CarriageReturn().AsNotAssertionBack().Linefeed().AsNonbacktracking();
         }
     }
 }

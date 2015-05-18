@@ -25,10 +25,10 @@ namespace Pihrtsoft.Regexator.Builder
         public const string NotWordBoundary = @"\B";
         public const string PreviousMatchEnd = @"\G";
 
-        internal const string LookaheadStart = "(?=";
-        internal const string NotLookaheadStart = "(?!";
-        internal const string LookbehindStart = "(?<=";
-        internal const string NotLookbehindStart = "(?<!";
+        internal const string AssertStart = "(?=";
+        internal const string NotAssertStart = "(?!";
+        internal const string AssertBackStart = "(?<=";
+        internal const string NotAssertBackStart = "(?<!";
 
         internal const string SubexpressionStart = "(";
         internal const string NoncapturingGroupStart = "(?:";
@@ -104,24 +104,24 @@ namespace Pihrtsoft.Regexator.Builder
             return SubexpressionStart + groupName + GroupEnd;
         }
 
-        public static string Lookahead(string text)
+        public static string Assert(string text)
         {
-            return LookaheadStart + text + GroupEnd;
+            return AssertStart + text + GroupEnd;
         }
 
-        public static string NotLookahead(string text)
+        public static string NotAssert(string text)
         {
-            return NotLookaheadStart + text + GroupEnd;
+            return NotAssertStart + text + GroupEnd;
         }
 
-        public static string Lookbehind(string text)
+        public static string AssertBack(string text)
         {
-            return LookbehindStart + text + GroupEnd;
+            return AssertBackStart + text + GroupEnd;
         }
 
-        public static string NotLookbehind(string text)
+        public static string NotAssertBack(string text)
         {
-            return NotLookbehindStart + text + GroupEnd;
+            return NotAssertBackStart + text + GroupEnd;
         }
 
         public static string Backreference(int groupNumber)

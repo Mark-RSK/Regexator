@@ -4,164 +4,164 @@ namespace Pihrtsoft.Regexator.Builder
 {
     public static class Anchors
     {
-        public static QuantifiableExpression Lookahead(Expression expression)
+        public static QuantifiableExpression Assert(Expression expression)
         {
-            return new AssertionExpression(AssertionKind.Lookahead, expression);
+            return new AssertionExpression(AssertionKind.Assert, expression);
         }
 
-        public static QuantifiableExpression Lookahead(string text)
+        public static QuantifiableExpression Assert(string text)
         {
-            return new AssertionExpression(AssertionKind.Lookahead, text);
+            return new AssertionExpression(AssertionKind.Assert, text);
         }
 
-        public static QuantifiableExpression Lookahead(CharGroupItem item)
+        public static QuantifiableExpression Assert(CharGroupItem item)
         {
-            return new CharGroupAssertion(AssertionKind.Lookahead, item);
+            return new CharGroupAssertion(AssertionKind.Assert, item);
         }
 
-        public static QuantifiableExpression Lookahead(char value)
+        public static QuantifiableExpression Assert(char value)
         {
-            return new CharAssertion(AssertionKind.Lookahead, value);
+            return new CharAssertion(AssertionKind.Assert, value);
         }
 
-        public static QuantifiableExpression Lookahead(int charCode)
+        public static QuantifiableExpression Assert(int charCode)
         {
-            return new CharCodeAssertion(AssertionKind.Lookahead, charCode);
+            return new CharCodeAssertion(AssertionKind.Assert, charCode);
         }
 
-        public static QuantifiableExpression Lookahead(AsciiChar value)
+        public static QuantifiableExpression Assert(AsciiChar value)
         {
-            return new AsciiCharAssertion(AssertionKind.Lookahead, value);
+            return new AsciiCharAssertion(AssertionKind.Assert, value);
         }
 
-        public static QuantifiableExpression Lookahead(NamedBlock block)
+        public static QuantifiableExpression Assert(NamedBlock block)
         {
-            return new NamedBlockAssertion(AssertionKind.Lookahead, block);
+            return new NamedBlockAssertion(AssertionKind.Assert, block);
         }
 
-        public static QuantifiableExpression Lookahead(GeneralCategory category)
+        public static QuantifiableExpression Assert(GeneralCategory category)
         {
-            return new GeneralCategoryAssertion(AssertionKind.Lookahead, category);
+            return new GeneralCategoryAssertion(AssertionKind.Assert, category);
         }
 
-        public static QuantifiableExpression NotLookahead(Expression expression)
+        public static QuantifiableExpression NotAssert(Expression expression)
         {
-            return new AssertionExpression(AssertionKind.NotLookahead, expression);
+            return new AssertionExpression(AssertionKind.NotAssert, expression);
         }
 
-        public static QuantifiableExpression NotLookahead(string text)
+        public static QuantifiableExpression NotAssert(string text)
         {
-            return new AssertionExpression(AssertionKind.NotLookahead, text);
+            return new AssertionExpression(AssertionKind.NotAssert, text);
         }
 
-        public static QuantifiableExpression NotLookahead(CharGroupItem item)
+        public static QuantifiableExpression NotAssert(CharGroupItem item)
         {
-            return new CharGroupAssertion(AssertionKind.NotLookahead, item);
+            return new CharGroupAssertion(AssertionKind.NotAssert, item);
         }
 
-        public static QuantifiableExpression NotLookahead(char value)
+        public static QuantifiableExpression NotAssert(char value)
         {
-            return new CharAssertion(AssertionKind.NotLookahead, value);
+            return new CharAssertion(AssertionKind.NotAssert, value);
         }
 
-        public static QuantifiableExpression NotLookahead(int charCode)
+        public static QuantifiableExpression NotAssert(int charCode)
         {
-            return new CharCodeAssertion(AssertionKind.NotLookahead, charCode);
+            return new CharCodeAssertion(AssertionKind.NotAssert, charCode);
         }
 
-        public static QuantifiableExpression NotLookahead(AsciiChar value)
+        public static QuantifiableExpression NotAssert(AsciiChar value)
         {
-            return new AsciiCharAssertion(AssertionKind.NotLookahead, value);
+            return new AsciiCharAssertion(AssertionKind.NotAssert, value);
         }
 
-        public static QuantifiableExpression NotLookahead(NamedBlock block)
+        public static QuantifiableExpression NotAssert(NamedBlock block)
         {
-            return new NamedBlockAssertion(AssertionKind.NotLookahead, block);
+            return new NamedBlockAssertion(AssertionKind.NotAssert, block);
         }
 
-        public static QuantifiableExpression NotLookahead(GeneralCategory category)
+        public static QuantifiableExpression NotAssert(GeneralCategory category)
         {
-            return new GeneralCategoryAssertion(AssertionKind.NotLookahead, category);
+            return new GeneralCategoryAssertion(AssertionKind.NotAssert, category);
         }
 
-        public static QuantifiableExpression Lookbehind(Expression expression)
+        public static QuantifiableExpression AssertBack(Expression expression)
         {
-            return new AssertionExpression(AssertionKind.Lookbehind, expression);
+            return new AssertionExpression(AssertionKind.AssertBack, expression);
         }
 
-        public static QuantifiableExpression Lookbehind(string text)
+        public static QuantifiableExpression AssertBack(string text)
         {
-            return new AssertionExpression(AssertionKind.Lookbehind, text);
+            return new AssertionExpression(AssertionKind.AssertBack, text);
         }
 
-        public static QuantifiableExpression Lookbehind(CharGroupItem item)
+        public static QuantifiableExpression AssertBack(CharGroupItem item)
         {
-            return new CharGroupAssertion(AssertionKind.Lookbehind, item);
+            return new CharGroupAssertion(AssertionKind.AssertBack, item);
         }
 
-        public static QuantifiableExpression Lookbehind(char value)
+        public static QuantifiableExpression AssertBack(char value)
         {
-            return new CharAssertion(AssertionKind.Lookbehind, value);
+            return new CharAssertion(AssertionKind.AssertBack, value);
         }
 
-        public static QuantifiableExpression Lookbehind(int charCode)
+        public static QuantifiableExpression AssertBack(int charCode)
         {
-            return new CharCodeAssertion(AssertionKind.Lookbehind, charCode);
+            return new CharCodeAssertion(AssertionKind.AssertBack, charCode);
         }
 
-        public static QuantifiableExpression Lookbehind(AsciiChar value)
+        public static QuantifiableExpression AssertBack(AsciiChar value)
         {
-            return new AsciiCharAssertion(AssertionKind.Lookbehind, value);
+            return new AsciiCharAssertion(AssertionKind.AssertBack, value);
         }
 
-        public static QuantifiableExpression Lookbehind(NamedBlock block)
+        public static QuantifiableExpression AssertBack(NamedBlock block)
         {
-            return new NamedBlockAssertion(AssertionKind.Lookbehind, block);
+            return new NamedBlockAssertion(AssertionKind.AssertBack, block);
         }
 
-        public static QuantifiableExpression Lookbehind(GeneralCategory category)
+        public static QuantifiableExpression AssertBack(GeneralCategory category)
         {
-            return new GeneralCategoryAssertion(AssertionKind.Lookbehind, category);
+            return new GeneralCategoryAssertion(AssertionKind.AssertBack, category);
         }
 
-        public static QuantifiableExpression NotLookbehind(Expression expression)
+        public static QuantifiableExpression NotAssertBack(Expression expression)
         {
-            return new AssertionExpression(AssertionKind.NotLookbehind, expression);
+            return new AssertionExpression(AssertionKind.NotAssertBack, expression);
         }
 
-        public static QuantifiableExpression NotLookbehind(string text)
+        public static QuantifiableExpression NotAssertBack(string text)
         {
-            return new AssertionExpression(AssertionKind.NotLookbehind, text);
+            return new AssertionExpression(AssertionKind.NotAssertBack, text);
         }
 
-        public static QuantifiableExpression NotLookbehind(CharGroupItem item)
+        public static QuantifiableExpression NotAssertBack(CharGroupItem item)
         {
-            return new CharGroupAssertion(AssertionKind.NotLookbehind, item);
+            return new CharGroupAssertion(AssertionKind.NotAssertBack, item);
         }
 
-        public static QuantifiableExpression NotLookbehind(char value)
+        public static QuantifiableExpression NotAssertBack(char value)
         {
-            return new CharAssertion(AssertionKind.NotLookbehind, value);
+            return new CharAssertion(AssertionKind.NotAssertBack, value);
         }
 
-        public static QuantifiableExpression NotLookbehind(int charCode)
+        public static QuantifiableExpression NotAssertBack(int charCode)
         {
-            return new CharCodeAssertion(AssertionKind.NotLookbehind, charCode);
+            return new CharCodeAssertion(AssertionKind.NotAssertBack, charCode);
         }
 
-        public static QuantifiableExpression NotLookbehind(AsciiChar value)
+        public static QuantifiableExpression NotAssertBack(AsciiChar value)
         {
-            return new AsciiCharAssertion(AssertionKind.NotLookbehind, value);
+            return new AsciiCharAssertion(AssertionKind.NotAssertBack, value);
         }
 
-        public static QuantifiableExpression NotLookbehind(NamedBlock block)
+        public static QuantifiableExpression NotAssertBack(NamedBlock block)
         {
-            return new NamedBlockAssertion(AssertionKind.NotLookbehind, block);
+            return new NamedBlockAssertion(AssertionKind.NotAssertBack, block);
         }
 
-        public static QuantifiableExpression NotLookbehind(GeneralCategory category)
+        public static QuantifiableExpression NotAssertBack(GeneralCategory category)
         {
-            return new GeneralCategoryAssertion(AssertionKind.NotLookbehind, category);
+            return new GeneralCategoryAssertion(AssertionKind.NotAssertBack, category);
         }
 
         public static QuantifiableExpression Start()
@@ -176,7 +176,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifiableExpression StartOfLineInvariant()
         {
-            return Alternations.Any(Start(), Chars.Linefeed().AsLookbehind());
+            return Alternations.Any(Start(), Chars.Linefeed().AsAssertionBack());
         }
 
         public static QuantifiableExpression EndOfLine()
@@ -186,7 +186,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static QuantifiableExpression EndOfLineInvariant()
         {
-            return Alternations.Any(Chars.Linefeed().AsLookahead(), End());
+            return Alternations.Any(Chars.Linefeed().AsAssertion(), End());
         }
 
         public static QuantifiableExpression EndOfLineOrBeforeCarriageReturn()
@@ -198,7 +198,7 @@ namespace Pihrtsoft.Regexator.Builder
         {
             if (beforeCarriageReturn)
             {
-                return Chars.CarriageReturn().Maybe().EndOfLine().AsLookahead();
+                return Chars.CarriageReturn().Maybe().EndOfLine().AsAssertion();
             }
             else
             {

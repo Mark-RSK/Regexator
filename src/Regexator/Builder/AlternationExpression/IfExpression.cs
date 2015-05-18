@@ -44,7 +44,7 @@ namespace Pihrtsoft.Regexator.Builder
         {
             if (_condition != null)
             {
-                yield return context.Settings.ConditionWithAssertion ? Syntax.LookaheadStart : Syntax.SubexpressionStart;
+                yield return context.Settings.ConditionWithAssertion ? Syntax.AssertStart : Syntax.SubexpressionStart;
                 foreach (var value in _condition.EnumerateValues(context))
                 {
                     yield return value;

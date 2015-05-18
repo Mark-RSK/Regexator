@@ -45,8 +45,8 @@ namespace Pihrtsoft.Regexator.Builder.Samples
             Console.WriteLine("digits inside b element value");
             Console.WriteLine(Chars
                 .Digit().OneMany()
-                .Lookahead(Quantifiers
-                    .MaybeMany(Anchors.NotLookahead("<b>").Any())
+                .Assert(Quantifiers
+                    .MaybeMany(Anchors.NotAssert("<b>").Any())
                     .Text("</b>")));
             Console.WriteLine("");
 
@@ -63,8 +63,8 @@ namespace Pihrtsoft.Regexator.Builder.Samples
 
             Console.WriteLine("words in any order:");
             Console.WriteLine(Anchors.StartOfLine()
-                .Lookahead(Chars.AnyInvariant().MaybeMany().Lazy().Word("word1"))
-                .Lookahead(Chars.AnyInvariant().MaybeMany().Lazy().Word("word2"))
+                .Assert(Chars.AnyInvariant().MaybeMany().Lazy().Word("word1"))
+                .Assert(Chars.AnyInvariant().MaybeMany().Lazy().Word("word2"))
                 .AnyInvariant().MaybeMany());
             Console.WriteLine("");
 
@@ -100,7 +100,7 @@ namespace Pihrtsoft.Regexator.Builder.Samples
             Console.WriteLine("");
 
             Console.WriteLine("lf without cr:");
-            Console.WriteLine(Chars.CarriageReturn().AsNotLookbehind().Linefeed().AsNonbacktracking());
+            Console.WriteLine(Chars.CarriageReturn().AsNotAssertionBack().Linefeed().AsNonbacktracking());
             Console.WriteLine("");
 
             Console.WriteLine("file name invalid chars:");

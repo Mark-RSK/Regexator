@@ -29,14 +29,14 @@ namespace Pihrtsoft.Regexator.Builder
         {
             switch (AssertionKind)
             {
-                case AssertionKind.Lookahead:
-                    return Syntax.LookaheadStart;
-                case AssertionKind.Lookbehind:
-                    return Syntax.LookbehindStart;
-                case AssertionKind.NotLookahead:
-                    return Syntax.NotLookaheadStart;
-                case AssertionKind.NotLookbehind:
-                    return Syntax.NotLookbehindStart;
+                case AssertionKind.Assert:
+                    return Syntax.AssertStart;
+                case AssertionKind.AssertBack:
+                    return Syntax.AssertBackStart;
+                case AssertionKind.NotAssert:
+                    return Syntax.NotAssertStart;
+                case AssertionKind.NotAssertBack:
+                    return Syntax.NotAssertBackStart;
             }
             return string.Empty;
         }

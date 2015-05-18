@@ -217,184 +217,184 @@ namespace Pihrtsoft.Regexator.Builder
             return Anchors.EntireInput(this);
         }
 
-        public QuantifiableExpression Lookahead(Expression expression)
+        public QuantifiableExpression Assert(Expression expression)
         {
-            return AppendInternal(Anchors.Lookahead(expression));
+            return AppendInternal(Anchors.Assert(expression));
         }
 
-        public QuantifiableExpression Lookahead(string text)
+        public QuantifiableExpression Assert(string text)
         {
-            return AppendInternal(Anchors.Lookahead(text));
+            return AppendInternal(Anchors.Assert(text));
         }
 
-        public QuantifiableExpression Lookahead(CharGroupItem item)
+        public QuantifiableExpression Assert(CharGroupItem item)
         {
-            return AppendInternal(Anchors.Lookahead(item));
+            return AppendInternal(Anchors.Assert(item));
         }
 
-        public QuantifiableExpression Lookahead(char value)
+        public QuantifiableExpression Assert(char value)
         {
-            return AppendInternal(Anchors.Lookahead(value));
+            return AppendInternal(Anchors.Assert(value));
         }
 
-        public QuantifiableExpression Lookahead(int charCode)
+        public QuantifiableExpression Assert(int charCode)
         {
-            return AppendInternal(Anchors.Lookahead(charCode));
+            return AppendInternal(Anchors.Assert(charCode));
         }
 
-        public QuantifiableExpression Lookahead(AsciiChar value)
+        public QuantifiableExpression Assert(AsciiChar value)
         {
-            return AppendInternal(Anchors.Lookahead(value));
+            return AppendInternal(Anchors.Assert(value));
         }
 
-        public QuantifiableExpression Lookahead(NamedBlock block)
+        public QuantifiableExpression Assert(NamedBlock block)
         {
-            return AppendInternal(Anchors.Lookahead(block));
+            return AppendInternal(Anchors.Assert(block));
         }
 
-        public QuantifiableExpression Lookahead(GeneralCategory category)
+        public QuantifiableExpression Assert(GeneralCategory category)
         {
-            return AppendInternal(Anchors.Lookahead(category));
+            return AppendInternal(Anchors.Assert(category));
         }
 
-        public QuantifiableExpression NotLookahead(Expression expression)
+        public QuantifiableExpression NotAssert(Expression expression)
         {
-            return AppendInternal(Anchors.NotLookahead(expression));
+            return AppendInternal(Anchors.NotAssert(expression));
         }
 
-        public QuantifiableExpression NotLookahead(string text)
+        public QuantifiableExpression NotAssert(string text)
         {
-            return AppendInternal(Anchors.NotLookahead(text));
+            return AppendInternal(Anchors.NotAssert(text));
         }
 
-        public QuantifiableExpression NotLookahead(CharGroupItem item)
+        public QuantifiableExpression NotAssert(CharGroupItem item)
         {
-            return AppendInternal(Anchors.NotLookahead(item));
+            return AppendInternal(Anchors.NotAssert(item));
         }
 
-        public QuantifiableExpression NotLookahead(char value)
+        public QuantifiableExpression NotAssert(char value)
         {
-            return AppendInternal(Anchors.NotLookahead(value));
+            return AppendInternal(Anchors.NotAssert(value));
         }
 
-        public QuantifiableExpression NotLookahead(int charCode)
+        public QuantifiableExpression NotAssert(int charCode)
         {
-            return AppendInternal(Anchors.NotLookahead(charCode));
+            return AppendInternal(Anchors.NotAssert(charCode));
         }
 
-        public QuantifiableExpression NotLookahead(AsciiChar value)
+        public QuantifiableExpression NotAssert(AsciiChar value)
         {
-            return AppendInternal(Anchors.NotLookahead(value));
+            return AppendInternal(Anchors.NotAssert(value));
         }
 
-        public QuantifiableExpression NotLookahead(NamedBlock block)
+        public QuantifiableExpression NotAssert(NamedBlock block)
         {
-            return AppendInternal(Anchors.NotLookahead(block));
+            return AppendInternal(Anchors.NotAssert(block));
         }
 
-        public QuantifiableExpression NotLookahead(GeneralCategory category)
+        public QuantifiableExpression NotAssert(GeneralCategory category)
         {
-            return AppendInternal(Anchors.NotLookahead(category));
+            return AppendInternal(Anchors.NotAssert(category));
         }
 
-        public QuantifiableExpression Lookbehind(Expression expression)
+        public QuantifiableExpression AssertBack(Expression expression)
         {
-            return AppendInternal(Anchors.Lookbehind(expression));
+            return AppendInternal(Anchors.AssertBack(expression));
         }
 
-        public QuantifiableExpression Lookbehind(string text)
+        public QuantifiableExpression AssertBack(string text)
         {
-            return AppendInternal(Anchors.Lookbehind(text));
+            return AppendInternal(Anchors.AssertBack(text));
         }
 
-        public QuantifiableExpression Lookbehind(CharGroupItem item)
+        public QuantifiableExpression AssertBack(CharGroupItem item)
         {
-            return AppendInternal(Anchors.Lookbehind(item));
+            return AppendInternal(Anchors.AssertBack(item));
         }
 
-        public QuantifiableExpression Lookbehind(char value)
+        public QuantifiableExpression AssertBack(char value)
         {
-            return AppendInternal(Anchors.Lookbehind(value));
+            return AppendInternal(Anchors.AssertBack(value));
         }
 
-        public QuantifiableExpression Lookbehind(int charCodes)
+        public QuantifiableExpression AssertBack(int charCodes)
         {
-            return AppendInternal(Anchors.Lookbehind(charCodes));
+            return AppendInternal(Anchors.AssertBack(charCodes));
         }
 
-        public QuantifiableExpression Lookbehind(AsciiChar value)
+        public QuantifiableExpression AssertBack(AsciiChar value)
         {
-            return AppendInternal(Anchors.Lookbehind(value));
+            return AppendInternal(Anchors.AssertBack(value));
         }
 
-        public QuantifiableExpression Lookbehind(NamedBlock block)
+        public QuantifiableExpression AssertBack(NamedBlock block)
         {
-            return AppendInternal(Anchors.Lookbehind(block));
+            return AppendInternal(Anchors.AssertBack(block));
         }
 
-        public QuantifiableExpression Lookbehind(GeneralCategory category)
+        public QuantifiableExpression AssertBack(GeneralCategory category)
         {
-            return AppendInternal(Anchors.Lookbehind(category));
+            return AppendInternal(Anchors.AssertBack(category));
         }
 
-        public QuantifiableExpression NotLookbehind(Expression expression)
+        public QuantifiableExpression NotAssertBack(Expression expression)
         {
-            return AppendInternal(Anchors.NotLookbehind(expression));
+            return AppendInternal(Anchors.NotAssertBack(expression));
         }
 
-        public QuantifiableExpression NotLookbehind(string text)
+        public QuantifiableExpression NotAssertBack(string text)
         {
-            return AppendInternal(Anchors.NotLookbehind(text));
+            return AppendInternal(Anchors.NotAssertBack(text));
         }
 
-        public QuantifiableExpression NotLookbehind(CharGroupItem item)
+        public QuantifiableExpression NotAssertBack(CharGroupItem item)
         {
-            return AppendInternal(Anchors.NotLookbehind(item));
+            return AppendInternal(Anchors.NotAssertBack(item));
         }
 
-        public QuantifiableExpression NotLookbehind(char value)
+        public QuantifiableExpression NotAssertBack(char value)
         {
-            return AppendInternal(Anchors.NotLookbehind(value));
+            return AppendInternal(Anchors.NotAssertBack(value));
         }
 
-        public QuantifiableExpression NotLookbehind(int charCode)
+        public QuantifiableExpression NotAssertBack(int charCode)
         {
-            return AppendInternal(Anchors.NotLookbehind(charCode));
+            return AppendInternal(Anchors.NotAssertBack(charCode));
         }
 
-        public QuantifiableExpression NotLookbehind(AsciiChar value)
+        public QuantifiableExpression NotAssertBack(AsciiChar value)
         {
-            return AppendInternal(Anchors.NotLookbehind(value));
+            return AppendInternal(Anchors.NotAssertBack(value));
         }
 
-        public QuantifiableExpression NotLookbehind(NamedBlock block)
+        public QuantifiableExpression NotAssertBack(NamedBlock block)
         {
-            return AppendInternal(Anchors.NotLookbehind(block));
+            return AppendInternal(Anchors.NotAssertBack(block));
         }
 
-        public QuantifiableExpression NotLookbehind(GeneralCategory category)
+        public QuantifiableExpression NotAssertBack(GeneralCategory category)
         {
-            return AppendInternal(Anchors.NotLookbehind(category));
+            return AppendInternal(Anchors.NotAssertBack(category));
         }
 
-        public QuantifiableExpression AsLookahead()
+        public QuantifiableExpression AsAssertion()
         {
-            return Anchors.Lookahead(this);
+            return Anchors.Assert(this);
         }
 
-        public QuantifiableExpression AsNotLookahead()
+        public QuantifiableExpression AsNotAssertion()
         {
-            return Anchors.NotLookahead(this);
+            return Anchors.NotAssert(this);
         }
 
-        public QuantifiableExpression AsLookbehind()
+        public QuantifiableExpression AsAssertionBack()
         {
-            return Anchors.Lookbehind(this);
+            return Anchors.AssertBack(this);
         }
 
-        public QuantifiableExpression AsNotLookbehind()
+        public QuantifiableExpression AsNotAssertionBack()
         {
-            return Anchors.NotLookbehind(this);
+            return Anchors.NotAssertBack(this);
         }
 
         public QuantifiableExpression NamedGroup(string name, Expression expression)

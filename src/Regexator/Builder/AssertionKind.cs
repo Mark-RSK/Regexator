@@ -4,9 +4,9 @@ namespace Pihrtsoft.Regexator.Builder
 {
     public enum AssertionKind
     {
-        Lookahead,
-        Lookbehind,
-        NotLookahead,
-        NotLookbehind
+        Assert,
+        AssertBack,
+        NotAssert,
+        NotAssertBack
     }
 }
