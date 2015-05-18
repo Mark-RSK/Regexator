@@ -121,6 +121,11 @@ namespace Pihrtsoft.Regexator.Builder
             return NotChar(CharGroupItems.Alphanumeric());
         }
 
+        public static CharGroupExpression AlphanumericUnderscore()
+        {
+            return Char(CharGroupItems.Alphanumeric().Underscore());
+        }
+
         public static CharGroupExpression LatinLetter()
         {
             return Char(CharGroupItems.LatinLetter());
