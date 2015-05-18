@@ -2,13 +2,11 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Text.RegularExpressions;
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    [DebuggerDisplay("{Kind}: {Pattern}")]
     public abstract partial class Expression
     {
         private Expression _previous;
