@@ -161,6 +161,16 @@ namespace Pihrtsoft.Regexator.Builder
             return NotChar(CharGroupItems.ArabicDigit());
         }
 
+        public static CharGroupExpression HexadecimalDigit()
+        {
+            return CharGroupItems.ArabicDigit().Range('a', 'f').Range('A', 'F').ToGroup();
+        }
+
+        public static CharGroupExpression NotHexadecimalDigit()
+        {
+            return CharGroupItems.ArabicDigit().Range('a', 'f').Range('A', 'F').ToNegativeGroup();
+        }
+
         public static QuantifiableExpression Any()
         {
             return new AnyCharExpression();

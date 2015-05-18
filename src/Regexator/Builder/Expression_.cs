@@ -677,6 +677,16 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Chars.NotArabicDigit());
         }
 
+        public QuantifiableExpression HexadecimalDigit()
+        {
+            return AppendInternal(Chars.HexadecimalDigit());
+        }
+
+        public QuantifiableExpression NotHexadecimalDigit()
+        {
+            return AppendInternal(Chars.NotHexadecimalDigit());
+        }
+
         public QuantifiableExpression Digit()
         {
             return AppendInternal(Chars.Digit());
