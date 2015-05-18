@@ -10,7 +10,7 @@ namespace Pihrtsoft.Regexator.Builder
         public PatternSettings()
         {
             IdentifierBoundary = IdentifierBoundary.LessThan;
-            NoncapturingQuantifierGroup = true;
+            NoncapturingQuantifierGroup = false;
             SeparatorAfterNumberBackreference = true;
         }
 
