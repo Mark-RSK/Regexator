@@ -20,6 +20,11 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Quantifiers.MaybeMany());
         }
 
+        public QuantifierExpression MaybeCount(int maxCount)
+        {
+            return AppendInternal(Quantifiers.MaybeCount(maxCount));
+        }
+
         public QuantifierExpression OneMany()
         {
             return AppendInternal(Quantifiers.OneMany());

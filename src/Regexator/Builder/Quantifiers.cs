@@ -14,6 +14,11 @@ namespace Pihrtsoft.Regexator.Builder
             return new MaybeManyQuantifier();
         }
 
+        internal static QuantifierExpression MaybeCount(int maxCount)
+        {
+            return new CountRangeQuantifier(0, maxCount);
+        }
+
         internal static QuantifierExpression OneMany()
         {
             return new OneManyQuantifier();
