@@ -7,11 +7,11 @@ using System.Text.RegularExpressions;
 
 namespace Pihrtsoft.Regexator.Builder
 {
-    public abstract partial class Expression
+    public partial class Expression
     {
         private Expression _previous;
 
-        protected Expression()
+        public Expression()
         {
         }
 
