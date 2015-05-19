@@ -8,7 +8,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
-using Pihrtsoft.Regexator.Builder;
+using Pihrtsoft.Regexator.Linq;
 
 namespace Pihrtsoft.Regexator
 {

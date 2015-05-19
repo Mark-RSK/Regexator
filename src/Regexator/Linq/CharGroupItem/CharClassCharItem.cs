@@ -1,0 +1,20 @@
+﻿// Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+
+namespace Pihrtsoft.Regexator.Linq
+{
+    internal sealed class CharClassCharItem
+        : CharGroupItem
+    {
+        private readonly CharClass _value;
+
+        public CharClassCharItem(CharClass value)
+        {
+            _value = value;
+        }
+
+        internal override string Content
+        {
+            get { return Syntax.CharClass(_value); }
+        }
+    }
+}
