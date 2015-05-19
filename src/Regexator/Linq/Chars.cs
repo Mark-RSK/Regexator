@@ -1416,6 +1416,36 @@ namespace Pihrtsoft.Regexator.Linq
             return NotChar(AsciiChar.Tilde).CountRange(minCount, maxCount);
         }
 
+        public static CharGroupExpression Parentheses()
+        {
+            return Char(CharGroupItems.Parentheses());
+        }
+
+        public static CharGroupExpression NotParentheses()
+        {
+            return NotChar(CharGroupItems.Parentheses());
+        }
+
+        public static CharGroupExpression CurlyBrackets()
+        {
+            return Char(CharGroupItems.CurlyBrackets());
+        }
+
+        public static CharGroupExpression NotCurlyBrackets()
+        {
+            return NotChar(CharGroupItems.CurlyBrackets());
+        }
+
+        public static CharGroupExpression SquareBrackets()
+        {
+            return Char(CharGroupItems.SquareBrackets());
+        }
+
+        public static CharGroupExpression NotSquareBrackets()
+        {
+            return NotChar(CharGroupItems.SquareBrackets());
+        }
+
         public static CharSubtraction WhiteSpaceExceptNewLine()
         {
             return Chars.WhiteSpace().Except(Chars.NewLineChar());

@@ -1917,6 +1917,36 @@ namespace Pihrtsoft.Regexator.Linq
             return AppendInternal(Chars.NotTilde(minCount, maxCount));
         }
 
+        public QuantifiableExpression Parentheses()
+        {
+            return AppendInternal(Chars.Parentheses());
+        }
+
+        public QuantifiableExpression NotParentheses()
+        {
+            return AppendInternal(Chars.NotParentheses());
+        }
+
+        public QuantifiableExpression CurlyBrackets()
+        {
+            return AppendInternal(Chars.CurlyBrackets());
+        }
+
+        public QuantifiableExpression NotCurlyBrackets()
+        {
+            return AppendInternal(Chars.NotCurlyBrackets());
+        }
+
+        public QuantifiableExpression SquareBrackets()
+        {
+            return AppendInternal(Chars.SquareBrackets());
+        }
+
+        public QuantifiableExpression NotSquareBrackets()
+        {
+            return AppendInternal(Chars.NotSquareBrackets());
+        }
+
         public QuantifierExpression Maybe(string text)
         {
             return AppendInternal(Groups.Maybe(text));
