@@ -4,11 +4,6 @@ namespace Pihrtsoft.Regexator.Builder
 {
     public static class Expressions
     {
-        public static Expression Empty()
-        {
-            return new TextExpression();
-        }
-
         public static Expression Text(string value)
         {
             return new TextExpression(value);

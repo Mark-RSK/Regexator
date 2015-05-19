@@ -10,7 +10,7 @@ namespace Pihrtsoft.Regexator.Builder
         public QuantifiableExpression RequireGroup(string groupName)
         {
             RegexUtilities.CheckGroupName(groupName);
-            return AppendInternal(Alternations.IfGroup(groupName, Expressions.Empty(), Expressions.Never()));
+            return AppendInternal(Alternations.IfGroup(groupName, new Expression(), Expressions.Never()));
         }
 
         public QuantifiableExpression RequireGroups(string groupName1, string groupName2)
@@ -29,7 +29,7 @@ namespace Pihrtsoft.Regexator.Builder
             {
                 throw new ArgumentOutOfRangeException("groupNumber");
             }
-            return AppendInternal(Alternations.IfGroup(groupNumber, Expressions.Empty(), Expressions.Never()));
+            return AppendInternal(Alternations.IfGroup(groupNumber, new Expression(), Expressions.Never()));
         }
 
         public QuantifiableExpression RequireGroups(int groupNumber1, int groupNumber2)
