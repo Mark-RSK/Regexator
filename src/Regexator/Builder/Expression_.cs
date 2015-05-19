@@ -622,6 +622,16 @@ namespace Pihrtsoft.Regexator.Builder
             return AppendInternal(Chars.NotAlphanumeric());
         }
 
+        public CharGroupExpression AlphanumericUnderscore()
+        {
+            return AppendInternal(Chars.AlphanumericUnderscore());
+        }
+
+        public CharGroupExpression NotAlphanumericUnderscore()
+        {
+            return AppendInternal(Chars.NotAlphanumericUnderscore());
+        }
+
         public CharGroupExpression LatinLetter()
         {
             return AppendInternal(Chars.LatinLetter());

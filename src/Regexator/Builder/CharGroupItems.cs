@@ -89,6 +89,11 @@ namespace Pihrtsoft.Regexator.Builder
             return LatinLetter().ArabicDigit();
         }
 
+        public static CharGroupItem AlphanumericUnderscore()
+        {
+            return Alphanumeric().Underscore();
+        }
+
         public static CharGroupItem LatinLetter()
         {
             return LatinLetterLower().LatinLetterUpper();

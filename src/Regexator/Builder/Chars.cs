@@ -123,7 +123,7 @@ namespace Pihrtsoft.Regexator.Builder
 
         public static CharGroupExpression AlphanumericUnderscore()
         {
-            return Char(CharGroupItems.Alphanumeric().Underscore());
+            return Char(CharGroupItems.AlphanumericUnderscore());
         }
 
         public static CharGroupExpression NotAlphanumericUnderscore()
