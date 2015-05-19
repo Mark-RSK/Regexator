@@ -128,7 +128,7 @@ namespace Pihrtsoft.Regexator.Linq
 
         public static CharGroupExpression NotAlphanumericUnderscore()
         {
-            return NotChar(CharGroupItems.Alphanumeric().Underscore());
+            return NotChar(CharGroupItems.AlphanumericUnderscore());
         }
 
         public static CharGroupExpression LatinLetter()
