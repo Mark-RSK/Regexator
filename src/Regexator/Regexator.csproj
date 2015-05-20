@@ -69,6 +69,7 @@
     <Compile Include="Linq\AssertionExpression\AsciiCharAssertion.cs" />
     <Compile Include="Linq\AssertionExpression\NamedBlockAssertion.cs" />
     <Compile Include="Linq\AssertionExpression\GeneralCategoryAssertion.cs" />
+    <Compile Include="Linq\AnyGroupMode.cs" />
     <Compile Include="Linq\Expression\CharacterExpression.cs" />
     <Compile Include="Linq\Substitution\BeforeMatchSubstitution.cs" />
     <Compile Include="Linq\Substitution\AfterMatchSubstitution.cs" />

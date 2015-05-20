@@ -8,48 +8,48 @@ namespace Pihrtsoft.Regexator.Linq
     internal class AnyExpression
         : QuantifiableExpression
     {
-        private readonly bool _noncapturing;
+        private readonly AnyGroupMode _groupMode;
         private readonly IEnumerable<Expression> _expressions;
 
         protected AnyExpression()
-            : this(true)
+            : this(AnyGroupMode.Noncapturing)
         {
         }
 
-        protected AnyExpression(bool noncapturing)
+        protected AnyExpression(AnyGroupMode groupMode)
         {
-            _noncapturing = noncapturing;
+            _groupMode = groupMode;
         }
 
         internal AnyExpression(IEnumerable<Expression> expressions)
-            : this(true, expressions)
+            : this(AnyGroupMode.Noncapturing, expressions)
         {
         }
 
-        internal AnyExpression(bool noncapturing, IEnumerable<Expression> expressions)
+        internal AnyExpression(AnyGroupMode groupMode, IEnumerable<Expression> expressions)
             : base()
         {
             if (expressions == null)
             {
                 throw new ArgumentNullException("expressions");
             }
-            _noncapturing = noncapturing;
+            _groupMode = groupMode;
             _expressions = expressions;
         }
 
         internal AnyExpression(params Expression[] expressions)
-            : this(true, expressions)
+            : this(AnyGroupMode.Noncapturing, expressions)
         {
         }
 
-        internal AnyExpression(bool noncapturing, params Expression[] expressions)
+        internal AnyExpression(AnyGroupMode groupMode, params Expression[] expressions)
             : base()
         {
             if (expressions == null)
             {
                 throw new ArgumentNullException("expressions");
             }
-            _noncapturing = noncapturing;
+            _groupMode = groupMode;
             _expressions = expressions;
         }
 
@@ -75,17 +75,26 @@ namespace Pihrtsoft.Regexator.Linq
 
         internal override string Opening(BuildContext context)
         {
-            return IsNoncapturing ? Syntax.NoncapturingGroupStart : Syntax.SubexpressionStart;
+            switch (GroupMode)
+            {
+                case AnyGroupMode.None:
+                    return string.Empty;
+                case AnyGroupMode.Subexpression:
+                    return Syntax.SubexpressionStart;
+                case AnyGroupMode.Noncapturing:
+                    return Syntax.NoncapturingGroupStart;
+            }
+            return string.Empty;
         }
 
         internal override string Closing(BuildContext context)
         {
-            return Syntax.GroupEnd;
+            return (GroupMode == AnyGroupMode.None) ? string.Empty : Syntax.GroupEnd;
         }
 
-        internal bool IsNoncapturing
+        internal AnyGroupMode GroupMode
         {
-            get { return _noncapturing; }
+            get { return _groupMode; }
         }
 
         internal override ExpressionKind Kind

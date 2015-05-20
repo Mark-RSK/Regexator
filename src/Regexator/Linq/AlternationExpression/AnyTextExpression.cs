@@ -11,12 +11,12 @@ namespace Pihrtsoft.Regexator.Linq
         private readonly IEnumerable<string> _values;
 
         internal AnyTextExpression(IEnumerable<string> values)
-            : this(true, values)
+            : this(AnyGroupMode.Noncapturing, values)
         {
         }
 
-        internal AnyTextExpression(bool noncapturing, IEnumerable<string> values)
-            : base(noncapturing)
+        internal AnyTextExpression(AnyGroupMode groupMode, IEnumerable<string> values)
+            : base(groupMode)
         {
             if (values == null)
             {
@@ -26,12 +26,12 @@ namespace Pihrtsoft.Regexator.Linq
         }
 
         internal AnyTextExpression(params string[] values)
-            : this(true, values)
+            : this(AnyGroupMode.Noncapturing, values)
         {
         }
 
-        internal AnyTextExpression(bool noncapturing, params string[] values)
-            : base(noncapturing)
+        internal AnyTextExpression(AnyGroupMode groupMode, params string[] values)
+            : base(groupMode)
         {
             if (values == null)
             {

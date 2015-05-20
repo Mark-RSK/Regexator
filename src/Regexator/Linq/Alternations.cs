@@ -48,12 +48,12 @@ namespace Pihrtsoft.Regexator.Linq
 
         public static QuantifiableExpression SubexpressionAny(IEnumerable<Expression> expressions)
         {
-            return new AnyExpression(false, expressions);
+            return new AnyExpression(AnyGroupMode.Subexpression, expressions);
         }
 
         public static QuantifiableExpression SubexpressionAny(params Expression[] expressions)
         {
-            return new AnyExpression(false, expressions);
+            return new AnyExpression(AnyGroupMode.Subexpression, expressions);
         }
 
         public static QuantifiableExpression SubexpressionAny(Func<Expression, Expression> selector, params Expression[] expressions)
@@ -62,17 +62,17 @@ namespace Pihrtsoft.Regexator.Linq
             {
                 throw new ArgumentNullException("expressions");
             }
-            return new AnyExpression(false, expressions.Select(selector));
+            return new AnyExpression(AnyGroupMode.Subexpression, expressions.Select(selector));
         }
 
         public static QuantifiableExpression SubexpressionAny(IEnumerable<string> values)
         {
-            return new AnyTextExpression(false, values);
+            return new AnyTextExpression(AnyGroupMode.Subexpression, values);
         }
 
         public static QuantifiableExpression SubexpressionAny(params string[] values)
         {
-            return new AnyTextExpression(false, values);
+            return new AnyTextExpression(AnyGroupMode.Subexpression, values);
         }
 
         public static QuantifiableExpression SubexpressionAny(Func<string, Expression> selector, params string[] values)
@@ -81,7 +81,7 @@ namespace Pihrtsoft.Regexator.Linq
             {
                 throw new ArgumentNullException("values");
             }
-            return new AnyExpression(false, values.Select(selector));
+            return new AnyExpression(AnyGroupMode.Subexpression, values.Select(selector));
         }
 
         public static QuantifiableExpression IfGroup(string groupName, Expression yes)
