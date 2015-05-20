@@ -2012,6 +2012,11 @@ namespace Pihrtsoft.Regexator.Linq
             return AppendInternal(Chars.NewLineChar());
         }
 
+        public QuantifiableExpression NotNewLineChar()
+        {
+            return AppendInternal(Chars.NotNewLineChar());
+        }
+
         public Expression Text(string value)
         {
             return AppendInternal(Expressions.Text(value));

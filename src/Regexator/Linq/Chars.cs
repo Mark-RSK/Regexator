@@ -111,6 +111,11 @@ namespace Pihrtsoft.Regexator.Linq
             return Char(CharGroupItems.CarriageReturn().Linefeed());
         }
 
+        public static CharGroupExpression NotNewLineChar()
+        {
+            return NotChar(CharGroupItems.CarriageReturn().Linefeed());
+        }
+
         public static CharGroupExpression Alphanumeric()
         {
             return Char(CharGroupItems.Alphanumeric());
