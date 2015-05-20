@@ -171,12 +171,12 @@ namespace Pihrtsoft.Regexator.Linq
             return null;
         }
 
-        public static string BalancingGroup(string name1, string name2, string text, IdentifierBoundary separator)
+        public static string BalanceGroup(string name1, string name2, string text, IdentifierBoundary separator)
         {
-            return BalancingGroupStart(name1, name2, separator) + text + GroupEnd;
+            return BalanceGroupStart(name1, name2, separator) + text + GroupEnd;
         }
 
-        internal static string BalancingGroupStart(string name1, string name2, IdentifierBoundary separator)
+        internal static string BalanceGroupStart(string name1, string name2, IdentifierBoundary separator)
         {
             if (name1 == null)
             {

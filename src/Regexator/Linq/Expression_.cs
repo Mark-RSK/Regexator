@@ -462,19 +462,19 @@ namespace Pihrtsoft.Regexator.Linq
             return Groups.Nonbacktracking(this);
         }
 
-        public QuantifiableExpression Balancing(string name1, string name2, Expression expression)
+        public QuantifiableExpression BalanceGroup(string name1, string name2, Expression expression)
         {
-            return AppendInternal(Groups.Balancing(name1, name2, expression));
+            return AppendInternal(Groups.BalanceGroup(name1, name2, expression));
         }
 
-        public QuantifiableExpression Balancing(string name1, string name2, string text)
+        public QuantifiableExpression BalanceGroup(string name1, string name2, string text)
         {
-            return AppendInternal(Groups.Balancing(name1, name2, text));
+            return AppendInternal(Groups.BalanceGroup(name1, name2, text));
         }
 
-        public QuantifiableExpression AsBalancing(string name1, string name2)
+        public QuantifiableExpression AsBalanceGroup(string name1, string name2)
         {
-            return Groups.Balancing(name1, name2, this);
+            return Groups.BalanceGroup(name1, name2, this);
         }
 
         public QuantifiableExpression GroupOptions(InlineOptions applyOptions, Expression expression)

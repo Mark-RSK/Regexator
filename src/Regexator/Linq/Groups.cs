@@ -39,14 +39,14 @@ namespace Pihrtsoft.Regexator.Linq
             return new NoncapturingExpression(text);
         }
 
-        public static QuantifiableExpression Balancing(string name1, string name2, Expression expression)
+        public static QuantifiableExpression BalanceGroup(string name1, string name2, Expression expression)
         {
-            return new BalancingGroupExpression(name1, name2, expression);
+            return new BalanceGroupExpression(name1, name2, expression);
         }
 
-        public static QuantifiableExpression Balancing(string name1, string name2, string text)
+        public static QuantifiableExpression BalanceGroup(string name1, string name2, string text)
         {
-            return new BalancingGroupExpression(name1, name2, text);
+            return new BalanceGroupExpression(name1, name2, text);
         }
 
         public static QuantifiableExpression Nonbacktracking(Expression expression)
