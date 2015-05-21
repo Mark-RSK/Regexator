@@ -447,6 +447,16 @@ namespace Pihrtsoft.Regexator.Linq
             return AppendInternal(Groups.NamedGroup(name, text));
         }
 
+        public QuantifiableExpression NamedGroup(string name, params Expression[] expressions)
+        {
+            return AppendInternal(Groups.NamedGroup(name, expressions));
+        }
+
+        public QuantifiableExpression NamedGroup(string name, params string[] values)
+        {
+            return AppendInternal(Groups.NamedGroup(name, values));
+        }
+
         public QuantifiableExpression AsNamedGroup(string name)
         {
             return Groups.NamedGroup(name, this);
@@ -457,14 +467,24 @@ namespace Pihrtsoft.Regexator.Linq
             return AppendInternal(Groups.Subexpression());
         }
 
+        public QuantifiableExpression Subexpression(Expression expression)
+        {
+            return AppendInternal(Groups.Subexpression(expression));
+        }
+
         public QuantifiableExpression Subexpression(string text)
         {
             return AppendInternal(Groups.Subexpression(text));
         }
 
-        public QuantifiableExpression Subexpression(Expression expression)
+        public QuantifiableExpression Subexpression(params Expression[] expressions)
         {
-            return AppendInternal(Groups.Subexpression(expression));
+            return AppendInternal(Groups.Subexpression(expressions));
+        }
+
+        public QuantifiableExpression Subexpression(params string[] values)
+        {
+            return AppendInternal(Groups.Subexpression(values));
         }
 
         public QuantifiableExpression AsSubexpression()
@@ -482,6 +502,16 @@ namespace Pihrtsoft.Regexator.Linq
             return AppendInternal(Groups.Noncapturing(text));
         }
 
+        public QuantifiableExpression Noncapturing(params Expression[] expressions)
+        {
+            return AppendInternal(Groups.Noncapturing(expressions));
+        }
+
+        public QuantifiableExpression Noncapturing(params string[] values)
+        {
+            return AppendInternal(Groups.Noncapturing(values));
+        }
+
         public QuantifiableExpression AsNoncapturing()
         {
             return Groups.Noncapturing(this);
@@ -495,6 +525,16 @@ namespace Pihrtsoft.Regexator.Linq
         public QuantifiableExpression Nonbacktracking(string text)
         {
             return AppendInternal(Groups.Nonbacktracking(text));
+        }
+
+        public QuantifiableExpression Nonbacktracking(params Expression[] expressions)
+        {
+            return AppendInternal(Groups.Nonbacktracking(expressions));
+        }
+
+        public QuantifiableExpression Nonbacktracking(params string[] values)
+        {
+            return AppendInternal(Groups.Nonbacktracking(values));
         }
 
         public QuantifiableExpression AsNonbacktracking()
@@ -512,6 +552,16 @@ namespace Pihrtsoft.Regexator.Linq
             return AppendInternal(Groups.BalanceGroup(name1, name2, text));
         }
 
+        public QuantifiableExpression BalanceGroup(string name1, string name2, params Expression[] expressions)
+        {
+            return AppendInternal(Groups.BalanceGroup(name1, name2, expressions));
+        }
+
+        public QuantifiableExpression BalanceGroup(string name1, string name2, params string[] values)
+        {
+            return AppendInternal(Groups.BalanceGroup(name1, name2, values));
+        }
+
         public QuantifiableExpression AsBalanceGroup(string name1, string name2)
         {
             return Groups.BalanceGroup(name1, name2, this);
@@ -527,6 +577,16 @@ namespace Pihrtsoft.Regexator.Linq
             return AppendInternal(Groups.GroupOptions(applyOptions, text));
         }
 
+        public QuantifiableExpression GroupOptions(InlineOptions applyOptions, params Expression[] expressions)
+        {
+            return AppendInternal(Groups.GroupOptions(applyOptions, expressions));
+        }
+
+        public QuantifiableExpression GroupOptions(InlineOptions applyOptions, params string[] values)
+        {
+            return AppendInternal(Groups.GroupOptions(applyOptions, values));
+        }
+
         public QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, Expression expression)
         {
             return AppendInternal(Groups.GroupOptions(applyOptions, disableOptions, expression));
@@ -535,6 +595,16 @@ namespace Pihrtsoft.Regexator.Linq
         public QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, string text)
         {
             return AppendInternal(Groups.GroupOptions(applyOptions, disableOptions, text));
+        }
+
+        public QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, params Expression[] expressions)
+        {
+            return AppendInternal(Groups.GroupOptions(applyOptions, disableOptions, expressions));
+        }
+
+        public QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, params string[] values)
+        {
+            return AppendInternal(Groups.GroupOptions(applyOptions, disableOptions, values));
         }
 
         public QuantifiableExpression AsGroupOptions(InlineOptions applyOptions)
@@ -1997,6 +2067,16 @@ namespace Pihrtsoft.Regexator.Linq
             return AppendInternal(Groups.Maybe(expression));
         }
 
+        public QuantifierExpression Maybe(params string[] values)
+        {
+            return AppendInternal(Groups.Maybe(values));
+        }
+
+        public QuantifierExpression Maybe(params Expression[] expressions)
+        {
+            return AppendInternal(Groups.Maybe(expressions));
+        }
+
         public QuantifierExpression MaybeMany(string text)
         {
             return AppendInternal(Groups.MaybeMany(text));
@@ -2007,6 +2087,16 @@ namespace Pihrtsoft.Regexator.Linq
             return AppendInternal(Groups.MaybeMany(expression));
         }
 
+        public QuantifierExpression MaybeMany(params string[] values)
+        {
+            return AppendInternal(Groups.MaybeMany(values));
+        }
+
+        public QuantifierExpression MaybeMany(params Expression[] expressions)
+        {
+            return AppendInternal(Groups.MaybeMany(expressions));
+        }
+
         public QuantifierExpression OneMany(string text)
         {
             return AppendInternal(Groups.OneMany(text));
@@ -2015,6 +2105,16 @@ namespace Pihrtsoft.Regexator.Linq
         public QuantifierExpression OneMany(Expression expression)
         {
             return AppendInternal(Groups.OneMany(expression));
+        }
+
+        public QuantifierExpression OneMany(params string[] values)
+        {
+            return AppendInternal(Groups.OneMany(values));
+        }
+
+        public QuantifierExpression OneMany(params Expression[] expressions)
+        {
+            return AppendInternal(Groups.OneMany(expressions));
         }
 
         public QuantifiableExpression Backreference(int groupNumber)

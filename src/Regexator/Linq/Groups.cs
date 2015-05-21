@@ -14,9 +14,24 @@ namespace Pihrtsoft.Regexator.Linq
             return new NamedGroupExpression(name, text);
         }
 
+        public static QuantifiableExpression NamedGroup(string name, params Expression[] expressions)
+        {
+            return new NamedGroupExpression(name, new AnyExpression(AnyGroupMode.None, expressions));
+        }
+
+        public static QuantifiableExpression NamedGroup(string name, params string[] values)
+        {
+            return new NamedGroupExpression(name, new AnyTextExpression(AnyGroupMode.None, values));
+        }
+
         public static QuantifiableExpression Subexpression()
         {
             return new Subexpression(string.Empty);
+        }
+
+        public static QuantifiableExpression Subexpression(Expression expression)
+        {
+            return new Subexpression(expression);
         }
 
         public static QuantifiableExpression Subexpression(string text)
@@ -24,9 +39,14 @@ namespace Pihrtsoft.Regexator.Linq
             return new Subexpression(text);
         }
 
-        public static QuantifiableExpression Subexpression(Expression expression)
+        public static QuantifiableExpression Subexpression(params Expression[] expressions)
         {
-            return new Subexpression(expression);
+            return new Subexpression(new AnyExpression(AnyGroupMode.None, expressions));
+        }
+
+        public static QuantifiableExpression Subexpression(params string[] values)
+        {
+            return new Subexpression(new AnyTextExpression(AnyGroupMode.None, values));
         }
 
         public static QuantifiableExpression Noncapturing(Expression expression)
@@ -39,6 +59,16 @@ namespace Pihrtsoft.Regexator.Linq
             return new NoncapturingExpression(text);
         }
 
+        public static QuantifiableExpression Noncapturing(params Expression[] expressions)
+        {
+            return new NoncapturingExpression(new AnyExpression(AnyGroupMode.None, expressions));
+        }
+
+        public static QuantifiableExpression Noncapturing(params string[] values)
+        {
+            return new NoncapturingExpression(new AnyTextExpression(AnyGroupMode.None, values));
+        }
+
         public static QuantifiableExpression BalanceGroup(string name1, string name2, Expression expression)
         {
             return new BalanceGroupExpression(name1, name2, expression);
@@ -47,6 +77,16 @@ namespace Pihrtsoft.Regexator.Linq
         public static QuantifiableExpression BalanceGroup(string name1, string name2, string text)
         {
             return new BalanceGroupExpression(name1, name2, text);
+        }
+
+        public static QuantifiableExpression BalanceGroup(string name1, string name2, params Expression[] expressions)
+        {
+            return new BalanceGroupExpression(name1, name2, new AnyExpression(AnyGroupMode.None, expressions));
+        }
+
+        public static QuantifiableExpression BalanceGroup(string name1, string name2, params string[] values)
+        {
+            return new BalanceGroupExpression(name1, name2, new AnyTextExpression(AnyGroupMode.None, values));
         }
 
         public static QuantifiableExpression Nonbacktracking(Expression expression)
@@ -59,6 +99,16 @@ namespace Pihrtsoft.Regexator.Linq
             return new NonbacktrackingExpression(text);
         }
 
+        public static QuantifiableExpression Nonbacktracking(params Expression[] expressions)
+        {
+            return new NonbacktrackingExpression(new AnyExpression(AnyGroupMode.None, expressions));
+        }
+
+        public static QuantifiableExpression Nonbacktracking(params string[] values)
+        {
+            return new NonbacktrackingExpression(new AnyTextExpression(AnyGroupMode.None, values));
+        }
+
         public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, Expression expression)
         {
             return new GroupOptionsExpression(applyOptions, expression);
@@ -67,6 +117,16 @@ namespace Pihrtsoft.Regexator.Linq
         public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, string text)
         {
             return new GroupOptionsExpression(applyOptions, text);
+        }
+
+        public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, params Expression[] expressions)
+        {
+            return new GroupOptionsExpression(applyOptions, new AnyExpression(AnyGroupMode.None, expressions));
+        }
+
+        public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, params string[] values)
+        {
+            return new GroupOptionsExpression(applyOptions, new AnyTextExpression(AnyGroupMode.None, values));
         }
 
         public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, Expression expression)
@@ -79,6 +139,16 @@ namespace Pihrtsoft.Regexator.Linq
             return new GroupOptionsExpression(applyOptions, disableOptions, text);
         }
 
+        public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, params Expression[] expressions)
+        {
+            return new GroupOptionsExpression(applyOptions, disableOptions, new AnyExpression(AnyGroupMode.None, expressions));
+        }
+
+        public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, params string[] values)
+        {
+            return new GroupOptionsExpression(applyOptions, disableOptions, new AnyTextExpression(AnyGroupMode.None, values));
+        }
+
         public static QuantifierExpression Maybe(string text)
         {
             return QuantifierGroup(text).Maybe();
@@ -87,6 +157,16 @@ namespace Pihrtsoft.Regexator.Linq
         public static QuantifierExpression Maybe(Expression expression)
         {
             return QuantifierGroup(expression).Maybe();
+        }
+
+        public static QuantifierExpression Maybe(params string[] values)
+        {
+            return QuantifierGroup(new AnyTextExpression(AnyGroupMode.Subexpression, values)).Maybe();
+        }
+
+        public static QuantifierExpression Maybe(params Expression[] expressions)
+        {
+            return QuantifierGroup(new AnyExpression(AnyGroupMode.Subexpression, expressions)).Maybe();
         }
 
         public static QuantifierExpression MaybeMany(string text)
@@ -99,6 +179,16 @@ namespace Pihrtsoft.Regexator.Linq
             return QuantifierGroup(expression).MaybeMany();
         }
 
+        public static QuantifierExpression MaybeMany(params string[] values)
+        {
+            return QuantifierGroup(new AnyTextExpression(AnyGroupMode.Subexpression, values)).MaybeMany();
+        }
+
+        public static QuantifierExpression MaybeMany(params Expression[] expressions)
+        {
+            return QuantifierGroup(new AnyExpression(AnyGroupMode.Subexpression, expressions)).MaybeMany();
+        }
+
         public static QuantifierExpression OneMany(string text)
         {
             return QuantifierGroup(text).OneMany();
@@ -107,6 +197,16 @@ namespace Pihrtsoft.Regexator.Linq
         public static QuantifierExpression OneMany(Expression expression)
         {
             return QuantifierGroup(expression).OneMany();
+        }
+
+        public static QuantifierExpression OneMany(params string[] values)
+        {
+            return QuantifierGroup(new AnyTextExpression(AnyGroupMode.Subexpression, values)).OneMany();
+        }
+
+        public static QuantifierExpression OneMany(params Expression[] expressions)
+        {
+            return QuantifierGroup(new AnyExpression(AnyGroupMode.Subexpression, expressions)).OneMany();
         }
 
         internal static QuantifiableExpression QuantifierGroup(string text)

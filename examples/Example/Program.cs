@@ -3,7 +3,7 @@
 using System;
 using System.IO;
 
-namespace Pihrtsoft.Regexator.Linq.Samples
+namespace Pihrtsoft.Regexator.Linq.Examples
 {
     internal class Program
     {
