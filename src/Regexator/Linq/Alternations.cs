@@ -46,44 +46,6 @@ namespace Pihrtsoft.Regexator.Linq
             return new AnyExpression(values.Select(selector));
         }
 
-        public static QuantifiableExpression SubexpressionAny(IEnumerable<Expression> expressions)
-        {
-            return new AnyExpression(AnyGroupMode.Subexpression, expressions);
-        }
-
-        public static QuantifiableExpression SubexpressionAny(params Expression[] expressions)
-        {
-            return new AnyExpression(AnyGroupMode.Subexpression, expressions);
-        }
-
-        public static QuantifiableExpression SubexpressionAny(Func<Expression, Expression> selector, params Expression[] expressions)
-        {
-            if (expressions == null)
-            {
-                throw new ArgumentNullException("expressions");
-            }
-            return new AnyExpression(AnyGroupMode.Subexpression, expressions.Select(selector));
-        }
-
-        public static QuantifiableExpression SubexpressionAny(IEnumerable<string> values)
-        {
-            return new AnyTextExpression(AnyGroupMode.Subexpression, values);
-        }
-
-        public static QuantifiableExpression SubexpressionAny(params string[] values)
-        {
-            return new AnyTextExpression(AnyGroupMode.Subexpression, values);
-        }
-
-        public static QuantifiableExpression SubexpressionAny(Func<string, Expression> selector, params string[] values)
-        {
-            if (values == null)
-            {
-                throw new ArgumentNullException("values");
-            }
-            return new AnyExpression(AnyGroupMode.Subexpression, values.Select(selector));
-        }
-
         public static QuantifiableExpression IfGroup(string groupName, Expression yes)
         {
             return new GroupNameIfExpression(groupName, yes);
