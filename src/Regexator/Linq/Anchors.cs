@@ -14,6 +14,16 @@ namespace Pihrtsoft.Regexator.Linq
             return new AssertionExpression(AssertionKind.Assert, text);
         }
 
+        public static QuantifiableExpression Assert(params Expression[] expressions)
+        {
+            return Assert(new AnyExpression(AnyGroupMode.None, expressions));
+        }
+
+        public static QuantifiableExpression Assert(params string[] values)
+        {
+            return Assert(new AnyTextExpression(AnyGroupMode.None, values));
+        }
+
         public static QuantifiableExpression Assert(CharGroupItem item)
         {
             return new CharGroupAssertion(AssertionKind.Assert, item);
@@ -52,6 +62,16 @@ namespace Pihrtsoft.Regexator.Linq
         public static QuantifiableExpression NotAssert(string text)
         {
             return new AssertionExpression(AssertionKind.NotAssert, text);
+        }
+
+        public static QuantifiableExpression NotAssert(params Expression[] expressions)
+        {
+            return NotAssert(new AnyExpression(AnyGroupMode.None, expressions));
+        }
+
+        public static QuantifiableExpression NotAssert(params string[] values)
+        {
+            return NotAssert(new AnyTextExpression(AnyGroupMode.None, values));
         }
 
         public static QuantifiableExpression NotAssert(CharGroupItem item)
@@ -94,6 +114,16 @@ namespace Pihrtsoft.Regexator.Linq
             return new AssertionExpression(AssertionKind.AssertBack, text);
         }
 
+        public static QuantifiableExpression AssertBack(params Expression[] expressions)
+        {
+            return AssertBack(new AnyExpression(AnyGroupMode.None, expressions));
+        }
+
+        public static QuantifiableExpression AssertBack(params string[] values)
+        {
+            return AssertBack(new AnyTextExpression(AnyGroupMode.None, values));
+        }
+
         public static QuantifiableExpression AssertBack(CharGroupItem item)
         {
             return new CharGroupAssertion(AssertionKind.AssertBack, item);
@@ -132,6 +162,16 @@ namespace Pihrtsoft.Regexator.Linq
         public static QuantifiableExpression NotAssertBack(string text)
         {
             return new AssertionExpression(AssertionKind.NotAssertBack, text);
+        }
+
+        public static QuantifiableExpression NotAssertBack(params Expression[] expressions)
+        {
+            return NotAssertBack(new AnyExpression(AnyGroupMode.None, expressions));
+        }
+
+        public static QuantifiableExpression NotAssertBack(params string[] values)
+        {
+            return NotAssertBack(new AnyTextExpression(AnyGroupMode.None, values));
         }
 
         public static QuantifiableExpression NotAssertBack(CharGroupItem item)

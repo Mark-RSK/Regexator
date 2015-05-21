@@ -227,6 +227,16 @@ namespace Pihrtsoft.Regexator.Linq
             return AppendInternal(Anchors.Assert(text));
         }
 
+        public QuantifiableExpression Assert(params Expression[] expressions)
+        {
+            return AppendInternal(Anchors.Assert(expressions));
+        }
+
+        public QuantifiableExpression Assert(params string[] values)
+        {
+            return AppendInternal(Anchors.Assert(values));
+        }
+
         public QuantifiableExpression Assert(CharGroupItem item)
         {
             return AppendInternal(Anchors.Assert(item));
@@ -265,6 +275,16 @@ namespace Pihrtsoft.Regexator.Linq
         public QuantifiableExpression NotAssert(string text)
         {
             return AppendInternal(Anchors.NotAssert(text));
+        }
+
+        public QuantifiableExpression NotAssert(params Expression[] expressions)
+        {
+            return AppendInternal(Anchors.NotAssert(expressions));
+        }
+
+        public QuantifiableExpression NotAssert(params string[] values)
+        {
+            return AppendInternal(Anchors.NotAssert(values));
         }
 
         public QuantifiableExpression NotAssert(CharGroupItem item)
@@ -307,6 +327,16 @@ namespace Pihrtsoft.Regexator.Linq
             return AppendInternal(Anchors.AssertBack(text));
         }
 
+        public QuantifiableExpression AssertBack(params Expression[] expressions)
+        {
+            return AppendInternal(Anchors.AssertBack(expressions));
+        }
+
+        public QuantifiableExpression AssertBack(params string[] values)
+        {
+            return AppendInternal(Anchors.AssertBack(values));
+        }
+
         public QuantifiableExpression AssertBack(CharGroupItem item)
         {
             return AppendInternal(Anchors.AssertBack(item));
@@ -345,6 +375,16 @@ namespace Pihrtsoft.Regexator.Linq
         public QuantifiableExpression NotAssertBack(string text)
         {
             return AppendInternal(Anchors.NotAssertBack(text));
+        }
+
+        public QuantifiableExpression NotAssertBack(params Expression[] expressions)
+        {
+            return AppendInternal(Anchors.NotAssertBack(expressions));
+        }
+
+        public QuantifiableExpression NotAssertBack(params string[] values)
+        {
+            return AppendInternal(Anchors.NotAssertBack(values));
         }
 
         public QuantifiableExpression NotAssertBack(CharGroupItem item)
