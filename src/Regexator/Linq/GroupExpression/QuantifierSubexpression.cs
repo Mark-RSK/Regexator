@@ -19,7 +19,7 @@ namespace Pihrtsoft.Regexator.Linq
         {
             if (EncloseRequired)
             {
-                return context.Settings.NoncapturingQuantifierGroup ? Syntax.NoncapturingGroupStart : Syntax.SubexpressionStart;
+                return Syntax.SubexpressionStart;
             }
             else
             {

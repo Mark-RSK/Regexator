@@ -10,7 +10,6 @@ namespace Pihrtsoft.Regexator.Linq
         public PatternSettings()
         {
             IdentifierBoundary = IdentifierBoundary.LessThan;
-            NoncapturingQuantifierGroup = false;
             SeparatorAfterNumberBackreference = true;
         }
 
@@ -19,14 +18,12 @@ namespace Pihrtsoft.Regexator.Linq
             return new PatternSettings() {
                 ConditionWithAssertion = ConditionWithAssertion,
                 IdentifierBoundary = IdentifierBoundary,
-                NoncapturingQuantifierGroup = NoncapturingQuantifierGroup,
                 SeparatorAfterNumberBackreference = SeparatorAfterNumberBackreference,
                 UseInvariant = UseInvariant
             };
         }
 
         public IdentifierBoundary IdentifierBoundary { get; set; }
-        public bool NoncapturingQuantifierGroup { get; set; }
         public bool ConditionWithAssertion { get; set; }
         public bool SeparatorAfterNumberBackreference { get; set; }
         public bool UseInvariant { get; set; }
