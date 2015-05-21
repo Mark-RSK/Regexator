@@ -17,26 +17,16 @@ namespace Pihrtsoft.Regexator.Linq
 
         internal override string Opening(BuildContext context)
         {
-            if (EncloseRequired)
-            {
-                return Syntax.SubexpressionStart;
-            }
-            else
-            {
-                return string.Empty;
-            }
+            return (EncloseRequired)
+                ? Syntax.SubexpressionStart
+                : string.Empty;
         }
 
         internal override string Closing(BuildContext context)
         {
-            if (EncloseRequired)
-            {
-                return base.Closing(context);
-            }
-            else
-            {
-                return string.Empty;
-            }
+            return (EncloseRequired)
+                ? base.Closing(context)
+                : string.Empty;
         }
 
         private bool EncloseRequired
