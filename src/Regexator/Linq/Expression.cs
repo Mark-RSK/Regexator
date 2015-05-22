@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace Pihrtsoft.Regexator.Linq
@@ -168,6 +169,45 @@ namespace Pihrtsoft.Regexator.Linq
         internal virtual string Value(BuildContext context)
         {
             return null;
+        }
+
+        public static Expression Join(Expression separator, IEnumerable<Expression> values)
+        {
+            if (values == null)
+            {
+                throw new ArgumentNullException("values");
+            }
+
+            if (separator == null)
+            {
+                separator = new Expression();
+            }
+
+            using (IEnumerator<Expression> en = values.GetEnumerator())
+            {
+                if (!en.MoveNext())
+                {
+                    return new Expression();
+                }
+
+                Expression exp = new Expression();
+
+                if (en.Current != null)
+                {
+                    exp = exp.Append(en.Current);
+                }
+
+                while (en.MoveNext())
+                {
+                    exp = exp.Append(separator);
+
+                    if (en.Current != null)
+                    {
+                        exp = exp.Append(en.Current);
+                    }
+                }
+                return exp;
+            }
         }
 
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
