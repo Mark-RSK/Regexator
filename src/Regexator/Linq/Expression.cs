@@ -3,7 +3,6 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Text;
 using System.Text.RegularExpressions;
 
 namespace Pihrtsoft.Regexator.Linq
@@ -19,6 +18,20 @@ namespace Pihrtsoft.Regexator.Linq
         public Expression Append(string value)
         {
             return Append(value, true);
+        }
+
+        public Expression Append(IEnumerable<string> values)
+        {
+            if (values == null)
+            {
+                throw new ArgumentNullException("values");
+            }
+            Expression exp = this;
+            foreach (var item in values)
+            {
+                exp = exp.Append(item);
+            }
+            return exp;
         }
 
         internal Expression Append(string value, bool escape)
@@ -59,6 +72,20 @@ namespace Pihrtsoft.Regexator.Linq
         public Expression Append(Expression expression)
         {
             return AppendInternal(new ContainerExpression(expression));
+        }
+
+        public Expression Append(IEnumerable<Expression> expressions)
+        {
+            if (expressions == null)
+            {
+                throw new ArgumentNullException("expressions");
+            }
+            Expression exp = this;
+            foreach (var item in expressions)
+            {
+                exp = exp.Append(item);
+            }
+            return exp;
         }
 
         public Regex ToRegex()
