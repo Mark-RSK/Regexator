@@ -11,6 +11,7 @@ namespace Pihrtsoft.Regexator.Linq
     public partial class Expression
     {
         private Expression _previous;
+        internal static readonly Expression Empty = new Expression();
 
         public Expression()
         {
@@ -218,17 +219,17 @@ namespace Pihrtsoft.Regexator.Linq
 
             if (separator == null)
             {
-                separator = new Expression();
+                separator = Empty;
             }
 
             using (IEnumerator<Expression> en = expressions.GetEnumerator())
             {
                 if (!en.MoveNext())
                 {
-                    return new Expression();
+                    return Empty;
                 }
 
-                Expression exp = new Expression();
+                Expression exp = Empty;
 
                 if (en.Current != null)
                 {
@@ -256,7 +257,7 @@ namespace Pihrtsoft.Regexator.Linq
                 throw new ArgumentNullException("expressions");
             }
 
-            return new Expression().Append(expressions);
+            return Empty.Append(expressions);
         }
 
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
