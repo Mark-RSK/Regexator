@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace Pihrtsoft.Regexator.Linq
@@ -198,11 +199,21 @@ namespace Pihrtsoft.Regexator.Linq
             return null;
         }
 
-        public static Expression Join(Expression separator, IEnumerable<Expression> values)
+        public static Expression Join(Expression separator, IEnumerable<string> values)
         {
             if (values == null)
             {
                 throw new ArgumentNullException("values");
+            }
+
+            return Join(separator, values.Select(value => Expressions.Text(value)));
+        }
+
+        public static Expression Join(Expression separator, IEnumerable<Expression> expressions)
+        {
+            if (expressions == null)
+            {
+                throw new ArgumentNullException("expressions");
             }
 
             if (separator == null)
@@ -210,7 +221,7 @@ namespace Pihrtsoft.Regexator.Linq
                 separator = new Expression();
             }
 
-            using (IEnumerator<Expression> en = values.GetEnumerator())
+            using (IEnumerator<Expression> en = expressions.GetEnumerator())
             {
                 if (!en.MoveNext())
                 {
