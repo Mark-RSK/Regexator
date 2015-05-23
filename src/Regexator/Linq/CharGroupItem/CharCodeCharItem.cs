@@ -2,7 +2,7 @@
 
 using System;
 
-namespace Pihrtsoft.Regexator.Linq
+namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     internal sealed class CharCodeCharItem
         : CharGroupItem

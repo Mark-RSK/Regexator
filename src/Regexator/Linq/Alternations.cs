@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Pihrtsoft.Regexator.Linq
+namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public static class Alternations
     {

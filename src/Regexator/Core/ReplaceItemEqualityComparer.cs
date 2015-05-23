@@ -2,7 +2,7 @@
 
 using System.Collections.Generic;
 
-namespace Pihrtsoft.Regexator
+namespace Pihrtsoft.Text.RegularExpressions
 {
     public class ReplaceItemEqualityComparer
         : EqualityComparer<ReplaceItem>

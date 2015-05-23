@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Pihrtsoft.Regexator.Linq
+namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public abstract partial class CharGroupItem
         : IBaseGroup, IExcludedGroup

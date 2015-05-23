@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Globalization;
 
-namespace Pihrtsoft.Regexator
+namespace Pihrtsoft.Text.RegularExpressions
 {
     public sealed class MatchSplitItem
         : SplitItem

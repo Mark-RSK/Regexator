@@ -6,7 +6,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace Pihrtsoft.Regexator
+namespace Pihrtsoft.Text.RegularExpressions
 {
     public sealed class MatchItem
     {

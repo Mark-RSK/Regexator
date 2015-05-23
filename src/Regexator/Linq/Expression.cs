@@ -6,7 +6,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace Pihrtsoft.Regexator.Linq
+namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public partial class Expression
     {

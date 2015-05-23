@@ -3,7 +3,7 @@
 using System;
 using System.Diagnostics;
 
-namespace Pihrtsoft.Regexator
+namespace Pihrtsoft.Text.RegularExpressions
 {
     [DebuggerDisplay("Index: {Index}, Name: {Name}")]
     public class GroupInfo

@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Pihrtsoft.Regexator.Linq
+namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     internal sealed class ContainerExpression
         : Expression

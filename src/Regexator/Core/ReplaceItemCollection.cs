@@ -3,7 +3,7 @@
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 
-namespace Pihrtsoft.Regexator
+namespace Pihrtsoft.Text.RegularExpressions
 {
     public class ReplaceItemCollection
         : ReadOnlyCollection<ReplaceItem>

@@ -3,7 +3,7 @@
 using System.Collections.ObjectModel;
 using System.Text.RegularExpressions;
 
-namespace Pihrtsoft.Regexator
+namespace Pihrtsoft.Text.RegularExpressions
 {
     public abstract class SplitItem
     {

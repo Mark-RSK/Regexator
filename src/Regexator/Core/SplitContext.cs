@@ -3,7 +3,7 @@
 using System.Collections.ObjectModel;
 using System.Linq;
 
-namespace Pihrtsoft.Regexator
+namespace Pihrtsoft.Text.RegularExpressions
 {
     internal class SplitContext
     {

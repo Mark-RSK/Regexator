@@ -8,9 +8,9 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
-using Pihrtsoft.Regexator.Linq;
+using Pihrtsoft.Text.RegularExpressions.Linq;
 
-namespace Pihrtsoft.Regexator
+namespace Pihrtsoft.Text.RegularExpressions
 {
     public static class RegexUtilities
     {

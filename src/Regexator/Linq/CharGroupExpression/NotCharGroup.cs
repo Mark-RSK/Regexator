@@ -2,7 +2,7 @@
 
 using System.Collections.Generic;
 
-namespace Pihrtsoft.Regexator.Linq
+namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     internal sealed class NotCharGroup
         : CharGroup

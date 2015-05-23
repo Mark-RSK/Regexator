@@ -4,7 +4,7 @@ using System;
 using System.ComponentModel;
 using System.Collections.Generic;
 
-namespace Pihrtsoft.Regexator
+namespace Pihrtsoft.Text.RegularExpressions
 {
     [Serializable]
     public class GroupInfoSorter

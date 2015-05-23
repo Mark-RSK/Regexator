@@ -2,7 +2,7 @@
 
 using System.ComponentModel;
 
-namespace Pihrtsoft.Regexator.Linq
+namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public enum NamedBlock
     {
