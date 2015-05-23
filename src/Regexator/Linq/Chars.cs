@@ -6,6 +6,21 @@ namespace Pihrtsoft.Regexator.Linq
 {
     public static class Chars
     {
+        public static CharacterExpression Char(char value)
+        {
+            return new CharExpression(value);
+        }
+
+        public static CharacterExpression Char(int charCode)
+        {
+            return new CharCodeExpression(charCode);
+        }
+
+        public static CharacterExpression Char(AsciiChar value)
+        {
+            return new AsciiCharExpression(value);
+        }
+
         public static CharGroupExpression Char(string chars)
         {
             return new CharsCharGroup(chars);
@@ -39,6 +54,21 @@ namespace Pihrtsoft.Regexator.Linq
         public static CharGroupExpression Char(IEnumerable<GeneralCategory> categories)
         {
             return new GeneralCategoryGroup(categories);
+        }
+
+        public static CharGroupExpression NotChar(char value)
+        {
+            return new NotCharGroup(value);
+        }
+
+        public static CharGroupExpression NotChar(int charCode)
+        {
+            return new NotCharCodeGroup(charCode);
+        }
+
+        public static CharGroupExpression NotChar(AsciiChar value)
+        {
+            return new NotAsciiCharGroup(value);
         }
 
         public static CharGroupExpression NotChar(string chars)
@@ -76,6 +106,26 @@ namespace Pihrtsoft.Regexator.Linq
             return new NotGeneralCategoryGroup(categories);
         }
 
+        public static CharacterExpression NamedBlock(NamedBlock block)
+        {
+            return new NamedBlockExpression(block);
+        }
+
+        public static CharacterExpression GeneralCategory(GeneralCategory category)
+        {
+            return new GeneralCategoryExpression(category);
+        }
+
+        public static CharacterExpression NotNamedBlock(NamedBlock block)
+        {
+            return new NotNamedBlockExpression(block);
+        }
+
+        public static CharacterExpression NotGeneralCategory(GeneralCategory category)
+        {
+            return new NotGeneralCategoryExpression(category);
+        }
+
         public static CharGroupExpression Range(char first, char last)
         {
             return new CharRangeGroup(first, last);
@@ -104,86 +154,6 @@ namespace Pihrtsoft.Regexator.Linq
         public static CharSubtraction NotSubtract(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
         {
             return new NotCharSubtraction(baseGroup, excludedGroup);
-        }
-
-        public static CharGroupExpression NewLineChar()
-        {
-            return Char(CharGroupItems.CarriageReturn().Linefeed());
-        }
-
-        public static CharGroupExpression NotNewLineChar()
-        {
-            return NotChar(CharGroupItems.CarriageReturn().Linefeed());
-        }
-
-        public static CharGroupExpression Alphanumeric()
-        {
-            return Char(CharGroupItems.Alphanumeric());
-        }
-
-        public static CharGroupExpression NotAlphanumeric()
-        {
-            return NotChar(CharGroupItems.Alphanumeric());
-        }
-
-        public static CharGroupExpression AlphanumericUnderscore()
-        {
-            return Char(CharGroupItems.AlphanumericUnderscore());
-        }
-
-        public static CharGroupExpression NotAlphanumericUnderscore()
-        {
-            return NotChar(CharGroupItems.AlphanumericUnderscore());
-        }
-
-        public static CharGroupExpression LatinLetter()
-        {
-            return Char(CharGroupItems.LatinLetter());
-        }
-
-        public static CharGroupExpression LatinLetterLower()
-        {
-            return Char(CharGroupItems.LatinLetterLower());
-        }
-
-        public static CharGroupExpression LatinLetterUpper()
-        {
-            return Char(CharGroupItems.LatinLetterUpper());
-        }
-
-        public static CharGroupExpression NotLatinLetter()
-        {
-            return NotChar(CharGroupItems.LatinLetter());
-        }
-
-        public static CharGroupExpression NotLatinLetterLower()
-        {
-            return NotChar(CharGroupItems.LatinLetterLower());
-        }
-
-        public static CharGroupExpression NotLatinLetterUpper()
-        {
-            return NotChar(CharGroupItems.LatinLetterUpper());
-        }
-
-        public static CharGroupExpression ArabicDigit()
-        {
-            return Char(CharGroupItems.ArabicDigit());
-        }
-
-        public static CharGroupExpression NotArabicDigit()
-        {
-            return NotChar(CharGroupItems.ArabicDigit());
-        }
-
-        public static CharGroupExpression HexadecimalDigit()
-        {
-            return Char(CharGroupItems.HexadecimalDigit());
-        }
-
-        public static CharGroupExpression NotHexadecimalDigit()
-        {
-            return NotChar(CharGroupItems.HexadecimalDigit());
         }
 
         public static QuantifiableExpression Any()
@@ -289,56 +259,6 @@ namespace Pihrtsoft.Regexator.Linq
         public static QuantifierExpression NotWordChar(int minCount, int maxCount)
         {
             return new CharClassExpression(CharClass.NotWordChar).CountRange(minCount, maxCount);
-        }
-
-        public static CharacterExpression Char(char value)
-        {
-            return new CharExpression(value);
-        }
-
-        public static CharacterExpression Char(int charCode)
-        {
-            return new CharCodeExpression(charCode);
-        }
-
-        public static CharacterExpression Char(AsciiChar value)
-        {
-            return new AsciiCharExpression(value);
-        }
-
-        public static CharacterExpression NamedBlock(NamedBlock block)
-        {
-            return new NamedBlockExpression(block);
-        }
-
-        public static CharacterExpression GeneralCategory(GeneralCategory category)
-        {
-            return new GeneralCategoryExpression(category);
-        }
-
-        public static CharGroupExpression NotChar(char value)
-        {
-            return new NotCharGroup(value);
-        }
-
-        public static CharGroupExpression NotChar(int charCode)
-        {
-            return new NotCharCodeGroup(charCode);
-        }
-
-        public static CharGroupExpression NotChar(AsciiChar value)
-        {
-            return new NotAsciiCharGroup(value);
-        }
-
-        public static CharacterExpression NotNamedBlock(NamedBlock block)
-        {
-            return new NotNamedBlockExpression(block);
-        }
-
-        public static CharacterExpression NotGeneralCategory(GeneralCategory category)
-        {
-            return new NotGeneralCategoryExpression(category);
         }
 
         public static CharacterExpression Tab()
@@ -1419,6 +1339,86 @@ namespace Pihrtsoft.Regexator.Linq
         public static QuantifierExpression NotTilde(int minCount, int maxCount)
         {
             return NotChar(AsciiChar.Tilde).CountRange(minCount, maxCount);
+        }
+
+        public static CharGroupExpression NewLineChar()
+        {
+            return Char(CharGroupItems.CarriageReturn().Linefeed());
+        }
+
+        public static CharGroupExpression NotNewLineChar()
+        {
+            return NotChar(CharGroupItems.CarriageReturn().Linefeed());
+        }
+
+        public static CharGroupExpression Alphanumeric()
+        {
+            return Char(CharGroupItems.Alphanumeric());
+        }
+
+        public static CharGroupExpression NotAlphanumeric()
+        {
+            return NotChar(CharGroupItems.Alphanumeric());
+        }
+
+        public static CharGroupExpression AlphanumericUnderscore()
+        {
+            return Char(CharGroupItems.AlphanumericUnderscore());
+        }
+
+        public static CharGroupExpression NotAlphanumericUnderscore()
+        {
+            return NotChar(CharGroupItems.AlphanumericUnderscore());
+        }
+
+        public static CharGroupExpression LatinLetter()
+        {
+            return Char(CharGroupItems.LatinLetter());
+        }
+
+        public static CharGroupExpression LatinLetterLower()
+        {
+            return Char(CharGroupItems.LatinLetterLower());
+        }
+
+        public static CharGroupExpression LatinLetterUpper()
+        {
+            return Char(CharGroupItems.LatinLetterUpper());
+        }
+
+        public static CharGroupExpression NotLatinLetter()
+        {
+            return NotChar(CharGroupItems.LatinLetter());
+        }
+
+        public static CharGroupExpression NotLatinLetterLower()
+        {
+            return NotChar(CharGroupItems.LatinLetterLower());
+        }
+
+        public static CharGroupExpression NotLatinLetterUpper()
+        {
+            return NotChar(CharGroupItems.LatinLetterUpper());
+        }
+
+        public static CharGroupExpression ArabicDigit()
+        {
+            return Char(CharGroupItems.ArabicDigit());
+        }
+
+        public static CharGroupExpression NotArabicDigit()
+        {
+            return NotChar(CharGroupItems.ArabicDigit());
+        }
+
+        public static CharGroupExpression HexadecimalDigit()
+        {
+            return Char(CharGroupItems.HexadecimalDigit());
+        }
+
+        public static CharGroupExpression NotHexadecimalDigit()
+        {
+            return NotChar(CharGroupItems.HexadecimalDigit());
         }
 
         public static CharGroupExpression Parentheses()
