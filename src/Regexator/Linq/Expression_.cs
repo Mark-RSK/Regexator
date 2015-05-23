@@ -13,6 +13,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return AppendInternal(Alternations.IfGroup(groupName, Expressions.Never()));
         }
 
+        public QuantifiableExpression DisallowGroups(string groupName1, string groupName2)
+        {
+            return DisallowGroup(groupName1).DisallowGroup(groupName2);
+        }
+
+        public QuantifiableExpression DisallowGroups(string groupName1, string groupName2, string groupName3)
+        {
+            return DisallowGroups(groupName1, groupName2).DisallowGroup(groupName3);
+        }
+
         public QuantifiableExpression DisallowGroup(int groupNumber)
         {
             if (groupNumber < 0)
@@ -20,6 +30,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentOutOfRangeException("groupNumber");
             }
             return AppendInternal(Alternations.IfGroup(groupNumber, Expressions.Never()));
+        }
+
+        public QuantifiableExpression DisallowGroups(int groupNumber1, int groupNumber2)
+        {
+            return DisallowGroup(groupNumber1).DisallowGroup(groupNumber2);
+        }
+
+        public QuantifiableExpression DisallowGroups(int groupNumber1, int groupNumber2, int groupNumber3)
+        {
+            return DisallowGroups(groupNumber1, groupNumber2).DisallowGroup(groupNumber3);
         }
 
         public QuantifiableExpression RequireGroup(string groupName)
