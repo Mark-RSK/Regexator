@@ -78,7 +78,6 @@
     <Compile Include="Linq\Substitution\Substitution.cs" />
     <Compile Include="Linq\Expression\NotCharSubtraction.cs" />
     <Compile Include="Linq\Expression\SurroundExpression.cs" />
-    <Compile Include="Linq\Miscellaneous.cs" />
     <Compile Include="Linq\Expression\ContainerExpression.cs" />
     <Compile Include="Linq\Expression\InlineCommentExpression.cs" />
     <Compile Include="Linq\Expression\InlineOptionsExpression.cs" />

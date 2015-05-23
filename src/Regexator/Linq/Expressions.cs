@@ -4,6 +4,31 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public static class Expressions
     {
+        public static QuantifiableExpression Backreference(int groupNumber)
+        {
+            return new NumberBackreferenceExpression(groupNumber);
+        }
+
+        public static QuantifiableExpression Backreference(string groupName)
+        {
+            return new NameBackreferenceExpression(groupName);
+        }
+
+        public static Expression Options(InlineOptions applyOptions)
+        {
+            return new InlineOptionsExpression(applyOptions);
+        }
+
+        public static Expression Options(InlineOptions applyOptions, InlineOptions disableOptions)
+        {
+            return new InlineOptionsExpression(applyOptions, disableOptions);
+        }
+
+        public static Expression Comment(string value)
+        {
+            return new InlineCommentExpression(value);
+        }
+
         public static Expression Text(string value)
         {
             return new TextExpression(value);
@@ -46,21 +71,21 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiableExpression WhiteSpaceLines()
         {
-            return Miscellaneous.Options(InlineOptions.Multiline).Any(
+            return Options(InlineOptions.Multiline).Any(
                 Anchors.StartOfLine().WhiteSpace().MaybeMany().NewLine(),
                 NewLine().WhiteSpace().MaybeMany().End());
         }
 
         public static QuantifiableExpression EmptyLines()
         {
-            return Miscellaneous.Options(InlineOptions.Multiline).Any(
+            return Options(InlineOptions.Multiline).Any(
                 Anchors.StartOfLine().NewLine(),
                 NewLine().OneMany().End());
         }
 
         public static QuantifiableExpression FirstLine()
         {
-            return Miscellaneous.Options(InlineOptions.Multiline).Start().AnyMaybeManyLazy().EndOfLineOrBeforeCarriageReturn();
+            return Options(InlineOptions.Multiline).Start().AnyMaybeManyLazy().EndOfLineOrBeforeCarriageReturn();
         }
 
         public static QuantifiableExpression NewLine()

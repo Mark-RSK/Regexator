@@ -86,20 +86,20 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("");
 
             Console.WriteLine("whitespace lines:");
-            Console.WriteLine(Miscellaneous.Options(InlineOptions.Multiline).Any(
+            Console.WriteLine(Expressions.Options(InlineOptions.Multiline).Any(
                 Anchors.StartOfLine().WhiteSpace().MaybeMany().NewLine(),
                 Expressions.NewLine().WhiteSpace().MaybeMany().End()));
             Console.WriteLine("");
 
             Console.WriteLine("empty lines:");
-            Console.WriteLine(Miscellaneous.Options(InlineOptions.Multiline).Any(
+            Console.WriteLine(Expressions.Options(InlineOptions.Multiline).Any(
                 Anchors.StartOfLine().NewLine(),
                 Expressions.NewLine().OneMany().End()
             ));
             Console.WriteLine("");
 
             Console.WriteLine("first line:");
-            Console.WriteLine(Miscellaneous.Options(InlineOptions.Multiline).Start().AnyMaybeManyLazy().EndOfLineOrBeforeCarriageReturn());
+            Console.WriteLine(Expressions.Options(InlineOptions.Multiline).Start().AnyMaybeManyLazy().EndOfLineOrBeforeCarriageReturn());
             Console.WriteLine("");
 
             Console.WriteLine("lf without cr:");

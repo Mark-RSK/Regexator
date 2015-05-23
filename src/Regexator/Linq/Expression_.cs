@@ -2194,27 +2194,27 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public QuantifiableExpression Backreference(int groupNumber)
         {
-            return AppendInternal(Miscellaneous.Backreference(groupNumber));
+            return AppendInternal(Expressions.Backreference(groupNumber));
         }
 
         public QuantifiableExpression Backreference(string groupName)
         {
-            return AppendInternal(Miscellaneous.Backreference(groupName));
+            return AppendInternal(Expressions.Backreference(groupName));
         }
 
         public Expression Options(InlineOptions applyOptions)
         {
-            return AppendInternal(Miscellaneous.Options(applyOptions));
+            return AppendInternal(Expressions.Options(applyOptions));
         }
 
         public Expression Options(InlineOptions applyOptions, InlineOptions disableOptions)
         {
-            return AppendInternal(Miscellaneous.Options(applyOptions, disableOptions));
+            return AppendInternal(Expressions.Options(applyOptions, disableOptions));
         }
 
         public Expression Comment(string value)
         {
-            return AppendInternal(Miscellaneous.Comment(value));
+            return AppendInternal(Expressions.Comment(value));
         }
 
         public QuantifiableExpression NewLine()
