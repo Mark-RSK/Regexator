@@ -244,8 +244,19 @@ namespace Pihrtsoft.Regexator.Linq
                         exp = exp.Append(en.Current);
                     }
                 }
+
                 return exp;
             }
+        }
+
+        public static Expression Concat(IEnumerable<Expression> expressions)
+        {
+            if (expressions == null)
+            {
+                throw new ArgumentNullException("expressions");
+            }
+
+            return new Expression().Append(expressions);
         }
 
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
