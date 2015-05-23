@@ -11,6 +11,8 @@ namespace Pihrtsoft.Regexator.Linq
     public partial class Expression
     {
         private Expression _previous;
+        private Regex _regex;
+        private static readonly object _syncRoot = new object();
         internal static readonly Expression Empty = new Expression();
 
         public Expression()
@@ -269,6 +271,25 @@ namespace Pihrtsoft.Regexator.Linq
                 {
                     return string.Concat(EnumerateValues(this, context));
                 }
+            }
+        }
+
+        public Regex Regex
+        {
+            get 
+            {
+                if (_regex == null)
+                {
+                    lock (_syncRoot)
+                    {
+                        if (_regex == null)
+                        {
+                            _regex = ToRegex();
+                        }
+                    }
+                }
+
+                return _regex;
             }
         }
 
