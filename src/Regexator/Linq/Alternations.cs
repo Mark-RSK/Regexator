@@ -18,15 +18,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new AnyExpression(expressions);
         }
 
-        public static QuantifiableExpression Any(Func<Expression, Expression> selector, params Expression[] expressions)
-        {
-            if (expressions == null)
-            {
-                throw new ArgumentNullException("expressions");
-            }
-            return new AnyExpression(expressions.Select(selector));
-        }
-
         public static QuantifiableExpression Any(IEnumerable<string> values)
         {
             return new AnyTextExpression(values);
@@ -35,15 +26,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiableExpression Any(params string[] values)
         {
             return new AnyTextExpression(values);
-        }
-
-        public static QuantifiableExpression Any(Func<string, Expression> selector, params string[] values)
-        {
-            if (values == null)
-            {
-                throw new ArgumentNullException("values");
-            }
-            return new AnyExpression(values.Select(selector));
         }
 
         public static QuantifiableExpression IfGroup(string groupName, Expression yes)

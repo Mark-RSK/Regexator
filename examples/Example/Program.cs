@@ -2,6 +2,7 @@
 
 using System;
 using System.IO;
+using System.Linq;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
@@ -9,11 +10,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
         internal static void Main(string[] args)
         {
+            var values = new string[] { "one", "two", "three" };
+
             Console.WriteLine("multiple words");
             Console.WriteLine(Anchors
                 .WordBoundary()
                 .Noncapturing(Alternations
-                    .Any(f => Groups.Subexpression(f), "one", "two", "three")
+                    .Any(values.Select(f => Groups.Subexpression(f)))
                     .WordBoundary()
                     .NotWordChar().MaybeMany().Lazy()
                 ).Count(3)
@@ -24,7 +27,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine(Anchors
                 .WordBoundary()
                 .Noncapturing(Alternations
-                    .Any(f => Expressions.Text(f).Subexpression(), "one", "two", "three")
+                    .Any(values.Select(f => Expressions.Text(f).Subexpression()))
                     .WordBoundary()
                     .NotWordChar().MaybeMany().Lazy()
                 ).CountFrom(3)
