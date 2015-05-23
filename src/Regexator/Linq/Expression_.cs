@@ -7,6 +7,21 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public partial class Expression
     {
+        public QuantifiableExpression DisallowGroup(string groupName)
+        {
+            RegexUtilities.CheckGroupName(groupName);
+            return AppendInternal(Alternations.IfGroup(groupName, Expressions.Never()));
+        }
+
+        public QuantifiableExpression DisallowGroup(int groupNumber)
+        {
+            if (groupNumber < 0)
+            {
+                throw new ArgumentOutOfRangeException("groupNumber");
+            }
+            return AppendInternal(Alternations.IfGroup(groupNumber, Expressions.Never()));
+        }
+
         public QuantifiableExpression RequireGroup(string groupName)
         {
             RegexUtilities.CheckGroupName(groupName);
