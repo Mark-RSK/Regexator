@@ -1421,34 +1421,34 @@ namespace Pihrtsoft.Regexator.Linq
             return NotChar(CharGroupItems.HexadecimalDigit());
         }
 
-        public static CharGroupExpression Parentheses()
+        public static CharGroupExpression Parenthesis()
         {
-            return Char(CharGroupItems.Parentheses());
+            return Char(CharGroupItems.Parenthesis());
         }
 
-        public static CharGroupExpression NotParentheses()
+        public static CharGroupExpression NotParenthesis()
         {
-            return NotChar(CharGroupItems.Parentheses());
+            return NotChar(CharGroupItems.Parenthesis());
         }
 
-        public static CharGroupExpression CurlyBrackets()
+        public static CharGroupExpression CurlyBracket()
         {
-            return Char(CharGroupItems.CurlyBrackets());
+            return Char(CharGroupItems.CurlyBracket());
         }
 
-        public static CharGroupExpression NotCurlyBrackets()
+        public static CharGroupExpression NotCurlyBracket()
         {
-            return NotChar(CharGroupItems.CurlyBrackets());
+            return NotChar(CharGroupItems.CurlyBracket());
         }
 
-        public static CharGroupExpression SquareBrackets()
+        public static CharGroupExpression SquareBracket()
         {
-            return Char(CharGroupItems.SquareBrackets());
+            return Char(CharGroupItems.SquareBracket());
         }
 
-        public static CharGroupExpression NotSquareBrackets()
+        public static CharGroupExpression NotSquareBracket()
         {
-            return NotChar(CharGroupItems.SquareBrackets());
+            return NotChar(CharGroupItems.SquareBracket());
         }
 
         public static CharSubtraction WhiteSpaceExceptNewLine()

@@ -2029,32 +2029,32 @@ namespace Pihrtsoft.Regexator.Linq
 
         public QuantifiableExpression Parentheses()
         {
-            return AppendInternal(Chars.Parentheses());
+            return AppendInternal(Chars.Parenthesis());
         }
 
         public QuantifiableExpression NotParentheses()
         {
-            return AppendInternal(Chars.NotParentheses());
+            return AppendInternal(Chars.NotParenthesis());
         }
 
         public QuantifiableExpression CurlyBrackets()
         {
-            return AppendInternal(Chars.CurlyBrackets());
+            return AppendInternal(Chars.CurlyBracket());
         }
 
         public QuantifiableExpression NotCurlyBrackets()
         {
-            return AppendInternal(Chars.NotCurlyBrackets());
+            return AppendInternal(Chars.NotCurlyBracket());
         }
 
         public QuantifiableExpression SquareBrackets()
         {
-            return AppendInternal(Chars.SquareBrackets());
+            return AppendInternal(Chars.SquareBracket());
         }
 
         public QuantifiableExpression NotSquareBrackets()
         {
-            return AppendInternal(Chars.NotSquareBrackets());
+            return AppendInternal(Chars.NotSquareBracket());
         }
 
         public QuantifierExpression Maybe(string text)

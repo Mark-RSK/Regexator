@@ -304,17 +304,17 @@ namespace Pihrtsoft.Regexator.Linq
             return new AsciiCharItem(AsciiChar.Tilde);
         }
 
-        public static CharGroupItem Parentheses()
+        public static CharGroupItem Parenthesis()
         {
             return LeftParenthesis().RightParenthesis();
         }
 
-        public static CharGroupItem SquareBrackets()
+        public static CharGroupItem SquareBracket()
         {
             return LeftSquareBracket().RightSquareBracket();
         }
 
-        public static CharGroupItem CurlyBrackets()
+        public static CharGroupItem CurlyBracket()
         {
             return LeftCurlyBracket().RightCurlyBracket();
         }
