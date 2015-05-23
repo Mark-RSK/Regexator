@@ -1,11 +1,33 @@
 // Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 namespace Pihrtsoft.Regexator
 {
     public static class RegexExtensions
     {
+        internal static IEnumerable<Match> EnumerateMatches(this Regex regex, string input)
+        {
+            if (regex == null)
+            {
+                throw new ArgumentNullException("regex");
+            }
+
+            if (input == null)
+            {
+                throw new ArgumentNullException("input");
+            }
+
+            Match match = regex.Match(input);
+            while (match.Success)
+            {
+                yield return match;
+                match = match.NextMatch();
+            }
+        }
+
         public static MatchItem MatchItem(this Regex regex, string input)
         {
             return new MatchData(regex, input).MatchItem();

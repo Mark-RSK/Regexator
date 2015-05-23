@@ -262,6 +262,11 @@ namespace Pihrtsoft.Regexator.Linq
             return Empty.Append(expressions);
         }
 
+        public IEnumerable<Match> EnumerateMatches(string input)
+        {
+            return Regex.EnumerateMatches(input);
+        }
+
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal string Pattern
         {
