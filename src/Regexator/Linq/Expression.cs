@@ -58,6 +58,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return condition ? AppendInternal(expression) : this;
         }
 
+        public Expression AppendIf(bool condition, Expression yes, Expression no)
+        {
+            return condition ? AppendInternal(yes) : AppendInternal(no);
+        }
+
         internal TExpression AppendInternal<TExpression>(TExpression expression) where TExpression : Expression
         {
             if (expression == null)
