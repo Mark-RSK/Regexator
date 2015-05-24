@@ -194,12 +194,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public QuantifiableExpression EndOfLineOrBeforeCarriageReturn()
         {
-            return EndOfLine(true);
+            return EndOfLine(true, false);
         }
 
-        internal QuantifiableExpression EndOfLine(bool beforeCarriageReturn)
+        public QuantifiableExpression EndOfLineOrBeforeCarriageReturnInvariant()
         {
-            return AppendInternal(Anchors.EndOfLine(beforeCarriageReturn));
+            return EndOfLine(true, true);
+        }
+
+        internal QuantifiableExpression EndOfLine(bool beforeCarriageReturn, bool invariant)
+        {
+            return AppendInternal(Anchors.EndOfLine(beforeCarriageReturn, invariant));
         }
 
         public QuantifiableExpression End()

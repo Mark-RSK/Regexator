@@ -231,18 +231,30 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiableExpression EndOfLineOrBeforeCarriageReturn()
         {
-            return EndOfLine(true);
+            return EndOfLine(true, false);
         }
 
-        internal static QuantifiableExpression EndOfLine(bool beforeCarriageReturn)
+        public static QuantifiableExpression EndOfLineOrBeforeCarriageReturnInvariant()
+        {
+            return EndOfLine(true, true);
+        }
+
+        internal static QuantifiableExpression EndOfLine(bool beforeCarriageReturn, bool invariant)
         {
             if (beforeCarriageReturn)
             {
-                return Assert(Chars.CarriageReturn().Maybe().EndOfLine());
+                if (invariant)
+                {
+                    return NotAssertBack(Chars.CarriageReturn()).Assert(Chars.CarriageReturn().Maybe().EndOfLineInvariant());
+                }
+                else
+                {
+                    return NotAssertBack(Chars.CarriageReturn()).Assert(Chars.CarriageReturn().Maybe().EndOfLine());
+                }
             }
             else
             {
-                return EndOfLine();
+                return invariant ? EndOfLineInvariant() : EndOfLine();
             }
         }
 
