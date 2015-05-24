@@ -10,6 +10,15 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
         internal static void Main(string[] args)
         {
+            var exp = Expressions.LessThanGreaterThan(
+                Chars.ExclamationMark().SquareBrackets(
+                    Expressions.Text("CDATA").SquareBrackets(
+                        Chars.AnyMaybeManyLazyInvariant()
+                    )
+                )
+            );
+            Console.WriteLine(exp);
+
             var values = new string[] { "one", "two", "three" };
 
             Console.WriteLine("multiple words");

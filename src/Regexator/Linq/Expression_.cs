@@ -667,6 +667,46 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Groups.Nonbacktracking(this);
         }
 
+        public Expression Parentheses(Expression expression)
+        {
+            return AppendInternal(Expressions.Parentheses(expression));
+        }
+
+        public Expression Parentheses(string text)
+        {
+            return AppendInternal(Expressions.Parentheses(text));
+        }
+
+        public Expression CurlyBrackets(Expression expression)
+        {
+            return AppendInternal(Expressions.CurlyBrackets(expression));
+        }
+
+        public Expression CurlyBrackets(string text)
+        {
+            return AppendInternal(Expressions.CurlyBrackets(text));
+        }
+
+        public Expression SquareBrackets(Expression expression)
+        {
+            return AppendInternal(Expressions.SquareBrackets(expression));
+        }
+
+        public Expression SquareBrackets(string text)
+        {
+            return AppendInternal(Expressions.SquareBrackets(text));
+        }
+
+        public Expression LessThanGreaterThan(Expression expression)
+        {
+            return AppendInternal(Expressions.LessThanGreaterThan(expression));
+        }
+
+        public Expression LessThanGreaterThan(string text)
+        {
+            return AppendInternal(Expressions.LessThanGreaterThan(text));
+        }
+
         public QuantifiableExpression Char(string chars)
         {
             return AppendInternal(Chars.Char(chars));

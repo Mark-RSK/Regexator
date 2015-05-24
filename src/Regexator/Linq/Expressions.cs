@@ -4,6 +4,46 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public static class Expressions
     {
+        public static QuantifiableExpression Parentheses(Expression expression)
+        {
+            return Surround(expression, Chars.LeftParenthesis(), Chars.RightParenthesis()).AsNoncapturing();
+        }
+
+        public static QuantifiableExpression Parentheses(string text)
+        {
+            return Surround(text, Chars.LeftParenthesis(), Chars.RightParenthesis()).AsNoncapturing();
+        }
+
+        public static QuantifiableExpression CurlyBrackets(Expression expression)
+        {
+            return Surround(expression, Chars.LeftCurlyBracket(), Chars.RightCurlyBracket()).AsNoncapturing();
+        }
+
+        public static QuantifiableExpression CurlyBrackets(string text)
+        {
+            return Surround(text, Chars.LeftCurlyBracket(), Chars.RightCurlyBracket()).AsNoncapturing();
+        }
+
+        public static QuantifiableExpression SquareBrackets(Expression expression)
+        {
+            return Surround(expression, Chars.LeftSquareBracket(), Chars.RightSquareBracket()).AsNoncapturing();
+        }
+
+        public static QuantifiableExpression SquareBrackets(string text)
+        {
+            return Surround(text, Chars.LeftSquareBracket(), Chars.RightSquareBracket()).AsNoncapturing();
+        }
+
+        public static QuantifiableExpression LessThanGreaterThan(Expression expression)
+        {
+            return Surround(expression, Chars.LessThan(), Chars.GreaterThan()).AsNoncapturing();
+        }
+
+        public static QuantifiableExpression LessThanGreaterThan(string text)
+        {
+            return Surround(text, Chars.LessThan(), Chars.GreaterThan()).AsNoncapturing();
+        }
+
         public static QuantifiableExpression Backreference(int groupNumber)
         {
             return new NumberBackreferenceExpression(groupNumber);
@@ -47,6 +87,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         internal static Expression Surround(Expression expression, Expression beforeExpression, Expression afterExpression)
         {
             return new SurroundExpression(expression, beforeExpression, afterExpression);
+        }
+
+        internal static Expression Surround(string text, Expression beforeExpression, Expression afterExpression)
+        {
+            return new SurroundExpression(text, beforeExpression, afterExpression);
         }
 
         public static QuantifiableExpression Never()
