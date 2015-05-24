@@ -837,6 +837,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return AppendInternal(Chars.AnyMaybeManyLazy());
         }
 
+        public Expression AnyMaybeManyLazyInvariant()
+        {
+            return AppendInternal(Chars.AnyMaybeManyLazyInvariant());
+        }
+
         public QuantifiableExpression ArabicDigit()
         {
             return AppendInternal(Chars.ArabicDigit());

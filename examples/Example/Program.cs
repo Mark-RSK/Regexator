@@ -102,9 +102,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("first line:");
             Console.WriteLine(Anchors
                 .Start()
-                .AnyMaybeManyLazy()
-                .EndOfLineOrBeforeCarriageReturn()
-                .WithOptions(InlineOptions.Multiline));
+                .NotNewLineChar().MaybeMany()
+                .EndOfLineOrBeforeCarriageReturnInvariant());
             Console.WriteLine("");
 
             Console.WriteLine("lf without cr:");

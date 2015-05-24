@@ -191,6 +191,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Any().MaybeMany().Lazy();
         }
 
+        public static Expression AnyMaybeManyLazyInvariant()
+        {
+            return AnyInvariant().MaybeMany().Lazy();
+        }
+
         public static CharacterExpression Digit()
         {
             return new CharClassExpression(CharClass.Digit);
