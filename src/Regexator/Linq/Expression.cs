@@ -50,17 +50,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal Expression AppendIf(bool condition, string value, bool escape)
         {
-            return AppendIf(condition, new TextExpression(value, escape));
+            return condition ? AppendInternal(new TextExpression(value, escape)) : this;
         }
 
         public Expression AppendIf(bool condition, Expression expression)
         {
-            return condition ? AppendInternal(expression) : this;
+            return condition ? Append(expression) : this;
         }
 
-        public Expression AppendIf(bool condition, Expression yes, Expression no)
+        public Expression AppendIf(bool condition, Expression yesExpression, Expression noExpression)
         {
-            return condition ? AppendInternal(yes) : AppendInternal(no);
+            return condition ? Append(yesExpression) : Append(noExpression);
         }
 
         internal TExpression AppendInternal<TExpression>(TExpression expression) where TExpression : Expression
