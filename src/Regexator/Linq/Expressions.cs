@@ -89,9 +89,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             return Anchors
                 .Start()
-                .AnyMaybeManyLazy()
-                .EndOfLineOrBeforeCarriageReturn()
-                .WithOptions(InlineOptions.Multiline);
+                .NotNewLineChar().MaybeMany()
+                .EndOfLineOrBeforeCarriageReturnInvariant();
         }
 
         public static QuantifiableExpression NewLine()
