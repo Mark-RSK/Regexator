@@ -71,21 +71,27 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiableExpression WhiteSpaceLines()
         {
-            return Options(InlineOptions.Multiline).Any(
-                Anchors.StartOfLine().WhiteSpace().MaybeMany().NewLine(),
-                NewLine().WhiteSpace().MaybeMany().End());
+            return Alternations.Any(Anchors
+                    .StartOfLine().WhiteSpace().MaybeMany().NewLine(),
+                    NewLine().WhiteSpace().MaybeMany().End())
+                .WithOptions(InlineOptions.Multiline);
         }
 
         public static QuantifiableExpression EmptyLines()
         {
-            return Options(InlineOptions.Multiline).Any(
-                Anchors.StartOfLine().NewLine(),
-                NewLine().OneMany().End());
+            return Alternations.Any(Anchors
+                    .StartOfLine().NewLine(),
+                    NewLine().OneMany().End())
+                .WithOptions(InlineOptions.Multiline);
         }
 
         public static QuantifiableExpression FirstLine()
         {
-            return Options(InlineOptions.Multiline).Start().AnyMaybeManyLazy().EndOfLineOrBeforeCarriageReturn();
+            return Anchors
+                .Start()
+                .AnyMaybeManyLazy()
+                .EndOfLineOrBeforeCarriageReturn()
+                .WithOptions(InlineOptions.Multiline);
         }
 
         public static QuantifiableExpression NewLine()
@@ -95,7 +101,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiableExpression LinefeedWithoutCarriageReturn()
         {
-            return Chars.CarriageReturn().AsNotAssertBack().Linefeed().AsNonbacktracking();
+            return Anchors.NotAssertBack(Chars.CarriageReturn()).Linefeed().AsNonbacktracking();
         }
     }
 }

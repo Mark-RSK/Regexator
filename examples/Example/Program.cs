@@ -86,24 +86,29 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("");
 
             Console.WriteLine("whitespace lines:");
-            Console.WriteLine(Expressions.Options(InlineOptions.Multiline).Any(
-                Anchors.StartOfLine().WhiteSpace().MaybeMany().NewLine(),
-                Expressions.NewLine().WhiteSpace().MaybeMany().End()));
+            Console.WriteLine(Alternations.Any(Anchors
+                    .StartOfLine().WhiteSpace().MaybeMany().NewLine(),
+                    Expressions.NewLine().WhiteSpace().MaybeMany().End())
+                .WithOptions(InlineOptions.Multiline));
             Console.WriteLine("");
 
             Console.WriteLine("empty lines:");
-            Console.WriteLine(Expressions.Options(InlineOptions.Multiline).Any(
-                Anchors.StartOfLine().NewLine(),
-                Expressions.NewLine().OneMany().End()
-            ));
+            Console.WriteLine(Alternations.Any(Anchors
+                    .StartOfLine().NewLine(),
+                    Expressions.NewLine().OneMany().End())
+                .WithOptions(InlineOptions.Multiline));
             Console.WriteLine("");
 
             Console.WriteLine("first line:");
-            Console.WriteLine(Expressions.Options(InlineOptions.Multiline).Start().AnyMaybeManyLazy().EndOfLineOrBeforeCarriageReturn());
+            Console.WriteLine(Anchors
+                .Start()
+                .AnyMaybeManyLazy()
+                .EndOfLineOrBeforeCarriageReturn()
+                .WithOptions(InlineOptions.Multiline));
             Console.WriteLine("");
 
             Console.WriteLine("lf without cr:");
-            Console.WriteLine(Chars.CarriageReturn().AsNotAssertBack().Linefeed().AsNonbacktracking());
+            Console.WriteLine(Anchors.NotAssertBack(Chars.CarriageReturn()).Linefeed().AsNonbacktracking());
             Console.WriteLine("");
 
             Console.WriteLine("file name invalid chars:");

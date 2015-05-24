@@ -216,7 +216,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiableExpression StartOfLineInvariant()
         {
-            return Alternations.Any(Start(), Chars.Linefeed().AsAssertBack());
+            return Alternations.Any(Start(), AssertBack(Chars.Linefeed()));
         }
 
         public static QuantifiableExpression EndOfLine()
@@ -226,7 +226,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiableExpression EndOfLineInvariant()
         {
-            return Alternations.Any(Chars.Linefeed().AsAssert(), End());
+            return Alternations.Any(Assert(Chars.Linefeed()), End());
         }
 
         public static QuantifiableExpression EndOfLineOrBeforeCarriageReturn()
@@ -238,7 +238,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (beforeCarriageReturn)
             {
-                return Chars.CarriageReturn().Maybe().EndOfLine().AsAssert();
+                return Assert(Chars.CarriageReturn().Maybe().EndOfLine());
             }
             else
             {

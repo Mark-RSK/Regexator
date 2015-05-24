@@ -492,26 +492,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Anchors.AssertBack(category).Append(this).Assert(category);
         }
 
-        public QuantifiableExpression AsAssert()
-        {
-            return Anchors.Assert(this);
-        }
-
-        public QuantifiableExpression AsNotAssert()
-        {
-            return Anchors.NotAssert(this);
-        }
-
-        public QuantifiableExpression AsAssertBack()
-        {
-            return Anchors.AssertBack(this);
-        }
-
-        public QuantifiableExpression AsNotAssertBack()
-        {
-            return Anchors.NotAssertBack(this);
-        }
-
         public QuantifiableExpression NamedGroup(string name, Expression expression)
         {
             return AppendInternal(Groups.NamedGroup(name, expression));
@@ -530,11 +510,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public QuantifiableExpression NamedGroup(string name, params string[] values)
         {
             return AppendInternal(Groups.NamedGroup(name, values));
-        }
-
-        public QuantifiableExpression AsNamedGroup(string name)
-        {
-            return Groups.NamedGroup(name, this);
         }
 
         public QuantifiableExpression Subexpression()
@@ -562,11 +537,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return AppendInternal(Groups.Subexpression(values));
         }
 
-        public QuantifiableExpression AsSubexpression()
-        {
-            return Groups.Subexpression(this);
-        }
-
         public QuantifiableExpression Noncapturing(Expression expression)
         {
             return AppendInternal(Groups.Noncapturing(expression));
@@ -585,11 +555,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public QuantifiableExpression Noncapturing(params string[] values)
         {
             return AppendInternal(Groups.Noncapturing(values));
-        }
-
-        public QuantifiableExpression AsNoncapturing()
-        {
-            return Groups.Noncapturing(this);
         }
 
         public QuantifiableExpression Nonbacktracking(Expression expression)
@@ -612,11 +577,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return AppendInternal(Groups.Nonbacktracking(values));
         }
 
-        public QuantifiableExpression AsNonbacktracking()
-        {
-            return Groups.Nonbacktracking(this);
-        }
-
         public QuantifiableExpression BalanceGroup(string name1, string name2, Expression expression)
         {
             return AppendInternal(Groups.BalanceGroup(name1, name2, expression));
@@ -635,11 +595,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public QuantifiableExpression BalanceGroup(string name1, string name2, params string[] values)
         {
             return AppendInternal(Groups.BalanceGroup(name1, name2, values));
-        }
-
-        public QuantifiableExpression AsBalanceGroup(string name1, string name2)
-        {
-            return Groups.BalanceGroup(name1, name2, this);
         }
 
         public QuantifiableExpression GroupOptions(InlineOptions applyOptions, Expression expression)
@@ -682,14 +637,29 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return AppendInternal(Groups.GroupOptions(applyOptions, disableOptions, values));
         }
 
-        public QuantifiableExpression AsGroupOptions(InlineOptions applyOptions)
+        public QuantifiableExpression WithOptions(InlineOptions applyOptions)
         {
             return Groups.GroupOptions(applyOptions, this);
         }
 
-        public QuantifiableExpression AsGroupOptions(InlineOptions applyOptions, InlineOptions disableOptions)
+        public QuantifiableExpression WithOptions(InlineOptions applyOptions, InlineOptions disableOptions)
         {
             return Groups.GroupOptions(applyOptions, disableOptions, this);
+        }
+
+        public QuantifiableExpression AsSubexpression()
+        {
+            return Groups.Subexpression(this);
+        }
+
+        public QuantifiableExpression AsNoncapturing()
+        {
+            return Groups.Noncapturing(this);
+        }
+
+        public QuantifiableExpression AsNonbacktracking()
+        {
+            return Groups.Nonbacktracking(this);
         }
 
         public QuantifiableExpression Char(string chars)
