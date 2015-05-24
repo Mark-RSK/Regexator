@@ -36,7 +36,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 .Backreference(3));
             Console.WriteLine("");
 
-            var quotedChar = CharGroupItems.QuoteMark().NewLineChar().ToNegativeGroup().MaybeMany();
+            var quotedChar = Chars.NotChar(CharGroupItems.QuoteMark().NewLineChar()).MaybeMany();
 
             Console.WriteLine("quoted text");
             Console.WriteLine(

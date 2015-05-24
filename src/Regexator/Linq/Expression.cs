@@ -64,6 +64,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 throw new ArgumentNullException("expression");
             }
+
             Expression first = expression;
             while (first.Previous != null)
             {
@@ -281,7 +282,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public Regex Regex
         {
-            get 
+            get
             {
                 if (_regex == null)
                 {
