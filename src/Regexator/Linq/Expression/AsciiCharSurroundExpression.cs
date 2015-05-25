@@ -9,14 +9,25 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         : Expression
     {
         private readonly Expression _expression;
-        private readonly AsciiChar _surroundChar;
+        private readonly AsciiChar _beforeChar;
+        private readonly AsciiChar _afterChar;
 
         public AsciiCharSurroundExpression(string text, AsciiChar surroundChar)
-            : this(new TextExpression(text), surroundChar)
+            : this(new TextExpression(text), surroundChar, surroundChar)
+        {
+        }
+
+        public AsciiCharSurroundExpression(string text, AsciiChar beforeChar, AsciiChar afterChar)
+            : this(new TextExpression(text), beforeChar, afterChar)
         {
         }
 
         public AsciiCharSurroundExpression(Expression expression, AsciiChar surroundChar)
+            : this(expression, surroundChar, surroundChar)
+        {
+        }
+
+        public AsciiCharSurroundExpression(Expression expression, AsciiChar beforeChar, AsciiChar afterChar)
         {
             if (expression == null)
             {
@@ -24,19 +35,20 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
 
             _expression = expression;
-            _surroundChar = surroundChar;
+            _beforeChar = beforeChar;
+            _afterChar = afterChar;
         }
 
         internal override IEnumerable<string> EnumerateContent(BuildContext context)
         {
-            yield return Syntax.Char(_surroundChar);
+            yield return Syntax.Char(_beforeChar);
 
             foreach (var value in _expression.EnumerateValues(context))
             {
                 yield return value;
             }
 
-            yield return Syntax.Char(_surroundChar);
+            yield return Syntax.Char(_afterChar);
         }
     }
 }
