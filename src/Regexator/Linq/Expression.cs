@@ -208,6 +208,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return null;
         }
 
+        public static Expression Join(Expression joinExpression, params string[] values)
+        {
+            return Join(joinExpression, values.AsEnumerable());
+        }
+
         public static Expression Join(Expression joinExpression, IEnumerable<string> values)
         {
             if (values == null)
@@ -216,6 +221,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
 
             return Join(joinExpression, values.Select(value => Expressions.Text(value)));
+        }
+
+        public static Expression Join(Expression joinExpression, params Expression[] expressions)
+        {
+            return Join(joinExpression, expressions.AsEnumerable());
         }
 
         public static Expression Join(Expression joinExpression, IEnumerable<Expression> expressions)
