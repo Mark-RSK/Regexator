@@ -79,9 +79,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new SurroundExpression(text, surroundExpression, surroundExpression);
         }
 
+        internal static Expression Surround(string text, AsciiChar surroundChar)
+        {
+            return new AsciiCharSurroundExpression(text, surroundChar);
+        }
+
         internal static Expression Surround(Expression expression, Expression surroundExpression)
         {
             return new SurroundExpression(expression, surroundExpression, surroundExpression);
+        }
+
+        internal static Expression Surround(Expression expression, AsciiChar surroundChar)
+        {
+            return new AsciiCharSurroundExpression(expression, surroundChar);
         }
 
         internal static Expression Surround(Expression expression, Expression beforeExpression, Expression afterExpression)
