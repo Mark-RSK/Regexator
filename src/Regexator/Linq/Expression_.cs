@@ -667,6 +667,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Groups.Nonbacktracking(this);
         }
 
+        public Expression QuoteMarks(Expression expression)
+        {
+            return AppendInternal(Expressions.QuoteMarks(expression));
+        }
+
+        public Expression QuoteMarks(string text)
+        {
+            return AppendInternal(Expressions.QuoteMarks(text));
+        }
+
         public Expression Parentheses(Expression expression)
         {
             return AppendInternal(Expressions.Parentheses(expression));

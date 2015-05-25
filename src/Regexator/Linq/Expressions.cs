@@ -4,6 +4,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public static class Expressions
     {
+        public static QuantifiableExpression QuoteMarks(Expression expression)
+        {
+            return Surround(expression, AsciiChar.QuoteMark).AsNoncapturing();
+        }
+
+        public static QuantifiableExpression QuoteMarks(string text)
+        {
+            return Surround(text, AsciiChar.QuoteMark).AsNoncapturing();
+        }
+
         public static QuantifiableExpression Parentheses(Expression expression)
         {
             return Surround(expression, Chars.LeftParenthesis(), Chars.RightParenthesis()).AsNoncapturing();
