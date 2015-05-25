@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal sealed class SurroundExpression
+    internal class SurroundExpression
         : Expression
     {
         private readonly Expression _expression;
@@ -23,14 +23,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 throw new ArgumentNullException("expression");
             }
+
             if (beforeExpression == null)
             {
                 throw new ArgumentNullException("beforeExpression");
             }
+
             if (afterExpression == null)
             {
                 throw new ArgumentNullException("afterExpression");
             }
+
             _expression = expression;
             _before = beforeExpression;
             _after = afterExpression;
@@ -42,10 +45,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 yield return value;
             }
+
             foreach (var value in _expression.EnumerateValues(context))
             {
                 yield return value;
             }
+
             foreach (var value in _after.EnumerateValues(context))
             {
                 yield return value;

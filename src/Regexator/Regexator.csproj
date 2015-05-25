@@ -71,6 +71,7 @@
     <Compile Include="Linq\AssertionExpression\GeneralCategoryAssertion.cs" />
     <Compile Include="Linq\AnyGroupMode.cs" />
     <Compile Include="Linq\Expression\CharacterExpression.cs" />
+    <Compile Include="Linq\Expression\AsciiCharSurroundExpression.cs" />
     <Compile Include="Linq\Substitution\BeforeMatchSubstitution.cs" />
     <Compile Include="Linq\Substitution\AfterMatchSubstitution.cs" />
     <Compile Include="Linq\Substitution\EntireMatchSubstitution.cs" />
