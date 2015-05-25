@@ -10,6 +10,21 @@ namespace Pihrtsoft.Text.RegularExpressions
     {
         internal static IEnumerable<Match> EnumerateMatches(this Regex regex, string input)
         {
+            return EnumerateMatches(regex, input, (f) => regex.Match(f));
+        }
+
+        internal static IEnumerable<Match> EnumerateMatches(this Regex regex, string input, int startat)
+        {
+            return EnumerateMatches(regex, input, (f) => regex.Match(f, startat));
+        }
+
+        internal static IEnumerable<Match> EnumerateMatches(this Regex regex, string input, int beginning, int length)
+        {
+            return EnumerateMatches(regex, input, (f) => regex.Match(f, beginning, length));
+        }
+
+        internal static IEnumerable<Match> EnumerateMatches(this Regex regex, string input, Func<string, Match> matchFactory)
+        {
             if (regex == null)
             {
                 throw new ArgumentNullException("regex");
@@ -20,7 +35,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                 throw new ArgumentNullException("input");
             }
 
-            Match match = regex.Match(input);
+            Match match = matchFactory(input);
             while (match.Success)
             {
                 yield return match;

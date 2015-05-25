@@ -30,6 +30,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 throw new ArgumentNullException("values");
             }
+
             Expression exp = this;
             foreach (var item in values)
             {
@@ -281,6 +282,71 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public IEnumerable<Match> EnumerateMatches(string input)
         {
             return Regex.EnumerateMatches(input);
+        }
+
+        public IEnumerable<Match> EnumerateMatches(string input, int startat)
+        {
+            return Regex.EnumerateMatches(input, startat);
+        }
+
+        public IEnumerable<Match> EnumerateMatches(string input, int beginning, int length)
+        {
+            return Regex.EnumerateMatches(input, beginning, length);
+        }
+
+        public bool IsMatch(string input)
+        {
+            return this.Regex.IsMatch(input);
+        }
+
+        public bool IsMatch(string input, int startat)
+        {
+            return this.Regex.IsMatch(input, startat);
+        }
+
+        public Match Match(string input)
+        {
+            return this.Regex.Match(input);
+        }
+
+        public Match Match(string input, int startat)
+        {
+            return this.Regex.Match(input, startat);
+        }
+
+        public Match Match(string input, int beginning, int length)
+        {
+            return this.Regex.Match(input, beginning, length);
+        }
+
+        public string Replace(string input, MatchEvaluator evaluator)
+        {
+            return this.Regex.Replace(input, evaluator);
+        }
+
+        public string Replace(string input, string replacement)
+        {
+            return this.Regex.Replace(input, replacement);
+        }
+
+        public string Replace(string input, string replacement, int count)
+        {
+            return this.Regex.Replace(input, replacement, count);
+        }
+
+        public string Replace(string input, string replacement, int count, int startat)
+        {
+            return this.Regex.Replace(input, replacement, count, startat);
+        }
+
+        public string Replace(string input, MatchEvaluator evaluator, int count)
+        {
+            return this.Regex.Replace(input, evaluator, count);
+        }
+
+        public string Replace(string input, MatchEvaluator evaluator, int count, int startat)
+        {
+            return this.Regex.Replace(input, evaluator, count, startat);
         }
 
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
