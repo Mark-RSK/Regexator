@@ -129,11 +129,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new SurroundExpression(expression, beforeExpression, afterExpression);
         }
 
-        internal static Expression Surround(string text, Expression beforeExpression, Expression afterExpression)
-        {
-            return new SurroundExpression(text, beforeExpression, afterExpression);
-        }
-
         public static QuantifiableExpression Never()
         {
             return Anchors.NotAssert(string.Empty);
