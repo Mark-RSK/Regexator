@@ -80,6 +80,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return expression;
         }
 
+        public Expression Append(object value)
+        {
+            if (value == null)
+            {
+                throw new ArgumentNullException("value");
+            }
+
+            Expression expression = value as Expression;
+            return (expression != null)
+                ? Append(expression)
+                : Append(value.ToString());
+        }
+
         public Expression Append(Expression expression)
         {
             return AppendInternal(new ContainerExpression(expression));
