@@ -1,9 +1,23 @@
 // Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System;
+using System.Collections.Generic;
+
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public static class Expressions
     {
+
+        public static Expression Concat(IEnumerable<Expression> expressions)
+        {
+            if (expressions == null)
+            {
+                throw new ArgumentNullException("expressions");
+            }
+
+            return Expression.Empty.Concat(expressions);
+        }
+
         public static QuantifiableExpression Apostrophes(Expression expression)
         {
             return Surround(expression, AsciiChar.Apostrophe).AsNoncapturing();

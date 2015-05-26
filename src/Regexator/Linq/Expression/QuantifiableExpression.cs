@@ -12,37 +12,37 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public QuantifierExpression Maybe()
         {
-            return AppendInternal(Quantifiers.Maybe());
+            return ConcatInternal(Quantifiers.Maybe());
         }
 
         public QuantifierExpression MaybeMany()
         {
-            return AppendInternal(Quantifiers.MaybeMany());
+            return ConcatInternal(Quantifiers.MaybeMany());
         }
 
         public QuantifierExpression MaybeCount(int maxCount)
         {
-            return AppendInternal(Quantifiers.MaybeCount(maxCount));
+            return ConcatInternal(Quantifiers.MaybeCount(maxCount));
         }
 
         public QuantifierExpression OneMany()
         {
-            return AppendInternal(Quantifiers.OneMany());
+            return ConcatInternal(Quantifiers.OneMany());
         }
 
         public QuantifierExpression Count(int exactCount)
         {
-            return AppendInternal(Quantifiers.Count(exactCount));
+            return ConcatInternal(Quantifiers.Count(exactCount));
         }
 
         public QuantifierExpression CountFrom(int minCount)
         {
-            return AppendInternal(Quantifiers.CountFrom(minCount));
+            return ConcatInternal(Quantifiers.CountFrom(minCount));
         }
 
         public QuantifierExpression CountRange(int minCount, int maxCount)
         {
-            return AppendInternal(Quantifiers.CountRange(minCount, maxCount));
+            return ConcatInternal(Quantifiers.CountRange(minCount, maxCount));
         }
     }
 }

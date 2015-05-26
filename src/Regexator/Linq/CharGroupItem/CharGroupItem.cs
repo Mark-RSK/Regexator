@@ -14,7 +14,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
         }
 
-        private CharGroupItem Append(CharGroupItem item)
+        private CharGroupItem Concat(CharGroupItem item)
         {
             if (item == null)
             {
@@ -62,112 +62,112 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public CharGroupItem Char(char value)
         {
-            return Append(CharGroupItems.Char(value));
+            return Concat(CharGroupItems.Char(value));
         }
 
         public CharGroupItem Char(int value)
         {
-            return Append(CharGroupItems.Char(value));
+            return Concat(CharGroupItems.Char(value));
         }
 
         public CharGroupItem Char(AsciiChar value)
         {
-            return Append(CharGroupItems.Char(value));
+            return Concat(CharGroupItems.Char(value));
         }
 
         public CharGroupItem Char(string chars)
         {
-            return Append(CharGroupItems.Char(chars));
+            return Concat(CharGroupItems.Char(chars));
         }
 
         public CharGroupItem Range(char first, char last)
         {
-            return Append(CharGroupItems.Range(first, last));
+            return Concat(CharGroupItems.Range(first, last));
         }
 
         public CharGroupItem Range(int firstCharCode, int lastCharCode)
         {
-            return Append(CharGroupItems.Range(firstCharCode, lastCharCode));
+            return Concat(CharGroupItems.Range(firstCharCode, lastCharCode));
         }
 
         public CharGroupItem NamedBlock(NamedBlock block)
         {
-            return Append(CharGroupItems.NamedBlock(block));
+            return Concat(CharGroupItems.NamedBlock(block));
         }
 
         public CharGroupItem NotNamedBlock(NamedBlock block)
         {
-            return Append(CharGroupItems.NotNamedBlock(block));
+            return Concat(CharGroupItems.NotNamedBlock(block));
         }
 
         public CharGroupItem GeneralCategory(GeneralCategory category)
         {
-            return Append(CharGroupItems.GeneralCategory(category));
+            return Concat(CharGroupItems.GeneralCategory(category));
         }
 
         public CharGroupItem NotGeneralCategory(GeneralCategory category)
         {
-            return Append(CharGroupItems.NotGeneralCategory(category));
+            return Concat(CharGroupItems.NotGeneralCategory(category));
         }
 
         public CharGroupItem Digit()
         {
-            return Append(CharGroupItems.Digit());
+            return Concat(CharGroupItems.Digit());
         }
 
         public CharGroupItem NotDigit()
         {
-            return Append(CharGroupItems.NotDigit());
+            return Concat(CharGroupItems.NotDigit());
         }
 
         public CharGroupItem WhiteSpace()
         {
-            return Append(CharGroupItems.WhiteSpace());
+            return Concat(CharGroupItems.WhiteSpace());
         }
 
         public CharGroupItem NotWhiteSpace()
         {
-            return Append(CharGroupItems.NotWhiteSpace());
+            return Concat(CharGroupItems.NotWhiteSpace());
         }
 
         public CharGroupItem WordChar()
         {
-            return Append(CharGroupItems.WordChar());
+            return Concat(CharGroupItems.WordChar());
         }
 
         public CharGroupItem NotWordChar()
         {
-            return Append(CharGroupItems.NotWordChar());
+            return Concat(CharGroupItems.NotWordChar());
         }
 
         public CharGroupItem Alphanumeric()
         {
-            return Append(CharGroupItems.Alphanumeric());
+            return Concat(CharGroupItems.Alphanumeric());
         }
 
         public CharGroupItem LatinLetter()
         {
-            return Append(CharGroupItems.LatinLetter());
+            return Concat(CharGroupItems.LatinLetter());
         }
 
         public CharGroupItem LatinLetterLower()
         {
-            return Append(CharGroupItems.LatinLetterLower());
+            return Concat(CharGroupItems.LatinLetterLower());
         }
 
         public CharGroupItem LatinLetterUpper()
         {
-            return Append(CharGroupItems.LatinLetterUpper());
+            return Concat(CharGroupItems.LatinLetterUpper());
         }
 
         public CharGroupItem ArabicDigit()
         {
-            return Append(CharGroupItems.ArabicDigit());
+            return Concat(CharGroupItems.ArabicDigit());
         }
 
         public CharGroupItem NewLineChar()
         {
-            return Append(CharGroupItems.NewLineChar());
+            return Concat(CharGroupItems.NewLineChar());
         }
 
         public CharGroupExpression ToGroup()

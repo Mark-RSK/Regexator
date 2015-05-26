@@ -19,12 +19,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
         }
 
-        public Expression Append(string value)
+        public Expression Concat(string value)
         {
-            return Append(value, true);
+            return Concat(value, true);
         }
 
-        public Expression Append(IEnumerable<string> values)
+        public Expression Concat(IEnumerable<string> values)
         {
             if (values == null)
             {
@@ -34,37 +34,37 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Expression exp = this;
             foreach (var item in values)
             {
-                exp = exp.Append(item);
+                exp = exp.Concat(item);
             }
             return exp;
         }
 
-        internal Expression Append(string value, bool escape)
+        internal Expression Concat(string value, bool escape)
         {
-            return AppendIf(true, value, escape);
+            return ConcatIf(true, value, escape);
         }
 
-        public Expression AppendIf(bool condition, string value)
+        public Expression ConcatIf(bool condition, string value)
         {
-            return AppendIf(condition, value, true);
+            return ConcatIf(condition, value, true);
         }
 
-        internal Expression AppendIf(bool condition, string value, bool escape)
+        internal Expression ConcatIf(bool condition, string value, bool escape)
         {
-            return condition ? AppendInternal(new TextExpression(value, escape)) : this;
+            return condition ? ConcatInternal(new TextExpression(value, escape)) : this;
         }
 
-        public Expression AppendIf(bool condition, Expression expression)
+        public Expression ConcatIf(bool condition, Expression expression)
         {
-            return condition ? Append(expression) : this;
+            return condition ? Concat(expression) : this;
         }
 
-        public Expression AppendIf(bool condition, Expression yesExpression, Expression noExpression)
+        public Expression ConcatIf(bool condition, Expression yesExpression, Expression noExpression)
         {
-            return condition ? Append(yesExpression) : Append(noExpression);
+            return condition ? Concat(yesExpression) : Concat(noExpression);
         }
 
-        internal TExpression AppendInternal<TExpression>(TExpression expression) where TExpression : Expression
+        internal TExpression ConcatInternal<TExpression>(TExpression expression) where TExpression : Expression
         {
             if (expression == null)
             {
@@ -80,7 +80,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return expression;
         }
 
-        public Expression Append(object value)
+        public Expression Concat(object value)
         {
             if (value == null)
             {
@@ -90,16 +90,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Expression expression = value as Expression;
 
             return (expression != null)
-                ? Append(expression)
-                : Append(value.ToString());
+                ? Concat(expression)
+                : Concat(value.ToString());
         }
 
-        public Expression Append(Expression expression)
+        public Expression Concat(Expression expression)
         {
-            return AppendInternal(new ContainerExpression(expression));
+            return ConcatInternal(new ContainerExpression(expression));
         }
 
-        public Expression Append(IEnumerable<Expression> expressions)
+        public Expression Concat(IEnumerable<Expression> expressions)
         {
             if (expressions == null)
             {
@@ -108,7 +108,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Expression exp = this;
             foreach (var item in expressions)
             {
-                exp = exp.Append(item);
+                exp = exp.Concat(item);
             }
             return exp;
         }
@@ -251,31 +251,21 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
                 if (en.Current != null)
                 {
-                    exp = exp.Append(en.Current);
+                    exp = exp.Concat(en.Current);
                 }
 
                 while (en.MoveNext())
                 {
-                    exp = exp.Append(joinValue);
+                    exp = exp.Concat(joinValue);
 
                     if (en.Current != null)
                     {
-                        exp = exp.Append(en.Current);
+                        exp = exp.Concat(en.Current);
                     }
                 }
 
                 return exp;
             }
-        }
-
-        public static Expression Concat(IEnumerable<Expression> expressions)
-        {
-            if (expressions == null)
-            {
-                throw new ArgumentNullException("expressions");
-            }
-
-            return Empty.Append(expressions);
         }
 
         public IEnumerable<Match> EnumerateMatches(string input)

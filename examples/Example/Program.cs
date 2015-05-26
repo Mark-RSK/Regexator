@@ -50,7 +50,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("quoted text");
             Console.WriteLine(
                 quotedChar
-                .MaybeMany(Chars.QuoteMark(2).Append(quotedChar))
+                .MaybeMany(Chars.QuoteMark(2).Concat(quotedChar))
                 .Surround(Chars.QuoteMark()));
             Console.WriteLine("");
 

@@ -13,7 +13,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
         }
 
-        internal Substitution Append(Substitution substitution)
+        internal Substitution Concat(Substitution substitution)
         {
             substitution.Previous = this;
             return substitution;
@@ -49,37 +49,37 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public Substitution NamedGroup(string groupName)
         {
-            return Append(Substitutions.NamedGroup(groupName));
+            return Concat(Substitutions.NamedGroup(groupName));
         }
 
         public Substitution LastCapturedGroup()
         {
-            return Append(Substitutions.LastCapturedGroup());
+            return Concat(Substitutions.LastCapturedGroup());
         }
 
         public Substitution EntireInput()
         {
-            return Append(Substitutions.EntireInput());
+            return Concat(Substitutions.EntireInput());
         }
 
         public Substitution EntireMatch()
         {
-            return Append(Substitutions.EntireMatch());
+            return Concat(Substitutions.EntireMatch());
         }
 
         public Substitution AfterMatch()
         {
-            return Append(Substitutions.AfterMatch());
+            return Concat(Substitutions.AfterMatch());
         }
 
         public Substitution BeforeMatch()
         {
-            return Append(Substitutions.BeforeMatch());
+            return Concat(Substitutions.BeforeMatch());
         }
 
         public Substitution Text(string value)
         {
-            return Append(Substitutions.Text(value));
+            return Concat(Substitutions.Text(value));
         }
 
         internal virtual string Value
