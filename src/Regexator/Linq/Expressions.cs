@@ -2,12 +2,12 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public static class Expressions
     {
-
         public static Expression Concat(IEnumerable<Expression> expressions)
         {
             if (expressions == null)
@@ -16,6 +16,51 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
 
             return Expression.Empty.Concat(expressions);
+        }
+
+        public static Expression Join(object joinValue, params object[] values)
+        {
+            return Join(joinValue, values.AsEnumerable());
+        }
+
+        public static Expression Join(object joinValue, IEnumerable<object> values)
+        {
+            if (values == null)
+            {
+                throw new ArgumentNullException("values");
+            }
+
+            if (joinValue == null)
+            {
+                joinValue = Expression.Empty;
+            }
+
+            using (IEnumerator<object> en = values.GetEnumerator())
+            {
+                if (!en.MoveNext())
+                {
+                    return Expression.Empty;
+                }
+
+                Expression exp = Expression.Empty;
+
+                if (en.Current != null)
+                {
+                    exp = exp.Concat(en.Current);
+                }
+
+                while (en.MoveNext())
+                {
+                    exp = exp.Concat(joinValue);
+
+                    if (en.Current != null)
+                    {
+                        exp = exp.Concat(en.Current);
+                    }
+                }
+
+                return exp;
+            }
         }
 
         public static QuantifiableExpression Apostrophes(Expression expression)

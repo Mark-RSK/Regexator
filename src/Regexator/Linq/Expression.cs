@@ -223,51 +223,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return null;
         }
 
-        public static Expression Join(object joinValue, params object[] values)
-        {
-            return Join(joinValue, values.AsEnumerable());
-        }
-
-        public static Expression Join(object joinValue, IEnumerable<object> values)
-        {
-            if (values == null)
-            {
-                throw new ArgumentNullException("values");
-            }
-
-            if (joinValue == null)
-            {
-                joinValue = Empty;
-            }
-
-            using (IEnumerator<object> en = values.GetEnumerator())
-            {
-                if (!en.MoveNext())
-                {
-                    return Empty;
-                }
-
-                Expression exp = Empty;
-
-                if (en.Current != null)
-                {
-                    exp = exp.Concat(en.Current);
-                }
-
-                while (en.MoveNext())
-                {
-                    exp = exp.Concat(joinValue);
-
-                    if (en.Current != null)
-                    {
-                        exp = exp.Concat(en.Current);
-                    }
-                }
-
-                return exp;
-            }
-        }
-
         public IEnumerable<Match> EnumerateMatches(string input)
         {
             return Regex.EnumerateMatches(input);
