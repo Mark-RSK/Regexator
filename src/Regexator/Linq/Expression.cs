@@ -222,39 +222,24 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return null;
         }
 
-        public static Expression Join(Expression joinExpression, params string[] values)
+        public static Expression Join(object joinValue, params object[] values)
         {
-            return Join(joinExpression, values.AsEnumerable());
+            return Join(joinValue, values.AsEnumerable());
         }
 
-        public static Expression Join(Expression joinExpression, IEnumerable<string> values)
+        public static Expression Join(object joinValue, IEnumerable<object> values)
         {
             if (values == null)
             {
                 throw new ArgumentNullException("values");
             }
 
-            return Join(joinExpression, values.Select(value => Expressions.Text(value)));
-        }
-
-        public static Expression Join(Expression joinExpression, params Expression[] expressions)
-        {
-            return Join(joinExpression, expressions.AsEnumerable());
-        }
-
-        public static Expression Join(Expression joinExpression, IEnumerable<Expression> expressions)
-        {
-            if (expressions == null)
+            if (joinValue == null)
             {
-                throw new ArgumentNullException("expressions");
+                joinValue = Empty;
             }
 
-            if (joinExpression == null)
-            {
-                joinExpression = Empty;
-            }
-
-            using (IEnumerator<Expression> en = expressions.GetEnumerator())
+            using (IEnumerator<object> en = values.GetEnumerator())
             {
                 if (!en.MoveNext())
                 {
@@ -270,7 +255,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
                 while (en.MoveNext())
                 {
-                    exp = exp.Append(joinExpression);
+                    exp = exp.Append(joinValue);
 
                     if (en.Current != null)
                     {
