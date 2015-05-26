@@ -53,6 +53,75 @@ namespace Pihrtsoft.Text.RegularExpressions
             return (options & ~InlineRegexOptions) == RegexOptions.None;
         }
 
+        public static RegexOptions Convert(InlineOptions options)
+        {
+            RegexOptions value = RegexOptions.None;
+
+            if ((options & InlineOptions.IgnoreCase) == InlineOptions.IgnoreCase)
+            {
+                value |= RegexOptions.IgnoreCase;
+            }
+
+            if ((options & InlineOptions.Multiline) == InlineOptions.Multiline)
+            {
+                value |= RegexOptions.Multiline;
+            }
+
+            if ((options & InlineOptions.ExplicitCapture) == InlineOptions.ExplicitCapture)
+            {
+                value |= RegexOptions.ExplicitCapture;
+            }
+
+            if ((options & InlineOptions.Singleline) == InlineOptions.Singleline)
+            {
+                value |= RegexOptions.Singleline;
+            }
+
+            if ((options & InlineOptions.IgnorePatternWhitespace) == InlineOptions.IgnorePatternWhitespace)
+            {
+                value |= RegexOptions.IgnorePatternWhitespace;
+            }
+
+            return value;
+        }
+
+        public static InlineOptions Convert(RegexOptions options)
+        {
+            if (!IsValidInlineOptions(options))
+            {
+                throw new ArgumentException();
+            }
+
+            InlineOptions value = InlineOptions.None;
+
+            if ((options & RegexOptions.IgnoreCase) == RegexOptions.IgnoreCase)
+            {
+                value |= InlineOptions.IgnoreCase;
+            }
+
+            if ((options & RegexOptions.Multiline) == RegexOptions.Multiline)
+            {
+                value |= InlineOptions.Multiline;
+            }
+
+            if ((options & RegexOptions.ExplicitCapture) == RegexOptions.ExplicitCapture)
+            {
+                value |= InlineOptions.ExplicitCapture;
+            }
+
+            if ((options & RegexOptions.Singleline) == RegexOptions.Singleline)
+            {
+                value |= InlineOptions.Singleline;
+            }
+
+            if ((options & RegexOptions.IgnorePatternWhitespace) == RegexOptions.IgnorePatternWhitespace)
+            {
+                value |= InlineOptions.IgnorePatternWhitespace;
+            }
+
+            return value;
+        }
+
         public static string Escape(char value)
         {
             return Escape(value, false);
@@ -400,8 +469,8 @@ namespace Pihrtsoft.Text.RegularExpressions
 
                 if (charCode > 0 && charCode <= 0x1A)
                 {
-                    yield return new CharMatchInfo(Syntax.AsciiControlStart + Convert.ToChar('a' + charCode - 1), "ASCII control character");
-                    yield return new CharMatchInfo(Syntax.AsciiControlStart + Convert.ToChar('A' + charCode - 1), "ASCII control character");
+                    yield return new CharMatchInfo(Syntax.AsciiControlStart + System.Convert.ToChar('a' + charCode - 1), "ASCII control character");
+                    yield return new CharMatchInfo(Syntax.AsciiControlStart + System.Convert.ToChar('A' + charCode - 1), "ASCII control character");
                 }
             }
         }
