@@ -459,12 +459,22 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public Expression AssertSurround(Expression expression)
         {
-            return Expressions.Surround(this, Anchors.NotAssert(expression), Anchors.Assert(expression));
+            return Expressions.Surround(this, Anchors.AssertBack(expression), Anchors.Assert(expression));
         }
 
         public Expression AssertSurround(string text)
         {
-            return Expressions.Surround(this, Anchors.NotAssert(text), Anchors.Assert(text));
+            return Expressions.Surround(this, Anchors.AssertBack(text), Anchors.Assert(text));
+        }
+
+        public Expression NotAssertSurround(Expression expression)
+        {
+            return Expressions.Surround(this, Anchors.NotAssertBack(expression), Anchors.NotAssert(expression));
+        }
+
+        public Expression NotAssertSurround(string text)
+        {
+            return Expressions.Surround(this, Anchors.NotAssertBack(text), Anchors.NotAssert(text));
         }
 
         public QuantifiableExpression NamedGroup(string name, Expression expression)
