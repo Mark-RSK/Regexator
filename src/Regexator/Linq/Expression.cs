@@ -319,6 +319,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return this.Regex.Match(input, beginning, length);
         }
 
+        public string Replace(string input)
+        {
+            return this.Regex.Replace(input, string.Empty);
+        }
+
         public string Replace(string input, MatchEvaluator evaluator)
         {
             return this.Regex.Replace(input, evaluator);
