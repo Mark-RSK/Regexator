@@ -457,44 +457,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return AppendInternal(Anchors.NotAssertBack(category));
         }
 
-        public QuantifiableExpression AssertSurround(Expression expression)
+        public Expression AssertSurround(Expression expression)
         {
-            return Anchors.AssertBack(expression).Append(this).Assert(expression);
+            return Expressions.Surround(this, Anchors.NotAssert(expression), Anchors.Assert(expression));
         }
 
-        public QuantifiableExpression AssertSurround(string text)
+        public Expression AssertSurround(string text)
         {
-            return Anchors.AssertBack(text).Append(this).Assert(text);
-        }
-
-        public QuantifiableExpression AssertSurround(CharGroupItem item)
-        {
-            return Anchors.AssertBack(item).Append(this).Assert(item);
-        }
-
-        public QuantifiableExpression AssertSurround(char value)
-        {
-            return Anchors.AssertBack(value).Append(this).Assert(value);
-        }
-
-        public QuantifiableExpression AssertSurround(int charCode)
-        {
-            return Anchors.AssertBack(charCode).Append(this).Assert(charCode);
-        }
-
-        public QuantifiableExpression AssertSurround(AsciiChar value)
-        {
-            return Anchors.AssertBack(value).Append(this).Assert(value);
-        }
-
-        public QuantifiableExpression AssertSurround(NamedBlock block)
-        {
-            return Anchors.AssertBack(block).Append(this).Assert(block);
-        }
-
-        public QuantifiableExpression AssertSurround(GeneralCategory category)
-        {
-            return Anchors.AssertBack(category).Append(this).Assert(category);
+            return Expressions.Surround(this, Anchors.NotAssert(text), Anchors.Assert(text));
         }
 
         public QuantifiableExpression NamedGroup(string name, Expression expression)
