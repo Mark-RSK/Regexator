@@ -25,7 +25,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine(Anchors
                 .WordBoundary()
                 .Noncapturing(Alternations
-                    .Any(values.Select(f => Groups.Subexpression(f)))
+                    .Any(values.Select(f => Groups.Capturing(f)))
                     .WordBoundary()
                     .NotWordChar().MaybeMany().Lazy()
                 ).Count(3)
@@ -36,7 +36,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine(Anchors
                 .WordBoundary()
                 .Noncapturing(Alternations
-                    .Any(values.Select(f => Expressions.Text(f).Subexpression()))
+                    .Any(values.Select(f => Expressions.Text(f).Capturing()))
                     .WordBoundary()
                     .NotWordChar().MaybeMany().Lazy()
                 ).CountFrom(3)
@@ -63,7 +63,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("");
 
             Console.WriteLine("repeated word");
-            Console.WriteLine(Chars.WordChar().OneMany().AsSubexpression()
+            Console.WriteLine(Chars.WordChar().OneMany().AsCapturing()
                 .WhiteSpace().OneMany()
                 .Backreference(1)
                 .Surround(Anchors.WordBoundary()));

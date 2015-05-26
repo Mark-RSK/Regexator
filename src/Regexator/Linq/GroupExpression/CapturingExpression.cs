@@ -2,22 +2,22 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal sealed class Subexpression
+    internal sealed class CapturingExpression
         : GroupExpression
     {
-        internal Subexpression(string text)
+        internal CapturingExpression(string text)
             : base(text)
         {
         }
 
-        internal Subexpression(Expression expression)
+        internal CapturingExpression(Expression expression)
             : base(expression)
         {
         }
 
         internal override string Opening(BuildContext context)
         {
-            return Syntax.SubexpressionStart;
+            return Syntax.CapturingGroupStart;
         }
     }
 }

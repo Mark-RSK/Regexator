@@ -91,7 +91,7 @@
     <Compile Include="Linq\GroupExpression\BalanceGroupExpression.cs" />
     <Compile Include="Linq\BuildContext.cs" />
     <Compile Include="Linq\AnchorExpression\StartOfInput.cs" />
-    <Compile Include="Linq\GroupExpression\QuantifierSubexpression.cs" />
+    <Compile Include="Linq\GroupExpression\QuantifierCapturingExpression.cs" />
     <Compile Include="Linq\PatternSettings.cs" />
     <Compile Include="Linq\CharClass.cs" />
     <Compile Include="Linq\CharGroupExpression\CharGroupExpression.cs" />
@@ -141,7 +141,7 @@
     <Compile Include="Linq\QuantifierExpression\QuantifierExpression.cs" />
     <Compile Include="Linq\QuantifierKind.cs" />
     <Compile Include="Linq\QuantifierExpression\MaybeQuantifier.cs" />
-    <Compile Include="Linq\GroupExpression\Subexpression.cs" />
+    <Compile Include="Linq\GroupExpression\CapturingExpression.cs" />
     <Compile Include="Linq\Substitutions.cs" />
     <Compile Include="Linq\Substitution\NamedGroupSubstitution.cs" />
     <Compile Include="Linq\Substitution\LastCapturedGroupSubstitution.cs" />

@@ -2,15 +2,15 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal sealed class QuantifierSubexpression
+    internal sealed class QuantifierCapturingExpression
         : GroupExpression
     {
-        internal QuantifierSubexpression(string text)
+        internal QuantifierCapturingExpression(string text)
             : base(text)
         {
         }
 
-        internal QuantifierSubexpression(Expression expression)
+        internal QuantifierCapturingExpression(Expression expression)
             : base(expression)
         {
         }
@@ -18,7 +18,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         internal override string Opening(BuildContext context)
         {
             return (EncloseRequired)
-                ? Syntax.SubexpressionStart
+                ? Syntax.CapturingGroupStart
                 : string.Empty;
         }
 

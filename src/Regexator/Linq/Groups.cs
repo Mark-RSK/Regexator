@@ -24,29 +24,29 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new NamedGroupExpression(name, new AnyTextExpression(AnyGroupMode.None, values));
         }
 
-        public static QuantifiableExpression Subexpression()
+        public static QuantifiableExpression Capturing()
         {
-            return new Subexpression(string.Empty);
+            return new CapturingExpression(string.Empty);
         }
 
-        public static QuantifiableExpression Subexpression(Expression expression)
+        public static QuantifiableExpression Capturing(Expression expression)
         {
-            return new Subexpression(expression);
+            return new CapturingExpression(expression);
         }
 
-        public static QuantifiableExpression Subexpression(string text)
+        public static QuantifiableExpression Capturing(string text)
         {
-            return new Subexpression(text);
+            return new CapturingExpression(text);
         }
 
-        public static QuantifiableExpression Subexpression(params Expression[] expressions)
+        public static QuantifiableExpression Capturing(params Expression[] expressions)
         {
-            return new Subexpression(new AnyExpression(AnyGroupMode.None, expressions));
+            return new CapturingExpression(new AnyExpression(AnyGroupMode.None, expressions));
         }
 
-        public static QuantifiableExpression Subexpression(params string[] values)
+        public static QuantifiableExpression Capturing(params string[] values)
         {
-            return new Subexpression(new AnyTextExpression(AnyGroupMode.None, values));
+            return new CapturingExpression(new AnyTextExpression(AnyGroupMode.None, values));
         }
 
         public static QuantifiableExpression Noncapturing(Expression expression)
@@ -161,12 +161,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierExpression Maybe(params string[] values)
         {
-            return QuantifierGroup(new AnyTextExpression(AnyGroupMode.Subexpression, values)).Maybe();
+            return QuantifierGroup(new AnyTextExpression(AnyGroupMode.Capturing, values)).Maybe();
         }
 
         public static QuantifierExpression Maybe(params Expression[] expressions)
         {
-            return QuantifierGroup(new AnyExpression(AnyGroupMode.Subexpression, expressions)).Maybe();
+            return QuantifierGroup(new AnyExpression(AnyGroupMode.Capturing, expressions)).Maybe();
         }
 
         public static QuantifierExpression MaybeMany(string text)
@@ -181,12 +181,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierExpression MaybeMany(params string[] values)
         {
-            return QuantifierGroup(new AnyTextExpression(AnyGroupMode.Subexpression, values)).MaybeMany();
+            return QuantifierGroup(new AnyTextExpression(AnyGroupMode.Capturing, values)).MaybeMany();
         }
 
         public static QuantifierExpression MaybeMany(params Expression[] expressions)
         {
-            return QuantifierGroup(new AnyExpression(AnyGroupMode.Subexpression, expressions)).MaybeMany();
+            return QuantifierGroup(new AnyExpression(AnyGroupMode.Capturing, expressions)).MaybeMany();
         }
 
         public static QuantifierExpression OneMany(string text)
@@ -201,22 +201,22 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierExpression OneMany(params string[] values)
         {
-            return QuantifierGroup(new AnyTextExpression(AnyGroupMode.Subexpression, values)).OneMany();
+            return QuantifierGroup(new AnyTextExpression(AnyGroupMode.Capturing, values)).OneMany();
         }
 
         public static QuantifierExpression OneMany(params Expression[] expressions)
         {
-            return QuantifierGroup(new AnyExpression(AnyGroupMode.Subexpression, expressions)).OneMany();
+            return QuantifierGroup(new AnyExpression(AnyGroupMode.Capturing, expressions)).OneMany();
         }
 
         internal static QuantifiableExpression QuantifierGroup(string text)
         {
-            return new QuantifierSubexpression(text);
+            return new QuantifierCapturingExpression(text);
         }
 
         internal static QuantifiableExpression QuantifierGroup(Expression expression)
         {
-            return new QuantifierSubexpression(expression);
+            return new QuantifierCapturingExpression(expression);
         }
     }
 }

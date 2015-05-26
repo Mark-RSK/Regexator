@@ -5,7 +5,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal enum AnyGroupMode
     {
         None,
-        Subexpression,
+        Capturing,
         Noncapturing
     }
 }

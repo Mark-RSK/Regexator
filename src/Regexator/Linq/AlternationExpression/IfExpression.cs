@@ -44,7 +44,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (_condition != null)
             {
-                yield return context.Settings.ConditionWithAssertion ? Syntax.AssertStart : Syntax.SubexpressionStart;
+                yield return context.Settings.ConditionWithAssertion ? Syntax.AssertStart : Syntax.CapturingGroupStart;
                 foreach (var value in _condition.EnumerateValues(context))
                 {
                     yield return value;

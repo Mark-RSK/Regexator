@@ -487,29 +487,29 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return AppendInternal(Groups.NamedGroup(name, values));
         }
 
-        public QuantifiableExpression Subexpression()
+        public QuantifiableExpression Capturing()
         {
-            return AppendInternal(Groups.Subexpression());
+            return AppendInternal(Groups.Capturing());
         }
 
-        public QuantifiableExpression Subexpression(Expression expression)
+        public QuantifiableExpression Capturing(Expression expression)
         {
-            return AppendInternal(Groups.Subexpression(expression));
+            return AppendInternal(Groups.Capturing(expression));
         }
 
-        public QuantifiableExpression Subexpression(string text)
+        public QuantifiableExpression Capturing(string text)
         {
-            return AppendInternal(Groups.Subexpression(text));
+            return AppendInternal(Groups.Capturing(text));
         }
 
-        public QuantifiableExpression Subexpression(params Expression[] expressions)
+        public QuantifiableExpression Capturing(params Expression[] expressions)
         {
-            return AppendInternal(Groups.Subexpression(expressions));
+            return AppendInternal(Groups.Capturing(expressions));
         }
 
-        public QuantifiableExpression Subexpression(params string[] values)
+        public QuantifiableExpression Capturing(params string[] values)
         {
-            return AppendInternal(Groups.Subexpression(values));
+            return AppendInternal(Groups.Capturing(values));
         }
 
         public QuantifiableExpression Noncapturing(Expression expression)
@@ -622,9 +622,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Groups.GroupOptions(applyOptions, disableOptions, this);
         }
 
-        public QuantifiableExpression AsSubexpression()
+        public QuantifiableExpression AsCapturing()
         {
-            return Groups.Subexpression(this);
+            return Groups.Capturing(this);
         }
 
         public QuantifiableExpression AsNoncapturing()

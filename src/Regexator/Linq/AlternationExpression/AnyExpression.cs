@@ -79,8 +79,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 case AnyGroupMode.None:
                     return string.Empty;
-                case AnyGroupMode.Subexpression:
-                    return Syntax.SubexpressionStart;
+                case AnyGroupMode.Capturing:
+                    return Syntax.CapturingGroupStart;
                 case AnyGroupMode.Noncapturing:
                     return Syntax.NoncapturingGroupStart;
             }

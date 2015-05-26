@@ -30,7 +30,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         internal const string AssertBackStart = "(?<=";
         internal const string NotAssertBackStart = "(?<!";
 
-        internal const string SubexpressionStart = "(";
+        internal const string CapturingGroupStart = "(";
         internal const string NoncapturingGroupStart = "(?:";
         internal const string NonbacktrackingGroupStart = "(?>";
         internal const string GroupEnd = ")";
@@ -101,7 +101,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 throw new ArgumentNullException("groupName");
             }
-            return SubexpressionStart + groupName + GroupEnd;
+            return CapturingGroupStart + groupName + GroupEnd;
         }
 
         public static string Assert(string text)
@@ -196,13 +196,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return null;
         }
 
-        public static string Subexpression(string text)
+        public static string CapturingGroup(string text)
         {
             if (text == null)
             {
                 throw new ArgumentNullException("text");
             }
-            return SubexpressionStart + text + GroupEnd;
+            return CapturingGroupStart + text + GroupEnd;
         }
 
         public static string NoncapturingGroup(string text)
