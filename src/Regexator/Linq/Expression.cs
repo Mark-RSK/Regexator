@@ -88,6 +88,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
 
             Expression expression = value as Expression;
+
             return (expression != null)
                 ? Append(expression)
                 : Append(value.ToString());
