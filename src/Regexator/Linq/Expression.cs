@@ -105,11 +105,31 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 throw new ArgumentNullException("expressions");
             }
+
             Expression exp = this;
+
             foreach (var item in expressions)
             {
                 exp = exp.Concat(item);
             }
+
+            return exp;
+        }
+
+        public Expression Concat(IEnumerable<object> values)
+        {
+            if (values == null)
+            {
+                throw new ArgumentNullException("values");
+            }
+
+            Expression exp = this;
+
+            foreach (var value in values)
+            {
+                exp = exp.Concat(value);
+            }
+
             return exp;
         }
 

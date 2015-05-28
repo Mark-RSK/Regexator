@@ -8,14 +8,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public static class Expressions
     {
-        public static Expression Concat(IEnumerable<Expression> expressions)
+        public static Expression Concat(params object[] values)
         {
-            if (expressions == null)
+            return Concat(values.AsEnumerable());
+        }
+
+        public static Expression Concat(IEnumerable<object> values)
+        {
+            if (values == null)
             {
-                throw new ArgumentNullException("expressions");
+                throw new ArgumentNullException("values");
             }
 
-            return Expression.Empty.Concat(expressions);
+            return Expression.Empty.Concat(values);
         }
 
         public static Expression Join(object joinValue, params object[] values)
