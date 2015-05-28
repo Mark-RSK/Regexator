@@ -48,10 +48,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             var quotedChar = Chars.NotChar(CharGroupItems.QuoteMark().NewLineChar()).MaybeMany();
 
             Console.WriteLine("quoted text");
-            Console.WriteLine(
+            Console.WriteLine(Expressions.QuoteMarks(
                 quotedChar
-                .MaybeMany(Chars.QuoteMark(2).Concat(quotedChar))
-                .Surround(Chars.QuoteMark()));
+                .MaybeMany(Chars.QuoteMark(2).Concat(quotedChar))));
             Console.WriteLine("");
 
             Console.WriteLine("digits inside b element value");
@@ -63,14 +62,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("");
 
             Console.WriteLine("repeated word");
-            Console.WriteLine(Chars.WordChar().OneMany().AsCapturing()
+            Console.WriteLine(Anchors.Word(Chars
+                .WordChar().OneMany().AsCapturing()
                 .WhiteSpace().OneMany()
-                .Backreference(1)
-                .Surround(Anchors.WordBoundary()));
+                .Backreference(1)));
             Console.WriteLine("");
 
             Console.WriteLine("any word");
-            Console.WriteLine(Alternations.Any("word1", "word2", "word3").Surround(Anchors.WordBoundary()));
             Console.WriteLine(Anchors.Word(Alternations.Any("word1", "word2", "word3")));
             Console.WriteLine("");
 

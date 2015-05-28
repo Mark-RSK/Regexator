@@ -77,11 +77,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return RequireGroups(groupNumber1, groupNumber2).RequireGroup(groupNumber3);
         }
 
-        public Expression Surround(Expression expression)
-        {
-            return Expressions.Surround(this, expression);
-        }
-
         public QuantifiableExpression Any(IEnumerable<Expression> expressions)
         {
             return ConcatInternal(Alternations.Any(expressions));
