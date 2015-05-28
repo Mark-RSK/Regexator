@@ -8,50 +8,45 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal class SurroundExpression
         : Expression
     {
-        private readonly Expression _expression;
-        private readonly Expression _before;
-        private readonly Expression _after;
+        private readonly object _value;
+        private readonly object _before;
+        private readonly object _after;
 
-        public SurroundExpression(string text, Expression beforeExpression, Expression afterExpression)
-            : this(new TextExpression(text), beforeExpression, afterExpression)
+        public SurroundExpression(object value, object valueBefore, object valueAfter)
         {
-        }
-
-        public SurroundExpression(Expression expression, Expression beforeExpression, Expression afterExpression)
-        {
-            if (expression == null)
+            if (value == null)
             {
-                throw new ArgumentNullException("expression");
+                throw new ArgumentNullException("value");
             }
 
-            if (beforeExpression == null)
+            if (valueBefore == null)
             {
-                throw new ArgumentNullException("beforeExpression");
+                throw new ArgumentNullException("valueBefore");
             }
 
-            if (afterExpression == null)
+            if (valueAfter == null)
             {
-                throw new ArgumentNullException("afterExpression");
+                throw new ArgumentNullException("valueAfter");
             }
 
-            _expression = expression;
-            _before = beforeExpression;
-            _after = afterExpression;
+            _value = value;
+            _before = valueBefore;
+            _after = valueAfter;
         }
 
         internal override IEnumerable<string> EnumerateContent(BuildContext context)
         {
-            foreach (var value in _before.EnumerateValues(context))
+            foreach (var value in Expression.EnumerateValues(_before, context))
             {
                 yield return value;
             }
 
-            foreach (var value in _expression.EnumerateValues(context))
+            foreach (var value in Expression.EnumerateValues(_value, context))
             {
                 yield return value;
             }
 
-            foreach (var value in _after.EnumerateValues(context))
+            foreach (var value in Expression.EnumerateValues(_after, context))
             {
                 yield return value;
             }

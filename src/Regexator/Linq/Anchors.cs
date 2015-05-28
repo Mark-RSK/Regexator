@@ -4,6 +4,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public static class Anchors
     {
+        public static QuantifiableExpression Assert(object content)
+        {
+            return new AssertionExpression(AssertionKind.Assert, content);
+        }
+
         public static QuantifiableExpression Assert(Expression expression)
         {
             return new AssertionExpression(AssertionKind.Assert, expression);
@@ -52,6 +57,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiableExpression Assert(GeneralCategory category)
         {
             return new GeneralCategoryAssertion(AssertionKind.Assert, category);
+        }
+
+        public static QuantifiableExpression NotAssert(object content)
+        {
+            return new AssertionExpression(AssertionKind.NotAssert, content);
         }
 
         public static QuantifiableExpression NotAssert(Expression expression)
@@ -104,6 +114,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new GeneralCategoryAssertion(AssertionKind.NotAssert, category);
         }
 
+        public static QuantifiableExpression AssertBack(object content)
+        {
+            return new AssertionExpression(AssertionKind.AssertBack, content);
+        }
+
         public static QuantifiableExpression AssertBack(Expression expression)
         {
             return new AssertionExpression(AssertionKind.AssertBack, expression);
@@ -154,6 +169,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new GeneralCategoryAssertion(AssertionKind.AssertBack, category);
         }
 
+        public static QuantifiableExpression NotAssertBack(object content)
+        {
+            return new AssertionExpression(AssertionKind.NotAssertBack, content);
+        }
+
         public static QuantifiableExpression NotAssertBack(Expression expression)
         {
             return new AssertionExpression(AssertionKind.NotAssertBack, expression);
@@ -202,6 +222,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiableExpression NotAssertBack(GeneralCategory category)
         {
             return new GeneralCategoryAssertion(AssertionKind.NotAssertBack, category);
+        }
+
+        public static Expression AssertSurround(object value, object surroundValue)
+        {
+            return Expressions.Surround(value, Anchors.AssertBack(surroundValue), Anchors.Assert(surroundValue));
+        }
+
+        public static Expression NotAssertSurround(object value, object surroundValue)
+        {
+            return Expressions.Surround(value, Anchors.NotAssertBack(surroundValue), Anchors.NotAssert(surroundValue));
         }
 
         public static QuantifiableExpression Start()

@@ -452,26 +452,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Anchors.NotAssertBack(category));
         }
 
-        public Expression AssertSurround(Expression expression)
-        {
-            return Expressions.Surround(this, Anchors.AssertBack(expression), Anchors.Assert(expression));
-        }
-
-        public Expression AssertSurround(string text)
-        {
-            return Expressions.Surround(this, Anchors.AssertBack(text), Anchors.Assert(text));
-        }
-
-        public Expression NotAssertSurround(Expression expression)
-        {
-            return Expressions.Surround(this, Anchors.NotAssertBack(expression), Anchors.NotAssert(expression));
-        }
-
-        public Expression NotAssertSurround(string text)
-        {
-            return Expressions.Surround(this, Anchors.NotAssertBack(text), Anchors.NotAssert(text));
-        }
-
         public QuantifiableExpression NamedGroup(string name, Expression expression)
         {
             return ConcatInternal(Groups.NamedGroup(name, expression));

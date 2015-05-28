@@ -13,14 +13,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _assertionKind = kind;
         }
 
-        internal AssertionExpression(AssertionKind kind, Expression expression)
-            : base(expression)
-        {
-            _assertionKind = kind;
-        }
-
-        internal AssertionExpression(AssertionKind kind, string text)
-            : base(text)
+        internal AssertionExpression(AssertionKind kind, object content)
+            : base(content)
         {
             _assertionKind = kind;
         }
@@ -38,6 +32,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 case AssertionKind.NotAssertBack:
                     return Syntax.NotAssertBackStart;
             }
+
             return string.Empty;
         }
 

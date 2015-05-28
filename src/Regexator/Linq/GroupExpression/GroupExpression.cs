@@ -8,44 +8,39 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal abstract class GroupExpression
         : QuantifiableExpression
     {
-        private readonly Expression _expression;
-        private readonly string _text;
+        private readonly object _value;
+        //private readonly Expression _expression;
+        //private readonly string _text;
 
         internal GroupExpression()
             : base()
         {
         }
 
-        internal GroupExpression(string text)
+        internal GroupExpression(object value)
             : base()
         {
-            if (text == null)
+            if (value == null)
             {
-                throw new ArgumentNullException("text");
+                throw new ArgumentNullException("value");
             }
-            _text = text;
-        }
 
-        internal GroupExpression(Expression expression)
-            : base()
-        {
-            if (expression == null)
-            {
-                throw new ArgumentNullException("expression");
-            }
-            _expression = expression;
+            _value = value;
         }
 
         internal override IEnumerable<string> EnumerateContent(BuildContext context)
         {
-            if (ChildExpression != null)
+            Expression child = ChildExpression;
+            if (child != null)
             {
-                foreach (var value in ChildExpression.EnumerateValues(context))
+                foreach (var value in child.EnumerateValues(context))
                 {
                     yield return value;
                 }
             }
+            
             string s = Value(context);
+
             if (s != null)
             {
                 yield return s;
@@ -54,12 +49,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override string Value(BuildContext context)
         {
-            return (_text != null) ? RegexUtilities.Escape(_text) : null;
+            string text = _value as string;
+            return (text != null) ? RegexUtilities.Escape(text) : null;
         }
 
         internal virtual Expression ChildExpression
         {
-            get { return _expression; }
+            get { return _value as Expression; }
         }
 
         internal override string Closing(BuildContext context)

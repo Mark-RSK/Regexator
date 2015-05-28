@@ -8,42 +8,32 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal sealed class AsciiCharSurroundExpression
         : Expression
     {
-        private readonly Expression _expression;
+        private readonly object _value;
         private readonly AsciiChar _beforeChar;
         private readonly AsciiChar _afterChar;
 
-        public AsciiCharSurroundExpression(string text, AsciiChar surroundChar)
-            : this(new TextExpression(text), surroundChar, surroundChar)
+        public AsciiCharSurroundExpression(object value, AsciiChar surroundChar)
+            : this(value, surroundChar, surroundChar)
         {
         }
 
-        public AsciiCharSurroundExpression(string text, AsciiChar beforeChar, AsciiChar afterChar)
-            : this(new TextExpression(text), beforeChar, afterChar)
+        public AsciiCharSurroundExpression(object value, AsciiChar charBefore, AsciiChar charAfter)
         {
-        }
-
-        public AsciiCharSurroundExpression(Expression expression, AsciiChar surroundChar)
-            : this(expression, surroundChar, surroundChar)
-        {
-        }
-
-        public AsciiCharSurroundExpression(Expression expression, AsciiChar beforeChar, AsciiChar afterChar)
-        {
-            if (expression == null)
+            if (value == null)
             {
-                throw new ArgumentNullException("expression");
+                throw new ArgumentNullException("value");
             }
 
-            _expression = expression;
-            _beforeChar = beforeChar;
-            _afterChar = afterChar;
+            _value = value;
+            _beforeChar = charBefore;
+            _afterChar = charAfter;
         }
 
         internal override IEnumerable<string> EnumerateContent(BuildContext context)
         {
             yield return Syntax.Char(_beforeChar);
 
-            foreach (var value in _expression.EnumerateValues(context))
+            foreach (var value in Expression.EnumerateValues(_value, context))
             {
                 yield return value;
             }

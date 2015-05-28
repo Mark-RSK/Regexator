@@ -158,39 +158,24 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new TextExpression(value);
         }
 
-        internal static Expression Surround(string text, Expression surroundExpression)
+        internal static Expression Surround(object value, object surroundValue)
         {
-            return new SurroundExpression(text, surroundExpression, surroundExpression);
+            return new SurroundExpression(value, surroundValue, surroundValue);
         }
 
-        internal static Expression Surround(string text, AsciiChar surroundChar)
+        internal static Expression Surround(object value, object valueBefore, object valueAfter)
         {
-            return new AsciiCharSurroundExpression(text, surroundChar);
+            return new SurroundExpression(value, valueBefore, valueAfter);
         }
 
-        internal static Expression Surround(string text, AsciiChar beforeChar, AsciiChar afterChar)
+        internal static Expression Surround(object value, AsciiChar surroundChar)
         {
-            return new AsciiCharSurroundExpression(text, beforeChar, afterChar);
+            return new AsciiCharSurroundExpression(value, surroundChar);
         }
 
-        internal static Expression Surround(Expression expression, Expression surroundExpression)
+        internal static Expression Surround(object value, AsciiChar charBefore, AsciiChar charAfter)
         {
-            return new SurroundExpression(expression, surroundExpression, surroundExpression);
-        }
-
-        internal static Expression Surround(Expression expression, AsciiChar surroundChar)
-        {
-            return new AsciiCharSurroundExpression(expression, surroundChar);
-        }
-
-        internal static Expression Surround(Expression expression, AsciiChar beforeChar, AsciiChar afterChar)
-        {
-            return new AsciiCharSurroundExpression(expression, beforeChar, afterChar);
-        }
-
-        internal static Expression Surround(Expression expression, Expression beforeExpression, Expression afterExpression)
-        {
-            return new SurroundExpression(expression, beforeExpression, afterExpression);
+            return new AsciiCharSurroundExpression(value, charBefore, charAfter);
         }
 
         public static QuantifiableExpression Never()

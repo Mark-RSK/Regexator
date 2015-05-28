@@ -216,26 +216,70 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             } while (expression != null);
         }
 
+        internal static IEnumerable<string> EnumerateValues(object item, BuildContext context)
+        {
+            if (item == null)
+            {
+                yield break;
+            }
+
+            Expression expression = item as Expression;
+            if (expression != null)
+            {
+                foreach (var value in expression.EnumerateValues(context))
+                {
+                    yield return value;
+                }
+                yield break;
+            }
+
+            string text = item as string;
+            if (text != null)
+            {
+                yield return text;
+                yield break;
+            }
+
+            IEnumerable items = item as IEnumerable;
+            if (items != null)
+            {
+                foreach (var item2 in items)
+                {
+                    foreach (var value in EnumerateValues(item2, context))
+                    {
+                        yield return value;
+                    }
+                }
+                yield break;
+            }
+
+            yield return item.ToString();
+        }
+
         private static IEnumerable<string> EnumerateValues(Expression expression, BuildContext context)
         {
             if (!context.Expressions.Add(expression))
             {
                 throw new InvalidOperationException("A circular reference was detected while creating a pattern.");
             }
+
             string opening = expression.Opening(context);
             if (opening != null)
             {
                 yield return opening;
             }
+
             foreach (var value in expression.EnumerateContent(context))
             {
                 yield return value;
             }
+
             string closing = expression.Closing(context);
             if (closing != null)
             {
                 yield return closing;
             }
+
             context.Expressions.Remove(expression);
         }
 
