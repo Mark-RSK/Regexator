@@ -1,6 +1,7 @@
 ﻿// Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Collections;
 using System.IO;
 using System.Linq;
 
@@ -18,6 +19,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 )
             );
             Console.WriteLine(exp);
+            Console.WriteLine("");
 
             var values = new string[] { "one", "two", "three" };
 

@@ -99,7 +99,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 return Concat(text);
             }
 
-            IEnumerable values = content as IEnumerable;
+            object[] values = content as object[];
             if (values != null)
             {
                 Expression exp = this;
@@ -107,7 +107,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 {
                     exp = exp.Concat(value);
                 }
+                return exp;
+            }
 
+            IEnumerable items = content as IEnumerable;
+            if (items != null)
+            {
+                Expression exp = this;
+                foreach (var value in items)
+                {
+                    exp = exp.Concat(value);
+                }
                 return exp;
             }
 
@@ -138,19 +148,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public Expression Concat(IEnumerable<object> values)
         {
-            if (values == null)
-            {
-                throw new ArgumentNullException("values");
-            }
-
-            Expression exp = this;
-
-            foreach (var value in values)
-            {
-                exp = exp.Concat(value);
-            }
-
-            return exp;
+            return Concat((object)values);
         }
 
         public Regex ToRegex()
