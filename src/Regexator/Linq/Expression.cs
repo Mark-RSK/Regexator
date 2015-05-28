@@ -1,9 +1,9 @@
 // Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
@@ -80,18 +80,38 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return expression;
         }
 
-        public Expression Concat(object value)
+        public Expression Concat(object content)
         {
-            if (value == null)
+            if (content == null)
             {
-                throw new ArgumentNullException("value");
+                return this;
             }
 
-            Expression expression = value as Expression;
+            Expression expression = content as Expression;
+            if (expression != null)
+            {
+                return Concat(expression);
+            }
 
-            return (expression != null)
-                ? Concat(expression)
-                : Concat(value.ToString());
+            string text = content as string;
+            if (text != null)
+            {
+                return Concat(text);
+            }
+
+            IEnumerable values = content as IEnumerable;
+            if (values != null)
+            {
+                Expression exp = this;
+                foreach (var value in values)
+                {
+                    exp = exp.Concat(value);
+                }
+
+                return exp;
+            }
+
+            return Concat(content.ToString());
         }
 
         public Expression Concat(Expression expression)
