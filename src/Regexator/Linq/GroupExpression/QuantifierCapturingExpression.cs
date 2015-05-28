@@ -17,25 +17,26 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override string Opening(BuildContext context)
         {
-            return (EncloseRequired)
+            return (AddCapturingGroup)
                 ? Syntax.CapturingGroupStart
                 : string.Empty;
         }
 
         internal override string Closing(BuildContext context)
         {
-            return (EncloseRequired)
+            return (AddCapturingGroup)
                 ? base.Closing(context)
                 : string.Empty;
         }
 
-        private bool EncloseRequired
+        private bool AddCapturingGroup
         {
             get
             {
-                return ChildExpression == null ||
-                    !(ChildExpression is QuantifiableExpression) ||
-                    ChildExpression.Previous != null;
+                Expression exp = Content as Expression;
+                return exp == null 
+                    || !(exp is QuantifiableExpression) 
+                    || exp.Previous != null;
             }
         }
     }

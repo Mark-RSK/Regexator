@@ -8,54 +8,57 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal abstract class GroupExpression
         : QuantifiableExpression
     {
-        private readonly object _value;
-        //private readonly Expression _expression;
-        //private readonly string _text;
+        private readonly object _content;
 
         internal GroupExpression()
             : base()
         {
         }
 
-        internal GroupExpression(object value)
+        internal GroupExpression(object content)
             : base()
         {
-            if (value == null)
+            if (content == null)
             {
-                throw new ArgumentNullException("value");
+                throw new ArgumentNullException("content");
             }
 
-            _value = value;
+            _content = content;
         }
 
         internal override IEnumerable<string> EnumerateContent(BuildContext context)
         {
-            Expression child = ChildExpression;
-            if (child != null)
+            Expression expression = _content as Expression;
+            if (expression != null)
             {
-                foreach (var value in child.EnumerateValues(context))
+                foreach (var value in expression.EnumerateValues(context))
                 {
                     yield return value;
                 }
             }
-            
-            string s = Value(context);
-
-            if (s != null)
+            else
             {
-                yield return s;
+                string s = Value(context);
+                if (s != null)
+                {
+                    yield return s;
+                }
             }
+            
         }
 
         internal override string Value(BuildContext context)
         {
-            string text = _value as string;
-            return (text != null) ? RegexUtilities.Escape(text) : null;
+            string text = _content as string;
+
+            return (text != null) 
+                ? RegexUtilities.Escape(text) 
+                : null;
         }
 
-        internal virtual Expression ChildExpression
+        internal object Content
         {
-            get { return _value as Expression; }
+            get { return _content; }
         }
 
         internal override string Closing(BuildContext context)
