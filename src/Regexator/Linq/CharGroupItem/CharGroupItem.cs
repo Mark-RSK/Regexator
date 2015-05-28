@@ -8,7 +8,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     public abstract partial class CharGroupItem
         : IBaseGroup, IExcludedGroup
     {
-        private CharGroupItem _previous;
 
         protected CharGroupItem()
         {
@@ -20,11 +19,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 throw new ArgumentNullException("item");
             }
+
             CharGroupItem first = item;
             while (first.Previous != null)
             {
                 first = first.Previous;
             }
+
             first.Previous = this;
             return item;
         }
@@ -57,7 +58,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public override string ToString()
         {
-            return Content;
+            return Value;
         }
 
         public CharGroupItem Char(char value)
@@ -197,10 +198,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             get { return string.Concat(EnumerateValues()); }
         }
 
-        internal CharGroupItem Previous
-        {
-            get { return _previous; }
-            set { _previous = value; }
-        }
+        internal CharGroupItem Previous { get; set; }
     }
 }
