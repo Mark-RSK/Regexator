@@ -230,30 +230,33 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 {
                     yield return value;
                 }
-                yield break;
             }
-
-            string text = item as string;
-            if (text != null)
+            else
             {
-                yield return text;
-                yield break;
-            }
-
-            IEnumerable items = item as IEnumerable;
-            if (items != null)
-            {
-                foreach (var item2 in items)
+                string text = item as string;
+                if (text != null)
                 {
-                    foreach (var value in EnumerateValues(item2, context))
+                    yield return text;
+                }
+                else
+                {
+                    IEnumerable items = item as IEnumerable;
+                    if (items != null)
                     {
-                        yield return value;
+                        foreach (var item2 in items)
+                        {
+                            foreach (var value in EnumerateValues(item2, context))
+                            {
+                                yield return value;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        yield return item.ToString();
                     }
                 }
-                yield break;
             }
-
-            yield return item.ToString();
         }
 
         private static IEnumerable<string> EnumerateValues(Expression expression, BuildContext context)
