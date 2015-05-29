@@ -24,7 +24,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (context.Settings.SeparatorAfterNumberBackreference)
             {
-                yield return Syntax.Backreference(GroupNumber) + Groups.Noncapturing(string.Empty);
+                yield return Syntax.Backreference(GroupNumber) + Linq.Groups.Noncapturing(string.Empty);
             }
             else
             {

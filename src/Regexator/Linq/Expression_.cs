@@ -454,172 +454,172 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public QuantifiableExpression NamedGroup(string name, Expression expression)
         {
-            return ConcatInternal(Groups.NamedGroup(name, expression));
+            return ConcatInternal(Linq.Groups.NamedGroup(name, expression));
         }
 
         public QuantifiableExpression NamedGroup(string name, string text)
         {
-            return ConcatInternal(Groups.NamedGroup(name, text));
+            return ConcatInternal(Linq.Groups.NamedGroup(name, text));
         }
 
         public QuantifiableExpression NamedGroup(string name, params Expression[] expressions)
         {
-            return ConcatInternal(Groups.NamedGroup(name, expressions));
+            return ConcatInternal(Linq.Groups.NamedGroup(name, expressions));
         }
 
         public QuantifiableExpression NamedGroup(string name, params string[] values)
         {
-            return ConcatInternal(Groups.NamedGroup(name, values));
+            return ConcatInternal(Linq.Groups.NamedGroup(name, values));
         }
 
         public QuantifiableExpression Capturing()
         {
-            return ConcatInternal(Groups.Capturing());
+            return ConcatInternal(Linq.Groups.Capturing());
         }
 
         public QuantifiableExpression Capturing(Expression expression)
         {
-            return ConcatInternal(Groups.Capturing(expression));
+            return ConcatInternal(Linq.Groups.Capturing(expression));
         }
 
         public QuantifiableExpression Capturing(string text)
         {
-            return ConcatInternal(Groups.Capturing(text));
+            return ConcatInternal(Linq.Groups.Capturing(text));
         }
 
         public QuantifiableExpression Capturing(params Expression[] expressions)
         {
-            return ConcatInternal(Groups.Capturing(expressions));
+            return ConcatInternal(Linq.Groups.Capturing(expressions));
         }
 
         public QuantifiableExpression Capturing(params string[] values)
         {
-            return ConcatInternal(Groups.Capturing(values));
+            return ConcatInternal(Linq.Groups.Capturing(values));
         }
 
         public QuantifiableExpression Noncapturing(Expression expression)
         {
-            return ConcatInternal(Groups.Noncapturing(expression));
+            return ConcatInternal(Linq.Groups.Noncapturing(expression));
         }
 
         public QuantifiableExpression Noncapturing(string text)
         {
-            return ConcatInternal(Groups.Noncapturing(text));
+            return ConcatInternal(Linq.Groups.Noncapturing(text));
         }
 
         public QuantifiableExpression Noncapturing(params Expression[] expressions)
         {
-            return ConcatInternal(Groups.Noncapturing(expressions));
+            return ConcatInternal(Linq.Groups.Noncapturing(expressions));
         }
 
         public QuantifiableExpression Noncapturing(params string[] values)
         {
-            return ConcatInternal(Groups.Noncapturing(values));
+            return ConcatInternal(Linq.Groups.Noncapturing(values));
         }
 
         public QuantifiableExpression Nonbacktracking(Expression expression)
         {
-            return ConcatInternal(Groups.Nonbacktracking(expression));
+            return ConcatInternal(Linq.Groups.Nonbacktracking(expression));
         }
 
         public QuantifiableExpression Nonbacktracking(string text)
         {
-            return ConcatInternal(Groups.Nonbacktracking(text));
+            return ConcatInternal(Linq.Groups.Nonbacktracking(text));
         }
 
         public QuantifiableExpression Nonbacktracking(params Expression[] expressions)
         {
-            return ConcatInternal(Groups.Nonbacktracking(expressions));
+            return ConcatInternal(Linq.Groups.Nonbacktracking(expressions));
         }
 
         public QuantifiableExpression Nonbacktracking(params string[] values)
         {
-            return ConcatInternal(Groups.Nonbacktracking(values));
+            return ConcatInternal(Linq.Groups.Nonbacktracking(values));
         }
 
         public QuantifiableExpression BalanceGroup(string name1, string name2, Expression expression)
         {
-            return ConcatInternal(Groups.BalanceGroup(name1, name2, expression));
+            return ConcatInternal(Linq.Groups.BalanceGroup(name1, name2, expression));
         }
 
         public QuantifiableExpression BalanceGroup(string name1, string name2, string text)
         {
-            return ConcatInternal(Groups.BalanceGroup(name1, name2, text));
+            return ConcatInternal(Linq.Groups.BalanceGroup(name1, name2, text));
         }
 
         public QuantifiableExpression BalanceGroup(string name1, string name2, params Expression[] expressions)
         {
-            return ConcatInternal(Groups.BalanceGroup(name1, name2, expressions));
+            return ConcatInternal(Linq.Groups.BalanceGroup(name1, name2, expressions));
         }
 
         public QuantifiableExpression BalanceGroup(string name1, string name2, params string[] values)
         {
-            return ConcatInternal(Groups.BalanceGroup(name1, name2, values));
+            return ConcatInternal(Linq.Groups.BalanceGroup(name1, name2, values));
         }
 
         public QuantifiableExpression GroupOptions(InlineOptions applyOptions, Expression expression)
         {
-            return ConcatInternal(Groups.GroupOptions(applyOptions, expression));
+            return ConcatInternal(Linq.Groups.GroupOptions(applyOptions, expression));
         }
 
         public QuantifiableExpression GroupOptions(InlineOptions applyOptions, string text)
         {
-            return ConcatInternal(Groups.GroupOptions(applyOptions, text));
+            return ConcatInternal(Linq.Groups.GroupOptions(applyOptions, text));
         }
 
         public QuantifiableExpression GroupOptions(InlineOptions applyOptions, params Expression[] expressions)
         {
-            return ConcatInternal(Groups.GroupOptions(applyOptions, expressions));
+            return ConcatInternal(Linq.Groups.GroupOptions(applyOptions, expressions));
         }
 
         public QuantifiableExpression GroupOptions(InlineOptions applyOptions, params string[] values)
         {
-            return ConcatInternal(Groups.GroupOptions(applyOptions, values));
+            return ConcatInternal(Linq.Groups.GroupOptions(applyOptions, values));
         }
 
         public QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, Expression expression)
         {
-            return ConcatInternal(Groups.GroupOptions(applyOptions, disableOptions, expression));
+            return ConcatInternal(Linq.Groups.GroupOptions(applyOptions, disableOptions, expression));
         }
 
         public QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, string text)
         {
-            return ConcatInternal(Groups.GroupOptions(applyOptions, disableOptions, text));
+            return ConcatInternal(Linq.Groups.GroupOptions(applyOptions, disableOptions, text));
         }
 
         public QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, params Expression[] expressions)
         {
-            return ConcatInternal(Groups.GroupOptions(applyOptions, disableOptions, expressions));
+            return ConcatInternal(Linq.Groups.GroupOptions(applyOptions, disableOptions, expressions));
         }
 
         public QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, params string[] values)
         {
-            return ConcatInternal(Groups.GroupOptions(applyOptions, disableOptions, values));
+            return ConcatInternal(Linq.Groups.GroupOptions(applyOptions, disableOptions, values));
         }
 
         public QuantifiableExpression WithOptions(InlineOptions applyOptions)
         {
-            return Groups.GroupOptions(applyOptions, this);
+            return Linq.Groups.GroupOptions(applyOptions, this);
         }
 
         public QuantifiableExpression WithOptions(InlineOptions applyOptions, InlineOptions disableOptions)
         {
-            return Groups.GroupOptions(applyOptions, disableOptions, this);
+            return Linq.Groups.GroupOptions(applyOptions, disableOptions, this);
         }
 
         public QuantifiableExpression AsCapturing()
         {
-            return Groups.Capturing(this);
+            return Linq.Groups.Capturing(this);
         }
 
         public QuantifiableExpression AsNoncapturing()
         {
-            return Groups.Noncapturing(this);
+            return Linq.Groups.Noncapturing(this);
         }
 
         public QuantifiableExpression AsNonbacktracking()
         {
-            return Groups.Nonbacktracking(this);
+            return Linq.Groups.Nonbacktracking(this);
         }
 
         public Expression Apostrophes(Expression expression)
@@ -2129,62 +2129,62 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public QuantifierExpression Maybe(string text)
         {
-            return ConcatInternal(Groups.Maybe(text));
+            return ConcatInternal(Linq.Groups.Maybe(text));
         }
 
         public QuantifierExpression Maybe(Expression expression)
         {
-            return ConcatInternal(Groups.Maybe(expression));
+            return ConcatInternal(Linq.Groups.Maybe(expression));
         }
 
         public QuantifierExpression Maybe(params string[] values)
         {
-            return ConcatInternal(Groups.Maybe(values));
+            return ConcatInternal(Linq.Groups.Maybe(values));
         }
 
         public QuantifierExpression Maybe(params Expression[] expressions)
         {
-            return ConcatInternal(Groups.Maybe(expressions));
+            return ConcatInternal(Linq.Groups.Maybe(expressions));
         }
 
         public QuantifierExpression MaybeMany(string text)
         {
-            return ConcatInternal(Groups.MaybeMany(text));
+            return ConcatInternal(Linq.Groups.MaybeMany(text));
         }
 
         public QuantifierExpression MaybeMany(Expression expression)
         {
-            return ConcatInternal(Groups.MaybeMany(expression));
+            return ConcatInternal(Linq.Groups.MaybeMany(expression));
         }
 
         public QuantifierExpression MaybeMany(params string[] values)
         {
-            return ConcatInternal(Groups.MaybeMany(values));
+            return ConcatInternal(Linq.Groups.MaybeMany(values));
         }
 
         public QuantifierExpression MaybeMany(params Expression[] expressions)
         {
-            return ConcatInternal(Groups.MaybeMany(expressions));
+            return ConcatInternal(Linq.Groups.MaybeMany(expressions));
         }
 
         public QuantifierExpression OneMany(string text)
         {
-            return ConcatInternal(Groups.OneMany(text));
+            return ConcatInternal(Linq.Groups.OneMany(text));
         }
 
         public QuantifierExpression OneMany(Expression expression)
         {
-            return ConcatInternal(Groups.OneMany(expression));
+            return ConcatInternal(Linq.Groups.OneMany(expression));
         }
 
         public QuantifierExpression OneMany(params string[] values)
         {
-            return ConcatInternal(Groups.OneMany(values));
+            return ConcatInternal(Linq.Groups.OneMany(values));
         }
 
         public QuantifierExpression OneMany(params Expression[] expressions)
         {
-            return ConcatInternal(Groups.OneMany(expressions));
+            return ConcatInternal(Linq.Groups.OneMany(expressions));
         }
 
         public QuantifiableExpression Backreference(int groupNumber)
