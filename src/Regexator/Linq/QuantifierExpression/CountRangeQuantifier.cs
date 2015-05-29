@@ -17,10 +17,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 throw new ArgumentOutOfRangeException("minCount");
             }
+
             if (maxCount < minCount)
             {
                 throw new ArgumentOutOfRangeException("maxCount");
             }
+
             _minCount = minCount;
             _maxCount = maxCount;
         }
