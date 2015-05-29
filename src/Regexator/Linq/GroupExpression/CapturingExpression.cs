@@ -5,13 +5,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal sealed class CapturingExpression
         : GroupExpression
     {
-        public CapturingExpression(string text)
-            : base(text)
-        {
-        }
-
-        public CapturingExpression(Expression expression)
-            : base(expression)
+        public CapturingExpression(object content)
+            : base(content)
         {
         }
 

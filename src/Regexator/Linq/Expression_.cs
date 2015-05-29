@@ -77,82 +77,42 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return RequireGroups(groupNumber1, groupNumber2).RequireGroup(groupNumber3);
         }
 
-        public QuantifiableExpression Any(IEnumerable<Expression> expressions)
-        {
-            return ConcatInternal(Alternations.Any(expressions));
-        }
-
-        public QuantifiableExpression Any(params Expression[] expressions)
-        {
-            return ConcatInternal(Alternations.Any(expressions));
-        }
-
-        public QuantifiableExpression Any(IEnumerable<string> values)
+        public QuantifiableExpression Any(IEnumerable<object> values)
         {
             return ConcatInternal(Alternations.Any(values));
         }
 
-        public QuantifiableExpression Any(params string[] values)
+        public QuantifiableExpression Any(params object[] values)
         {
             return ConcatInternal(Alternations.Any(values));
         }
 
-        public QuantifiableExpression IfGroup(string groupName, Expression yes)
+        public QuantifiableExpression IfGroup(string groupName, object yes)
         {
             return ConcatInternal(Alternations.IfGroup(groupName, yes));
         }
 
-        public QuantifiableExpression IfGroup(string groupName, Expression yes, Expression no)
+        public QuantifiableExpression IfGroup(string groupName, object yes, object no)
         {
             return ConcatInternal(Alternations.IfGroup(groupName, yes, no));
         }
 
-        public QuantifiableExpression IfGroup(string groupName, string yes)
-        {
-            return ConcatInternal(Alternations.IfGroup(groupName, yes));
-        }
-
-        public QuantifiableExpression IfGroup(string groupName, string yes, string no)
-        {
-            return ConcatInternal(Alternations.IfGroup(groupName, yes, no));
-        }
-
-        public QuantifiableExpression IfGroup(int groupNumber, Expression yes)
+        public QuantifiableExpression IfGroup(int groupNumber, object yes)
         {
             return ConcatInternal(Alternations.IfGroup(groupNumber, yes));
         }
 
-        public QuantifiableExpression IfGroup(int groupNumber, Expression yes, Expression no)
+        public QuantifiableExpression IfGroup(int groupNumber, object yes, object no)
         {
             return ConcatInternal(Alternations.IfGroup(groupNumber, yes, no));
         }
 
-        public QuantifiableExpression IfGroup(int groupNumber, string yes)
-        {
-            return ConcatInternal(Alternations.IfGroup(groupNumber, yes));
-        }
-
-        public QuantifiableExpression IfGroup(int groupNumber, string yes, string no)
-        {
-            return ConcatInternal(Alternations.IfGroup(groupNumber, yes, no));
-        }
-
-        public QuantifiableExpression If(Expression condition, Expression yes)
+        public QuantifiableExpression If(Expression condition, object yes)
         {
             return ConcatInternal(Alternations.If(condition, yes));
         }
 
-        public QuantifiableExpression If(Expression condition, Expression yes, Expression no)
-        {
-            return ConcatInternal(Alternations.If(condition, yes, no));
-        }
-
-        public QuantifiableExpression If(Expression condition, string yes)
-        {
-            return ConcatInternal(Alternations.If(condition, yes));
-        }
-
-        public QuantifiableExpression If(Expression condition, string yes, string no)
+        public QuantifiableExpression If(Expression condition, object yes, object no)
         {
             return ConcatInternal(Alternations.If(condition, yes, no));
         }
@@ -222,14 +182,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Anchors.WordBoundary());
         }
 
-        public Expression Word(string text)
+        public Expression Word(object content)
         {
-            return ConcatInternal(Anchors.Word(text));
-        }
-
-        public Expression Word(Expression expression)
-        {
-            return ConcatInternal(Anchors.Word(expression));
+            return ConcatInternal(Anchors.Word(content));
         }
 
         public QuantifiableExpression NotWordBoundary()
@@ -252,22 +207,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Anchors.EntireInput(this);
         }
 
-        public QuantifiableExpression Assert(Expression expression)
+        public QuantifiableExpression Assert(object content)
         {
-            return ConcatInternal(Anchors.Assert(expression));
+            return ConcatInternal(Anchors.Assert(content));
         }
 
-        public QuantifiableExpression Assert(string text)
-        {
-            return ConcatInternal(Anchors.Assert(text));
-        }
-
-        public QuantifiableExpression Assert(params Expression[] expressions)
-        {
-            return ConcatInternal(Anchors.Assert(expressions));
-        }
-
-        public QuantifiableExpression Assert(params string[] values)
+        public QuantifiableExpression Assert(params object[] values)
         {
             return ConcatInternal(Anchors.Assert(values));
         }
@@ -277,47 +222,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Anchors.Assert(item));
         }
 
-        public QuantifiableExpression Assert(char value)
+        public QuantifiableExpression NotAssert(object content)
         {
-            return ConcatInternal(Anchors.Assert(value));
+            return ConcatInternal(Anchors.NotAssert(content));
         }
 
-        public QuantifiableExpression Assert(int charCode)
-        {
-            return ConcatInternal(Anchors.Assert(charCode));
-        }
-
-        public QuantifiableExpression Assert(AsciiChar value)
-        {
-            return ConcatInternal(Anchors.Assert(value));
-        }
-
-        public QuantifiableExpression Assert(NamedBlock block)
-        {
-            return ConcatInternal(Anchors.Assert(block));
-        }
-
-        public QuantifiableExpression Assert(GeneralCategory category)
-        {
-            return ConcatInternal(Anchors.Assert(category));
-        }
-
-        public QuantifiableExpression NotAssert(Expression expression)
-        {
-            return ConcatInternal(Anchors.NotAssert(expression));
-        }
-
-        public QuantifiableExpression NotAssert(string text)
-        {
-            return ConcatInternal(Anchors.NotAssert(text));
-        }
-
-        public QuantifiableExpression NotAssert(params Expression[] expressions)
-        {
-            return ConcatInternal(Anchors.NotAssert(expressions));
-        }
-
-        public QuantifiableExpression NotAssert(params string[] values)
+        public QuantifiableExpression NotAssert(params object[] values)
         {
             return ConcatInternal(Anchors.NotAssert(values));
         }
@@ -327,47 +237,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Anchors.NotAssert(item));
         }
 
-        public QuantifiableExpression NotAssert(char value)
+        public QuantifiableExpression AssertBack(object content)
         {
-            return ConcatInternal(Anchors.NotAssert(value));
+            return ConcatInternal(Anchors.AssertBack(content));
         }
 
-        public QuantifiableExpression NotAssert(int charCode)
-        {
-            return ConcatInternal(Anchors.NotAssert(charCode));
-        }
-
-        public QuantifiableExpression NotAssert(AsciiChar value)
-        {
-            return ConcatInternal(Anchors.NotAssert(value));
-        }
-
-        public QuantifiableExpression NotAssert(NamedBlock block)
-        {
-            return ConcatInternal(Anchors.NotAssert(block));
-        }
-
-        public QuantifiableExpression NotAssert(GeneralCategory category)
-        {
-            return ConcatInternal(Anchors.NotAssert(category));
-        }
-
-        public QuantifiableExpression AssertBack(Expression expression)
-        {
-            return ConcatInternal(Anchors.AssertBack(expression));
-        }
-
-        public QuantifiableExpression AssertBack(string text)
-        {
-            return ConcatInternal(Anchors.AssertBack(text));
-        }
-
-        public QuantifiableExpression AssertBack(params Expression[] expressions)
-        {
-            return ConcatInternal(Anchors.AssertBack(expressions));
-        }
-
-        public QuantifiableExpression AssertBack(params string[] values)
+        public QuantifiableExpression AssertBack(params object[] values)
         {
             return ConcatInternal(Anchors.AssertBack(values));
         }
@@ -377,47 +252,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Anchors.AssertBack(item));
         }
 
-        public QuantifiableExpression AssertBack(char value)
+        public QuantifiableExpression NotAssertBack(object content)
         {
-            return ConcatInternal(Anchors.AssertBack(value));
+            return ConcatInternal(Anchors.NotAssertBack(content));
         }
 
-        public QuantifiableExpression AssertBack(int charCodes)
-        {
-            return ConcatInternal(Anchors.AssertBack(charCodes));
-        }
-
-        public QuantifiableExpression AssertBack(AsciiChar value)
-        {
-            return ConcatInternal(Anchors.AssertBack(value));
-        }
-
-        public QuantifiableExpression AssertBack(NamedBlock block)
-        {
-            return ConcatInternal(Anchors.AssertBack(block));
-        }
-
-        public QuantifiableExpression AssertBack(GeneralCategory category)
-        {
-            return ConcatInternal(Anchors.AssertBack(category));
-        }
-
-        public QuantifiableExpression NotAssertBack(Expression expression)
-        {
-            return ConcatInternal(Anchors.NotAssertBack(expression));
-        }
-
-        public QuantifiableExpression NotAssertBack(string text)
-        {
-            return ConcatInternal(Anchors.NotAssertBack(text));
-        }
-
-        public QuantifiableExpression NotAssertBack(params Expression[] expressions)
-        {
-            return ConcatInternal(Anchors.NotAssertBack(expressions));
-        }
-
-        public QuantifiableExpression NotAssertBack(params string[] values)
+        public QuantifiableExpression NotAssertBack(params object[] values)
         {
             return ConcatInternal(Anchors.NotAssertBack(values));
         }
@@ -427,47 +267,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Anchors.NotAssertBack(item));
         }
 
-        public QuantifiableExpression NotAssertBack(char value)
+        public QuantifiableExpression NamedGroup(string name, object content)
         {
-            return ConcatInternal(Anchors.NotAssertBack(value));
+            return ConcatInternal(Linq.Groups.NamedGroup(name, content));
         }
 
-        public QuantifiableExpression NotAssertBack(int charCode)
-        {
-            return ConcatInternal(Anchors.NotAssertBack(charCode));
-        }
-
-        public QuantifiableExpression NotAssertBack(AsciiChar value)
-        {
-            return ConcatInternal(Anchors.NotAssertBack(value));
-        }
-
-        public QuantifiableExpression NotAssertBack(NamedBlock block)
-        {
-            return ConcatInternal(Anchors.NotAssertBack(block));
-        }
-
-        public QuantifiableExpression NotAssertBack(GeneralCategory category)
-        {
-            return ConcatInternal(Anchors.NotAssertBack(category));
-        }
-
-        public QuantifiableExpression NamedGroup(string name, Expression expression)
-        {
-            return ConcatInternal(Linq.Groups.NamedGroup(name, expression));
-        }
-
-        public QuantifiableExpression NamedGroup(string name, string text)
-        {
-            return ConcatInternal(Linq.Groups.NamedGroup(name, text));
-        }
-
-        public QuantifiableExpression NamedGroup(string name, params Expression[] expressions)
-        {
-            return ConcatInternal(Linq.Groups.NamedGroup(name, expressions));
-        }
-
-        public QuantifiableExpression NamedGroup(string name, params string[] values)
+        public QuantifiableExpression NamedGroup(string name, params object[] values)
         {
             return ConcatInternal(Linq.Groups.NamedGroup(name, values));
         }
@@ -477,122 +282,62 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Linq.Groups.Capturing());
         }
 
-        public QuantifiableExpression Capturing(Expression expression)
+        public QuantifiableExpression Capturing(object content)
         {
-            return ConcatInternal(Linq.Groups.Capturing(expression));
+            return ConcatInternal(Linq.Groups.Capturing(content));
         }
 
-        public QuantifiableExpression Capturing(string text)
-        {
-            return ConcatInternal(Linq.Groups.Capturing(text));
-        }
-
-        public QuantifiableExpression Capturing(params Expression[] expressions)
-        {
-            return ConcatInternal(Linq.Groups.Capturing(expressions));
-        }
-
-        public QuantifiableExpression Capturing(params string[] values)
+        public QuantifiableExpression Capturing(params object[] values)
         {
             return ConcatInternal(Linq.Groups.Capturing(values));
         }
 
-        public QuantifiableExpression Noncapturing(Expression expression)
+        public QuantifiableExpression Noncapturing(object content)
         {
-            return ConcatInternal(Linq.Groups.Noncapturing(expression));
+            return ConcatInternal(Linq.Groups.Noncapturing(content));
         }
 
-        public QuantifiableExpression Noncapturing(string text)
-        {
-            return ConcatInternal(Linq.Groups.Noncapturing(text));
-        }
-
-        public QuantifiableExpression Noncapturing(params Expression[] expressions)
-        {
-            return ConcatInternal(Linq.Groups.Noncapturing(expressions));
-        }
-
-        public QuantifiableExpression Noncapturing(params string[] values)
+        public QuantifiableExpression Noncapturing(params object[] values)
         {
             return ConcatInternal(Linq.Groups.Noncapturing(values));
         }
 
-        public QuantifiableExpression Nonbacktracking(Expression expression)
+        public QuantifiableExpression Nonbacktracking(object content)
         {
-            return ConcatInternal(Linq.Groups.Nonbacktracking(expression));
+            return ConcatInternal(Linq.Groups.Nonbacktracking(content));
         }
 
-        public QuantifiableExpression Nonbacktracking(string text)
-        {
-            return ConcatInternal(Linq.Groups.Nonbacktracking(text));
-        }
-
-        public QuantifiableExpression Nonbacktracking(params Expression[] expressions)
-        {
-            return ConcatInternal(Linq.Groups.Nonbacktracking(expressions));
-        }
-
-        public QuantifiableExpression Nonbacktracking(params string[] values)
+        public QuantifiableExpression Nonbacktracking(params object[] values)
         {
             return ConcatInternal(Linq.Groups.Nonbacktracking(values));
         }
 
-        public QuantifiableExpression BalanceGroup(string name1, string name2, Expression expression)
+        public QuantifiableExpression BalanceGroup(string name1, string name2, object content)
         {
-            return ConcatInternal(Linq.Groups.BalanceGroup(name1, name2, expression));
+            return ConcatInternal(Linq.Groups.BalanceGroup(name1, name2, content));
         }
 
-        public QuantifiableExpression BalanceGroup(string name1, string name2, string text)
-        {
-            return ConcatInternal(Linq.Groups.BalanceGroup(name1, name2, text));
-        }
-
-        public QuantifiableExpression BalanceGroup(string name1, string name2, params Expression[] expressions)
-        {
-            return ConcatInternal(Linq.Groups.BalanceGroup(name1, name2, expressions));
-        }
-
-        public QuantifiableExpression BalanceGroup(string name1, string name2, params string[] values)
+        public QuantifiableExpression BalanceGroup(string name1, string name2, params object[] values)
         {
             return ConcatInternal(Linq.Groups.BalanceGroup(name1, name2, values));
         }
 
-        public QuantifiableExpression GroupOptions(InlineOptions applyOptions, Expression expression)
+        public QuantifiableExpression GroupOptions(InlineOptions applyOptions, object content)
         {
-            return ConcatInternal(Linq.Groups.GroupOptions(applyOptions, expression));
+            return ConcatInternal(Linq.Groups.GroupOptions(applyOptions, content));
         }
 
-        public QuantifiableExpression GroupOptions(InlineOptions applyOptions, string text)
-        {
-            return ConcatInternal(Linq.Groups.GroupOptions(applyOptions, text));
-        }
-
-        public QuantifiableExpression GroupOptions(InlineOptions applyOptions, params Expression[] expressions)
-        {
-            return ConcatInternal(Linq.Groups.GroupOptions(applyOptions, expressions));
-        }
-
-        public QuantifiableExpression GroupOptions(InlineOptions applyOptions, params string[] values)
+        public QuantifiableExpression GroupOptions(InlineOptions applyOptions, params object[] values)
         {
             return ConcatInternal(Linq.Groups.GroupOptions(applyOptions, values));
         }
 
-        public QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, Expression expression)
+        public QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, object content)
         {
-            return ConcatInternal(Linq.Groups.GroupOptions(applyOptions, disableOptions, expression));
+            return ConcatInternal(Linq.Groups.GroupOptions(applyOptions, disableOptions, content));
         }
 
-        public QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, string text)
-        {
-            return ConcatInternal(Linq.Groups.GroupOptions(applyOptions, disableOptions, text));
-        }
-
-        public QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, params Expression[] expressions)
-        {
-            return ConcatInternal(Linq.Groups.GroupOptions(applyOptions, disableOptions, expressions));
-        }
-
-        public QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, params string[] values)
+        public QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, params object[] values)
         {
             return ConcatInternal(Linq.Groups.GroupOptions(applyOptions, disableOptions, values));
         }
@@ -622,64 +367,34 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Linq.Groups.Nonbacktracking(this);
         }
 
-        public Expression Apostrophes(Expression expression)
+        public Expression Apostrophes(object content)
         {
-            return ConcatInternal(Expressions.Apostrophes(expression));
+            return ConcatInternal(Expressions.Apostrophes(content));
         }
 
-        public Expression Apostrophes(string text)
+        public Expression QuoteMarks(object content)
         {
-            return ConcatInternal(Expressions.Apostrophes(text));
+            return ConcatInternal(Expressions.QuoteMarks(content));
         }
 
-        public Expression QuoteMarks(Expression expression)
+        public Expression Parentheses(object content)
         {
-            return ConcatInternal(Expressions.QuoteMarks(expression));
+            return ConcatInternal(Expressions.Parentheses(content));
         }
 
-        public Expression QuoteMarks(string text)
+        public Expression CurlyBrackets(object content)
         {
-            return ConcatInternal(Expressions.QuoteMarks(text));
+            return ConcatInternal(Expressions.CurlyBrackets(content));
         }
 
-        public Expression Parentheses(Expression expression)
+        public Expression SquareBrackets(object content)
         {
-            return ConcatInternal(Expressions.Parentheses(expression));
+            return ConcatInternal(Expressions.SquareBrackets(content));
         }
 
-        public Expression Parentheses(string text)
+        public Expression LessThanGreaterThan(object content)
         {
-            return ConcatInternal(Expressions.Parentheses(text));
-        }
-
-        public Expression CurlyBrackets(Expression expression)
-        {
-            return ConcatInternal(Expressions.CurlyBrackets(expression));
-        }
-
-        public Expression CurlyBrackets(string text)
-        {
-            return ConcatInternal(Expressions.CurlyBrackets(text));
-        }
-
-        public Expression SquareBrackets(Expression expression)
-        {
-            return ConcatInternal(Expressions.SquareBrackets(expression));
-        }
-
-        public Expression SquareBrackets(string text)
-        {
-            return ConcatInternal(Expressions.SquareBrackets(text));
-        }
-
-        public Expression LessThanGreaterThan(Expression expression)
-        {
-            return ConcatInternal(Expressions.LessThanGreaterThan(expression));
-        }
-
-        public Expression LessThanGreaterThan(string text)
-        {
-            return ConcatInternal(Expressions.LessThanGreaterThan(text));
+            return ConcatInternal(Expressions.LessThanGreaterThan(content));
         }
 
         public QuantifiableExpression Char(string chars)
@@ -2077,64 +1792,34 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotSquareBracket());
         }
 
-        public QuantifierExpression Maybe(string text)
+        public QuantifierExpression Maybe(object content)
         {
-            return ConcatInternal(Linq.Groups.Maybe(text));
+            return ConcatInternal(Linq.Groups.Maybe(content));
         }
 
-        public QuantifierExpression Maybe(Expression expression)
-        {
-            return ConcatInternal(Linq.Groups.Maybe(expression));
-        }
-
-        public QuantifierExpression Maybe(params string[] values)
+        public QuantifierExpression Maybe(params object[] values)
         {
             return ConcatInternal(Linq.Groups.Maybe(values));
         }
 
-        public QuantifierExpression Maybe(params Expression[] expressions)
+        public QuantifierExpression MaybeMany(object content)
         {
-            return ConcatInternal(Linq.Groups.Maybe(expressions));
+            return ConcatInternal(Linq.Groups.MaybeMany(content));
         }
 
-        public QuantifierExpression MaybeMany(string text)
-        {
-            return ConcatInternal(Linq.Groups.MaybeMany(text));
-        }
-
-        public QuantifierExpression MaybeMany(Expression expression)
-        {
-            return ConcatInternal(Linq.Groups.MaybeMany(expression));
-        }
-
-        public QuantifierExpression MaybeMany(params string[] values)
+        public QuantifierExpression MaybeMany(params object[] values)
         {
             return ConcatInternal(Linq.Groups.MaybeMany(values));
         }
 
-        public QuantifierExpression MaybeMany(params Expression[] expressions)
+        public QuantifierExpression OneMany(object content)
         {
-            return ConcatInternal(Linq.Groups.MaybeMany(expressions));
+            return ConcatInternal(Linq.Groups.OneMany(content));
         }
 
-        public QuantifierExpression OneMany(string text)
-        {
-            return ConcatInternal(Linq.Groups.OneMany(text));
-        }
-
-        public QuantifierExpression OneMany(Expression expression)
-        {
-            return ConcatInternal(Linq.Groups.OneMany(expression));
-        }
-
-        public QuantifierExpression OneMany(params string[] values)
+        public QuantifierExpression OneMany(params object[] values)
         {
             return ConcatInternal(Linq.Groups.OneMany(values));
-        }
-
-        public QuantifierExpression OneMany(params Expression[] expressions)
-        {
-            return ConcatInternal(Linq.Groups.OneMany(expressions));
         }
 
         public QuantifiableExpression Backreference(int groupNumber)

@@ -8,7 +8,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal sealed class GeneralCategoryGroup
         : CharGroupExpression
     {
-        private readonly IEnumerable<GeneralCategory> _values;
         private readonly GeneralCategory _value;
 
         public GeneralCategoryGroup(GeneralCategory value)
@@ -16,28 +15,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _value = value;
         }
 
-        public GeneralCategoryGroup(IEnumerable<GeneralCategory> values)
-        {
-            if (values == null)
-            {
-                throw new ArgumentNullException("values");
-            }
-            _values = values;
-        }
-
         public override string Content
         {
-            get
-            {
-                if (_values != null)
-                {
-                    return Syntax.GeneralCategories(_values);
-                }
-                else
-                {
-                    return Syntax.GeneralCategory(_value);
-                }
-            }
+            get { return Syntax.GeneralCategory(_value); }
         }
     }
 }

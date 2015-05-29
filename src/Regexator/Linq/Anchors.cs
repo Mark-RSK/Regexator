@@ -9,22 +9,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new AssertionExpression(AssertionKind.Assert, content);
         }
 
-        public static QuantifiableExpression Assert(Expression expression)
-        {
-            return new AssertionExpression(AssertionKind.Assert, expression);
-        }
-
-        public static QuantifiableExpression Assert(string text)
-        {
-            return new AssertionExpression(AssertionKind.Assert, text);
-        }
-
-        public static QuantifiableExpression Assert(params Expression[] expressions)
-        {
-            return Assert(new AnyExpression(AnyGroupMode.None, expressions));
-        }
-
-        public static QuantifiableExpression Assert(params string[] values)
+        public static QuantifiableExpression Assert(params object[] values)
         {
             return Assert(new AnyExpression(AnyGroupMode.None, values));
         }
@@ -39,22 +24,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new AssertionExpression(AssertionKind.NotAssert, content);
         }
 
-        public static QuantifiableExpression NotAssert(Expression expression)
-        {
-            return new AssertionExpression(AssertionKind.NotAssert, expression);
-        }
-
-        public static QuantifiableExpression NotAssert(string text)
-        {
-            return new AssertionExpression(AssertionKind.NotAssert, text);
-        }
-
-        public static QuantifiableExpression NotAssert(params Expression[] expressions)
-        {
-            return NotAssert(new AnyExpression(AnyGroupMode.None, expressions));
-        }
-
-        public static QuantifiableExpression NotAssert(params string[] values)
+        public static QuantifiableExpression NotAssert(params object[] values)
         {
             return NotAssert(new AnyExpression(AnyGroupMode.None, values));
         }
@@ -69,22 +39,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new AssertionExpression(AssertionKind.AssertBack, content);
         }
 
-        public static QuantifiableExpression AssertBack(Expression expression)
-        {
-            return new AssertionExpression(AssertionKind.AssertBack, expression);
-        }
-
-        public static QuantifiableExpression AssertBack(string text)
-        {
-            return new AssertionExpression(AssertionKind.AssertBack, text);
-        }
-
-        public static QuantifiableExpression AssertBack(params Expression[] expressions)
-        {
-            return AssertBack(new AnyExpression(AnyGroupMode.None, expressions));
-        }
-
-        public static QuantifiableExpression AssertBack(params string[] values)
+        public static QuantifiableExpression AssertBack(params object[] values)
         {
             return AssertBack(new AnyExpression(AnyGroupMode.None, values));
         }
@@ -99,22 +54,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new AssertionExpression(AssertionKind.NotAssertBack, content);
         }
 
-        public static QuantifiableExpression NotAssertBack(Expression expression)
-        {
-            return new AssertionExpression(AssertionKind.NotAssertBack, expression);
-        }
-
-        public static QuantifiableExpression NotAssertBack(string text)
-        {
-            return new AssertionExpression(AssertionKind.NotAssertBack, text);
-        }
-
-        public static QuantifiableExpression NotAssertBack(params Expression[] expressions)
-        {
-            return NotAssertBack(new AnyExpression(AnyGroupMode.None, expressions));
-        }
-
-        public static QuantifiableExpression NotAssertBack(params string[] values)
+        public static QuantifiableExpression NotAssertBack(params object[] values)
         {
             return NotAssertBack(new AnyExpression(AnyGroupMode.None, values));
         }
@@ -212,14 +152,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new WordBoundary();
         }
 
-        public static Expression Word(string text)
+        public static Expression Word(object content)
         {
-            return Expressions.Surround(text, WordBoundary());
-        }
-
-        public static Expression Word(Expression expression)
-        {
-            return Expressions.Surround(expression, WordBoundary());
+            return Expressions.Surround(content, WordBoundary());
         }
 
         public static QuantifiableExpression NotWordBoundary()
@@ -227,19 +162,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new NotWordBoundary();
         }
 
-        public static Expression Line(Expression expression)
+        public static Expression Line(object content)
         {
-            return Expressions.Surround(expression, StartOfLine(), EndOfLine());
+            return Expressions.Surround(content, StartOfLine(), EndOfLine());
         }
 
-        public static Expression LineInvariant(Expression expression)
+        public static Expression LineInvariant(object content)
         {
-            return Expressions.Surround(expression, StartOfLineInvariant(), EndOfLineInvariant());
+            return Expressions.Surround(content, StartOfLineInvariant(), EndOfLineInvariant());
         }
 
-        public static Expression EntireInput(Expression expression)
+        public static Expression EntireInput(object content)
         {
-            return Expressions.Surround(expression, Start(), End());
+            return Expressions.Surround(content, Start(), End());
         }
     }
 }

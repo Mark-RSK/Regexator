@@ -6,21 +6,11 @@ using System.Linq;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal class AnyExpression
+    internal sealed class AnyExpression
         : QuantifiableExpression
     {
         private readonly AnyGroupMode _groupMode;
         private readonly IEnumerable<object> _values;
-
-        protected AnyExpression()
-            : this(AnyGroupMode.Noncapturing)
-        {
-        }
-
-        protected AnyExpression(AnyGroupMode groupMode)
-        {
-            _groupMode = groupMode;
-        }
 
         internal AnyExpression(IEnumerable<object> values)
             : this(AnyGroupMode.Noncapturing, values)

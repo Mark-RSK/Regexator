@@ -4,22 +4,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public static class Groups
     {
-        public static QuantifiableExpression NamedGroup(string name, Expression expression)
+        public static QuantifiableExpression NamedGroup(string name, object content)
         {
-            return new NamedGroupExpression(name, expression);
+            return new NamedGroupExpression(name, content);
         }
 
-        public static QuantifiableExpression NamedGroup(string name, string text)
-        {
-            return new NamedGroupExpression(name, text);
-        }
-
-        public static QuantifiableExpression NamedGroup(string name, params Expression[] expressions)
-        {
-            return new NamedGroupExpression(name, new AnyExpression(AnyGroupMode.None, expressions));
-        }
-
-        public static QuantifiableExpression NamedGroup(string name, params string[] values)
+        public static QuantifiableExpression NamedGroup(string name, params object[] values)
         {
             return new NamedGroupExpression(name, new AnyExpression(AnyGroupMode.None, values));
         }
@@ -29,194 +19,99 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new CapturingExpression(string.Empty);
         }
 
-        public static QuantifiableExpression Capturing(Expression expression)
+        public static QuantifiableExpression Capturing(object content)
         {
-            return new CapturingExpression(expression);
+            return new CapturingExpression(content);
         }
 
-        public static QuantifiableExpression Capturing(string text)
-        {
-            return new CapturingExpression(text);
-        }
-
-        public static QuantifiableExpression Capturing(params Expression[] expressions)
-        {
-            return new CapturingExpression(new AnyExpression(AnyGroupMode.None, expressions));
-        }
-
-        public static QuantifiableExpression Capturing(params string[] values)
+        public static QuantifiableExpression Capturing(params object[] values)
         {
             return new CapturingExpression(new AnyExpression(AnyGroupMode.None, values));
         }
 
-        public static QuantifiableExpression Noncapturing(Expression expression)
+        public static QuantifiableExpression Noncapturing(object content)
         {
-            return new NoncapturingExpression(expression);
+            return new NoncapturingExpression(content);
         }
 
-        public static QuantifiableExpression Noncapturing(string text)
-        {
-            return new NoncapturingExpression(text);
-        }
-
-        public static QuantifiableExpression Noncapturing(params Expression[] expressions)
-        {
-            return new NoncapturingExpression(new AnyExpression(AnyGroupMode.None, expressions));
-        }
-
-        public static QuantifiableExpression Noncapturing(params string[] values)
+        public static QuantifiableExpression Noncapturing(params object[] values)
         {
             return new NoncapturingExpression(new AnyExpression(AnyGroupMode.None, values));
         }
 
-        public static QuantifiableExpression BalanceGroup(string name1, string name2, Expression expression)
+        public static QuantifiableExpression BalanceGroup(string name1, string name2, object content)
         {
-            return new BalanceGroupExpression(name1, name2, expression);
+            return new BalanceGroupExpression(name1, name2, content);
         }
 
-        public static QuantifiableExpression BalanceGroup(string name1, string name2, string text)
-        {
-            return new BalanceGroupExpression(name1, name2, text);
-        }
-
-        public static QuantifiableExpression BalanceGroup(string name1, string name2, params Expression[] expressions)
-        {
-            return new BalanceGroupExpression(name1, name2, new AnyExpression(AnyGroupMode.None, expressions));
-        }
-
-        public static QuantifiableExpression BalanceGroup(string name1, string name2, params string[] values)
+        public static QuantifiableExpression BalanceGroup(string name1, string name2, params object[] values)
         {
             return new BalanceGroupExpression(name1, name2, new AnyExpression(AnyGroupMode.None, values));
         }
 
-        public static QuantifiableExpression Nonbacktracking(Expression expression)
+        public static QuantifiableExpression Nonbacktracking(object content)
         {
-            return new NonbacktrackingExpression(expression);
+            return new NonbacktrackingExpression(content);
         }
 
-        public static QuantifiableExpression Nonbacktracking(string text)
-        {
-            return new NonbacktrackingExpression(text);
-        }
-
-        public static QuantifiableExpression Nonbacktracking(params Expression[] expressions)
-        {
-            return new NonbacktrackingExpression(new AnyExpression(AnyGroupMode.None, expressions));
-        }
-
-        public static QuantifiableExpression Nonbacktracking(params string[] values)
+        public static QuantifiableExpression Nonbacktracking(params object[] values)
         {
             return new NonbacktrackingExpression(new AnyExpression(AnyGroupMode.None, values));
         }
 
-        public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, Expression expression)
+        public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, object content)
         {
-            return new GroupOptionsExpression(applyOptions, expression);
+            return new GroupOptionsExpression(applyOptions, content);
         }
 
-        public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, string text)
-        {
-            return new GroupOptionsExpression(applyOptions, text);
-        }
-
-        public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, params Expression[] expressions)
-        {
-            return new GroupOptionsExpression(applyOptions, new AnyExpression(AnyGroupMode.None, expressions));
-        }
-
-        public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, params string[] values)
+        public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, params object[] values)
         {
             return new GroupOptionsExpression(applyOptions, new AnyExpression(AnyGroupMode.None, values));
         }
 
-        public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, Expression expression)
+        public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, object content)
         {
-            return new GroupOptionsExpression(applyOptions, disableOptions, expression);
+            return new GroupOptionsExpression(applyOptions, disableOptions, content);
         }
 
-        public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, string text)
-        {
-            return new GroupOptionsExpression(applyOptions, disableOptions, text);
-        }
-
-        public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, params Expression[] expressions)
-        {
-            return new GroupOptionsExpression(applyOptions, disableOptions, new AnyExpression(AnyGroupMode.None, expressions));
-        }
-
-        public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, params string[] values)
+        public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, params object[] values)
         {
             return new GroupOptionsExpression(applyOptions, disableOptions, new AnyExpression(AnyGroupMode.None, values));
         }
 
-        public static QuantifierExpression Maybe(string text)
+        public static QuantifierExpression Maybe(object content)
         {
-            return QuantifierGroup(text).Maybe();
+            return QuantifierGroup(content).Maybe();
         }
 
-        public static QuantifierExpression Maybe(Expression expression)
-        {
-            return QuantifierGroup(expression).Maybe();
-        }
-
-        public static QuantifierExpression Maybe(params string[] values)
+        public static QuantifierExpression Maybe(params object[] values)
         {
             return QuantifierGroup(new AnyExpression(AnyGroupMode.Capturing, values)).Maybe();
         }
 
-        public static QuantifierExpression Maybe(params Expression[] expressions)
+        public static QuantifierExpression MaybeMany(object content)
         {
-            return QuantifierGroup(new AnyExpression(AnyGroupMode.Capturing, expressions)).Maybe();
+            return QuantifierGroup(content).MaybeMany();
         }
 
-        public static QuantifierExpression MaybeMany(string text)
-        {
-            return QuantifierGroup(text).MaybeMany();
-        }
-
-        public static QuantifierExpression MaybeMany(Expression expression)
-        {
-            return QuantifierGroup(expression).MaybeMany();
-        }
-
-        public static QuantifierExpression MaybeMany(params string[] values)
+        public static QuantifierExpression MaybeMany(params object[] values)
         {
             return QuantifierGroup(new AnyExpression(AnyGroupMode.Capturing, values)).MaybeMany();
         }
 
-        public static QuantifierExpression MaybeMany(params Expression[] expressions)
+        public static QuantifierExpression OneMany(object content)
         {
-            return QuantifierGroup(new AnyExpression(AnyGroupMode.Capturing, expressions)).MaybeMany();
+            return QuantifierGroup(content).OneMany();
         }
 
-        public static QuantifierExpression OneMany(string text)
-        {
-            return QuantifierGroup(text).OneMany();
-        }
-
-        public static QuantifierExpression OneMany(Expression expression)
-        {
-            return QuantifierGroup(expression).OneMany();
-        }
-
-        public static QuantifierExpression OneMany(params string[] values)
+        public static QuantifierExpression OneMany(params object[] values)
         {
             return QuantifierGroup(new AnyExpression(AnyGroupMode.Capturing, values)).OneMany();
         }
 
-        public static QuantifierExpression OneMany(params Expression[] expressions)
+        internal static QuantifiableExpression QuantifierGroup(object content)
         {
-            return QuantifierGroup(new AnyExpression(AnyGroupMode.Capturing, expressions)).OneMany();
-        }
-
-        internal static QuantifiableExpression QuantifierGroup(string text)
-        {
-            return new QuantifierCapturingExpression(text);
-        }
-
-        internal static QuantifiableExpression QuantifierGroup(Expression expression)
-        {
-            return new QuantifierCapturingExpression(expression);
+            return new QuantifierCapturingExpression(content);
         }
     }
 }

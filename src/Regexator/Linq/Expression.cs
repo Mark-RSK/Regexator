@@ -20,11 +20,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
         }
 
-        public Expression Concat(string value)
-        {
-            return Concat(value, true);
-        }
-
         public Expression Concat(IEnumerable<string> values)
         {
             if (values == null)
@@ -97,7 +92,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             string text = content as string;
             if (text != null)
             {
-                return Concat(text);
+                return Concat(text, true);
             }
 
             object[] values = content as object[];
