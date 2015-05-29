@@ -439,6 +439,26 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return this.Regex.Replace(input, evaluator, count, startAt);
         }
 
+        public static implicit operator string(Expression expression)
+        {
+            if (expression == null)
+            {
+                throw new ArgumentNullException("expression");
+            }
+
+            return expression.ToString();
+        }
+
+        public static implicit operator Expression(string text)
+        {
+            if (text == null)
+            {
+                throw new ArgumentNullException("text");
+            }
+
+            return new TextExpression(text);
+        }
+
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal string Pattern
         {
