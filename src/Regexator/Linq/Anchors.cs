@@ -34,31 +34,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new CharGroupAssertion(AssertionKind.Assert, item);
         }
 
-        public static QuantifiableExpression Assert(char value)
-        {
-            return new CharAssertion(AssertionKind.Assert, value);
-        }
-
-        public static QuantifiableExpression Assert(int charCode)
-        {
-            return new CharCodeAssertion(AssertionKind.Assert, charCode);
-        }
-
-        public static QuantifiableExpression Assert(AsciiChar value)
-        {
-            return new AsciiCharAssertion(AssertionKind.Assert, value);
-        }
-
-        public static QuantifiableExpression Assert(NamedBlock block)
-        {
-            return new NamedBlockAssertion(AssertionKind.Assert, block);
-        }
-
-        public static QuantifiableExpression Assert(GeneralCategory category)
-        {
-            return new GeneralCategoryAssertion(AssertionKind.Assert, category);
-        }
-
         public static QuantifiableExpression NotAssert(object content)
         {
             return new AssertionExpression(AssertionKind.NotAssert, content);
@@ -87,31 +62,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiableExpression NotAssert(CharGroupItem item)
         {
             return new CharGroupAssertion(AssertionKind.NotAssert, item);
-        }
-
-        public static QuantifiableExpression NotAssert(char value)
-        {
-            return new CharAssertion(AssertionKind.NotAssert, value);
-        }
-
-        public static QuantifiableExpression NotAssert(int charCode)
-        {
-            return new CharCodeAssertion(AssertionKind.NotAssert, charCode);
-        }
-
-        public static QuantifiableExpression NotAssert(AsciiChar value)
-        {
-            return new AsciiCharAssertion(AssertionKind.NotAssert, value);
-        }
-
-        public static QuantifiableExpression NotAssert(NamedBlock block)
-        {
-            return new NamedBlockAssertion(AssertionKind.NotAssert, block);
-        }
-
-        public static QuantifiableExpression NotAssert(GeneralCategory category)
-        {
-            return new GeneralCategoryAssertion(AssertionKind.NotAssert, category);
         }
 
         public static QuantifiableExpression AssertBack(object content)
@@ -144,31 +94,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new CharGroupAssertion(AssertionKind.AssertBack, item);
         }
 
-        public static QuantifiableExpression AssertBack(char value)
-        {
-            return new CharAssertion(AssertionKind.AssertBack, value);
-        }
-
-        public static QuantifiableExpression AssertBack(int charCode)
-        {
-            return new CharCodeAssertion(AssertionKind.AssertBack, charCode);
-        }
-
-        public static QuantifiableExpression AssertBack(AsciiChar value)
-        {
-            return new AsciiCharAssertion(AssertionKind.AssertBack, value);
-        }
-
-        public static QuantifiableExpression AssertBack(NamedBlock block)
-        {
-            return new NamedBlockAssertion(AssertionKind.AssertBack, block);
-        }
-
-        public static QuantifiableExpression AssertBack(GeneralCategory category)
-        {
-            return new GeneralCategoryAssertion(AssertionKind.AssertBack, category);
-        }
-
         public static QuantifiableExpression NotAssertBack(object content)
         {
             return new AssertionExpression(AssertionKind.NotAssertBack, content);
@@ -197,31 +122,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiableExpression NotAssertBack(CharGroupItem item)
         {
             return new CharGroupAssertion(AssertionKind.NotAssertBack, item);
-        }
-
-        public static QuantifiableExpression NotAssertBack(char value)
-        {
-            return new CharAssertion(AssertionKind.NotAssertBack, value);
-        }
-
-        public static QuantifiableExpression NotAssertBack(int charCode)
-        {
-            return new CharCodeAssertion(AssertionKind.NotAssertBack, charCode);
-        }
-
-        public static QuantifiableExpression NotAssertBack(AsciiChar value)
-        {
-            return new AsciiCharAssertion(AssertionKind.NotAssertBack, value);
-        }
-
-        public static QuantifiableExpression NotAssertBack(NamedBlock block)
-        {
-            return new NamedBlockAssertion(AssertionKind.NotAssertBack, block);
-        }
-
-        public static QuantifiableExpression NotAssertBack(GeneralCategory category)
-        {
-            return new GeneralCategoryAssertion(AssertionKind.NotAssertBack, category);
         }
 
         public static Expression AssertSurround(object value, object surroundValue)

@@ -63,11 +63,6 @@
     <Compile Include="Linq\AlternationExpression\GroupNumberIfExpression.cs" />
     <Compile Include="Linq\AlternationExpression\GroupNameIfExpression.cs" />
     <Compile Include="Linq\AssertionExpression\CharGroupAssertion.cs" />
-    <Compile Include="Linq\AssertionExpression\CharCodeAssertion.cs" />
-    <Compile Include="Linq\AssertionExpression\CharAssertion.cs" />
-    <Compile Include="Linq\AssertionExpression\AsciiCharAssertion.cs" />
-    <Compile Include="Linq\AssertionExpression\NamedBlockAssertion.cs" />
-    <Compile Include="Linq\AssertionExpression\GeneralCategoryAssertion.cs" />
     <Compile Include="Linq\AnyGroupMode.cs" />
     <Compile Include="Linq\Expression\CharacterExpression.cs" />
     <Compile Include="Linq\Expression\AsciiCharSurroundExpression.cs" />
