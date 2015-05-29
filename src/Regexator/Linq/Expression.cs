@@ -20,62 +20,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
         }
 
-        public Expression Concat(IEnumerable<string> values)
-        {
-            if (values == null)
-            {
-                throw new ArgumentNullException("values");
-            }
-
-            Expression exp = this;
-            foreach (var item in values)
-            {
-                exp = exp.Concat(item);
-            }
-            return exp;
-        }
-
-        internal Expression Concat(string value, bool escape)
-        {
-            return ConcatIf(true, value, escape);
-        }
-
-        public Expression ConcatIf(bool condition, string value)
-        {
-            return ConcatIf(condition, value, true);
-        }
-
-        internal Expression ConcatIf(bool condition, string value, bool escape)
-        {
-            return condition ? ConcatInternal(new TextExpression(value, escape)) : this;
-        }
-
-        public Expression ConcatIf(bool condition, Expression expression)
-        {
-            return condition ? Concat(expression) : this;
-        }
-
-        public Expression ConcatIf(bool condition, Expression yesExpression, Expression noExpression)
-        {
-            return condition ? Concat(yesExpression) : Concat(noExpression);
-        }
-
-        internal TExpression ConcatInternal<TExpression>(TExpression expression) where TExpression : Expression
-        {
-            if (expression == null)
-            {
-                throw new ArgumentNullException("expression");
-            }
-
-            Expression first = expression;
-            while (first.Previous != null)
-            {
-                first = first.Previous;
-            }
-            first.Previous = this;
-            return expression;
-        }
-
         public Expression Concat(object content)
         {
             if (content == null)
@@ -125,26 +69,50 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(new ContainerExpression(expression));
         }
 
-        public Expression Concat(IEnumerable<Expression> expressions)
-        {
-            if (expressions == null)
-            {
-                throw new ArgumentNullException("expressions");
-            }
-
-            Expression exp = this;
-
-            foreach (var item in expressions)
-            {
-                exp = exp.Concat(item);
-            }
-
-            return exp;
-        }
-
         public Expression Concat(IEnumerable<object> values)
         {
             return Concat((object)values);
+        }
+
+        internal Expression Concat(string value, bool escape)
+        {
+            return ConcatIf(true, value, escape);
+        }
+
+        public Expression ConcatIf(bool condition, string value)
+        {
+            return ConcatIf(condition, value, true);
+        }
+
+        internal Expression ConcatIf(bool condition, string value, bool escape)
+        {
+            return condition ? ConcatInternal(new TextExpression(value, escape)) : this;
+        }
+
+        public Expression ConcatIf(bool condition, Expression expression)
+        {
+            return condition ? Concat(expression) : this;
+        }
+
+        public Expression ConcatIf(bool condition, Expression yesExpression, Expression noExpression)
+        {
+            return condition ? Concat(yesExpression) : Concat(noExpression);
+        }
+
+        internal TExpression ConcatInternal<TExpression>(TExpression expression) where TExpression : Expression
+        {
+            if (expression == null)
+            {
+                throw new ArgumentNullException("expression");
+            }
+
+            Expression first = expression;
+            while (first.Previous != null)
+            {
+                first = first.Previous;
+            }
+            first.Previous = this;
+            return expression;
         }
 
         public Regex ToRegex()
