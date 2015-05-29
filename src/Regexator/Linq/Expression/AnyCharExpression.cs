@@ -11,7 +11,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override string Value(BuildContext context)
         {
-            return context.Settings.UseInvariant ? Chars.AnyInvariant().Value(context) : Syntax.AnyChar;
+            return Syntax.AnyChar;
         }
     }
 }

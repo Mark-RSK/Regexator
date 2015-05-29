@@ -19,13 +19,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 ConditionWithAssertion = ConditionWithAssertion,
                 IdentifierBoundary = IdentifierBoundary,
                 SeparatorAfterNumberBackreference = SeparatorAfterNumberBackreference,
-                UseInvariant = UseInvariant
             };
         }
 
         public IdentifierBoundary IdentifierBoundary { get; set; }
         public bool ConditionWithAssertion { get; set; }
         public bool SeparatorAfterNumberBackreference { get; set; }
-        public bool UseInvariant { get; set; }
     }
 }

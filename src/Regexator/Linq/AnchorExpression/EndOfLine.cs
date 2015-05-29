@@ -7,19 +7,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal sealed class EndOfLine
         : AnchorExpression
     {
-        internal override IEnumerable<string> EnumerateContent(BuildContext context)
+        internal override string Value(BuildContext context)
         {
-            if (context.Settings.UseInvariant)
-            {
-                foreach (var value in Anchors.EndOfLineInvariant().EnumerateContent(context))
-                {
-                    yield return value;
-                }
-            }
-            else
-            {
-                yield return Syntax.EndOfLine;
-            }
+            return Syntax.EndOfLine;
         }
     }
 }
