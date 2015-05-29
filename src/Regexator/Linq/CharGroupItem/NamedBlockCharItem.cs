@@ -6,15 +6,22 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         : CharGroupItem
     {
         private readonly NamedBlock _block;
+        private readonly bool _negative;
 
         public NamedBlockCharItem(NamedBlock block)
+            : this(block, false)
+        {
+        }
+
+        public NamedBlockCharItem(NamedBlock block, bool negative)
         {
             _block = block;
+            _negative = negative;
         }
 
         public virtual bool Negative
         {
-            get { return false; }
+            get { return _negative; }
         }
 
         internal override string Content

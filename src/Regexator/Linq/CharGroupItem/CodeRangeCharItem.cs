@@ -16,10 +16,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 throw new ArgumentOutOfRangeException("firstCharCode");
             }
+
             if (lastCharCode < 0 || lastCharCode > 0xFFFF)
             {
                 throw new ArgumentOutOfRangeException("lastCharCode");
             }
+
             _first = firstCharCode;
             _last = lastCharCode;
         }

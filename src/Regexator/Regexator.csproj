@@ -96,8 +96,6 @@
     <Compile Include="Linq\CharGroupItem\RangeCharItem.cs" />
     <Compile Include="Linq\CharGroupItem\AsciiCharItem.cs" />
     <Compile Include="Linq\CharGroupItem\CharClassCharItem.cs" />
-    <Compile Include="Linq\CharGroupItem\NotGeneralCategoryCharItem.cs" />
-    <Compile Include="Linq\CharGroupItem\NotNamedBlockCharItem.cs" />
     <Compile Include="Linq\CharGroupItem\GeneralCategoryCharItem.cs" />
     <Compile Include="Linq\CharGroupItem\NamedBlockCharItem.cs" />
     <Compile Include="Linq\CharGroupItem\CharGroupItem.cs" />

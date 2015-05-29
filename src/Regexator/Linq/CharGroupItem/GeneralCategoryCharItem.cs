@@ -6,15 +6,22 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         : CharGroupItem
     {
         private readonly GeneralCategory _category;
+        private readonly bool _negative;
 
         public GeneralCategoryCharItem(GeneralCategory category)
+            : this(category, false)
+        {
+        }
+
+        public GeneralCategoryCharItem(GeneralCategory category, bool negative)
         {
             _category = category;
+            _negative = negative;
         }
 
         public virtual bool Negative
         {
-            get { return false; }
+            get { return _negative; }
         }
 
         internal override string Content

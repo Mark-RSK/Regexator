@@ -41,7 +41,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharGroupItem NotNamedBlock(NamedBlock block)
         {
-            return new NotNamedBlockCharItem(block);
+            return new NamedBlockCharItem(block, true);
         }
 
         public static CharGroupItem GeneralCategory(GeneralCategory category)
@@ -51,7 +51,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharGroupItem NotGeneralCategory(GeneralCategory category)
         {
-            return new NotGeneralCategoryCharItem(category);
+            return new GeneralCategoryCharItem(category, true);
         }
 
         public static CharGroupItem Digit()
