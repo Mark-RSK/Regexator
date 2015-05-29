@@ -439,7 +439,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return this.Regex.Replace(input, evaluator, count, startAt);
         }
 
-        public static implicit operator string(Expression expression)
+        public static explicit operator string(Expression expression)
         {
             if (expression == null)
             {
@@ -449,7 +449,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return expression.ToString();
         }
 
-        public static implicit operator Expression(string text)
+        public static explicit operator Expression(string text)
         {
             if (text == null)
             {
