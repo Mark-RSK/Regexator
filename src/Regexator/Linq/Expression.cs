@@ -1,6 +1,7 @@
 // Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
@@ -308,19 +309,79 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return null;
         }
 
-        public IEnumerable<Match> EnumerateMatches(string input)
+        public IEnumerable<Match> Matches(string input)
         {
             return Regex.EnumerateMatches(input);
         }
 
-        public IEnumerable<Match> EnumerateMatches(string input, int startAt)
+        public IEnumerable<Match> Matches(string input, int startAt)
         {
             return Regex.EnumerateMatches(input, startAt);
         }
 
-        public IEnumerable<Match> EnumerateMatches(string input, int beginning, int length)
+        public IEnumerable<Match> Matches(string input, int beginning, int length)
         {
             return Regex.EnumerateMatches(input, beginning, length);
+        }
+
+        public int MatchCount(string input)
+        {
+            return Matches(input).Count();
+        }
+
+        public int MatchCount(string input, int startAt)
+        {
+            return Matches(input, startAt).Count();
+        }
+
+        public int MatchCount(string input, int beginning, int length)
+        {
+            return Matches(input, beginning, length).Count();
+        }
+
+        public IEnumerable<Group> Groups(string input)
+        {
+            return Regex.EnumerateGroups(input);
+        }
+
+        public IEnumerable<Group> Groups(string input, int startAt)
+        {
+            return Regex.EnumerateGroups(input, startAt);
+        }
+
+        public IEnumerable<Group> Groups(string input, int beginning, int length)
+        {
+            return Regex.EnumerateGroups(input, beginning, length);
+        }
+
+        public IEnumerable<Group> SuccessGroups(string input)
+        {
+            return Regex.EnumerateSuccessGroups(input);
+        }
+
+        public IEnumerable<Group> SuccessGroups(string input, int startAt)
+        {
+            return Regex.EnumerateSuccessGroups(input, startAt);
+        }
+
+        public IEnumerable<Group> SuccessGroups(string input, int beginning, int length)
+        {
+            return Regex.EnumerateSuccessGroups(input, beginning, length);
+        }
+
+        public IEnumerable<Capture> Captures(string input)
+        {
+            return Regex.EnumerateCaptures(input);
+        }
+
+        public IEnumerable<Capture> Captures(string input, int startAt)
+        {
+            return Regex.EnumerateCaptures(input, startAt);
+        }
+
+        public IEnumerable<Capture> Captures(string input, int beginning, int length)
+        {
+            return Regex.EnumerateCaptures(input, beginning, length);
         }
 
         public bool IsMatch(string input)
