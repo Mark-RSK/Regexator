@@ -5,13 +5,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal sealed class NoncapturingExpression
         : GroupExpression
     {
-        internal NoncapturingExpression(string text)
-            : base(text)
-        {
-        }
-
-        internal NoncapturingExpression(Expression expression)
-            : base(expression)
+        public NoncapturingExpression(object content)
+            : base(content)
         {
         }
 

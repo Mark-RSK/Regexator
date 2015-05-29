@@ -5,13 +5,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal sealed class NonbacktrackingExpression
         : GroupExpression
     {
-        internal NonbacktrackingExpression(string text)
-            : base(text)
-        {
-        }
-
-        internal NonbacktrackingExpression(Expression expression)
-            : base(expression)
+        public NonbacktrackingExpression(object content)
+            : base(content)
         {
         }
 

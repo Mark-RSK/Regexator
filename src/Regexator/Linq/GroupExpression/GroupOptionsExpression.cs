@@ -8,25 +8,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         private readonly InlineOptions _applyOptions;
         private readonly InlineOptions _disableOptions;
 
-        internal GroupOptionsExpression(InlineOptions applyOptions, string text)
-            : this(applyOptions, InlineOptions.None, text)
+        public GroupOptionsExpression(InlineOptions applyOptions, object content)
+            : this(applyOptions, InlineOptions.None, content)
         {
         }
 
-        internal GroupOptionsExpression(InlineOptions applyOptions, InlineOptions disableOptions, string text)
-            : base(text)
-        {
-            _applyOptions = applyOptions;
-            _disableOptions = disableOptions;
-        }
-
-        internal GroupOptionsExpression(InlineOptions applyOptions, Expression expression)
-            : this(applyOptions, InlineOptions.None, expression)
-        {
-        }
-
-        internal GroupOptionsExpression(InlineOptions applyOptions, InlineOptions disableOptions, Expression expression)
-            : base(expression)
+        public GroupOptionsExpression(InlineOptions applyOptions, InlineOptions disableOptions, object content)
+            : base(content)
         {
             _applyOptions = applyOptions;
             _disableOptions = disableOptions;

@@ -10,12 +10,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
         private readonly object _content;
 
-        internal GroupExpression()
+        public GroupExpression()
             : base()
         {
         }
 
-        internal GroupExpression(object content)
+        public GroupExpression(object content)
             : base()
         {
             if (content == null)

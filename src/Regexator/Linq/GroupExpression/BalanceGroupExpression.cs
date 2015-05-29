@@ -10,32 +10,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         private readonly string _name1;
         private readonly string _name2;
 
-        internal BalanceGroupExpression(string name1, string name2, string text)
-            : base(text)
+        public BalanceGroupExpression(string name1, string name2, object content)
+            : base(content)
         {
             if (name1 == null)
             {
                 throw new ArgumentNullException("name1");
             }
-            if (name2 == null)
-            {
-                throw new ArgumentNullException("name2");
-            }
-            _name1 = name1;
-            _name2 = name2;
-        }
 
-        internal BalanceGroupExpression(string name1, string name2, Expression expression)
-            : base(expression)
-        {
-            if (name1 == null)
-            {
-                throw new ArgumentNullException("name1");
-            }
             if (name2 == null)
             {
                 throw new ArgumentNullException("name2");
             }
+
             _name1 = name1;
             _name2 = name2;
         }

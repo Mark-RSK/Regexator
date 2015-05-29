@@ -9,41 +9,24 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
         private readonly string _groupName;
 
-        internal NamedGroupExpression(string groupName, string text)
-            : this(groupName, text, true)
+        public NamedGroupExpression(string groupName, object content)
+            : this(groupName, content, true)
         {
         }
 
-        internal NamedGroupExpression(string groupName, string text, bool checkGroupName)
-            : base(text)
+        public NamedGroupExpression(string groupName, object content, bool checkGroupName)
+            : base(content)
         {
             if (groupName == null)
             {
                 throw new ArgumentNullException("groupName");
             }
+
             if (checkGroupName)
             {
                 RegexUtilities.CheckGroupName(groupName);
             }
-            _groupName = groupName;
-        }
 
-        internal NamedGroupExpression(string groupName, Expression expression)
-            : this(groupName, expression, true)
-        {
-        }
-
-        internal NamedGroupExpression(string groupName, Expression expression, bool checkGroupName)
-            : base(expression)
-        {
-            if (groupName == null)
-            {
-                throw new ArgumentNullException("groupName");
-            }
-            if (checkGroupName)
-            {
-                RegexUtilities.CheckGroupName(groupName);
-            }
             _groupName = groupName;
         }
 
