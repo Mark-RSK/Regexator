@@ -692,31 +692,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.Char(item));
         }
 
-        public QuantifiableExpression Char(IEnumerable<char> values)
-        {
-            return ConcatInternal(Chars.Char(values));
-        }
-
-        public QuantifiableExpression Char(IEnumerable<int> charCodes)
-        {
-            return ConcatInternal(Chars.Char(charCodes));
-        }
-
-        public QuantifiableExpression Char(IEnumerable<AsciiChar> values)
-        {
-            return ConcatInternal(Chars.Char(values));
-        }
-
-        public QuantifiableExpression Char(IEnumerable<NamedBlock> blocks)
-        {
-            return ConcatInternal(Chars.Char(blocks));
-        }
-
-        public QuantifiableExpression Char(IEnumerable<GeneralCategory> categories)
-        {
-            return ConcatInternal(Chars.Char(categories));
-        }
-
         public QuantifiableExpression NotChar(string chars)
         {
             return ConcatInternal(Chars.NotChar(chars));
@@ -725,31 +700,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public QuantifiableExpression NotChar(CharGroupItem item)
         {
             return ConcatInternal(Chars.NotChar(item));
-        }
-
-        public QuantifiableExpression NotChar(IEnumerable<char> values)
-        {
-            return ConcatInternal(Chars.NotChar(values));
-        }
-
-        public QuantifiableExpression NotChar(IEnumerable<int> charCodes)
-        {
-            return ConcatInternal(Chars.NotChar(charCodes));
-        }
-
-        public QuantifiableExpression NotChar(IEnumerable<AsciiChar> values)
-        {
-            return ConcatInternal(Chars.NotChar(values));
-        }
-
-        public QuantifiableExpression NotChar(IEnumerable<NamedBlock> blocks)
-        {
-            return ConcatInternal(Chars.NotChar(blocks));
-        }
-
-        public QuantifiableExpression NotChar(IEnumerable<GeneralCategory> categories)
-        {
-            return ConcatInternal(Chars.NotChar(categories));
         }
 
         public QuantifiableExpression Range(char first, char last)

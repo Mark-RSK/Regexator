@@ -31,79 +31,29 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new CharItemGroup(item);
         }
 
-        public static CharGroupExpression Char(IEnumerable<char> values)
-        {
-            return new CharGroup(values);
-        }
-
-        public static CharGroupExpression Char(IEnumerable<int> charCodes)
-        {
-            return new CharCodeGroup(charCodes);
-        }
-
-        public static CharGroupExpression Char(IEnumerable<AsciiChar> values)
-        {
-            return new AsciiCharGroup(values);
-        }
-
-        public static CharGroupExpression Char(IEnumerable<NamedBlock> blocks)
-        {
-            return new NamedBlockGroup(blocks);
-        }
-
-        public static CharGroupExpression Char(IEnumerable<GeneralCategory> categories)
-        {
-            return new GeneralCategoryGroup(categories);
-        }
-
         public static CharGroupExpression NotChar(char value)
         {
-            return new NotCharGroup(value);
+            return new CharGroup(value, true);
         }
 
         public static CharGroupExpression NotChar(int charCode)
         {
-            return new NotCharCodeGroup(charCode);
+            return new CharCodeGroup(charCode, true);
         }
 
         public static CharGroupExpression NotChar(AsciiChar value)
         {
-            return new NotAsciiCharGroup(value);
+            return new AsciiCharGroup(value, true);
         }
 
         public static CharGroupExpression NotChar(string chars)
         {
-            return new NotCharsCharGroup(chars);
+            return new CharsCharGroup(chars, true);
         }
 
         public static CharGroupExpression NotChar(CharGroupItem item)
         {
-            return new NotCharItemGroup(item);
-        }
-
-        public static CharGroupExpression NotChar(IEnumerable<char> values)
-        {
-            return new NotCharGroup(values);
-        }
-
-        public static CharGroupExpression NotChar(IEnumerable<int> charCodes)
-        {
-            return new NotCharCodeGroup(charCodes);
-        }
-
-        public static CharGroupExpression NotChar(IEnumerable<AsciiChar> values)
-        {
-            return new NotAsciiCharGroup(values);
-        }
-
-        public static CharGroupExpression NotChar(IEnumerable<NamedBlock> blocks)
-        {
-            return new NotNamedBlockGroup(blocks);
-        }
-
-        public static CharGroupExpression NotChar(IEnumerable<GeneralCategory> categories)
-        {
-            return new NotGeneralCategoryGroup(categories);
+            return new CharItemGroup(item, true);
         }
 
         public static CharacterExpression NamedBlock(NamedBlock block)
@@ -138,12 +88,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharGroupExpression NotRange(char first, char last)
         {
-            return new NotCharRangeGroup(first, last);
+            return new CharRangeGroup(first, last, true);
         }
 
         public static CharGroupExpression NotRange(int firstCharCode, int lastCharCode)
         {
-            return new NotCharCodeRangeGroup(firstCharCode, lastCharCode);
+            return new CharCodeRangeGroup(firstCharCode, lastCharCode, true);
         }
 
         public static CharSubtraction Subtract(IBaseGroup baseGroup, IExcludedGroup excludedGroup)

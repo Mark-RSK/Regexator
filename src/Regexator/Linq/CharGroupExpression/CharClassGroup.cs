@@ -2,7 +2,7 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal class CharClassGroup
+    internal sealed class CharClassGroup
         : CharGroupExpression
     {
         private readonly CharClass _value;

@@ -1,47 +1,39 @@
 ﻿// Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
-using System.Collections.Generic;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal class CharCodeGroup
+    internal sealed class CharCodeGroup
         : CharGroupExpression
     {
-        private readonly IEnumerable<int> _charCodes;
         private readonly int _charCode;
+        private readonly bool _negative;
 
         public CharCodeGroup(int charCode)
+            : this(charCode, false)
+        {
+        }
+
+        public CharCodeGroup(int charCode, bool negative)
         {
             if (charCode < 0 || charCode > 0xFFFF)
             {
                 throw new ArgumentOutOfRangeException("charCode");
             }
+
             _charCode = charCode;
+            _negative = negative;
         }
 
-        public CharCodeGroup(IEnumerable<int> charCodes)
+        public override bool Negative
         {
-            if (charCodes == null)
-            {
-                throw new ArgumentNullException("charCodes");
-            }
-            _charCodes = charCodes;
+            get { return _negative; }
         }
 
         public override string Content
         {
-            get
-            {
-                if (_charCodes != null)
-                {
-                    return Syntax.Char(_charCodes, true);
-                }
-                else
-                {
-                    return Syntax.CharInternal(_charCode, true);
-                }
-            }
+            get { return Syntax.CharInternal(_charCode, true); }
         }
     }
 }

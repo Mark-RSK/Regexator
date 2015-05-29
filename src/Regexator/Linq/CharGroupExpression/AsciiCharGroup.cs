@@ -1,43 +1,32 @@
 ﻿// Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-using System;
-using System.Collections.Generic;
-
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal class AsciiCharGroup
+    internal sealed class AsciiCharGroup
         : CharGroupExpression
     {
-        private readonly IEnumerable<AsciiChar> _values;
         private readonly AsciiChar _value;
+        private readonly bool _negative;
 
         public AsciiCharGroup(AsciiChar value)
+            : this(value, false)
         {
-            _value = value;
         }
 
-        public AsciiCharGroup(IEnumerable<AsciiChar> values)
+        public AsciiCharGroup(AsciiChar value, bool negative)
         {
-            if (values == null)
-            {
-                throw new ArgumentNullException("values");
-            }
-            _values = values;
+            _value = value;
+            _negative = negative;
+        }
+
+        public override bool Negative
+        {
+            get { return _negative; }
         }
 
         public override string Content
         {
-            get
-            {
-                if (_values != null)
-                {
-                    return Syntax.Char(_values, true);
-                }
-                else
-                {
-                    return Syntax.Char(_value, true);
-                }
-            }
+            get { return Syntax.Char(_value, true); }
         }
     }
 }

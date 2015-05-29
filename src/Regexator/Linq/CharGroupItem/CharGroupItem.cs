@@ -178,7 +178,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public CharGroupExpression ToNegativeGroup()
         {
-            return new NotCharItemGroup(this);
+            return new CharItemGroup(this, true);
         }
 
         internal abstract string Content { get; }
