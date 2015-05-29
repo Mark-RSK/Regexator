@@ -7,7 +7,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
         internal override string Value(BuildContext context)
         {
-            return Syntax.End;
+            return Syntax.EndOfInput;
         }
     }
 }
