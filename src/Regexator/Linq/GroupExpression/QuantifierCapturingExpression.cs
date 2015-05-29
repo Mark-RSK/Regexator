@@ -29,8 +29,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             get
             {
                 Expression exp = Content as Expression;
-                return exp == null 
-                    || !(exp is QuantifiableExpression) 
+                return exp == null
+                    || !(exp is QuantifiableExpression)
                     || exp.Previous != null;
             }
         }

@@ -85,8 +85,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override string Closing(BuildContext context)
         {
-            return (GroupMode == AnyGroupMode.None) 
-                ? string.Empty 
+            return (GroupMode == AnyGroupMode.None)
+                ? string.Empty
                 : Syntax.GroupEnd;
         }
 

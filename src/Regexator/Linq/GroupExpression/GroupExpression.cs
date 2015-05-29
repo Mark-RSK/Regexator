@@ -44,15 +44,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                     yield return s;
                 }
             }
-            
         }
 
         internal override string Value(BuildContext context)
         {
             string text = _content as string;
 
-            return (text != null) 
-                ? RegexUtilities.Escape(text) 
+            return (text != null)
+                ? RegexUtilities.Escape(text)
                 : null;
         }
 
