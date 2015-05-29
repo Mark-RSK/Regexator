@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace Pihrtsoft.Text.RegularExpressions
@@ -13,14 +14,59 @@ namespace Pihrtsoft.Text.RegularExpressions
             return EnumerateMatches(regex, input, (f) => regex.Match(f));
         }
 
-        internal static IEnumerable<Match> EnumerateMatches(this Regex regex, string input, int startat)
+        internal static IEnumerable<Match> EnumerateMatches(this Regex regex, string input, int startAt)
         {
-            return EnumerateMatches(regex, input, (f) => regex.Match(f, startat));
+            return EnumerateMatches(regex, input, (f) => regex.Match(f, startAt));
         }
 
         internal static IEnumerable<Match> EnumerateMatches(this Regex regex, string input, int beginning, int length)
         {
             return EnumerateMatches(regex, input, (f) => regex.Match(f, beginning, length));
+        }
+
+        internal static IEnumerable<Group> EnumerateGroups(this Regex regex, string input)
+        {
+            return EnumerateMatches(regex, input).EnumerateGroups();
+        }
+
+        internal static IEnumerable<Group> EnumerateGroups(this Regex regex, string input, int startAt)
+        {
+            return EnumerateMatches(regex, input, startAt).EnumerateGroups();
+        }
+
+        internal static IEnumerable<Group> EnumerateGroups(this Regex regex, string input, int beginning, int length)
+        {
+            return EnumerateMatches(regex, input, beginning, length).EnumerateGroups();
+        }
+
+        internal static IEnumerable<Group> EnumerateSuccessGroups(this Regex regex, string input)
+        {
+            return EnumerateMatches(regex, input).EnumerateSuccessGroups();
+        }
+
+        internal static IEnumerable<Group> EnumerateSuccessGroups(this Regex regex, string input, int startAt)
+        {
+            return EnumerateMatches(regex, input, startAt).EnumerateSuccessGroups();
+        }
+
+        internal static IEnumerable<Group> EnumerateSuccessGroups(this Regex regex, string input, int beginning, int length)
+        {
+            return EnumerateMatches(regex, input, beginning, length).EnumerateSuccessGroups();
+        }
+
+        internal static IEnumerable<Capture> EnumerateCaptures(this Regex regex, string input)
+        {
+            return EnumerateMatches(regex, input).EnumerateCaptures();
+        }
+
+        internal static IEnumerable<Capture> EnumerateCaptures(this Regex regex, string input, int startAt)
+        {
+            return EnumerateMatches(regex, input, startAt).EnumerateCaptures();
+        }
+
+        internal static IEnumerable<Capture> EnumerateCaptures(this Regex regex, string input, int beginning, int length)
+        {
+            return EnumerateMatches(regex, input, beginning, length).EnumerateCaptures();
         }
 
         internal static IEnumerable<Match> EnumerateMatches(this Regex regex, string input, Func<string, Match> matchFactory)
@@ -41,6 +87,36 @@ namespace Pihrtsoft.Text.RegularExpressions
                 yield return match;
                 match = match.NextMatch();
             }
+        }
+
+        internal static IEnumerable<Group> EnumerateGroups(this IEnumerable<Match> matches)
+        {
+            if (matches == null)
+            {
+                throw new ArgumentNullException("matches");
+            }
+
+            return matches.SelectMany(match => match.Groups.Cast<Group>());
+        }
+
+        internal static IEnumerable<Group> EnumerateSuccessGroups(this IEnumerable<Match> matches)
+        {
+            return EnumerateGroups(matches).Where(group => group.Success);
+        }
+
+        internal static IEnumerable<Capture> EnumerateCaptures(this IEnumerable<Match> matches)
+        {
+            return EnumerateSuccessGroups(matches).EnumerateCaptures();
+        }
+
+        internal static IEnumerable<Capture> EnumerateCaptures(this IEnumerable<Group> groups)
+        {
+            if (groups == null)
+            {
+                throw new ArgumentNullException("groups");
+            }
+
+            return groups.SelectMany(group => group.Captures.Cast<Capture>());
         }
 
         public static MatchItem MatchItem(this Regex regex, string input)
