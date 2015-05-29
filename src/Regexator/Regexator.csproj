@@ -51,7 +51,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Linq\AlternationExpression\AnyTextExpression.cs" />
     <Compile Include="Linq\AnchorExpression\AnchorExpression.cs" />
     <Compile Include="Linq\AnchorExpression\EndOrBeforeEndingNewLine.cs" />
     <Compile Include="Linq\AnchorExpression\NotWordBoundary.cs" />
