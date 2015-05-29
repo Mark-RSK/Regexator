@@ -15,6 +15,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 throw new ArgumentNullException("groupName");
             }
+
             RegexUtilities.CheckGroupName(groupName);
             _groupName = groupName;
         }
