@@ -10,33 +10,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
         private readonly string _groupName;
 
-        internal GroupNameIfExpression(string groupName, string yes)
+        internal GroupNameIfExpression(string groupName, object yes)
             : this(groupName, yes, null)
         {
         }
 
-        internal GroupNameIfExpression(string groupName, string yes, string no)
+        internal GroupNameIfExpression(string groupName, object yes, object no)
             : base(yes, no)
         {
             if (groupName == null)
             {
                 throw new ArgumentNullException("groupName");
             }
-            _groupName = groupName;
-        }
 
-        internal GroupNameIfExpression(string groupName, Expression yes)
-            : this(groupName, yes, null)
-        {
-        }
-
-        internal GroupNameIfExpression(string groupName, Expression yes, Expression no)
-            : base(yes, no)
-        {
-            if (groupName == null)
-            {
-                throw new ArgumentNullException("groupName");
-            }
             _groupName = groupName;
         }
 

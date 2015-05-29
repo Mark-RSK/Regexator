@@ -8,21 +8,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal abstract class AlternationExpression
         : QuantifiableExpression
     {
-        private readonly Expression _yes;
-        private readonly Expression _no;
+        private readonly object _yes;
+        private readonly object _no;
 
-        protected AlternationExpression(string yes, string no)
-            : this(Expressions.Text(yes), Expressions.Text(no))
-        {
-        }
-
-        protected AlternationExpression(Expression yes, Expression no)
+        protected AlternationExpression(object yes, object no)
             : base()
         {
             if (yes == null)
             {
                 throw new ArgumentNullException("yes");
             }
+
             _yes = yes;
             _no = no;
         }
@@ -35,14 +31,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 yield return value;
             }
-            foreach (var value in YesExpression.EnumerateValues(context))
+            foreach (var value in Expression.EnumerateValues(_yes, context))
             {
                 yield return value;
             }
-            if (NoExpression != null)
+            if (_no != null)
             {
                 yield return Syntax.Or;
-                foreach (var value in NoExpression.EnumerateValues(context))
+                foreach (var value in Expression.EnumerateValues(_no, context))
                 {
                     yield return value;
                 }
@@ -57,16 +53,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         internal override string Closing(BuildContext context)
         {
             return Syntax.GroupEnd;
-        }
-
-        public Expression YesExpression
-        {
-            get { return _yes; }
-        }
-
-        public Expression NoExpression
-        {
-            get { return _no; }
         }
 
         internal override ExpressionKind Kind

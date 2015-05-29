@@ -26,7 +26,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiableExpression Assert(params string[] values)
         {
-            return Assert(new AnyTextExpression(AnyGroupMode.None, values));
+            return Assert(new AnyExpression(AnyGroupMode.None, values));
         }
 
         public static QuantifiableExpression Assert(CharGroupItem item)
@@ -81,7 +81,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiableExpression NotAssert(params string[] values)
         {
-            return NotAssert(new AnyTextExpression(AnyGroupMode.None, values));
+            return NotAssert(new AnyExpression(AnyGroupMode.None, values));
         }
 
         public static QuantifiableExpression NotAssert(CharGroupItem item)
@@ -136,7 +136,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiableExpression AssertBack(params string[] values)
         {
-            return AssertBack(new AnyTextExpression(AnyGroupMode.None, values));
+            return AssertBack(new AnyExpression(AnyGroupMode.None, values));
         }
 
         public static QuantifiableExpression AssertBack(CharGroupItem item)
@@ -191,7 +191,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiableExpression NotAssertBack(params string[] values)
         {
-            return NotAssertBack(new AnyTextExpression(AnyGroupMode.None, values));
+            return NotAssertBack(new AnyExpression(AnyGroupMode.None, values));
         }
 
         public static QuantifiableExpression NotAssertBack(CharGroupItem item)

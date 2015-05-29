@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
@@ -9,7 +10,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         : QuantifiableExpression
     {
         private readonly AnyGroupMode _groupMode;
-        private readonly IEnumerable<Expression> _expressions;
+        private readonly IEnumerable<object> _values;
 
         protected AnyExpression()
             : this(AnyGroupMode.Noncapturing)
@@ -21,42 +22,45 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _groupMode = groupMode;
         }
 
-        internal AnyExpression(IEnumerable<Expression> expressions)
+        internal AnyExpression(IEnumerable<object> values)
+            : this(AnyGroupMode.Noncapturing, values)
+        {
+        }
+
+        internal AnyExpression(AnyGroupMode groupMode, IEnumerable<object> values)
+            : base()
+        {
+            if (values == null)
+            {
+                throw new ArgumentNullException("values");
+            }
+
+            _groupMode = groupMode;
+            _values = values;
+        }
+
+        internal AnyExpression(params object[] expressions)
             : this(AnyGroupMode.Noncapturing, expressions)
         {
         }
 
-        internal AnyExpression(AnyGroupMode groupMode, IEnumerable<Expression> expressions)
+        internal AnyExpression(AnyGroupMode groupMode, params object[] values)
             : base()
         {
-            if (expressions == null)
+            if (values == null)
             {
-                throw new ArgumentNullException("expressions");
+                throw new ArgumentNullException("values");
             }
-            _groupMode = groupMode;
-            _expressions = expressions;
-        }
 
-        internal AnyExpression(params Expression[] expressions)
-            : this(AnyGroupMode.Noncapturing, expressions)
-        {
-        }
-
-        internal AnyExpression(AnyGroupMode groupMode, params Expression[] expressions)
-            : base()
-        {
-            if (expressions == null)
-            {
-                throw new ArgumentNullException("expressions");
-            }
             _groupMode = groupMode;
-            _expressions = expressions;
+            _values = values;
         }
 
         internal override IEnumerable<string> EnumerateContent(BuildContext context)
         {
             bool isFirst = true;
-            foreach (var expression in _expressions)
+
+            foreach (var value in _values)
             {
                 if (!isFirst)
                 {
@@ -66,9 +70,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 {
                     isFirst = false;
                 }
-                foreach (var value in expression.EnumerateValues(context))
+
+                foreach (var value2 in Expression.EnumerateValues(value, context))
                 {
-                    yield return value;
+                    yield return value2;
                 }
             }
         }
@@ -84,12 +89,15 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 case AnyGroupMode.Noncapturing:
                     return Syntax.NoncapturingGroupStart;
             }
+
             return string.Empty;
         }
 
         internal override string Closing(BuildContext context)
         {
-            return (GroupMode == AnyGroupMode.None) ? string.Empty : Syntax.GroupEnd;
+            return (GroupMode == AnyGroupMode.None) 
+                ? string.Empty 
+                : Syntax.GroupEnd;
         }
 
         internal AnyGroupMode GroupMode

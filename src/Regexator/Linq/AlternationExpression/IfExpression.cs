@@ -8,35 +8,21 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal sealed class IfExpression
         : AlternationExpression
     {
-        private readonly Expression _condition;
+        private readonly object _condition;
 
-        internal IfExpression(Expression condition, string yes)
+        internal IfExpression(object condition, object yes)
             : this(condition, yes, null)
         {
         }
 
-        internal IfExpression(Expression condition, string yes, string no)
+        internal IfExpression(object condition, object yes, object no)
             : base(yes, no)
         {
             if (condition == null)
             {
                 throw new ArgumentNullException("condition");
             }
-            _condition = condition;
-        }
 
-        internal IfExpression(Expression condition, Expression yes)
-            : this(condition, yes, null)
-        {
-        }
-
-        internal IfExpression(Expression condition, Expression yes, Expression no)
-            : base(yes, no)
-        {
-            if (condition == null)
-            {
-                throw new ArgumentNullException("condition");
-            }
             _condition = condition;
         }
 
@@ -45,10 +31,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             if (_condition != null)
             {
                 yield return context.Settings.ConditionWithAssertion ? Syntax.AssertStart : Syntax.CapturingGroupStart;
-                foreach (var value in _condition.EnumerateValues(context))
+
+                foreach (var value in Expression.EnumerateValues(_condition, context))
                 {
                     yield return value;
                 }
+
                 yield return Syntax.GroupEnd;
             }
         }

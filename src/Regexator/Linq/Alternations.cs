@@ -1,89 +1,47 @@
 // Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public static class Alternations
     {
-        public static QuantifiableExpression Any(IEnumerable<Expression> expressions)
+        public static QuantifiableExpression Any(IEnumerable<object> values)
         {
-            return new AnyExpression(expressions);
+            return new AnyExpression(values);
         }
 
-        public static QuantifiableExpression Any(params Expression[] expressions)
+        public static QuantifiableExpression Any(params object[] values)
         {
-            return new AnyExpression(expressions);
+            return new AnyExpression(values);
         }
 
-        public static QuantifiableExpression Any(IEnumerable<string> values)
-        {
-            return new AnyTextExpression(values);
-        }
-
-        public static QuantifiableExpression Any(params string[] values)
-        {
-            return new AnyTextExpression(values);
-        }
-
-        public static QuantifiableExpression IfGroup(string groupName, Expression yes)
+        public static QuantifiableExpression IfGroup(string groupName, object yes)
         {
             return new GroupNameIfExpression(groupName, yes);
         }
 
-        public static QuantifiableExpression IfGroup(string groupName, Expression yes, Expression no)
+        public static QuantifiableExpression IfGroup(string groupName, object yes, object no)
         {
             return new GroupNameIfExpression(groupName, yes, no);
         }
 
-        public static QuantifiableExpression IfGroup(string groupName, string yes)
-        {
-            return new GroupNameIfExpression(groupName, yes);
-        }
-
-        public static QuantifiableExpression IfGroup(string groupName, string yes, string no)
-        {
-            return new GroupNameIfExpression(groupName, yes, no);
-        }
-
-        public static QuantifiableExpression IfGroup(int groupNumber, Expression yes)
+        public static QuantifiableExpression IfGroup(int groupNumber, object yes)
         {
             return new GroupNumberIfExpression(groupNumber, yes);
         }
 
-        public static QuantifiableExpression IfGroup(int groupNumber, Expression yes, Expression no)
+        public static QuantifiableExpression IfGroup(int groupNumber, object yes, object no)
         {
             return new GroupNumberIfExpression(groupNumber, yes, no);
         }
 
-        public static QuantifiableExpression IfGroup(int groupNumber, string yes)
-        {
-            return new GroupNumberIfExpression(groupNumber, yes);
-        }
-
-        public static QuantifiableExpression IfGroup(int groupNumber, string yes, string no)
-        {
-            return new GroupNumberIfExpression(groupNumber, yes, no);
-        }
-
-        public static QuantifiableExpression If(Expression condition, Expression yes)
+        public static QuantifiableExpression If(Expression condition, object yes)
         {
             return new IfExpression(condition, yes);
         }
 
-        public static QuantifiableExpression If(Expression condition, Expression yes, Expression no)
-        {
-            return new IfExpression(condition, yes, no);
-        }
-
-        public static QuantifiableExpression If(Expression condition, string yes)
-        {
-            return new IfExpression(condition, yes);
-        }
-
-        public static QuantifiableExpression If(Expression condition, string yes, string no)
+        public static QuantifiableExpression If(Expression condition, object yes, object no)
         {
             return new IfExpression(condition, yes, no);
         }

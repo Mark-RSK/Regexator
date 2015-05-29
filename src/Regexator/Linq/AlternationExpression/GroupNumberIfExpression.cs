@@ -10,33 +10,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
         private readonly int _groupNumber;
 
-        internal GroupNumberIfExpression(int groupNumber, string yes)
+        internal GroupNumberIfExpression(int groupNumber, object yes)
             : this(groupNumber, yes, null)
         {
         }
 
-        internal GroupNumberIfExpression(int groupNumber, string yes, string no)
+        internal GroupNumberIfExpression(int groupNumber, object yes, object no)
             : base(yes, no)
         {
             if (groupNumber < 0)
             {
                 throw new ArgumentOutOfRangeException("groupNumber");
             }
-            _groupNumber = groupNumber;
-        }
 
-        internal GroupNumberIfExpression(int groupNumber, Expression yes)
-            : this(groupNumber, yes, null)
-        {
-        }
-
-        internal GroupNumberIfExpression(int groupNumber, Expression yes, Expression no)
-            : base(yes, no)
-        {
-            if (groupNumber < 0)
-            {
-                throw new ArgumentOutOfRangeException("groupNumber");
-            }
             _groupNumber = groupNumber;
         }
 
