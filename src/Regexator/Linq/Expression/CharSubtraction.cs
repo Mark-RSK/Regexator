@@ -16,10 +16,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 throw new ArgumentNullException("baseGroup");
             }
+
             if (excludedGroup == null)
             {
                 throw new ArgumentNullException("excludedGroup");
             }
+
             _baseGroup = baseGroup;
             _excludedGroup = excludedGroup;
         }

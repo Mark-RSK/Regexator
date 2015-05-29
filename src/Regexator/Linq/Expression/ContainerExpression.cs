@@ -8,23 +8,21 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal sealed class ContainerExpression
         : Expression
     {
-        private readonly Expression _expression;
+        private readonly object _value;
 
-        public ContainerExpression(Expression expression)
+        public ContainerExpression(object value)
         {
-            if (expression == null)
+            if (value == null)
             {
-                throw new ArgumentNullException("expression");
+                throw new ArgumentNullException("value");
             }
-            _expression = expression;
+
+            _value = value;
         }
 
         internal override IEnumerable<string> EnumerateContent(BuildContext context)
         {
-            foreach (var value in _expression.EnumerateValues(context))
-            {
-                yield return value;
-            }
+            return Expression.EnumerateValues(_value, context);
         }
     }
 }

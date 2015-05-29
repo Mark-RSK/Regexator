@@ -16,6 +16,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 throw new ArgumentNullException("groupName");
             }
+
             _groupName = groupName;
         }
 

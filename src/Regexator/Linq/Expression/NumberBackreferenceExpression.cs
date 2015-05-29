@@ -17,18 +17,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 throw new ArgumentOutOfRangeException("groupNumber");
             }
+
             _groupNumber = groupNumber;
         }
 
         internal override IEnumerable<string> EnumerateContent(BuildContext context)
         {
+            yield return Syntax.Backreference(GroupNumber);
+
             if (context.Settings.SeparatorAfterNumberBackreference)
             {
-                yield return Syntax.Backreference(GroupNumber) + Linq.Groups.Noncapturing(string.Empty);
-            }
-            else
-            {
-                yield return Syntax.Backreference(GroupNumber);
+                yield return Syntax.NoncapturingGroup(string.Empty);
             }
         }
 
