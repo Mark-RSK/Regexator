@@ -92,12 +92,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public Expression Concat(params object[] content)
         {
-            if (content == null)
-            {
-                throw new ArgumentNullException("content");
-            }
-
-            return Concat(content.AsEnumerable());
+            return Concat((object)content);
         }
 
         public Expression Concat(IEnumerable<object> values)
