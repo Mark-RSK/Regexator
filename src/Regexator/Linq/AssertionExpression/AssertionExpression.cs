@@ -2,16 +2,10 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal class AssertionExpression
+    internal sealed class AssertionExpression
         : GroupExpression
     {
         private readonly AssertionKind _assertionKind;
-
-        protected AssertionExpression(AssertionKind kind)
-            : base()
-        {
-            _assertionKind = kind;
-        }
 
         internal AssertionExpression(AssertionKind kind, object content)
             : base(content)

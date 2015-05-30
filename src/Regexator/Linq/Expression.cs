@@ -265,7 +265,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 string text = content as string;
                 if (text != null)
                 {
-                    yield return text;
+                    yield return RegexUtilities.Escape(text);
                 }
                 else
                 {

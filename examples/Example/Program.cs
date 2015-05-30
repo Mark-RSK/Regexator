@@ -20,7 +20,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine(exp);
             Console.WriteLine("");
 
-            var values = new string[] { "one", "two", "three" };
+            var values = new string[] { "one?", "two", "three" };
 
             Console.WriteLine("multiple words");
             Console.WriteLine(Anchors

@@ -28,31 +28,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override IEnumerable<string> EnumerateContent(BuildContext context)
         {
-            Expression expression = _content as Expression;
-            if (expression != null)
-            {
-                foreach (var value in expression.EnumerateValues(context))
-                {
-                    yield return value;
-                }
-            }
-            else
-            {
-                string s = Value(context);
-                if (s != null)
-                {
-                    yield return s;
-                }
-            }
-        }
-
-        internal override string Value(BuildContext context)
-        {
-            string text = _content as string;
-
-            return (text != null)
-                ? RegexUtilities.Escape(text)
-                : null;
+            return Expression.EnumerateValues(_content, context);
         }
 
         internal object Content
