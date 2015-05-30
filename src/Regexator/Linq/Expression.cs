@@ -115,9 +115,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(new ContainerExpression(expression));
         }
 
-        public Expression Concat(string value)
+        public Expression Concat(string text)
         {
-            return ConcatInternal(new TextExpression(value));
+            return ConcatInternal(new TextExpression(text));
         }
 
         internal TExpression ConcatInternal<TExpression>(TExpression expression) where TExpression : Expression
