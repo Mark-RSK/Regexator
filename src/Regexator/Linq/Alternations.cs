@@ -11,9 +11,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new AnyExpression(values);
         }
 
-        public static QuantifiableExpression Any(params object[] values)
+        public static QuantifiableExpression Any(params object[] content)
         {
-            return new AnyExpression(values);
+            return new AnyExpression(content);
         }
 
         public static QuantifiableExpression IfGroup(string groupName, object yes)

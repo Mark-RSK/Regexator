@@ -9,9 +9,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new NamedGroupExpression(name, content);
         }
 
-        public static QuantifiableExpression NamedGroup(string name, params object[] values)
+        public static QuantifiableExpression NamedGroup(string name, params object[] content)
         {
-            return new NamedGroupExpression(name, new AnyExpression(AnyGroupMode.None, values));
+            return new NamedGroupExpression(name, new AnyExpression(AnyGroupMode.None, content));
         }
 
         public static QuantifiableExpression Capturing()
@@ -24,9 +24,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new CapturingExpression(content);
         }
 
-        public static QuantifiableExpression Capturing(params object[] values)
+        public static QuantifiableExpression Capturing(params object[] content)
         {
-            return new CapturingExpression(new AnyExpression(AnyGroupMode.None, values));
+            return new CapturingExpression(new AnyExpression(AnyGroupMode.None, content));
         }
 
         public static QuantifiableExpression Noncapturing(object content)
@@ -34,9 +34,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new NoncapturingExpression(content);
         }
 
-        public static QuantifiableExpression Noncapturing(params object[] values)
+        public static QuantifiableExpression Noncapturing(params object[] content)
         {
-            return new NoncapturingExpression(new AnyExpression(AnyGroupMode.None, values));
+            return new NoncapturingExpression(new AnyExpression(AnyGroupMode.None, content));
         }
 
         public static QuantifiableExpression BalanceGroup(string name1, string name2, object content)
@@ -44,9 +44,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new BalanceGroupExpression(name1, name2, content);
         }
 
-        public static QuantifiableExpression BalanceGroup(string name1, string name2, params object[] values)
+        public static QuantifiableExpression BalanceGroup(string name1, string name2, params object[] content)
         {
-            return new BalanceGroupExpression(name1, name2, new AnyExpression(AnyGroupMode.None, values));
+            return new BalanceGroupExpression(name1, name2, new AnyExpression(AnyGroupMode.None, content));
         }
 
         public static QuantifiableExpression Nonbacktracking(object content)
@@ -54,9 +54,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new NonbacktrackingExpression(content);
         }
 
-        public static QuantifiableExpression Nonbacktracking(params object[] values)
+        public static QuantifiableExpression Nonbacktracking(params object[] content)
         {
-            return new NonbacktrackingExpression(new AnyExpression(AnyGroupMode.None, values));
+            return new NonbacktrackingExpression(new AnyExpression(AnyGroupMode.None, content));
         }
 
         public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, object content)
@@ -64,9 +64,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new GroupOptionsExpression(applyOptions, content);
         }
 
-        public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, params object[] values)
+        public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, params object[] content)
         {
-            return new GroupOptionsExpression(applyOptions, new AnyExpression(AnyGroupMode.None, values));
+            return new GroupOptionsExpression(applyOptions, new AnyExpression(AnyGroupMode.None, content));
         }
 
         public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, object content)
@@ -74,9 +74,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new GroupOptionsExpression(applyOptions, disableOptions, content);
         }
 
-        public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, params object[] values)
+        public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, params object[] content)
         {
-            return new GroupOptionsExpression(applyOptions, disableOptions, new AnyExpression(AnyGroupMode.None, values));
+            return new GroupOptionsExpression(applyOptions, disableOptions, new AnyExpression(AnyGroupMode.None, content));
         }
 
         public static QuantifierExpression Maybe(object content)
@@ -84,9 +84,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return QuantifierGroup(content).Maybe();
         }
 
-        public static QuantifierExpression Maybe(params object[] values)
+        public static QuantifierExpression Maybe(params object[] content)
         {
-            return QuantifierGroup(new AnyExpression(AnyGroupMode.Capturing, values)).Maybe();
+            return QuantifierGroup(new AnyExpression(AnyGroupMode.Capturing, content)).Maybe();
         }
 
         public static QuantifierExpression MaybeMany(object content)
@@ -94,9 +94,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return QuantifierGroup(content).MaybeMany();
         }
 
-        public static QuantifierExpression MaybeMany(params object[] values)
+        public static QuantifierExpression MaybeMany(params object[] content)
         {
-            return QuantifierGroup(new AnyExpression(AnyGroupMode.Capturing, values)).MaybeMany();
+            return QuantifierGroup(new AnyExpression(AnyGroupMode.Capturing, content)).MaybeMany();
         }
 
         public static QuantifierExpression OneMany(object content)
@@ -104,9 +104,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return QuantifierGroup(content).OneMany();
         }
 
-        public static QuantifierExpression OneMany(params object[] values)
+        public static QuantifierExpression OneMany(params object[] content)
         {
-            return QuantifierGroup(new AnyExpression(AnyGroupMode.Capturing, values)).OneMany();
+            return QuantifierGroup(new AnyExpression(AnyGroupMode.Capturing, content)).OneMany();
         }
 
         internal static QuantifiableExpression QuantifierGroup(object content)

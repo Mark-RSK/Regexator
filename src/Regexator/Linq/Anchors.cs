@@ -9,9 +9,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new AssertionExpression(AssertionKind.Assert, content);
         }
 
-        public static QuantifiableExpression Assert(params object[] values)
+        public static QuantifiableExpression Assert(params object[] content)
         {
-            return Assert(new AnyExpression(AnyGroupMode.None, values));
+            return Assert(new AnyExpression(AnyGroupMode.None, content));
         }
 
         public static QuantifiableExpression Assert(CharGroupItem item)
@@ -24,9 +24,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new AssertionExpression(AssertionKind.NotAssert, content);
         }
 
-        public static QuantifiableExpression NotAssert(params object[] values)
+        public static QuantifiableExpression NotAssert(params object[] content)
         {
-            return NotAssert(new AnyExpression(AnyGroupMode.None, values));
+            return NotAssert(new AnyExpression(AnyGroupMode.None, content));
         }
 
         public static QuantifiableExpression NotAssert(CharGroupItem item)
@@ -39,9 +39,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new AssertionExpression(AssertionKind.AssertBack, content);
         }
 
-        public static QuantifiableExpression AssertBack(params object[] values)
+        public static QuantifiableExpression AssertBack(params object[] content)
         {
-            return AssertBack(new AnyExpression(AnyGroupMode.None, values));
+            return AssertBack(new AnyExpression(AnyGroupMode.None, content));
         }
 
         public static QuantifiableExpression AssertBack(CharGroupItem item)
@@ -54,9 +54,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new AssertionExpression(AssertionKind.NotAssertBack, content);
         }
 
-        public static QuantifiableExpression NotAssertBack(params object[] values)
+        public static QuantifiableExpression NotAssertBack(params object[] content)
         {
-            return NotAssertBack(new AnyExpression(AnyGroupMode.None, values));
+            return NotAssertBack(new AnyExpression(AnyGroupMode.None, content));
         }
 
         public static QuantifiableExpression NotAssertBack(CharGroupItem item)

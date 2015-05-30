@@ -90,14 +90,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Concat(content.ToString());
         }
 
-        public Expression Concat(params object[] values)
+        public Expression Concat(params object[] content)
         {
-            if (values == null)
+            if (content == null)
             {
-                throw new ArgumentNullException("values");
+                throw new ArgumentNullException("content");
             }
 
-            return Concat(values.AsEnumerable());
+            return Concat(content.AsEnumerable());
         }
 
         public Expression Concat(IEnumerable<object> values)
@@ -132,16 +132,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return expression;
         }
 
-        public static Expression Join(object joinValue, params object[] values)
+        public static Expression Join(object joinValue, params object[] content)
         {
-            return Join(joinValue, values.AsEnumerable());
+            return Join(joinValue, content.AsEnumerable());
         }
 
-        public static Expression Join(object joinValue, IEnumerable<object> values)
+        public static Expression Join(object joinValue, IEnumerable<object> content)
         {
-            if (values == null)
+            if (content == null)
             {
-                throw new ArgumentNullException("values");
+                throw new ArgumentNullException("content");
             }
 
             if (joinValue == null)
@@ -149,7 +149,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 joinValue = Expression.Empty;
             }
 
-            using (IEnumerator<object> en = values.GetEnumerator())
+            using (IEnumerator<object> en = content.GetEnumerator())
             {
                 if (!en.MoveNext())
                 {

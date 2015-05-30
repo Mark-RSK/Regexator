@@ -34,16 +34,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
         }
 
-        internal AnyExpression(AnyGroupMode groupMode, params object[] values)
+        internal AnyExpression(AnyGroupMode groupMode, params object[] content)
             : base()
         {
-            if (values == null)
+            if (content == null)
             {
-                throw new ArgumentNullException("values");
+                throw new ArgumentNullException("content");
             }
 
             _groupMode = groupMode;
-            _values = values;
+            _values = content;
         }
 
         internal override IEnumerable<string> EnumerateContent(BuildContext context)
