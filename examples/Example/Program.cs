@@ -119,6 +119,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine(Anchors.NotAssertBack(Chars.CarriageReturn()).Linefeed().AsNonbacktracking());
             Console.WriteLine("");
 
+            Console.WriteLine("invalid file name chars:");
+            var chars = Path.GetInvalidFileNameChars().OrderBy(f => (int)f).Select(f => Chars.Char(f));
+            Console.WriteLine(Alternations.Any(chars).AsNonbacktracking());
+            Console.WriteLine("");
+
             Console.ReadKey();
         }
     }

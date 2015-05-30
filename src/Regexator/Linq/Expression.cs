@@ -382,6 +382,21 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Regex.EnumerateGroups(input, beginning, length);
         }
 
+        public IEnumerable<Group> Groups(string groupName,string input)
+        {
+            return Regex.EnumerateGroups(groupName, input);
+        }
+
+        public IEnumerable<Group> Groups(string groupName, string input, int startAt)
+        {
+            return Regex.EnumerateGroups(groupName, input, startAt);
+        }
+
+        public IEnumerable<Group> Groups(string groupName, string input, int beginning, int length)
+        {
+            return Regex.EnumerateGroups(groupName, input, beginning, length);
+        }
+
         public IEnumerable<Group> SuccessGroups(string input)
         {
             return Regex.EnumerateSuccessGroups(input);
@@ -397,6 +412,21 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Regex.EnumerateSuccessGroups(input, beginning, length);
         }
 
+        public IEnumerable<Group> SuccessGroups(string groupName, string input)
+        {
+            return Regex.EnumerateSuccessGroups(groupName, input);
+        }
+
+        public IEnumerable<Group> SuccessGroups(string groupName, string input, int startAt)
+        {
+            return Regex.EnumerateSuccessGroups(groupName, input, startAt);
+        }
+
+        public IEnumerable<Group> SuccessGroups(string groupName, string input, int beginning, int length)
+        {
+            return Regex.EnumerateSuccessGroups(groupName, input, beginning, length);
+        }
+
         public IEnumerable<Capture> Captures(string input)
         {
             return Regex.EnumerateCaptures(input);
@@ -410,6 +440,21 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public IEnumerable<Capture> Captures(string input, int beginning, int length)
         {
             return Regex.EnumerateCaptures(input, beginning, length);
+        }
+
+        public IEnumerable<Capture> Captures(string groupName, string input)
+        {
+            return Regex.EnumerateCaptures(groupName, input);
+        }
+
+        public IEnumerable<Capture> Captures(string groupName, string input, int startAt)
+        {
+            return Regex.EnumerateCaptures(groupName, input, startAt);
+        }
+
+        public IEnumerable<Capture> Captures(string groupName, string input, int beginning, int length)
+        {
+            return Regex.EnumerateCaptures(groupName, input, beginning, length);
         }
 
         public bool IsMatch(string input)
