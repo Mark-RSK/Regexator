@@ -23,6 +23,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 throw new ArgumentNullException("groupName");
             }
+
             if (groupName.Length > 0)
             {
                 Match match = IsValidGroupNameRegex.Match(groupName);
@@ -34,9 +35,11 @@ namespace Pihrtsoft.Text.RegularExpressions
                         int result;
                         return (int.TryParse(g.Value, out result));
                     }
+
                     return true;
                 }
             }
+
             return false;
         }
 
@@ -149,6 +152,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 throw new ArgumentOutOfRangeException("charCode");
             }
+
             return EscapeInternal(charCode, inCharGroup);
         }
 
@@ -224,6 +228,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 throw new ArgumentNullException("input");
             }
+
             for (int i = 0; i < input.Length; i++)
             {
                 if (s_escapeModes[input[i]] != EscapeMode.None)
@@ -232,11 +237,13 @@ namespace Pihrtsoft.Text.RegularExpressions
                     char ch = input[i];
                     int lastPos;
                     sb.Append(input, 0, i);
+
                     do
                     {
                         sb.Append(EscapeInternal((int)ch, inCharGroup));
                         i++;
                         lastPos = i;
+                        
                         while (i < input.Length)
                         {
                             ch = input[i];
@@ -246,12 +253,15 @@ namespace Pihrtsoft.Text.RegularExpressions
                             }
                             i++;
                         }
+
                         sb.Append(input, lastPos, i - lastPos);
 
                     } while (i < input.Length);
+
                     return sb.ToString();
                 }
             }
+
             return input;
         }
 
@@ -261,6 +271,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 throw new ArgumentNullException("input");
             }
+
             for (int i = 0; i < input.Length; i++)
             {
                 if (input[i] == '$')
@@ -269,11 +280,13 @@ namespace Pihrtsoft.Text.RegularExpressions
                     char ch = input[i];
                     int lastPos;
                     sb.Append(input, 0, i);
+
                     do
                     {
                         sb.Append("$$");
                         i++;
                         lastPos = i;
+                        
                         while (i < input.Length)
                         {
                             ch = input[i];
@@ -283,12 +296,15 @@ namespace Pihrtsoft.Text.RegularExpressions
                             }
                             i++;
                         }
+
                         sb.Append(input, lastPos, i - lastPos);
 
                     } while (i < input.Length);
+                    
                     return sb.ToString();
                 }
             }
+
             return input;
         }
 
@@ -486,6 +502,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                         Chars.WordChar().Except(Chars.ArabicDigit()).WordChar().MaybeMany()
                     ).AsEntireInput().ToRegex();
                 }
+
                 return _isValidGroupName;
             }
         }
