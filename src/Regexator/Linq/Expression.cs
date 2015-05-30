@@ -61,7 +61,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             string text = content as string;
             if (text != null)
             {
-                return Concat(text, true);
+                return Concat(text);
             }
 
             CharGroupItem item = content as CharGroupItem;
@@ -245,14 +245,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             } while (expression != null);
         }
 
-        internal static IEnumerable<string> EnumerateValues(object item, BuildContext context)
+        internal static IEnumerable<string> EnumerateValues(object content, BuildContext context)
         {
-            if (item == null)
+            if (content == null)
             {
                 yield break;
             }
 
-            Expression expression = item as Expression;
+            Expression expression = content as Expression;
             if (expression != null)
             {
                 foreach (var value in expression.EnumerateValues(context))
@@ -262,27 +262,35 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
             else
             {
-                string text = item as string;
+                string text = content as string;
                 if (text != null)
                 {
                     yield return text;
                 }
                 else
                 {
-                    IEnumerable items = item as IEnumerable;
-                    if (items != null)
+                    CharGroupItem item = content as CharGroupItem;
+                    if (item != null)
                     {
-                        foreach (var item2 in items)
-                        {
-                            foreach (var value in EnumerateValues(item2, context))
-                            {
-                                yield return value;
-                            }
-                        }
+                        yield return Syntax.CharGroup(item.Value);
                     }
                     else
                     {
-                        yield return item.ToString();
+                        IEnumerable items = content as IEnumerable;
+                        if (items != null)
+                        {
+                            foreach (var item2 in items)
+                            {
+                                foreach (var value in EnumerateValues(item2, context))
+                                {
+                                    yield return value;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            yield return content.ToString();
+                        }
                     }
                 }
             }
