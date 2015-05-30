@@ -20,6 +20,31 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
         }
 
+        public static Expression Create(params object[] values)
+        {
+            if (values == null)
+            {
+                throw new ArgumentNullException("values");
+            }
+
+            return Create(values.AsEnumerable());
+        }
+
+        public static Expression Create(IEnumerable<object> values)
+        {
+            if (values == null)
+            {
+                throw new ArgumentNullException("values");
+            }
+
+            return Expression.Empty.Concat(values);
+        }
+
+        public Expression ConcatIf(bool condition, object content)
+        {
+            return condition ? Concat(content) : this;
+        }
+
         public Expression Concat(object content)
         {
             if (content == null)
@@ -37,6 +62,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             if (text != null)
             {
                 return Concat(text, true);
+            }
+
+            CharGroupItem item = content as CharGroupItem;
+            if (item != null)
+            {
+                return Concat(item.ToGroup());
             }
 
             object[] values = content as object[];
@@ -64,9 +95,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Concat(content.ToString());
         }
 
-        public Expression Concat(Expression expression)
+        public Expression Concat(params object[] values)
         {
-            return ConcatInternal(new ContainerExpression(expression));
+            if (values == null)
+            {
+                throw new ArgumentNullException("values");
+            }
+
+            return Concat(values.AsEnumerable());
         }
 
         public Expression Concat(IEnumerable<object> values)
@@ -74,29 +110,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Concat((object)values);
         }
 
-        internal Expression Concat(string value, bool escape)
+        public Expression Concat(Expression expression)
         {
-            return ConcatIf(true, value, escape);
+            return ConcatInternal(new ContainerExpression(expression));
         }
 
-        public Expression ConcatIf(bool condition, string value)
+        public Expression Concat(string value)
         {
-            return ConcatIf(condition, value, true);
-        }
-
-        internal Expression ConcatIf(bool condition, string value, bool escape)
-        {
-            return condition ? ConcatInternal(new TextExpression(value, escape)) : this;
-        }
-
-        public Expression ConcatIf(bool condition, Expression expression)
-        {
-            return condition ? Concat(expression) : this;
-        }
-
-        public Expression ConcatIf(bool condition, Expression yesExpression, Expression noExpression)
-        {
-            return condition ? Concat(yesExpression) : Concat(noExpression);
+            return ConcatInternal(new TextExpression(value));
         }
 
         internal TExpression ConcatInternal<TExpression>(TExpression expression) where TExpression : Expression
@@ -112,7 +133,53 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 first = first.Previous;
             }
             first.Previous = this;
+
             return expression;
+        }
+
+        public static Expression Join(object joinValue, params object[] values)
+        {
+            return Join(joinValue, values.AsEnumerable());
+        }
+
+        public static Expression Join(object joinValue, IEnumerable<object> values)
+        {
+            if (values == null)
+            {
+                throw new ArgumentNullException("values");
+            }
+
+            if (joinValue == null)
+            {
+                joinValue = Expression.Empty;
+            }
+
+            using (IEnumerator<object> en = values.GetEnumerator())
+            {
+                if (!en.MoveNext())
+                {
+                    return Expression.Empty;
+                }
+
+                Expression exp = Expression.Empty;
+
+                if (en.Current != null)
+                {
+                    exp = exp.Concat(en.Current);
+                }
+
+                while (en.MoveNext())
+                {
+                    exp = exp.Concat(joinValue);
+
+                    if (en.Current != null)
+                    {
+                        exp = exp.Concat(en.Current);
+                    }
+                }
+
+                return exp;
+            }
         }
 
         public Regex ToRegex()
