@@ -20,24 +20,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
         }
 
-        public static Expression Create(params object[] values)
+        public static Expression Create(object content)
         {
-            if (values == null)
-            {
-                throw new ArgumentNullException("values");
-            }
-
-            return Create(values.AsEnumerable());
+            return Expression.Empty.Concat(content);
         }
 
-        public static Expression Create(IEnumerable<object> values)
+        public static Expression Create(params object[] content)
         {
-            if (values == null)
-            {
-                throw new ArgumentNullException("values");
-            }
+            return Create((object)content);
+        }
 
-            return Expression.Empty.Concat(values);
+        public static Expression Create(IEnumerable<object> content)
+        {
+            return Create((object)content);
         }
 
         public Expression ConcatIf(bool condition, object content)
