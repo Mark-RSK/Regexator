@@ -4,7 +4,7 @@ namespace Pihrtsoft.Text.RegularExpressions
 {
     public enum LimitState
     {
-        Unknown,
+        None,
         Limited,
         NotLimited
     }

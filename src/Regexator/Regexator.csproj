@@ -7,7 +7,7 @@
     <ProjectGuid>{D6EDF7A7-AFEA-44DF-A5CB-F140A4133EEA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Pihrtsoft.Regexator</RootNamespace>
+    <RootNamespace>Pihrtsoft.Text.RegularExpressions</RootNamespace>
     <AssemblyName>Pihrtsoft.Text.RegularExpressions</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
