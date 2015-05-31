@@ -17,7 +17,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentOutOfRangeException("firstCharCode");
             }
 
-            if (lastCharCode < 0 || lastCharCode > 0xFFFF)
+            if (lastCharCode < firstCharCode || lastCharCode > 0xFFFF)
             {
                 throw new ArgumentOutOfRangeException("lastCharCode");
             }
