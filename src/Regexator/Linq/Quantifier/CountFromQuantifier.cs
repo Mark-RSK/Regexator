@@ -25,7 +25,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             get { return Syntax.CountFrom(_minCount); }
         }
 
-        public override QuantifierKind QuantifierKind
+        internal override QuantifierKind QuantifierKind
         {
             get { return QuantifierKind.CountFrom; }
         }

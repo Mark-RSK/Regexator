@@ -10,7 +10,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             get { return Syntax.MaybeMany; }
         }
 
-        public override QuantifierKind QuantifierKind
+        internal override QuantifierKind QuantifierKind
         {
             get { return QuantifierKind.MaybeMany; }
         }

@@ -15,7 +15,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         protected abstract string Content { get; }
 
-        public abstract QuantifierKind QuantifierKind { get; }
+        internal abstract QuantifierKind QuantifierKind { get; }
 
         internal override string Value(BuildContext context)
         {

@@ -32,7 +32,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             get { return Syntax.CountRange(_minCount, _maxCount); }
         }
 
-        public override QuantifierKind QuantifierKind
+        internal override QuantifierKind QuantifierKind
         {
             get { return QuantifierKind.CountRange; }
         }
