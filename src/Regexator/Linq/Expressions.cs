@@ -111,25 +111,22 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiableExpression WhiteSpaceLines()
         {
             return Alternations.Any(Anchors
-                    .StartOfLine().WhiteSpace().MaybeMany().NewLine(),
-                    NewLine().WhiteSpace().MaybeMany().End())
-                .WithOptions(InlineOptions.Multiline);
+                    .StartOfLineInvariant().WhiteSpace().MaybeMany().NewLine(),
+                    NewLine().WhiteSpace().MaybeMany().End());
         }
 
         public static QuantifiableExpression EmptyLines()
         {
             return Alternations.Any(Anchors
-                    .StartOfLine().NewLine(),
-                    NewLine().OneMany().End())
-                .WithOptions(InlineOptions.Multiline);
+                    .StartOfLineInvariant().NewLine(),
+                    NewLine().OneMany().End());
         }
 
-        public static QuantifiableExpression FirstLine()
+        public static Expression FirstLine()
         {
             return Anchors
                 .Start()
-                .NotNewLineChar().MaybeMany()
-                .EndOfLineOrBeforeCarriageReturnInvariant();
+                .NotNewLineChar().MaybeMany();
         }
 
         public static QuantifiableExpression NewLine()

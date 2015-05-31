@@ -352,16 +352,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Expressions.Options(applyOptions, disableOptions));
         }
 
-        public QuantifiableExpression WithOptions(InlineOptions applyOptions)
-        {
-            return Linq.Groups.Options(applyOptions, this);
-        }
-
-        public QuantifiableExpression WithOptions(InlineOptions applyOptions, InlineOptions disableOptions)
-        {
-            return Linq.Groups.Options(applyOptions, disableOptions, this);
-        }
-
         public QuantifiableExpression AsCapturing()
         {
             return Linq.Groups.Capturing(this);

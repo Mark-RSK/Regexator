@@ -20,7 +20,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine(exp);
             Console.WriteLine("");
 
-            var values = new string[] { "one?", "two", "three" };
+            var values = new string[] { "one", "two", "three" };
 
             Console.WriteLine("multiple words");
             Console.WriteLine(Anchors
@@ -96,23 +96,20 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             Console.WriteLine("whitespace lines:");
             Console.WriteLine(Alternations.Any(Anchors
-                    .StartOfLine().WhiteSpace().MaybeMany().NewLine(),
-                    Expressions.NewLine().WhiteSpace().MaybeMany().End())
-                .WithOptions(InlineOptions.Multiline));
+                    .StartOfLineInvariant().WhiteSpace().MaybeMany().NewLine(),
+                    Expressions.NewLine().WhiteSpace().MaybeMany().End()));
             Console.WriteLine("");
 
             Console.WriteLine("empty lines:");
             Console.WriteLine(Alternations.Any(Anchors
-                    .StartOfLine().NewLine(),
-                    Expressions.NewLine().OneMany().End())
-                .WithOptions(InlineOptions.Multiline));
+                    .StartOfLineInvariant().NewLine(),
+                    Expressions.NewLine().OneMany().End()));
             Console.WriteLine("");
 
             Console.WriteLine("first line:");
             Console.WriteLine(Anchors
                 .Start()
-                .NotNewLineChar().MaybeMany()
-                .EndOfLineOrBeforeCarriageReturnInvariant());
+                .NotNewLineChar().MaybeMany());
             Console.WriteLine("");
 
             Console.WriteLine("lf without cr:");
