@@ -322,34 +322,44 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Linq.Groups.BalanceGroup(name1, name2, content));
         }
 
-        public QuantifiableExpression GroupOptions(InlineOptions applyOptions, object content)
+        public QuantifiableExpression Options(InlineOptions applyOptions, object content)
         {
-            return ConcatInternal(Linq.Groups.GroupOptions(applyOptions, content));
+            return ConcatInternal(Linq.Groups.Options(applyOptions, content));
         }
 
-        public QuantifiableExpression GroupOptions(InlineOptions applyOptions, params object[] content)
+        public QuantifiableExpression Options(InlineOptions applyOptions, params object[] content)
         {
-            return ConcatInternal(Linq.Groups.GroupOptions(applyOptions, content));
+            return ConcatInternal(Linq.Groups.Options(applyOptions, content));
         }
 
-        public QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, object content)
+        public QuantifiableExpression Options(InlineOptions applyOptions, InlineOptions disableOptions, object content)
         {
-            return ConcatInternal(Linq.Groups.GroupOptions(applyOptions, disableOptions, content));
+            return ConcatInternal(Linq.Groups.Options(applyOptions, disableOptions, content));
         }
 
-        public QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, params object[] content)
+        public QuantifiableExpression Options(InlineOptions applyOptions, InlineOptions disableOptions, params object[] content)
         {
-            return ConcatInternal(Linq.Groups.GroupOptions(applyOptions, disableOptions, content));
+            return ConcatInternal(Linq.Groups.Options(applyOptions, disableOptions, content));
+        }
+
+        public Expression Options(InlineOptions applyOptions)
+        {
+            return ConcatInternal(Expressions.Options(applyOptions));
+        }
+
+        public Expression Options(InlineOptions applyOptions, InlineOptions disableOptions)
+        {
+            return ConcatInternal(Expressions.Options(applyOptions, disableOptions));
         }
 
         public QuantifiableExpression WithOptions(InlineOptions applyOptions)
         {
-            return Linq.Groups.GroupOptions(applyOptions, this);
+            return Linq.Groups.Options(applyOptions, this);
         }
 
         public QuantifiableExpression WithOptions(InlineOptions applyOptions, InlineOptions disableOptions)
         {
-            return Linq.Groups.GroupOptions(applyOptions, disableOptions, this);
+            return Linq.Groups.Options(applyOptions, disableOptions, this);
         }
 
         public QuantifiableExpression AsCapturing()
@@ -1830,16 +1840,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public QuantifiableExpression Backreference(string groupName)
         {
             return ConcatInternal(Expressions.Backreference(groupName));
-        }
-
-        public Expression Options(InlineOptions applyOptions)
-        {
-            return ConcatInternal(Expressions.Options(applyOptions));
-        }
-
-        public Expression Options(InlineOptions applyOptions, InlineOptions disableOptions)
-        {
-            return ConcatInternal(Expressions.Options(applyOptions, disableOptions));
         }
 
         public Expression Comment(string value)

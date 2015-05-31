@@ -59,22 +59,22 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new NonbacktrackingExpression(new AnyExpression(AnyGroupMode.None, content));
         }
 
-        public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, object content)
+        public static QuantifiableExpression Options(InlineOptions applyOptions, object content)
         {
             return new GroupOptionsExpression(applyOptions, content);
         }
 
-        public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, params object[] content)
+        public static QuantifiableExpression Options(InlineOptions applyOptions, params object[] content)
         {
             return new GroupOptionsExpression(applyOptions, new AnyExpression(AnyGroupMode.None, content));
         }
 
-        public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, object content)
+        public static QuantifiableExpression Options(InlineOptions applyOptions, InlineOptions disableOptions, object content)
         {
             return new GroupOptionsExpression(applyOptions, disableOptions, content);
         }
 
-        public static QuantifiableExpression GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, params object[] content)
+        public static QuantifiableExpression Options(InlineOptions applyOptions, InlineOptions disableOptions, params object[] content)
         {
             return new GroupOptionsExpression(applyOptions, disableOptions, new AnyExpression(AnyGroupMode.None, content));
         }
