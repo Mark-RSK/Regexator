@@ -136,7 +136,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (values == null)
             {
-                throw new ArgumentNullException("content");
+                throw new ArgumentNullException("values");
             }
 
             if (separator == null)
@@ -193,6 +193,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 throw new ArgumentNullException("settings");
             }
+
             using (var context = new BuildContext() { Settings = settings })
             {
                 foreach (var value in EnumerateValues(context))

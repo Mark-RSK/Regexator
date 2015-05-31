@@ -64,6 +64,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 {
                     throw new ArgumentNullException("value");
                 }
+
                 _settings = value;
             }
         }
