@@ -14,11 +14,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Assert(new AnyExpression(AnyGroupMode.None, content));
         }
 
-        public static QuantifiableExpression Assert(CharGroupItem item)
-        {
-            return new AssertionExpression(AssertionKind.Assert, item);
-        }
-
         public static QuantifiableExpression NotAssert(object content)
         {
             return new AssertionExpression(AssertionKind.NotAssert, content);
@@ -27,11 +22,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiableExpression NotAssert(params object[] content)
         {
             return NotAssert(new AnyExpression(AnyGroupMode.None, content));
-        }
-
-        public static QuantifiableExpression NotAssert(CharGroupItem item)
-        {
-            return new AssertionExpression(AssertionKind.NotAssert, item);
         }
 
         public static QuantifiableExpression AssertBack(object content)
@@ -44,11 +34,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return AssertBack(new AnyExpression(AnyGroupMode.None, content));
         }
 
-        public static QuantifiableExpression AssertBack(CharGroupItem item)
-        {
-            return new AssertionExpression(AssertionKind.AssertBack, item);
-        }
-
         public static QuantifiableExpression NotAssertBack(object content)
         {
             return new AssertionExpression(AssertionKind.NotAssertBack, content);
@@ -57,11 +42,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiableExpression NotAssertBack(params object[] content)
         {
             return NotAssertBack(new AnyExpression(AnyGroupMode.None, content));
-        }
-
-        public static QuantifiableExpression NotAssertBack(CharGroupItem item)
-        {
-            return new AssertionExpression(AssertionKind.NotAssertBack, item);
         }
 
         public static Expression AssertSurround(object value, object surroundValue)
