@@ -67,8 +67,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiableExpression StartOfLineInvariant()
         {
             return Groups.Options(InlineOptions.Multiline, Anchors.StartOfLine());
-
-            //return Alternations.Any(Start(), AssertBack(Chars.Linefeed()));
         }
 
         public static QuantifiableExpression EndOfLine()
@@ -79,8 +77,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiableExpression EndOfLineInvariant()
         {
             return Groups.Options(InlineOptions.Multiline, Anchors.EndOfLine());
-
-            //return Alternations.Any(Assert(Chars.Linefeed()), End());
         }
 
         public static QuantifiableExpression EndOfLineOrBeforeCarriageReturn()
