@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 
 namespace Pihrtsoft.Text.RegularExpressions
 {
-    public static class Extensions
+    public static class EnumerableExtensions
     {
         public static IEnumerable<Match> ToMatches(this IEnumerable<MatchItem> items)
         {

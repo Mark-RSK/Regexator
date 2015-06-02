@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Pihrtsoft.Text.RegularExpressions.Extensions;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
