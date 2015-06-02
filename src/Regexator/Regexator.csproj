@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Extensions\MatchExtensions.cs" />
     <Compile Include="Linq\Anchor\AnchorExpression.cs" />
     <Compile Include="Linq\Anchor\EndOrBeforeEndingNewLine.cs" />
     <Compile Include="Linq\Anchor\NotWordBoundary.cs" />
