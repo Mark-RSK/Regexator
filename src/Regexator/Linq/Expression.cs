@@ -23,17 +23,108 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static Expression Create(object content)
         {
-            return Expression.Empty.Concat(content);
+            if (content == null)
+            {
+                return Empty;
+            }
+
+            Expression expression = content as Expression;
+            if (expression != null)
+            {
+                return expression;
+            }
+
+            string text = content as string;
+            if (text != null)
+            {
+                return new TextExpression(text);
+            }
+
+            CharGroupItem item = content as CharGroupItem;
+            if (item != null)
+            {
+                return item.ToGroup();
+            }
+
+            object[] values = content as object[];
+            if (values != null)
+            {
+                return Create(values);
+            }
+
+            IEnumerable items = content as IEnumerable;
+            if (items != null)
+            {
+                return Create(items);
+            }
+
+            return new TextExpression(content.ToString() ?? string.Empty);
         }
 
         public static Expression Create(params object[] content)
         {
-            return Create((object)content);
+            if (content == null || content.Length == 0)
+            {
+                return Empty;
+            }
+
+            Expression exp = Create(content[0]);
+
+            for (int i = 1; i < content.Length; i++)
+            {
+                exp = exp.Concat(content[i]);
+            }
+
+            return exp;
         }
 
         public static Expression Create(IEnumerable<object> content)
         {
-            return Create((object)content);
+            if (content == null)
+            {
+                return Empty;
+            }
+
+            using (var en = content.GetEnumerator())
+            {
+                if (!en.MoveNext())
+                {
+                    return Empty;
+                }
+
+                Expression exp = Create(en.Current);
+
+                while (en.MoveNext())
+                {
+                    exp = exp.Concat(en.Current);
+                }
+
+                return exp;                
+            }
+        }
+
+        internal static Expression Create(IEnumerable content)
+        {
+            if (content == null)
+            {
+                return Empty;
+            }
+
+            var en = content.GetEnumerator();
+
+            if (!en.MoveNext())
+            {
+                return Empty;
+            }
+
+            Expression exp = Create(en.Current);
+
+            while (en.MoveNext())
+            {
+                exp = exp.Concat(en.Current);
+            }
+
+            return exp;
         }
 
         public Expression ConcatIf(bool condition, object content)
@@ -88,7 +179,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 return exp;
             }
 
-            return Concat(content.ToString());
+            return Concat(content.ToString() ?? string.Empty);
         }
 
         public Expression Concat(params object[] content)
@@ -130,7 +221,28 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static Expression Join(object separator, params object[] values)
         {
-            return Join(separator, values.AsEnumerable());
+            if (values == null)
+            {
+                throw new ArgumentNullException("values");
+            }
+
+            if (values.Length == 0)
+            {
+                return Empty;
+            }
+
+            Expression separatorExpression = Create(separator);
+
+            Expression exp = Create(values[0]);
+
+            for (int i = 1; i < values.Length; i++)
+            {
+                exp = exp
+                    .Concat(separatorExpression)
+                    .Concat(values[i]);
+            }
+
+            return exp;
         }
 
         public static Expression Join(object separator, IEnumerable<object> values)
@@ -140,33 +252,22 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("values");
             }
 
-            if (separator == null)
-            {
-                separator = Expression.Empty;
-            }
-
             using (IEnumerator<object> en = values.GetEnumerator())
             {
                 if (!en.MoveNext())
                 {
-                    return Expression.Empty;
+                    return Empty;
                 }
 
-                Expression exp = Expression.Empty;
+                Expression separatorExpression = Create(separator);
 
-                if (en.Current != null)
-                {
-                    exp = exp.Concat(en.Current);
-                }
+                Expression exp = Create(en.Current);
 
                 while (en.MoveNext())
                 {
-                    exp = exp.Concat(separator);
-
-                    if (en.Current != null)
-                    {
-                        exp = exp.Concat(en.Current);
-                    }
+                    exp = exp
+                        .Concat(separatorExpression)
+                        .Concat(en.Current);
                 }
 
                 return exp;
@@ -281,7 +382,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                         }
                         else
                         {
-                            yield return content.ToString();
+                            yield return content.ToString() ?? string.Empty;
                         }
                     }
                 }
