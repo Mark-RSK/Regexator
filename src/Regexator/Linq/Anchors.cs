@@ -44,14 +44,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return NotAssertBack(new AnyExpression(AnyGroupMode.None, content));
         }
 
-        public static Expression AssertSurround(object value, object surroundValue)
+        public static Expression AssertSurround(object content, object surroundContent)
         {
-            return Expressions.Surround(value, Anchors.AssertBack(surroundValue), Anchors.Assert(surroundValue));
+            return Expressions.Surround(content, Anchors.AssertBack(surroundContent), Anchors.Assert(surroundContent));
         }
 
-        public static Expression NotAssertSurround(object value, object surroundValue)
+        public static Expression NotAssertSurround(object content, object surroundContent)
         {
-            return Expressions.Surround(value, Anchors.NotAssertBack(surroundValue), Anchors.NotAssert(surroundValue));
+            return Expressions.Surround(content, Anchors.NotAssertBack(surroundContent), Anchors.NotAssert(surroundContent));
         }
 
         public static QuantifiableExpression Start()
