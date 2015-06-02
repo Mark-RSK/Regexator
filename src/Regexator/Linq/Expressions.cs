@@ -93,42 +93,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Anchors.NotAssert(string.Empty);
         }
 
-        public static Expression LeadingWhiteSpace()
-        {
-            return Anchors.StartOfLine().WhiteSpaceExceptNewLine().OneMany();
-        }
-
-        public static QuantifiableExpression TrailingWhiteSpace()
-        {
-            return Chars.WhiteSpaceExceptNewLine().OneMany().EndOfLineOrBeforeCarriageReturn();
-        }
-
-        public static QuantifiableExpression LeadingTrailingWhiteSpace()
-        {
-            return Alternations.Any(LeadingWhiteSpace(), TrailingWhiteSpace());
-        }
-
-        public static QuantifiableExpression WhiteSpaceLines()
-        {
-            return Alternations.Any(Anchors
-                    .StartOfLineInvariant().WhiteSpace().MaybeMany().NewLine(),
-                    NewLine().WhiteSpace().MaybeMany().End());
-        }
-
-        public static QuantifiableExpression EmptyLines()
-        {
-            return Alternations.Any(Anchors
-                    .StartOfLineInvariant().NewLine(),
-                    NewLine().OneMany().End());
-        }
-
-        public static Expression FirstLine()
-        {
-            return Anchors
-                .Start()
-                .NotNewLineChar().MaybeMany();
-        }
-
         public static QuantifiableExpression NewLine()
         {
             return Chars.CarriageReturn().Maybe().Linefeed().AsNoncapturing();
