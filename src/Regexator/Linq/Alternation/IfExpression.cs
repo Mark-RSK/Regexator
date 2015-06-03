@@ -10,20 +10,20 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
         private readonly object _condition;
 
-        internal IfExpression(object condition, object trueContent)
-            : this(condition, trueContent, null)
+        internal IfExpression(object testContent, object trueContent)
+            : this(testContent, trueContent, null)
         {
         }
 
-        internal IfExpression(object condition, object trueContent, object falseContent)
+        internal IfExpression(object testContent, object trueContent, object falseContent)
             : base(trueContent, falseContent)
         {
-            if (condition == null)
+            if (testContent == null)
             {
-                throw new ArgumentNullException("condition");
+                throw new ArgumentNullException("testContent");
             }
 
-            _condition = condition;
+            _condition = testContent;
         }
 
         protected override IEnumerable<string> EnumerateCondition(BuildContext context)

@@ -107,14 +107,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Alternations.IfGroup(groupNumber, trueContent, falseContent));
         }
 
-        public QuantifiableExpression If(Expression condition, object trueContent)
+        public QuantifiableExpression If(Expression testContent, object trueContent)
         {
-            return ConcatInternal(Alternations.If(condition, trueContent));
+            return ConcatInternal(Alternations.If(testContent, trueContent));
         }
 
-        public QuantifiableExpression If(Expression condition, object trueContent, object falseContent)
+        public QuantifiableExpression If(Expression testContent, object trueContent, object falseContent)
         {
-            return ConcatInternal(Alternations.If(condition, trueContent, falseContent));
+            return ConcatInternal(Alternations.If(testContent, trueContent, falseContent));
         }
 
         public Expression Or()

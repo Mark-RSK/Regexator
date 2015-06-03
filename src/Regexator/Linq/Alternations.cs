@@ -36,14 +36,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new GroupNumberIfExpression(groupNumber, trueContent, falseContent);
         }
 
-        public static QuantifiableExpression If(Expression condition, object trueContent)
+        public static QuantifiableExpression If(Expression testContent, object trueContent)
         {
-            return new IfExpression(condition, trueContent);
+            return new IfExpression(testContent, trueContent);
         }
 
-        public static QuantifiableExpression If(Expression condition, object trueContent, object falseContent)
+        public static QuantifiableExpression If(Expression testContent, object trueContent, object falseContent)
         {
-            return new IfExpression(condition, trueContent, falseContent);
+            return new IfExpression(testContent, trueContent, falseContent);
         }
 
         public static Expression Or()
