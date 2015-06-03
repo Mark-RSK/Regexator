@@ -10,17 +10,25 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public QuantifiableExpression DisallowGroup(string groupName)
         {
             RegexUtilities.CheckGroupName(groupName);
+
             return ConcatInternal(Alternations.IfGroup(groupName, Expressions.Never()));
         }
 
-        public QuantifiableExpression DisallowGroups(string groupName1, string groupName2)
+        public Expression DisallowGroups(params string[] groupNames)
         {
-            return DisallowGroup(groupName1).DisallowGroup(groupName2);
-        }
+            if (groupNames == null || groupNames.Length == 0)
+            {
+                return Expression.Empty;
+            }
 
-        public QuantifiableExpression DisallowGroups(string groupName1, string groupName2, string groupName3)
-        {
-            return DisallowGroups(groupName1, groupName2).DisallowGroup(groupName3);
+            Expression exp = DisallowGroup(groupNames[0]);
+
+            for (int i = 1; i < groupNames.Length; i++)
+            {
+                exp = exp.DisallowGroup(groupNames[i]);
+            }
+
+            return exp;
         }
 
         public QuantifiableExpression DisallowGroup(int groupNumber)
@@ -29,33 +37,49 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 throw new ArgumentOutOfRangeException("groupNumber");
             }
+
             return ConcatInternal(Alternations.IfGroup(groupNumber, Expressions.Never()));
         }
 
-        public QuantifiableExpression DisallowGroups(int groupNumber1, int groupNumber2)
+        public Expression DisallowGroups(params int[] groupNumbers)
         {
-            return DisallowGroup(groupNumber1).DisallowGroup(groupNumber2);
-        }
+            if (groupNumbers == null || groupNumbers.Length == 0)
+            {
+                return Expression.Empty;
+            }
 
-        public QuantifiableExpression DisallowGroups(int groupNumber1, int groupNumber2, int groupNumber3)
-        {
-            return DisallowGroups(groupNumber1, groupNumber2).DisallowGroup(groupNumber3);
+            Expression exp = DisallowGroup(groupNumbers[0]);
+
+            for (int i = 1; i < groupNumbers.Length; i++)
+            {
+                exp = exp.DisallowGroup(groupNumbers[i]);
+            }
+
+            return exp;
         }
 
         public QuantifiableExpression RequireGroup(string groupName)
         {
             RegexUtilities.CheckGroupName(groupName);
-            return ConcatInternal(Alternations.IfGroup(groupName, new Expression(), Expressions.Never()));
+
+            return ConcatInternal(Alternations.IfGroup(groupName, Expression.Empty, Expressions.Never()));
         }
 
-        public QuantifiableExpression RequireGroups(string groupName1, string groupName2)
+        public Expression RequireGroups(params string[] groupNames)
         {
-            return RequireGroup(groupName1).RequireGroup(groupName2);
-        }
+            if (groupNames == null || groupNames.Length == 0)
+            {
+                return Expression.Empty;
+            }
 
-        public QuantifiableExpression RequireGroups(string groupName1, string groupName2, string groupName3)
-        {
-            return RequireGroups(groupName1, groupName2).RequireGroup(groupName3);
+            Expression exp = RequireGroup(groupNames[0]);
+
+            for (int i = 1; i < groupNames.Length; i++)
+            {
+                exp = exp.RequireGroup(groupNames[i]);
+            }
+
+            return exp;
         }
 
         public QuantifiableExpression RequireGroup(int groupNumber)
@@ -64,17 +88,25 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 throw new ArgumentOutOfRangeException("groupNumber");
             }
-            return ConcatInternal(Alternations.IfGroup(groupNumber, new Expression(), Expressions.Never()));
+
+            return ConcatInternal(Alternations.IfGroup(groupNumber, Expression.Empty, Expressions.Never()));
         }
 
-        public QuantifiableExpression RequireGroups(int groupNumber1, int groupNumber2)
+        public Expression RequireGroups(params int[] groupNumbers)
         {
-            return RequireGroup(groupNumber1).RequireGroup(groupNumber2);
-        }
+            if (groupNumbers == null || groupNumbers.Length == 0)
+            {
+                return Expression.Empty;
+            }
 
-        public QuantifiableExpression RequireGroups(int groupNumber1, int groupNumber2, int groupNumber3)
-        {
-            return RequireGroups(groupNumber1, groupNumber2).RequireGroup(groupNumber3);
+            Expression exp = RequireGroup(groupNumbers[0]);
+
+            for (int i = 1; i < groupNumbers.Length; i++)
+            {
+                exp = exp.RequireGroup(groupNumbers[i]);
+            }
+
+            return exp;
         }
 
         public QuantifiableExpression Any(IEnumerable<object> content)
