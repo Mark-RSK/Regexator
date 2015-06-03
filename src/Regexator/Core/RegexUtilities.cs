@@ -498,7 +498,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                 if (_isValidGroupName == null)
                 {
                     _isValidGroupName = Alternations.Any(
-                        Chars.Range('1', '9').ArabicDigit().MaybeMany().AsCapturing(),
+                        Chars.CharRange('1', '9').ArabicDigit().MaybeMany().AsCapturing(),
                         Chars.WordChar().Except(Chars.ArabicDigit()).WordChar().MaybeMany()
                     ).AsEntireInput().ToRegex();
                 }

@@ -16,7 +16,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override string Content
         {
-            get { return Syntax.Range(_first, _last); }
+            get { return Syntax.CharRange(_first, _last); }
         }
     }
 }

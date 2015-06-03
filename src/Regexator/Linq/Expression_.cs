@@ -417,24 +417,24 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotChar(item));
         }
 
-        public QuantifiableExpression Range(char first, char last)
+        public QuantifiableExpression CharRange(char first, char last)
         {
-            return ConcatInternal(Chars.Range(first, last));
+            return ConcatInternal(Chars.CharRange(first, last));
         }
 
-        public QuantifiableExpression Range(int firstCharCode, int lastCharCode)
+        public QuantifiableExpression CharRange(int firstCharCode, int lastCharCode)
         {
-            return ConcatInternal(Chars.Range(firstCharCode, lastCharCode));
+            return ConcatInternal(Chars.CharRange(firstCharCode, lastCharCode));
         }
 
-        public QuantifiableExpression NotRange(char first, char last)
+        public QuantifiableExpression NotCharRange(char first, char last)
         {
-            return ConcatInternal(Chars.NotRange(first, last));
+            return ConcatInternal(Chars.NotCharRange(first, last));
         }
 
-        public QuantifiableExpression NotRange(int firstCharCode, int lastCharCode)
+        public QuantifiableExpression NotCharRange(int firstCharCode, int lastCharCode)
         {
-            return ConcatInternal(Chars.NotRange(firstCharCode, lastCharCode));
+            return ConcatInternal(Chars.NotCharRange(firstCharCode, lastCharCode));
         }
 
         public QuantifiableExpression Subtract(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
