@@ -16,34 +16,34 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new AnyExpression(content);
         }
 
-        public static QuantifiableExpression IfGroup(string groupName, object yes)
+        public static QuantifiableExpression IfGroup(string groupName, object trueContent)
         {
-            return new GroupNameIfExpression(groupName, yes);
+            return new GroupNameIfExpression(groupName, trueContent);
         }
 
-        public static QuantifiableExpression IfGroup(string groupName, object yes, object no)
+        public static QuantifiableExpression IfGroup(string groupName, object trueContent, object falseContent)
         {
-            return new GroupNameIfExpression(groupName, yes, no);
+            return new GroupNameIfExpression(groupName, trueContent, falseContent);
         }
 
-        public static QuantifiableExpression IfGroup(int groupNumber, object yes)
+        public static QuantifiableExpression IfGroup(int groupNumber, object trueContent)
         {
-            return new GroupNumberIfExpression(groupNumber, yes);
+            return new GroupNumberIfExpression(groupNumber, trueContent);
         }
 
-        public static QuantifiableExpression IfGroup(int groupNumber, object yes, object no)
+        public static QuantifiableExpression IfGroup(int groupNumber, object trueContent, object falseContent)
         {
-            return new GroupNumberIfExpression(groupNumber, yes, no);
+            return new GroupNumberIfExpression(groupNumber, trueContent, falseContent);
         }
 
-        public static QuantifiableExpression If(Expression condition, object yes)
+        public static QuantifiableExpression If(Expression condition, object trueContent)
         {
-            return new IfExpression(condition, yes);
+            return new IfExpression(condition, trueContent);
         }
 
-        public static QuantifiableExpression If(Expression condition, object yes, object no)
+        public static QuantifiableExpression If(Expression condition, object trueContent, object falseContent)
         {
-            return new IfExpression(condition, yes, no);
+            return new IfExpression(condition, trueContent, falseContent);
         }
 
         public static Expression Or()

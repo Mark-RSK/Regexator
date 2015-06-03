@@ -10,13 +10,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
         private readonly int _groupNumber;
 
-        internal GroupNumberIfExpression(int groupNumber, object yes)
-            : this(groupNumber, yes, null)
+        internal GroupNumberIfExpression(int groupNumber, object trueContent)
+            : this(groupNumber, trueContent, null)
         {
         }
 
-        internal GroupNumberIfExpression(int groupNumber, object yes, object no)
-            : base(yes, no)
+        internal GroupNumberIfExpression(int groupNumber, object trueContent, object falseContent)
+            : base(trueContent, falseContent)
         {
             if (groupNumber < 0)
             {

@@ -8,19 +8,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal abstract class AlternationExpression
         : QuantifiableExpression
     {
-        private readonly object _yes;
-        private readonly object _no;
+        private readonly object _trueContent;
+        private readonly object _falseContent;
 
-        protected AlternationExpression(object yes, object no)
+        protected AlternationExpression(object trueContent, object falseContent)
             : base()
         {
-            if (yes == null)
+            if (trueContent == null)
             {
-                throw new ArgumentNullException("yes");
+                throw new ArgumentNullException("trueContent");
             }
 
-            _yes = yes;
-            _no = no;
+            _trueContent = trueContent;
+            _falseContent = falseContent;
         }
 
         protected abstract IEnumerable<string> EnumerateCondition(BuildContext context);
@@ -31,14 +31,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 yield return value;
             }
-            foreach (var value in Expression.EnumerateValues(_yes, context))
+
+            foreach (var value in Expression.EnumerateValues(_trueContent, context))
             {
                 yield return value;
             }
-            if (_no != null)
+
+            if (_falseContent != null)
             {
                 yield return Syntax.Or;
-                foreach (var value in Expression.EnumerateValues(_no, context))
+                foreach (var value in Expression.EnumerateValues(_falseContent, context))
                 {
                     yield return value;
                 }

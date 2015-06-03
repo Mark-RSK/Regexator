@@ -87,34 +87,34 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Alternations.Any(content));
         }
 
-        public QuantifiableExpression IfGroup(string groupName, object yes)
+        public QuantifiableExpression IfGroup(string groupName, object trueContent)
         {
-            return ConcatInternal(Alternations.IfGroup(groupName, yes));
+            return ConcatInternal(Alternations.IfGroup(groupName, trueContent));
         }
 
-        public QuantifiableExpression IfGroup(string groupName, object yes, object no)
+        public QuantifiableExpression IfGroup(string groupName, object trueContent, object falseContent)
         {
-            return ConcatInternal(Alternations.IfGroup(groupName, yes, no));
+            return ConcatInternal(Alternations.IfGroup(groupName, trueContent, falseContent));
         }
 
-        public QuantifiableExpression IfGroup(int groupNumber, object yes)
+        public QuantifiableExpression IfGroup(int groupNumber, object trueContent)
         {
-            return ConcatInternal(Alternations.IfGroup(groupNumber, yes));
+            return ConcatInternal(Alternations.IfGroup(groupNumber, trueContent));
         }
 
-        public QuantifiableExpression IfGroup(int groupNumber, object yes, object no)
+        public QuantifiableExpression IfGroup(int groupNumber, object trueContent, object falseContent)
         {
-            return ConcatInternal(Alternations.IfGroup(groupNumber, yes, no));
+            return ConcatInternal(Alternations.IfGroup(groupNumber, trueContent, falseContent));
         }
 
-        public QuantifiableExpression If(Expression condition, object yes)
+        public QuantifiableExpression If(Expression condition, object trueContent)
         {
-            return ConcatInternal(Alternations.If(condition, yes));
+            return ConcatInternal(Alternations.If(condition, trueContent));
         }
 
-        public QuantifiableExpression If(Expression condition, object yes, object no)
+        public QuantifiableExpression If(Expression condition, object trueContent, object falseContent)
         {
-            return ConcatInternal(Alternations.If(condition, yes, no));
+            return ConcatInternal(Alternations.If(condition, trueContent, falseContent));
         }
 
         public Expression Or()

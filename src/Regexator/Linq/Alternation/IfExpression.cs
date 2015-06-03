@@ -10,13 +10,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
         private readonly object _condition;
 
-        internal IfExpression(object condition, object yes)
-            : this(condition, yes, null)
+        internal IfExpression(object condition, object trueContent)
+            : this(condition, trueContent, null)
         {
         }
 
-        internal IfExpression(object condition, object yes, object no)
-            : base(yes, no)
+        internal IfExpression(object condition, object trueContent, object falseContent)
+            : base(trueContent, falseContent)
         {
             if (condition == null)
             {
