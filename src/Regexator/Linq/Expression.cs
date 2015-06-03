@@ -17,7 +17,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         private static readonly object _syncRoot = new object();
         internal static readonly Expression Empty = new Expression();
 
-        public Expression()
+        protected Expression()
         {
         }
 
