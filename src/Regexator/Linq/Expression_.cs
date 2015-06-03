@@ -1851,10 +1851,5 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             return ConcatInternal(Chars.NotNewLineChar());
         }
-
-        public Expression Text(string value)
-        {
-            return ConcatInternal(Expressions.Text(value));
-        }
     }
 }

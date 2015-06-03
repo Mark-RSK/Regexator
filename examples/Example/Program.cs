@@ -12,7 +12,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             var exp = Expressions.LessThanGreaterThan(
                 Chars.ExclamationMark().SquareBrackets(
-                    Expressions.Text("CDATA").SquareBrackets(
+                    Expression.Create("CDATA").SquareBrackets(
                         Chars.AnyMaybeManyLazyInvariant()
                     )
                 )
@@ -37,7 +37,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine(Anchors
                 .WordBoundary()
                 .Noncapturing(Alternations
-                    .Any(values.Select(f => Expressions.Text(f).Capturing()))
+                    .Any(values.Select(f => Expression.Create(f).Capturing()))
                     .WordBoundary()
                     .NotWordChar().MaybeMany().Lazy()
                 ).CountFrom(3)
@@ -59,7 +59,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 .Digit().OneMany()
                 .Assert(Groups
                     .MaybeMany(Anchors.NotAssert("<b>").Any())
-                    .Text("</b>")));
+                    .Concat("</b>")));
             Console.WriteLine("");
 
             Console.WriteLine("repeated word");

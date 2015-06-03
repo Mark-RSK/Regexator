@@ -63,11 +63,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new InlineCommentExpression(value);
         }
 
-        public static Expression Text(string value)
-        {
-            return new TextExpression(value);
-        }
-
         internal static Expression Surround(object value, object surroundValue)
         {
             return new SurroundExpression(value, surroundValue, surroundValue);
