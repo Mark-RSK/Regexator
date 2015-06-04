@@ -8,7 +8,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         : Expression
     {
         private readonly string _comment;
-        private static readonly Expression s_trimCommentExpression = Anchors.Start().NotRightParenthesis().MaybeMany();
+        private static readonly Expression s_trimCommentExpression = Anchors.StartOfInput().NotRightParenthesis().MaybeMany();
 
         internal InlineCommentExpression(string comment)
         {

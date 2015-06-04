@@ -23,20 +23,20 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             return Alternations.Any(Anchors
                 .StartOfLineInvariant().WhiteSpace().MaybeMany().NewLine(),
-                Expressions.NewLine().WhiteSpace().MaybeMany().End());
+                Expressions.NewLine().WhiteSpace().MaybeMany().EndOfInput());
         }
 
         public static QuantifiableExpression EmptyLines()
         {
             return Alternations.Any(Anchors
                 .StartOfLineInvariant().NewLine(),
-                Expressions.NewLine().OneMany().End());
+                Expressions.NewLine().OneMany().EndOfInput());
         }
 
         public static Expression FirstLine()
         {
             return Anchors
-                .Start()
+                .StartOfInput()
                 .NotNewLineChar().MaybeMany();
         }
     }

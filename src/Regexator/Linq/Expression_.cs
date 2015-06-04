@@ -154,9 +154,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Alternations.Or());
         }
 
-        public QuantifiableExpression Start()
+        public QuantifiableExpression StartOfInput()
         {
-            return ConcatInternal(Anchors.Start());
+            return ConcatInternal(Anchors.StartOfInput());
         }
 
         public QuantifiableExpression StartOfLine()
@@ -167,6 +167,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public QuantifiableExpression StartOfLineInvariant()
         {
             return ConcatInternal(Anchors.StartOfLineInvariant());
+        }
+
+        public QuantifiableExpression EndOfInput()
+        {
+            return ConcatInternal(Anchors.EndOfInput());
         }
 
         public QuantifiableExpression EndOfLine()
@@ -192,11 +197,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         internal QuantifiableExpression EndOfLine(bool beforeCarriageReturn, bool invariant)
         {
             return ConcatInternal(Anchors.EndOfLine(beforeCarriageReturn, invariant));
-        }
-
-        public QuantifiableExpression End()
-        {
-            return ConcatInternal(Anchors.End());
         }
 
         public QuantifiableExpression EndOrBeforeEndingNewLine()

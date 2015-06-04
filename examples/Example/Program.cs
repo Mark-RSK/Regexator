@@ -98,18 +98,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("whitespace lines:");
             Console.WriteLine(Alternations.Any(Anchors
                     .StartOfLineInvariant().WhiteSpace().MaybeMany().NewLine(),
-                    Expressions.NewLine().WhiteSpace().MaybeMany().End()));
+                    Expressions.NewLine().WhiteSpace().MaybeMany().EndOfInput()));
             Console.WriteLine("");
 
             Console.WriteLine("empty lines:");
             Console.WriteLine(Alternations.Any(Anchors
                     .StartOfLineInvariant().NewLine(),
-                    Expressions.NewLine().OneMany().End()));
+                    Expressions.NewLine().OneMany().EndOfInput()));
             Console.WriteLine("");
 
             Console.WriteLine("first line:");
             Console.WriteLine(Anchors
-                .Start()
+                .StartOfInput()
                 .NotNewLineChar().MaybeMany());
             Console.WriteLine("");
 
