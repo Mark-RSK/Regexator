@@ -34,10 +34,5 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             get { return _assertionKind; }
         }
-
-        internal override ExpressionKind Kind
-        {
-            get { return ExpressionKind.Assertion; }
-        }
     }
 }

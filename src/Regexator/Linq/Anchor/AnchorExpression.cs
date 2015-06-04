@@ -5,9 +5,5 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal abstract class AnchorExpression
         : QuantifiableExpression
     {
-        internal override ExpressionKind Kind
-        {
-            get { return ExpressionKind.Anchor; }
-        }
     }
 }

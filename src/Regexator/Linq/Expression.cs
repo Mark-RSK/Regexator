@@ -686,10 +686,5 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             get { return _previous; }
             set { _previous = value; }
         }
-
-        internal virtual ExpressionKind Kind
-        {
-            get { return ExpressionKind.None; }
-        }
     }
 }

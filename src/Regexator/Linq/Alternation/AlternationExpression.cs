@@ -56,10 +56,5 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             return Syntax.GroupEnd;
         }
-
-        internal override ExpressionKind Kind
-        {
-            get { return ExpressionKind.If; }
-        }
     }
 }

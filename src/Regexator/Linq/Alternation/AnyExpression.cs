@@ -94,10 +94,5 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             get { return _groupMode; }
         }
-
-        internal override ExpressionKind Kind
-        {
-            get { return ExpressionKind.Any; }
-        }
     }
 }

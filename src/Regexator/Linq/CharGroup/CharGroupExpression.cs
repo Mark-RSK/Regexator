@@ -35,10 +35,5 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             get { return false; }
         }
-
-        internal override ExpressionKind Kind
-        {
-            get { return ExpressionKind.CharGroup; }
-        }
     }
 }

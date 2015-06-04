@@ -26,10 +26,5 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             get { return _isLazy; }
         }
-
-        internal override ExpressionKind Kind
-        {
-            get { return ExpressionKind.Quantifier; }
-        }
     }
 }
