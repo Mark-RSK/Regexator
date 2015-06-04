@@ -97,8 +97,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             Console.WriteLine("whitespace lines:");
             Console.WriteLine(Alternations.Any(Anchors
-                    .StartOfLineInvariant().WhiteSpace().MaybeMany().NewLine(),
-                    Expressions.NewLine().WhiteSpace().MaybeMany().EndOfInput()));
+                    .StartOfLineInvariant().SkipWhiteSpace().NewLine(),
+                    Expressions.NewLine().SkipWhiteSpace().EndOfInput()));
             Console.WriteLine("");
 
             Console.WriteLine("empty lines:");

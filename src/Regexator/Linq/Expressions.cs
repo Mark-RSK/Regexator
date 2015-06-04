@@ -1,15 +1,11 @@
 // Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public static class Expressions
     {
 
-//#if DEBUG
+#if DEBUG
         public static Expression Fill()
         {
             return Chars.Any().MaybeMany().Lazy();
@@ -19,7 +15,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             return Chars.AnyInvariant().MaybeMany().Lazy();
         }
-//#endif
+#endif
 
         public static QuantifiableExpression Apostrophes(object content)
         {
