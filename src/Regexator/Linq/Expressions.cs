@@ -8,6 +8,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public static class Expressions
     {
+
+//#if DEBUG
+        public static Expression Fill()
+        {
+            return Chars.Any().MaybeMany().Lazy();
+        }
+
+        public static Expression FillInvariant()
+        {
+            return Chars.AnyInvariant().MaybeMany().Lazy();
+        }
+//#endif
+
         public static QuantifiableExpression Apostrophes(object content)
         {
             return Surround(content, AsciiChar.Apostrophe).AsNoncapturing();

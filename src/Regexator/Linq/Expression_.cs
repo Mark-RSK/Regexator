@@ -554,6 +554,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.AnyMaybeManyLazy());
         }
 
+#if DEBUG
+        public Expression Fill()
+        {
+            return ConcatInternal(Expressions.Fill());
+        }
+
+        public Expression FillInvariant()
+        {
+            return ConcatInternal(Expressions.FillInvariant());
+        }
+#endif
+
         public Expression AnyMaybeManyLazyInvariant()
         {
             return ConcatInternal(Chars.AnyMaybeManyLazyInvariant());

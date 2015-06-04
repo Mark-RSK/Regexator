@@ -13,7 +13,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             var exp = Expressions.LessThanGreaterThan(
                 Chars.ExclamationMark().SquareBrackets(
                     Expression.Create("CDATA").SquareBrackets(
-                        Chars.AnyMaybeManyLazyInvariant()
+                        Expressions.FillInvariant()
                     )
                 )
             );
@@ -76,8 +76,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             Console.WriteLine("words in any order:");
             Console.WriteLine(Anchors.StartOfLine()
-                .Assert(Chars.AnyMaybeManyLazyInvariant().Word("word1"))
-                .Assert(Chars.AnyMaybeManyLazyInvariant().Word("word2"))
+                .Assert(Expressions.FillInvariant().Word("word1"))
+                .Assert(Expressions.FillInvariant().Word("word2"))
                 .AnyInvariant().MaybeMany());
             Console.WriteLine("");
 
