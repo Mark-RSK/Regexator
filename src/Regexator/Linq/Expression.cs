@@ -31,7 +31,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Expression expression = content as Expression;
             if (expression != null)
             {
-                return expression;
+                return expression.AsContainer();
             }
 
             string text = content as string;
@@ -194,7 +194,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public Expression Concat(Expression expression)
         {
-            return ConcatInternal(new ContainerExpression(expression));
+            if (expression == null)
+            {
+                throw new ArgumentNullException("expression");
+            }
+
+            return ConcatInternal(expression.AsContainer());
         }
 
         public Expression Concat(string text)
@@ -438,6 +443,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         internal virtual string Value(BuildContext context)
         {
             return null;
+        }
+
+        internal Expression AsContainer()
+        {
+            return new ContainerExpression(this);
         }
 
         public IEnumerable<Match> Matches(string input)
