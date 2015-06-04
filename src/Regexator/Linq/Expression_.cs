@@ -214,9 +214,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Anchors.WordBoundary());
         }
 
-        public Expression Word(object content)
+        public QuantifiableExpression Word(string text)
         {
-            return ConcatInternal(Anchors.Word(content));
+            return ConcatInternal(Anchors.Word(text));
+        }
+
+        public QuantifiableExpression Word(params string[] values)
+        {
+            return ConcatInternal(Anchors.Word(values));
         }
 
         public QuantifiableExpression NotWordBoundary()

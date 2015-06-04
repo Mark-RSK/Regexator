@@ -63,14 +63,15 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("");
 
             Console.WriteLine("repeated word");
-            Console.WriteLine(Anchors.Word(Chars
+            Console.WriteLine(Anchors.WordBoundary()
                 .WordChar().OneMany().AsCapturing()
                 .WhiteSpace().OneMany()
-                .Backreference(1)));
+                .Backreference(1)
+                .WordBoundary());
             Console.WriteLine("");
 
             Console.WriteLine("any word");
-            Console.WriteLine(Anchors.Word(Alternations.Any("word1", "word2", "word3")));
+            Console.WriteLine(Anchors.Word("word1", "word2", "word3"));
             Console.WriteLine("");
 
             Console.WriteLine("words in any order:");
