@@ -8,109 +8,154 @@ namespace Pihrtsoft.Text.RegularExpressions.Extensions
 {
     public static class RegexExtensions
     {
-        internal static IEnumerable<Match> EnumerateMatches(this Regex regex, string input)
+        public static IEnumerable<Match> EnumerateMatches(this Regex regex, string input)
         {
             return EnumerateMatches(regex, input, (f) => regex.Match(f));
         }
 
-        internal static IEnumerable<Match> EnumerateMatches(this Regex regex, string input, int startAt)
+        public static IEnumerable<Match> EnumerateMatches(this Regex regex, string input, int startAt)
         {
             return EnumerateMatches(regex, input, (f) => regex.Match(f, startAt));
         }
 
-        internal static IEnumerable<Match> EnumerateMatches(this Regex regex, string input, int beginning, int length)
+        public static IEnumerable<Match> EnumerateMatches(this Regex regex, string input, int beginning, int length)
         {
             return EnumerateMatches(regex, input, (f) => regex.Match(f, beginning, length));
         }
 
-        internal static IEnumerable<Group> EnumerateGroups(this Regex regex, string input)
+        public static IEnumerable<Group> EnumerateGroups(this Regex regex, string input)
         {
             return EnumerateMatches(regex, input).EnumerateGroups();
         }
 
-        internal static IEnumerable<Group> EnumerateGroups(this Regex regex, string input, int startAt)
+        public static IEnumerable<Group> EnumerateGroups(this Regex regex, string input, int startAt)
         {
             return EnumerateMatches(regex, input, startAt).EnumerateGroups();
         }
 
-        internal static IEnumerable<Group> EnumerateGroups(this Regex regex, string input, int beginning, int length)
+        public static IEnumerable<Group> EnumerateGroups(this Regex regex, string input, int beginning, int length)
         {
             return EnumerateMatches(regex, input, beginning, length).EnumerateGroups();
         }
 
-        internal static IEnumerable<Group> EnumerateGroups(this Regex regex, string groupName, string input)
+        public static IEnumerable<Group> EnumerateGroups(this Regex regex, string groupName, string input)
         {
             return EnumerateMatches(regex, input).EnumerateGroups(groupName);
         }
 
-        internal static IEnumerable<Group> EnumerateGroups(this Regex regex, string groupName, string input, int startAt)
+        public static IEnumerable<Group> EnumerateGroups(this Regex regex, string groupName, string input, int startAt)
         {
             return EnumerateMatches(regex, input, startAt).EnumerateGroups(groupName);
         }
 
-        internal static IEnumerable<Group> EnumerateGroups(this Regex regex, string groupName, string input, int beginning, int length)
+        public static IEnumerable<Group> EnumerateGroups(this Regex regex, string groupName, string input, int beginning, int length)
         {
             return EnumerateMatches(regex, input, beginning, length).EnumerateGroups(groupName);
         }
 
-        internal static IEnumerable<Group> EnumerateSuccessGroups(this Regex regex, string input)
+        public static IEnumerable<Group> EnumerateGroups(this Regex regex, int groupNumber, string input)
+        {
+            return EnumerateMatches(regex, input).EnumerateGroups(groupNumber);
+        }
+
+        public static IEnumerable<Group> EnumerateGroups(this Regex regex, int groupNumber, string input, int startAt)
+        {
+            return EnumerateMatches(regex, input, startAt).EnumerateGroups(groupNumber);
+        }
+
+        public static IEnumerable<Group> EnumerateGroups(this Regex regex, int groupNumber, string input, int beginning, int length)
+        {
+            return EnumerateMatches(regex, input, beginning, length).EnumerateGroups(groupNumber);
+        }
+
+        public static IEnumerable<Group> EnumerateSuccessGroups(this Regex regex, string input)
         {
             return EnumerateMatches(regex, input).EnumerateSuccessGroups();
         }
 
-        internal static IEnumerable<Group> EnumerateSuccessGroups(this Regex regex, string input, int startAt)
+        public static IEnumerable<Group> EnumerateSuccessGroups(this Regex regex, string input, int startAt)
         {
             return EnumerateMatches(regex, input, startAt).EnumerateSuccessGroups();
         }
 
-        internal static IEnumerable<Group> EnumerateSuccessGroups(this Regex regex, string input, int beginning, int length)
+        public static IEnumerable<Group> EnumerateSuccessGroups(this Regex regex, string input, int beginning, int length)
         {
             return EnumerateMatches(regex, input, beginning, length).EnumerateSuccessGroups();
         }
 
-        internal static IEnumerable<Group> EnumerateSuccessGroups(this Regex regex, string groupName, string input)
+        public static IEnumerable<Group> EnumerateSuccessGroups(this Regex regex, string groupName, string input)
         {
             return EnumerateMatches(regex, input).EnumerateSuccessGroups(groupName);
         }
 
-        internal static IEnumerable<Group> EnumerateSuccessGroups(this Regex regex, string groupName, string input, int startAt)
+        public static IEnumerable<Group> EnumerateSuccessGroups(this Regex regex, string groupName, string input, int startAt)
         {
             return EnumerateMatches(regex, input, startAt).EnumerateSuccessGroups(groupName);
         }
 
-        internal static IEnumerable<Group> EnumerateSuccessGroups(this Regex regex, string groupName, string input, int beginning, int length)
+        public static IEnumerable<Group> EnumerateSuccessGroups(this Regex regex, string groupName, string input, int beginning, int length)
         {
             return EnumerateMatches(regex, input, beginning, length).EnumerateSuccessGroups(groupName);
         }
 
-        internal static IEnumerable<Capture> EnumerateCaptures(this Regex regex, string input)
+        public static IEnumerable<Group> EnumerateSuccessGroups(this Regex regex, int groupNumber, string input)
+        {
+            return EnumerateMatches(regex, input).EnumerateSuccessGroups(groupNumber);
+        }
+
+        public static IEnumerable<Group> EnumerateSuccessGroups(this Regex regex, int groupNumber, string input, int startAt)
+        {
+            return EnumerateMatches(regex, input, startAt).EnumerateSuccessGroups(groupNumber);
+        }
+
+        public static IEnumerable<Group> EnumerateSuccessGroups(this Regex regex, int groupNumber, string input, int beginning, int length)
+        {
+            return EnumerateMatches(regex, input, beginning, length).EnumerateSuccessGroups(groupNumber);
+        }
+
+        public static IEnumerable<Capture> EnumerateCaptures(this Regex regex, string input)
         {
             return EnumerateMatches(regex, input).EnumerateCaptures();
         }
 
-        internal static IEnumerable<Capture> EnumerateCaptures(this Regex regex, string input, int startAt)
+        public static IEnumerable<Capture> EnumerateCaptures(this Regex regex, string input, int startAt)
         {
             return EnumerateMatches(regex, input, startAt).EnumerateCaptures();
         }
 
-        internal static IEnumerable<Capture> EnumerateCaptures(this Regex regex, string input, int beginning, int length)
+        public static IEnumerable<Capture> EnumerateCaptures(this Regex regex, string input, int beginning, int length)
         {
             return EnumerateMatches(regex, input, beginning, length).EnumerateCaptures();
         }
 
-        internal static IEnumerable<Capture> EnumerateCaptures(this Regex regex, string groupName, string input)
+        public static IEnumerable<Capture> EnumerateCaptures(this Regex regex, string groupName, string input)
         {
             return EnumerateMatches(regex, input).EnumerateCaptures(groupName);
         }
 
-        internal static IEnumerable<Capture> EnumerateCaptures(this Regex regex, string groupName, string input, int startAt)
+        public static IEnumerable<Capture> EnumerateCaptures(this Regex regex, string groupName, string input, int startAt)
         {
             return EnumerateMatches(regex, input, startAt).EnumerateCaptures(groupName);
         }
 
-        internal static IEnumerable<Capture> EnumerateCaptures(this Regex regex, string groupName, string input, int beginning, int length)
+        public static IEnumerable<Capture> EnumerateCaptures(this Regex regex, string groupName, string input, int beginning, int length)
         {
             return EnumerateMatches(regex, input, beginning, length).EnumerateCaptures(groupName);
+        }
+
+        public static IEnumerable<Capture> EnumerateCaptures(this Regex regex, int groupNumber, string input)
+        {
+            return EnumerateMatches(regex, input).EnumerateCaptures(groupNumber);
+        }
+
+        public static IEnumerable<Capture> EnumerateCaptures(this Regex regex, int groupNumber, string input, int startAt)
+        {
+            return EnumerateMatches(regex, input, startAt).EnumerateCaptures(groupNumber);
+        }
+
+        public static IEnumerable<Capture> EnumerateCaptures(this Regex regex, int groupNumber, string input, int beginning, int length)
+        {
+            return EnumerateMatches(regex, input, beginning, length).EnumerateCaptures(groupNumber);
         }
 
         private static IEnumerable<Match> EnumerateMatches(this Regex regex, string input, Func<string, Match> matchFactory)

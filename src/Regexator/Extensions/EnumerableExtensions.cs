@@ -9,7 +9,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Extensions
 {
     public static class EnumerableExtensions
     {
-        internal static IEnumerable<Group> EnumerateGroups(this IEnumerable<Match> matches)
+        public static IEnumerable<Group> EnumerateGroups(this IEnumerable<Match> matches)
         {
             if (matches == null)
             {
@@ -19,7 +19,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Extensions
             return matches.SelectMany(match => match.Groups.Cast<Group>());
         }
 
-        internal static IEnumerable<Group> EnumerateGroups(this IEnumerable<Match> matches, string groupName)
+        public static IEnumerable<Group> EnumerateGroups(this IEnumerable<Match> matches, string groupName)
         {
             if (matches == null)
             {
@@ -34,27 +34,52 @@ namespace Pihrtsoft.Text.RegularExpressions.Extensions
             return matches.Select(match => match.Groups[groupName]);
         }
 
-        internal static IEnumerable<Group> EnumerateSuccessGroups(this IEnumerable<Match> matches)
+        public static IEnumerable<Group> EnumerateGroups(this IEnumerable<Match> matches, int groupNumber)
+        {
+            if (matches == null)
+            {
+                throw new ArgumentNullException("matches");
+            }
+
+            if (groupNumber < 0)
+            {
+                throw new ArgumentOutOfRangeException("groupNumber");
+            }
+
+            return matches.Select(match => match.Groups[groupNumber]);
+        }
+
+        public static IEnumerable<Group> EnumerateSuccessGroups(this IEnumerable<Match> matches)
         {
             return EnumerateGroups(matches).Where(group => group.Success);
         }
 
-        internal static IEnumerable<Group> EnumerateSuccessGroups(this IEnumerable<Match> matches, string groupName)
+        public static IEnumerable<Group> EnumerateSuccessGroups(this IEnumerable<Match> matches, string groupName)
         {
             return EnumerateGroups(matches, groupName).Where(group => group.Success);
         }
 
-        internal static IEnumerable<Capture> EnumerateCaptures(this IEnumerable<Match> matches)
+        public static IEnumerable<Group> EnumerateSuccessGroups(this IEnumerable<Match> matches, int groupNumber)
+        {
+            return EnumerateGroups(matches, groupNumber).Where(group => group.Success);
+        }
+
+        public static IEnumerable<Capture> EnumerateCaptures(this IEnumerable<Match> matches)
         {
             return EnumerateSuccessGroups(matches).EnumerateCaptures();
         }
 
-        internal static IEnumerable<Capture> EnumerateCaptures(this IEnumerable<Match> matches, string groupName)
+        public static IEnumerable<Capture> EnumerateCaptures(this IEnumerable<Match> matches, string groupName)
         {
             return EnumerateSuccessGroups(matches, groupName).EnumerateCaptures();
         }
 
-        internal static IEnumerable<Capture> EnumerateCaptures(this IEnumerable<Group> groups)
+        public static IEnumerable<Capture> EnumerateCaptures(this IEnumerable<Match> matches, int groupNumber)
+        {
+            return EnumerateSuccessGroups(matches, groupNumber).EnumerateCaptures();
+        }
+
+        public static IEnumerable<Capture> EnumerateCaptures(this IEnumerable<Group> groups)
         {
             if (groups == null)
             {
