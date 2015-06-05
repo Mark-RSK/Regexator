@@ -6,7 +6,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         : Expression
     {
         private readonly string _text;
-        private readonly bool _escape;
+        private readonly bool _ignoreCase;
 
         internal TextExpression()
             : this(null)
@@ -14,19 +14,28 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         internal TextExpression(string text)
-            : this(text, true)
+            : this(text, false)
         {
         }
 
-        internal TextExpression(string text, bool escape)
+        internal TextExpression(string text, bool ignoreCase)
         {
             _text = text;
-            _escape = escape;
+            _ignoreCase = ignoreCase;
         }
 
         internal override string Value(BuildContext context)
         {
-            return (_escape && _text != null) ? RegexUtilities.Escape(_text) : _text;
+            if (!string.IsNullOrEmpty(_text))
+            {
+                string text = RegexUtilities.Escape(_text);
+
+                return _ignoreCase
+                    ? Syntax.GroupOptions(InlineOptions.IgnoreCase, text)
+                    : text;
+            }
+
+            return string.Empty;
         }
     }
 }

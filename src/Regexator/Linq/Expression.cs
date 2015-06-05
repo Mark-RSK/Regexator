@@ -204,7 +204,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public Expression Concat(string text)
         {
-            return ConcatInternal(new TextExpression(text));
+            return Concat(text, false);
+        }
+
+        public Expression Concat(string text, bool ignoreCase)
+        {
+            return ConcatInternal(new TextExpression(text, ignoreCase));
         }
 
         internal TExpression ConcatInternal<TExpression>(TExpression expression) where TExpression : Expression
