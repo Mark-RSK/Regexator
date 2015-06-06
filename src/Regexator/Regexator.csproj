@@ -51,8 +51,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extensions\EnumerableExtensions.cs" />
-    <Compile Include="Extensions\MatchExtensions.cs" />
+    <Compile Include="Linq\Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Linq\Extensions\MatchExtensions.cs" />
     <Compile Include="Linq\Anchor\AnchorExpression.cs" />
     <Compile Include="Linq\Anchor\EndOrBeforeEndingNewLine.cs" />
     <Compile Include="Linq\Anchor\NotWordBoundary.cs" />
@@ -193,7 +193,7 @@
     <Compile Include="Core\GroupItemEqualityComparer.cs" />
     <Compile Include="Core\MatchItemEqualityComparer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Extensions\RegexExtensions.cs" />
+    <Compile Include="Linq\Extensions\RegexExtensions.cs" />
     <Compile Include="Core\ReplaceData.cs" />
     <Compile Include="Core\ReplaceItem.cs" />
     <Compile Include="Core\SplitData.cs" />
