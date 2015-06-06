@@ -707,18 +707,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new TextExpression(text);
         }
 
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal string Pattern
-        {
-            get
-            {
-                using (var context = new BuildContext())
-                {
-                    return string.Concat(EnumerateValues(this, context));
-                }
-            }
-        }
-
         public Regex Regex
         {
             get
