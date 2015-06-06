@@ -699,11 +699,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static explicit operator Expression(string text)
         {
-            if (text == null)
-            {
-                throw new ArgumentNullException("text");
-            }
-
             return new TextExpression(text);
         }
 
