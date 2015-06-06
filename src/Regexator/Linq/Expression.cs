@@ -12,7 +12,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public partial class Expression
     {
-        private Expression _previous;
         private Regex _regex;
         private static readonly object _syncRoot = new object();
         internal static readonly Expression Empty = new Expression();
@@ -721,10 +720,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        internal Expression Previous
-        {
-            get { return _previous; }
-            set { _previous = value; }
-        }
+        internal Expression Previous { get; set; }
     }
 }
