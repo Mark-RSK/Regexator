@@ -20,10 +20,12 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 throw new ArgumentNullException("pattern");
             }
+
             if (comment == null)
             {
                 throw new ArgumentNullException("comment");
             }
+
             _pattern = pattern;
             _comment = comment;
         }

@@ -30,14 +30,17 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 throw new ArgumentNullException("regex");
             }
+
             if (input == null)
             {
                 throw new ArgumentNullException("input");
             }
+
             if (limit < 0)
             {
                 throw new ArgumentOutOfRangeException("limit");
             }
+
             _regex = regex;
             _groupInfos = new GroupInfoCollection(regex);
             _input = input;
@@ -64,6 +67,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                 yield return item;
                 item = item.NextItem();
             }
+
             _limitState = (item.Success && item.ItemIndex > 0) ? LimitState.Limited : LimitState.NotLimited;
         }
 
@@ -110,6 +114,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                 {
                     _items = new MatchItemCollection(CreateItems().ToArray(), GroupInfos);
                 }
+
                 return _items;
             }
         }

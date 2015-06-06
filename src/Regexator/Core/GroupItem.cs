@@ -21,6 +21,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             _itemIndex = itemIndex;
             _matchItem = matchItem;
             _key = matchItem.Key + groupInfo.Name;
+
             _captureItems = new CaptureItemCollection(Captures
                 .Cast<Capture>()
                 .Select((c, i) => new CaptureItem(c, this, i))

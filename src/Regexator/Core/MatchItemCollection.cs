@@ -33,6 +33,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                 {
                     _captureItems = new CaptureItemCollection(this.ToCaptureItems().ToArray());
                 }
+
                 return _captureItems;
             }
         }
@@ -49,6 +50,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                         .ToList()
                         .AsReadOnly();
                 }
+
                 return _successGroups;
             }
         }
@@ -64,6 +66,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                         .ToList()
                         .AsReadOnly();
                 }
+
                 return _unsuccessGroups;
             }
         }

@@ -16,10 +16,12 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 return true;
             }
+
             if (x == null || y == null)
             {
                 return false;
             }
+
             return x.GroupItems.SequenceEqual(y.GroupItems, _groupItemEqualityComparer);
         }
 
@@ -33,6 +35,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                     hashCode ^= groupItem.GetHashCode();
                 }
             }
+
             return hashCode;
         }
     }

@@ -42,18 +42,22 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 throw new ArgumentNullException("regex");
             }
+
             if (input == null)
             {
                 throw new ArgumentNullException("input");
             }
+
             if (replacement == null)
             {
                 throw new ArgumentNullException("replacement");
             }
+
             if (limit < 0)
             {
                 throw new ArgumentOutOfRangeException("limit");
             }
+
             _regex = regex;
             _input = input;
             _replacement = replacement;
@@ -64,6 +68,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         private string Replace()
         {
             _lst = new List<ReplaceItem>();
+            
             if (Limit == MatchData.InfiniteLimit)
             {
                 return this.Regex.Replace(Input, Evaluator);
@@ -80,6 +85,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             _lst.Add(item);
             _offset += item.Result.Length - match.Length;
             _count++;
+            
             if (Limit != MatchData.InfiniteLimit && _count == Limit && match.NextMatch().Success)
             {
                 _limitState = LimitState.Limited;
@@ -88,6 +94,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 _limitState = LimitState.NotLimited;
             }
+
             return item.Result.Value;
         }
 
@@ -122,6 +129,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                 {
                     _output = Replace();
                 }
+
                 return _output;
             }
         }
@@ -141,8 +149,10 @@ namespace Pihrtsoft.Text.RegularExpressions
                     {
                         _output = Replace();
                     }
+
                     _items = new ReplaceItemCollection(_lst);
                 }
+
                 return _items;
             }
         }

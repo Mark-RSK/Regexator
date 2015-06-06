@@ -32,6 +32,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                         .ToList()
                         .AsReadOnly();
                 }
+
                 return _successGroups;
             }
         }
@@ -47,6 +48,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                         .ToList()
                         .AsReadOnly();
                 }
+
                 return _unsuccessGroups;
             }
         }

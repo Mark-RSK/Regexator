@@ -24,6 +24,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 throw new ArgumentNullException("info");
             }
+
             _index = info.Index;
             _name = info.Name;
         }

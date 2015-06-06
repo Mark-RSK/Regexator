@@ -13,10 +13,12 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 return true;
             }
+
             if (x == null || y == null)
             {
                 return false;
             }
+
             return x.Index == y.Index && x.Length == y.Length && x.Name == y.Name && x.Value == y.Value;
         }
 
@@ -26,6 +28,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 return obj.Index.GetHashCode() ^ obj.Length.GetHashCode() ^ obj.Name.GetHashCode() ^ obj.Value.GetHashCode();
             }
+
             return 0;
         }
     }

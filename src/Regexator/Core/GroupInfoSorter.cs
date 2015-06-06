@@ -30,14 +30,17 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 return 0;
             }
+
             if (object.ReferenceEquals(x, null))
             {
                 return -1;
             }
+
             if (object.ReferenceEquals(y, null))
             {
                 return 1;
             }
+
             int value = (SortPropertyName == GroupSortProperty.Name) ? string.Compare(x.Name, y.Name, StringComparison.CurrentCulture) : x.Index.CompareTo(y.Index);
             return SortDirection == ListSortDirection.Ascending ? value : -value;
         }

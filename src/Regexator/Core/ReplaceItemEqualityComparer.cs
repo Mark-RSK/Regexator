@@ -16,10 +16,12 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 return true;
             }
+
             if (x == null || y == null)
             {
                 return false;
             }
+
             return _matchEqualityComparer.Equals(x.Match, y.Match) && _resultEqualityComparer.Equals(x.Result, y.Result);
         }
 
@@ -29,6 +31,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 return _matchEqualityComparer.GetHashCode(obj.Match) ^ _resultEqualityComparer.GetHashCode(obj.Result);
             }
+
             return 0;
         }
     }

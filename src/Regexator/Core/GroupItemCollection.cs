@@ -26,6 +26,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                 {
                     _captureCount = Items.ToCaptureItems().Count();
                 }
+
                 return _captureCount;
             }
         }
@@ -42,6 +43,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                         .ToList()
                         .AsReadOnly();
                 }
+
                 return _successGroups;
             }
         }
@@ -58,6 +60,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                         .ToList()
                         .AsReadOnly();
                 }
+
                 return _unsuccessGroups;
             }
         }

@@ -29,14 +29,17 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 throw new ArgumentNullException("regex");
             }
+
             if (input == null)
             {
                 throw new ArgumentNullException("input");
             }
+
             if (limit < 0)
             {
                 throw new ArgumentOutOfRangeException("limit");
             }
+
             _regex = regex;
             _input = input;
             _limit = limit;
@@ -70,6 +73,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         private IEnumerable<SplitItem> CreateItems(Func<SplitItem, bool> predicate)
         {
             var item = new MatchSplitItem(this);
+            
             while (predicate(item))
             {
                 yield return item;
@@ -79,6 +83,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                 }
                 item = item.NextItem();
             }
+
             _limitState = (item.Success && item.ItemIndex > 0) ? LimitState.Limited : LimitState.NotLimited;
         }
 
@@ -95,6 +100,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                 {
                     _values = Array.AsReadOnly(Split());
                 }
+
                 return _values;
             }
         }
@@ -109,8 +115,10 @@ namespace Pihrtsoft.Text.RegularExpressions
                     {
                         _values = Array.AsReadOnly(Split());
                     }
+
                     _items = new SplitItemCollection(CreateItems().ToArray(), GroupInfos);
                 }
+
                 return _items;
             }
         }

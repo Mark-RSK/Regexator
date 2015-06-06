@@ -27,6 +27,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 throw new ArgumentNullException("regex");
             }
+
             return regex.GetGroupNames().Select((n, i) => new GroupInfo(i, n)).ToArray();
         }
 
@@ -36,6 +37,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 throw new ArgumentNullException("groupName");
             }
+
             return _names.ContainsKey(groupName);
         }
 
@@ -45,6 +47,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 throw new ArgumentOutOfRangeException("groupIndex");
             }
+
             return _indexes.ContainsKey(groupIndex);
         }
 
@@ -66,6 +69,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                 {
                     throw new ArgumentNullException("groupName");
                 }
+
                 try
                 {
                     return _names[groupName];

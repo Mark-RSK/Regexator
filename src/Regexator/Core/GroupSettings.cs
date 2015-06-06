@@ -41,6 +41,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 throw new ArgumentNullException("ignoredGroups");
             }
+
             _sortPropertyName = sortPropertyName;
             _sortDirection = sortDirection;
             _ignoredGroups = new ReadOnlyCollection<string>(ignoredGroups);
@@ -55,6 +56,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 throw new ArgumentNullException("settings");
             }
+
             return settings.IgnoredGroups.Count == 0 &&
                 settings.SortProperty == GroupSettings.DefaultSortProperty &&
                 settings.SortDirection == GroupSettings.DefaultSortDirection;
@@ -66,6 +68,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 throw new ArgumentNullException("info");
             }
+
             return IsIgnored(info.Name);
         }
 

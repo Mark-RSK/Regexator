@@ -15,6 +15,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 throw new ArgumentNullException("items");
             }
+
             return items.Select(f => f.Match);
         }
 
@@ -24,6 +25,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 throw new ArgumentNullException("items");
             }
+
             return items.Select(f => f.Match);
         }
 
@@ -33,6 +35,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 throw new ArgumentNullException("items");
             }
+
             return items.ToGroupItems().ToGroups();
         }
 
@@ -42,6 +45,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 throw new ArgumentNullException("items");
             }
+
             return items.Select(f => f.Group);
         }
 
@@ -51,6 +55,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 throw new ArgumentNullException("items");
             }
+
             return items.Select(f => f.GroupInfo);
         }
 
@@ -60,6 +65,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 throw new ArgumentNullException("items");
             }
+
             return items.ToGroupItems().ToCaptures();
         }
 
@@ -69,6 +75,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 throw new ArgumentNullException("items");
             }
+
             return items.ToCaptureItems().ToCaptures();
         }
 
@@ -78,6 +85,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 throw new ArgumentNullException("items");
             }
+
             return items.Select(f => f.Capture);
         }
 
@@ -87,6 +95,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 throw new ArgumentNullException("items");
             }
+
             return items.SelectMany(f => f.GroupItems);
         }
 
@@ -96,6 +105,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 throw new ArgumentNullException("items");
             }
+
             return items.ToGroupItems(f => f.GroupInfo.Index == groupIndex);
         }
 
@@ -105,6 +115,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 throw new ArgumentNullException("items");
             }
+
             return items.ToGroupItems(f => f.Name == groupName);
         }
 
@@ -114,6 +125,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 throw new ArgumentNullException("items");
             }
+
             return successOnly ? items.ToGroupItems(f => f.Success) : items.ToGroupItems();
         }
 
@@ -123,6 +135,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 throw new ArgumentNullException("items");
             }
+
             return items.ToGroupItems().Where(predicate);
         }
 
@@ -132,6 +145,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 throw new ArgumentNullException("items");
             }
+
             return items.ToGroupItems().ToCaptureItems();
         }
 
@@ -141,6 +155,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 throw new ArgumentNullException("items");
             }
+
             return items.SelectMany(f => f.CaptureItems);
         }
 
@@ -150,6 +165,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 throw new ArgumentNullException("items");
             }
+
             return items.Select(f => f.Result);
         }
 
@@ -159,6 +175,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 throw new ArgumentNullException("collection");
             }
+
             return collection.Select(f => f.Name);
         }
 
@@ -168,6 +185,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 throw new ArgumentNullException("collection");
             }
+
             return collection.Select(f => f.Index);
         }
 
@@ -177,6 +195,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 throw new ArgumentNullException("collection");
             }
+
             return collection.Where(f => f.Index != 0);
         }
 
@@ -186,10 +205,12 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 throw new ArgumentNullException("items");
             }
+
             if (settings == null)
             {
                 throw new ArgumentNullException("settings");
             }
+
             return items
                 .Where(f => !settings.IsIgnored(f.Name))
                 .OrderBy(f => f.GroupInfo, settings.Sorter);

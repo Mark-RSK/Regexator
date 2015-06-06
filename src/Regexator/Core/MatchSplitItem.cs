@@ -29,6 +29,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 throw new ArgumentNullException("data");
             }
+
             _context = new SplitContext(data);
             _match = data.Match();
             _success = true;
@@ -63,6 +64,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                 {
                     _splitItems = CreateItems().ToList().AsReadOnly();
                 }
+            
                 return _splitItems;
             }
         }
@@ -70,6 +72,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         private IEnumerable<SplitItem> CreateItems()
         {
             int index = ItemIndex + 1;
+
             if (_match.Success)
             {
                 foreach (var info in _context.GroupInfos)
