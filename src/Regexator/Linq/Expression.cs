@@ -202,6 +202,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(expression.AsContainer());
         }
 
+#if DEBUG
         public Expression Concat(string text)
         {
             return Concat(text, false);
@@ -211,6 +212,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             return ConcatInternal(new TextExpression(text, ignoreCase));
         }
+#else
+        public Expression Concat(string text)
+        {
+            return ConcatInternal(new TextExpression(text));
+        }
+#endif
 
         internal TExpression ConcatInternal<TExpression>(TExpression expression) where TExpression : Expression
         {
