@@ -230,23 +230,21 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static string GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, string text)
         {
-            return GroupOptionsStart(applyOptions, disableOptions) + text + GroupEnd;
+            string start = GroupOptionsStart(applyOptions, disableOptions);
+
+            return (!string.IsNullOrEmpty(start))
+                ? start + text + GroupEnd
+                : text;
+
         }
 
         internal static string GroupOptionsStart(InlineOptions applyOptions, InlineOptions disableOptions)
         {
-            if ((applyOptions & InlineOptions) != InlineOptions.None)
-            {
-                if ((disableOptions & InlineOptions) != InlineOptions.None)
-                {
-                    return "(?" + GetInlineChars(applyOptions) + "-" + GetInlineChars(disableOptions) + ":";
-                }
-                else
-                {
-                    return "(?" + GetInlineChars(applyOptions) + ":";
-                }
-            }
-            return string.Empty;
+            string content = GetInlineChars(applyOptions, disableOptions);
+
+            return (!string.IsNullOrEmpty(content))
+                ? "(?" + content + ":"
+                : string.Empty;
         }
 
         internal static string CharGroup(string value)
@@ -526,23 +524,39 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static string Options(InlineOptions applyOptions, InlineOptions disableOptions)
         {
-            if ((applyOptions & InlineOptions) != InlineOptions.None)
+            string content = GetInlineChars(applyOptions, disableOptions);
+
+            return (!string.IsNullOrEmpty(content))
+                ? "(?" + content + GroupEnd
+                : string.Empty;
+        }
+
+        internal static string GetInlineChars(InlineOptions applyOptions, InlineOptions disableOptions)
+        {
+            if (applyOptions != InlineOptions.None)
             {
-                if ((disableOptions & InlineOptions) != InlineOptions.None)
+                if (disableOptions != InlineOptions.None)
                 {
-                    return "(?" + GetInlineChars(applyOptions) + "-" + GetInlineChars(disableOptions) + GroupEnd;
+                    return GetInlineChars(applyOptions) + "-" + GetInlineChars(disableOptions);
                 }
                 else
                 {
-                    return "(?" + GetInlineChars(applyOptions) + GroupEnd;
+                    return GetInlineChars(applyOptions);
                 }
             }
+            else if (disableOptions != InlineOptions.None)
+            {
+                return GetInlineChars(disableOptions);
+            }
+
             return string.Empty;
         }
 
         public static string GetInlineChars(InlineOptions options)
         {
-            return new string(EnumerateInlineChars(options).ToArray());
+            return options != InlineOptions.None
+                ? new string(EnumerateInlineChars(options).ToArray())
+                : string.Empty;
         }
 
         internal static IEnumerable<char> EnumerateInlineChars(InlineOptions options)

@@ -34,5 +34,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             return Syntax.GroupOptionsStart(ApplyOptions, DisableOptions);
         }
+
+        internal override string Closing(BuildContext context)
+        {
+            return (ApplyOptions != InlineOptions.None || DisableOptions != InlineOptions.None)
+                ? base.Closing(context)
+                : string.Empty;
+        }
     }
 }
