@@ -84,8 +84,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public const string SubstituteAfterMatch = SubstitutionChar + "'";
         public const string SubstituteBeforeMatch = SubstitutionChar + "`";
 
-        internal static readonly InlineOptions InlineOptions = InlineOptions.IgnoreCase | InlineOptions.Multiline | InlineOptions.ExplicitCapture | InlineOptions.Singleline | InlineOptions.IgnorePatternWhitespace;
-
         internal static string IfGroupCondition(int groupNumber)
         {
             if (groupNumber < 0)
