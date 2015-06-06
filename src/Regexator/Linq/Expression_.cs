@@ -381,12 +381,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public QuantifiableExpression Options(InlineOptions applyOptions, InlineOptions disableOptions, object content)
         {
-            return ConcatInternal(Linq.Groups.Options(applyOptions, disableOptions, content));
+            return ConcatInternal(Expressions.Options(applyOptions, disableOptions, content));
         }
 
         public QuantifiableExpression Options(InlineOptions applyOptions, InlineOptions disableOptions, params object[] content)
         {
-            return ConcatInternal(Linq.Groups.Options(applyOptions, disableOptions, content));
+            return ConcatInternal(Expressions.Options(applyOptions, disableOptions, content));
         }
 
         public Expression ApplyOptions(InlineOptions options)
