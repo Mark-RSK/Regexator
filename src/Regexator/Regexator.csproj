@@ -87,7 +87,6 @@
     <Compile Include="Linq\Group\BalanceGroupExpression.cs" />
     <Compile Include="Linq\BuildContext.cs" />
     <Compile Include="Linq\Anchor\StartOfInput.cs" />
-    <Compile Include="Linq\Group\QuantifierCapturingExpression.cs" />
     <Compile Include="Linq\PatternSettings.cs" />
     <Compile Include="Linq\CharClass.cs" />
     <Compile Include="Linq\CharGroup\CharGroupExpression.cs" />
