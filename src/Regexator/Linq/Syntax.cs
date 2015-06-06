@@ -230,21 +230,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static string GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, string text)
         {
-            string start = GroupOptionsStart(applyOptions, disableOptions);
+            string options = GetInlineChars(applyOptions, disableOptions);
 
-            return (!string.IsNullOrEmpty(start))
-                ? start + text + GroupEnd
+            return (!string.IsNullOrEmpty(options))
+                ? "(?" + options + ":" + text + GroupEnd
                 : text;
-
-        }
-
-        internal static string GroupOptionsStart(InlineOptions applyOptions, InlineOptions disableOptions)
-        {
-            string content = GetInlineChars(applyOptions, disableOptions);
-
-            return (!string.IsNullOrEmpty(content))
-                ? "(?" + content + ":"
-                : string.Empty;
         }
 
         internal static string CharGroup(string value)
