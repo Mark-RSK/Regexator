@@ -1,71 +1,34 @@
 // Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     internal sealed class AnyExpression
-        : QuantifiableExpression
+        : GroupExpression
     {
         private readonly AnyGroupMode _groupMode;
-        private readonly IEnumerable<object> _values;
 
-        internal AnyExpression(IEnumerable<object> values)
-            : this(AnyGroupMode.Noncapturing, values)
+        internal AnyExpression(IEnumerable<object> content)
+            : this(AnyGroupMode.Noncapturing, content)
         {
         }
 
-        internal AnyExpression(AnyGroupMode groupMode, IEnumerable<object> values)
-            : base()
+        internal AnyExpression(AnyGroupMode groupMode, IEnumerable<object> content)
+            : base(content)
         {
-            if (values == null)
-            {
-                throw new ArgumentNullException("values");
-            }
-
             _groupMode = groupMode;
-            _values = values;
         }
 
-        internal AnyExpression(params object[] expressions)
-            : this(AnyGroupMode.Noncapturing, expressions)
+        internal AnyExpression(params object[] content)
+            : this(AnyGroupMode.Noncapturing, content)
         {
         }
 
         internal AnyExpression(AnyGroupMode groupMode, params object[] content)
-            : base()
+            : base(content)
         {
-            if (content == null)
-            {
-                throw new ArgumentNullException("content");
-            }
-
             _groupMode = groupMode;
-            _values = content;
-        }
-
-        internal override IEnumerable<string> EnumerateContent(BuildContext context)
-        {
-            bool isFirst = true;
-
-            foreach (var value in _values)
-            {
-                if (!isFirst)
-                {
-                    yield return Syntax.Or;
-                }
-                else
-                {
-                    isFirst = false;
-                }
-
-                foreach (var value2 in Expression.EnumerateValues(value, context))
-                {
-                    yield return value2;
-                }
-            }
         }
 
         internal override string Opening(BuildContext context)

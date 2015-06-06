@@ -11,7 +11,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiableExpression NamedGroup(string name, params object[] content)
         {
-            return new NamedGroupExpression(name, new AnyExpression(AnyGroupMode.None, content));
+            return NamedGroup(name, (object)content);
         }
 
         public static QuantifiableExpression Capturing()
@@ -26,7 +26,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiableExpression Capturing(params object[] content)
         {
-            return new CapturingExpression(new AnyExpression(AnyGroupMode.None, content));
+            return Capturing((object)content);
         }
 
         public static QuantifiableExpression Noncapturing(object content)
@@ -36,7 +36,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiableExpression Noncapturing(params object[] content)
         {
-            return new NoncapturingExpression(new AnyExpression(AnyGroupMode.None, content));
+            return Noncapturing((object)content);
         }
 
         public static QuantifiableExpression BalanceGroup(string name1, string name2, object content)
@@ -46,7 +46,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiableExpression BalanceGroup(string name1, string name2, params object[] content)
         {
-            return new BalanceGroupExpression(name1, name2, new AnyExpression(AnyGroupMode.None, content));
+            return BalanceGroup(name1, name2, (object)content);
         }
 
         public static QuantifiableExpression Nonbacktracking(object content)
@@ -56,7 +56,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiableExpression Nonbacktracking(params object[] content)
         {
-            return new NonbacktrackingExpression(new AnyExpression(AnyGroupMode.None, content));
+            return Nonbacktracking((object)content);
         }
 
         public static QuantifiableExpression Options(InlineOptions applyOptions, object content)
@@ -66,7 +66,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiableExpression Options(InlineOptions applyOptions, params object[] content)
         {
-            return new GroupOptionsExpression(applyOptions, new AnyExpression(AnyGroupMode.None, content));
+            return Options(applyOptions, (object)content);
         }
 
         public static QuantifiableExpression Options(InlineOptions applyOptions, InlineOptions disableOptions, object content)
@@ -76,7 +76,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiableExpression Options(InlineOptions applyOptions, InlineOptions disableOptions, params object[] content)
         {
-            return new GroupOptionsExpression(applyOptions, disableOptions, new AnyExpression(AnyGroupMode.None, content));
+            return Options(applyOptions, disableOptions, (object)content);
         }
 
         public static QuantifierExpression Maybe(object content)

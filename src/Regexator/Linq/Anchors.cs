@@ -11,7 +11,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiableExpression Assert(params object[] content)
         {
-            return Assert(new AnyExpression(AnyGroupMode.None, content));
+            return Assert((object)content);
         }
 
         public static QuantifiableExpression NotAssert(object content)
@@ -21,7 +21,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiableExpression NotAssert(params object[] content)
         {
-            return NotAssert(new AnyExpression(AnyGroupMode.None, content));
+            return NotAssert((object)content);
         }
 
         public static QuantifiableExpression AssertBack(object content)
@@ -31,7 +31,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiableExpression AssertBack(params object[] content)
         {
-            return AssertBack(new AnyExpression(AnyGroupMode.None, content));
+            return AssertBack((object)content);
         }
 
         public static QuantifiableExpression NotAssertBack(object content)
@@ -41,7 +41,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiableExpression NotAssertBack(params object[] content)
         {
-            return NotAssertBack(new AnyExpression(AnyGroupMode.None, content));
+            return NotAssertBack((object)content);
         }
 
         public static Expression AssertSurround(object content, object surroundContent)
