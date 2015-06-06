@@ -67,6 +67,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new InlineOptionsExpression(applyOptions, disableOptions);
         }
 
+        public static Expression DisableOptions(InlineOptions options)
+        {
+            return Options(InlineOptions.None, options);
+        }
+
         public static Expression Comment(string value)
         {
             return new InlineCommentExpression(value);

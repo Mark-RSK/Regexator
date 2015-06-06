@@ -369,6 +369,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Linq.Groups.Options(applyOptions, content));
         }
 
+        public QuantifiableExpression DisableOptions(InlineOptions options, object content)
+        {
+            return Options(InlineOptions.None, options, content);
+        }
+
+        public QuantifiableExpression DisableOptions(InlineOptions options, params object[] content)
+        {
+            return Options(InlineOptions.None, options, content);
+        }
+
         public QuantifiableExpression Options(InlineOptions applyOptions, InlineOptions disableOptions, object content)
         {
             return ConcatInternal(Linq.Groups.Options(applyOptions, disableOptions, content));
@@ -382,6 +392,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public Expression Options(InlineOptions applyOptions)
         {
             return ConcatInternal(Expressions.Options(applyOptions));
+        }
+
+        public Expression DisableOptions(InlineOptions options)
+        {
+            return Options(InlineOptions.None, options);
         }
 
         public Expression Options(InlineOptions applyOptions, InlineOptions disableOptions)

@@ -39,19 +39,27 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
             else
             {
-                IEnumerable items = Content as IEnumerable;
-                if (items != null)
+                string text = Content as string;
+                if (text != null)
                 {
-                    foreach (var value in EnumerateContent(items, context))
-                    {
-                        yield return value;
-                    }
+                    yield return RegexUtilities.Escape(text);
                 }
                 else
                 {
-                    foreach (var value in Expression.EnumerateValues(_content, context))
+                    IEnumerable items = Content as IEnumerable;
+                    if (items != null)
                     {
-                        yield return value;
+                        foreach (var value in EnumerateContent(items, context))
+                        {
+                            yield return value;
+                        }
+                    }
+                    else
+                    {
+                        foreach (var value in Expression.EnumerateValues(_content, context))
+                        {
+                            yield return value;
+                        }
                     }
                 }
             }

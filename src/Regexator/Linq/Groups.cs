@@ -79,6 +79,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Options(applyOptions, disableOptions, (object)content);
         }
 
+        public static QuantifiableExpression DisableOptions(InlineOptions options, object content)
+        {
+            return Options(InlineOptions.None, options, content);
+        }
+
+        public static QuantifiableExpression DisableOptions(InlineOptions options, params object[] content)
+        {
+            return Options(InlineOptions.None, options, content);
+        }
+
         public static QuantifierExpression Maybe(object content)
         {
             return QuantifierGroup(content).Maybe();
