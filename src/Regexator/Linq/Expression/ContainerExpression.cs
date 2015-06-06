@@ -8,21 +8,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal sealed class ContainerExpression
         : Expression
     {
-        private readonly object _value;
+        private readonly object _content;
 
-        public ContainerExpression(object value)
+        public ContainerExpression(object content)
         {
-            if (value == null)
-            {
-                throw new ArgumentNullException("value");
-            }
-
-            _value = value;
+            _content = content;
         }
 
         internal override IEnumerable<string> EnumerateContent(BuildContext context)
         {
-            return Expression.EnumerateValues(_value, context);
+            return Expression.EnumerateValues(_content, context);
         }
     }
 }

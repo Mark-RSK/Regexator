@@ -3,7 +3,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Pihrtsoft.Text.RegularExpressions.Linq.Extensions;
@@ -57,7 +56,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 return Create(items);
             }
 
-            return new TextExpression(content.ToString() ?? string.Empty);
+            return new TextExpression(content.ToString());
         }
 
         public static Expression Create(params object[] content)
