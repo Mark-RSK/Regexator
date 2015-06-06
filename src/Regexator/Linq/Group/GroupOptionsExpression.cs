@@ -20,19 +20,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _disableOptions = disableOptions;
         }
 
-        public InlineOptions ApplyOptions
-        {
-            get { return _applyOptions; }
-        }
-
-        public InlineOptions DisableOptions
-        {
-            get { return _disableOptions; }
-        }
-
         internal override string Opening(BuildContext context)
         {
-            string options = Syntax.GetInlineChars(ApplyOptions, DisableOptions);
+            string options = Syntax.GetInlineChars(_applyOptions, _disableOptions);
 
             return (!string.IsNullOrEmpty(options))
                 ? "(?" + options + ":"

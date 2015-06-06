@@ -57,19 +57,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new NameBackreferenceExpression(groupName);
         }
 
-        public static Expression Options(InlineOptions applyOptions)
+        public static Expression ApplyOptions(InlineOptions options)
         {
-            return new InlineOptionsExpression(applyOptions);
-        }
-
-        public static Expression Options(InlineOptions applyOptions, InlineOptions disableOptions)
-        {
-            return new InlineOptionsExpression(applyOptions, disableOptions);
+            return Options(options, InlineOptions.None);
         }
 
         public static Expression DisableOptions(InlineOptions options)
         {
             return Options(InlineOptions.None, options);
+        }
+
+        public static Expression Options(InlineOptions applyOptions, InlineOptions disableOptions)
+        {
+            return new InlineOptionsExpression(applyOptions, disableOptions);
         }
 
         public static Expression Comment(string value)
