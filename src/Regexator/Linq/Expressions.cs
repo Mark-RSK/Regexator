@@ -62,14 +62,44 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Options(options, InlineOptions.None);
         }
 
+        public static QuantifiableExpression ApplyOptions(InlineOptions options, object content)
+        {
+            return Options(options, InlineOptions.None, content);
+        }
+
+        public static QuantifiableExpression ApplyOptions(InlineOptions options, params object[] content)
+        {
+            return Options(options, InlineOptions.None, content);
+        }
+
         public static Expression DisableOptions(InlineOptions options)
         {
             return Options(InlineOptions.None, options);
         }
 
+        public static QuantifiableExpression DisableOptions(InlineOptions options, object content)
+        {
+            return Options(InlineOptions.None, options, content);
+        }
+
+        public static QuantifiableExpression DisableOptions(InlineOptions options, params object[] content)
+        {
+            return Options(InlineOptions.None, options, content);
+        }
+
         public static Expression Options(InlineOptions applyOptions, InlineOptions disableOptions)
         {
             return new InlineOptionsExpression(applyOptions, disableOptions);
+        }
+
+        public static QuantifiableExpression Options(InlineOptions applyOptions, InlineOptions disableOptions, params object[] content)
+        {
+            return Options(applyOptions, disableOptions, (object)content);
+        }
+
+        public static QuantifiableExpression Options(InlineOptions applyOptions, InlineOptions disableOptions, object content)
+        {
+            return new GroupOptionsExpression(applyOptions, disableOptions, content);
         }
 
         public static Expression Comment(string value)
