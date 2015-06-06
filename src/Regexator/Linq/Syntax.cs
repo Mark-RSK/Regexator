@@ -104,24 +104,24 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return CapturingGroupStart + groupName + GroupEnd;
         }
 
-        public static string Assert(string text)
+        public static string Assert(string content)
         {
-            return AssertStart + text + GroupEnd;
+            return AssertStart + content + GroupEnd;
         }
 
-        public static string NotAssert(string text)
+        public static string NotAssert(string content)
         {
-            return NotAssertStart + text + GroupEnd;
+            return NotAssertStart + content + GroupEnd;
         }
 
-        public static string AssertBack(string text)
+        public static string AssertBack(string content)
         {
-            return AssertBackStart + text + GroupEnd;
+            return AssertBackStart + content + GroupEnd;
         }
 
-        public static string NotAssertBack(string text)
+        public static string NotAssertBack(string content)
         {
-            return NotAssertBackStart + text + GroupEnd;
+            return NotAssertBackStart + content + GroupEnd;
         }
 
         public static string Backreference(int groupNumber)
@@ -149,14 +149,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return null;
         }
 
-        public static string Group(string groupName, string text, IdentifierBoundary boundary)
+        public static string Group(string groupName, string content, IdentifierBoundary boundary)
         {
             if (groupName == null)
             {
                 throw new ArgumentNullException("groupName");
             }
             RegexUtilities.CheckGroupName(groupName);
-            return GroupStart(groupName, boundary) + text + GroupEnd;
+            return GroupStart(groupName, boundary) + content + GroupEnd;
         }
 
         internal static string GroupStart(string groupName, IdentifierBoundary boundary)
@@ -171,9 +171,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return null;
         }
 
-        public static string BalanceGroup(string name1, string name2, string text, IdentifierBoundary separator)
+        public static string BalanceGroup(string name1, string name2, string content, IdentifierBoundary separator)
         {
-            return BalanceGroupStart(name1, name2, separator) + text + GroupEnd;
+            return BalanceGroupStart(name1, name2, separator) + content + GroupEnd;
         }
 
         internal static string BalanceGroupStart(string name1, string name2, IdentifierBoundary separator)
@@ -196,45 +196,45 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return null;
         }
 
-        public static string CapturingGroup(string text)
+        public static string CapturingGroup(string content)
         {
-            if (text == null)
+            if (content == null)
             {
-                throw new ArgumentNullException("text");
+                throw new ArgumentNullException("content");
             }
-            return CapturingGroupStart + text + GroupEnd;
+            return CapturingGroupStart + content + GroupEnd;
         }
 
-        public static string NoncapturingGroup(string text)
+        public static string NoncapturingGroup(string content)
         {
-            if (text == null)
+            if (content == null)
             {
-                throw new ArgumentNullException("text");
+                throw new ArgumentNullException("content");
             }
-            return NoncapturingGroupStart + text + GroupEnd;
+            return NoncapturingGroupStart + content + GroupEnd;
         }
 
-        public static string NonbacktrackingGroup(string text)
+        public static string NonbacktrackingGroup(string content)
         {
-            if (text == null)
+            if (content == null)
             {
-                throw new ArgumentNullException("text");
+                throw new ArgumentNullException("content");
             }
-            return NonbacktrackingGroupStart + text + GroupEnd;
+            return NonbacktrackingGroupStart + content + GroupEnd;
         }
 
-        public static string GroupOptions(InlineOptions applyOptions, string text)
+        public static string GroupOptions(InlineOptions applyOptions, string content)
         {
-            return GroupOptions(applyOptions, InlineOptions.None, text);
+            return GroupOptions(applyOptions, InlineOptions.None, content);
         }
 
-        public static string GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, string text)
+        public static string GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, string content)
         {
             string options = GetInlineChars(applyOptions, disableOptions);
 
             return (!string.IsNullOrEmpty(options))
-                ? "(?" + options + ":" + text + GroupEnd
-                : text;
+                ? "(?" + options + ":" + content + GroupEnd
+                : content;
         }
 
         internal static string CharGroup(string value)
