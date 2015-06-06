@@ -346,12 +346,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         private IEnumerable<Expression> EnumerateExpressions()
         {
-            Expression expression = this;
+            Expression exp = this;
             do
             {
-                yield return expression;
-                expression = expression.Previous;
-            } while (expression != null);
+                yield return exp;
+                exp = exp.Previous;
+            } while (exp != null);
         }
 
         internal static IEnumerable<string> EnumerateValues(object content, BuildContext context)
