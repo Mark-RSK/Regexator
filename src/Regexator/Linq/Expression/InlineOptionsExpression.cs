@@ -8,11 +8,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         private readonly InlineOptions _applyOptions;
         private readonly InlineOptions _disableOptions;
 
-        internal InlineOptionsExpression(InlineOptions applyOptions)
-            : this(applyOptions, InlineOptions.None)
-        {
-        }
-
         internal InlineOptionsExpression(InlineOptions applyOptions, InlineOptions disableOptions)
         {
             _applyOptions = applyOptions;
