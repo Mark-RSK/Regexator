@@ -234,24 +234,34 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 : text;
         }
 
-        internal static string CharGroup(string value)
+        public static string CharGroup(string content)
         {
-            return CharGroup(value, false);
+            return CharGroup(content, false);
         }
 
-        internal static string CharGroup(string content, bool negative)
+        public static string CharGroup(string content, bool negative)
         {
             if (content == null)
             {
                 throw new ArgumentNullException("content");
             }
 
+            return CharGroupInternal(RegexUtilities.Escape(content, true), negative);
+        }
+
+        internal static string CharGroupInternal(string content)
+        {
+            return CharGroupInternal(content, false);
+        }
+
+        internal static string CharGroupInternal(string content, bool negative)
+        {
             if (content.Length == 0)
             {
                 throw new ArgumentException("Character group cannot be empty.", "content");
             }
 
-            return (negative ? NotCharGroupStart : CharGroupStart) + RegexUtilities.Escape(content, true) + CharGroupEnd;
+            return (negative ? NotCharGroupStart : CharGroupStart) + content + CharGroupEnd;
         }
 
         public static string CharClass(CharClass value)

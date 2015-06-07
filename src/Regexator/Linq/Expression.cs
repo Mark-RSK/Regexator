@@ -205,7 +205,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                     CharGroupItem charGroupItem = content as CharGroupItem;
                     if (charGroupItem != null)
                     {
-                        yield return Syntax.CharGroup(charGroupItem.Value);
+                        yield return Syntax.CharGroupInternal(charGroupItem.Value);
                     }
                     else
                     {

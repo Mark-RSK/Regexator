@@ -23,7 +23,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public string ExcludedGroupValue
         {
-            get { return Syntax.CharGroup(Content, Negative); }
+            get { return Syntax.CharGroupInternal(Content, Negative); }
         }
 
         internal sealed override string Value(BuildContext context)

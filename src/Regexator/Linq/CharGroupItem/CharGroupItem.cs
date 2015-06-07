@@ -200,7 +200,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public string ExcludedGroupValue
         {
-            get { return Syntax.CharGroup(Value); }
+            get { return Syntax.CharGroupInternal(Value); }
         }
 
         internal string Value
