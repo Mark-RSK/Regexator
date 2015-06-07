@@ -21,14 +21,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _groupNumber = groupNumber;
         }
 
-        internal override IEnumerable<string> EnumerateContent(BuildContext context)
+        internal override string Value(BuildContext context)
         {
-            yield return Syntax.Backreference(GroupNumber);
-
-            if (context.Settings.SeparatorAfterNumberBackreference)
-            {
-                yield return Syntax.NoncapturingGroup();
-            }
+            return (context.Settings.SeparatorAfterNumberBackreference)
+                ? Syntax.Backreference(GroupNumber) + Syntax.NoncapturingGroup()
+                : Syntax.Backreference(GroupNumber);
         }
 
         public int GroupNumber
