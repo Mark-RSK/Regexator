@@ -28,11 +28,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (!string.IsNullOrEmpty(_text))
             {
-                string text = RegexUtilities.Escape(_text);
-
                 return _ignoreCase
-                    ? Syntax.GroupOptions(InlineOptions.IgnoreCase, text)
-                    : text;
+                    ? Syntax.GroupOptions(InlineOptions.IgnoreCase, _text)
+                    : RegexUtilities.Escape(_text);
             }
 
             return string.Empty;
