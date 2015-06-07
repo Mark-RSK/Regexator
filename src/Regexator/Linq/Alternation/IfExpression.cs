@@ -26,7 +26,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _condition = testContent;
         }
 
-        protected override void ProcessCondition(BuildContext context)
+        protected override void BuildCondition(BuildContext context)
         {
             if (_condition != null)
             {

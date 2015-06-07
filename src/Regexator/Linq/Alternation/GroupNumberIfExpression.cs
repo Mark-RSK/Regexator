@@ -31,7 +31,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             get { return _groupNumber; }
         }
 
-        protected override void ProcessCondition(BuildContext context)
+        protected override void BuildCondition(BuildContext context)
         {
             context.Write(Syntax.IfGroupCondition(GroupNumber));
         }

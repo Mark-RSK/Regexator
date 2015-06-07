@@ -22,11 +22,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _falseContent = falseContent;
         }
 
-        protected abstract void ProcessCondition(BuildContext context);
+        protected abstract void BuildCondition(BuildContext context);
 
         internal override void BuildContent(BuildContext context)
         {
-            ProcessCondition(context);
+            BuildCondition(context);
 
             Expression.BuildContent(_trueContent, context);
 
