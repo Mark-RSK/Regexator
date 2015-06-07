@@ -47,5 +47,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 Chars.WordChar().Except(Chars.ArabicDigit()).WordChar().MaybeMany()
             ).AsEntireInput();
         }
+
+        internal static Expression TrimInlineComment()
+        {
+            return Anchors.StartOfInput().NotRightParenthesis().MaybeMany();
+        }
     }
 }

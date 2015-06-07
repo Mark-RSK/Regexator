@@ -597,7 +597,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static string InlineComment(string comment)
         {
-            return InlineCommentStart + comment + GroupEnd;
+            if (comment == null)
+            {
+                throw new ArgumentNullException("comment");
+            }
+
+            return InlineCommentStart + RegexUtilities.TrimInlineComment.Match(comment).Value + GroupEnd;
         }
 
         [SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]

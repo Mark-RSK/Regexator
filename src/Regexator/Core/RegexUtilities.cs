@@ -15,7 +15,9 @@ namespace Pihrtsoft.Text.RegularExpressions
     public static class RegexUtilities
     {
         internal static readonly RegexOptions InlineRegexOptions = RegexOptions.IgnoreCase | RegexOptions.Multiline | RegexOptions.ExplicitCapture | RegexOptions.Singleline | RegexOptions.IgnorePatternWhitespace;
-        private static readonly Expression _validGroupName = Patterns.ValidGroupName();
+
+        internal static readonly Expression TrimInlineComment = Patterns.TrimInlineComment();
+        internal static readonly Expression ValidGroupName = Patterns.ValidGroupName();
 
         public static bool IsValidGroupName(string groupName)
         {
@@ -26,7 +28,7 @@ namespace Pihrtsoft.Text.RegularExpressions
 
             if (groupName.Length > 0)
             {
-                Match match = _validGroupName.Match(groupName);
+                Match match = ValidGroupName.Match(groupName);
                 if (match.Success)
                 {
                     Group g = match.Groups[1];
