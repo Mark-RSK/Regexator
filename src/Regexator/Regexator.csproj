@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Linq\Expression\JoinContainerExpression.cs" />
     <Compile Include="Linq\Extensions\EnumerableExtensions.cs" />
     <Compile Include="Linq\Extensions\MatchExtensions.cs" />
     <Compile Include="Linq\Anchor\AnchorExpression.cs" />

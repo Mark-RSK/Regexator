@@ -21,108 +21,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static Expression Create(object content)
         {
-            if (content == null)
-            {
-                return Empty;
-            }
-
-            Expression expression = content as Expression;
-            if (expression != null)
-            {
-                return expression.AsContainer();
-            }
-
-            string text = content as string;
-            if (text != null)
-            {
-                return new TextExpression(text);
-            }
-
-            CharGroupItem item = content as CharGroupItem;
-            if (item != null)
-            {
-                return item.ToGroup();
-            }
-
-            object[] values = content as object[];
-            if (values != null)
-            {
-                return Create(values);
-            }
-
-            IEnumerable items = content as IEnumerable;
-            if (items != null)
-            {
-                return Create(items);
-            }
-
-            return new TextExpression(content.ToString());
+            return new ContainerExpression(content);
         }
 
         public static Expression Create(params object[] content)
         {
-            if (content == null || content.Length == 0)
-            {
-                return Empty;
-            }
-
-            Expression exp = Create(content[0]);
-
-            for (int i = 1; i < content.Length; i++)
-            {
-                exp = exp.Concat(content[i]);
-            }
-
-            return exp;
+            return Create((object)content);
         }
 
         public static Expression Create(IEnumerable<object> content)
         {
-            if (content == null)
-            {
-                return Empty;
-            }
-
-            using (var en = content.GetEnumerator())
-            {
-                if (!en.MoveNext())
-                {
-                    return Empty;
-                }
-
-                Expression exp = Create(en.Current);
-
-                while (en.MoveNext())
-                {
-                    exp = exp.Concat(en.Current);
-                }
-
-                return exp;                
-            }
-        }
-
-        internal static Expression Create(IEnumerable content)
-        {
-            if (content == null)
-            {
-                return Empty;
-            }
-
-            var en = content.GetEnumerator();
-
-            if (!en.MoveNext())
-            {
-                return Empty;
-            }
-
-            Expression exp = Create(en.Current);
-
-            while (en.MoveNext())
-            {
-                exp = exp.Concat(en.Current);
-            }
-
-            return exp;
+            return Create((object)content);
         }
 
         public Expression ConcatIf(bool condition, object content)
@@ -132,52 +41,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public Expression Concat(object content)
         {
-            if (content == null)
-            {
-                return this;
-            }
-
-            Expression expression = content as Expression;
-            if (expression != null)
-            {
-                return Concat(expression);
-            }
-
-            string text = content as string;
-            if (text != null)
-            {
-                return Concat(text);
-            }
-
-            CharGroupItem item = content as CharGroupItem;
-            if (item != null)
-            {
-                return Concat(item.ToGroup());
-            }
-
-            object[] values = content as object[];
-            if (values != null)
-            {
-                Expression exp = this;
-                foreach (var value in values)
-                {
-                    exp = exp.Concat(value);
-                }
-                return exp;
-            }
-
-            IEnumerable items = content as IEnumerable;
-            if (items != null)
-            {
-                Expression exp = this;
-                foreach (var value in items)
-                {
-                    exp = exp.Concat(value);
-                }
-                return exp;
-            }
-
-            return Concat(content.ToString() ?? string.Empty);
+            return ConcatInternal(new ContainerExpression(content));
         }
 
         public Expression Concat(params object[] content)
@@ -236,57 +100,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static Expression Join(object separator, params object[] values)
         {
-            if (values == null)
-            {
-                throw new ArgumentNullException("values");
-            }
-
-            if (values.Length == 0)
-            {
-                return Empty;
-            }
-
-            Expression separatorExpression = Create(separator);
-
-            Expression exp = Create(values[0]);
-
-            for (int i = 1; i < values.Length; i++)
-            {
-                exp = exp
-                    .Concat(separatorExpression)
-                    .Concat(values[i]);
-            }
-
-            return exp;
+            return new JoinContainerExpression(separator, (object)values);
         }
 
         public static Expression Join(object separator, IEnumerable<object> values)
         {
-            if (values == null)
-            {
-                throw new ArgumentNullException("values");
-            }
-
-            using (IEnumerator<object> en = values.GetEnumerator())
-            {
-                if (!en.MoveNext())
-                {
-                    return Empty;
-                }
-
-                Expression separatorExpression = Create(separator);
-
-                Expression exp = Create(en.Current);
-
-                while (en.MoveNext())
-                {
-                    exp = exp
-                        .Concat(separatorExpression)
-                        .Concat(en.Current);
-                }
-
-                return exp;
-            }
+            return new JoinContainerExpression(separator, (object)values);
         }
 
         public Regex ToRegex()
@@ -317,6 +136,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 {
                     context.Write(value);
                 }
+
                 return context.ToString();
             }
         }
@@ -351,6 +171,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 yield return exp;
                 exp = exp.Previous;
             } while (exp != null);
+        }
+
+        internal static string GetValue(object content, BuildContext context)
+        {
+            return string.Concat(EnumerateValues(content, context));
         }
 
         internal static IEnumerable<string> EnumerateValues(object content, BuildContext context)
