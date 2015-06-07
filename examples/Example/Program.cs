@@ -10,14 +10,32 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
         internal static void Main(string[] args)
         {
-            var exp = Expressions.LessThanGreaterThan(
-                Chars.ExclamationMark().SquareBrackets(
-                    Expression.Create("CDATA").SquareBrackets(
-                        Expressions.FillInvariant()
-                    )
-                )
-            );
+            Console.WriteLine("email");
+
+            var left = Groups.OneMany(CharGroupItems.Alphanumeric().Char("!#$%&'*+/=?^_`{|}~-"));
+
+            var right = Groups.Maybe(Groups.MaybeMany(CharGroupItems.Alphanumeric().Hyphen()).Alphanumeric());
+
+            var exp = left
+                .MaybeMany(Chars.Period().Concat(left))
+                .At()
+                .OneMany(Chars
+                    .Alphanumeric()
+                    .Concat(right)
+                    .Period()
+                ).Alphanumeric().Concat(right);
             Console.WriteLine(exp);
+            Console.WriteLine("");
+
+            Console.WriteLine("cdata value");
+            Console.WriteLine(Expressions
+                .LessThanGreaterThan(
+                    Chars.ExclamationMark().SquareBrackets(
+                        Expression.Create("CDATA").SquareBrackets(
+                            Expressions.FillInvariant().AsCapturing()
+                        )
+                    )
+                ));
             Console.WriteLine("");
 
             var values = new string[] { "one", "two", "three" };
