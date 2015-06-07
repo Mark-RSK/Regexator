@@ -21,15 +21,15 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiableExpression WhiteSpaceLines()
         {
-            return Alternations.Any(Anchors
-                .StartOfLineInvariant().WhiteSpace().MaybeMany().NewLine(),
+            return Alternations.Any(
+                Anchors.StartOfLineInvariant().WhiteSpace().MaybeMany().NewLine(),
                 Expressions.NewLine().WhiteSpace().MaybeMany().EndOfInput());
         }
 
         public static QuantifiableExpression EmptyLines()
         {
-            return Alternations.Any(Anchors
-                .StartOfLineInvariant().NewLine(),
+            return Alternations.Any(
+                Anchors.StartOfLineInvariant().NewLine(),
                 Expressions.NewLine().OneMany().EndOfInput());
         }
 
