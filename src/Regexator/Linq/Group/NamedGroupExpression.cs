@@ -17,11 +17,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public NamedGroupExpression(string groupName, object content, bool checkGroupName)
             : base(content)
         {
-            if (groupName == null)
-            {
-                throw new ArgumentNullException("groupName");
-            }
-
             if (checkGroupName)
             {
                 RegexUtilities.CheckGroupName(groupName);

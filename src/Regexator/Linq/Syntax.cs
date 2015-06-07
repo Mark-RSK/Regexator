@@ -126,11 +126,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static string Backreference(string groupName, IdentifierBoundary separator)
         {
-            if (groupName == null)
-            {
-                throw new ArgumentNullException("groupName");
-            }
-
             RegexUtilities.CheckGroupName(groupName);
 
             return BackreferenceInternal(groupName, separator);
@@ -170,8 +165,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static string BalanceGroup(string name1, string name2, string content, IdentifierBoundary separator)
         {
-            RegexUtilities.CheckGroupName(name1);
-            RegexUtilities.CheckGroupName(name2);
+            RegexUtilities.CheckGroupName(name1, "name1");
+            RegexUtilities.CheckGroupName(name2, "name2");
 
             return BalanceGroupStart(name1, name2, separator) + RegexUtilities.Escape(content) + GroupEnd;
         }

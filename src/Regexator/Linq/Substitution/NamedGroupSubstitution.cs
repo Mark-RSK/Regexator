@@ -11,12 +11,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal NamedGroupSubstitution(string groupName)
         {
-            if (groupName == null)
-            {
-                throw new ArgumentNullException("groupName");
-            }
-
             RegexUtilities.CheckGroupName(groupName);
+
             _groupName = groupName;
         }
 

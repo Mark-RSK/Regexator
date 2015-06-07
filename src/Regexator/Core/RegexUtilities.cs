@@ -21,9 +21,14 @@ namespace Pihrtsoft.Text.RegularExpressions
 
         public static bool IsValidGroupName(string groupName)
         {
+            return IsValidGroupName(groupName, "groupName");
+        }
+
+        internal static bool IsValidGroupName(string groupName, string paramName)
+        {
             if (groupName == null)
             {
-                throw new ArgumentNullException("groupName");
+                throw new ArgumentNullException(paramName);
             }
 
             if (groupName.Length > 0)
@@ -47,9 +52,14 @@ namespace Pihrtsoft.Text.RegularExpressions
 
         internal static void CheckGroupName(string groupName)
         {
-            if (!IsValidGroupName(groupName))
+            CheckGroupName(groupName, "groupName");
+        }
+
+        internal static void CheckGroupName(string groupName, string paramName)
+        {
+            if (!IsValidGroupName(groupName, paramName))
             {
-                throw new ArgumentException("Invalid group name.", "groupName");
+                throw new ArgumentException("Invalid group name.", paramName);
             }
         }
 

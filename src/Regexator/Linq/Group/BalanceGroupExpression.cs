@@ -11,8 +11,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public BalanceGroupExpression(string name1, string name2, object content)
             : base(content)
         {
-            RegexUtilities.CheckGroupName(name1);
-            RegexUtilities.CheckGroupName(name2);
+            RegexUtilities.CheckGroupName(name1, "name1");
+            RegexUtilities.CheckGroupName(name2, "name2");
 
             _name1 = name1;
             _name2 = name2;
