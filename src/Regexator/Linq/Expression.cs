@@ -173,6 +173,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             } while (exp != null);
         }
 
+        internal static string GetValue(object content)
+        {
+            return GetValue(content, new BuildContext());
+        }
+
         internal static string GetValue(object content, BuildContext context)
         {
             return string.Concat(GetValues(content, context));
