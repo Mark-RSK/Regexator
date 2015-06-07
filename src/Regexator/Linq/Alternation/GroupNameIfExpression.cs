@@ -27,9 +27,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             get { return _groupName; }
         }
 
-        protected override IEnumerable<string> EnumerateCondition(BuildContext context)
+        protected override void ProcessCondition(BuildContext context)
         {
-            yield return Syntax.IfGroupCondition(GroupName);
+            context.Write(Syntax.IfGroupCondition(GroupName));
         }
     }
 }

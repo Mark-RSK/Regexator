@@ -31,9 +31,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             get { return _groupNumber; }
         }
 
-        protected override IEnumerable<string> EnumerateCondition(BuildContext context)
+        protected override void ProcessCondition(BuildContext context)
         {
-            yield return Syntax.IfGroupCondition(GroupNumber);
+            context.Write(Syntax.IfGroupCondition(GroupNumber));
         }
     }
 }

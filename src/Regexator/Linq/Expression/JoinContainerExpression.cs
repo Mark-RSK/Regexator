@@ -22,72 +22,49 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _values = values;
         }
 
-        internal override IEnumerable<string> EnumerateContent(BuildContext context)
+        internal override void BuildContent(BuildContext context)
         {
-            string separator = GetValue(_separator, context);
-
             var values = _values as object[];
             if (values != null)
             {
-                foreach (var value in GetValues(separator, values, context))
+                if (values.Length > 0)
                 {
-                    yield return value;
+                    Expression.BuildContent(values[0], context);
+
+                    if (values.Length > 1)
+                    {
+                        string separator = GetValue(_separator, context);
+
+                        for (int i = 1; i < values.Length; i++)
+                        {
+                            context.Write(separator);
+                            Expression.BuildContent(values[i], context);
+                        }
+                    }
                 }
             }
             else
             {
                 var items = _values as IEnumerable<object>;
-                foreach (var value in GetValues(separator, items, context))
+                using (IEnumerator<object> en = items.GetEnumerator())
                 {
-                    yield return value;
-                }
-            }
-        }
-
-        private static IEnumerable<string> GetValues(string separator, object[] values, BuildContext context)
-        {
-            if (values.Length == 0)
-            {
-                yield break;
-            }
-
-            foreach (var value in Expression.GetValues(values[0], context))
-            {
-                yield return value;
-            }
-
-            for (int i = 1; i < values.Length; i++)
-            {
-                yield return separator;
-
-                foreach (var value in Expression.GetValues(values[i], context))
-                {
-                    yield return value;
-                }
-            }
-        }
-
-        private static IEnumerable<string> GetValues(string separator, IEnumerable<object> values, BuildContext context)
-        {
-            using (IEnumerator<object> en = values.GetEnumerator())
-            {
-                if (!en.MoveNext())
-                {
-                    yield break;
-                }
-
-                foreach (var value in Expression.GetValues(en.Current, context))
-                {
-                    yield return value;
-                }
-
-                while (en.MoveNext())
-                {
-                    yield return separator;
-
-                    foreach (var value in Expression.GetValues(en.Current, context))
+                    if (en.MoveNext())
                     {
-                        yield return value;
+                        Expression.BuildContent(en.Current, context);
+
+                        if (en.MoveNext())
+                        {
+                            string separator = GetValue(_separator, context);
+
+                            context.Write(separator);
+                            Expression.BuildContent(en.Current, context);
+
+                            while (en.MoveNext())
+                            {
+                                context.Write(separator);
+                                Expression.BuildContent(en.Current, context);
+                            }
+                        }
                     }
                 }
             }

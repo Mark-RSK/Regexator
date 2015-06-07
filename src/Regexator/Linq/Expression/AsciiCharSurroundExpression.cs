@@ -1,44 +1,40 @@
 ﻿// Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
-using System.Collections.Generic;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     internal sealed class AsciiCharSurroundExpression
         : Expression
     {
-        private readonly object _value;
-        private readonly AsciiChar _beforeChar;
-        private readonly AsciiChar _afterChar;
+        private readonly object _content;
+        private readonly AsciiChar _charBefore;
+        private readonly AsciiChar _charAfter;
 
-        public AsciiCharSurroundExpression(object value, AsciiChar surroundChar)
-            : this(value, surroundChar, surroundChar)
+        public AsciiCharSurroundExpression(object content, AsciiChar surroundChar)
+            : this(content, surroundChar, surroundChar)
         {
         }
 
-        public AsciiCharSurroundExpression(object value, AsciiChar charBefore, AsciiChar charAfter)
+        public AsciiCharSurroundExpression(object content, AsciiChar charBefore, AsciiChar charAfter)
         {
-            if (value == null)
+            if (content == null)
             {
-                throw new ArgumentNullException("value");
+                throw new ArgumentNullException("content");
             }
 
-            _value = value;
-            _beforeChar = charBefore;
-            _afterChar = charAfter;
+            _content = content;
+            _charBefore = charBefore;
+            _charAfter = charAfter;
         }
 
-        internal override IEnumerable<string> EnumerateContent(BuildContext context)
+        internal override void BuildContent(BuildContext context)
         {
-            yield return Syntax.Char(_beforeChar);
+            context.Write(Syntax.Char(_charBefore));
 
-            foreach (var value in Expression.GetValues(_value, context))
-            {
-                yield return value;
-            }
+            Expression.BuildContent(_content, context);
 
-            yield return Syntax.Char(_afterChar);
+            context.Write(Syntax.Char(_charAfter));
         }
     }
 }

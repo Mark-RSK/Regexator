@@ -1,7 +1,6 @@
 // Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
-using System.Collections.Generic;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
@@ -23,27 +22,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _falseContent = falseContent;
         }
 
-        protected abstract IEnumerable<string> EnumerateCondition(BuildContext context);
+        protected abstract void ProcessCondition(BuildContext context);
 
-        internal override IEnumerable<string> EnumerateContent(BuildContext context)
+        internal override void BuildContent(BuildContext context)
         {
-            foreach (var value in EnumerateCondition(context))
-            {
-                yield return value;
-            }
+            ProcessCondition(context);
 
-            foreach (var value in Expression.GetValues(_trueContent, context))
-            {
-                yield return value;
-            }
+            Expression.BuildContent(_trueContent, context);
 
             if (_falseContent != null)
             {
-                yield return Syntax.Or;
-                foreach (var value in Expression.GetValues(_falseContent, context))
-                {
-                    yield return value;
-                }
+                context.Write(Syntax.Or);
+
+                Expression.BuildContent(_falseContent, context);
             }
         }
 

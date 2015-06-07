@@ -132,38 +132,29 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             using (var context = new BuildContext() { Settings = settings })
             {
-                foreach (var value in GetValues(context))
-                {
-                    context.Write(value);
-                }
 
+                Build(context);
                 return context.ToString();
             }
         }
 
-        internal IEnumerable<string> GetValues(BuildContext context)
+        internal void Build(BuildContext context)
         {
             if (Previous != null)
             {
-                var items = new Stack<Expression>(EnumerateExpressions());
+                var items = new Stack<Expression>(GetExpressions());
                 while (items.Count > 0)
                 {
-                    foreach (var value in GetValues(items.Pop(), context))
-                    {
-                        yield return value;
-                    }
+                    Build(items.Pop(), context);
                 }
             }
             else
             {
-                foreach (var value in GetValues(this, context))
-                {
-                    yield return value;
-                }
+                Build(this, context);
             }
         }
 
-        private IEnumerable<Expression> EnumerateExpressions()
+        private IEnumerable<Expression> GetExpressions()
         {
             Expression exp = this;
             do
@@ -175,47 +166,43 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal static string GetValue(object content)
         {
-            return GetValue(content, new BuildContext());
+            using (var context = new BuildContext())
+            {
+                return GetValue(content, context);
+            }
         }
 
         internal static string GetValue(object content, BuildContext context)
         {
-            return string.Concat(GetValues(content, context));
+            BuildContent(content, context);
+            return context.ToString();
         }
 
-        internal static IEnumerable<string> GetValues(object content)
-        {
-            return GetValues(content, new BuildContext());
-        }
-
-        internal static IEnumerable<string> GetValues(object content, BuildContext context)
+        internal static void BuildContent(object content, BuildContext context)
         {
             if (content == null)
             {
-                yield break;
+                return;
             }
 
             Expression expression = content as Expression;
             if (expression != null)
             {
-                foreach (var value in expression.GetValues(context))
-                {
-                    yield return value;
-                }
+                expression.Build(context);
             }
             else
             {
                 string text = content as string;
                 if (text != null)
                 {
-                    yield return RegexUtilities.Escape(text);
+                    context.Write(RegexUtilities.Escape(text));
                 }
                 else
                 {
                     CharGroupItem charGroupItem = content as CharGroupItem;
                     if (charGroupItem != null)
                     {
-                        yield return Syntax.CharGroupInternal(charGroupItem.Value);
+                        context.Write(Syntax.CharGroupInternal(charGroupItem.Value));
                     }
                     else
                     {
@@ -224,10 +211,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                         {
                             foreach (var item in values)
                             {
-                                foreach (var value in GetValues(item, context))
-                                {
-                                    yield return value;
-                                }
+                                BuildContent(item, context);
                             }
                         }
                         else
@@ -237,15 +221,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                             {
                                 foreach (var item in items)
                                 {
-                                    foreach (var value in GetValues(item, context))
-                                    {
-                                        yield return value;
-                                    }
+                                    BuildContent(item, context);
                                 }
                             }
                             else
                             {
-                                yield return content.ToString() ?? string.Empty;
+                                context.Write(content.ToString() ?? string.Empty);
                             }
                         }
                     }
@@ -253,39 +234,28 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        private static IEnumerable<string> GetValues(Expression expression, BuildContext context)
+        private static void Build(Expression expression, BuildContext context)
         {
             if (!context.Expressions.Add(expression))
             {
                 throw new InvalidOperationException("A circular reference was detected while creating a pattern.");
             }
 
-            string opening = expression.Opening(context);
-            if (opening != null)
-            {
-                yield return opening;
-            }
+            context.Write(expression.Opening(context));
 
-            foreach (var value in expression.EnumerateContent(context))
-            {
-                yield return value;
-            }
-
-            string closing = expression.Closing(context);
-            if (closing != null)
-            {
-                yield return closing;
-            }
+            expression.BuildContent(context);
+            
+            context.Write(expression.Closing(context));
 
             context.Expressions.Remove(expression);
         }
 
-        internal virtual IEnumerable<string> EnumerateContent(BuildContext context)
+        internal virtual void BuildContent(BuildContext context)
         {
             string s = Value(context);
             if (s != null)
             {
-                yield return s;
+                context.Write(s);
             }
         }
 

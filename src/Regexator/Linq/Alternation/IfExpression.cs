@@ -26,18 +26,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _condition = testContent;
         }
 
-        protected override IEnumerable<string> EnumerateCondition(BuildContext context)
+        protected override void ProcessCondition(BuildContext context)
         {
             if (_condition != null)
             {
-                yield return context.Settings.ConditionWithAssertion ? Syntax.AssertStart : Syntax.CapturingGroupStart;
+                context.Write(context.Settings.ConditionWithAssertion 
+                    ? Syntax.AssertStart 
+                    : Syntax.CapturingGroupStart);
 
-                foreach (var value in Expression.GetValues(_condition, context))
-                {
-                    yield return value;
-                }
+                Expression.BuildContent(_condition, context);
 
-                yield return Syntax.GroupEnd;
+                context.Write(Syntax.GroupEnd);
             }
         }
     }

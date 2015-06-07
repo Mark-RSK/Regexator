@@ -1,55 +1,45 @@
 ﻿// Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
-using System.Collections.Generic;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     internal class SurroundExpression
         : Expression
     {
-        private readonly object _value;
-        private readonly object _before;
-        private readonly object _after;
+        private readonly object _content;
+        private readonly object _contentBefore;
+        private readonly object _contentAfter;
 
-        public SurroundExpression(object value, object valueBefore, object valueAfter)
+        public SurroundExpression(object content, object contentBefore, object contentAfter)
         {
-            if (value == null)
+            if (content == null)
             {
-                throw new ArgumentNullException("value");
+                throw new ArgumentNullException("content");
             }
 
-            if (valueBefore == null)
+            if (contentBefore == null)
             {
-                throw new ArgumentNullException("valueBefore");
+                throw new ArgumentNullException("contentBefore");
             }
 
-            if (valueAfter == null)
+            if (contentAfter == null)
             {
-                throw new ArgumentNullException("valueAfter");
+                throw new ArgumentNullException("contentAfter");
             }
 
-            _value = value;
-            _before = valueBefore;
-            _after = valueAfter;
+            _content = content;
+            _contentBefore = contentBefore;
+            _contentAfter = contentAfter;
         }
 
-        internal override IEnumerable<string> EnumerateContent(BuildContext context)
+        internal override void BuildContent(BuildContext context)
         {
-            foreach (var value in Expression.GetValues(_before, context))
-            {
-                yield return value;
-            }
+            Expression.BuildContent(_contentBefore, context);
 
-            foreach (var value in Expression.GetValues(_value, context))
-            {
-                yield return value;
-            }
+            Expression.BuildContent(_content, context);
 
-            foreach (var value in Expression.GetValues(_after, context))
-            {
-                yield return value;
-            }
+            Expression.BuildContent(_contentAfter, context);
         }
     }
 }

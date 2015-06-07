@@ -2,7 +2,6 @@
 
 using System;
 using System.Collections;
-using System.Collections.Generic;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
@@ -27,86 +26,55 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _content = content;
         }
 
-        internal override IEnumerable<string> EnumerateContent(BuildContext context)
+        internal override void BuildContent(BuildContext context)
         {
-            object[] values = Content as object[];
-            if (values != null)
+            string text = Content as string;
+            if (text != null)
             {
-                foreach (var value in EnumerateContent(values, context))
-                {
-                    yield return value;
-                }
+                context.Write(RegexUtilities.Escape(text));
             }
             else
-            {
-                string text = Content as string;
-                if (text != null)
+	        {
+                object[] values = Content as object[];
+                if (values != null)
                 {
-                    yield return RegexUtilities.Escape(text);
+                    if (values.Length > 0)
+                    {
+                        Expression.BuildContent(values[0], context);
+
+                        for (int i = 1; i < values.Length; i++)
+                        {
+                            context.Write(Syntax.Or);
+
+                            Expression.BuildContent(values[i], context);
+                        }
+                    }
                 }
                 else
                 {
                     IEnumerable items = Content as IEnumerable;
                     if (items != null)
                     {
-                        foreach (var value in EnumerateContent(items, context))
+                        IEnumerator en = items.GetEnumerator();
+
+                        if (en.MoveNext())
                         {
-                            yield return value;
+                            Expression.BuildContent(en.Current, context);
+
+                            while (en.MoveNext())
+                            {
+                                context.Write(Syntax.Or);
+
+                                Expression.BuildContent(en.Current, context);
+                            }
                         }
                     }
                     else
                     {
-                        foreach (var value in Expression.GetValues(_content, context))
-                        {
-                            yield return value;
-                        }
+                        Expression.BuildContent(Content, context);
                     }
                 }
-            }
-        }
-
-        private static IEnumerable<string> EnumerateContent(object[] content, BuildContext context)
-        {
-            if (content.Length > 0)
-            {
-                foreach (var value in Expression.GetValues(content[0], context))
-                {
-                    yield return value;
-                }
-
-                for (int i = 1; i < content.Length; i++)
-                {
-                    yield return Syntax.Or;
-
-                    foreach (var value in Expression.GetValues(content[i], context))
-                    {
-                        yield return value;
-                    }
-                }
-            }
-        }
-
-        private static IEnumerable<string> EnumerateContent(IEnumerable items, BuildContext context)
-        {
-            IEnumerator en = items.GetEnumerator();
-
-            if (en.MoveNext())
-            {
-                foreach (var value in Expression.GetValues(en.Current, context))
-                {
-                    yield return value;
-                }
-
-                while (en.MoveNext())
-                {
-                    yield return Syntax.Or;
-
-                    foreach (var value in Expression.GetValues(en.Current, context))
-                    {
-                        yield return value;
-                    }
-                }
-            }
+	        }
         }
 
         internal object Content
