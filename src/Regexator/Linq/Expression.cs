@@ -202,19 +202,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 }
                 else
                 {
-                    CharGroupItem item = content as CharGroupItem;
-                    if (item != null)
+                    CharGroupItem charGroupItem = content as CharGroupItem;
+                    if (charGroupItem != null)
                     {
-                        yield return Syntax.CharGroup(item.Value);
+                        yield return Syntax.CharGroup(charGroupItem.Value);
                     }
                     else
                     {
-                        IEnumerable items = content as IEnumerable;
-                        if (items != null)
+                        object[] values = content as object[];
+                        if (values != null)
                         {
-                            foreach (var item2 in items)
+                            foreach (var item in values)
                             {
-                                foreach (var value in GetValues(item2, context))
+                                foreach (var value in GetValues(item, context))
                                 {
                                     yield return value;
                                 }
@@ -222,7 +222,21 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                         }
                         else
                         {
-                            yield return content.ToString() ?? string.Empty;
+                            IEnumerable items = content as IEnumerable;
+                            if (items != null)
+                            {
+                                foreach (var item in items)
+                                {
+                                    foreach (var value in GetValues(item, context))
+                                    {
+                                        yield return value;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                yield return content.ToString() ?? string.Empty;
+                            }
                         }
                     }
                 }
