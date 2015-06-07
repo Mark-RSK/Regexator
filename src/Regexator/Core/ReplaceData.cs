@@ -68,7 +68,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         private string Replace()
         {
             _lst = new List<ReplaceItem>();
-            
+
             if (Limit == MatchData.InfiniteLimit)
             {
                 return this.Regex.Replace(Input, Evaluator);
@@ -85,7 +85,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             _lst.Add(item);
             _offset += item.Result.Length - match.Length;
             _count++;
-            
+
             if (Limit != MatchData.InfiniteLimit && _count == Limit && match.NextMatch().Success)
             {
                 _limitState = LimitState.Limited;

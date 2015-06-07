@@ -15,6 +15,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq.Extensions
             }
 
             return match.Groups[groupName];
-        }   
+        }
     }
 }

@@ -255,7 +255,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                         sb.Append(EscapeInternal((int)ch, inCharGroup));
                         i++;
                         lastPos = i;
-                        
+
                         while (i < input.Length)
                         {
                             ch = input[i];
@@ -298,7 +298,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                         sb.Append("$$");
                         i++;
                         lastPos = i;
-                        
+
                         while (i < input.Length)
                         {
                             ch = input[i];
@@ -312,7 +312,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                         sb.Append(input, lastPos, i - lastPos);
 
                     } while (i < input.Length);
-                    
+
                     return sb.ToString();
                 }
             }

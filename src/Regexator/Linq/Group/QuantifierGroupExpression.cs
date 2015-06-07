@@ -38,6 +38,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                     return !(Content is CharGroupItem);
                 }
             }
-        } 
+        }
     }
 }

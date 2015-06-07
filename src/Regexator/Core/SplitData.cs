@@ -73,7 +73,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         private IEnumerable<SplitItem> CreateItems(Func<SplitItem, bool> predicate)
         {
             var item = new MatchSplitItem(this);
-            
+
             while (predicate(item))
             {
                 yield return item;

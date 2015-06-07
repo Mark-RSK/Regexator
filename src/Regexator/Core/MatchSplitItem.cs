@@ -64,7 +64,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                 {
                     _splitItems = CreateItems().ToList().AsReadOnly();
                 }
-            
+
                 return _splitItems;
             }
         }
