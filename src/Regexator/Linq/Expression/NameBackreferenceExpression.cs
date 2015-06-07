@@ -1,7 +1,5 @@
 // Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-using System;
-
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     internal sealed class NameBackreferenceExpression
@@ -12,10 +10,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         internal NameBackreferenceExpression(string groupName)
             : base()
         {
-            if (groupName == null)
-            {
-                throw new ArgumentNullException("groupName");
-            }
+            RegexUtilities.CheckGroupName(groupName);
 
             _groupName = groupName;
         }

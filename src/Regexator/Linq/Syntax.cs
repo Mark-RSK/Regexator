@@ -86,40 +86,32 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal static string IfGroupCondition(int groupNumber)
         {
-            if (groupNumber < 0)
-            {
-                throw new ArgumentOutOfRangeException("groupNumber");
-            }
             return IfGroupCondition(groupNumber.ToString(CultureInfo.InvariantCulture));
         }
 
         internal static string IfGroupCondition(string groupName)
         {
-            if (groupName == null)
-            {
-                throw new ArgumentNullException("groupName");
-            }
             return CapturingGroupStart + groupName + GroupEnd;
         }
 
         public static string Assert(string content)
         {
-            return AssertStart + content + GroupEnd;
+            return AssertStart + RegexUtilities.Escape(content) + GroupEnd;
         }
 
         public static string NotAssert(string content)
         {
-            return NotAssertStart + content + GroupEnd;
+            return NotAssertStart + RegexUtilities.Escape(content) + GroupEnd;
         }
 
         public static string AssertBack(string content)
         {
-            return AssertBackStart + content + GroupEnd;
+            return AssertBackStart + RegexUtilities.Escape(content) + GroupEnd;
         }
 
         public static string NotAssertBack(string content)
         {
-            return NotAssertBackStart + content + GroupEnd;
+            return NotAssertBackStart + RegexUtilities.Escape(content) + GroupEnd;
         }
 
         public static string Backreference(int groupNumber)
@@ -128,6 +120,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 throw new ArgumentOutOfRangeException("groupNumber");
             }
+
             return @"\" + groupNumber;
         }
 
@@ -137,6 +130,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 throw new ArgumentNullException("groupName");
             }
+
+            RegexUtilities.CheckGroupName(groupName);
+
+            return BackreferenceInternal(groupName, separator);
+        }
+
+        internal static string BackreferenceInternal(string groupName, IdentifierBoundary separator)
+        {
             switch (separator)
             {
                 case IdentifierBoundary.LessThan:
@@ -144,17 +145,15 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 case IdentifierBoundary.Apostrophe:
                     return @"\k'" + groupName + "'";
             }
+
             return null;
         }
 
         public static string Group(string groupName, string content, IdentifierBoundary boundary)
         {
-            if (groupName == null)
-            {
-                throw new ArgumentNullException("groupName");
-            }
             RegexUtilities.CheckGroupName(groupName);
-            return GroupStart(groupName, boundary) + content + GroupEnd;
+            
+            return GroupStart(groupName, boundary) + RegexUtilities.Escape(content) + GroupEnd;
         }
 
         internal static string GroupStart(string groupName, IdentifierBoundary boundary)
@@ -171,19 +170,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static string BalanceGroup(string name1, string name2, string content, IdentifierBoundary separator)
         {
-            return BalanceGroupStart(name1, name2, separator) + content + GroupEnd;
+            RegexUtilities.CheckGroupName(name1);
+            RegexUtilities.CheckGroupName(name2);
+
+            return BalanceGroupStart(name1, name2, separator) + RegexUtilities.Escape(content) + GroupEnd;
         }
 
         internal static string BalanceGroupStart(string name1, string name2, IdentifierBoundary separator)
         {
-            if (name1 == null)
-            {
-                throw new ArgumentNullException("name1");
-            }
-            if (name2 == null)
-            {
-                throw new ArgumentNullException("name2");
-            }
             switch (separator)
             {
                 case IdentifierBoundary.LessThan:
@@ -200,7 +194,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 throw new ArgumentNullException("content");
             }
-            return CapturingGroupStart + content + GroupEnd;
+
+            return CapturingGroupStart + RegexUtilities.Escape(content) + GroupEnd;
         }
 
         public static string NoncapturingGroup(string content)
@@ -209,7 +204,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 throw new ArgumentNullException("content");
             }
-            return NoncapturingGroupStart + content + GroupEnd;
+
+            return NoncapturingGroupStart + RegexUtilities.Escape(content) + GroupEnd;
         }
 
         public static string NonbacktrackingGroup(string content)
@@ -218,7 +214,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 throw new ArgumentNullException("content");
             }
-            return NonbacktrackingGroupStart + content + GroupEnd;
+
+            return NonbacktrackingGroupStart + RegexUtilities.Escape(content) + GroupEnd;
         }
 
         public static string GroupOptions(InlineOptions applyOptions, string content)
@@ -228,11 +225,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static string GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, string content)
         {
+            if (content == null)
+            {
+                throw new ArgumentNullException("content");
+            }
+
             string options = GetInlineChars(applyOptions, disableOptions);
 
+            string text = RegexUtilities.Escape(content);
+
             return (!string.IsNullOrEmpty(options))
-                ? "(?" + options + ":" + content + GroupEnd
-                : content;
+                ? "(?" + options + ":" + text + GroupEnd
+                : text;
         }
 
         internal static string CharGroup(string value)
@@ -240,17 +244,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return CharGroup(value, false);
         }
 
-        internal static string CharGroup(string value, bool negative)
+        internal static string CharGroup(string content, bool negative)
         {
-            if (value == null)
+            if (content == null)
             {
-                throw new ArgumentNullException("value");
+                throw new ArgumentNullException("content");
             }
-            if (value.Length == 0)
+
+            if (content.Length == 0)
             {
-                throw new ArgumentException("Character group cannot be empty.", "value");
+                throw new ArgumentException("Character group cannot be empty.", "content");
             }
-            return (negative ? NotCharGroupStart : CharGroupStart) + value + CharGroupEnd;
+
+            return (negative ? NotCharGroupStart : CharGroupStart) + RegexUtilities.Escape(content, true) + CharGroupEnd;
         }
 
         public static string CharClass(CharClass value)
@@ -270,6 +276,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 case Linq.CharClass.NotWhiteSpace:
                     return NotWhiteSpace;
             }
+
             return string.Empty;
         }
 
@@ -279,6 +286,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 throw new ArgumentNullException("values");
             }
+
             return string.Concat(values.Select(f => CharClass(f)));
         }
 
@@ -348,6 +356,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 throw new ArgumentNullException("values");
             }
+
             return string.Concat(values.Select(f => Char(f, inCharGroup)));
         }
 
@@ -362,6 +371,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 throw new ArgumentNullException("charCodes");
             }
+
             return string.Concat(charCodes.Select(f => Char(f, inCharGroup)));
         }
 
@@ -376,6 +386,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 throw new ArgumentNullException("values");
             }
+
             return string.Concat(values.Select(f => Char(f, inCharGroup)));
         }
 
@@ -390,6 +401,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 throw new ArgumentOutOfRangeException("charCode");
             }
+
             return UnicodeInternal(charCode);
         }
 
@@ -404,6 +416,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 throw new ArgumentOutOfRangeException("charCode");
             }
+
             return AsciiStart + charCode.ToString("X2", CultureInfo.InvariantCulture);
         }
 
@@ -413,6 +426,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 throw new ArgumentOutOfRangeException("charCode");
             }
+
             return @"\" + Convert.ToString(charCode, 8).PadLeft(2, '0');
         }
 
@@ -442,6 +456,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 throw new ArgumentNullException("blocks");
             }
+
             return string.Concat(blocks.Select(f => NamedBlock(f, negative)));
         }
 
@@ -471,6 +486,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 throw new ArgumentNullException("categories");
             }
+
             return string.Concat(categories.Select(f => GeneralCategory(f, negative)));
         }
 
@@ -480,6 +496,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 throw new ArgumentOutOfRangeException("exactCount");
             }
+
             return "{" + exactCount + "}";
         }
 
@@ -489,6 +506,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 throw new ArgumentOutOfRangeException("minCount");
             }
+
             return "{" + minCount + ",}";
         }
 
@@ -498,10 +516,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 throw new ArgumentOutOfRangeException("minCount");
             }
+
             if (maxCount < minCount)
             {
                 throw new ArgumentOutOfRangeException("maxCount");
             }
+
             return "{" + minCount + "," + maxCount + "}";
         }
 
@@ -512,10 +532,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static string Options(InlineOptions applyOptions, InlineOptions disableOptions)
         {
-            string content = GetInlineChars(applyOptions, disableOptions);
+            string options = GetInlineChars(applyOptions, disableOptions);
 
-            return (!string.IsNullOrEmpty(content))
-                ? "(?" + content + GroupEnd
+            return (!string.IsNullOrEmpty(options))
+                ? "(?" + options + GroupEnd
                 : string.Empty;
         }
 
@@ -553,18 +573,22 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 yield return IgnoreCaseChar;
             }
+
             if ((options & InlineOptions.Multiline) == InlineOptions.Multiline)
             {
                 yield return MultilineChar;
             }
+
             if ((options & InlineOptions.ExplicitCapture) == InlineOptions.ExplicitCapture)
             {
                 yield return ExplicitCaptureChar;
             }
+
             if ((options & InlineOptions.Singleline) == InlineOptions.Singleline)
             {
                 yield return SinglelineChar;
             }
+
             if ((options & InlineOptions.IgnorePatternWhitespace) == InlineOptions.IgnorePatternWhitespace)
             {
                 yield return IgnorePatternWhiteSpaceChar;
@@ -890,11 +914,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static string SubstituteNamedGroup(string groupName)
         {
-            if (groupName == null)
-            {
-                throw new ArgumentNullException("groupName");
-            }
             RegexUtilities.CheckGroupName(groupName);
+
             return SubstituteNamedGroupInternal(groupName);
         }
 

@@ -1,6 +1,5 @@
 // Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-using System;
 using System.Collections.Generic;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
@@ -18,10 +17,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         internal GroupNameIfExpression(string groupName, object trueContent, object falseContent)
             : base(trueContent, falseContent)
         {
-            if (groupName == null)
-            {
-                throw new ArgumentNullException("groupName");
-            }
+            RegexUtilities.CheckGroupName(groupName);
 
             _groupName = groupName;
         }
