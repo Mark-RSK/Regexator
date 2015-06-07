@@ -1381,6 +1381,66 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return NotAlphanumeric().CountRange(minCount, maxCount);
         }
 
+        public static CharGroupExpression AlphanumericLower()
+        {
+            return Char(CharGroupItems.AlphanumericLower());
+        }
+
+        public static QuantifierExpression AlphanumericLower(int count)
+        {
+            return AlphanumericLower().Count(count);
+        }
+
+        public static QuantifierExpression AlphanumericLower(int minCount, int maxCount)
+        {
+            return AlphanumericLower().CountRange(minCount, maxCount);
+        }
+
+        public static CharGroupExpression NotAlphanumericLower()
+        {
+            return NotChar(CharGroupItems.AlphanumericLower());
+        }
+
+        public static QuantifierExpression NotAlphanumericLower(int count)
+        {
+            return NotAlphanumericLower().Count(count);
+        }
+
+        public static QuantifierExpression NotAlphanumericLower(int minCount, int maxCount)
+        {
+            return NotAlphanumericLower().CountRange(minCount, maxCount);
+        }
+
+        public static CharGroupExpression AlphanumericUpper()
+        {
+            return Char(CharGroupItems.AlphanumericUpper());
+        }
+
+        public static QuantifierExpression AlphanumericUpper(int count)
+        {
+            return AlphanumericUpper().Count(count);
+        }
+
+        public static QuantifierExpression AlphanumericUpper(int minCount, int maxCount)
+        {
+            return AlphanumericUpper().CountRange(minCount, maxCount);
+        }
+
+        public static CharGroupExpression NotAlphanumericUpper()
+        {
+            return NotChar(CharGroupItems.AlphanumericUpper());
+        }
+
+        public static QuantifierExpression NotAlphanumericUpper(int count)
+        {
+            return NotAlphanumericUpper().Count(count);
+        }
+
+        public static QuantifierExpression NotAlphanumericUpper(int minCount, int maxCount)
+        {
+            return NotAlphanumericUpper().CountRange(minCount, maxCount);
+        }
+
         public static CharGroupExpression AlphanumericUnderscore()
         {
             return Char(CharGroupItems.AlphanumericUnderscore());

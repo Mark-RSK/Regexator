@@ -514,6 +514,26 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotAlphanumeric());
         }
 
+        public CharGroupExpression AlphanumericLower()
+        {
+            return ConcatInternal(Chars.AlphanumericLower());
+        }
+
+        public CharGroupExpression NotAlphanumericLower()
+        {
+            return ConcatInternal(Chars.NotAlphanumericLower());
+        }
+
+        public CharGroupExpression AlphanumericUpper()
+        {
+            return ConcatInternal(Chars.AlphanumericUpper());
+        }
+
+        public CharGroupExpression NotAlphanumericUpper()
+        {
+            return ConcatInternal(Chars.NotAlphanumericUpper());
+        }
+
         public CharGroupExpression AlphanumericUnderscore()
         {
             return ConcatInternal(Chars.AlphanumericUnderscore());

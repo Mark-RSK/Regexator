@@ -146,6 +146,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Concat(CharGroupItems.Alphanumeric());
         }
 
+        public CharGroupItem AlphanumericLower()
+        {
+            return Concat(CharGroupItems.AlphanumericLower());
+        }
+
+        public CharGroupItem AlphanumericUpper()
+        {
+            return Concat(CharGroupItems.AlphanumericUpper());
+        }
+
         public CharGroupItem LatinLetter()
         {
             return Concat(CharGroupItems.LatinLetter());

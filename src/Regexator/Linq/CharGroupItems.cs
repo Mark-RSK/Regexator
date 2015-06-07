@@ -89,6 +89,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return LatinLetter().ArabicDigit();
         }
 
+        public static CharGroupItem AlphanumericLower()
+        {
+            return LatinLetterLower().ArabicDigit();
+        }
+
+        public static CharGroupItem AlphanumericUpper()
+        {
+            return LatinLetterUpper().ArabicDigit();
+        }
+
         public static CharGroupItem AlphanumericUnderscore()
         {
             return Alphanumeric().Underscore();
