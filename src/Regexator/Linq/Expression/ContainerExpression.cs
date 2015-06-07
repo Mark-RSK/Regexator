@@ -16,7 +16,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override IEnumerable<string> EnumerateContent(BuildContext context)
         {
-            return Expression.EnumerateValues(_content, context);
+            return Expression.GetValues(_content, context);
         }
     }
 }

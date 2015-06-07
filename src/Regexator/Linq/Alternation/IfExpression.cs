@@ -32,7 +32,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 yield return context.Settings.ConditionWithAssertion ? Syntax.AssertStart : Syntax.CapturingGroupStart;
 
-                foreach (var value in Expression.EnumerateValues(_condition, context))
+                foreach (var value in Expression.GetValues(_condition, context))
                 {
                     yield return value;
                 }

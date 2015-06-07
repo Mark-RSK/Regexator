@@ -33,7 +33,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             yield return Syntax.Char(_beforeChar);
 
-            foreach (var value in Expression.EnumerateValues(_value, context))
+            foreach (var value in Expression.GetValues(_value, context))
             {
                 yield return value;
             }

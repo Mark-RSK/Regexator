@@ -56,7 +56,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                     }
                     else
                     {
-                        foreach (var value in Expression.EnumerateValues(_content, context))
+                        foreach (var value in Expression.GetValues(_content, context))
                         {
                             yield return value;
                         }
@@ -69,7 +69,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (content.Length > 0)
             {
-                foreach (var value in Expression.EnumerateValues(content[0], context))
+                foreach (var value in Expression.GetValues(content[0], context))
                 {
                     yield return value;
                 }
@@ -78,7 +78,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 {
                     yield return Syntax.Or;
 
-                    foreach (var value in Expression.EnumerateValues(content[i], context))
+                    foreach (var value in Expression.GetValues(content[i], context))
                     {
                         yield return value;
                     }
@@ -92,7 +92,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (en.MoveNext())
             {
-                foreach (var value in Expression.EnumerateValues(en.Current, context))
+                foreach (var value in Expression.GetValues(en.Current, context))
                 {
                     yield return value;
                 }
@@ -101,7 +101,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 {
                     yield return Syntax.Or;
 
-                    foreach (var value in Expression.EnumerateValues(en.Current, context))
+                    foreach (var value in Expression.GetValues(en.Current, context))
                     {
                         yield return value;
                     }

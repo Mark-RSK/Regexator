@@ -36,17 +36,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override IEnumerable<string> EnumerateContent(BuildContext context)
         {
-            foreach (var value in Expression.EnumerateValues(_before, context))
+            foreach (var value in Expression.GetValues(_before, context))
             {
                 yield return value;
             }
 
-            foreach (var value in Expression.EnumerateValues(_value, context))
+            foreach (var value in Expression.GetValues(_value, context))
             {
                 yield return value;
             }
 
-            foreach (var value in Expression.EnumerateValues(_after, context))
+            foreach (var value in Expression.GetValues(_after, context))
             {
                 yield return value;
             }

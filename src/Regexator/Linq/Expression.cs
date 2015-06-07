@@ -132,7 +132,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             using (var context = new BuildContext() { Settings = settings })
             {
-                foreach (var value in EnumerateValues(context))
+                foreach (var value in GetValues(context))
                 {
                     context.Write(value);
                 }
@@ -141,14 +141,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        internal IEnumerable<string> EnumerateValues(BuildContext context)
+        internal IEnumerable<string> GetValues(BuildContext context)
         {
             if (Previous != null)
             {
                 var items = new Stack<Expression>(EnumerateExpressions());
                 while (items.Count > 0)
                 {
-                    foreach (var value in EnumerateValues(items.Pop(), context))
+                    foreach (var value in GetValues(items.Pop(), context))
                     {
                         yield return value;
                     }
@@ -156,7 +156,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
             else
             {
-                foreach (var value in EnumerateValues(this, context))
+                foreach (var value in GetValues(this, context))
                 {
                     yield return value;
                 }
@@ -175,10 +175,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal static string GetValue(object content, BuildContext context)
         {
-            return string.Concat(EnumerateValues(content, context));
+            return string.Concat(GetValues(content, context));
         }
 
-        internal static IEnumerable<string> EnumerateValues(object content, BuildContext context)
+        internal static IEnumerable<string> GetValues(object content, BuildContext context)
         {
             if (content == null)
             {
@@ -188,7 +188,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Expression expression = content as Expression;
             if (expression != null)
             {
-                foreach (var value in expression.EnumerateValues(context))
+                foreach (var value in expression.GetValues(context))
                 {
                     yield return value;
                 }
@@ -214,7 +214,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                         {
                             foreach (var item2 in items)
                             {
-                                foreach (var value in EnumerateValues(item2, context))
+                                foreach (var value in GetValues(item2, context))
                                 {
                                     yield return value;
                                 }
@@ -229,7 +229,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        private static IEnumerable<string> EnumerateValues(Expression expression, BuildContext context)
+        private static IEnumerable<string> GetValues(Expression expression, BuildContext context)
         {
             if (!context.Expressions.Add(expression))
             {

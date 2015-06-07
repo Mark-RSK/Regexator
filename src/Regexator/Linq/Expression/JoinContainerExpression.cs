@@ -51,7 +51,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 yield break;
             }
 
-            foreach (var value in Expression.EnumerateValues(values[0], context))
+            foreach (var value in Expression.GetValues(values[0], context))
             {
                 yield return value;
             }
@@ -60,7 +60,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 yield return separator;
 
-                foreach (var value in Expression.EnumerateValues(values[i], context))
+                foreach (var value in Expression.GetValues(values[i], context))
                 {
                     yield return value;
                 }
@@ -76,7 +76,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                     yield break;
                 }
 
-                foreach (var value in Expression.EnumerateValues(en.Current, context))
+                foreach (var value in Expression.GetValues(en.Current, context))
                 {
                     yield return value;
                 }
@@ -85,7 +85,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 {
                     yield return separator;
 
-                    foreach (var value in Expression.EnumerateValues(en.Current, context))
+                    foreach (var value in Expression.GetValues(en.Current, context))
                     {
                         yield return value;
                     }

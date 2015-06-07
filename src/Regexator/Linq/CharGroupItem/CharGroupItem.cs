@@ -30,7 +30,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return item;
         }
 
-        internal IEnumerable<string> EnumerateValues()
+        internal IEnumerable<string> GetValues()
         {
             if (Previous != null)
             {
@@ -195,7 +195,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal string Value
         {
-            get { return string.Concat(EnumerateValues()); }
+            get { return string.Concat(GetValues()); }
         }
 
         internal CharGroupItem Previous { get; set; }

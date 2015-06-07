@@ -32,7 +32,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 yield return value;
             }
 
-            foreach (var value in Expression.EnumerateValues(_trueContent, context))
+            foreach (var value in Expression.GetValues(_trueContent, context))
             {
                 yield return value;
             }
@@ -40,7 +40,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             if (_falseContent != null)
             {
                 yield return Syntax.Or;
-                foreach (var value in Expression.EnumerateValues(_falseContent, context))
+                foreach (var value in Expression.GetValues(_falseContent, context))
                 {
                     yield return value;
                 }
