@@ -15,7 +15,7 @@ namespace Pihrtsoft.Text.RegularExpressions
     public static class RegexUtilities
     {
         internal static readonly RegexOptions InlineRegexOptions = RegexOptions.IgnoreCase | RegexOptions.Multiline | RegexOptions.ExplicitCapture | RegexOptions.Singleline | RegexOptions.IgnorePatternWhitespace;
-        private static Regex _isValidGroupName;
+        private static readonly Expression _validGroupName = Patterns.ValidGroupName();
 
         public static bool IsValidGroupName(string groupName)
         {
@@ -26,7 +26,7 @@ namespace Pihrtsoft.Text.RegularExpressions
 
             if (groupName.Length > 0)
             {
-                Match match = IsValidGroupNameRegex.Match(groupName);
+                Match match = _validGroupName.Match(groupName);
                 if (match.Success)
                 {
                     Group g = match.Groups[1];
@@ -488,22 +488,6 @@ namespace Pihrtsoft.Text.RegularExpressions
                     yield return new CharMatchInfo(Syntax.AsciiControlStart + System.Convert.ToChar('a' + charCode - 1), "ASCII control character");
                     yield return new CharMatchInfo(Syntax.AsciiControlStart + System.Convert.ToChar('A' + charCode - 1), "ASCII control character");
                 }
-            }
-        }
-
-        internal static Regex IsValidGroupNameRegex
-        {
-            get
-            {
-                if (_isValidGroupName == null)
-                {
-                    _isValidGroupName = Alternations.Any(
-                        Chars.CharRange('1', '9').ArabicDigit().MaybeMany().AsCapturing(),
-                        Chars.WordChar().Except(Chars.ArabicDigit()).WordChar().MaybeMany()
-                    ).AsEntireInput().ToRegex();
-                }
-
-                return _isValidGroupName;
             }
         }
 

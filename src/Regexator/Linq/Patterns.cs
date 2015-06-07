@@ -39,5 +39,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 .StartOfInput()
                 .NotNewLineChar().MaybeMany();
         }
+
+        internal static Expression ValidGroupName()
+        {
+            return Alternations.Any(
+                Chars.CharRange('1', '9').ArabicDigit().MaybeMany().AsCapturing(),
+                Chars.WordChar().Except(Chars.ArabicDigit()).WordChar().MaybeMany()
+            ).AsEntireInput();
+        }
     }
 }
