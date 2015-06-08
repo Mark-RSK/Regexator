@@ -29,7 +29,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public void Write(string value)
         {
-            _writer.Write(value);
+            if (!string.IsNullOrEmpty(value))
+            {
+                _writer.Write(value);
+            }
         }
 
         public void Dispose()
