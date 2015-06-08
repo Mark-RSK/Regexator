@@ -132,7 +132,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             using (var context = new BuildContext(settings))
             {
-
                 Build(context);
                 return context.ToString();
             }

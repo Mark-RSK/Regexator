@@ -4,6 +4,23 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public static class Expressions
     {
+#if DEBUG
+        public static Expression GoTo(char value)
+        {
+            return Chars.NotChar(value).MaybeMany().Char(value);
+        }
+
+        public static Expression GoTo(int charCode)
+        {
+            return Chars.NotChar(charCode).MaybeMany().Char(charCode);
+        }
+
+        public static Expression GoTo(AsciiChar value)
+        {
+            return Chars.NotChar(value).MaybeMany().Char(value);
+        }
+#endif
+
         public static Expression Crawl()
         {
             return Chars.Any().MaybeMany().Lazy();

@@ -449,6 +449,23 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Expressions.LessThanGreaterThan(content));
         }
 
+#if DEBUG
+        public Expression GoTo(char value)
+        {
+            return ConcatInternal(Expressions.GoTo(value));
+        }
+
+        public Expression GoTo(int charValue)
+        {
+            return ConcatInternal(Expressions.GoTo(charValue));
+        }
+
+        public Expression GoTo(AsciiChar value)
+        {
+            return ConcatInternal(Expressions.GoTo(value));
+        }
+#endif
+
         public QuantifiableExpression Char(string chars)
         {
             return ConcatInternal(Chars.Char(chars));
