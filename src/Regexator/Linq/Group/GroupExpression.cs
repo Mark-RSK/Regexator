@@ -34,7 +34,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 context.Write(RegexUtilities.Escape(text));
             }
             else
-	        {
+            {
                 object[] values = Content as object[];
                 if (values != null)
                 {
@@ -45,7 +45,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                         for (int i = 1; i < values.Length; i++)
                         {
                             context.Write(Syntax.Or);
-
                             Expression.BuildContent(values[i], context);
                         }
                     }
@@ -64,7 +63,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                             while (en.MoveNext())
                             {
                                 context.Write(Syntax.Or);
-
                                 Expression.BuildContent(en.Current, context);
                             }
                         }
@@ -74,7 +72,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                         Expression.BuildContent(Content, context);
                     }
                 }
-	        }
+            }
         }
 
         internal object Content
