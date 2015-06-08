@@ -695,7 +695,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 case Linq.GeneralCategory.SymbolOther:
                     return "So";
                 default:
-                    Debug.Assert(false);
                     return string.Empty;
             }
         }
@@ -922,7 +921,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 case Linq.NamedBlock.YiSyllables:
                     return "IsYiSyllables";
                 default:
-                    Debug.Assert(false);
                     return string.Empty;
             }
         }
