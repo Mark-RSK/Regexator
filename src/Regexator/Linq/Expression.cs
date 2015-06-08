@@ -130,7 +130,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("settings");
             }
 
-            using (var context = new BuildContext() { Settings = settings })
+            using (var context = new BuildContext(settings))
             {
 
                 Build(context);
@@ -171,7 +171,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal static string GetValue(object content, PatternSettings settings)
         {
-            using (var context = new BuildContext() { Settings = settings })
+            using (var context = new BuildContext(settings))
             {
                 BuildContent(content, context);
                 return context.ToString();

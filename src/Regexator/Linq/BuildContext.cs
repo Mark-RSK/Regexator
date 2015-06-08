@@ -16,10 +16,20 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         private bool _disposed;
 
         public BuildContext()
+            : this(new PatternSettings())
         {
+        }
+
+        public BuildContext(PatternSettings settings)
+        {
+            if (settings == null)
+            {
+                throw new ArgumentNullException("settings");
+            }
+
+            _settings = settings;
             _writer = new StringWriter(CultureInfo.CurrentCulture);
             _expressions = new HashSet<Expression>();
-            _settings = new PatternSettings();
         }
 
         public override string ToString()
