@@ -4,8 +4,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public static class Expressions
     {
-
-#if DEBUG
         public static Expression Crawl()
         {
             return Chars.Any().MaybeMany().Lazy();
@@ -15,7 +13,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             return Chars.AnyInvariant().MaybeMany().Lazy();
         }
-#endif
 
         public static QuantifiableExpression Apostrophes(object content)
         {
