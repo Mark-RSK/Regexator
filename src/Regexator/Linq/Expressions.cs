@@ -6,12 +6,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
 
 #if DEBUG
-        public static Expression Fill()
+        public static Expression Crawl()
         {
             return Chars.Any().MaybeMany().Lazy();
         }
 
-        public static Expression FillInvariant()
+        public static Expression CrawlInvariant()
         {
             return Chars.AnyInvariant().MaybeMany().Lazy();
         }

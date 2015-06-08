@@ -589,17 +589,15 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.AnyMaybeManyLazy());
         }
 
-#if DEBUG
-        public Expression Fill()
+        public Expression Crawl()
         {
-            return ConcatInternal(Expressions.Fill());
+            return ConcatInternal(Expressions.Crawl());
         }
 
-        public Expression FillInvariant()
+        public Expression CrawlInvariant()
         {
-            return ConcatInternal(Expressions.FillInvariant());
+            return ConcatInternal(Expressions.CrawlInvariant());
         }
-#endif
 
         public Expression AnyMaybeManyLazyInvariant()
         {

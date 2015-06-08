@@ -32,7 +32,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 .LessThanGreaterThan(
                     Chars.ExclamationMark().SquareBrackets(
                         Expression.Create("CDATA").SquareBrackets(
-                            Expressions.FillInvariant().AsCapturing()
+                            Expressions.CrawlInvariant().AsCapturing()
                         )
                     )
                 ));
@@ -94,8 +94,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             Console.WriteLine("words in any order:");
             Console.WriteLine(Anchors.StartOfLine()
-                .Assert(Expressions.FillInvariant().Word("word1"))
-                .Assert(Expressions.FillInvariant().Word("word2"))
+                .Assert(Expressions.CrawlInvariant().Word("word1"))
+                .Assert(Expressions.CrawlInvariant().Word("word2"))
                 .AnyInvariant().MaybeMany());
             Console.WriteLine("");
 
