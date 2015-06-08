@@ -166,16 +166,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal static string GetValue(object content)
         {
-            using (var context = new BuildContext())
-            {
-                return GetValue(content, context);
-            }
+            return GetValue(content, new PatternSettings());
         }
 
-        internal static string GetValue(object content, BuildContext context)
+        internal static string GetValue(object content, PatternSettings settings)
         {
-            BuildContent(content, context);
-            return context.ToString();
+            using (var context = new BuildContext() { Settings = settings })
+            {
+                BuildContent(content, context);
+                return context.ToString();
+            }
         }
 
         internal static void BuildContent(object content, BuildContext context)

@@ -33,7 +33,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
                     if (values.Length > 1)
                     {
-                        string separator = GetValue(_separator, context);
+                        string separator = GetValue(_separator, context.Settings);
 
                         for (int i = 1; i < values.Length; i++)
                         {
@@ -54,7 +54,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
                         if (en.MoveNext())
                         {
-                            string separator = GetValue(_separator, context);
+                            string separator = GetValue(_separator, context.Settings);
 
                             context.Write(separator);
                             Expression.BuildContent(en.Current, context);
