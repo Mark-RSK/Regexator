@@ -10,7 +10,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal class BuildContext
         : IDisposable
     {
+#if DEBUG
         private readonly HashSet<Expression> _expressions;
+#endif
         private readonly TextWriter _writer;
         private PatternSettings _settings;
         private bool _disposed;
@@ -29,7 +31,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             _settings = settings;
             _writer = new StringWriter(CultureInfo.CurrentCulture);
+#if DEBUG
             _expressions = new HashSet<Expression>();
+#endif
         }
 
         public override string ToString()
@@ -63,10 +67,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
+#if DEBUG
         public HashSet<Expression> Expressions
         {
             get { return _expressions; }
         }
+#endif
 
         public PatternSettings Settings
         {

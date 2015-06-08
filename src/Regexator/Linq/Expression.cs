@@ -235,10 +235,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         private static void Build(Expression expression, BuildContext context)
         {
+#if DEBUG
             if (!context.Expressions.Add(expression))
             {
                 throw new InvalidOperationException("A circular reference was detected while creating a pattern.");
             }
+#endif
 
             context.Write(expression.Opening(context));
 
@@ -246,7 +248,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             
             context.Write(expression.Closing(context));
 
+#if DEBUG
             context.Expressions.Remove(expression);
+#endif
         }
 
         internal virtual void BuildContent(BuildContext context)
