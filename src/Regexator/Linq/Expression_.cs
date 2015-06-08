@@ -669,12 +669,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.WhiteSpace(minCount, maxCount));
         }
 
-#if DEBUG
         public QuantifierExpression SkipWhiteSpace()
         {
             return ConcatInternal(Chars.SkipWhiteSpace());
         }
-#endif
 
         public QuantifiableExpression NotWhiteSpace()
         {
