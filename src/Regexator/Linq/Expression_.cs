@@ -434,14 +434,29 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Expressions.QuoteMarks(content));
         }
 
+        public Expression Parentheses()
+        {
+            return ConcatInternal(Expressions.Parentheses());
+        }
+
         public Expression Parentheses(object content)
         {
             return ConcatInternal(Expressions.Parentheses(content));
         }
 
+        public Expression CurlyBrackets()
+        {
+            return ConcatInternal(Expressions.CurlyBrackets());
+        }
+
         public Expression CurlyBrackets(object content)
         {
             return ConcatInternal(Expressions.CurlyBrackets(content));
+        }
+
+        public Expression SquareBrackets()
+        {
+            return ConcatInternal(Expressions.SquareBrackets());
         }
 
         public Expression SquareBrackets(object content)

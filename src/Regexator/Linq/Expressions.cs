@@ -41,14 +41,29 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Surround(content, AsciiChar.QuoteMark).AsNoncapturing();
         }
 
+        public static Expression Parentheses()
+        {
+            return Chars.LeftParenthesis().RightParenthesis();
+        }
+
         public static QuantifiableExpression Parentheses(object content)
         {
             return Surround(content, AsciiChar.LeftParenthesis, AsciiChar.RightParenthesis).AsNoncapturing();
         }
 
+        public static Expression CurlyBrackets()
+        {
+            return Chars.LeftCurlyBracket().RightCurlyBracket();
+        }
+
         public static QuantifiableExpression CurlyBrackets(object content)
         {
             return Surround(content, AsciiChar.LeftCurlyBracket, AsciiChar.RightCurlyBracket).AsNoncapturing();
+        }
+
+        public static Expression SquareBrackets()
+        {
+            return Chars.LeftSquareBracket().RightSquareBracket();
         }
 
         public static QuantifiableExpression SquareBrackets(object content)
