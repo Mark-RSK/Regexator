@@ -154,6 +154,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Alternations.Or());
         }
 
+        public Expression Or(object content)
+        {
+            return Join(Syntax.Or, this, content);
+        }
+
         public QuantifiableExpression StartOfInput()
         {
             return ConcatInternal(Anchors.StartOfInput());

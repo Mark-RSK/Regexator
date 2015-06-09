@@ -507,14 +507,34 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return this.Regex.Replace(input, evaluator, count, startAt);
         }
 
-        public static explicit operator string(Expression expression)
+        public static Expression operator +(Expression expression1, Expression expression2)
         {
-            if (expression == null)
+            if (expression1 == null)
             {
-                throw new ArgumentNullException("expression");
+                throw new ArgumentNullException("expression1");
             }
 
-            return expression.ToString();
+            if (expression2 == null)
+            {
+                throw new ArgumentNullException("expression2");
+            }
+
+            return expression1.Concat(expression2);
+        }
+
+        public static Expression operator |(Expression expression1, Expression expression2)
+        {
+            if (expression1 == null)
+            {
+                throw new ArgumentNullException("expression1");
+            }
+
+            if (expression2 == null)
+            {
+                throw new ArgumentNullException("expression2");
+            }
+
+            return expression1.Or(expression2);
         }
 
         public static explicit operator Expression(string text)
