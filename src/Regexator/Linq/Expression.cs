@@ -3,6 +3,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Pihrtsoft.Text.RegularExpressions.Linq.Extensions;
@@ -507,6 +508,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return this.Regex.Replace(input, evaluator, count, startAt);
         }
 
+        [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
+        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static Expression operator +(Expression expression1, Expression expression2)
         {
             if (expression1 == null)
@@ -522,6 +525,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return expression1.Concat(expression2);
         }
 
+        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static Expression operator |(Expression expression1, Expression expression2)
         {
             if (expression1 == null)
