@@ -128,7 +128,7 @@
     <Compile Include="Linq\Group\NoncapturingExpression.cs" />
     <Compile Include="Linq\Expression\NumberBackreferenceExpression.cs" />
     <Compile Include="Linq\Group\GroupOptionsExpression.cs" />
-    <Compile Include="Linq\Alternation\AnyExpression.cs" />
+    <Compile Include="Linq\Group\AnyExpression.cs" />
     <Compile Include="Linq\Expression\QuantifiableExpression.cs" />
     <Compile Include="Linq\Quantifier\OneManyQuantifier.cs" />
     <Compile Include="Linq\Quantifier\MaybeManyQuantifier.cs" />
