@@ -2,7 +2,7 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public enum AssertionKind
+    internal enum AssertionKind
     {
         Assert,
         AssertBack,
