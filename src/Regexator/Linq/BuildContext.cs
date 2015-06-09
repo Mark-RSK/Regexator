@@ -77,15 +77,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public PatternSettings Settings
         {
             get { return _settings; }
-            set
-            {
-                if (value == null)
-                {
-                    throw new ArgumentNullException("value");
-                }
-
-                _settings = value;
-            }
         }
     }
 }
