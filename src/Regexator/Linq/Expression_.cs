@@ -1871,32 +1871,32 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotTilde(minCount, maxCount));
         }
 
-        public QuantifiableExpression Parentheses()
+        public CharGroupExpression Parenthesis()
         {
             return ConcatInternal(Chars.Parenthesis());
         }
 
-        public QuantifiableExpression NotParentheses()
+        public CharGroupExpression NotParenthesis()
         {
             return ConcatInternal(Chars.NotParenthesis());
         }
 
-        public QuantifiableExpression CurlyBrackets()
+        public CharGroupExpression CurlyBracket()
         {
             return ConcatInternal(Chars.CurlyBracket());
         }
 
-        public QuantifiableExpression NotCurlyBrackets()
+        public CharGroupExpression NotCurlyBracket()
         {
             return ConcatInternal(Chars.NotCurlyBracket());
         }
 
-        public QuantifiableExpression SquareBrackets()
+        public CharGroupExpression SquareBracket()
         {
             return ConcatInternal(Chars.SquareBracket());
         }
 
-        public QuantifiableExpression NotSquareBrackets()
+        public CharGroupExpression NotSquareBracket()
         {
             return ConcatInternal(Chars.NotSquareBracket());
         }
