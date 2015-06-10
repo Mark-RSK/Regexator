@@ -224,10 +224,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                                     BuildContent(item, context);
                                 }
                             }
-                            else
-                            {
-                                context.Write(content.ToString() ?? string.Empty);
-                            }
                         }
                     }
                 }
