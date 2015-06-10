@@ -5,8 +5,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal sealed class MaybeManyQuantifier
         : QuantifiedExpression
     {
-        public MaybeManyQuantifier(QuantifiableExpression expression)
-            : base(expression)
+        public MaybeManyQuantifier()
+            : base()
         {
         }
 

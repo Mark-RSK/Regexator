@@ -10,8 +10,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         private readonly int _minCount;
         private readonly int _maxCount;
 
-        internal CountRangeQuantifier(QuantifiableExpression expression, int minCount, int maxCount)
-            : base(expression)
+        internal CountRangeQuantifier(int minCount, int maxCount)
+            : base()
         {
             if (minCount < 0)
             {

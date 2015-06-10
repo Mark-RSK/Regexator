@@ -5,11 +5,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     public abstract class QuantifiedExpression
         : Expression
     {
-        private readonly QuantifiableExpression _expression;
-
-        public QuantifiedExpression(QuantifiableExpression expression)
+        public QuantifiedExpression()
         {
-            _expression = expression;
         }
 
         protected abstract string Content { get; }
@@ -18,14 +15,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override void BuildContent(BuildContext context)
         {
-            _expression.BuildContent(context);
-
             context.Write(Content);
         }
 
-        public LazyQuantifiedExpression Lazy()
+        public Expression Lazy()
         {
-            return new LazyQuantifiedExpression(this);
+            return ConcatInternal(new LazyQuantifierExpression());
         }
     }
 }

@@ -9,8 +9,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
         private readonly int _count;
 
-        internal CountQuantifier(QuantifiableExpression expression, int count)
-            : base(expression)
+        internal CountQuantifier(int count)
+            : base()
         {
             if (count < 0)
             {

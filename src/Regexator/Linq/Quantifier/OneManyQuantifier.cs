@@ -5,8 +5,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal sealed class OneManyQuantifier
         : QuantifiedExpression
     {
-        public OneManyQuantifier(QuantifiableExpression expression)
-            : base(expression)
+        public OneManyQuantifier()
+            : base()
         {
         }
 

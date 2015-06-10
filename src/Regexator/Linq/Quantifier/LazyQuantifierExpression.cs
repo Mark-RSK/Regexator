@@ -2,20 +2,15 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public sealed class LazyQuantifiedExpression
+    public sealed class LazyQuantifierExpression
         : Expression
     {
-        private QuantifiedExpression _expression;
-
-        public LazyQuantifiedExpression(QuantifiedExpression expression)
+        public LazyQuantifierExpression()
         {
-            _expression = expression;
         }
 
         internal override void BuildContent(BuildContext context)
         {
-            _expression.BuildContent(context);
-
             context.Write(Syntax.Lazy);
         }
     }
