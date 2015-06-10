@@ -3,7 +3,7 @@
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     internal sealed class OneManyQuantifier
-        : QuantifiedExpression
+        : QuantifierExpression
     {
         public OneManyQuantifier()
             : base()

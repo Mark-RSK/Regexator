@@ -3,7 +3,7 @@
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     internal sealed class MaybeQuantifier
-        : QuantifiedExpression
+        : QuantifierExpression
     {
         public MaybeQuantifier()
             : base()

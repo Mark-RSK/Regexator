@@ -666,12 +666,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.Digit());
         }
 
-        public QuantifiedExpression Digit(int count)
+        public QuantifierExpression Digit(int count)
         {
             return ConcatInternal(Chars.Digit(count));
         }
 
-        public QuantifiedExpression Digit(int minCount, int maxCount)
+        public QuantifierExpression Digit(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.Digit(minCount, maxCount));
         }
@@ -681,12 +681,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotDigit());
         }
 
-        public QuantifiedExpression NotDigit(int count)
+        public QuantifierExpression NotDigit(int count)
         {
             return ConcatInternal(Chars.NotDigit(count));
         }
 
-        public QuantifiedExpression NotDigit(int minCount, int maxCount)
+        public QuantifierExpression NotDigit(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NotDigit(minCount, maxCount));
         }
@@ -696,17 +696,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.WhiteSpace());
         }
 
-        public QuantifiedExpression WhiteSpace(int count)
+        public QuantifierExpression WhiteSpace(int count)
         {
             return ConcatInternal(Chars.WhiteSpace(count));
         }
 
-        public QuantifiedExpression WhiteSpace(int minCount, int maxCount)
+        public QuantifierExpression WhiteSpace(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.WhiteSpace(minCount, maxCount));
         }
 
-        public QuantifiedExpression SkipWhiteSpace()
+        public QuantifierExpression SkipWhiteSpace()
         {
             return ConcatInternal(Chars.SkipWhiteSpace());
         }
@@ -716,12 +716,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotWhiteSpace());
         }
 
-        public QuantifiedExpression NotWhiteSpace(int count)
+        public QuantifierExpression NotWhiteSpace(int count)
         {
             return ConcatInternal(Chars.NotWhiteSpace(count));
         }
 
-        public QuantifiedExpression NotWhiteSpace(int minCount, int maxCount)
+        public QuantifierExpression NotWhiteSpace(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NotWhiteSpace(minCount, maxCount));
         }
@@ -731,12 +731,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.WordChar());
         }
 
-        public QuantifiedExpression WordChar(int count)
+        public QuantifierExpression WordChar(int count)
         {
             return ConcatInternal(Chars.WordChar(count));
         }
 
-        public QuantifiedExpression WordChar(int minCount, int maxCount)
+        public QuantifierExpression WordChar(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.WordChar(minCount, maxCount));
         }
@@ -746,12 +746,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotWordChar());
         }
 
-        public QuantifiedExpression NotWordChar(int count)
+        public QuantifierExpression NotWordChar(int count)
         {
             return ConcatInternal(Chars.NotWordChar(count));
         }
 
-        public QuantifiedExpression NotWordChar(int minCount, int maxCount)
+        public QuantifierExpression NotWordChar(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NotWordChar(minCount, maxCount));
         }
@@ -811,12 +811,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.Tab());
         }
 
-        public QuantifiedExpression Tab(int exactCount)
+        public QuantifierExpression Tab(int exactCount)
         {
             return ConcatInternal(Chars.Tab(exactCount));
         }
 
-        public QuantifiedExpression Tab(int minCount, int maxCount)
+        public QuantifierExpression Tab(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.Tab(minCount, maxCount));
         }
@@ -826,12 +826,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotTab());
         }
 
-        public QuantifiedExpression NotTab(int exactCount)
+        public QuantifierExpression NotTab(int exactCount)
         {
             return ConcatInternal(Chars.NotTab(exactCount));
         }
 
-        public QuantifiedExpression NotTab(int minCount, int maxCount)
+        public QuantifierExpression NotTab(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NotTab(minCount, maxCount));
         }
@@ -841,12 +841,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.Linefeed());
         }
 
-        public QuantifiedExpression Linefeed(int exactCount)
+        public QuantifierExpression Linefeed(int exactCount)
         {
             return ConcatInternal(Chars.Linefeed(exactCount));
         }
 
-        public QuantifiedExpression Linefeed(int minCount, int maxCount)
+        public QuantifierExpression Linefeed(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.Linefeed(minCount, maxCount));
         }
@@ -856,12 +856,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotLinefeed());
         }
 
-        public QuantifiedExpression NotLinefeed(int exactCount)
+        public QuantifierExpression NotLinefeed(int exactCount)
         {
             return ConcatInternal(Chars.NotLinefeed(exactCount));
         }
 
-        public QuantifiedExpression NotLinefeed(int minCount, int maxCount)
+        public QuantifierExpression NotLinefeed(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NotLinefeed(minCount, maxCount));
         }
@@ -871,12 +871,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.CarriageReturn());
         }
 
-        public QuantifiedExpression CarriageReturn(int exactCount)
+        public QuantifierExpression CarriageReturn(int exactCount)
         {
             return ConcatInternal(Chars.CarriageReturn(exactCount));
         }
 
-        public QuantifiedExpression CarriageReturn(int minCount, int maxCount)
+        public QuantifierExpression CarriageReturn(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.CarriageReturn(minCount, maxCount));
         }
@@ -886,12 +886,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotCarriageReturn());
         }
 
-        public QuantifiedExpression NotCarriageReturn(int exactCount)
+        public QuantifierExpression NotCarriageReturn(int exactCount)
         {
             return ConcatInternal(Chars.NotCarriageReturn(exactCount));
         }
 
-        public QuantifiedExpression NotCarriageReturn(int minCount, int maxCount)
+        public QuantifierExpression NotCarriageReturn(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NotCarriageReturn(minCount, maxCount));
         }
@@ -901,12 +901,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.Space());
         }
 
-        public QuantifiedExpression Space(int exactCount)
+        public QuantifierExpression Space(int exactCount)
         {
             return ConcatInternal(Chars.Space(exactCount));
         }
 
-        public QuantifiedExpression Space(int minCount, int maxCount)
+        public QuantifierExpression Space(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.Space(minCount, maxCount));
         }
@@ -916,12 +916,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotSpace());
         }
 
-        public QuantifiedExpression NotSpace(int exactCount)
+        public QuantifierExpression NotSpace(int exactCount)
         {
             return ConcatInternal(Chars.NotSpace(exactCount));
         }
 
-        public QuantifiedExpression NotSpace(int minCount, int maxCount)
+        public QuantifierExpression NotSpace(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NotSpace(minCount, maxCount));
         }
@@ -931,12 +931,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.ExclamationMark());
         }
 
-        public QuantifiedExpression ExclamationMark(int exactCount)
+        public QuantifierExpression ExclamationMark(int exactCount)
         {
             return ConcatInternal(Chars.ExclamationMark(exactCount));
         }
 
-        public QuantifiedExpression ExclamationMark(int minCount, int maxCount)
+        public QuantifierExpression ExclamationMark(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.ExclamationMark(minCount, maxCount));
         }
@@ -946,12 +946,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotExclamationMark());
         }
 
-        public QuantifiedExpression NotExclamationMark(int exactCount)
+        public QuantifierExpression NotExclamationMark(int exactCount)
         {
             return ConcatInternal(Chars.NotExclamationMark(exactCount));
         }
 
-        public QuantifiedExpression NotExclamationMark(int minCount, int maxCount)
+        public QuantifierExpression NotExclamationMark(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NotExclamationMark(minCount, maxCount));
         }
@@ -961,12 +961,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.QuoteMark());
         }
 
-        public QuantifiedExpression QuoteMark(int exactCount)
+        public QuantifierExpression QuoteMark(int exactCount)
         {
             return ConcatInternal(Chars.QuoteMark(exactCount));
         }
 
-        public QuantifiedExpression QuoteMark(int minCount, int maxCount)
+        public QuantifierExpression QuoteMark(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.QuoteMark(minCount, maxCount));
         }
@@ -976,12 +976,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotQuoteMark());
         }
 
-        public QuantifiedExpression NotQuoteMark(int exactCount)
+        public QuantifierExpression NotQuoteMark(int exactCount)
         {
             return ConcatInternal(Chars.NotQuoteMark(exactCount));
         }
 
-        public QuantifiedExpression NotQuoteMark(int minCount, int maxCount)
+        public QuantifierExpression NotQuoteMark(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NotQuoteMark(minCount, maxCount));
         }
@@ -991,12 +991,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NumberSign());
         }
 
-        public QuantifiedExpression NumberSign(int exactCount)
+        public QuantifierExpression NumberSign(int exactCount)
         {
             return ConcatInternal(Chars.NumberSign(exactCount));
         }
 
-        public QuantifiedExpression NumberSign(int minCount, int maxCount)
+        public QuantifierExpression NumberSign(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NumberSign(minCount, maxCount));
         }
@@ -1006,12 +1006,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotNumberSign());
         }
 
-        public QuantifiedExpression NotNumberSign(int exactCount)
+        public QuantifierExpression NotNumberSign(int exactCount)
         {
             return ConcatInternal(Chars.NotNumberSign(exactCount));
         }
 
-        public QuantifiedExpression NotNumberSign(int minCount, int maxCount)
+        public QuantifierExpression NotNumberSign(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NotNumberSign(minCount, maxCount));
         }
@@ -1021,12 +1021,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.Dollar());
         }
 
-        public QuantifiedExpression Dollar(int exactCount)
+        public QuantifierExpression Dollar(int exactCount)
         {
             return ConcatInternal(Chars.Dollar(exactCount));
         }
 
-        public QuantifiedExpression Dollar(int minCount, int maxCount)
+        public QuantifierExpression Dollar(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.Dollar(minCount, maxCount));
         }
@@ -1036,12 +1036,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotDollar());
         }
 
-        public QuantifiedExpression NotDollar(int exactCount)
+        public QuantifierExpression NotDollar(int exactCount)
         {
             return ConcatInternal(Chars.NotDollar(exactCount));
         }
 
-        public QuantifiedExpression NotDollar(int minCount, int maxCount)
+        public QuantifierExpression NotDollar(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NotDollar(minCount, maxCount));
         }
@@ -1051,12 +1051,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.Percent());
         }
 
-        public QuantifiedExpression Percent(int exactCount)
+        public QuantifierExpression Percent(int exactCount)
         {
             return ConcatInternal(Chars.Percent(exactCount));
         }
 
-        public QuantifiedExpression Percent(int minCount, int maxCount)
+        public QuantifierExpression Percent(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.Percent(minCount, maxCount));
         }
@@ -1066,12 +1066,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotPercent());
         }
 
-        public QuantifiedExpression NotPercent(int exactCount)
+        public QuantifierExpression NotPercent(int exactCount)
         {
             return ConcatInternal(Chars.NotPercent(exactCount));
         }
 
-        public QuantifiedExpression NotPercent(int minCount, int maxCount)
+        public QuantifierExpression NotPercent(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NotPercent(minCount, maxCount));
         }
@@ -1081,12 +1081,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.Ampersand());
         }
 
-        public QuantifiedExpression Ampersand(int exactCount)
+        public QuantifierExpression Ampersand(int exactCount)
         {
             return ConcatInternal(Chars.Ampersand(exactCount));
         }
 
-        public QuantifiedExpression Ampersand(int minCount, int maxCount)
+        public QuantifierExpression Ampersand(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.Ampersand(minCount, maxCount));
         }
@@ -1096,12 +1096,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotAmpersand());
         }
 
-        public QuantifiedExpression NotAmpersand(int exactCount)
+        public QuantifierExpression NotAmpersand(int exactCount)
         {
             return ConcatInternal(Chars.NotAmpersand(exactCount));
         }
 
-        public QuantifiedExpression NotAmpersand(int minCount, int maxCount)
+        public QuantifierExpression NotAmpersand(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NotAmpersand(minCount, maxCount));
         }
@@ -1111,12 +1111,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.Apostrophe());
         }
 
-        public QuantifiedExpression Apostrophe(int exactCount)
+        public QuantifierExpression Apostrophe(int exactCount)
         {
             return ConcatInternal(Chars.Apostrophe(exactCount));
         }
 
-        public QuantifiedExpression Apostrophe(int minCount, int maxCount)
+        public QuantifierExpression Apostrophe(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.Apostrophe(minCount, maxCount));
         }
@@ -1126,12 +1126,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotApostrophe());
         }
 
-        public QuantifiedExpression NotApostrophe(int exactCount)
+        public QuantifierExpression NotApostrophe(int exactCount)
         {
             return ConcatInternal(Chars.NotApostrophe(exactCount));
         }
 
-        public QuantifiedExpression NotApostrophe(int minCount, int maxCount)
+        public QuantifierExpression NotApostrophe(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NotApostrophe(minCount, maxCount));
         }
@@ -1141,12 +1141,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.LeftParenthesis());
         }
 
-        public QuantifiedExpression LeftParenthesis(int exactCount)
+        public QuantifierExpression LeftParenthesis(int exactCount)
         {
             return ConcatInternal(Chars.LeftParenthesis(exactCount));
         }
 
-        public QuantifiedExpression LeftParenthesis(int minCount, int maxCount)
+        public QuantifierExpression LeftParenthesis(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.LeftParenthesis(minCount, maxCount));
         }
@@ -1156,12 +1156,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotLeftParenthesis());
         }
 
-        public QuantifiedExpression NotLeftParenthesis(int exactCount)
+        public QuantifierExpression NotLeftParenthesis(int exactCount)
         {
             return ConcatInternal(Chars.NotLeftParenthesis(exactCount));
         }
 
-        public QuantifiedExpression NotLeftParenthesis(int minCount, int maxCount)
+        public QuantifierExpression NotLeftParenthesis(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NotLeftParenthesis(minCount, maxCount));
         }
@@ -1171,12 +1171,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.RightParenthesis());
         }
 
-        public QuantifiedExpression RightParenthesis(int exactCount)
+        public QuantifierExpression RightParenthesis(int exactCount)
         {
             return ConcatInternal(Chars.RightParenthesis(exactCount));
         }
 
-        public QuantifiedExpression RightParenthesis(int minCount, int maxCount)
+        public QuantifierExpression RightParenthesis(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.RightParenthesis(minCount, maxCount));
         }
@@ -1186,12 +1186,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotRightParenthesis());
         }
 
-        public QuantifiedExpression NotRightParenthesis(int exactCount)
+        public QuantifierExpression NotRightParenthesis(int exactCount)
         {
             return ConcatInternal(Chars.NotRightParenthesis(exactCount));
         }
 
-        public QuantifiedExpression NotRightParenthesis(int minCount, int maxCount)
+        public QuantifierExpression NotRightParenthesis(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NotRightParenthesis(minCount, maxCount));
         }
@@ -1201,12 +1201,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.Asterisk());
         }
 
-        public QuantifiedExpression Asterisk(int exactCount)
+        public QuantifierExpression Asterisk(int exactCount)
         {
             return ConcatInternal(Chars.Asterisk(exactCount));
         }
 
-        public QuantifiedExpression Asterisk(int minCount, int maxCount)
+        public QuantifierExpression Asterisk(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.Asterisk(minCount, maxCount));
         }
@@ -1216,12 +1216,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotAsterisk());
         }
 
-        public QuantifiedExpression NotAsterisk(int exactCount)
+        public QuantifierExpression NotAsterisk(int exactCount)
         {
             return ConcatInternal(Chars.NotAsterisk(exactCount));
         }
 
-        public QuantifiedExpression NotAsterisk(int minCount, int maxCount)
+        public QuantifierExpression NotAsterisk(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NotAsterisk(minCount, maxCount));
         }
@@ -1231,12 +1231,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.Plus());
         }
 
-        public QuantifiedExpression Plus(int exactCount)
+        public QuantifierExpression Plus(int exactCount)
         {
             return ConcatInternal(Chars.Plus(exactCount));
         }
 
-        public QuantifiedExpression Plus(int minCount, int maxCount)
+        public QuantifierExpression Plus(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.Plus(minCount, maxCount));
         }
@@ -1246,12 +1246,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotPlus());
         }
 
-        public QuantifiedExpression NotPlus(int exactCount)
+        public QuantifierExpression NotPlus(int exactCount)
         {
             return ConcatInternal(Chars.NotPlus(exactCount));
         }
 
-        public QuantifiedExpression NotPlus(int minCount, int maxCount)
+        public QuantifierExpression NotPlus(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NotPlus(minCount, maxCount));
         }
@@ -1261,12 +1261,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.Comma());
         }
 
-        public QuantifiedExpression Comma(int exactCount)
+        public QuantifierExpression Comma(int exactCount)
         {
             return ConcatInternal(Chars.Comma(exactCount));
         }
 
-        public QuantifiedExpression Comma(int minCount, int maxCount)
+        public QuantifierExpression Comma(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.Comma(minCount, maxCount));
         }
@@ -1276,12 +1276,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotComma());
         }
 
-        public QuantifiedExpression NotComma(int exactCount)
+        public QuantifierExpression NotComma(int exactCount)
         {
             return ConcatInternal(Chars.NotComma(exactCount));
         }
 
-        public QuantifiedExpression NotComma(int minCount, int maxCount)
+        public QuantifierExpression NotComma(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NotComma(minCount, maxCount));
         }
@@ -1291,12 +1291,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.Hyphen());
         }
 
-        public QuantifiedExpression Hyphen(int exactCount)
+        public QuantifierExpression Hyphen(int exactCount)
         {
             return ConcatInternal(Chars.Hyphen(exactCount));
         }
 
-        public QuantifiedExpression Hyphen(int minCount, int maxCount)
+        public QuantifierExpression Hyphen(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.Hyphen(minCount, maxCount));
         }
@@ -1306,12 +1306,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotHyphen());
         }
 
-        public QuantifiedExpression NotHyphen(int exactCount)
+        public QuantifierExpression NotHyphen(int exactCount)
         {
             return ConcatInternal(Chars.NotHyphen(exactCount));
         }
 
-        public QuantifiedExpression NotHyphen(int minCount, int maxCount)
+        public QuantifierExpression NotHyphen(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NotHyphen(minCount, maxCount));
         }
@@ -1321,12 +1321,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.Period());
         }
 
-        public QuantifiedExpression Period(int exactCount)
+        public QuantifierExpression Period(int exactCount)
         {
             return ConcatInternal(Chars.Period(exactCount));
         }
 
-        public QuantifiedExpression Period(int minCount, int maxCount)
+        public QuantifierExpression Period(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.Period(minCount, maxCount));
         }
@@ -1336,12 +1336,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotPeriod());
         }
 
-        public QuantifiedExpression NotPeriod(int exactCount)
+        public QuantifierExpression NotPeriod(int exactCount)
         {
             return ConcatInternal(Chars.NotPeriod(exactCount));
         }
 
-        public QuantifiedExpression NotPeriod(int minCount, int maxCount)
+        public QuantifierExpression NotPeriod(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NotPeriod(minCount, maxCount));
         }
@@ -1351,12 +1351,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.Slash());
         }
 
-        public QuantifiedExpression Slash(int exactCount)
+        public QuantifierExpression Slash(int exactCount)
         {
             return ConcatInternal(Chars.Slash(exactCount));
         }
 
-        public QuantifiedExpression Slash(int minCount, int maxCount)
+        public QuantifierExpression Slash(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.Slash(minCount, maxCount));
         }
@@ -1366,12 +1366,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotSlash());
         }
 
-        public QuantifiedExpression NotSlash(int exactCount)
+        public QuantifierExpression NotSlash(int exactCount)
         {
             return ConcatInternal(Chars.NotSlash(exactCount));
         }
 
-        public QuantifiedExpression NotSlash(int minCount, int maxCount)
+        public QuantifierExpression NotSlash(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NotSlash(minCount, maxCount));
         }
@@ -1381,12 +1381,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.Colon());
         }
 
-        public QuantifiedExpression Colon(int exactCount)
+        public QuantifierExpression Colon(int exactCount)
         {
             return ConcatInternal(Chars.Colon(exactCount));
         }
 
-        public QuantifiedExpression Colon(int minCount, int maxCount)
+        public QuantifierExpression Colon(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.Colon(minCount, maxCount));
         }
@@ -1396,12 +1396,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotColon());
         }
 
-        public QuantifiedExpression NotColon(int exactCount)
+        public QuantifierExpression NotColon(int exactCount)
         {
             return ConcatInternal(Chars.NotColon(exactCount));
         }
 
-        public QuantifiedExpression NotColon(int minCount, int maxCount)
+        public QuantifierExpression NotColon(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NotColon(minCount, maxCount));
         }
@@ -1411,12 +1411,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.Semicolon());
         }
 
-        public QuantifiedExpression Semicolon(int exactCount)
+        public QuantifierExpression Semicolon(int exactCount)
         {
             return ConcatInternal(Chars.Semicolon(exactCount));
         }
 
-        public QuantifiedExpression Semicolon(int minCount, int maxCount)
+        public QuantifierExpression Semicolon(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.Semicolon(minCount, maxCount));
         }
@@ -1426,12 +1426,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotSemicolon());
         }
 
-        public QuantifiedExpression NotSemicolon(int exactCount)
+        public QuantifierExpression NotSemicolon(int exactCount)
         {
             return ConcatInternal(Chars.NotSemicolon(exactCount));
         }
 
-        public QuantifiedExpression NotSemicolon(int minCount, int maxCount)
+        public QuantifierExpression NotSemicolon(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NotSemicolon(minCount, maxCount));
         }
@@ -1441,12 +1441,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.LessThan());
         }
 
-        public QuantifiedExpression LessThan(int exactCount)
+        public QuantifierExpression LessThan(int exactCount)
         {
             return ConcatInternal(Chars.LessThan(exactCount));
         }
 
-        public QuantifiedExpression LessThan(int minCount, int maxCount)
+        public QuantifierExpression LessThan(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.LessThan(minCount, maxCount));
         }
@@ -1456,12 +1456,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotLessThan());
         }
 
-        public QuantifiedExpression NotLessThan(int exactCount)
+        public QuantifierExpression NotLessThan(int exactCount)
         {
             return ConcatInternal(Chars.NotLessThan(exactCount));
         }
 
-        public QuantifiedExpression NotLessThan(int minCount, int maxCount)
+        public QuantifierExpression NotLessThan(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NotLessThan(minCount, maxCount));
         }
@@ -1471,12 +1471,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.EqualsSign());
         }
 
-        public QuantifiedExpression EqualsSign(int exactCount)
+        public QuantifierExpression EqualsSign(int exactCount)
         {
             return ConcatInternal(Chars.EqualsSign(exactCount));
         }
 
-        public QuantifiedExpression EqualsSign(int minCount, int maxCount)
+        public QuantifierExpression EqualsSign(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.EqualsSign(minCount, maxCount));
         }
@@ -1486,12 +1486,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotEqualsSign());
         }
 
-        public QuantifiedExpression NotEqualsSign(int exactCount)
+        public QuantifierExpression NotEqualsSign(int exactCount)
         {
             return ConcatInternal(Chars.NotEqualsSign(exactCount));
         }
 
-        public QuantifiedExpression NotEqualsSign(int minCount, int maxCount)
+        public QuantifierExpression NotEqualsSign(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NotEqualsSign(minCount, maxCount));
         }
@@ -1501,12 +1501,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.GreaterThan());
         }
 
-        public QuantifiedExpression GreaterThan(int exactCount)
+        public QuantifierExpression GreaterThan(int exactCount)
         {
             return ConcatInternal(Chars.GreaterThan(exactCount));
         }
 
-        public QuantifiedExpression GreaterThan(int minCount, int maxCount)
+        public QuantifierExpression GreaterThan(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.GreaterThan(minCount, maxCount));
         }
@@ -1516,12 +1516,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotGreaterThan());
         }
 
-        public QuantifiedExpression NotGreaterThan(int exactCount)
+        public QuantifierExpression NotGreaterThan(int exactCount)
         {
             return ConcatInternal(Chars.NotGreaterThan(exactCount));
         }
 
-        public QuantifiedExpression NotGreaterThan(int minCount, int maxCount)
+        public QuantifierExpression NotGreaterThan(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NotGreaterThan(minCount, maxCount));
         }
@@ -1531,12 +1531,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.QuestionMark());
         }
 
-        public QuantifiedExpression QuestionMark(int exactCount)
+        public QuantifierExpression QuestionMark(int exactCount)
         {
             return ConcatInternal(Chars.QuestionMark(exactCount));
         }
 
-        public QuantifiedExpression QuestionMark(int minCount, int maxCount)
+        public QuantifierExpression QuestionMark(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.QuestionMark(minCount, maxCount));
         }
@@ -1546,12 +1546,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotQuestionMark());
         }
 
-        public QuantifiedExpression NotQuestionMark(int exactCount)
+        public QuantifierExpression NotQuestionMark(int exactCount)
         {
             return ConcatInternal(Chars.NotQuestionMark(exactCount));
         }
 
-        public QuantifiedExpression NotQuestionMark(int minCount, int maxCount)
+        public QuantifierExpression NotQuestionMark(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NotQuestionMark(minCount, maxCount));
         }
@@ -1561,12 +1561,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.At());
         }
 
-        public QuantifiedExpression At(int exactCount)
+        public QuantifierExpression At(int exactCount)
         {
             return ConcatInternal(Chars.At(exactCount));
         }
 
-        public QuantifiedExpression At(int minCount, int maxCount)
+        public QuantifierExpression At(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.At(minCount, maxCount));
         }
@@ -1576,12 +1576,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotAt());
         }
 
-        public QuantifiedExpression NotAt(int exactCount)
+        public QuantifierExpression NotAt(int exactCount)
         {
             return ConcatInternal(Chars.NotAt(exactCount));
         }
 
-        public QuantifiedExpression NotAt(int minCount, int maxCount)
+        public QuantifierExpression NotAt(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NotAt(minCount, maxCount));
         }
@@ -1591,12 +1591,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.LeftSquareBracket());
         }
 
-        public QuantifiedExpression LeftSquareBracket(int exactCount)
+        public QuantifierExpression LeftSquareBracket(int exactCount)
         {
             return ConcatInternal(Chars.LeftSquareBracket(exactCount));
         }
 
-        public QuantifiedExpression LeftSquareBracket(int minCount, int maxCount)
+        public QuantifierExpression LeftSquareBracket(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.LeftSquareBracket(minCount, maxCount));
         }
@@ -1606,12 +1606,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotLeftSquareBracket());
         }
 
-        public QuantifiedExpression NotLeftSquareBracket(int exactCount)
+        public QuantifierExpression NotLeftSquareBracket(int exactCount)
         {
             return ConcatInternal(Chars.NotLeftSquareBracket(exactCount));
         }
 
-        public QuantifiedExpression NotLeftSquareBracket(int minCount, int maxCount)
+        public QuantifierExpression NotLeftSquareBracket(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NotLeftSquareBracket(minCount, maxCount));
         }
@@ -1621,12 +1621,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.Backslash());
         }
 
-        public QuantifiedExpression Backslash(int exactCount)
+        public QuantifierExpression Backslash(int exactCount)
         {
             return ConcatInternal(Chars.Backslash(exactCount));
         }
 
-        public QuantifiedExpression Backslash(int minCount, int maxCount)
+        public QuantifierExpression Backslash(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.Backslash(minCount, maxCount));
         }
@@ -1636,12 +1636,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotBackslash());
         }
 
-        public QuantifiedExpression NotBackslash(int exactCount)
+        public QuantifierExpression NotBackslash(int exactCount)
         {
             return ConcatInternal(Chars.NotBackslash(exactCount));
         }
 
-        public QuantifiedExpression NotBackslash(int minCount, int maxCount)
+        public QuantifierExpression NotBackslash(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NotBackslash(minCount, maxCount));
         }
@@ -1651,12 +1651,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.RightSquareBracket());
         }
 
-        public QuantifiedExpression RightSquareBracket(int exactCount)
+        public QuantifierExpression RightSquareBracket(int exactCount)
         {
             return ConcatInternal(Chars.RightSquareBracket(exactCount));
         }
 
-        public QuantifiedExpression RightSquareBracket(int minCount, int maxCount)
+        public QuantifierExpression RightSquareBracket(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.RightSquareBracket(minCount, maxCount));
         }
@@ -1666,12 +1666,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotRightSquareBracket());
         }
 
-        public QuantifiedExpression NotRightSquareBracket(int exactCount)
+        public QuantifierExpression NotRightSquareBracket(int exactCount)
         {
             return ConcatInternal(Chars.NotRightSquareBracket(exactCount));
         }
 
-        public QuantifiedExpression NotRightSquareBracket(int minCount, int maxCount)
+        public QuantifierExpression NotRightSquareBracket(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NotRightSquareBracket(minCount, maxCount));
         }
@@ -1681,12 +1681,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.CircumflexAccent());
         }
 
-        public QuantifiedExpression CircumflexAccent(int exactCount)
+        public QuantifierExpression CircumflexAccent(int exactCount)
         {
             return ConcatInternal(Chars.CircumflexAccent(exactCount));
         }
 
-        public QuantifiedExpression CircumflexAccent(int minCount, int maxCount)
+        public QuantifierExpression CircumflexAccent(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.CircumflexAccent(minCount, maxCount));
         }
@@ -1696,12 +1696,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotCircumflexAccent());
         }
 
-        public QuantifiedExpression NotCircumflexAccent(int exactCount)
+        public QuantifierExpression NotCircumflexAccent(int exactCount)
         {
             return ConcatInternal(Chars.NotCircumflexAccent(exactCount));
         }
 
-        public QuantifiedExpression NotCircumflexAccent(int minCount, int maxCount)
+        public QuantifierExpression NotCircumflexAccent(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NotCircumflexAccent(minCount, maxCount));
         }
@@ -1711,12 +1711,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.Underscore());
         }
 
-        public QuantifiedExpression Underscore(int exactCount)
+        public QuantifierExpression Underscore(int exactCount)
         {
             return ConcatInternal(Chars.Underscore(exactCount));
         }
 
-        public QuantifiedExpression Underscore(int minCount, int maxCount)
+        public QuantifierExpression Underscore(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.Underscore(minCount, maxCount));
         }
@@ -1726,12 +1726,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotUnderscore());
         }
 
-        public QuantifiedExpression NotUnderscore(int exactCount)
+        public QuantifierExpression NotUnderscore(int exactCount)
         {
             return ConcatInternal(Chars.NotUnderscore(exactCount));
         }
 
-        public QuantifiedExpression NotUnderscore(int minCount, int maxCount)
+        public QuantifierExpression NotUnderscore(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NotUnderscore(minCount, maxCount));
         }
@@ -1741,12 +1741,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.GraveAccent());
         }
 
-        public QuantifiedExpression GraveAccent(int exactCount)
+        public QuantifierExpression GraveAccent(int exactCount)
         {
             return ConcatInternal(Chars.GraveAccent(exactCount));
         }
 
-        public QuantifiedExpression GraveAccent(int minCount, int maxCount)
+        public QuantifierExpression GraveAccent(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.GraveAccent(minCount, maxCount));
         }
@@ -1756,12 +1756,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotGraveAccent());
         }
 
-        public QuantifiedExpression NotGraveAccent(int exactCount)
+        public QuantifierExpression NotGraveAccent(int exactCount)
         {
             return ConcatInternal(Chars.NotGraveAccent(exactCount));
         }
 
-        public QuantifiedExpression NotGraveAccent(int minCount, int maxCount)
+        public QuantifierExpression NotGraveAccent(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NotGraveAccent(minCount, maxCount));
         }
@@ -1771,12 +1771,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.LeftCurlyBracket());
         }
 
-        public QuantifiedExpression LeftCurlyBracket(int exactCount)
+        public QuantifierExpression LeftCurlyBracket(int exactCount)
         {
             return ConcatInternal(Chars.LeftCurlyBracket(exactCount));
         }
 
-        public QuantifiedExpression LeftCurlyBracket(int minCount, int maxCount)
+        public QuantifierExpression LeftCurlyBracket(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.LeftCurlyBracket(minCount, maxCount));
         }
@@ -1786,12 +1786,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotLeftCurlyBracket());
         }
 
-        public QuantifiedExpression NotLeftCurlyBracket(int exactCount)
+        public QuantifierExpression NotLeftCurlyBracket(int exactCount)
         {
             return ConcatInternal(Chars.NotLeftCurlyBracket(exactCount));
         }
 
-        public QuantifiedExpression NotLeftCurlyBracket(int minCount, int maxCount)
+        public QuantifierExpression NotLeftCurlyBracket(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NotLeftCurlyBracket(minCount, maxCount));
         }
@@ -1801,12 +1801,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.VerticalLine());
         }
 
-        public QuantifiedExpression VerticalLine(int exactCount)
+        public QuantifierExpression VerticalLine(int exactCount)
         {
             return ConcatInternal(Chars.VerticalLine(exactCount));
         }
 
-        public QuantifiedExpression VerticalLine(int minCount, int maxCount)
+        public QuantifierExpression VerticalLine(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.VerticalLine(minCount, maxCount));
         }
@@ -1816,12 +1816,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotVerticalLine());
         }
 
-        public QuantifiedExpression NotVerticalLine(int exactCount)
+        public QuantifierExpression NotVerticalLine(int exactCount)
         {
             return ConcatInternal(Chars.NotVerticalLine(exactCount));
         }
 
-        public QuantifiedExpression NotVerticalLine(int minCount, int maxCount)
+        public QuantifierExpression NotVerticalLine(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NotVerticalLine(minCount, maxCount));
         }
@@ -1831,12 +1831,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.RightCurlyBracket());
         }
 
-        public QuantifiedExpression RightCurlyBracket(int exactCount)
+        public QuantifierExpression RightCurlyBracket(int exactCount)
         {
             return ConcatInternal(Chars.RightCurlyBracket(exactCount));
         }
 
-        public QuantifiedExpression RightCurlyBracket(int minCount, int maxCount)
+        public QuantifierExpression RightCurlyBracket(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.RightCurlyBracket(minCount, maxCount));
         }
@@ -1846,12 +1846,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotRightCurlyBracket());
         }
 
-        public QuantifiedExpression NotRightCurlyBracket(int exactCount)
+        public QuantifierExpression NotRightCurlyBracket(int exactCount)
         {
             return ConcatInternal(Chars.NotRightCurlyBracket(exactCount));
         }
 
-        public QuantifiedExpression NotRightCurlyBracket(int minCount, int maxCount)
+        public QuantifierExpression NotRightCurlyBracket(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NotRightCurlyBracket(minCount, maxCount));
         }
@@ -1861,12 +1861,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.Tilde());
         }
 
-        public QuantifiedExpression Tilde(int exactCount)
+        public QuantifierExpression Tilde(int exactCount)
         {
             return ConcatInternal(Chars.Tilde(exactCount));
         }
 
-        public QuantifiedExpression Tilde(int minCount, int maxCount)
+        public QuantifierExpression Tilde(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.Tilde(minCount, maxCount));
         }
@@ -1876,12 +1876,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotTilde());
         }
 
-        public QuantifiedExpression NotTilde(int exactCount)
+        public QuantifierExpression NotTilde(int exactCount)
         {
             return ConcatInternal(Chars.NotTilde(exactCount));
         }
 
-        public QuantifiedExpression NotTilde(int minCount, int maxCount)
+        public QuantifierExpression NotTilde(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NotTilde(minCount, maxCount));
         }
@@ -1916,32 +1916,32 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotSquareBracket());
         }
 
-        public QuantifiedExpression Maybe(object content)
+        public QuantifierExpression Maybe(object content)
         {
             return ConcatInternal(Linq.Groups.Maybe(content));
         }
 
-        public QuantifiedExpression Maybe(params object[] content)
+        public QuantifierExpression Maybe(params object[] content)
         {
             return ConcatInternal(Linq.Groups.Maybe(content));
         }
 
-        public QuantifiedExpression MaybeMany(object content)
+        public QuantifierExpression MaybeMany(object content)
         {
             return ConcatInternal(Linq.Groups.MaybeMany(content));
         }
 
-        public QuantifiedExpression MaybeMany(params object[] content)
+        public QuantifierExpression MaybeMany(params object[] content)
         {
             return ConcatInternal(Linq.Groups.MaybeMany(content));
         }
 
-        public QuantifiedExpression OneMany(object content)
+        public QuantifierExpression OneMany(object content)
         {
             return ConcatInternal(Linq.Groups.OneMany(content));
         }
 
-        public QuantifiedExpression OneMany(params object[] content)
+        public QuantifierExpression OneMany(params object[] content)
         {
             return ConcatInternal(Linq.Groups.OneMany(content));
         }
