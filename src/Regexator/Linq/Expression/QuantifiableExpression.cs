@@ -15,10 +15,38 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(new MaybeQuantifier());
         }
 
+#if DEBUG
+        public Expression Maybe(bool lazy)
+        {
+            if (lazy)
+            {
+                return Maybe().Lazy();
+            }
+            else
+            {
+                return Maybe();
+            }
+        }
+#endif
+
         public QuantifiedExpression MaybeMany()
         {
             return ConcatInternal(new MaybeManyQuantifier());
         }
+
+#if DEBUG
+        public Expression MaybeMany(bool lazy)
+        {
+            if (lazy)
+            {
+                return MaybeMany().Lazy();
+            }
+            else
+            {
+                return MaybeMany();
+            }
+        }
+#endif
 
         public QuantifiedExpression MaybeCount(int maxCount)
         {
@@ -29,6 +57,20 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             return ConcatInternal(new OneManyQuantifier());
         }
+
+#if DEBUG
+        public Expression OneMany(bool lazy)
+        {
+            if (lazy)
+            {
+                return OneMany().Lazy();
+            }
+            else
+            {
+                return OneMany();
+            }
+        }
+#endif
 
         public QuantifiedExpression Count(int exactCount)
         {
