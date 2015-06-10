@@ -3,8 +3,13 @@
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     internal sealed class MaybeManyQuantifier
-        : QuantifierExpression
+        : QuantifiedExpression
     {
+        public MaybeManyQuantifier(QuantifiableExpression expression)
+            : base(expression)
+        {
+        }
+
         protected override string Content
         {
             get { return Syntax.MaybeMany; }

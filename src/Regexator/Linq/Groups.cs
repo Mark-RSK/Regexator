@@ -59,72 +59,72 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Nonbacktracking((object)content);
         }
 
-        public static QuantifierExpression Maybe(object content)
+        public static QuantifiedExpression Maybe(object content)
         {
             return QuantifierGroup(content).Maybe();
         }
 
-        public static QuantifierExpression Maybe(params object[] content)
+        public static QuantifiedExpression Maybe(params object[] content)
         {
             return Maybe((object)content);
         }
 
-        public static QuantifierExpression MaybeMany(object content)
+        public static QuantifiedExpression MaybeMany(object content)
         {
             return QuantifierGroup(content).MaybeMany();
         }
 
-        public static QuantifierExpression MaybeMany(params object[] content)
+        public static QuantifiedExpression MaybeMany(params object[] content)
         {
             return MaybeMany((object)content);
         }
 
-        public static QuantifierExpression OneMany(object content)
+        public static QuantifiedExpression OneMany(object content)
         {
             return QuantifierGroup(content).OneMany();
         }
 
-        public static QuantifierExpression OneMany(params object[] content)
+        public static QuantifiedExpression OneMany(params object[] content)
         {
             return OneMany((object)content);
         }
 
-        public static QuantifierExpression Count(int exactCount, object content)
+        public static QuantifiedExpression Count(int exactCount, object content)
         {
             return QuantifierGroup(content).Count(exactCount);
         }
 
-        public static QuantifierExpression Count(int exactCount, params object[] content)
+        public static QuantifiedExpression Count(int exactCount, params object[] content)
         {
             return Count(exactCount, (object)content);
         }
 
-        public static QuantifierExpression CountFrom(int minCount, object content)
+        public static QuantifiedExpression CountFrom(int minCount, object content)
         {
             return QuantifierGroup(content).CountFrom(minCount);
         }
 
-        public static QuantifierExpression CountFrom(int minCount, params object[] content)
+        public static QuantifiedExpression CountFrom(int minCount, params object[] content)
         {
             return CountFrom(minCount, (object)content);
         }
 
-        public static QuantifierExpression CountRange(int minCount, int maxCount, object content)
+        public static QuantifiedExpression CountRange(int minCount, int maxCount, object content)
         {
             return QuantifierGroup(content).CountRange(minCount, maxCount);
         }
 
-        public static QuantifierExpression CountRange(int minCount, int maxCount, params object[] content)
+        public static QuantifiedExpression CountRange(int minCount, int maxCount, params object[] content)
         {
             return CountRange(minCount, maxCount, (object)content);
         }
 
-        public static QuantifierExpression MaybeCount(int maxCount, object content)
+        public static QuantifiedExpression MaybeCount(int maxCount, object content)
         {
             return QuantifierGroup(content).MaybeCount(maxCount);
         }
 
-        public static QuantifierExpression MaybeCount(int maxCount, params object[] content)
+        public static QuantifiedExpression MaybeCount(int maxCount, params object[] content)
         {
             return MaybeCount(maxCount, (object)content);
         }

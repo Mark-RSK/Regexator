@@ -5,13 +5,13 @@ using System;
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     internal sealed class CountRangeQuantifier
-        : QuantifierExpression
+        : QuantifiedExpression
     {
         private readonly int _minCount;
         private readonly int _maxCount;
 
-        internal CountRangeQuantifier(int minCount, int maxCount)
-            : base()
+        internal CountRangeQuantifier(QuantifiableExpression expression, int minCount, int maxCount)
+            : base(expression)
         {
             if (minCount < 0)
             {

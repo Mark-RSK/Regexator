@@ -70,6 +70,8 @@
     <Compile Include="Linq\Patterns.cs" />
     <Compile Include="Linq\Expression\CharacterExpression.cs" />
     <Compile Include="Linq\Expression\AsciiCharSurroundExpression.cs" />
+    <Compile Include="Linq\Quantifier\LazyQuantifiedExpression.cs" />
+    <Compile Include="Linq\Quantifier\QuantifiedExpression.cs" />
     <Compile Include="Linq\Substitution\BeforeMatchSubstitution.cs" />
     <Compile Include="Linq\Substitution\AfterMatchSubstitution.cs" />
     <Compile Include="Linq\Substitution\EntireMatchSubstitution.cs" />
@@ -112,7 +114,6 @@
     <Compile Include="Linq\Anchors.cs" />
     <Compile Include="Linq\Chars.cs" />
     <Compile Include="Linq\Groups.cs" />
-    <Compile Include="Linq\Quantifiers.cs" />
     <Compile Include="Linq\Expression.cs" />
     <Compile Include="Linq\Expression_.cs" />
     <Compile Include="Linq\Quantifier\CountRangeQuantifier.cs" />
@@ -132,7 +133,6 @@
     <Compile Include="Linq\Expression\QuantifiableExpression.cs" />
     <Compile Include="Linq\Quantifier\OneManyQuantifier.cs" />
     <Compile Include="Linq\Quantifier\MaybeManyQuantifier.cs" />
-    <Compile Include="Linq\Quantifier\QuantifierExpression.cs" />
     <Compile Include="Linq\QuantifierKind.cs" />
     <Compile Include="Linq\Quantifier\MaybeQuantifier.cs" />
     <Compile Include="Linq\Group\CapturingExpression.cs" />

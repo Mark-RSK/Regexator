@@ -3,8 +3,13 @@
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     internal sealed class OneManyQuantifier
-        : QuantifierExpression
+        : QuantifiedExpression
     {
+        public OneManyQuantifier(QuantifiableExpression expression)
+            : base(expression)
+        {
+        }
+
         protected override string Content
         {
             get { return Syntax.OneMany; }

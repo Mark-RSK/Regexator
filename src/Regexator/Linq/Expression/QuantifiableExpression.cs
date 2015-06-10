@@ -10,39 +10,39 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
         }
 
-        public QuantifierExpression Maybe()
+        public QuantifiedExpression Maybe()
         {
-            return ConcatInternal(Quantifiers.Maybe());
+            return ConcatInternal(new MaybeQuantifier(this));
         }
 
-        public QuantifierExpression MaybeMany()
+        public QuantifiedExpression MaybeMany()
         {
-            return ConcatInternal(Quantifiers.MaybeMany());
+            return ConcatInternal(new MaybeManyQuantifier(this));
         }
 
-        public QuantifierExpression MaybeCount(int maxCount)
+        public QuantifiedExpression MaybeCount(int maxCount)
         {
-            return ConcatInternal(Quantifiers.MaybeCount(maxCount));
+            return ConcatInternal(new CountRangeQuantifier(this, 0, maxCount));
         }
 
-        public QuantifierExpression OneMany()
+        public QuantifiedExpression OneMany()
         {
-            return ConcatInternal(Quantifiers.OneMany());
+            return ConcatInternal(new OneManyQuantifier(this));
         }
 
-        public QuantifierExpression Count(int exactCount)
+        public QuantifiedExpression Count(int exactCount)
         {
-            return ConcatInternal(Quantifiers.Count(exactCount));
+            return ConcatInternal(new CountQuantifier(this, exactCount));
         }
 
-        public QuantifierExpression CountFrom(int minCount)
+        public QuantifiedExpression CountFrom(int minCount)
         {
-            return ConcatInternal(Quantifiers.CountFrom(minCount));
+            return ConcatInternal(new CountFromQuantifier(this, minCount));
         }
 
-        public QuantifierExpression CountRange(int minCount, int maxCount)
+        public QuantifiedExpression CountRange(int minCount, int maxCount)
         {
-            return ConcatInternal(Quantifiers.CountRange(minCount, maxCount));
+            return ConcatInternal(new CountRangeQuantifier(this, minCount, maxCount));
         }
     }
 }

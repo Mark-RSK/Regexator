@@ -5,12 +5,12 @@ using System;
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     internal sealed class CountQuantifier
-        : QuantifierExpression
+        : QuantifiedExpression
     {
         private readonly int _count;
 
-        internal CountQuantifier(int count)
-            : base()
+        internal CountQuantifier(QuantifiableExpression expression, int count)
+            : base(expression)
         {
             if (count < 0)
             {
