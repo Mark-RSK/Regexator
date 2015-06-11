@@ -24,16 +24,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new ContainerExpression(content);
         }
 
-        public static Expression Create(params object[] content)
-        {
-            return Create((object)content);
-        }
-
-        public static Expression Create(IEnumerable<object> content)
-        {
-            return Create((object)content);
-        }
-
         public Expression ConcatIf(bool condition, object content)
         {
             return condition ? Concat(content) : this;
@@ -44,14 +34,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(new ContainerExpression(content));
         }
 
-        public Expression Concat(params object[] content)
+        public static Expression Concat(params object[] content)
         {
-            return Concat((object)content);
+            return Create((object)content);
         }
 
-        public Expression Concat(IEnumerable<object> values)
+        public static Expression Concat(IEnumerable<object> content)
         {
-            return Concat((object)values);
+            return Create((object)content);
         }
 
         public Expression Concat(Expression expression)
