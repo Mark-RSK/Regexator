@@ -493,38 +493,220 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return this.Regex.Replace(input, evaluator, count, startAt);
         }
 
+        #region + and | operators
+
         [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
-        public static Expression operator +(Expression expression1, Expression expression2)
+        public static Expression operator +(Expression left, Expression right)
         {
-            if (expression1 == null)
+            if (left == null)
             {
-                throw new ArgumentNullException("expression1");
+                throw new ArgumentNullException("left");
             }
 
-            if (expression2 == null)
+            if (right == null)
             {
-                throw new ArgumentNullException("expression2");
+                throw new ArgumentNullException("right");
             }
 
-            return expression1.Concat(expression2);
+            return left.Concat(right);
+        }
+
+        [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
+        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
+        public static Expression operator +(Expression left, string right)
+        {
+            if (left == null)
+            {
+                throw new ArgumentNullException("left");
+            }
+
+            if (right == null)
+            {
+                throw new ArgumentNullException("right");
+            }
+
+            return left.Concat(right);
+        }
+
+        [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
+        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
+        public static Expression operator +(string left, Expression right)
+        {
+            if (left == null)
+            {
+                throw new ArgumentNullException("left");
+            }
+
+            if (right == null)
+            {
+                throw new ArgumentNullException("right");
+            }
+
+            return Expression.Create(left).Concat(right);
+        }
+
+        [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
+        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
+        public static Expression operator +(Expression left, CharGroupItem right)
+        {
+            if (left == null)
+            {
+                throw new ArgumentNullException("left");
+            }
+
+            if (right == null)
+            {
+                throw new ArgumentNullException("right");
+            }
+
+            return left.Concat(right);
+        }
+
+        [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
+        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
+        public static Expression operator +(CharGroupItem left, Expression right)
+        {
+            if (left == null)
+            {
+                throw new ArgumentNullException("left");
+            }
+
+            if (right == null)
+            {
+                throw new ArgumentNullException("right");
+            }
+
+            return Expression.Create(left).Concat(right);
+        }
+
+        [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
+        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
+        public static Expression operator +(Expression left, char right)
+        {
+            if (left == null)
+            {
+                throw new ArgumentNullException("left");
+            }
+
+            return left.Concat(Chars.Char(right));
+        }
+
+        [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
+        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
+        public static Expression operator +(char left, Expression right)
+        {
+            if (right == null)
+            {
+                throw new ArgumentNullException("right");
+            }
+
+            return Chars.Char(left).Concat(right);
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
-        public static Expression operator |(Expression expression1, Expression expression2)
+        public static Expression operator |(Expression left, Expression right)
         {
-            if (expression1 == null)
+            if (left == null)
             {
-                throw new ArgumentNullException("expression1");
+                throw new ArgumentNullException("left");
             }
 
-            if (expression2 == null)
+            if (right == null)
             {
-                throw new ArgumentNullException("expression2");
+                throw new ArgumentNullException("right");
             }
 
-            return expression1.Or(expression2);
+            return left.Or(right);
         }
+
+        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
+        public static Expression operator |(Expression left, string right)
+        {
+            if (left == null)
+            {
+                throw new ArgumentNullException("right");
+            }
+
+            if (right == null)
+            {
+                throw new ArgumentNullException("right");
+            }
+
+            return left.Or(right);
+        }
+
+        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
+        public static Expression operator |(string left, Expression right)
+        {
+            if (left == null)
+            {
+                throw new ArgumentNullException("right");
+            }
+
+            if (right == null)
+            {
+                throw new ArgumentNullException("right");
+            }
+
+            return Expression.Create(left).Or(right);
+        }
+
+        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
+        public static Expression operator |(Expression left, CharGroupItem right)
+        {
+            if (left == null)
+            {
+                throw new ArgumentNullException("left");
+            }
+
+            if (right == null)
+            {
+                throw new ArgumentNullException("right");
+            }
+
+            return left.Or(right);
+        }
+
+        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
+        public static Expression operator |(CharGroupItem left, Expression right)
+        {
+            if (left == null)
+            {
+                throw new ArgumentNullException("left");
+            }
+
+            if (right == null)
+            {
+                throw new ArgumentNullException("right");
+            }
+
+            return Expression.Create(left).Or(right);
+        }
+
+        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
+        public static Expression operator |(Expression left, char right)
+        {
+            if (left == null)
+            {
+                throw new ArgumentNullException("left");
+            }
+
+            return left.Or(Chars.Char(right));
+        }
+
+        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
+        public static Expression operator |(char left, Expression right)
+        {
+            if (right == null)
+            {
+                throw new ArgumentNullException("right");
+            }
+
+            return Chars.Char(left).Or(right);
+        }
+
+        #endregion
 
         public static explicit operator Expression(string text)
         {

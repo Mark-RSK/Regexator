@@ -156,7 +156,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public Expression Or(object content)
         {
-            return Join(Syntax.Or, this, content);
+            return Join(Alternations.Or(), this, content);
         }
 
         public QuantifiableExpression StartOfInput()
