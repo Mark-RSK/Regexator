@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
@@ -207,6 +208,85 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             get { return string.Concat(GetValues()); }
         }
+
+        #region + operator
+
+        [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
+        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
+        public static CharGroupItem operator +(CharGroupItem left, CharGroupItem right)
+        {
+            if (left == null)
+            {
+                throw new ArgumentNullException("left");
+            }
+
+            if (right == null)
+            {
+                throw new ArgumentNullException("right");
+            }
+
+            return left.Concat(right);
+        }
+
+        [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
+        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
+        public static CharGroupItem operator +(CharGroupItem left, string right)
+        {
+            if (left == null)
+            {
+                throw new ArgumentNullException("left");
+            }
+
+            if (right == null)
+            {
+                throw new ArgumentNullException("right");
+            }
+
+            return left.Concat(CharGroupItems.Char(right));
+        }
+        
+        [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
+        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
+        public static CharGroupItem operator +(string left, CharGroupItem right)
+        {
+            if (left == null)
+            {
+                throw new ArgumentNullException("left");
+            }
+
+            if (right == null)
+            {
+                throw new ArgumentNullException("right");
+            }
+
+            return CharGroupItems.Char(left).Concat(right);
+        }
+
+        [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
+        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
+        public static CharGroupItem operator +(CharGroupItem left, char right)
+        {
+            if (left == null)
+            {
+                throw new ArgumentNullException("left");
+            }
+
+            return left.Concat(CharGroupItems.Char(right));
+        }
+
+        [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
+        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
+        public static CharGroupItem operator +(char left, CharGroupItem right)
+        {
+            if (right == null)
+            {
+                throw new ArgumentNullException("right");
+            }
+
+            return CharGroupItems.Char(left).Concat(right);
+        }
+
+        #endregion
 
         internal CharGroupItem Previous { get; set; }
     }
