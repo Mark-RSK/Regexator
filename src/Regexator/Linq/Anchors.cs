@@ -6,7 +6,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
         public static QuantifiableExpression Assert(object content)
         {
-            return new AssertionExpression(AssertionKind.Assert, content);
+            return new AssertExpression(content);
         }
 
         public static QuantifiableExpression Assert(params object[] content)
@@ -16,7 +16,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiableExpression NotAssert(object content)
         {
-            return new AssertionExpression(AssertionKind.NotAssert, content);
+            return new NotAssertExpression(content);
         }
 
         public static QuantifiableExpression NotAssert(params object[] content)
@@ -26,7 +26,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiableExpression AssertBack(object content)
         {
-            return new AssertionExpression(AssertionKind.AssertBack, content);
+            return new AssertBackExpression(content);
         }
 
         public static QuantifiableExpression AssertBack(params object[] content)
@@ -36,7 +36,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiableExpression NotAssertBack(object content)
         {
-            return new AssertionExpression(AssertionKind.NotAssertBack, content);
+            return new NotAssertBackExpression(content);
         }
 
         public static QuantifiableExpression NotAssertBack(params object[] content)
