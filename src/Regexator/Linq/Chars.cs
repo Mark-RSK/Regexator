@@ -1725,5 +1725,22 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             return WhiteSpaceExceptNewLine().CountRange(minCount, maxCount);
         }
+
+#if DEBUG
+        public static Expression WhileNot(char value)
+        {
+            return NotChar(value).MaybeMany();
+        }
+
+        public static Expression WhileNot(int charCode)
+        {
+            return NotChar(charCode).MaybeMany();
+        }
+
+        public static Expression WhileNot(AsciiChar value)
+        {
+            return NotChar(value).MaybeMany();
+        }
+#endif
     }
 }
