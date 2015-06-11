@@ -13,7 +13,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     public partial class Expression
     {
         private Regex _regex;
-        private static readonly object _syncRoot = new object();
         internal static readonly Expression Empty = new Expression();
 
         protected Expression()
@@ -548,13 +547,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 if (_regex == null)
                 {
-                    lock (_syncRoot)
-                    {
-                        if (_regex == null)
-                        {
-                            _regex = ToRegex();
-                        }
-                    }
+                    _regex = ToRegex();
                 }
 
                 return _regex;
