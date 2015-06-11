@@ -128,6 +128,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new WordBoundary();
         }
 
+        public static QuantifiableExpression Word()
+        {
+            return Expressions.Surround(Chars.WordChar().OneMany(), WordBoundary()).AsNoncapturing();
+        }
+
         public static QuantifiableExpression Word(string text)
         {
             return Expressions.Surround(text, WordBoundary()).AsNoncapturing();

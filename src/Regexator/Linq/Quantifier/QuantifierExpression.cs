@@ -5,7 +5,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     public abstract class QuantifierExpression
         : Expression
     {
-        public QuantifierExpression()
+        protected QuantifierExpression()
         {
         }
 
