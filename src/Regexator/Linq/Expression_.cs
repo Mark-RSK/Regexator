@@ -561,6 +561,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             return ConcatInternal(Chars.WhileNot(value));
         }
+
+        public Expression WhileNot(CharGroupItem item)
+        {
+            return ConcatInternal(Chars.WhileNot(item));
+        }
+
+        public Expression WhileNot(string chars)
+        {
+            return ConcatInternal(Chars.WhileNot(chars));
+        }
 #endif
         public CharGroupExpression Alphanumeric()
         {

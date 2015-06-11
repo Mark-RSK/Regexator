@@ -1741,6 +1741,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             return NotChar(value).MaybeMany();
         }
+
+        public static Expression WhileNot(CharGroupItem item)
+        {
+            return NotChar(item).MaybeMany();
+        }
+
+        public static Expression WhileNot(string chars)
+        {
+            return NotChar(chars).MaybeMany();
+        }
 #endif
     }
 }
