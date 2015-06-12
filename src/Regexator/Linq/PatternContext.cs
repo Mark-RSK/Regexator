@@ -37,7 +37,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (!string.IsNullOrEmpty(value))
             {
-                Write(value);
+                base.Write(value);
             }
         }
 

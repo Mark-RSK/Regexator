@@ -12,19 +12,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         private readonly AsciiChar _charAfter;
 
         public AsciiCharSurroundExpression(object content, AsciiChar surroundChar)
-            : this(content, surroundChar, surroundChar)
+            : this(surroundChar, content, surroundChar)
         {
         }
 
-        public AsciiCharSurroundExpression(object content, AsciiChar charBefore, AsciiChar charAfter)
+        public AsciiCharSurroundExpression(AsciiChar charBefore, object content, AsciiChar charAfter)
         {
             if (content == null)
             {
                 throw new ArgumentNullException("content");
             }
 
-            _content = content;
             _charBefore = charBefore;
+            _content = content;
             _charAfter = charAfter;
         }
 

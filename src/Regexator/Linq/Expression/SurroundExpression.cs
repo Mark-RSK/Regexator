@@ -11,16 +11,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         private readonly object _contentBefore;
         private readonly object _contentAfter;
 
-        public SurroundExpression(object content, object contentBefore, object contentAfter)
+        public SurroundExpression(object contentBefore, object content, object contentAfter)
         {
-            if (content == null)
-            {
-                throw new ArgumentNullException("content");
-            }
-
             if (contentBefore == null)
             {
                 throw new ArgumentNullException("contentBefore");
+            }
+
+            if (content == null)
+            {
+                throw new ArgumentNullException("content");
             }
 
             if (contentAfter == null)
@@ -28,8 +28,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("contentAfter");
             }
 
-            _content = content;
             _contentBefore = contentBefore;
+            _content = content;
             _contentAfter = contentAfter;
         }
 

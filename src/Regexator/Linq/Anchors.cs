@@ -46,24 +46,23 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static Expression AssertSurround(object content, object surroundContent)
         {
-            return Expressions.Surround(content, Anchors.AssertBack(surroundContent), Anchors.Assert(surroundContent));
+            return Expressions.Surround(Anchors.AssertBack(surroundContent), content, Anchors.Assert(surroundContent));
         }
 
-        public static Expression AssertSurround(object content, object contentBefore, object contentAfter)
+        public static Expression AssertSurround(object contentBefore, object content, object contentAfter)
         {
-            return Expressions.Surround(content, Anchors.AssertBack(contentBefore), Anchors.Assert(contentAfter));
+            return Expressions.Surround(Anchors.AssertBack(contentBefore), content, Anchors.Assert(contentAfter));
         }
 
         public static Expression NotAssertSurround(object content, object surroundContent)
         {
-            return Expressions.Surround(content, Anchors.NotAssertBack(surroundContent), Anchors.NotAssert(surroundContent));
+            return Expressions.Surround(Anchors.NotAssertBack(surroundContent), content, Anchors.NotAssert(surroundContent));
         }
 
-        public static Expression NotAssertSurround(object content, object contentBefore, object contentAfter)
+        public static Expression NotAssertSurround(object contentBefore, object content, object contentAfter)
         {
-            return Expressions.Surround(content, Anchors.NotAssertBack(contentBefore), Anchors.NotAssert(contentAfter));
+            return Expressions.Surround(Anchors.NotAssertBack(contentBefore), content, Anchors.NotAssert(contentAfter));
         }
-
 
         public static QuantifiableExpression StartOfInput()
         {
@@ -161,17 +160,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static Expression Line(object content)
         {
-            return Expressions.Surround(content, StartOfLine(), EndOfLine());
+            return Expressions.Surround(StartOfLine(), content, EndOfLine());
         }
 
         public static Expression LineInvariant(object content)
         {
-            return Expressions.Surround(content, StartOfLineInvariant(), EndOfLineInvariant());
+            return Expressions.Surround(StartOfLineInvariant(), content, EndOfLineInvariant());
         }
 
         public static Expression EntireInput(object content)
         {
-            return Expressions.Surround(content, StartOfInput(), EndOfInput());
+            return Expressions.Surround(StartOfInput(), content, EndOfInput());
         }
     }
 }

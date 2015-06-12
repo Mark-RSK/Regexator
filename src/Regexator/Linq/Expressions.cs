@@ -48,7 +48,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiableExpression Parentheses(object content)
         {
-            return Surround(content, AsciiChar.LeftParenthesis, AsciiChar.RightParenthesis).AsNoncapturing();
+            return Surround(AsciiChar.LeftParenthesis, content, AsciiChar.RightParenthesis).AsNoncapturing();
         }
 
         public static Expression CurlyBrackets()
@@ -58,7 +58,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiableExpression CurlyBrackets(object content)
         {
-            return Surround(content, AsciiChar.LeftCurlyBracket, AsciiChar.RightCurlyBracket).AsNoncapturing();
+            return Surround(AsciiChar.LeftCurlyBracket, content, AsciiChar.RightCurlyBracket).AsNoncapturing();
         }
 
         public static Expression SquareBrackets()
@@ -68,12 +68,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiableExpression SquareBrackets(object content)
         {
-            return Surround(content, AsciiChar.LeftSquareBracket, AsciiChar.RightSquareBracket).AsNoncapturing();
+            return Surround(AsciiChar.LeftSquareBracket, content, AsciiChar.RightSquareBracket).AsNoncapturing();
         }
 
         public static QuantifiableExpression LessThanGreaterThan(object content)
         {
-            return Surround(content, AsciiChar.LessThan, AsciiChar.GreaterThan).AsNoncapturing();
+            return Surround(AsciiChar.LessThan, content, AsciiChar.GreaterThan).AsNoncapturing();
         }
 
         public static QuantifiableExpression Backreference(int groupNumber)
@@ -138,12 +138,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal static Expression Surround(object content, object surroundContent)
         {
-            return new SurroundExpression(content, surroundContent, surroundContent);
+            return new SurroundExpression(surroundContent, content, surroundContent);
         }
 
-        internal static Expression Surround(object content, object contentBefore, object contentAfter)
+        internal static Expression Surround(object contentBefore, object content, object contentAfter)
         {
-            return new SurroundExpression(content, contentBefore, contentAfter);
+            return new SurroundExpression(contentBefore, content, contentAfter);
         }
 
         internal static Expression Surround(object value, AsciiChar surroundChar)
@@ -151,9 +151,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new AsciiCharSurroundExpression(value, surroundChar);
         }
 
-        internal static Expression Surround(object value, AsciiChar charBefore, AsciiChar charAfter)
+        internal static Expression Surround(AsciiChar charBefore, object value, AsciiChar charAfter)
         {
-            return new AsciiCharSurroundExpression(value, charBefore, charAfter);
+            return new AsciiCharSurroundExpression(charBefore, value, charAfter);
         }
 
         public static QuantifiableExpression Never()
