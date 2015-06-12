@@ -49,10 +49,21 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Expressions.Surround(content, Anchors.AssertBack(surroundContent), Anchors.Assert(surroundContent));
         }
 
+        public static Expression AssertSurround(object content, object contentBefore, object contentAfter)
+        {
+            return Expressions.Surround(content, Anchors.AssertBack(contentBefore), Anchors.Assert(contentAfter));
+        }
+
         public static Expression NotAssertSurround(object content, object surroundContent)
         {
             return Expressions.Surround(content, Anchors.NotAssertBack(surroundContent), Anchors.NotAssert(surroundContent));
         }
+
+        public static Expression NotAssertSurround(object content, object contentBefore, object contentAfter)
+        {
+            return Expressions.Surround(content, Anchors.NotAssertBack(contentBefore), Anchors.NotAssert(contentAfter));
+        }
+
 
         public static QuantifiableExpression StartOfInput()
         {
