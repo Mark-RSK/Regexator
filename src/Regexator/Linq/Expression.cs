@@ -162,12 +162,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             using (var context = new PatternContext(settings))
             {
-                BuildContent(content, context);
+                Build(content, context);
                 return context.ToString();
             }
         }
 
-        internal static void BuildContent(object content, PatternContext context)
+        internal static void Build(object content, PatternContext context)
         {
             if (content == null)
             {
@@ -200,7 +200,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                         {
                             foreach (var item in values)
                             {
-                                BuildContent(item, context);
+                                Build(item, context);
                             }
                         }
                         else
@@ -210,7 +210,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                             {
                                 foreach (var item in items)
                                 {
-                                    BuildContent(item, context);
+                                    Build(item, context);
                                 }
                             }
                         }

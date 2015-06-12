@@ -16,7 +16,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override void BuildContent(PatternContext context)
         {
-            Expression.BuildContent(_content, context);
+            Expression.Build(_content, context);
         }
     }
 }

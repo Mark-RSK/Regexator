@@ -29,7 +29,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 if (values.Length > 0)
                 {
-                    Expression.BuildContent(values[0], context);
+                    Expression.Build(values[0], context);
 
                     if (values.Length > 1)
                     {
@@ -38,7 +38,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                         for (int i = 1; i < values.Length; i++)
                         {
                             context.Write(separator);
-                            Expression.BuildContent(values[i], context);
+                            Expression.Build(values[i], context);
                         }
                     }
                 }
@@ -50,19 +50,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 {
                     if (en.MoveNext())
                     {
-                        Expression.BuildContent(en.Current, context);
+                        Expression.Build(en.Current, context);
 
                         if (en.MoveNext())
                         {
                             string separator = GetValue(_separator, context.Settings);
 
                             context.Write(separator);
-                            Expression.BuildContent(en.Current, context);
+                            Expression.Build(en.Current, context);
 
                             while (en.MoveNext())
                             {
                                 context.Write(separator);
-                                Expression.BuildContent(en.Current, context);
+                                Expression.Build(en.Current, context);
                             }
                         }
                     }

@@ -28,13 +28,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             BuildCondition(context);
 
-            Expression.BuildContent(_trueContent, context);
+            Expression.Build(_trueContent, context);
 
             if (_falseContent != null)
             {
                 context.Write(Syntax.Or);
 
-                Expression.BuildContent(_falseContent, context);
+                Expression.Build(_falseContent, context);
             }
         }
 

@@ -40,12 +40,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 {
                     if (values.Length > 0)
                     {
-                        Expression.BuildContent(values[0], context);
+                        Expression.Build(values[0], context);
 
                         for (int i = 1; i < values.Length; i++)
                         {
                             context.Write(Syntax.Or);
-                            Expression.BuildContent(values[i], context);
+                            Expression.Build(values[i], context);
                         }
                     }
                 }
@@ -58,18 +58,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
                         if (en.MoveNext())
                         {
-                            Expression.BuildContent(en.Current, context);
+                            Expression.Build(en.Current, context);
 
                             while (en.MoveNext())
                             {
                                 context.Write(Syntax.Or);
-                                Expression.BuildContent(en.Current, context);
+                                Expression.Build(en.Current, context);
                             }
                         }
                     }
                     else
                     {
-                        Expression.BuildContent(Content, context);
+                        Expression.Build(Content, context);
                     }
                 }
             }
