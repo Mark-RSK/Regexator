@@ -5,7 +5,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal sealed class WordBoundary
         : AnchorExpression
     {
-        internal override string Value(BuildContext context)
+        internal override string Value(PatternContext context)
         {
             return Syntax.WordBoundary;
         }

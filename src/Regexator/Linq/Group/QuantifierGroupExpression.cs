@@ -10,14 +10,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
         }
 
-        internal override string Opening(BuildContext context)
+        internal override string Opening(PatternContext context)
         {
             return AddGroup
                 ? Syntax.NoncapturingGroupStart
                 : string.Empty;
         }
 
-        internal override string Closing(BuildContext context)
+        internal override string Closing(PatternContext context)
         {
             return AddGroup
                 ? base.Closing(context)

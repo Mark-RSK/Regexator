@@ -17,7 +17,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new GeneralCategoryGroup(_category);
         }
 
-        internal override string Value(BuildContext context)
+        internal override string Value(PatternContext context)
         {
             return Syntax.GeneralCategory(_category);
         }

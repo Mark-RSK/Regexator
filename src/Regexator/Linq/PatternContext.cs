@@ -7,22 +7,21 @@ using System.IO;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal class BuildContext
-        : IDisposable
+    internal class PatternContext
+        : StringWriter
     {
 #if DEBUG
         private readonly HashSet<Expression> _expressions;
 #endif
-        private readonly TextWriter _writer;
         private PatternSettings _settings;
-        private bool _disposed;
 
-        public BuildContext()
+        public PatternContext()
             : this(new PatternSettings())
         {
         }
 
-        public BuildContext(PatternSettings settings)
+        public PatternContext(PatternSettings settings)
+            : base()
         {
             if (settings == null)
             {
@@ -30,40 +29,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
 
             _settings = settings;
-            _writer = new StringWriter(CultureInfo.CurrentCulture);
 #if DEBUG
             _expressions = new HashSet<Expression>();
 #endif
         }
 
-        public override string ToString()
-        {
-            return _writer.ToString();
-        }
-
-        public void Write(string value)
+        public override void Write(string value)
         {
             if (!string.IsNullOrEmpty(value))
             {
-                _writer.Write(value);
-            }
-        }
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!_disposed)
-            {
-                if (disposing)
-                {
-                    _writer.Dispose();
-                }
-                _disposed = true;
+                Write(value);
             }
         }
 

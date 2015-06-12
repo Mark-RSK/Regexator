@@ -120,14 +120,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("settings");
             }
 
-            using (var context = new BuildContext(settings))
+            using (var context = new PatternContext(settings))
             {
                 Build(context);
                 return context.ToString();
             }
         }
 
-        internal void Build(BuildContext context)
+        internal void Build(PatternContext context)
         {
             if (Previous != null)
             {
@@ -160,14 +160,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal static string GetValue(object content, PatternSettings settings)
         {
-            using (var context = new BuildContext(settings))
+            using (var context = new PatternContext(settings))
             {
                 BuildContent(content, context);
                 return context.ToString();
             }
         }
 
-        internal static void BuildContent(object content, BuildContext context)
+        internal static void BuildContent(object content, PatternContext context)
         {
             if (content == null)
             {
@@ -219,7 +219,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        private static void Build(Expression expression, BuildContext context)
+        private static void Build(Expression expression, PatternContext context)
         {
 #if DEBUG
             if (!context.Expressions.Add(expression))
@@ -239,7 +239,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 #endif
         }
 
-        internal virtual void BuildContent(BuildContext context)
+        internal virtual void BuildContent(PatternContext context)
         {
             string s = Value(context);
             if (s != null)
@@ -248,17 +248,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        internal virtual string Opening(BuildContext context)
+        internal virtual string Opening(PatternContext context)
         {
             return null;
         }
 
-        internal virtual string Closing(BuildContext context)
+        internal virtual string Closing(PatternContext context)
         {
             return null;
         }
 
-        internal virtual string Value(BuildContext context)
+        internal virtual string Value(PatternContext context)
         {
             return null;
         }

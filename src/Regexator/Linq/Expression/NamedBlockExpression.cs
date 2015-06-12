@@ -22,7 +22,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new NamedBlockGroup(_block);
         }
 
-        internal override string Value(BuildContext context)
+        internal override string Value(PatternContext context)
         {
             return Syntax.NamedBlock(_block);
         }

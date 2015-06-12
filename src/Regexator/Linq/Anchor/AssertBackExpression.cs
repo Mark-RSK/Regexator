@@ -10,7 +10,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
         }
 
-        internal override string Opening(BuildContext context)
+        internal override string Opening(PatternContext context)
         {
             return Syntax.AssertBackStart;
         }

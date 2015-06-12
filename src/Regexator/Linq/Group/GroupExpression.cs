@@ -26,7 +26,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _content = content;
         }
 
-        internal override void BuildContent(BuildContext context)
+        internal override void BuildContent(PatternContext context)
         {
             string text = Content as string;
             if (text != null)
@@ -80,7 +80,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             get { return _content; }
         }
 
-        internal override string Closing(BuildContext context)
+        internal override string Closing(PatternContext context)
         {
             return Syntax.GroupEnd;
         }

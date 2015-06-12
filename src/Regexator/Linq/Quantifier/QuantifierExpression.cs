@@ -13,7 +13,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal abstract QuantifierKind QuantifierKind { get; }
 
-        internal override void BuildContent(BuildContext context)
+        internal override void BuildContent(PatternContext context)
         {
             context.Write(Content);
         }

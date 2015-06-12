@@ -22,9 +22,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _falseContent = falseContent;
         }
 
-        protected abstract void BuildCondition(BuildContext context);
+        protected abstract void BuildCondition(PatternContext context);
 
-        internal override void BuildContent(BuildContext context)
+        internal override void BuildContent(PatternContext context)
         {
             BuildCondition(context);
 
@@ -38,12 +38,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        internal override string Opening(BuildContext context)
+        internal override string Opening(PatternContext context)
         {
             return Syntax.IfStart;
         }
 
-        internal override string Closing(BuildContext context)
+        internal override string Closing(PatternContext context)
         {
             return Syntax.GroupEnd;
         }

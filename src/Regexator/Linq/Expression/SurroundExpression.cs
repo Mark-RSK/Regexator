@@ -33,7 +33,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _contentAfter = contentAfter;
         }
 
-        internal override void BuildContent(BuildContext context)
+        internal override void BuildContent(PatternContext context)
         {
             Expression.BuildContent(_contentBefore, context);
 

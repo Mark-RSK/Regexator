@@ -24,7 +24,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new CharCodeGroup(_charCode);
         }
 
-        internal override string Value(BuildContext context)
+        internal override string Value(PatternContext context)
         {
             return Syntax.CharInternal(_charCode);
         }

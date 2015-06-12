@@ -26,7 +26,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             get { return Syntax.CharGroupInternal(Content, Negative); }
         }
 
-        internal sealed override string Value(BuildContext context)
+        internal sealed override string Value(PatternContext context)
         {
             return ExcludedGroupValue;
         }

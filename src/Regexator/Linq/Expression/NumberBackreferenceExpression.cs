@@ -21,7 +21,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _groupNumber = groupNumber;
         }
 
-        internal override string Value(BuildContext context)
+        internal override string Value(PatternContext context)
         {
             return (context.Settings.SeparatorAfterNumberBackreference)
                 ? Syntax.Backreference(GroupNumber) + Syntax.NoncapturingGroup()

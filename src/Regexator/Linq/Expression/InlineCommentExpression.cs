@@ -19,7 +19,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _comment = comment;
         }
 
-        internal override string Value(BuildContext context)
+        internal override string Value(PatternContext context)
         {
             return Syntax.InlineComment(_comment);
         }

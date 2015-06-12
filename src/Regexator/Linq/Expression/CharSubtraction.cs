@@ -31,7 +31,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             get { return Syntax.CharGroupInternal(_baseGroup.BaseGroupValue + "-" + _excludedGroup.ExcludedGroupValue, Negative); }
         }
 
-        internal override string Value(BuildContext context)
+        internal override string Value(PatternContext context)
         {
             return ExcludedGroupValue;
         }

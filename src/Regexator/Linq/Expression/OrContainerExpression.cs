@@ -69,7 +69,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new object[] { left, right };
         }
 
-        internal override string Opening(BuildContext context)
+        internal override string Opening(PatternContext context)
         {
             return Syntax.NoncapturingGroupStart;
         }

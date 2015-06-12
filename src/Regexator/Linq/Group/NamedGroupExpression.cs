@@ -30,7 +30,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             get { return _groupName; }
         }
 
-        internal override string Opening(BuildContext context)
+        internal override string Opening(PatternContext context)
         {
             return Syntax.GroupStart(GroupName, context.Settings.IdentifierBoundary);
         }

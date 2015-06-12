@@ -22,7 +22,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _values = values;
         }
 
-        internal override void BuildContent(BuildContext context)
+        internal override void BuildContent(PatternContext context)
         {
             var values = _values as object[];
             if (values != null)

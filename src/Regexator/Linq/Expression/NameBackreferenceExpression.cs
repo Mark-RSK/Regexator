@@ -15,7 +15,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _groupName = groupName;
         }
 
-        internal override string Value(BuildContext context)
+        internal override string Value(PatternContext context)
         {
             return Syntax.Backreference(GroupName, context.Settings.IdentifierBoundary);
         }

@@ -14,7 +14,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _disableOptions = disableOptions;
         }
 
-        internal override string Value(BuildContext context)
+        internal override string Value(PatternContext context)
         {
             return Syntax.Options(_applyOptions, _disableOptions);
         }
