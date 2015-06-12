@@ -31,42 +31,55 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 if (r != null)
                 {
-                    var la = l.Content as object[];
-                    var ra = r.Content as object[];
 
-                    object[] arr = new object[la.Length + ra.Length];
-
-                    Array.Copy(la, arr, la.Length);
-                    Array.Copy(ra, 0, arr,  la.Length, ra.Length);
-
-                    return arr;
+                    return Combine(l.Content as object[], r.Content as object[]);
                 }
                 else
                 {
-                    var la = l.Content as object[];
-
-                    object[] arr = new object[la.Length + 1];
-
-                    Array.Copy(la, arr, la.Length);
-                    arr[la.Length] = right;
-
-                    return arr;
+                    return Combine(l.Content as object[], right);
                 }
          
             }
             else if (r != null)
             {
-                var ra = l.Content as object[];
-
-                object[] arr = new object[ra.Length + 1];
-
-                arr[0] = right;
-                Array.Copy(ra, 0, arr, 1, ra.Length);
-
-                return arr;
+                return Combine(left, r.Content as object[]);
             }
+            else
+            {
+                return new object[] { left, right };
+            }
+        }
 
-            return new object[] { left, right };
+        private static object[] Combine(object[] left, object[] right)
+        {
+            object[] result = new object[left.Length + right.Length];
+
+            Array.Copy(left, result, left.Length);
+            Array.Copy(right, 0, result,  left.Length, right.Length);
+
+            return result;
+        }
+
+        private static object[] Combine(object[] left, object right)
+        {
+            object[] result = new object[left.Length + 1];
+
+            Array.Copy(left, result, left.Length);
+
+            result[left.Length] = right;
+
+            return result;
+        }
+
+        private static object[] Combine(object left, object[] right)
+        {
+            object[] result = new object[right.Length + 1];
+
+            result[0] = left;
+
+            Array.Copy(right, 0, result, 1, right.Length);
+
+            return result;
         }
 
         internal override string Opening(PatternContext context)
