@@ -55,6 +55,7 @@
     <Compile Include="Linq\Anchor\NotAssertBackExpression.cs" />
     <Compile Include="Linq\Anchor\NotAssertExpression.cs" />
     <Compile Include="Linq\Anchor\AssertExpression.cs" />
+    <Compile Include="Linq\Expression\OrContainerExpression.cs" />
     <Compile Include="Linq\Expression\JoinContainerExpression.cs" />
     <Compile Include="Linq\Extensions\EnumerableExtensions.cs" />
     <Compile Include="Linq\Extensions\MatchExtensions.cs" />

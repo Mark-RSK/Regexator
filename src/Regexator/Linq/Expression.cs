@@ -607,103 +607,43 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static Expression operator |(Expression left, Expression right)
         {
-            if (left == null)
-            {
-                throw new ArgumentNullException("left");
-            }
-
-            if (right == null)
-            {
-                throw new ArgumentNullException("right");
-            }
-
-            return left.Or(right);
+            return new OrContainerExpression(left, right);
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static Expression operator |(Expression left, string right)
         {
-            if (left == null)
-            {
-                throw new ArgumentNullException("right");
-            }
-
-            if (right == null)
-            {
-                throw new ArgumentNullException("right");
-            }
-
-            return left.Or(right);
+            return new OrContainerExpression(left, right);
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static Expression operator |(string left, Expression right)
         {
-            if (left == null)
-            {
-                throw new ArgumentNullException("right");
-            }
-
-            if (right == null)
-            {
-                throw new ArgumentNullException("right");
-            }
-
-            return Expression.Create(left).Or(right);
+            return new OrContainerExpression(left, right);
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static Expression operator |(Expression left, CharGroupItem right)
         {
-            if (left == null)
-            {
-                throw new ArgumentNullException("left");
-            }
-
-            if (right == null)
-            {
-                throw new ArgumentNullException("right");
-            }
-
-            return left.Or(right);
+            return new OrContainerExpression(left, right);
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static Expression operator |(CharGroupItem left, Expression right)
         {
-            if (left == null)
-            {
-                throw new ArgumentNullException("left");
-            }
-
-            if (right == null)
-            {
-                throw new ArgumentNullException("right");
-            }
-
-            return Expression.Create(left).Or(right);
+            return new OrContainerExpression(left, right);
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static Expression operator |(Expression left, char right)
         {
-            if (left == null)
-            {
-                throw new ArgumentNullException("left");
-            }
-
-            return left.Or(Chars.Char(right));
+            return new OrContainerExpression(left, right.ToString());
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static Expression operator |(char left, Expression right)
         {
-            if (right == null)
-            {
-                throw new ArgumentNullException("right");
-            }
-
-            return Chars.Char(left).Or(right);
+            return new OrContainerExpression(left.ToString(), right);
         }
 
         #endregion
