@@ -243,7 +243,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             return Expression.Concat(left, right);
         }
-        
+
         [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static Expression operator +(string left, CharGroupItem right)

@@ -30,8 +30,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (_condition != null)
             {
-                context.Write(context.Settings.ConditionWithAssertion 
-                    ? Syntax.AssertStart 
+                context.Write(context.Settings.ConditionWithAssertion
+                    ? Syntax.AssertStart
                     : Syntax.CapturingGroupStart);
 
                 Expression.Build(_condition, context);

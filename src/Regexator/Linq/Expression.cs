@@ -228,7 +228,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             context.Write(expression.Opening(context));
 
             expression.BuildContent(context);
-            
+
             context.Write(expression.Closing(context));
 
 #if DEBUG

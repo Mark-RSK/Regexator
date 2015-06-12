@@ -31,14 +31,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 if (r != null)
                 {
-
                     return Combine(l.Content as object[], r.Content as object[]);
                 }
                 else
                 {
                     return Combine(l.Content as object[], right);
                 }
-         
             }
             else if (r != null)
             {
