@@ -602,43 +602,43 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
-        public static Expression operator |(Expression left, Expression right)
+        public static QuantifiableExpression operator |(Expression left, Expression right)
         {
             return new OrContainerExpression(left, right);
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
-        public static Expression operator |(Expression left, string right)
+        public static QuantifiableExpression operator |(Expression left, string right)
         {
             return new OrContainerExpression(left, right);
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
-        public static Expression operator |(string left, Expression right)
+        public static QuantifiableExpression operator |(string left, Expression right)
         {
             return new OrContainerExpression(left, right);
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
-        public static Expression operator |(Expression left, CharGroupItem right)
+        public static QuantifiableExpression operator |(Expression left, CharGroupItem right)
         {
             return new OrContainerExpression(left, right);
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
-        public static Expression operator |(CharGroupItem left, Expression right)
+        public static QuantifiableExpression operator |(CharGroupItem left, Expression right)
         {
             return new OrContainerExpression(left, right);
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
-        public static Expression operator |(Expression left, char right)
+        public static QuantifiableExpression operator |(Expression left, char right)
         {
             return new OrContainerExpression(left, right.ToString());
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
-        public static Expression operator |(char left, Expression right)
+        public static QuantifiableExpression operator |(char left, Expression right)
         {
             return new OrContainerExpression(left.ToString(), right);
         }

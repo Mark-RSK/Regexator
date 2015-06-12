@@ -9,7 +9,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     public abstract partial class CharGroupItem
         : IBaseGroup, IExcludedGroup
     {
-
         protected CharGroupItem()
         {
         }
