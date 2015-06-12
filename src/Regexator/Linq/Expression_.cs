@@ -480,11 +480,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Expressions.GoTo(value));
         }
 
-        public Expression GoTo(int charValue)
-        {
-            return ConcatInternal(Expressions.GoTo(charValue));
-        }
-
         public Expression GoTo(AsciiChar value)
         {
             return ConcatInternal(Expressions.GoTo(value));
@@ -550,11 +545,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public Expression WhileNot(char value)
         {
             return ConcatInternal(Chars.WhileNot(value));
-        }
-
-        public Expression WhileNot(int charCode)
-        {
-            return ConcatInternal(Chars.WhileNot(charCode));
         }
 
         public Expression WhileNot(AsciiChar value)
