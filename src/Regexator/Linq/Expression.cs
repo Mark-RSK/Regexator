@@ -178,43 +178,40 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             if (expression != null)
             {
                 expression.Build(context);
+                return;
             }
-            else
+
+            string text = content as string;
+            if (text != null)
             {
-                string text = content as string;
-                if (text != null)
+                context.Write(RegexUtilities.Escape(text));
+                return;
+            }
+
+            CharGroupItem item = content as CharGroupItem;
+            if (item != null)
+            {
+                context.Write(Syntax.CharGroupInternal(item.Value));
+                return;
+            }
+
+            object[] values = content as object[];
+            if (values != null)
+            {
+                foreach (var value in values)
                 {
-                    context.Write(RegexUtilities.Escape(text));
+                    Build(value, context);
                 }
-                else
+
+                return;
+            }
+
+            IEnumerable items = content as IEnumerable;
+            if (items != null)
+            {
+                foreach (var value in items)
                 {
-                    CharGroupItem charGroupItem = content as CharGroupItem;
-                    if (charGroupItem != null)
-                    {
-                        context.Write(Syntax.CharGroupInternal(charGroupItem.Value));
-                    }
-                    else
-                    {
-                        object[] values = content as object[];
-                        if (values != null)
-                        {
-                            foreach (var item in values)
-                            {
-                                Build(item, context);
-                            }
-                        }
-                        else
-                        {
-                            IEnumerable items = content as IEnumerable;
-                            if (items != null)
-                            {
-                                foreach (var item in items)
-                                {
-                                    Build(item, context);
-                                }
-                            }
-                        }
-                    }
+                    Build(value, context);
                 }
             }
         }
