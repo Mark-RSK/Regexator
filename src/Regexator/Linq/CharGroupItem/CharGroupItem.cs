@@ -20,7 +20,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharGroupItem Create(char value)
         {
-            return new CharCharItem(value);
+            return new CharacterItem(value);
         }
 
         public static CharGroupItem Create(char first, char last)

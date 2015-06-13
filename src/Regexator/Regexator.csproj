@@ -98,7 +98,7 @@
     <Compile Include="Linq\CharGroup\CharGroupExpression.cs" />
     <Compile Include="Linq\CharGroupItem\CharsCharItem.cs" />
     <Compile Include="Linq\CharGroupItem\CharCodeCharItem.cs" />
-    <Compile Include="Linq\CharGroupItem\CharCharItem.cs" />
+    <Compile Include="Linq\CharGroupItem\CharacterItem.cs" />
     <Compile Include="Linq\CharGroupItem\CodeRangeCharItem.cs" />
     <Compile Include="Linq\CharGroupItem\RangeCharItem.cs" />
     <Compile Include="Linq\CharGroupItem\AsciiCharItem.cs" />

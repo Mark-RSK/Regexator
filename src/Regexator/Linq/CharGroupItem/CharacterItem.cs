@@ -2,12 +2,12 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal sealed class CharCharItem
+    internal sealed class CharacterItem
         : CharGroupItem
     {
         private readonly char _value;
 
-        public CharCharItem(char value)
+        public CharacterItem(char value)
         {
             _value = value;
         }
