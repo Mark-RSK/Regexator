@@ -26,14 +26,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Chars.AnyInvariant().MaybeMany().Lazy();
         }
 
-        public static QuantifiableExpression Apostrophes(object content)
+        public static Expression Apostrophes(object content)
         {
-            return Surround(content, AsciiChar.Apostrophe).AsNoncapturing();
+            return Surround(content, AsciiChar.Apostrophe);
         }
 
-        public static QuantifiableExpression QuoteMarks(object content)
+        public static Expression QuoteMarks(object content)
         {
-            return Surround(content, AsciiChar.QuoteMark).AsNoncapturing();
+            return Surround(content, AsciiChar.QuoteMark);
         }
 
         public static Expression Parentheses()
@@ -41,9 +41,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Chars.LeftParenthesis().RightParenthesis();
         }
 
-        public static QuantifiableExpression Parentheses(object content)
+        public static Expression Parentheses(object content)
         {
-            return Surround(AsciiChar.LeftParenthesis, content, AsciiChar.RightParenthesis).AsNoncapturing();
+            return Surround(AsciiChar.LeftParenthesis, content, AsciiChar.RightParenthesis);
         }
 
         public static Expression CurlyBrackets()
@@ -51,9 +51,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Chars.LeftCurlyBracket().RightCurlyBracket();
         }
 
-        public static QuantifiableExpression CurlyBrackets(object content)
+        public static Expression CurlyBrackets(object content)
         {
-            return Surround(AsciiChar.LeftCurlyBracket, content, AsciiChar.RightCurlyBracket).AsNoncapturing();
+            return Surround(AsciiChar.LeftCurlyBracket, content, AsciiChar.RightCurlyBracket);
         }
 
         public static Expression SquareBrackets()
@@ -61,14 +61,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Chars.LeftSquareBracket().RightSquareBracket();
         }
 
-        public static QuantifiableExpression SquareBrackets(object content)
+        public static Expression SquareBrackets(object content)
         {
-            return Surround(AsciiChar.LeftSquareBracket, content, AsciiChar.RightSquareBracket).AsNoncapturing();
+            return Surround(AsciiChar.LeftSquareBracket, content, AsciiChar.RightSquareBracket);
         }
 
-        public static QuantifiableExpression LessThanGreaterThan(object content)
+        public static Expression LessThanGreaterThan(object content)
         {
-            return Surround(AsciiChar.LessThan, content, AsciiChar.GreaterThan).AsNoncapturing();
+            return Surround(AsciiChar.LessThan, content, AsciiChar.GreaterThan);
         }
 
         public static QuantifiableExpression Backreference(int groupNumber)
