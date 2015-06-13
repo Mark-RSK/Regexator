@@ -7,21 +7,21 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal sealed class CharsCharItem
         : CharGroupItem
     {
-        private readonly string _chars;
+        private readonly string _characters;
 
-        public CharsCharItem(string chars)
+        public CharsCharItem(string characters)
         {
-            if (chars == null)
+            if (characters == null)
             {
-                throw new ArgumentNullException("chars");
+                throw new ArgumentNullException("characters");
             }
 
-            _chars = chars;
+            _characters = characters;
         }
 
         internal override string Content
         {
-            get { return RegexUtilities.Escape(_chars, true); }
+            get { return RegexUtilities.Escape(_characters, true); }
         }
     }
 }

@@ -7,22 +7,22 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal sealed class CharsCharGroup
         : CharGroupExpression
     {
-        private readonly string _chars;
+        private readonly string _characters;
         private readonly bool _negative;
 
-        public CharsCharGroup(string chars)
-            : this(chars, false)
+        public CharsCharGroup(string characters)
+            : this(characters, false)
         {
         }
 
-        public CharsCharGroup(string chars, bool negative)
+        public CharsCharGroup(string characters, bool negative)
         {
-            if (chars == null)
+            if (characters == null)
             {
-                throw new ArgumentNullException("chars");
+                throw new ArgumentNullException("characters");
             }
 
-            _chars = chars;
+            _characters = characters;
             _negative = negative;
         }
 
@@ -33,7 +33,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public override string Content
         {
-            get { return RegexUtilities.Escape(_chars, true); }
+            get { return RegexUtilities.Escape(_characters, true); }
         }
     }
 }

@@ -481,9 +481,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 #endif
 
-        public QuantifiableExpression Char(string chars)
+        public QuantifiableExpression Char(string characters)
         {
-            return ConcatInternal(Chars.Char(chars));
+            return ConcatInternal(Chars.Char(characters));
         }
 
         public QuantifiableExpression Char(CharGroupItem item)
@@ -491,9 +491,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.Char(item));
         }
 
-        public QuantifiableExpression NotChar(string chars)
+        public QuantifiableExpression NotChar(string characters)
         {
-            return ConcatInternal(Chars.NotChar(chars));
+            return ConcatInternal(Chars.NotChar(characters));
         }
 
         public QuantifiableExpression NotChar(CharGroupItem item)

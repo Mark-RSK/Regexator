@@ -21,9 +21,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new AsciiCharExpression(value);
         }
 
-        public static CharGroupExpression Char(string chars)
+        public static CharGroupExpression Char(string characters)
         {
-            return new CharsCharGroup(chars);
+            return new CharsCharGroup(characters);
         }
 
         public static CharGroupExpression Char(CharGroupItem item)
@@ -46,9 +46,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new AsciiCharGroup(value, true);
         }
 
-        public static CharGroupExpression NotChar(string chars)
+        public static CharGroupExpression NotChar(string characters)
         {
-            return new CharsCharGroup(chars, true);
+            return new CharsCharGroup(characters, true);
         }
 
         public static CharGroupExpression NotChar(CharGroupItem item)
