@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
@@ -74,10 +75,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (Previous != null)
             {
-                var items = new Stack<CharGroupItem>(this.EnumerateExpressions());
-                while (items.Count > 0)
+                CharGroupItem[] items = GetItems().ToArray();
+                for (int i = (items.Length - 1); i >= 0; i--)
                 {
-                    yield return items.Pop().Content;
+                    yield return items[i].Content;
                 }
             }
             else
@@ -86,7 +87,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        private IEnumerable<CharGroupItem> EnumerateExpressions()
+        private IEnumerable<CharGroupItem> GetItems()
         {
             CharGroupItem item = this;
             do
