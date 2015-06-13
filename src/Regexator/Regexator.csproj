@@ -87,7 +87,6 @@
     <Compile Include="Linq\Expression\ContainerExpression.cs" />
     <Compile Include="Linq\Expression\InlineCommentExpression.cs" />
     <Compile Include="Linq\Expression\InlineOptionsExpression.cs" />
-    <Compile Include="Linq\Alternation\OrExpression.cs" />
     <Compile Include="Linq\AsciiChar.cs" />
     <Compile Include="Linq\Expression\TextExpression.cs" />
     <Compile Include="Linq\Quantifier\CountFromQuantifier.cs" />

@@ -46,9 +46,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new IfExpression(testContent, trueContent, falseContent);
         }
 
-        public static Expression Or()
+        internal static QuantifiableExpression Or(object left, object right)
         {
-            return new OrExpression();
+            return new OrContainerExpression(left, right);
         }
     }
 }

@@ -604,43 +604,43 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static QuantifiableExpression operator |(Expression left, Expression right)
         {
-            return new OrContainerExpression(left, right);
+            return Alternations.Or(left, right);
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static QuantifiableExpression operator |(Expression left, string right)
         {
-            return new OrContainerExpression(left, right);
+            return Alternations.Or(left, right);
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static QuantifiableExpression operator |(string left, Expression right)
         {
-            return new OrContainerExpression(left, right);
+            return Alternations.Or(left, right);
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static QuantifiableExpression operator |(Expression left, CharGroupItem right)
         {
-            return new OrContainerExpression(left, right);
+            return Alternations.Or(left, right);
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static QuantifiableExpression operator |(CharGroupItem left, Expression right)
         {
-            return new OrContainerExpression(left, right);
+            return Alternations.Or(left, right);
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static QuantifiableExpression operator |(Expression left, char right)
         {
-            return new OrContainerExpression(left, right.ToString());
+            return Alternations.Or(left, right.ToString());
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static QuantifiableExpression operator |(char left, Expression right)
         {
-            return new OrContainerExpression(left.ToString(), right);
+            return Alternations.Or(left.ToString(), right);
         }
 
         #endregion

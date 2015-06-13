@@ -149,14 +149,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Alternations.If(testContent, trueContent, falseContent));
         }
 
-        public Expression Or()
-        {
-            return ConcatInternal(Alternations.Or());
-        }
-
         public Expression Or(object content)
         {
-            return Join(Alternations.Or(), this, content);
+            return Alternations.Or(this, content);
         }
 
         public QuantifiableExpression StartOfInput()
