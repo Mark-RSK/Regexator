@@ -5,19 +5,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal sealed class CharRangeGroup
         : CharGroupExpression
     {
-        private readonly char _first;
-        private readonly char _last;
+        private readonly char _firstChar;
+        private readonly char _lastChar;
         private readonly bool _negative;
 
-        public CharRangeGroup(char first, char last)
-            : this(first, last, false)
+        public CharRangeGroup(char firstChar, char lastChar)
+            : this(firstChar, lastChar, false)
         {
         }
 
-        public CharRangeGroup(char first, char last, bool negative)
+        public CharRangeGroup(char firstChar, char lastChar, bool negative)
         {
-            _first = first;
-            _last = last;
+            _firstChar = firstChar;
+            _lastChar = lastChar;
             _negative = negative;
         }
 
@@ -28,7 +28,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public override string Content
         {
-            get { return Syntax.CharRange(_first, _last); }
+            get { return Syntax.CharRange(_firstChar, _lastChar); }
         }
     }
 }

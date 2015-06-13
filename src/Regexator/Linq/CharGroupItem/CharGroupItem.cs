@@ -121,9 +121,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Concat(CharGroupItem.Create(characters));
         }
 
-        public CharGroupItem Concat(char first, char last)
+        public CharGroupItem Concat(char firstChar, char lastChar)
         {
-            return Concat(CharGroupItem.Create(first, last));
+            return Concat(CharGroupItem.Create(firstChar, lastChar));
         }
 
         public CharGroupItem Concat(int firstCharCode, int lastCharCode)

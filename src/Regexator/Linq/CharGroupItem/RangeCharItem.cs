@@ -5,18 +5,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal sealed class RangeCharItem
         : CharGroupItem
     {
-        private readonly char _first;
-        private readonly char _last;
+        private readonly char _firstChar;
+        private readonly char _lastChar;
 
-        public RangeCharItem(char first, char last)
+        public RangeCharItem(char firstChar, char lastChar)
         {
-            _first = first;
-            _last = last;
+            _firstChar = firstChar;
+            _lastChar = lastChar;
         }
 
         internal override string Content
         {
-            get { return Syntax.CharRange(_first, _last); }
+            get { return Syntax.CharRange(_firstChar, _lastChar); }
         }
     }
 }
