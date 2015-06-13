@@ -24,8 +24,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("right");
             }
 
-            OrContainerExpression l = left as OrContainerExpression;
-            OrContainerExpression r = right as OrContainerExpression;
+            var l = left as OrContainerExpression;
+            var r = right as OrContainerExpression;
 
             if (l != null)
             {
