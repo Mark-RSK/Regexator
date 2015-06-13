@@ -23,9 +23,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new CharCharItem(value);
         }
 
-        public static CharGroupItem Create(char firstChar, char lastChar)
+        public static CharGroupItem Create(char first, char last)
         {
-            return new RangeCharItem(firstChar, lastChar);
+            return new RangeCharItem(first, last);
         }
 
         public static CharGroupItem Create(int charCode)
@@ -121,9 +121,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Concat(CharGroupItem.Create(characters));
         }
 
-        public CharGroupItem Concat(char firstChar, char lastChar)
+        public CharGroupItem Concat(char first, char last)
         {
-            return Concat(CharGroupItem.Create(firstChar, lastChar));
+            return Concat(CharGroupItem.Create(first, last));
         }
 
         public CharGroupItem Concat(int firstCharCode, int lastCharCode)

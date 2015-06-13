@@ -501,9 +501,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotChar(item));
         }
 
-        public QuantifiableExpression CharRange(char firstChar, char lastChar)
+        public QuantifiableExpression CharRange(char first, char last)
         {
-            return ConcatInternal(Chars.CharRange(firstChar, lastChar));
+            return ConcatInternal(Chars.CharRange(first, last));
         }
 
         public QuantifiableExpression CharRange(int firstCharCode, int lastCharCode)
@@ -511,9 +511,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.CharRange(firstCharCode, lastCharCode));
         }
 
-        public QuantifiableExpression NotCharRange(char firstChar, char lastChar)
+        public QuantifiableExpression NotCharRange(char first, char last)
         {
-            return ConcatInternal(Chars.NotCharRange(firstChar, lastChar));
+            return ConcatInternal(Chars.NotCharRange(first, last));
         }
 
         public QuantifiableExpression NotCharRange(int firstCharCode, int lastCharCode)

@@ -355,9 +355,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return string.Concat(values.Select(f => CharClass(f)));
         }
 
-        public static string CharRange(char firstChar, char lastChar)
+        public static string CharRange(char first, char last)
         {
-            return Syntax.Char(firstChar, true) + "-" + Syntax.Char(lastChar, true);
+            return Syntax.Char(first, true) + "-" + Syntax.Char(last, true);
         }
 
         public static string CharRange(int firstCharCode, int lastCharCode)

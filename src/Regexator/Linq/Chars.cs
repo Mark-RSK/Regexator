@@ -76,9 +76,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new NotGeneralCategoryExpression(category);
         }
 
-        public static CharGroupExpression CharRange(char firstChar, char lastChar)
+        public static CharGroupExpression CharRange(char first, char last)
         {
-            return new CharRangeGroup(firstChar, lastChar);
+            return new CharRangeGroup(first, last);
         }
 
         public static CharGroupExpression CharRange(int firstCharCode, int lastCharCode)
@@ -86,9 +86,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new CharCodeRangeGroup(firstCharCode, lastCharCode);
         }
 
-        public static CharGroupExpression NotCharRange(char firstChar, char lastChar)
+        public static CharGroupExpression NotCharRange(char first, char last)
         {
-            return new CharRangeGroup(firstChar, lastChar, true);
+            return new CharRangeGroup(first, last, true);
         }
 
         public static CharGroupExpression NotCharRange(int firstCharCode, int lastCharCode)
