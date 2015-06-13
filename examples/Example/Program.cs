@@ -17,21 +17,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             var right = Groups.Maybe(Groups.MaybeMany(CharGroupItems.Alphanumeric().Hyphen()).Alphanumeric());
 
             var exp = left
-                .MaybeMany(Chars.Period().Concat(left))
+                .MaybeMany("." + left)
                 .At()
-                .OneMany(Chars
-                    .Alphanumeric()
-                    .Concat(right)
-                    .Period()
-                ).Alphanumeric().Concat(right);
+                .OneMany(Chars.Alphanumeric() + right + ".")
+                .Alphanumeric()
+                .Concat(right);
             Console.WriteLine(exp);
-            Console.WriteLine("");
 
             Console.WriteLine("cdata value");
             Console.WriteLine(Expressions
                 .LessThanGreaterThan(
-                    Chars.ExclamationMark().SquareBrackets(
-                        Expression.Create("CDATA").SquareBrackets(
+                    "!" + Expressions.SquareBrackets(
+                        "CDATA" + Expressions.SquareBrackets(
                             Expressions.CrawlInvariant().AsCapturing()
                         )
                     )
@@ -43,22 +40,20 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("multiple words");
             Console.WriteLine(Anchors
                 .WordBoundary()
-                .Noncapturing(Alternations
+                .Count(3, Alternations
                     .Any(values.Select(f => Groups.Capturing(f)))
                     .WordBoundary()
-                    .NotWordChar().MaybeMany().Lazy()
-                ).Count(3)
+                    .NotWordChar().MaybeMany().Lazy())
                 .RequireGroups(1, 2, 3));
             Console.WriteLine("");
 
             Console.WriteLine("multiple words 2");
             Console.WriteLine(Anchors
                 .WordBoundary()
-                .Noncapturing(Alternations
+                .CountFrom(3, Alternations
                     .Any(values.Select(f => Expression.Create(f).Capturing()))
                     .WordBoundary()
-                    .NotWordChar().MaybeMany().Lazy()
-                ).CountFrom(3)
+                    .NotWordChar().MaybeMany().Lazy())
                 .Backreference(1)
                 .Backreference(2)
                 .Backreference(3));
@@ -69,7 +64,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("quoted text");
             Console.WriteLine(Expressions.QuoteMarks(
                 quotedChar
-                .MaybeMany(Chars.QuoteMark(2).Concat(quotedChar))));
+                .MaybeMany(Chars.QuoteMark(2) + quotedChar)));
             Console.WriteLine("");
 
             Console.WriteLine("digits inside b element value");
@@ -81,8 +76,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("");
 
             Console.WriteLine("repeated word");
-            Console.WriteLine(Anchors.WordBoundary()
-                .WordChar().OneMany().AsCapturing()
+            Console.WriteLine(Anchors.Word().AsCapturing()
                 .WhiteSpace().OneMany()
                 .Backreference(1)
                 .WordBoundary());
@@ -133,6 +127,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             Console.WriteLine("lf without cr:");
             Console.WriteLine(Anchors.NotAssertBack(Chars.CarriageReturn()).Linefeed().AsNonbacktracking());
+            Console.WriteLine((Anchors.NotAssertBack("\r") + "\n").AsNonbacktracking());
             Console.WriteLine("");
 
             Console.WriteLine("invalid file name chars:");

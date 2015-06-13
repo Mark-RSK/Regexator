@@ -1958,6 +1958,46 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Linq.Groups.OneMany(content));
         }
 
+        public QuantifierExpression Count(int exactCount, object content)
+        {
+            return ConcatInternal(Linq.Groups.Count(exactCount, content));
+        }
+
+        public QuantifierExpression Count(int exactCount, params object[] content)
+        {
+            return ConcatInternal(Linq.Groups.Count(exactCount, content));
+        }
+
+        public QuantifierExpression CountFrom(int minCount, object content)
+        {
+            return ConcatInternal(Linq.Groups.CountFrom(minCount, content));
+        }
+
+        public QuantifierExpression CountFrom(int minCount, params object[] content)
+        {
+            return ConcatInternal(Linq.Groups.CountFrom(minCount, content));
+        }
+
+        public QuantifierExpression CountRange(int minCount, int maxCount, object content)
+        {
+            return ConcatInternal(Linq.Groups.CountRange(minCount, maxCount, content));
+        }
+
+        public QuantifierExpression CountRange(int minCount, int maxCount, params object[] content)
+        {
+            return ConcatInternal(Linq.Groups.CountRange(minCount, maxCount, content));
+        }
+
+        public QuantifierExpression MaybeCount(int maxCount, object content)
+        {
+            return ConcatInternal(Linq.Groups.MaybeCount(maxCount, content));
+        }
+
+        public QuantifierExpression MaybeCount(int maxCount, params object[] content)
+        {
+            return ConcatInternal(Linq.Groups.MaybeCount(maxCount, content));
+        }
+
         public QuantifiableExpression Backreference(int groupNumber)
         {
             return ConcatInternal(Expressions.Backreference(groupNumber));
