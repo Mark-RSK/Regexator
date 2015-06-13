@@ -131,10 +131,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (Previous != null)
             {
-                var items = new Stack<Expression>(GetExpressions());
-                while (items.Count > 0)
+                Expression[] expressions = GetExpressions().ToArray();
+                for (int i = (expressions.Length - 1); i >= 0; i--)
                 {
-                    Build(items.Pop(), context);
+                    Build(expressions[i], context);
                 }
             }
             else
