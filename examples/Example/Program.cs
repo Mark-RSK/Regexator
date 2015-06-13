@@ -12,7 +12,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             Console.WriteLine("email");
 
-            var left = Groups.OneMany(CharGroupItems.Alphanumeric().Char("!#$%&'*+/=?^_`{|}~-"));
+            var left = Groups.OneMany(CharGroupItems.Alphanumeric().Concat("!#$%&'*+/=?^_`{|}~-"));
 
             var right = Groups.Maybe(Groups.MaybeMany(CharGroupItems.Alphanumeric().Hyphen()).Alphanumeric());
 

@@ -4,49 +4,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public static class CharGroupItems
     {
-        public static CharGroupItem Char(char value)
-        {
-            return new CharCharItem(value);
-        }
-
-        public static CharGroupItem Char(int value)
-        {
-            return new CharCodeCharItem(value);
-        }
-
-        public static CharGroupItem Char(AsciiChar value)
-        {
-            return new AsciiCharItem(value);
-        }
-
-        public static CharGroupItem Char(string chars)
-        {
-            return new CharsCharItem(chars);
-        }
-
-        public static CharGroupItem Range(char first, char last)
-        {
-            return new RangeCharItem(first, last);
-        }
-
-        public static CharGroupItem Range(int firstCharCode, int lastCharCode)
-        {
-            return new CodeRangeCharItem(firstCharCode, lastCharCode);
-        }
-
-        public static CharGroupItem NamedBlock(NamedBlock block)
-        {
-            return new NamedBlockCharItem(block);
-        }
-
         public static CharGroupItem NotNamedBlock(NamedBlock block)
         {
             return new NamedBlockCharItem(block, true);
-        }
-
-        public static CharGroupItem GeneralCategory(GeneralCategory category)
-        {
-            return new GeneralCategoryCharItem(category);
         }
 
         public static CharGroupItem NotGeneralCategory(GeneralCategory category)
@@ -111,22 +71,22 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharGroupItem LatinLetterLower()
         {
-            return Range('a', 'z');
+            return CharGroupItem.Create('a', 'z');
         }
 
         public static CharGroupItem LatinLetterUpper()
         {
-            return Range('A', 'Z');
+            return CharGroupItem.Create('A', 'Z');
         }
 
         public static CharGroupItem ArabicDigit()
         {
-            return Range('0', '9');
+            return CharGroupItem.Create('0', '9');
         }
 
         public static CharGroupItem HexadecimalDigit()
         {
-            return ArabicDigit().Range('a', 'f').Range('A', 'F');
+            return ArabicDigit().Concat('a', 'f').Concat('A', 'F');
         }
 
         public static CharGroupItem NewLineChar()

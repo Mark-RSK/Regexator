@@ -13,6 +13,46 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
         }
 
+        public static CharGroupItem Create(string characters)
+        {
+            return new CharsCharItem(characters);
+        }
+
+        public static CharGroupItem Create(char value)
+        {
+            return new CharCharItem(value);
+        }
+
+        public static CharGroupItem Create(char firstChar, char lastChar)
+        {
+            return new RangeCharItem(firstChar, lastChar);
+        }
+
+        public static CharGroupItem Create(int charCode)
+        {
+            return new CharCodeCharItem(charCode);
+        }
+
+        public static CharGroupItem Create(int firstCharCode, int lastCharCode)
+        {
+            return new CodeRangeCharItem(firstCharCode, lastCharCode);
+        }
+
+        public static CharGroupItem Create(AsciiChar value)
+        {
+            return new AsciiCharItem(value);
+        }
+
+        public static CharGroupItem Create(NamedBlock block)
+        {
+            return new NamedBlockCharItem(block);
+        }
+
+        public static CharGroupItem Create(GeneralCategory category)
+        {
+            return new GeneralCategoryCharItem(category);
+        }
+
         private CharGroupItem Concat(CharGroupItem item)
         {
             if (item == null)
@@ -61,52 +101,52 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Value;
         }
 
-        public CharGroupItem Char(char value)
+        public CharGroupItem Concat(char value)
         {
-            return Concat(CharGroupItems.Char(value));
+            return Concat(CharGroupItem.Create(value));
         }
 
-        public CharGroupItem Char(int value)
+        public CharGroupItem Concat(int value)
         {
-            return Concat(CharGroupItems.Char(value));
+            return Concat(CharGroupItem.Create(value));
         }
 
-        public CharGroupItem Char(AsciiChar value)
+        public CharGroupItem Concat(AsciiChar value)
         {
-            return Concat(CharGroupItems.Char(value));
+            return Concat(CharGroupItem.Create(value));
         }
 
-        public CharGroupItem Char(string chars)
+        public CharGroupItem Concat(string characters)
         {
-            return Concat(CharGroupItems.Char(chars));
+            return Concat(CharGroupItem.Create(characters));
         }
 
-        public CharGroupItem Range(char first, char last)
+        public CharGroupItem Concat(char first, char last)
         {
-            return Concat(CharGroupItems.Range(first, last));
+            return Concat(CharGroupItem.Create(first, last));
         }
 
-        public CharGroupItem Range(int firstCharCode, int lastCharCode)
+        public CharGroupItem Concat(int firstCharCode, int lastCharCode)
         {
-            return Concat(CharGroupItems.Range(firstCharCode, lastCharCode));
+            return Concat(CharGroupItem.Create(firstCharCode, lastCharCode));
         }
 
-        public CharGroupItem NamedBlock(NamedBlock block)
+        public CharGroupItem Concat(NamedBlock block)
         {
-            return Concat(CharGroupItems.NamedBlock(block));
+            return Concat(CharGroupItem.Create(block));
         }
 
-        public CharGroupItem NotNamedBlock(NamedBlock block)
+        public CharGroupItem Concat(GeneralCategory category)
+        {
+            return Concat(CharGroupItem.Create(category));
+        }
+
+        public CharGroupItem Not(NamedBlock block)
         {
             return Concat(CharGroupItems.NotNamedBlock(block));
         }
 
-        public CharGroupItem GeneralCategory(GeneralCategory category)
-        {
-            return Concat(CharGroupItems.GeneralCategory(category));
-        }
-
-        public CharGroupItem NotGeneralCategory(GeneralCategory category)
+        public CharGroupItem Not(GeneralCategory category)
         {
             return Concat(CharGroupItems.NotGeneralCategory(category));
         }
