@@ -1960,72 +1960,72 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public QuantifierExpression Maybe(object content)
         {
-            return ConcatInternal(Linq.Groups.Maybe(content));
+            return ConcatInternal(Quantifiers.Maybe(content));
         }
 
         public QuantifierExpression Maybe(params object[] content)
         {
-            return ConcatInternal(Linq.Groups.Maybe(content));
+            return ConcatInternal(Quantifiers.Maybe(content));
         }
 
         public QuantifierExpression MaybeMany(object content)
         {
-            return ConcatInternal(Linq.Groups.MaybeMany(content));
+            return ConcatInternal(Quantifiers.MaybeMany(content));
         }
 
         public QuantifierExpression MaybeMany(params object[] content)
         {
-            return ConcatInternal(Linq.Groups.MaybeMany(content));
+            return ConcatInternal(Quantifiers.MaybeMany(content));
         }
 
         public QuantifierExpression OneMany(object content)
         {
-            return ConcatInternal(Linq.Groups.OneMany(content));
+            return ConcatInternal(Quantifiers.OneMany(content));
         }
 
         public QuantifierExpression OneMany(params object[] content)
         {
-            return ConcatInternal(Linq.Groups.OneMany(content));
+            return ConcatInternal(Quantifiers.OneMany(content));
         }
 
         public QuantifierExpression Count(int exactCount, object content)
         {
-            return ConcatInternal(Linq.Groups.Count(exactCount, content));
+            return ConcatInternal(Quantifiers.Count(exactCount, content));
         }
 
         public QuantifierExpression Count(int exactCount, params object[] content)
         {
-            return ConcatInternal(Linq.Groups.Count(exactCount, content));
+            return ConcatInternal(Quantifiers.Count(exactCount, content));
         }
 
         public QuantifierExpression CountFrom(int minCount, object content)
         {
-            return ConcatInternal(Linq.Groups.CountFrom(minCount, content));
+            return ConcatInternal(Quantifiers.CountFrom(minCount, content));
         }
 
         public QuantifierExpression CountFrom(int minCount, params object[] content)
         {
-            return ConcatInternal(Linq.Groups.CountFrom(minCount, content));
+            return ConcatInternal(Quantifiers.CountFrom(minCount, content));
         }
 
         public QuantifierExpression CountRange(int minCount, int maxCount, object content)
         {
-            return ConcatInternal(Linq.Groups.CountRange(minCount, maxCount, content));
+            return ConcatInternal(Quantifiers.CountRange(minCount, maxCount, content));
         }
 
         public QuantifierExpression CountRange(int minCount, int maxCount, params object[] content)
         {
-            return ConcatInternal(Linq.Groups.CountRange(minCount, maxCount, content));
+            return ConcatInternal(Quantifiers.CountRange(minCount, maxCount, content));
         }
 
         public QuantifierExpression CountTo(int maxCount, object content)
         {
-            return ConcatInternal(Linq.Groups.CountTo(maxCount, content));
+            return ConcatInternal(Quantifiers.CountTo(maxCount, content));
         }
 
         public QuantifierExpression CountTo(int maxCount, params object[] content)
         {
-            return ConcatInternal(Linq.Groups.CountTo(maxCount, content));
+            return ConcatInternal(Quantifiers.CountTo(maxCount, content));
         }
 
         public QuantifiableExpression Backreference(int groupNumber)

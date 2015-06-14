@@ -13,9 +13,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             Console.WriteLine("email");
 
-            var left = Groups.OneMany(CharGroupItems.Alphanumeric().Concat("!#$%&'*+/=?^_`{|}~-"));
+            var left = Quantifiers.OneMany(CharGroupItems.Alphanumeric().Concat("!#$%&'*+/=?^_`{|}~-"));
 
-            var right = Groups.Maybe(Groups.MaybeMany(CharGroupItems.Alphanumeric().Hyphen()).Alphanumeric());
+            var right = Quantifiers.Maybe(Quantifiers.MaybeMany(CharGroupItems.Alphanumeric().Hyphen()).Alphanumeric());
 
             var exp = left
                 .MaybeMany("." + left)
@@ -24,6 +24,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 .Alphanumeric()
                 .Concat(right);
             Console.WriteLine(exp);
+            Console.WriteLine("");
 
             Console.WriteLine("cdata value");
             Console.WriteLine(Expressions
@@ -71,7 +72,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("digits inside b element value");
             Console.WriteLine(Chars
                 .Digits()
-                .Assert(Groups
+                .Assert(Quantifiers
                     .MaybeMany(Anchors.NotAssert("<b>").Any())
                     .Concat("</b>")));
             Console.WriteLine("");
