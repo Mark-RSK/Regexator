@@ -80,7 +80,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return result;
         }
 
-        internal override void BuildOpening(PatternWriter writer)
+        internal override void WriteStartTo(PatternWriter writer)
         {
             writer.WriteNoncapturingGroupStart();
         }

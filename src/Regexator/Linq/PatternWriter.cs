@@ -168,7 +168,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new InvalidOperationException("A circular reference was detected while creating a pattern.");
             }
 #endif
-            expression.BuildOpening(this);
+            expression.WriteStartTo(this);
 
             expression.BuildContent(this);
 

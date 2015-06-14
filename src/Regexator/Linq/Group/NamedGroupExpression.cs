@@ -30,7 +30,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             get { return _groupName; }
         }
 
-        internal override void BuildOpening(PatternWriter writer)
+        internal override void WriteStartTo(PatternWriter writer)
         {
             writer.WriteNamedGroupStartInternal(GroupName);
         }

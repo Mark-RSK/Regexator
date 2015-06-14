@@ -38,7 +38,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        internal override void BuildOpening(PatternWriter writer)
+        internal override void WriteStartTo(PatternWriter writer)
         {
             writer.WriteIfStart();
         }
