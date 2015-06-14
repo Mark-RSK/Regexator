@@ -15,13 +15,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _disableOptions = disableOptions;
         }
 
-        internal override string Opening(PatternContext context)
+        internal override void BuildOpening(PatternContext context)
         {
             string options = Syntax.GetInlineChars(_applyOptions, _disableOptions);
 
-            return (!string.IsNullOrEmpty(options))
+            context.Write((!string.IsNullOrEmpty(options))
                 ? "(?" + options + ":"
-                : Syntax.NoncapturingGroupStart;
+                : Syntax.NoncapturingGroupStart);
         }
     }
 }

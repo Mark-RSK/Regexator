@@ -10,9 +10,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
         }
 
-        internal override string Opening(PatternContext context)
+        internal override void BuildOpening(PatternContext context)
         {
-            return Syntax.NotAssertStart;
+            context.Write(Syntax.NotAssertStart);
         }
     }
 }

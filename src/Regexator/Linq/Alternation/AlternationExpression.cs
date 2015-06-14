@@ -38,14 +38,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        internal override string Opening(PatternContext context)
+        internal override void BuildOpening(PatternContext context)
         {
-            return Syntax.IfStart;
+            context.Write(Syntax.IfStart);
         }
 
-        internal override string Closing(PatternContext context)
+        internal override void BuildClosing(PatternContext context)
         {
-            return Syntax.GroupEnd;
+            context.Write(Syntax.GroupEnd);
         }
     }
 }

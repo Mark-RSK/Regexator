@@ -31,26 +31,33 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _groupMode = groupMode;
         }
 
-        internal override string Opening(PatternContext context)
+        internal override void BuildOpening(PatternContext context)
         {
-            switch (GroupMode)
-            {
-                case AnyGroupMode.None:
-                    return string.Empty;
-                case AnyGroupMode.Capturing:
-                    return Syntax.CapturingGroupStart;
-                case AnyGroupMode.Noncapturing:
-                    return Syntax.NoncapturingGroupStart;
-            }
-
-            return string.Empty;
+            context.Write(Opening);
         }
 
-        internal override string Closing(PatternContext context)
+        private string Opening
         {
-            return (GroupMode == AnyGroupMode.None)
-                ? string.Empty
-                : Syntax.GroupEnd;
+            get 
+            {
+                switch (GroupMode)
+                {
+                    case AnyGroupMode.Capturing:
+                        return Syntax.CapturingGroupStart;
+                    case AnyGroupMode.Noncapturing:
+                        return Syntax.NoncapturingGroupStart;
+                    default:
+                        return string.Empty;
+                }
+            }
+        }
+
+        internal override void BuildClosing(PatternContext context)
+        {
+            if (GroupMode != AnyGroupMode.None)
+            {
+                context.Write(Syntax.GroupEnd);
+            }
         }
 
         internal AnyGroupMode GroupMode

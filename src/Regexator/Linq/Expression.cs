@@ -225,13 +225,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new InvalidOperationException("A circular reference was detected while creating a pattern.");
             }
 #endif
-
-            context.Write(expression.Opening(context));
+            expression.BuildOpening(context);
 
             expression.BuildContent(context);
 
-            context.Write(expression.Closing(context));
-
+            expression.BuildClosing(context);
 #if DEBUG
             context.Expressions.Remove(expression);
 #endif
@@ -246,14 +244,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        internal virtual string Opening(PatternContext context)
+        internal virtual void BuildOpening(PatternContext context)
         {
-            return null;
+
         }
 
-        internal virtual string Closing(PatternContext context)
+        internal virtual void BuildClosing(PatternContext context)
         {
-            return null;
+
         }
 
         internal virtual string Value(PatternContext context)
