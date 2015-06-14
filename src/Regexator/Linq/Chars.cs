@@ -23,7 +23,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharGroupExpression Char(string characters)
         {
-            return new CharsCharGroup(characters);
+            return new CharactersGroup(characters);
         }
 
         public static CharGroupExpression Char(CharGroupItem item)
@@ -48,7 +48,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharGroupExpression NotChar(string characters)
         {
-            return new CharsCharGroup(characters, true);
+            return new CharactersGroup(characters, true);
         }
 
         public static CharGroupExpression NotChar(CharGroupItem item)

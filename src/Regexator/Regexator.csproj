@@ -157,7 +157,7 @@
     <Compile Include="Linq\Expression\NamedBlockExpression.cs" />
     <Compile Include="Linq\CharGroup\CharCodeRangeGroup.cs" />
     <Compile Include="Linq\CharGroup\CharRangeGroup.cs" />
-    <Compile Include="Linq\CharGroup\CharsCharGroup.cs" />
+    <Compile Include="Linq\CharGroup\CharactersGroup.cs" />
     <Compile Include="Linq\CharGroup\CharItemGroup.cs" />
     <Compile Include="Linq\CharGroup\CharCodeGroup.cs" />
     <Compile Include="Linq\CharGroup\CharGroup.cs" />
