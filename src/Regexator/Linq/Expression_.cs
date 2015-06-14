@@ -511,14 +511,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.Char(firstCharCode, lastCharCode));
         }
 
-        public QuantifiableExpression NotCharRange(char first, char last)
+        public QuantifiableExpression NotChar(char first, char last)
         {
-            return ConcatInternal(Chars.NotCharRange(first, last));
+            return ConcatInternal(Chars.NotChar(first, last));
         }
 
-        public QuantifiableExpression NotCharRange(int firstCharCode, int lastCharCode)
+        public QuantifiableExpression NotChar(int firstCharCode, int lastCharCode)
         {
-            return ConcatInternal(Chars.NotCharRange(firstCharCode, lastCharCode));
+            return ConcatInternal(Chars.NotChar(firstCharCode, lastCharCode));
         }
 
         public QuantifiableExpression Subtract(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
