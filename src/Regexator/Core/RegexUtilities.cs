@@ -138,29 +138,14 @@ namespace Pihrtsoft.Text.RegularExpressions
             return value;
         }
 
-        internal static bool EscapeRequired(char value)
-        {
-            return EscapeRequired(value, false);
-        }
-
         internal static bool EscapeRequired(char value, bool inCharGroup)
         {
             return EscapeRequired((int)value, inCharGroup);
         }
 
-        internal static bool EscapeRequired(AsciiChar value)
-        {
-            return EscapeRequired(value, false);
-        }
-
         internal static bool EscapeRequired(AsciiChar value, bool inCharGroup)
         {
             return EscapeRequired((int)value, inCharGroup);
-        }
-
-        internal static bool EscapeRequired(int charCode)
-        {
-            return EscapeRequired(charCode, false);
         }
 
         internal static bool EscapeRequired(int charCode, bool inCharGroup)

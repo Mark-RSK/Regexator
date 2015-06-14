@@ -125,7 +125,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Write(lastChar, true);
         }
 
-        internal void WriteCharRange(int firstCharCode, int lastCharCode)
+        public void WriteCharRange(int firstCharCode, int lastCharCode)
         {
             Write(firstCharCode, true);
             WriteGroupSeparator();
