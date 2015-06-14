@@ -314,7 +314,7 @@ namespace Pihrtsoft.Text.RegularExpressions
 
             for (int i = 0; i < input.Length; i++)
             {
-                if (s_escapeModes[input[i]] != EscapeMode.None)
+                if (EscapeRequired((int)input[i], inCharGroup))
                 {
                     StringBuilder sb = new StringBuilder();
                     char ch = input[i];
@@ -330,7 +330,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                         while (i < input.Length)
                         {
                             ch = input[i];
-                            if (s_escapeModes[ch] != EscapeMode.None)
+                            if (EscapeRequired((int)ch, inCharGroup))
                             {
                                 break;
                             }
