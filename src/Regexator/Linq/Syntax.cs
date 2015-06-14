@@ -54,6 +54,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         internal const string CharGroupStart = "[";
         internal const string NotCharGroupStart = "[^";
         internal const string CharGroupEnd = "]";
+        internal const string GroupSeparator = "-";
+        
         internal const string AsciiStart = @"\x";
         internal const string AsciiOctalStart = @"\";
         internal const string AsciiControlStart = @"\c";
@@ -206,9 +208,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             switch (separator)
             {
                 case IdentifierBoundary.LessThan:
-                    return @"(?<" + name1 + "-" + name2 + @">";
+                    return @"(?<" + name1 + GroupSeparator + name2 + @">";
                 case IdentifierBoundary.Apostrophe:
-                    return @"(?'" + name1 + "-" + name2 + @"'";
+                    return @"(?'" + name1 + GroupSeparator + name2 + @"'";
             }
             return null;
         }
@@ -357,17 +359,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static string CharRange(char first, char last)
         {
-            return Syntax.Char(first, true) + "-" + Syntax.Char(last, true);
+            return Syntax.Char(first, true) + GroupSeparator + Syntax.Char(last, true);
         }
 
         public static string CharRange(int firstCharCode, int lastCharCode)
         {
-            return Syntax.Char(firstCharCode, true) + "-" + Syntax.Char(lastCharCode, true);
+            return Syntax.Char(firstCharCode, true) + GroupSeparator + Syntax.Char(lastCharCode, true);
         }
 
         internal static string RangeInternal(int firstCharCode, int lastCharCode)
         {
-            return Syntax.CharInternal(firstCharCode, true) + "-" + Syntax.CharInternal(lastCharCode, true);
+            return Syntax.CharInternal(firstCharCode, true) + GroupSeparator + Syntax.CharInternal(lastCharCode, true);
         }
 
         public static string Char(char value, bool inCharGroup)
@@ -610,7 +612,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 if (disableOptions != InlineOptions.None)
                 {
-                    return GetInlineChars(applyOptions) + "-" + GetInlineChars(disableOptions);
+                    return GetInlineChars(applyOptions) + GroupSeparator + GetInlineChars(disableOptions);
                 }
                 else
                 {

@@ -41,6 +41,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
+        public void WriteGroupSeparator()
+        {
+            Write(Syntax.GroupSeparator);
+        }
+
 #if DEBUG
         public HashSet<Expression> Expressions
         {

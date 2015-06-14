@@ -40,7 +40,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             //todo check empty
             _baseGroup.BuildBaseGroup(context);
 
-            context.Write("-");
+            context.WriteGroupSeparator();
 
             //todo check empty
             _excludedGroup.BuildExcludedGroup(context);
