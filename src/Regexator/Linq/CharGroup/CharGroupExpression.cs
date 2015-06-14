@@ -26,7 +26,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             //todo check empty
             BuildContent(writer);
 
-            BuildClosing(writer);
+            WriteEndTo(writer);
         }
 
         internal override void WriteStartTo(PatternWriter writer)
@@ -34,7 +34,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             writer.WriteCharGroupStart(Negative);
         }
 
-        internal override void BuildClosing(PatternWriter writer)
+        internal override void WriteEndTo(PatternWriter writer)
         {
             writer.WriteCharGroupEnd();
         }

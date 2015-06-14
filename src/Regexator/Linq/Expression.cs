@@ -161,7 +161,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         }
 
-        internal virtual void BuildClosing(PatternWriter writer)
+        internal virtual void WriteEndTo(PatternWriter writer)
         {
 
         }

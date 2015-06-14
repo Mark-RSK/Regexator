@@ -18,11 +18,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        internal override void BuildClosing(PatternWriter writer)
+        internal override void WriteEndTo(PatternWriter writer)
         {
             if (AddGroup)
             {
-                base.BuildClosing(writer);
+                base.WriteEndTo(writer);
             }
         }
 

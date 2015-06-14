@@ -172,7 +172,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             expression.BuildContent(this);
 
-            expression.BuildClosing(this);
+            expression.WriteEndTo(this);
 #if DEBUG
             Expressions.Remove(expression);
 #endif

@@ -43,7 +43,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             writer.WriteIfStart();
         }
 
-        internal override void BuildClosing(PatternWriter writer)
+        internal override void WriteEndTo(PatternWriter writer)
         {
             writer.WriteGroupEnd();
         }
