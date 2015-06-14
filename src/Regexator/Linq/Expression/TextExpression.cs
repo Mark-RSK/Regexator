@@ -34,7 +34,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 }
                 else
                 {
-                    writer.WriteEscaped(_text);
+                    writer.Write(_text);
                 }
             }
         }

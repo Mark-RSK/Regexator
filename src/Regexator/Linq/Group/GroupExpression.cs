@@ -31,7 +31,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             string text = Content as string;
             if (text != null)
             {
-                writer.WriteEscaped(text);
+                writer.Write(text);
             }
             else
             {

@@ -40,7 +40,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override void BuildContent(PatternWriter writer)
         {
-            writer.WriteRangeInternal(_first, _last);
+            writer.WriteCharRangeInternal(_first, _last);
         }
     }
 }

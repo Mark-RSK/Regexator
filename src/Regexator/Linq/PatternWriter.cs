@@ -38,81 +38,77 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public override void Write(string value)
         {
+            Write(value, false);
+        }
+
+        public void Write(string value, bool inCharGroup)
+        {
+            if (!string.IsNullOrEmpty(value))
+            {
+                base.Write(RegexUtilities.Escape(value, inCharGroup));
+            }
+        }
+
+        public void WriteInternal(string value)
+        {
             if (!string.IsNullOrEmpty(value))
             {
                 base.Write(value);
             }
         }
 
-        internal void WriteIf(bool condition, string trueValue, string falseValue)
-        {
-            if (condition)
-            {
-                base.Write(trueValue);
-            }
-            else
-            {
-                base.Write(falseValue);
-            }
-        }
-
-        public void WriteEscaped(string value)
-        {
-            base.Write(RegexUtilities.Escape(value));
-        }
-
         public override void Write(int value)
         {
-            base.Write(Syntax.Char(value));
+            Write(value, false);
         }
 
-        public void Write(int charCode, bool inCharGroup)
+        public void Write(int value, bool inCharGroup)
         {
-            base.Write(Syntax.Char(charCode, inCharGroup));
+            base.Write(RegexUtilities.Escape(value, inCharGroup));
         }
 
-        internal void WriteInternal(int charCode)
+        internal void WriteInternal(int value)
         {
-            base.Write(Syntax.CharInternal(charCode));
+            WriteInternal(value, false);
         }
 
-        internal void WriteInternal(int charCode, bool inCharGroup)
+        internal void WriteInternal(int value, bool inCharGroup)
         {
-            base.Write(Syntax.CharInternal(charCode, inCharGroup));
+            base.Write(RegexUtilities.EscapeInternal(value, inCharGroup));
         }
 
-        internal void WriteRange(int firstCharCode, int lastCharCode)
+        public override void Write(char value)
+        {
+            Write(value, false);
+        }
+
+        public void Write(char value, bool inCharGroup)
+        {
+            base.Write(RegexUtilities.EscapeInternal((int)value, inCharGroup));
+        }
+
+        public void Write(AsciiChar value)
+        {
+            Write(value, false);
+        }
+
+        public void Write(AsciiChar value, bool inCharGroup)
+        {
+            base.Write(RegexUtilities.EscapeInternal((int)value, inCharGroup));
+        }
+
+        internal void WriteCharRange(int firstCharCode, int lastCharCode)
         {
             Write(firstCharCode, true);
             WriteGroupSeparator();
             Write(lastCharCode, true);
         }
 
-        internal void WriteRangeInternal(int firstCharCode, int lastCharCode)
+        internal void WriteCharRangeInternal(int firstCharCode, int lastCharCode)
         {
             WriteInternal(firstCharCode, true);
             WriteGroupSeparator();
             WriteInternal(lastCharCode, true);
-        }
-
-        public override void Write(char value)
-        {
-            base.Write(Syntax.Char(value));
-        }
-
-        public void Write(char value, bool inCharGroup)
-        {
-            base.Write(Syntax.Char(value, inCharGroup));
-        }
-
-        public void Write(AsciiChar value)
-        {
-            base.Write(Syntax.Char(value));
-        }
-
-        public void Write(AsciiChar value, bool inCharGroup)
-        {
-            base.Write(Syntax.Char(value, inCharGroup));
         }
 
         public void Write(Expression expression)
@@ -171,7 +167,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             string text = value as string;
             if (text != null)
             {
-                WriteEscaped(text);
+                Write(text);
                 return;
             }
 
@@ -354,7 +350,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public void WriteGeneralCategory(GeneralCategory category, bool negative)
         {
-            WriteIf(negative, Syntax.NotUnicodeStart, Syntax.UnicodeStart);
+            base.Write(negative ? Syntax.NotUnicodeStart : Syntax.UnicodeStart);
             base.Write(Syntax.GetGeneralCategoryValue(category));
             base.Write(Syntax.UnicodeEnd);
         }
@@ -371,7 +367,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public void WriteNamedBlock(NamedBlock block, bool negative)
         {
-            WriteIf(negative, Syntax.NotUnicodeStart, Syntax.UnicodeStart);
+            base.Write(negative ? Syntax.NotUnicodeStart : Syntax.UnicodeStart);
             base.Write(Syntax.GetNamedBlockValue(block));
             base.Write(Syntax.UnicodeEnd);
         }
@@ -504,7 +500,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         internal void WriteIfGroupCondition(string groupName)
         {
             WriteCapturingGroupStart();
-            Write(groupName);
+            base.Write(groupName);
             WriteGroupEnd();
         }
 

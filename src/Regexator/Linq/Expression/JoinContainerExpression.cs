@@ -37,7 +37,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
                         for (int i = 1; i < values.Length; i++)
                         {
-                            writer.Write(separator);
+                            writer.WriteInternal(separator);
                             writer.Write(values[i]);
                         }
                     }
@@ -56,12 +56,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                         {
                             string separator = GetValue(_separator, writer.Settings);
 
-                            writer.Write(separator);
+                            writer.WriteInternal(separator);
                             writer.Write(en.Current);
 
                             while (en.MoveNext())
                             {
-                                writer.Write(separator);
+                                writer.WriteInternal(separator);
                                 writer.Write(en.Current);
                             }
                         }
