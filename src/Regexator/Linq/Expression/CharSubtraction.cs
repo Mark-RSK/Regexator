@@ -26,7 +26,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _excludedGroup = excludedGroup;
         }
 
-        public void BuildExcludedGroup(PatternWriter writer)
+        public void WriteExcludedGroupTo(PatternWriter writer)
         {
             WriteStartTo(writer);
 
@@ -43,7 +43,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             writer.WriteGroupSeparator();
 
             //todo check empty
-            _excludedGroup.BuildExcludedGroup(writer);
+            _excludedGroup.WriteExcludedGroupTo(writer);
         }
 
         internal override void WriteStartTo(PatternWriter writer)

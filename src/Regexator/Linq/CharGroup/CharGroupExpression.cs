@@ -19,7 +19,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             WriteContentTo(writer);
         }
 
-        public void BuildExcludedGroup(PatternWriter writer)
+        public void WriteExcludedGroupTo(PatternWriter writer)
         {
             WriteStartTo(writer);
 

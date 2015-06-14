@@ -18,7 +18,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new CharSubtraction(ToGroup(), excludedGroup);
         }
 
-        public void BuildExcludedGroup(PatternWriter writer)
+        public void WriteExcludedGroupTo(PatternWriter writer)
         {
             if (writer == null)
             {

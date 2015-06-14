@@ -76,7 +76,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             using (var writer = new PatternWriter())
             {
-                BuildExcludedGroup(writer);
+                WriteExcludedGroupTo(writer);
                 return writer.ToString();
             }
         }
@@ -218,7 +218,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             BuildContent(writer);
         }
 
-        public void BuildExcludedGroup(PatternWriter writer)
+        public void WriteExcludedGroupTo(PatternWriter writer)
         {
             BuildGroup(writer);
         }

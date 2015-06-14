@@ -4,6 +4,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public interface IExcludedGroup
     {
-        void BuildExcludedGroup(PatternWriter writer);
+        void WriteExcludedGroupTo(PatternWriter writer);
     }
 }
