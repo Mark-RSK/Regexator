@@ -70,7 +70,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             Console.WriteLine("digits inside b element value");
             Console.WriteLine(Chars
-                .Digit().OneMany()
+                .Digits()
                 .Assert(Groups
                     .MaybeMany(Anchors.NotAssert("<b>").Any())
                     .Concat("</b>")));
@@ -78,7 +78,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             Console.WriteLine("repeated word");
             Console.WriteLine(Anchors.Word().AsCapturing()
-                .WhiteSpace().OneMany()
+                .WhiteSpaces()
                 .Backreference(1)
                 .WordBoundary());
             Console.WriteLine("");
