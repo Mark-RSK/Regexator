@@ -30,7 +30,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             get { return _groupNumber; }
         }
 
-        protected override void BuildCondition(PatternWriter writer)
+        protected override void WriteConditionTo(PatternWriter writer)
         {
             writer.WriteIfGroupCondition(GroupNumber);
         }

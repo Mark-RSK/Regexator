@@ -25,7 +25,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             get { return _groupName; }
         }
 
-        protected override void BuildCondition(PatternWriter writer)
+        protected override void WriteConditionTo(PatternWriter writer)
         {
             writer.WriteIfGroupCondition(GroupName);
         }

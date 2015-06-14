@@ -26,7 +26,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _condition = testContent;
         }
 
-        protected override void BuildCondition(PatternWriter writer)
+        protected override void WriteConditionTo(PatternWriter writer)
         {
             if (_condition != null)
             {

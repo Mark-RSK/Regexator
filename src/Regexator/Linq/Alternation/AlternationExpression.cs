@@ -22,11 +22,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _falseContent = falseContent;
         }
 
-        protected abstract void BuildCondition(PatternWriter writer);
+        protected abstract void WriteConditionTo(PatternWriter writer);
 
         internal override void WriteContentTo(PatternWriter writer)
         {
-            BuildCondition(writer);
+            WriteConditionTo(writer);
 
             writer.Write(_trueContent);
 
