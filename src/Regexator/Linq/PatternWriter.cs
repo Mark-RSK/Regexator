@@ -606,6 +606,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             base.Write("}");
         }
 
+        public void WriteLazy()
+        {
+            base.Write(Syntax.Lazy);
+        }
+
 #if DEBUG
         public HashSet<Expression> Expressions
         {
