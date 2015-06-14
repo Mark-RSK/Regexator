@@ -50,7 +50,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal static Expression TrimInlineComment()
         {
-            return Anchors.StartOfInput().NotRightParenthesis().MaybeMany();
+            return Anchors.StartOfInput().WhileNot(')');
         }
     }
 }
