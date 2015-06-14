@@ -74,7 +74,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal void WriteInternal(int value, bool inCharGroup)
         {
-            base.Write(RegexUtilities.EscapeInternal(value, inCharGroup));
+            if (RegexUtilities.EscapeRequired(value, inCharGroup))
+            {
+                base.Write(RegexUtilities.EscapeInternal(value, inCharGroup));
+            }
+            else
+            {
+                base.Write((char)value);
+            }
         }
 
         public override void Write(char value)
@@ -84,7 +91,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public void Write(char value, bool inCharGroup)
         {
-            base.Write(RegexUtilities.EscapeInternal((int)value, inCharGroup));
+            if (RegexUtilities.EscapeRequired(value, inCharGroup))
+            {
+                base.Write(RegexUtilities.EscapeInternal((int)value, inCharGroup));
+            }
+            else
+            {
+                base.Write(value);
+            }
         }
 
         public void Write(AsciiChar value)
@@ -94,7 +108,21 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public void Write(AsciiChar value, bool inCharGroup)
         {
-            base.Write(RegexUtilities.EscapeInternal((int)value, inCharGroup));
+            if (RegexUtilities.EscapeRequired(value, inCharGroup))
+            {
+                base.Write(RegexUtilities.EscapeInternal((int)value, inCharGroup));
+            }
+            else
+            {
+                base.Write((char)(int)value);
+            }
+        }
+
+        internal void WriteCharRange(char firstChar, char lastChar)
+        {
+            Write(firstChar, true);
+            WriteGroupSeparator();
+            Write(lastChar, true);
         }
 
         internal void WriteCharRange(int firstCharCode, int lastCharCode)

@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
@@ -137,6 +138,73 @@ namespace Pihrtsoft.Text.RegularExpressions
             return value;
         }
 
+        internal static bool EscapeRequired(char value)
+        {
+            return EscapeRequired(value, false);
+        }
+
+        internal static bool EscapeRequired(char value, bool inCharGroup)
+        {
+            return EscapeRequired((int)value, inCharGroup);
+        }
+
+        internal static bool EscapeRequired(AsciiChar value)
+        {
+            return EscapeRequired(value, false);
+        }
+
+        internal static bool EscapeRequired(AsciiChar value, bool inCharGroup)
+        {
+            return EscapeRequired((int)value, inCharGroup);
+        }
+
+        internal static bool EscapeRequired(int charCode)
+        {
+            return EscapeRequired(charCode, false);
+        }
+
+        internal static bool EscapeRequired(int charCode, bool inCharGroup)
+        {
+            if (charCode <= 0xFF)
+            {
+                switch (s_escapeModes[charCode])
+                {
+                    case EscapeMode.Backslash:
+                        return true;
+                    case EscapeMode.Metachar:
+                        return !inCharGroup;
+                    case EscapeMode.CharGroupMetachar:
+                        return inCharGroup;
+                    case EscapeMode.Control:
+                        return true;
+                    case EscapeMode.SpecialControl:
+                        {
+                            switch (charCode)
+                            {
+                                case 7:
+                                    return true;
+                                case 9:
+                                    return true;
+                                case 10:
+                                    return true;
+                                case 11:
+                                    return true;
+                                case 12:
+                                    return true;
+                                case 13:
+                                    return true;
+                                case 27:
+                                    return true;
+                            }
+
+                            break;
+                        }
+                }
+            }
+
+            return false;
+        }
+
         public static string Escape(char value)
         {
             return Escape(value, false);
@@ -221,6 +289,9 @@ namespace Pihrtsoft.Text.RegularExpressions
                         }
                 }
             }
+
+            Debug.Assert(false);
+
             return ((char)charCode).ToString();
         }
 
