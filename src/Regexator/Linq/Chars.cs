@@ -66,12 +66,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new GeneralCategoryExpression(category);
         }
 
-        public static CharacterExpression NotNamedBlock(NamedBlock block)
+        public static CharacterExpression NotChar(NamedBlock block)
         {
             return new NotNamedBlockExpression(block);
         }
 
-        public static CharacterExpression NotGeneralCategory(GeneralCategory category)
+        public static CharacterExpression NotChar(GeneralCategory category)
         {
             return new NotGeneralCategoryExpression(category);
         }
