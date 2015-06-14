@@ -31,7 +31,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             BuildOpening(writer);
 
             BuildContent(writer);
-            
+
             BuildClosing(writer);
         }
 

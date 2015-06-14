@@ -22,7 +22,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public void BuildExcludedGroup(PatternWriter writer)
         {
             BuildOpening(writer);
-            
+
             //todo check empty
             BuildContent(writer);
 

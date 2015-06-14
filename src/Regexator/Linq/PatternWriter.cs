@@ -229,7 +229,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             switch (Settings.IdentifierBoundary)
             {
                 case IdentifierBoundary.LessThan:
-                { 
+                {
                     base.Write(@"(?<");
                     base.Write(groupName);
                     base.Write(@">");

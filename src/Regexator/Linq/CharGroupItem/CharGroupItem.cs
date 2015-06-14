@@ -226,7 +226,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         internal void BuildGroup(PatternWriter writer)
         {
             writer.WriteCharGroupStart();
-            
+
             //todo check empty
             BuildContent(writer);
 

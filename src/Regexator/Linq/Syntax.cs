@@ -55,7 +55,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         internal const string NotCharGroupStart = "[^";
         internal const string CharGroupEnd = "]";
         internal const string GroupSeparator = "-";
-        
+
         internal const string AsciiStart = @"\x";
         internal const string AsciiOctalStart = @"\";
         internal const string AsciiControlStart = @"\c";
@@ -344,12 +344,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static string CharRange(char first, char last)
         {
-            return Syntax.Char(first, true) + GroupSeparator + Syntax.Char(last, true);
+            return Char(first, true) + GroupSeparator + Char(last, true);
         }
 
         public static string CharRange(int firstCharCode, int lastCharCode)
         {
-            return Syntax.Char(firstCharCode, true) + GroupSeparator + Syntax.Char(lastCharCode, true);
+            return Char(firstCharCode, true) + GroupSeparator + Char(lastCharCode, true);
         }
 
         public static string Char(char value, bool inCharGroup)
