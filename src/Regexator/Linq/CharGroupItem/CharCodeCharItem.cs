@@ -19,7 +19,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _charCode = charCode;
         }
 
-        internal override void BuildItemContent(PatternWriter writer)
+        protected override void WriteItemContentTo(PatternWriter writer)
         {
             writer.WriteInternal(_charCode, true);
         }

@@ -211,7 +211,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new CharItemGroup(this, true);
         }
 
-        internal abstract void BuildItemContent(PatternWriter writer);
+        protected abstract void WriteItemContentTo(PatternWriter writer);
 
         public void WriteBaseGroupTo(PatternWriter writer)
         {
@@ -240,12 +240,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 CharGroupItem[] items = GetItems().ToArray();
                 for (int i = (items.Length - 1); i >= 0; i--)
                 {
-                    items[i].BuildItemContent(writer);
+                    items[i].WriteItemContentTo(writer);
                 }
             }
             else
             {
-                BuildItemContent(writer);
+                WriteItemContentTo(writer);
             }
         }
 
