@@ -21,7 +21,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _groupNumber = groupNumber;
         }
 
-        internal override void BuildContent(PatternWriter writer)
+        internal override void WriteContentTo(PatternWriter writer)
         {
             writer.WriteBackreferenceInternal(GroupNumber);
         }

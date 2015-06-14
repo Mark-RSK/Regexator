@@ -26,7 +26,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _content = content;
         }
 
-        internal override void BuildContent(PatternWriter writer)
+        internal override void WriteContentTo(PatternWriter writer)
         {
             string text = Content as string;
             if (text != null)

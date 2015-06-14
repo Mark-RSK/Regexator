@@ -20,7 +20,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _count = count;
         }
 
-        internal override void BuildContent(PatternWriter writer)
+        internal override void WriteContentTo(PatternWriter writer)
         {
             writer.WriteCountInternal(_count);
         }

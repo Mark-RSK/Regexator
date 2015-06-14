@@ -24,7 +24,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         protected abstract void BuildCondition(PatternWriter writer);
 
-        internal override void BuildContent(PatternWriter writer)
+        internal override void WriteContentTo(PatternWriter writer)
         {
             BuildCondition(writer);
 

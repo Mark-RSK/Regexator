@@ -15,7 +15,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _groupName = groupName;
         }
 
-        internal override void BuildContent(PatternWriter writer)
+        internal override void WriteContentTo(PatternWriter writer)
         {
             writer.WriteBackreferenceInternal(GroupName);
         }

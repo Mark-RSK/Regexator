@@ -28,7 +28,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _charAfter = charAfter;
         }
 
-        internal override void BuildContent(PatternWriter writer)
+        internal override void WriteContentTo(PatternWriter writer)
         {
             writer.Write(_charBefore);
 

@@ -30,12 +30,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             WriteStartTo(writer);
 
-            BuildContent(writer);
+            WriteContentTo(writer);
 
             WriteEndTo(writer);
         }
 
-        internal override void BuildContent(PatternWriter writer)
+        internal override void WriteContentTo(PatternWriter writer)
         {
             //todo check empty
             _baseGroup.BuildBaseGroup(writer);

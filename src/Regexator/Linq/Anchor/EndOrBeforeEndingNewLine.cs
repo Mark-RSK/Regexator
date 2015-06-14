@@ -5,7 +5,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal sealed class EndOrBeforeEndingNewLine
         : AnchorExpression
     {
-        internal override void BuildContent(PatternWriter writer)
+        internal override void WriteContentTo(PatternWriter writer)
         {
             writer.WriteEndOrBeforeEndingNewLine();
         }

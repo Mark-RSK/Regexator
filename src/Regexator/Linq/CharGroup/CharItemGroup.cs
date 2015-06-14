@@ -26,7 +26,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _negative = negative;
         }
 
-        internal override void BuildContent(PatternWriter writer)
+        internal override void WriteContentTo(PatternWriter writer)
         {
             _item.BuildContent(writer);
         }

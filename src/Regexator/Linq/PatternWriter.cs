@@ -170,7 +170,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 #endif
             expression.WriteStartTo(this);
 
-            expression.BuildContent(this);
+            expression.WriteContentTo(this);
 
             expression.WriteEndTo(this);
 #if DEBUG
