@@ -728,6 +728,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.WhiteSpace(minCount, maxCount));
         }
 
+        public QuantifierExpression WhiteSpaces()
+        {
+            return ConcatInternal(Chars.WhiteSpaces());
+        }
+
         public QuantifierExpression SkipWhiteSpace()
         {
             return ConcatInternal(Chars.SkipWhiteSpace());
@@ -746,6 +751,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public QuantifierExpression NotWhiteSpace(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NotWhiteSpace(minCount, maxCount));
+        }
+
+        public QuantifierExpression NotWhiteSpaces()
+        {
+            return ConcatInternal(Chars.NotWhiteSpaces());
         }
 
         public QuantifiableExpression WordChar()

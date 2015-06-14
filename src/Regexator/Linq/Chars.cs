@@ -201,6 +201,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new CharClassExpression(CharClass.WhiteSpace).CountRange(minCount, maxCount);
         }
 
+        public static QuantifierExpression WhiteSpaces()
+        {
+            return WhiteSpace().OneMany();
+        }
+
         public static QuantifierExpression SkipWhiteSpace()
         {
             return WhiteSpace().MaybeMany();
@@ -219,6 +224,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifierExpression NotWhiteSpace(int minCount, int maxCount)
         {
             return new CharClassExpression(CharClass.NotWhiteSpace).CountRange(minCount, maxCount);
+        }
+
+        public static QuantifierExpression NotWhiteSpaces()
+        {
+            return NotWhiteSpace().OneMany();
         }
 
         public static CharacterExpression WordChar()
