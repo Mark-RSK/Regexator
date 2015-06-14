@@ -88,7 +88,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static string Assert(object content)
         {
-            return AssertStart + Expression.GetValue(content) + GroupEnd;
+            return AssertStart + Expression.GetPattern(content) + GroupEnd;
         }
 
         public static string Assert(params object[] content)
@@ -98,7 +98,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static string NotAssert(object content)
         {
-            return NotAssertStart + Expression.GetValue(content) + GroupEnd;
+            return NotAssertStart + Expression.GetPattern(content) + GroupEnd;
         }
 
         public static string NotAssert(params object[] content)
@@ -108,7 +108,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static string AssertBack(object content)
         {
-            return AssertBackStart + Expression.GetValue(content) + GroupEnd;
+            return AssertBackStart + Expression.GetPattern(content) + GroupEnd;
         }
 
         public static string AssertBack(params object[] content)
@@ -118,7 +118,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static string NotAssertBack(object content)
         {
-            return NotAssertBackStart + Expression.GetValue(content) + GroupEnd;
+            return NotAssertBackStart + Expression.GetPattern(content) + GroupEnd;
         }
 
         public static string NotAssertBack(params object[] content)
@@ -160,7 +160,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             RegexUtilities.CheckGroupName(groupName);
 
-            return GroupStart(groupName, boundary) + Expression.GetValue(content) + GroupEnd;
+            return GroupStart(groupName, boundary) + Expression.GetPattern(content) + GroupEnd;
         }
 
         public static string Group(string groupName, IdentifierBoundary boundary, params object[] content)
@@ -185,7 +185,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             RegexUtilities.CheckGroupName(name1, "name1");
             RegexUtilities.CheckGroupName(name2, "name2");
 
-            return BalanceGroupStart(name1, name2, separator) + Expression.GetValue(content) + GroupEnd;
+            return BalanceGroupStart(name1, name2, separator) + Expression.GetPattern(content) + GroupEnd;
         }
 
         public static string BalanceGroup(string name1, string name2, IdentifierBoundary separator, params object[] content)
@@ -212,7 +212,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("content");
             }
 
-            return CapturingGroupStart + Expression.GetValue(content) + GroupEnd;
+            return CapturingGroupStart + Expression.GetPattern(content) + GroupEnd;
         }
 
         public static string CapturingGroup(params object[] content)
@@ -232,7 +232,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("content");
             }
 
-            return NoncapturingGroupStart + Expression.GetValue(content) + GroupEnd;
+            return NoncapturingGroupStart + Expression.GetPattern(content) + GroupEnd;
         }
 
         public static string NoncapturingGroup(params object[] content)
@@ -247,7 +247,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("content");
             }
 
-            return NonbacktrackingGroupStart + Expression.GetValue(content) + GroupEnd;
+            return NonbacktrackingGroupStart + Expression.GetPattern(content) + GroupEnd;
         }
 
         public static string NonbacktrackingGroup(params object[] content)
@@ -274,7 +274,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             string options = GetInlineChars(applyOptions, disableOptions);
 
-            string text = Expression.GetValue(content);
+            string text = Expression.GetPattern(content);
 
             return (!string.IsNullOrEmpty(options))
                 ? "(?" + options + ":" + text + GroupEnd

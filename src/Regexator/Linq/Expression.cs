@@ -137,12 +137,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             } while (exp != null);
         }
 
-        internal static string GetValue(object content)
+        internal static string GetPattern(object content)
         {
-            return GetValue(content, new PatternSettings());
+            return GetPattern(content, new PatternSettings());
         }
 
-        internal static string GetValue(object content, PatternSettings settings)
+        internal static string GetPattern(object content, PatternSettings settings)
         {
             using (var writer = new PatternWriter(settings))
             {
