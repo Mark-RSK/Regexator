@@ -367,16 +367,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return RegexUtilities.Escape(charCode, inCharGroup);
         }
 
-        internal static string CharInternal(int charCode)
-        {
-            return CharInternal(charCode, false);
-        }
-
-        internal static string CharInternal(int charCode, bool inCharGroup)
-        {
-            return RegexUtilities.EscapeInternal(charCode, inCharGroup);
-        }
-
         public static string Char(AsciiChar value)
         {
             return Char(value, false);
