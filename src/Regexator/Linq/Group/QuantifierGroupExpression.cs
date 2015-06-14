@@ -10,18 +10,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
         }
 
-        internal override void BuildOpening(PatternContext context)
+        internal override void BuildOpening(PatternWriter writer)
         {
-            context.Write(AddGroup
+            writer.Write(AddGroup
                 ? Syntax.NoncapturingGroupStart
                 : string.Empty);
         }
 
-        internal override void BuildClosing(PatternContext context)
+        internal override void BuildClosing(PatternWriter writer)
         {
             if (AddGroup)
             {
-                base.BuildClosing(context);
+                base.BuildClosing(writer);
             }
         }
 

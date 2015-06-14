@@ -24,9 +24,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             get { return _negative; }
         }
 
-        internal override void BuildItemContent(PatternContext context)
+        internal override void BuildItemContent(PatternWriter writer)
         {
-            context.Write(Syntax.GeneralCategory(_category, Negative));
+            writer.Write(Syntax.GeneralCategory(_category, Negative));
         }
     }
 }

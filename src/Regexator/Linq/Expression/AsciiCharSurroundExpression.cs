@@ -28,13 +28,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _charAfter = charAfter;
         }
 
-        internal override void BuildContent(PatternContext context)
+        internal override void BuildContent(PatternWriter writer)
         {
-            context.Write(Syntax.Char(_charBefore));
+            writer.Write(Syntax.Char(_charBefore));
 
-            Expression.Build(_content, context);
+            Expression.Build(_content, writer);
 
-            context.Write(Syntax.Char(_charAfter));
+            writer.Write(Syntax.Char(_charAfter));
         }
     }
 }

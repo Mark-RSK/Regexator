@@ -13,9 +13,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal abstract QuantifierKind QuantifierKind { get; }
 
-        internal override void BuildContent(PatternContext context)
+        internal override void BuildContent(PatternWriter writer)
         {
-            context.Write(Content);
+            writer.Write(Content);
         }
 
         public Expression Lazy()

@@ -26,17 +26,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _condition = testContent;
         }
 
-        protected override void BuildCondition(PatternContext context)
+        protected override void BuildCondition(PatternWriter writer)
         {
             if (_condition != null)
             {
-                context.Write(context.Settings.ConditionWithAssertion
+                writer.Write(writer.Settings.ConditionWithAssertion
                     ? Syntax.AssertStart
                     : Syntax.CapturingGroupStart);
 
-                Expression.Build(_condition, context);
+                Expression.Build(_condition, writer);
 
-                context.WriteGroupEnd();
+                writer.WriteGroupEnd();
             }
         }
     }

@@ -120,26 +120,26 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("settings");
             }
 
-            using (var context = new PatternContext(settings))
+            using (var writer = new PatternWriter(settings))
             {
-                Build(context);
-                return context.ToString();
+                Build(writer);
+                return writer.ToString();
             }
         }
 
-        internal void Build(PatternContext context)
+        internal void Build(PatternWriter writer)
         {
             if (Previous != null)
             {
                 Expression[] expressions = GetExpressions().ToArray();
                 for (int i = (expressions.Length - 1); i >= 0; i--)
                 {
-                    Build(expressions[i], context);
+                    Build(expressions[i], writer);
                 }
             }
             else
             {
-                Build(this, context);
+                Build(this, writer);
             }
         }
 
@@ -160,14 +160,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal static string GetValue(object content, PatternSettings settings)
         {
-            using (var context = new PatternContext(settings))
+            using (var writer = new PatternWriter(settings))
             {
-                Build(content, context);
-                return context.ToString();
+                Build(content, writer);
+                return writer.ToString();
             }
         }
 
-        internal static void Build(object content, PatternContext context)
+        internal static void Build(object content, PatternWriter writer)
         {
             if (content == null)
             {
@@ -177,21 +177,21 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Expression expression = content as Expression;
             if (expression != null)
             {
-                expression.Build(context);
+                expression.Build(writer);
                 return;
             }
 
             string text = content as string;
             if (text != null)
             {
-                context.Write(RegexUtilities.Escape(text));
+                writer.Write(RegexUtilities.Escape(text));
                 return;
             }
 
             CharGroupItem item = content as CharGroupItem;
             if (item != null)
             {
-                item.BuildGroup(context);
+                item.BuildGroup(writer);
 
                 return;
             }
@@ -201,7 +201,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 foreach (var value in values)
                 {
-                    Build(value, context);
+                    Build(value, writer);
                 }
 
                 return;
@@ -212,49 +212,49 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 foreach (var value in items)
                 {
-                    Build(value, context);
+                    Build(value, writer);
                 }
             }
         }
 
-        private static void Build(Expression expression, PatternContext context)
+        private static void Build(Expression expression, PatternWriter writer)
         {
 #if DEBUG
-            if (!context.Expressions.Add(expression))
+            if (!writer.Expressions.Add(expression))
             {
                 throw new InvalidOperationException("A circular reference was detected while creating a pattern.");
             }
 #endif
-            expression.BuildOpening(context);
+            expression.BuildOpening(writer);
 
-            expression.BuildContent(context);
+            expression.BuildContent(writer);
 
-            expression.BuildClosing(context);
+            expression.BuildClosing(writer);
 #if DEBUG
-            context.Expressions.Remove(expression);
+            writer.Expressions.Remove(expression);
 #endif
         }
 
-        internal virtual void BuildContent(PatternContext context)
+        internal virtual void BuildContent(PatternWriter writer)
         {
-            string s = Value(context);
+            string s = Value(writer);
             if (s != null)
             {
-                context.Write(s);
+                writer.Write(s);
             }
         }
 
-        internal virtual void BuildOpening(PatternContext context)
+        internal virtual void BuildOpening(PatternWriter writer)
         {
 
         }
 
-        internal virtual void BuildClosing(PatternContext context)
+        internal virtual void BuildClosing(PatternWriter writer)
         {
 
         }
 
-        internal virtual string Value(PatternContext context)
+        internal virtual string Value(PatternWriter writer)
         {
             return null;
         }

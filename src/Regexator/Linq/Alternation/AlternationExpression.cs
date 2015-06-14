@@ -22,30 +22,30 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _falseContent = falseContent;
         }
 
-        protected abstract void BuildCondition(PatternContext context);
+        protected abstract void BuildCondition(PatternWriter writer);
 
-        internal override void BuildContent(PatternContext context)
+        internal override void BuildContent(PatternWriter writer)
         {
-            BuildCondition(context);
+            BuildCondition(writer);
 
-            Expression.Build(_trueContent, context);
+            Expression.Build(_trueContent, writer);
 
             if (_falseContent != null)
             {
-                context.Write(Syntax.Or);
+                writer.Write(Syntax.Or);
 
-                Expression.Build(_falseContent, context);
+                Expression.Build(_falseContent, writer);
             }
         }
 
-        internal override void BuildOpening(PatternContext context)
+        internal override void BuildOpening(PatternWriter writer)
         {
-            context.Write(Syntax.IfStart);
+            writer.Write(Syntax.IfStart);
         }
 
-        internal override void BuildClosing(PatternContext context)
+        internal override void BuildClosing(PatternWriter writer)
         {
-            context.WriteGroupEnd();
+            writer.WriteGroupEnd();
         }
     }
 }

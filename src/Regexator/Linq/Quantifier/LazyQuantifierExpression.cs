@@ -9,9 +9,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
         }
 
-        internal override void BuildContent(PatternContext context)
+        internal override void BuildContent(PatternWriter writer)
         {
-            context.Write(Syntax.Lazy);
+            writer.Write(Syntax.Lazy);
         }
     }
 }

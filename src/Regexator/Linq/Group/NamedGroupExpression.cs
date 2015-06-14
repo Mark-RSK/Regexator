@@ -30,9 +30,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             get { return _groupName; }
         }
 
-        internal override void BuildOpening(PatternContext context)
+        internal override void BuildOpening(PatternWriter writer)
         {
-            context.Write(Syntax.GroupStart(GroupName, context.Settings.IdentifierBoundary));
+            writer.Write(Syntax.GroupStart(GroupName, writer.Settings.IdentifierBoundary));
         }
     }
 }

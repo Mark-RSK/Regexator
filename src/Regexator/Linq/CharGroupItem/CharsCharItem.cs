@@ -19,9 +19,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _characters = characters;
         }
 
-        internal override void BuildItemContent(PatternContext context)
+        internal override void BuildItemContent(PatternWriter writer)
         {
-            context.Write(RegexUtilities.Escape(_characters, true));
+            writer.Write(RegexUtilities.Escape(_characters, true));
         }
     }
 }

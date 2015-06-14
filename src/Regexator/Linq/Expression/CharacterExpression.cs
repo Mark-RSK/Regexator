@@ -16,13 +16,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new CharSubtraction(ToGroup(), excludedGroup);
         }
 
-        public void BuildExcludedGroup(PatternContext context)
+        public void BuildExcludedGroup(PatternWriter writer)
         {
-            context.Write(Syntax.CharGroupStart);
+            writer.Write(Syntax.CharGroupStart);
 
-            BuildContent(context);
+            BuildContent(writer);
             
-            context.Write(Syntax.CharGroupEnd);
+            writer.Write(Syntax.CharGroupEnd);
         }
     }
 }

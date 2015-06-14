@@ -15,9 +15,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _groupName = groupName;
         }
 
-        internal override string Value(PatternContext context)
+        internal override string Value(PatternWriter writer)
         {
-            return Syntax.Backreference(GroupName, context.Settings.IdentifierBoundary);
+            return Syntax.Backreference(GroupName, writer.Settings.IdentifierBoundary);
         }
 
         public string GroupName

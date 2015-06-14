@@ -22,23 +22,23 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _values = values;
         }
 
-        internal override void BuildContent(PatternContext context)
+        internal override void BuildContent(PatternWriter writer)
         {
             var values = _values as object[];
             if (values != null)
             {
                 if (values.Length > 0)
                 {
-                    Expression.Build(values[0], context);
+                    Expression.Build(values[0], writer);
 
                     if (values.Length > 1)
                     {
-                        string separator = GetValue(_separator, context.Settings);
+                        string separator = GetValue(_separator, writer.Settings);
 
                         for (int i = 1; i < values.Length; i++)
                         {
-                            context.Write(separator);
-                            Expression.Build(values[i], context);
+                            writer.Write(separator);
+                            Expression.Build(values[i], writer);
                         }
                     }
                 }
@@ -50,19 +50,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 {
                     if (en.MoveNext())
                     {
-                        Expression.Build(en.Current, context);
+                        Expression.Build(en.Current, writer);
 
                         if (en.MoveNext())
                         {
-                            string separator = GetValue(_separator, context.Settings);
+                            string separator = GetValue(_separator, writer.Settings);
 
-                            context.Write(separator);
-                            Expression.Build(en.Current, context);
+                            writer.Write(separator);
+                            Expression.Build(en.Current, writer);
 
                             while (en.MoveNext())
                             {
-                                context.Write(separator);
-                                Expression.Build(en.Current, context);
+                                writer.Write(separator);
+                                Expression.Build(en.Current, writer);
                             }
                         }
                     }

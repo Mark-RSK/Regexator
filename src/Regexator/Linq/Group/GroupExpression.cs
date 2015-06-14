@@ -26,12 +26,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _content = content;
         }
 
-        internal override void BuildContent(PatternContext context)
+        internal override void BuildContent(PatternWriter writer)
         {
             string text = Content as string;
             if (text != null)
             {
-                context.Write(RegexUtilities.Escape(text));
+                writer.Write(RegexUtilities.Escape(text));
             }
             else
             {
@@ -40,12 +40,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 {
                     if (values.Length > 0)
                     {
-                        Expression.Build(values[0], context);
+                        Expression.Build(values[0], writer);
 
                         for (int i = 1; i < values.Length; i++)
                         {
-                            context.Write(Syntax.Or);
-                            Expression.Build(values[i], context);
+                            writer.Write(Syntax.Or);
+                            Expression.Build(values[i], writer);
                         }
                     }
                 }
@@ -58,18 +58,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
                         if (en.MoveNext())
                         {
-                            Expression.Build(en.Current, context);
+                            Expression.Build(en.Current, writer);
 
                             while (en.MoveNext())
                             {
-                                context.Write(Syntax.Or);
-                                Expression.Build(en.Current, context);
+                                writer.Write(Syntax.Or);
+                                Expression.Build(en.Current, writer);
                             }
                         }
                     }
                     else
                     {
-                        Expression.Build(Content, context);
+                        Expression.Build(Content, writer);
                     }
                 }
             }
@@ -80,9 +80,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             get { return _content; }
         }
 
-        internal override void BuildOpening(PatternContext context)
+        internal override void BuildOpening(PatternWriter writer)
         {
-            context.WriteGroupEnd();
+            writer.WriteGroupEnd();
         }
     }
 }

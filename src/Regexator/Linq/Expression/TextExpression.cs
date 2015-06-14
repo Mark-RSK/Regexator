@@ -24,7 +24,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _ignoreCase = ignoreCase;
         }
 
-        internal override string Value(PatternContext context)
+        internal override string Value(PatternWriter writer)
         {
             if (!string.IsNullOrEmpty(_text))
             {

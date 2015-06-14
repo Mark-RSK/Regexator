@@ -7,7 +7,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal sealed class EndOfLine
         : AnchorExpression
     {
-        internal override string Value(PatternContext context)
+        internal override string Value(PatternWriter writer)
         {
             return Syntax.EndOfLine;
         }

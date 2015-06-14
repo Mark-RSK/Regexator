@@ -74,10 +74,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         //todo zkontrolovat
         public override string ToString()
         {
-            using (var context = new PatternContext())
+            using (var writer = new PatternWriter())
             {
-                BuildExcludedGroup(context);
-                return context.ToString();
+                BuildExcludedGroup(writer);
+                return writer.ToString();
             }
         }
 
@@ -211,41 +211,41 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new CharItemGroup(this, true);
         }
 
-        internal abstract void BuildItemContent(PatternContext context);
+        internal abstract void BuildItemContent(PatternWriter writer);
 
-        public void BuildBaseGroup(PatternContext context)
+        public void BuildBaseGroup(PatternWriter writer)
         {
-            BuildContent(context);
+            BuildContent(writer);
         }
 
-        public void BuildExcludedGroup(PatternContext context)
+        public void BuildExcludedGroup(PatternWriter writer)
         {
-            BuildGroup(context);
+            BuildGroup(writer);
         }
 
-        internal void BuildGroup(PatternContext context)
+        internal void BuildGroup(PatternWriter writer)
         {
-            context.Write(Syntax.CharGroupStart);
+            writer.Write(Syntax.CharGroupStart);
             
             //todo check empty
-            BuildContent(context);
+            BuildContent(writer);
 
-            context.Write(Syntax.CharGroupEnd);
+            writer.Write(Syntax.CharGroupEnd);
         }
 
-        internal void BuildContent(PatternContext context)
+        internal void BuildContent(PatternWriter writer)
         {
             if (Previous != null)
             {
                 CharGroupItem[] items = GetItems().ToArray();
                 for (int i = (items.Length - 1); i >= 0; i--)
                 {
-                    items[i].BuildItemContent(context);
+                    items[i].BuildItemContent(writer);
                 }
             }
             else
             {
-                BuildItemContent(context);
+                BuildItemContent(writer);
             }
         }
 

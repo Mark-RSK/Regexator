@@ -31,9 +31,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _groupMode = groupMode;
         }
 
-        internal override void BuildOpening(PatternContext context)
+        internal override void BuildOpening(PatternWriter writer)
         {
-            context.Write(Opening);
+            writer.Write(Opening);
         }
 
         private string Opening
@@ -52,11 +52,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        internal override void BuildClosing(PatternContext context)
+        internal override void BuildClosing(PatternWriter writer)
         {
             if (GroupMode != AnyGroupMode.None)
             {
-                context.WriteGroupEnd();
+                writer.WriteGroupEnd();
             }
         }
 

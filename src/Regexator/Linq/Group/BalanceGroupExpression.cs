@@ -28,9 +28,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             get { return _name2; }
         }
 
-        internal override void BuildOpening(PatternContext context)
+        internal override void BuildOpening(PatternWriter writer)
         {
-            context.Write(Syntax.BalanceGroupStart(Name1, Name2, context.Settings.IdentifierBoundary));
+            writer.Write(Syntax.BalanceGroupStart(Name1, Name2, writer.Settings.IdentifierBoundary));
         }
     }
 }

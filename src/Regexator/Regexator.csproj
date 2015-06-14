@@ -91,7 +91,7 @@
     <Compile Include="Linq\Expression\TextExpression.cs" />
     <Compile Include="Linq\Quantifier\CountFromQuantifier.cs" />
     <Compile Include="Linq\Group\BalanceGroupExpression.cs" />
-    <Compile Include="Linq\PatternContext.cs" />
+    <Compile Include="Linq\PatternWriter.cs" />
     <Compile Include="Linq\Anchor\StartOfInput.cs" />
     <Compile Include="Linq\PatternSettings.cs" />
     <Compile Include="Linq\CharClass.cs" />

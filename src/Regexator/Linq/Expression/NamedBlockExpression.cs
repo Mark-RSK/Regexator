@@ -17,9 +17,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new NamedBlockGroup(_block);
         }
 
-        internal override void BuildContent(PatternContext context)
+        internal override void BuildContent(PatternWriter writer)
         {
-            context.Write(Syntax.NamedBlock(_block));
+            writer.Write(Syntax.NamedBlock(_block));
         }
 
         public NamedBlock Block

@@ -9,7 +9,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
         }
 
-        internal override string Value(PatternContext context)
+        internal override string Value(PatternWriter writer)
         {
             return Syntax.AnyChar;
         }
