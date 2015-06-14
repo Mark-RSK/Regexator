@@ -215,7 +215,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public void WriteBaseGroupTo(PatternWriter writer)
         {
-            BuildContent(writer);
+            WriteContentTo(writer);
         }
 
         public void WriteExcludedGroupTo(PatternWriter writer)
@@ -228,12 +228,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             writer.WriteCharGroupStart();
 
             //todo check empty
-            BuildContent(writer);
+            WriteContentTo(writer);
 
             writer.WriteCharGroupEnd();
         }
 
-        internal void BuildContent(PatternWriter writer)
+        internal void WriteContentTo(PatternWriter writer)
         {
             if (Previous != null)
             {

@@ -28,7 +28,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override void WriteContentTo(PatternWriter writer)
         {
-            _item.BuildContent(writer);
+            _item.WriteContentTo(writer);
         }
 
         public override bool Negative
