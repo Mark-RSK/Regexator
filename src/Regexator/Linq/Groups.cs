@@ -119,14 +119,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return CountRange(minCount, maxCount, (object)content);
         }
 
-        public static QuantifierExpression MaybeCount(int maxCount, object content)
+        public static QuantifierExpression CountTo(int maxCount, object content)
         {
-            return QuantifierGroup(content).MaybeCount(maxCount);
+            return QuantifierGroup(content).CountTo(maxCount);
         }
 
-        public static QuantifierExpression MaybeCount(int maxCount, params object[] content)
+        public static QuantifierExpression CountTo(int maxCount, params object[] content)
         {
-            return MaybeCount(maxCount, (object)content);
+            return CountTo(maxCount, (object)content);
         }
 
         internal static QuantifiableExpression QuantifierGroup(object content)

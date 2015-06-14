@@ -2018,14 +2018,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Linq.Groups.CountRange(minCount, maxCount, content));
         }
 
-        public QuantifierExpression MaybeCount(int maxCount, object content)
+        public QuantifierExpression CountTo(int maxCount, object content)
         {
-            return ConcatInternal(Linq.Groups.MaybeCount(maxCount, content));
+            return ConcatInternal(Linq.Groups.CountTo(maxCount, content));
         }
 
-        public QuantifierExpression MaybeCount(int maxCount, params object[] content)
+        public QuantifierExpression CountTo(int maxCount, params object[] content)
         {
-            return ConcatInternal(Linq.Groups.MaybeCount(maxCount, content));
+            return ConcatInternal(Linq.Groups.CountTo(maxCount, content));
         }
 
         public QuantifiableExpression Backreference(int groupNumber)

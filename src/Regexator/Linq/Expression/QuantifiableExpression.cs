@@ -48,7 +48,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 #endif
 
-        public QuantifierExpression MaybeCount(int maxCount)
+        public QuantifierExpression CountTo(int maxCount)
         {
             return ConcatInternal(new CountRangeQuantifier(0, maxCount));
         }
