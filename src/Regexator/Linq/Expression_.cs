@@ -813,14 +813,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.Char(value));
         }
 
-        public QuantifiableExpression NamedBlock(NamedBlock block)
+        public QuantifiableExpression Char(NamedBlock block)
         {
-            return ConcatInternal(Chars.NamedBlock(block));
+            return ConcatInternal(Chars.Char(block));
         }
 
-        public QuantifiableExpression GeneralCategory(GeneralCategory category)
+        public QuantifiableExpression Char(GeneralCategory category)
         {
-            return ConcatInternal(Chars.GeneralCategory(category));
+            return ConcatInternal(Chars.Char(category));
         }
 
         public QuantifiableExpression NotChar(char value)

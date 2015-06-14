@@ -56,12 +56,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new CharItemGroup(item, true);
         }
 
-        public static CharacterExpression NamedBlock(NamedBlock block)
+        public static CharacterExpression Char(NamedBlock block)
         {
             return new NamedBlockExpression(block);
         }
 
-        public static CharacterExpression GeneralCategory(GeneralCategory category)
+        public static CharacterExpression Char(GeneralCategory category)
         {
             return new GeneralCategoryExpression(category);
         }
