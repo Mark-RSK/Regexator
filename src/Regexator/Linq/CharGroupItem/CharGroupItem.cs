@@ -213,7 +213,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal abstract void BuildItemContent(PatternWriter writer);
 
-        public void BuildBaseGroup(PatternWriter writer)
+        public void WriteBaseGroupTo(PatternWriter writer)
         {
             BuildContent(writer);
         }

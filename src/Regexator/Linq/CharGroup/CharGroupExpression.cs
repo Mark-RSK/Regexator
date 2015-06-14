@@ -14,7 +14,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new CharSubtraction(this, excludedGroup);
         }
 
-        public void BuildBaseGroup(PatternWriter writer)
+        public void WriteBaseGroupTo(PatternWriter writer)
         {
             WriteContentTo(writer);
         }

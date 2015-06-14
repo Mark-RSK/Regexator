@@ -38,7 +38,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         internal override void WriteContentTo(PatternWriter writer)
         {
             //todo check empty
-            _baseGroup.BuildBaseGroup(writer);
+            _baseGroup.WriteBaseGroupTo(writer);
 
             writer.WriteGroupSeparator();
 
