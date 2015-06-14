@@ -4,6 +4,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public interface IExcludedGroup
     {
-        string ExcludedGroupValue { get; }
+        void BuildExcludedGroup(PatternContext context);
     }
 }

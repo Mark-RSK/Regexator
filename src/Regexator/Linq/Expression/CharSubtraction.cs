@@ -26,14 +26,36 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _excludedGroup = excludedGroup;
         }
 
-        public string ExcludedGroupValue
+        public void BuildExcludedGroup(PatternContext context)
         {
-            get { return Syntax.CharGroupInternal(_baseGroup.BaseGroupValue + "-" + _excludedGroup.ExcludedGroupValue, Negative); }
+            context.Write(Opening(context));
+
+            BuildContent(context);
+            
+            context.Write(Closing(context));
         }
 
-        internal override string Value(PatternContext context)
+        internal override void BuildContent(PatternContext context)
         {
-            return ExcludedGroupValue;
+            //todo check empty
+            _baseGroup.BuildBaseGroup(context);
+
+            context.Write("-");
+
+            //todo check empty
+            _excludedGroup.BuildExcludedGroup(context);
+        }
+
+        internal override string Opening(PatternContext context)
+        {
+            return Negative 
+                ? Syntax.NotCharGroupStart 
+                : Syntax.CharGroupStart;
+        }
+
+        internal override string Closing(PatternContext context)
+        {
+            return Syntax.CharGroupEnd;
         }
 
         public virtual bool Negative

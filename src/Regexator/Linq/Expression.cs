@@ -191,7 +191,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             CharGroupItem item = content as CharGroupItem;
             if (item != null)
             {
-                context.Write(Syntax.CharGroupInternal(item.Value));
+                item.BuildGroup(context);
+
                 return;
             }
 

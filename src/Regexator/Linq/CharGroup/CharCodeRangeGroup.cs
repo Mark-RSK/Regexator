@@ -38,9 +38,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             get { return _negative; }
         }
 
-        public override string Content
+        internal override void BuildContent(PatternContext context)
         {
-            get { return Syntax.RangeInternal(_first, _last); }
+            context.Write(Syntax.RangeInternal(_first, _last));
         }
     }
 }

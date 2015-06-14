@@ -71,35 +71,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return item;
         }
 
-        internal IEnumerable<string> GetValues()
-        {
-            if (Previous != null)
-            {
-                CharGroupItem[] items = GetItems().ToArray();
-                for (int i = (items.Length - 1); i >= 0; i--)
-                {
-                    yield return items[i].Content;
-                }
-            }
-            else
-            {
-                yield return Content;
-            }
-        }
-
-        private IEnumerable<CharGroupItem> GetItems()
-        {
-            CharGroupItem item = this;
-            do
-            {
-                yield return item;
-                item = item.Previous;
-            } while (item != null);
-        }
-
+        //todo zkontrolovat
         public override string ToString()
         {
-            return Value;
+            using (var context = new PatternContext())
+            {
+                BuildExcludedGroup(context);
+                return context.ToString();
+            }
         }
 
         public CharGroupItem Concat(char value)
@@ -232,21 +211,52 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new CharItemGroup(this, true);
         }
 
-        internal abstract string Content { get; }
+        internal abstract void BuildItemContent(PatternContext context);
 
-        public string BaseGroupValue
+        public void BuildBaseGroup(PatternContext context)
         {
-            get { return Value; }
+            BuildContent(context);
         }
 
-        public string ExcludedGroupValue
+        public void BuildExcludedGroup(PatternContext context)
         {
-            get { return Syntax.CharGroupInternal(Value); }
+            BuildGroup(context);
         }
 
-        internal string Value
+        internal void BuildGroup(PatternContext context)
         {
-            get { return string.Concat(GetValues()); }
+            context.Write(Syntax.CharGroupStart);
+            
+            //todo check empty
+            BuildContent(context);
+
+            context.Write(Syntax.CharGroupEnd);
+        }
+
+        internal void BuildContent(PatternContext context)
+        {
+            if (Previous != null)
+            {
+                CharGroupItem[] items = GetItems().ToArray();
+                for (int i = (items.Length - 1); i >= 0; i--)
+                {
+                    items[i].BuildItemContent(context);
+                }
+            }
+            else
+            {
+                BuildItemContent(context);
+            }
+        }
+
+        private IEnumerable<CharGroupItem> GetItems()
+        {
+            CharGroupItem item = this;
+            do
+            {
+                yield return item;
+                item = item.Previous;
+            } while (item != null);
         }
 
         #region + operator

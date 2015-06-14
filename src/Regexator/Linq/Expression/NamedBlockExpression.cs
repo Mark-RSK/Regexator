@@ -12,19 +12,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _block = block;
         }
 
-        public NamedBlock Block
-        {
-            get { return _block; }
-        }
-
         public override CharGroupExpression ToGroup()
         {
             return new NamedBlockGroup(_block);
         }
 
-        internal override string Value(PatternContext context)
+        internal override void BuildContent(PatternContext context)
         {
-            return Syntax.NamedBlock(_block);
+            context.Write(Syntax.NamedBlock(_block));
+        }
+
+        public NamedBlock Block
+        {
+            get { return _block; }
         }
     }
 }

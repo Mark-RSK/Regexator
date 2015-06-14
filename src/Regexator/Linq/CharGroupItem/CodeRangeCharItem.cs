@@ -26,9 +26,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _last = lastCharCode;
         }
 
-        internal override string Content
+        internal override void BuildItemContent(PatternContext context)
         {
-            get { return Syntax.RangeInternal(_first, _last); }
+            context.Write(Syntax.RangeInternal(_first, _last));
         }
     }
 }

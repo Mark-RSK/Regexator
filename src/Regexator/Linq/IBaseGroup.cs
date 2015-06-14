@@ -4,6 +4,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public interface IBaseGroup
     {
-        string BaseGroupValue { get; }
+        void BuildBaseGroup(PatternContext context);
     }
 }

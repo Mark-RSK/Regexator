@@ -6,7 +6,7 @@ using System.IO;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal class PatternContext
+    public class PatternContext
         : StringWriter
     {
 #if DEBUG
@@ -14,12 +14,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 #endif
         private PatternSettings _settings;
 
-        public PatternContext()
+        internal PatternContext()
             : this(new PatternSettings())
         {
         }
 
-        public PatternContext(PatternSettings settings)
+        internal PatternContext(PatternSettings settings)
             : base()
         {
             if (settings == null)

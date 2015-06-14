@@ -26,14 +26,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _negative = negative;
         }
 
+        internal override void BuildContent(PatternContext context)
+        {
+            _item.BuildContent(context);
+        }
+
         public override bool Negative
         {
             get { return _negative; }
-        }
-
-        public override string Content
-        {
-            get { return _item.Value; }
         }
     }
 }

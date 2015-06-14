@@ -14,21 +14,31 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new CharSubtraction(this, excludedGroup);
         }
 
-        public abstract string Content { get; }
-
-        public string BaseGroupValue
+        public void BuildBaseGroup(PatternContext context)
         {
-            get { return Content; }
+            BuildContent(context);
         }
 
-        public string ExcludedGroupValue
+        public void BuildExcludedGroup(PatternContext context)
         {
-            get { return Syntax.CharGroupInternal(Content, Negative); }
+            context.Write(Opening(context));
+            
+            //todo check empty
+            BuildContent(context);
+
+            context.Write(Closing(context));
         }
 
-        internal sealed override string Value(PatternContext context)
+        internal override string Opening(PatternContext context)
         {
-            return ExcludedGroupValue;
+            return Negative 
+                ? Syntax.NotCharGroupStart 
+                : Syntax.CharGroupStart;
+        }
+
+        internal override string Closing(PatternContext context)
+        {
+            return Syntax.CharGroupEnd;
         }
 
         public virtual bool Negative

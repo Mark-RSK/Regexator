@@ -12,9 +12,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _value = value;
         }
 
-        public override string Content
+        internal override void BuildContent(PatternContext context)
         {
-            get { return Syntax.CharClass(_value); }
+            context.Write(Syntax.CharClass(_value));
         }
     }
 }
