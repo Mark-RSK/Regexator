@@ -32,7 +32,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             writer.Write(Syntax.Char(_charBefore));
 
-            Expression.Build(_content, writer);
+            writer.WriteContent(_content);
 
             writer.Write(Syntax.Char(_charAfter));
         }

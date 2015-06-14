@@ -28,19 +28,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             BuildCondition(writer);
 
-            Expression.Build(_trueContent, writer);
+            writer.WriteContent(_trueContent);
 
             if (_falseContent != null)
             {
-                writer.Write(Syntax.Or);
+                writer.WriteOr();
 
-                Expression.Build(_falseContent, writer);
+                writer.WriteContent(_falseContent);
             }
         }
 
         internal override void BuildOpening(PatternWriter writer)
         {
-            writer.Write(Syntax.IfStart);
+            writer.WriteIfStart();
         }
 
         internal override void BuildClosing(PatternWriter writer)

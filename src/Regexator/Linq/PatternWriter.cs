@@ -57,10 +57,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (expression.Previous != null)
             {
-                Expression[] expressions = expression.GetExpressions().ToArray();
-                for (int i = (expressions.Length - 1); i >= 0; i--)
+                Expression[] items = expression.GetExpressions().ToArray();
+                for (int i = (items.Length - 1); i >= 0; i--)
                 {
-                    WriteInternal(expressions[i]);
+                    WriteInternal(items[i]);
                 }
             }
             else
@@ -97,14 +97,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Expression expression = content as Expression;
             if (expression != null)
             {
-                expression.Build(this);
+                Write(expression);
                 return;
             }
 
             string text = content as string;
             if (text != null)
             {
-                Write(RegexUtilities.Escape(text));
+                WriteEscaped(text);
                 return;
             }
 
@@ -254,7 +254,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
             else
             {
-                //todo
                 WriteContent(content);
             }
         }
@@ -323,6 +322,26 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public void WriteAnyChar()
         {
             base.Write(Syntax.AnyChar);
+        }
+
+        public void WriteOr()
+        {
+            base.Write(Syntax.Or);
+        }
+
+        public void WriteIfStart()
+        {
+            base.Write(Syntax.IfStart);
+        }
+
+        public void WriteAssertStart()
+        {
+            base.Write(Syntax.AssertStart);
+        }
+
+        public void WriteCapturingGroupStart()
+        {
+            base.Write(Syntax.CapturingGroupStart);
         }
 
 #if DEBUG

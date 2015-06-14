@@ -16,7 +16,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override void BuildContent(PatternWriter writer)
         {
-            Expression.Build(_content, writer);
+            writer.WriteContent(_content);
         }
     }
 }

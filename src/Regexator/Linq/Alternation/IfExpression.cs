@@ -34,7 +34,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                     ? Syntax.AssertStart
                     : Syntax.CapturingGroupStart);
 
-                Expression.Build(_condition, writer);
+                writer.WriteContent(_condition);
 
                 writer.WriteGroupEnd();
             }

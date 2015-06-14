@@ -122,24 +122,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             using (var writer = new PatternWriter(settings))
             {
-                Build(writer);
+                writer.Write(this);
                 return writer.ToString();
-            }
-        }
-
-        internal void Build(PatternWriter writer)
-        {
-            if (Previous != null)
-            {
-                Expression[] expressions = GetExpressions().ToArray();
-                for (int i = (expressions.Length - 1); i >= 0; i--)
-                {
-                    Build(expressions[i], writer);
-                }
-            }
-            else
-            {
-                Build(this, writer);
             }
         }
 
@@ -162,77 +146,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             using (var writer = new PatternWriter(settings))
             {
-                Build(content, writer);
+                writer.WriteContent(content);
                 return writer.ToString();
             }
-        }
-
-        internal static void Build(object content, PatternWriter writer)
-        {
-            if (content == null)
-            {
-                return;
-            }
-
-            Expression expression = content as Expression;
-            if (expression != null)
-            {
-                expression.Build(writer);
-                return;
-            }
-
-            string text = content as string;
-            if (text != null)
-            {
-                writer.Write(RegexUtilities.Escape(text));
-                return;
-            }
-
-            CharGroupItem item = content as CharGroupItem;
-            if (item != null)
-            {
-                item.BuildGroup(writer);
-
-                return;
-            }
-
-            object[] values = content as object[];
-            if (values != null)
-            {
-                foreach (var value in values)
-                {
-                    Build(value, writer);
-                }
-
-                return;
-            }
-
-            IEnumerable items = content as IEnumerable;
-            if (items != null)
-            {
-                foreach (var value in items)
-                {
-                    Build(value, writer);
-                }
-            }
-        }
-
-        private static void Build(Expression expression, PatternWriter writer)
-        {
-#if DEBUG
-            if (!writer.Expressions.Add(expression))
-            {
-                throw new InvalidOperationException("A circular reference was detected while creating a pattern.");
-            }
-#endif
-            expression.BuildOpening(writer);
-
-            expression.BuildContent(writer);
-
-            expression.BuildClosing(writer);
-#if DEBUG
-            writer.Expressions.Remove(expression);
-#endif
         }
 
         internal virtual void BuildContent(PatternWriter writer)
