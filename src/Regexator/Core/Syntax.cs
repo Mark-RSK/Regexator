@@ -340,12 +340,12 @@ namespace Pihrtsoft.Text.RegularExpressions
             return string.Concat(values.Select(f => CharClass(f)));
         }
 
-        public static string CharRange(char first, char last)
+        public static string Char(char first, char last)
         {
             return Char(first, true) + GroupSeparator + Char(last, true);
         }
 
-        public static string CharRange(int firstCharCode, int lastCharCode)
+        public static string Char(int firstCharCode, int lastCharCode)
         {
             return Char(firstCharCode, true) + GroupSeparator + Char(lastCharCode, true);
         }

@@ -76,12 +76,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new NotGeneralCategoryExpression(category);
         }
 
-        public static CharGroupExpression CharRange(char first, char last)
+        public static CharGroupExpression Char(char first, char last)
         {
             return new CharRangeGroup(first, last);
         }
 
-        public static CharGroupExpression CharRange(int firstCharCode, int lastCharCode)
+        public static CharGroupExpression Char(int firstCharCode, int lastCharCode)
         {
             return new CharCodeRangeGroup(firstCharCode, lastCharCode);
         }

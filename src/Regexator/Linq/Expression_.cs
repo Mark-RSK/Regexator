@@ -501,14 +501,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.NotChar(item));
         }
 
-        public QuantifiableExpression CharRange(char first, char last)
+        public QuantifiableExpression Char(char first, char last)
         {
-            return ConcatInternal(Chars.CharRange(first, last));
+            return ConcatInternal(Chars.Char(first, last));
         }
 
-        public QuantifiableExpression CharRange(int firstCharCode, int lastCharCode)
+        public QuantifiableExpression Char(int firstCharCode, int lastCharCode)
         {
-            return ConcatInternal(Chars.CharRange(firstCharCode, lastCharCode));
+            return ConcatInternal(Chars.Char(firstCharCode, lastCharCode));
         }
 
         public QuantifiableExpression NotCharRange(char first, char last)
