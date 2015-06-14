@@ -688,6 +688,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.Digit(minCount, maxCount));
         }
 
+        public QuantifierExpression Digits()
+        {
+            return ConcatInternal(Chars.Digits());
+        }
+
         public QuantifiableExpression NotDigit()
         {
             return ConcatInternal(Chars.NotDigit());
@@ -701,6 +706,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public QuantifierExpression NotDigit(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NotDigit(minCount, maxCount));
+        }
+
+        public QuantifierExpression NotDigits()
+        {
+            return ConcatInternal(Chars.NotDigits());
         }
 
         public QuantifiableExpression WhiteSpace()

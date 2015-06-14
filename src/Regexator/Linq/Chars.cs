@@ -161,6 +161,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new CharClassExpression(CharClass.Digit).CountRange(minCount, maxCount);
         }
 
+        public static QuantifierExpression Digits()
+        {
+            return Digit().OneMany();
+        }
+
         public static CharacterExpression NotDigit()
         {
             return new CharClassExpression(CharClass.NotDigit);
@@ -174,6 +179,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifierExpression NotDigit(int minCount, int maxCount)
         {
             return new CharClassExpression(CharClass.NotDigit).CountRange(minCount, maxCount);
+        }
+
+        public static QuantifierExpression NotDigits()
+        {
+            return NotDigit().OneMany();
         }
 
         public static CharacterExpression WhiteSpace()
