@@ -86,16 +86,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public const string SubstituteAfterMatch = SubstitutionChar + "'";
         public const string SubstituteBeforeMatch = SubstitutionChar + "`";
 
-        internal static string IfGroupCondition(int groupNumber)
-        {
-            return IfGroupCondition(groupNumber.ToString(CultureInfo.InvariantCulture));
-        }
-
-        internal static string IfGroupCondition(string groupName)
-        {
-            return CapturingGroupStart + groupName + GroupEnd;
-        }
-
         public static string Assert(object content)
         {
             return AssertStart + Expression.GetValue(content) + GroupEnd;
@@ -311,11 +301,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return CharGroupInternal(RegexUtilities.Escape(content, true), negative);
         }
 
-        internal static string CharGroupInternal(string content)
-        {
-            return CharGroupInternal(content, false);
-        }
-
         internal static string CharGroupInternal(string content, bool negative)
         {
             if (content.Length == 0)
@@ -365,11 +350,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static string CharRange(int firstCharCode, int lastCharCode)
         {
             return Syntax.Char(firstCharCode, true) + GroupSeparator + Syntax.Char(lastCharCode, true);
-        }
-
-        internal static string RangeInternal(int firstCharCode, int lastCharCode)
-        {
-            return Syntax.CharInternal(firstCharCode, true) + GroupSeparator + Syntax.CharInternal(lastCharCode, true);
         }
 
         public static string Char(char value, bool inCharGroup)
