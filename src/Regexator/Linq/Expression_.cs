@@ -773,6 +773,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.WordChar(minCount, maxCount));
         }
 
+        public QuantifierExpression WordChars()
+        {
+            return ConcatInternal(Chars.WordChars());
+        }
+
         public QuantifiableExpression NotWordChar()
         {
             return ConcatInternal(Chars.NotWordChar());
@@ -786,6 +791,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public QuantifierExpression NotWordChar(int minCount, int maxCount)
         {
             return ConcatInternal(Chars.NotWordChar(minCount, maxCount));
+        }
+
+        public QuantifierExpression NotWordChars()
+        {
+            return ConcatInternal(Chars.NotWordChars());
         }
 
         public QuantifiableExpression Char(char value)

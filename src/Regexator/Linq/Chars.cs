@@ -246,6 +246,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new CharClassExpression(CharClass.WordChar).CountRange(minCount, maxCount);
         }
 
+        public static QuantifierExpression WordChars()
+        {
+            return WordChar().OneMany();
+        }
+
         public static CharacterExpression NotWordChar()
         {
             return new CharClassExpression(CharClass.NotWordChar);
@@ -259,6 +264,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifierExpression NotWordChar(int minCount, int maxCount)
         {
             return new CharClassExpression(CharClass.NotWordChar).CountRange(minCount, maxCount);
+        }
+
+        public static QuantifierExpression NotWordChars()
+        {
+            return NotWordChar().OneMany();
         }
 
         public static CharacterExpression Tab()
