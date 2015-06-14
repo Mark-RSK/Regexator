@@ -67,11 +67,8 @@ namespace Pihrtsoft.Text.RegularExpressions
         internal const string UnicodeEnd = "}";
 
         public const string Maybe = "?";
-        public const string MaybeLazy = "??";
         public const string MaybeMany = "*";
-        public const string MaybeManyLazy = "*?";
         public const string OneMany = "+";
-        public const string OneManyLazy = "+?";
         public const string Lazy = "?";
 
         public const char IgnoreCaseChar = 'i';

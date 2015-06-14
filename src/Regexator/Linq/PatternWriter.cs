@@ -3,6 +3,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -57,38 +58,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        public override void Write(int value)
-        {
-            Write(value, false);
-        }
-
-        public void Write(int value, bool inCharGroup)
-        {
-            if (value < 0 || value > 0xFFFF)
-            {
-                throw new ArgumentOutOfRangeException("value");
-            }
-
-            WriteInternal(value, inCharGroup);
-        }
-
-        internal void WriteInternal(int value)
-        {
-            WriteInternal(value, false);
-        }
-
-        internal void WriteInternal(int value, bool inCharGroup)
-        {
-            if (RegexUtilities.EscapeRequired(value, inCharGroup))
-            {
-                base.Write(RegexUtilities.EscapeInternal(value, inCharGroup));
-            }
-            else
-            {
-                base.Write((char)value);
-            }
-        }
-
         public override void Write(char value)
         {
             Write(value, false);
@@ -120,6 +89,38 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             else
             {
                 base.Write((char)(int)value);
+            }
+        }
+
+        public override void Write(int value)
+        {
+            Write(value, false);
+        }
+
+        public void Write(int value, bool inCharGroup)
+        {
+            if (value < 0 || value > 0xFFFF)
+            {
+                throw new ArgumentOutOfRangeException("value");
+            }
+
+            WriteInternal(value, inCharGroup);
+        }
+
+        internal void WriteInternal(int value)
+        {
+            WriteInternal(value, false);
+        }
+
+        internal void WriteInternal(int value, bool inCharGroup)
+        {
+            if (RegexUtilities.EscapeRequired(value, inCharGroup))
+            {
+                base.Write(RegexUtilities.EscapeInternal(value, inCharGroup));
+            }
+            else
+            {
+                base.Write((char)value);
             }
         }
 
@@ -168,10 +169,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         private void WriteInternal(Expression expression)
         {
 #if DEBUG
-            if (!Expressions.Add(expression))
-            {
-                throw new InvalidOperationException("A circular reference was detected while creating a pattern.");
-            }
+            Debug.Assert(Expressions.Add(expression));
 #endif
             expression.WriteStartTo(this);
 
@@ -233,102 +231,26 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        public void WriteCapturingGroupStart()
+        public void WriteIfStart()
         {
-            base.Write(Syntax.CapturingGroupStart);
+            base.Write(Syntax.IfStart);
         }
 
-        public void WriteNoncapturingGroupStart()
+        internal void WriteIfGroupCondition(int groupNumber)
         {
-            base.Write(Syntax.NoncapturingGroupStart);
+            WriteIfGroupCondition(groupNumber.ToString(CultureInfo.InvariantCulture));
         }
 
-        public void WriteGroupSeparator()
+        internal void WriteIfGroupCondition(string groupName)
         {
-            base.Write(Syntax.GroupSeparator);
+            WriteCapturingGroupStart();
+            base.Write(groupName);
+            WriteGroupEnd();
         }
 
-        public void WriteGroupEnd()
+        public void WriteOr()
         {
-            base.Write(Syntax.GroupEnd);
-        }
-
-        internal void WriteNamedGroupStartInternal(string groupName)
-        {
-            switch (Settings.IdentifierBoundary)
-            {
-                case IdentifierBoundary.LessThan:
-                {
-                    base.Write(@"(?<");
-                    base.Write(groupName);
-                    base.Write(@">");
-                    break;
-                }
-                case IdentifierBoundary.Apostrophe:
-                {
-                    base.Write(@"(?'");
-                    base.Write(groupName);
-                    base.Write(@"'");
-                    break;
-                }
-            }
-        }
-
-        internal void WriteBalanceGroupStartInternal(string name1, string name2)
-        {
-            switch (Settings.IdentifierBoundary)
-            {
-                case IdentifierBoundary.LessThan:
-                {
-                    base.Write(@"(?<");
-                    base.Write(name1);
-                    WriteGroupSeparator();
-                    base.Write(name2);
-                    base.Write(@">");
-                    break;
-                }
-                case IdentifierBoundary.Apostrophe:
-                {
-                    base.Write(@"(?'");
-                    base.Write(name1);
-                    WriteGroupSeparator();
-                    base.Write(name2);
-                    base.Write(@"'");
-                    break;
-                }
-            }
-        }
-
-        public void WriteNonbacktrackingGroupStart()
-        {
-            base.Write(Syntax.NonbacktrackingGroupStart);
-        }
-
-        public void WriteCharGroupStart()
-        {
-            WriteCharGroupStart(false);
-        }
-
-        public void WriteCharGroupStart(bool negative)
-        {
-            if (negative)
-            {
-                base.Write(Syntax.NotCharGroupStart);
-            }
-            else
-            {
-                base.Write(Syntax.CharGroupStart);
-            }
-        }
-
-        public void WriteNotCharGroupStart()
-        {
-            WriteCharGroupStart(true);
-        }
-
-        public void WriteCharGroupEnd()
-        {
-            base.Write(Syntax.CharGroupEnd);
+            base.Write(Syntax.Or);
         }
 
         public void WriteStartOfInput()
@@ -351,9 +273,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             base.Write(Syntax.EndOfLine);
         }
 
-        public void WritePreviousMatchEnd()
+        public void WriteEndOrBeforeEndingNewLine()
         {
-            base.Write(Syntax.PreviousMatchEnd);
+            base.Write(Syntax.EndOrBeforeEndingNewLine);
         }
 
         public void WriteWordBoundary()
@@ -366,43 +288,72 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             base.Write(Syntax.NotWordBoundary);
         }
 
-        public void WriteEndOrBeforeEndingNewLine()
+        public void WritePreviousMatchEnd()
         {
-            base.Write(Syntax.EndOrBeforeEndingNewLine);
+            base.Write(Syntax.PreviousMatchEnd);
         }
 
-        public void WriteGeneralCategory(GeneralCategory category)
+        public void WriteAssertStart()
         {
-            WriteGeneralCategory(category, false);
+            base.Write(Syntax.AssertStart);
         }
 
-        public void WriteNotGeneralCategory(GeneralCategory category)
+        public void WriteNotAssertStart()
         {
-            WriteGeneralCategory(category, true);
+            base.Write(Syntax.NotAssertStart);
         }
 
-        public void WriteGeneralCategory(GeneralCategory category, bool negative)
+        public void WriteAssertBackStart()
         {
-            base.Write(negative ? Syntax.NotUnicodeStart : Syntax.UnicodeStart);
-            base.Write(Syntax.GetGeneralCategoryValue(category));
-            base.Write(Syntax.UnicodeEnd);
+            base.Write(Syntax.AssertBackStart);
         }
 
-        public void WriteNamedBlock(NamedBlock block)
+        public void WriteNotAssertBackStart()
         {
-            WriteNamedBlock(block, false);
+            base.Write(Syntax.NotAssertBackStart);
         }
 
-        public void WriteNotNamedBlock(NamedBlock block)
+        public void WriteCapturingGroupStart()
         {
-            WriteNamedBlock(block, true);
+            base.Write(Syntax.CapturingGroupStart);
         }
 
-        public void WriteNamedBlock(NamedBlock block, bool negative)
+        public void WriteNoncapturingGroupStart()
         {
-            base.Write(negative ? Syntax.NotUnicodeStart : Syntax.UnicodeStart);
-            base.Write(Syntax.GetNamedBlockValue(block));
-            base.Write(Syntax.UnicodeEnd);
+            base.Write(Syntax.NoncapturingGroupStart);
+        }
+
+        public void WriteNonbacktrackingGroupStart()
+        {
+            base.Write(Syntax.NonbacktrackingGroupStart);
+        }
+
+        internal void WriteNamedGroupStart(string groupName)
+        {
+            RegexUtilities.CheckGroupName(groupName);
+
+            WriteNamedGroupStartInternal(groupName);
+        }
+
+        internal void WriteNamedGroupStartInternal(string groupName)
+        {
+            switch (Settings.IdentifierBoundary)
+            {
+                case IdentifierBoundary.LessThan:
+                    {
+                        base.Write(@"(?<");
+                        base.Write(groupName);
+                        base.Write(@">");
+                        break;
+                    }
+                case IdentifierBoundary.Apostrophe:
+                    {
+                        base.Write(@"(?'");
+                        base.Write(groupName);
+                        base.Write(@"'");
+                        break;
+                    }
+            }
         }
 
         public void WriteGroupOptions(InlineOptions applyOptions, object content)
@@ -449,65 +400,34 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        public void WriteOptions(InlineOptions applyOptions)
-        {
-            WriteOptions(applyOptions, InlineOptions.None);
-        }
-
-        public void WriteOptions(InlineOptions applyOptions, InlineOptions disableOptions)
-        {
-            string options = Syntax.GetInlineChars(applyOptions, disableOptions);
-
-            if (!string.IsNullOrEmpty(options))
-            {
-                base.Write("(?");
-                base.Write(options);
-                WriteGroupEnd();
-            }
-        }
-
-        internal void WriteBackreferenceInternal(int groupNumber)
-        {
-            base.Write(Syntax.Backreference(groupNumber));
-
-            if (Settings.SeparatorAfterNumberBackreference)
-            {
-                WriteNoncapturingGroupStart();
-                WriteGroupEnd();
-            }
-        }
-
-        internal void WriteBackreferenceInternal(string groupName)
+        internal void WriteBalanceGroupStartInternal(string name1, string name2)
         {
             switch (Settings.IdentifierBoundary)
             {
                 case IdentifierBoundary.LessThan:
                 {
-                    base.Write(@"\k<");
-                    base.Write(groupName);
-                    base.Write(">");
+                    base.Write(@"(?<");
+                    base.Write(name1);
+                    WriteGroupSeparator();
+                    base.Write(name2);
+                    base.Write(@">");
                     break;
                 }
                 case IdentifierBoundary.Apostrophe:
                 {
-                    base.Write(@"\k'");
-                    base.Write(groupName);
-                    base.Write("'");
+                    base.Write(@"(?'");
+                    base.Write(name1);
+                    WriteGroupSeparator();
+                    base.Write(name2);
+                    base.Write(@"'");
                     break;
                 }
             }
         }
 
-        public void WriteInlineComment(string comment)
+        public void WriteGroupEnd()
         {
-            if (comment == null)
-            {
-                throw new ArgumentNullException("comment");
-            }
-
-            base.Write(Syntax.InlineCommentStart);
-            base.Write(RegexUtilities.TrimInlineComment.Match(comment).Value);
-            WriteGroupEnd();
+            base.Write(Syntax.GroupEnd);
         }
 
         public void WriteAnyChar()
@@ -515,51 +435,70 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             base.Write(Syntax.AnyChar);
         }
 
-        public void WriteOr()
-        {
-            base.Write(Syntax.Or);
-        }
-
-        public void WriteIfStart()
-        {
-            base.Write(Syntax.IfStart);
-        }
-
-        internal void WriteIfGroupCondition(int groupNumber)
-        {
-            WriteIfGroupCondition(groupNumber.ToString(CultureInfo.InvariantCulture));
-        }
-
-        internal void WriteIfGroupCondition(string groupName)
-        {
-            WriteCapturingGroupStart();
-            base.Write(groupName);
-            WriteGroupEnd();
-        }
-
-        public void WriteAssertStart()
-        {
-            base.Write(Syntax.AssertStart);
-        }
-
-        public void WriteNotAssertStart()
-        {
-            base.Write(Syntax.NotAssertStart);
-        }
-
-        public void WriteAssertBackStart()
-        {
-            base.Write(Syntax.AssertBackStart);
-        }
-
-        public void WriteNotAssertBackStart()
-        {
-            base.Write(Syntax.NotAssertBackStart);
-        }
-
         public void WriteCharClass(CharClass value)
         {
             base.Write(Syntax.CharClass(value));
+        }
+
+        public void WriteCharGroupStart()
+        {
+            WriteCharGroupStart(false);
+        }
+
+        public void WriteCharGroupStart(bool negative)
+        {
+            if (negative)
+            {
+                base.Write(Syntax.NotCharGroupStart);
+            }
+            else
+            {
+                base.Write(Syntax.CharGroupStart);
+            }
+        }
+
+        public void WriteNotCharGroupStart()
+        {
+            WriteCharGroupStart(true);
+        }
+
+        public void WriteCharGroupEnd()
+        {
+            base.Write(Syntax.CharGroupEnd);
+        }
+
+        public void WriteGeneralCategory(GeneralCategory category)
+        {
+            WriteGeneralCategory(category, false);
+        }
+
+        public void WriteNotGeneralCategory(GeneralCategory category)
+        {
+            WriteGeneralCategory(category, true);
+        }
+
+        public void WriteGeneralCategory(GeneralCategory category, bool negative)
+        {
+            base.Write(negative ? Syntax.NotUnicodeStart : Syntax.UnicodeStart);
+            base.Write(Syntax.GetGeneralCategoryValue(category));
+            base.Write(Syntax.UnicodeEnd);
+        }
+
+        public void WriteNamedBlock(NamedBlock block)
+        {
+            WriteNamedBlock(block, false);
+        }
+
+        public void WriteNotNamedBlock(NamedBlock block)
+        {
+            WriteNamedBlock(block, true);
+        }
+
+        public void WriteNamedBlock(NamedBlock block, bool negative)
+        {
+            base.Write(negative ? Syntax.NotUnicodeStart : Syntax.UnicodeStart);
+            base.Write(Syntax.GetNamedBlockValue(block));
+            base.Write(Syntax.UnicodeEnd);
         }
 
         public void WriteMaybe()
@@ -638,6 +577,72 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public void WriteLazy()
         {
             base.Write(Syntax.Lazy);
+        }
+
+        internal void WriteBackreferenceInternal(int groupNumber)
+        {
+            base.Write(Syntax.Backreference(groupNumber));
+
+            if (Settings.SeparatorAfterNumberBackreference)
+            {
+                WriteNoncapturingGroupStart();
+                WriteGroupEnd();
+            }
+        }
+
+        internal void WriteBackreferenceInternal(string groupName)
+        {
+            switch (Settings.IdentifierBoundary)
+            {
+                case IdentifierBoundary.LessThan:
+                    {
+                        base.Write(@"\k<");
+                        base.Write(groupName);
+                        base.Write(">");
+                        break;
+                    }
+                case IdentifierBoundary.Apostrophe:
+                    {
+                        base.Write(@"\k'");
+                        base.Write(groupName);
+                        base.Write("'");
+                        break;
+                    }
+            }
+        }
+
+        public void WriteOptions(InlineOptions applyOptions)
+        {
+            WriteOptions(applyOptions, InlineOptions.None);
+        }
+
+        public void WriteOptions(InlineOptions applyOptions, InlineOptions disableOptions)
+        {
+            string options = Syntax.GetInlineChars(applyOptions, disableOptions);
+
+            if (!string.IsNullOrEmpty(options))
+            {
+                base.Write("(?");
+                base.Write(options);
+                WriteGroupEnd();
+            }
+        }
+
+        public void WriteInlineComment(string comment)
+        {
+            if (comment == null)
+            {
+                throw new ArgumentNullException("comment");
+            }
+
+            base.Write(Syntax.InlineCommentStart);
+            base.Write(RegexUtilities.TrimInlineComment.Match(comment).Value);
+            WriteGroupEnd();
+        }
+
+        public void WriteGroupSeparator()
+        {
+            base.Write(Syntax.GroupSeparator);
         }
 
 #if DEBUG
