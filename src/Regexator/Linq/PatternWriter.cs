@@ -328,7 +328,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             base.Write(Syntax.NonbacktrackingGroupStart);
         }
 
-        internal void WriteNamedGroupStart(string groupName)
+        public void WriteNamedGroupStart(string groupName)
         {
             RegexUtilities.CheckGroupName(groupName);
 

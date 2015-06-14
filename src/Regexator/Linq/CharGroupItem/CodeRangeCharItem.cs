@@ -28,6 +28,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         protected override void WriteItemContentTo(PatternWriter writer)
         {
+            if (writer == null)
+            {
+                throw new ArgumentNullException("writer");
+            }
+
             writer.WriteCharRangeInternal(_first, _last);
         }
     }
