@@ -447,14 +447,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public void WriteCharGroupStart(bool negative)
         {
-            if (negative)
-            {
-                base.Write(Syntax.NotCharGroupStart);
-            }
-            else
-            {
-                base.Write(Syntax.CharGroupStart);
-            }
+            base.Write(negative 
+                ? Syntax.NotCharGroupStart 
+                : Syntax.CharGroupStart);
         }
 
         public void WriteNotCharGroupStart()
