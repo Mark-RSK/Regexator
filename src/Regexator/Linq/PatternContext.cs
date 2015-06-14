@@ -43,7 +43,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public void WriteGroupSeparator()
         {
-            Write(Syntax.GroupSeparator);
+            base.Write(Syntax.GroupSeparator);
+        }
+
+        public void WriteGroupEnd()
+        {
+            base.Write(Syntax.GroupEnd);
         }
 
 #if DEBUG

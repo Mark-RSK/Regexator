@@ -45,7 +45,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override void BuildClosing(PatternContext context)
         {
-            context.Write(Syntax.GroupEnd);
+            context.WriteGroupEnd();
         }
     }
 }

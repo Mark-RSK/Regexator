@@ -56,7 +56,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (GroupMode != AnyGroupMode.None)
             {
-                context.Write(Syntax.GroupEnd);
+                context.WriteGroupEnd();
             }
         }
 

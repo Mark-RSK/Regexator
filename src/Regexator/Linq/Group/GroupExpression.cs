@@ -82,7 +82,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override void BuildOpening(PatternContext context)
         {
-            context.Write(Syntax.GroupEnd);
+            context.WriteGroupEnd();
         }
     }
 }

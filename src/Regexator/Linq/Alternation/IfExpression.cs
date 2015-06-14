@@ -36,7 +36,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
                 Expression.Build(_condition, context);
 
-                context.Write(Syntax.GroupEnd);
+                context.WriteGroupEnd();
             }
         }
     }
