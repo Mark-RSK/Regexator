@@ -30,11 +30,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override void BuildContent(PatternWriter writer)
         {
-            writer.Write(Syntax.Char(_charBefore));
+            writer.Write(_charBefore);
 
-            writer.WriteContent(_content);
+            writer.Write(_content);
 
-            writer.Write(Syntax.Char(_charAfter));
+            writer.Write(_charAfter);
         }
     }
 }

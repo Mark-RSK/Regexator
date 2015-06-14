@@ -17,11 +17,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override void BuildOpening(PatternWriter writer)
         {
-            string options = Syntax.GetInlineChars(_applyOptions, _disableOptions);
-
-            writer.Write((!string.IsNullOrEmpty(options))
-                ? "(?" + options + ":"
-                : Syntax.NoncapturingGroupStart);
+            writer.WriteGroupOptionsStart(_applyOptions, _disableOptions);
         }
     }
 }

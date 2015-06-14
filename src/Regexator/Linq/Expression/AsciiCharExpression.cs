@@ -19,7 +19,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override void BuildContent(PatternWriter writer)
         {
-            writer.Write(Syntax.Char(_value));
+            writer.Write(_value);
         }
     }
 }

@@ -19,7 +19,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override void BuildContent(PatternWriter writer)
         {
-            writer.Write(Syntax.NamedBlock(_block));
+            writer.WriteNamedBlock(_block);
         }
 
         public NamedBlock Block

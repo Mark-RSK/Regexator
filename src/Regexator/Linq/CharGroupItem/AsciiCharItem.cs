@@ -14,7 +14,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override void BuildItemContent(PatternWriter writer)
         {
-            writer.Write(Syntax.Char(_value, true));
+            writer.Write(_value, true);
         }
     }
 }

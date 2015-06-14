@@ -27,9 +27,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _maxCount = maxCount;
         }
 
-        protected override string Content
+        internal override void BuildContent(PatternWriter writer)
         {
-            get { return Syntax.CountRange(_minCount, _maxCount); }
+            writer.WriteCountRangeInternal(_minCount, _maxCount);
         }
 
         internal override QuantifierKind QuantifierKind

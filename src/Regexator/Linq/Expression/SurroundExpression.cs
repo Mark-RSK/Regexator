@@ -35,11 +35,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override void BuildContent(PatternWriter writer)
         {
-            writer.WriteContent(_contentBefore);
+            writer.Write(_contentBefore);
 
-            writer.WriteContent(_content);
+            writer.Write(_content);
 
-            writer.WriteContent(_contentAfter);
+            writer.Write(_contentAfter);
         }
     }
 }

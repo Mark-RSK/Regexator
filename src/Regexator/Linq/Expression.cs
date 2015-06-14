@@ -146,7 +146,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             using (var writer = new PatternWriter(settings))
             {
-                writer.WriteContent(content);
+                writer.Write(content);
                 return writer.ToString();
             }
         }

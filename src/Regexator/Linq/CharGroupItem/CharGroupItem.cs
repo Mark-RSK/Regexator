@@ -225,12 +225,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal void BuildGroup(PatternWriter writer)
         {
-            writer.Write(Syntax.CharGroupStart);
+            writer.WriteCharGroupStart();
             
             //todo check empty
             BuildContent(writer);
 
-            writer.Write(Syntax.CharGroupEnd);
+            writer.WriteCharGroupEnd();
         }
 
         internal void BuildContent(PatternWriter writer)

@@ -10,9 +10,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
         }
 
-        protected override string Content
+        internal override void BuildContent(PatternWriter writer)
         {
-            get { return Syntax.OneMany; }
+            writer.WriteOneMany();
         }
 
         internal override QuantifierKind QuantifierKind

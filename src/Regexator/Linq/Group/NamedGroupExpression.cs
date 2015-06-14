@@ -32,7 +32,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override void BuildOpening(PatternWriter writer)
         {
-            writer.Write(Syntax.GroupStart(GroupName, writer.Settings.IdentifierBoundary));
+            writer.WriteNamedGroupStartInternal(GroupName);
         }
     }
 }

@@ -31,14 +31,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override void BuildOpening(PatternWriter writer)
         {
-            writer.Write(Negative
-                ? Syntax.NotCharGroupStart
-                : Syntax.CharGroupStart);
+            writer.WriteCharGroupStart(Negative);
         }
 
         internal override void BuildClosing(PatternWriter writer)
         {
-            writer.Write(Syntax.CharGroupEnd);
+            writer.WriteCharGroupEnd();
         }
 
         public virtual bool Negative

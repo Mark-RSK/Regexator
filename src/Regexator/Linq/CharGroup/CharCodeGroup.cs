@@ -33,7 +33,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override void BuildContent(PatternWriter writer)
         {
-            writer.Write(Syntax.CharInternal(_charCode, true));
+            writer.WriteInternal(_charCode, true);
         }
     }
 }

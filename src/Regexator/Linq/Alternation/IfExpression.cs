@@ -30,11 +30,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (_condition != null)
             {
-                writer.Write(writer.Settings.ConditionWithAssertion
-                    ? Syntax.AssertStart
-                    : Syntax.CapturingGroupStart);
+                if (writer.Settings.ConditionWithAssertion)
+                {
+                    writer.WriteAssertStart();
+                }
+                else
+                {
+                    writer.WriteCapturingGroupStart();
+                }
 
-                writer.WriteContent(_condition);
+                writer.Write(_condition);
 
                 writer.WriteGroupEnd();
             }

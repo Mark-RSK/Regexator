@@ -9,14 +9,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
         }
 
-        protected abstract string Content { get; }
-
         internal abstract QuantifierKind QuantifierKind { get; }
-
-        internal override void BuildContent(PatternWriter writer)
-        {
-            writer.Write(Content);
-        }
 
         public Expression Lazy()
         {

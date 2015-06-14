@@ -30,7 +30,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override void BuildOpening(PatternWriter writer)
         {
-            writer.Write(Syntax.BalanceGroupStart(Name1, Name2, writer.Settings.IdentifierBoundary));
+            writer.WriteBalanceGroupStartInternal(Name1, Name2);
         }
     }
 }

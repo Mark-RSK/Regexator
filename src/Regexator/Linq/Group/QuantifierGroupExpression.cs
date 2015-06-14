@@ -12,9 +12,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override void BuildOpening(PatternWriter writer)
         {
-            writer.Write(AddGroup
-                ? Syntax.NoncapturingGroupStart
-                : string.Empty);
+            if (AddGroup)
+            {
+                writer.WriteNoncapturingGroupStart();
+            }
         }
 
         internal override void BuildClosing(PatternWriter writer)

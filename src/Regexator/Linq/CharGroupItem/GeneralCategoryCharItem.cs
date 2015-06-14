@@ -26,7 +26,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override void BuildItemContent(PatternWriter writer)
         {
-            writer.Write(Syntax.GeneralCategory(_category, Negative));
+            writer.WriteGeneralCategory(_category, Negative);
         }
     }
 }

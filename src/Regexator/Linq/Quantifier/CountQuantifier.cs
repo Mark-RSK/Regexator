@@ -20,9 +20,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _count = count;
         }
 
-        protected override string Content
+        internal override void BuildContent(PatternWriter writer)
         {
-            get { return Syntax.Count(_count); }
+            writer.WriteCountInternal(_count);
         }
 
         internal override QuantifierKind QuantifierKind

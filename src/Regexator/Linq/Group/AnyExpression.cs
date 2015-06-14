@@ -33,22 +33,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override void BuildOpening(PatternWriter writer)
         {
-            writer.Write(Opening);
-        }
-
-        private string Opening
-        {
-            get 
+            switch (GroupMode)
             {
-                switch (GroupMode)
-                {
-                    case AnyGroupMode.Capturing:
-                        return Syntax.CapturingGroupStart;
-                    case AnyGroupMode.Noncapturing:
-                        return Syntax.NoncapturingGroupStart;
-                    default:
-                        return string.Empty;
-                }
+                case AnyGroupMode.Capturing:
+                    writer.WriteCapturingGroupStart();
+                    break;
+                case AnyGroupMode.Noncapturing:
+                    writer.WriteNoncapturingGroupStart();
+                    break;
             }
         }
 

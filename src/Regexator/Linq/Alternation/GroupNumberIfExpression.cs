@@ -1,7 +1,6 @@
 // Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
-using System.Collections.Generic;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
@@ -33,7 +32,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         protected override void BuildCondition(PatternWriter writer)
         {
-            writer.Write(Syntax.IfGroupCondition(GroupNumber));
+            writer.WriteIfGroupCondition(GroupNumber);
         }
     }
 }

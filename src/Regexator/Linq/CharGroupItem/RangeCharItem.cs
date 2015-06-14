@@ -16,7 +16,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override void BuildItemContent(PatternWriter writer)
         {
-            writer.Write(Syntax.CharRange(_firstChar, _lastChar));
+            writer.WriteRange(_firstChar, _lastChar);
         }
     }
 }
