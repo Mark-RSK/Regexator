@@ -16,7 +16,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharGroupItem Create(string characters)
         {
-            return new CharsCharItem(characters);
+            return new CharactersItem(characters);
         }
 
         public static CharGroupItem Create(char value)

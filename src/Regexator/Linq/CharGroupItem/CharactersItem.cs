@@ -4,12 +4,12 @@ using System;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal sealed class CharsCharItem
+    internal sealed class CharactersItem
         : CharGroupItem
     {
         private readonly string _characters;
 
-        public CharsCharItem(string characters)
+        public CharactersItem(string characters)
         {
             if (characters == null)
             {
