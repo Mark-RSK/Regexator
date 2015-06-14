@@ -64,7 +64,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public void Write(int value, bool inCharGroup)
         {
-            base.Write(RegexUtilities.Escape(value, inCharGroup));
+            if (value < 0 || value > 0xFFFF)
+            {
+                throw new ArgumentOutOfRangeException("value");
+            }
+
+            WriteInternal(value, inCharGroup);
         }
 
         internal void WriteInternal(int value)
