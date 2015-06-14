@@ -6,8 +6,9 @@ using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Linq;
+using Pihrtsoft.Text.RegularExpressions.Linq;
 
-namespace Pihrtsoft.Text.RegularExpressions.Linq
+namespace Pihrtsoft.Text.RegularExpressions
 {
     public static partial class Syntax
     {
@@ -315,17 +316,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             switch (value)
             {
-                case Linq.CharClass.Digit:
+                case RegularExpressions.CharClass.Digit:
                     return Digit;
-                case Linq.CharClass.WordChar:
+                case RegularExpressions.CharClass.WordChar:
                     return WordChar;
-                case Linq.CharClass.WhiteSpace:
+                case RegularExpressions.CharClass.WhiteSpace:
                     return WhiteSpace;
-                case Linq.CharClass.NotDigit:
+                case RegularExpressions.CharClass.NotDigit:
                     return NotDigit;
-                case Linq.CharClass.NotWordChar:
+                case RegularExpressions.CharClass.NotWordChar:
                     return NotWordChar;
-                case Linq.CharClass.NotWhiteSpace:
+                case RegularExpressions.CharClass.NotWhiteSpace:
                     return NotWhiteSpace;
             }
 
@@ -647,79 +648,79 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             switch (category)
             {
-                case Linq.GeneralCategory.AllControlCharacters:
+                case RegularExpressions.GeneralCategory.AllControlCharacters:
                     return "C";
-                case Linq.GeneralCategory.AllDiacriticMarks:
+                case RegularExpressions.GeneralCategory.AllDiacriticMarks:
                     return "M";
-                case Linq.GeneralCategory.AllLetterCharacters:
+                case RegularExpressions.GeneralCategory.AllLetterCharacters:
                     return "L";
-                case Linq.GeneralCategory.AllNumbers:
+                case RegularExpressions.GeneralCategory.AllNumbers:
                     return "N";
-                case Linq.GeneralCategory.AllPunctuationCharacters:
+                case RegularExpressions.GeneralCategory.AllPunctuationCharacters:
                     return "P";
-                case Linq.GeneralCategory.AllSeparatorCharacters:
+                case RegularExpressions.GeneralCategory.AllSeparatorCharacters:
                     return "Z";
-                case Linq.GeneralCategory.AllSymbols:
+                case RegularExpressions.GeneralCategory.AllSymbols:
                     return "S";
-                case Linq.GeneralCategory.LetterLowercase:
+                case RegularExpressions.GeneralCategory.LetterLowercase:
                     return "Ll";
-                case Linq.GeneralCategory.LetterModifier:
+                case RegularExpressions.GeneralCategory.LetterModifier:
                     return "Lm";
-                case Linq.GeneralCategory.LetterOther:
+                case RegularExpressions.GeneralCategory.LetterOther:
                     return "Lo";
-                case Linq.GeneralCategory.LetterTitlecase:
+                case RegularExpressions.GeneralCategory.LetterTitlecase:
                     return "Lt";
-                case Linq.GeneralCategory.LetterUppercase:
+                case RegularExpressions.GeneralCategory.LetterUppercase:
                     return "Lu";
-                case Linq.GeneralCategory.MarkEnclosing:
+                case RegularExpressions.GeneralCategory.MarkEnclosing:
                     return "Me";
-                case Linq.GeneralCategory.MarkNonspacing:
+                case RegularExpressions.GeneralCategory.MarkNonspacing:
                     return "Mn";
-                case Linq.GeneralCategory.MarkSpacingCombining:
+                case RegularExpressions.GeneralCategory.MarkSpacingCombining:
                     return "Mc";
-                case Linq.GeneralCategory.NumberDecimalDigit:
+                case RegularExpressions.GeneralCategory.NumberDecimalDigit:
                     return "Nd";
-                case Linq.GeneralCategory.NumberLetter:
+                case RegularExpressions.GeneralCategory.NumberLetter:
                     return "Nl";
-                case Linq.GeneralCategory.NumberOther:
+                case RegularExpressions.GeneralCategory.NumberOther:
                     return "No";
-                case Linq.GeneralCategory.OtherControl:
+                case RegularExpressions.GeneralCategory.OtherControl:
                     return "Cc";
-                case Linq.GeneralCategory.OtherFormat:
+                case RegularExpressions.GeneralCategory.OtherFormat:
                     return "Cf";
-                case Linq.GeneralCategory.OtherNotAssigned:
+                case RegularExpressions.GeneralCategory.OtherNotAssigned:
                     return "Cn";
-                case Linq.GeneralCategory.OtherPrivateUse:
+                case RegularExpressions.GeneralCategory.OtherPrivateUse:
                     return "Co";
-                case Linq.GeneralCategory.OtherSurrogate:
+                case RegularExpressions.GeneralCategory.OtherSurrogate:
                     return "Cs";
-                case Linq.GeneralCategory.PunctuationClose:
+                case RegularExpressions.GeneralCategory.PunctuationClose:
                     return "Pe";
-                case Linq.GeneralCategory.PunctuationConnector:
+                case RegularExpressions.GeneralCategory.PunctuationConnector:
                     return "Pc";
-                case Linq.GeneralCategory.PunctuationDash:
+                case RegularExpressions.GeneralCategory.PunctuationDash:
                     return "Pd";
-                case Linq.GeneralCategory.PunctuationFinalQuote:
+                case RegularExpressions.GeneralCategory.PunctuationFinalQuote:
                     return "Pf";
-                case Linq.GeneralCategory.PunctuationInitialQuote:
+                case RegularExpressions.GeneralCategory.PunctuationInitialQuote:
                     return "Pi";
-                case Linq.GeneralCategory.PunctuationOpen:
+                case RegularExpressions.GeneralCategory.PunctuationOpen:
                     return "Ps";
-                case Linq.GeneralCategory.PunctuationOther:
+                case RegularExpressions.GeneralCategory.PunctuationOther:
                     return "Po";
-                case Linq.GeneralCategory.SeparatorLine:
+                case RegularExpressions.GeneralCategory.SeparatorLine:
                     return "Zl";
-                case Linq.GeneralCategory.SeparatorParagraph:
+                case RegularExpressions.GeneralCategory.SeparatorParagraph:
                     return "Zp";
-                case Linq.GeneralCategory.SeparatorSpace:
+                case RegularExpressions.GeneralCategory.SeparatorSpace:
                     return "Zs";
-                case Linq.GeneralCategory.SymbolCurrency:
+                case RegularExpressions.GeneralCategory.SymbolCurrency:
                     return "Sc";
-                case Linq.GeneralCategory.SymbolMath:
+                case RegularExpressions.GeneralCategory.SymbolMath:
                     return "Sm";
-                case Linq.GeneralCategory.SymbolModifier:
+                case RegularExpressions.GeneralCategory.SymbolModifier:
                     return "Sk";
-                case Linq.GeneralCategory.SymbolOther:
+                case RegularExpressions.GeneralCategory.SymbolOther:
                     return "So";
                 default:
                     return string.Empty;
@@ -731,221 +732,221 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             switch (block)
             {
-                case Linq.NamedBlock.AlphabeticPresentationForms:
+                case RegularExpressions.NamedBlock.AlphabeticPresentationForms:
                     return "IsAlphabeticPresentationForms";
-                case Linq.NamedBlock.Arabic:
+                case RegularExpressions.NamedBlock.Arabic:
                     return "IsArabic";
-                case Linq.NamedBlock.ArabicPresentationFormsA:
+                case RegularExpressions.NamedBlock.ArabicPresentationFormsA:
                     return "IsArabicPresentationForms-A";
-                case Linq.NamedBlock.ArabicPresentationFormsB:
+                case RegularExpressions.NamedBlock.ArabicPresentationFormsB:
                     return "IsArabicPresentationForms-B";
-                case Linq.NamedBlock.Armenian:
+                case RegularExpressions.NamedBlock.Armenian:
                     return "IsArmenian";
-                case Linq.NamedBlock.Arrows:
+                case RegularExpressions.NamedBlock.Arrows:
                     return "IsArrows";
-                case Linq.NamedBlock.BasicLatin:
+                case RegularExpressions.NamedBlock.BasicLatin:
                     return "IsBasicLatin";
-                case Linq.NamedBlock.Bengali:
+                case RegularExpressions.NamedBlock.Bengali:
                     return "IsBengali";
-                case Linq.NamedBlock.BlockElements:
+                case RegularExpressions.NamedBlock.BlockElements:
                     return "IsBlockElements";
-                case Linq.NamedBlock.Bopomofo:
+                case RegularExpressions.NamedBlock.Bopomofo:
                     return "IsBopomofo";
-                case Linq.NamedBlock.BopomofoExtended:
+                case RegularExpressions.NamedBlock.BopomofoExtended:
                     return "IsBopomofoExtended";
-                case Linq.NamedBlock.BoxDrawing:
+                case RegularExpressions.NamedBlock.BoxDrawing:
                     return "IsBoxDrawing";
-                case Linq.NamedBlock.BraillePatterns:
+                case RegularExpressions.NamedBlock.BraillePatterns:
                     return "IsBraillePatterns";
-                case Linq.NamedBlock.Buhid:
+                case RegularExpressions.NamedBlock.Buhid:
                     return "IsBuhid";
-                case Linq.NamedBlock.CJKCompatibility:
+                case RegularExpressions.NamedBlock.CJKCompatibility:
                     return "IsCJKCompatibility";
-                case Linq.NamedBlock.CJKCompatibilityForms:
+                case RegularExpressions.NamedBlock.CJKCompatibilityForms:
                     return "IsCJKCompatibilityForms";
-                case Linq.NamedBlock.CJKCompatibilityIdeographs:
+                case RegularExpressions.NamedBlock.CJKCompatibilityIdeographs:
                     return "IsCJKCompatibilityIdeographs";
-                case Linq.NamedBlock.CJKRadicalsSupplement:
+                case RegularExpressions.NamedBlock.CJKRadicalsSupplement:
                     return "IsCJKRadicalsSupplement";
-                case Linq.NamedBlock.CJKSymbolsAndPunctuation:
+                case RegularExpressions.NamedBlock.CJKSymbolsAndPunctuation:
                     return "IsCJKSymbolsandPunctuation";
-                case Linq.NamedBlock.CJKUnifiedIdeographs:
+                case RegularExpressions.NamedBlock.CJKUnifiedIdeographs:
                     return "IsCJKUnifiedIdeographs";
-                case Linq.NamedBlock.CJKUnifiedIdeographsExtensionA:
+                case RegularExpressions.NamedBlock.CJKUnifiedIdeographsExtensionA:
                     return "IsCJKUnifiedIdeographsExtensionA";
-                case Linq.NamedBlock.CombiningDiacriticalMarks:
+                case RegularExpressions.NamedBlock.CombiningDiacriticalMarks:
                     return "IsCombiningDiacriticalMarks";
-                case Linq.NamedBlock.CombiningDiacriticalMarksForSymbols:
+                case RegularExpressions.NamedBlock.CombiningDiacriticalMarksForSymbols:
                     return "IsCombiningDiacriticalMarksforSymbols";
-                case Linq.NamedBlock.CombiningHalfMarks:
+                case RegularExpressions.NamedBlock.CombiningHalfMarks:
                     return "IsCombiningHalfMarks";
-                case Linq.NamedBlock.CombiningMarksForSymbols:
+                case RegularExpressions.NamedBlock.CombiningMarksForSymbols:
                     return "IsCombiningMarksforSymbols";
-                case Linq.NamedBlock.ControlPictures:
+                case RegularExpressions.NamedBlock.ControlPictures:
                     return "IsControlPictures";
-                case Linq.NamedBlock.CurrencySymbols:
+                case RegularExpressions.NamedBlock.CurrencySymbols:
                     return "IsCurrencySymbols";
-                case Linq.NamedBlock.Cyrillic:
+                case RegularExpressions.NamedBlock.Cyrillic:
                     return "IsCyrillic";
-                case Linq.NamedBlock.CyrillicSupplement:
+                case RegularExpressions.NamedBlock.CyrillicSupplement:
                     return "IsCyrillicSupplement";
-                case Linq.NamedBlock.Devanagari:
+                case RegularExpressions.NamedBlock.Devanagari:
                     return "IsDevanagari";
-                case Linq.NamedBlock.Dingbats:
+                case RegularExpressions.NamedBlock.Dingbats:
                     return "IsDingbats";
-                case Linq.NamedBlock.EnclosedAlphanumerics:
+                case RegularExpressions.NamedBlock.EnclosedAlphanumerics:
                     return "IsEnclosedAlphanumerics";
-                case Linq.NamedBlock.EnclosedCJKLettersAndMonths:
+                case RegularExpressions.NamedBlock.EnclosedCJKLettersAndMonths:
                     return "IsEnclosedCJKLettersandMonths";
-                case Linq.NamedBlock.Ethiopic:
+                case RegularExpressions.NamedBlock.Ethiopic:
                     return "IsEthiopic";
-                case Linq.NamedBlock.GeneralPunctuation:
+                case RegularExpressions.NamedBlock.GeneralPunctuation:
                     return "IsGeneralPunctuation";
-                case Linq.NamedBlock.GeometricShapes:
+                case RegularExpressions.NamedBlock.GeometricShapes:
                     return "IsGeometricShapes";
-                case Linq.NamedBlock.Georgian:
+                case RegularExpressions.NamedBlock.Georgian:
                     return "IsGeorgian";
-                case Linq.NamedBlock.Greek:
+                case RegularExpressions.NamedBlock.Greek:
                     return "IsGreek";
-                case Linq.NamedBlock.GreekAndCoptic:
+                case RegularExpressions.NamedBlock.GreekAndCoptic:
                     return "IsGreekandCoptic";
-                case Linq.NamedBlock.GreekExtended:
+                case RegularExpressions.NamedBlock.GreekExtended:
                     return "IsGreekExtended";
-                case Linq.NamedBlock.Gujarati:
+                case RegularExpressions.NamedBlock.Gujarati:
                     return "IsGujarati";
-                case Linq.NamedBlock.Gurmukhi:
+                case RegularExpressions.NamedBlock.Gurmukhi:
                     return "IsGurmukhi";
-                case Linq.NamedBlock.HalfWidthAndFullWidthForms:
+                case RegularExpressions.NamedBlock.HalfWidthAndFullWidthForms:
                     return "IsHalfwidthandFullwidthForms";
-                case Linq.NamedBlock.HangulCompatibilityJamo:
+                case RegularExpressions.NamedBlock.HangulCompatibilityJamo:
                     return "IsHangulCompatibilityJamo";
-                case Linq.NamedBlock.HangulJamo:
+                case RegularExpressions.NamedBlock.HangulJamo:
                     return "IsHangulJamo";
-                case Linq.NamedBlock.HangulSyllables:
+                case RegularExpressions.NamedBlock.HangulSyllables:
                     return "IsHangulSyllables";
-                case Linq.NamedBlock.Hanunoo:
+                case RegularExpressions.NamedBlock.Hanunoo:
                     return "IsHanunoo";
-                case Linq.NamedBlock.Hebrew:
+                case RegularExpressions.NamedBlock.Hebrew:
                     return "IsHebrew";
-                case Linq.NamedBlock.HighPrivateUseSurrogates:
+                case RegularExpressions.NamedBlock.HighPrivateUseSurrogates:
                     return "IsHighPrivateUseSurrogates";
-                case Linq.NamedBlock.HighSurrogates:
+                case RegularExpressions.NamedBlock.HighSurrogates:
                     return "IsHighSurrogates";
-                case Linq.NamedBlock.Hiragana:
+                case RegularExpressions.NamedBlock.Hiragana:
                     return "IsHiragana";
-                case Linq.NamedBlock.Cherokee:
+                case RegularExpressions.NamedBlock.Cherokee:
                     return "IsCherokee";
-                case Linq.NamedBlock.IdeographicDescriptionCharacters:
+                case RegularExpressions.NamedBlock.IdeographicDescriptionCharacters:
                     return "IsIdeographicDescriptionCharacters";
-                case Linq.NamedBlock.IPAExtensions:
+                case RegularExpressions.NamedBlock.IPAExtensions:
                     return "IsIPAExtensions";
-                case Linq.NamedBlock.Kanbun:
+                case RegularExpressions.NamedBlock.Kanbun:
                     return "IsKanbun";
-                case Linq.NamedBlock.KangxiRadicals:
+                case RegularExpressions.NamedBlock.KangxiRadicals:
                     return "IsKangxiRadicals";
-                case Linq.NamedBlock.Kannada:
+                case RegularExpressions.NamedBlock.Kannada:
                     return "IsKannada";
-                case Linq.NamedBlock.Katakana:
+                case RegularExpressions.NamedBlock.Katakana:
                     return "IsKatakana";
-                case Linq.NamedBlock.KatakanaPhoneticExtensions:
+                case RegularExpressions.NamedBlock.KatakanaPhoneticExtensions:
                     return "IsKatakanaPhoneticExtensions";
-                case Linq.NamedBlock.Khmer:
+                case RegularExpressions.NamedBlock.Khmer:
                     return "IsKhmer";
-                case Linq.NamedBlock.KhmerSymbols:
+                case RegularExpressions.NamedBlock.KhmerSymbols:
                     return "IsKhmerSymbols";
-                case Linq.NamedBlock.Lao:
+                case RegularExpressions.NamedBlock.Lao:
                     return "IsLao";
-                case Linq.NamedBlock.Latin1Supplement:
+                case RegularExpressions.NamedBlock.Latin1Supplement:
                     return "IsLatin-1Supplement";
-                case Linq.NamedBlock.LatinExtendedA:
+                case RegularExpressions.NamedBlock.LatinExtendedA:
                     return "IsLatinExtended-A";
-                case Linq.NamedBlock.LatinExtendedAdditional:
+                case RegularExpressions.NamedBlock.LatinExtendedAdditional:
                     return "IsLatinExtendedAdditional";
-                case Linq.NamedBlock.LatinExtendedB:
+                case RegularExpressions.NamedBlock.LatinExtendedB:
                     return "IsLatinExtended-B";
-                case Linq.NamedBlock.LetterLikeSymbols:
+                case RegularExpressions.NamedBlock.LetterLikeSymbols:
                     return "IsLetterlikeSymbols";
-                case Linq.NamedBlock.Limbu:
+                case RegularExpressions.NamedBlock.Limbu:
                     return "IsLimbu";
-                case Linq.NamedBlock.LowSurrogates:
+                case RegularExpressions.NamedBlock.LowSurrogates:
                     return "IsLowSurrogates";
-                case Linq.NamedBlock.Malayalam:
+                case RegularExpressions.NamedBlock.Malayalam:
                     return "IsMalayalam";
-                case Linq.NamedBlock.MathematicalOperators:
+                case RegularExpressions.NamedBlock.MathematicalOperators:
                     return "IsMathematicalOperators";
-                case Linq.NamedBlock.MiscellaneousMathematicalSymbolsA:
+                case RegularExpressions.NamedBlock.MiscellaneousMathematicalSymbolsA:
                     return "IsMiscellaneousMathematicalSymbols-A";
-                case Linq.NamedBlock.MiscellaneousMathematicalSymbolsB:
+                case RegularExpressions.NamedBlock.MiscellaneousMathematicalSymbolsB:
                     return "IsMiscellaneousMathematicalSymbols-B";
-                case Linq.NamedBlock.MiscellaneousSymbols:
+                case RegularExpressions.NamedBlock.MiscellaneousSymbols:
                     return "IsMiscellaneousSymbols";
-                case Linq.NamedBlock.MiscellaneousSymbolsAndArrows:
+                case RegularExpressions.NamedBlock.MiscellaneousSymbolsAndArrows:
                     return "IsMiscellaneousSymbolsandArrows";
-                case Linq.NamedBlock.MiscellaneousTechnical:
+                case RegularExpressions.NamedBlock.MiscellaneousTechnical:
                     return "IsMiscellaneousTechnical";
-                case Linq.NamedBlock.Mongolian:
+                case RegularExpressions.NamedBlock.Mongolian:
                     return "IsMongolian";
-                case Linq.NamedBlock.Myanmar:
+                case RegularExpressions.NamedBlock.Myanmar:
                     return "IsMyanmar";
-                case Linq.NamedBlock.NumberForms:
+                case RegularExpressions.NamedBlock.NumberForms:
                     return "IsNumberForms";
-                case Linq.NamedBlock.Ogham:
+                case RegularExpressions.NamedBlock.Ogham:
                     return "IsOgham";
-                case Linq.NamedBlock.OpticalCharacterRecognition:
+                case RegularExpressions.NamedBlock.OpticalCharacterRecognition:
                     return "IsOpticalCharacterRecognition";
-                case Linq.NamedBlock.Oriya:
+                case RegularExpressions.NamedBlock.Oriya:
                     return "IsOriya";
-                case Linq.NamedBlock.PhoneticExtensions:
+                case RegularExpressions.NamedBlock.PhoneticExtensions:
                     return "IsPhoneticExtensions";
-                case Linq.NamedBlock.PrivateUse:
+                case RegularExpressions.NamedBlock.PrivateUse:
                     return "IsPrivateUse";
-                case Linq.NamedBlock.PrivateUseArea:
+                case RegularExpressions.NamedBlock.PrivateUseArea:
                     return "IsPrivateUseArea";
-                case Linq.NamedBlock.Runic:
+                case RegularExpressions.NamedBlock.Runic:
                     return "IsRunic";
-                case Linq.NamedBlock.Sinhala:
+                case RegularExpressions.NamedBlock.Sinhala:
                     return "IsSinhala";
-                case Linq.NamedBlock.SmallFormVariants:
+                case RegularExpressions.NamedBlock.SmallFormVariants:
                     return "IsSmallFormVariants";
-                case Linq.NamedBlock.SpacingModifierLetters:
+                case RegularExpressions.NamedBlock.SpacingModifierLetters:
                     return "IsSpacingModifierLetters";
-                case Linq.NamedBlock.Specials:
+                case RegularExpressions.NamedBlock.Specials:
                     return "IsSpecials";
-                case Linq.NamedBlock.SuperscriptsAndSubscripts:
+                case RegularExpressions.NamedBlock.SuperscriptsAndSubscripts:
                     return "IsSuperscriptsandSubscripts";
-                case Linq.NamedBlock.SupplementalArrowsA:
+                case RegularExpressions.NamedBlock.SupplementalArrowsA:
                     return "IsSupplementalArrows-A";
-                case Linq.NamedBlock.SupplementalArrowsB:
+                case RegularExpressions.NamedBlock.SupplementalArrowsB:
                     return "IsSupplementalArrows-B";
-                case Linq.NamedBlock.SupplementalMathematicalOperators:
+                case RegularExpressions.NamedBlock.SupplementalMathematicalOperators:
                     return "IsSupplementalMathematicalOperators";
-                case Linq.NamedBlock.Syriac:
+                case RegularExpressions.NamedBlock.Syriac:
                     return "IsSyriac";
-                case Linq.NamedBlock.Tagalog:
+                case RegularExpressions.NamedBlock.Tagalog:
                     return "IsTagalog";
-                case Linq.NamedBlock.Tagbanwa:
+                case RegularExpressions.NamedBlock.Tagbanwa:
                     return "IsTagbanwa";
-                case Linq.NamedBlock.TaiLe:
+                case RegularExpressions.NamedBlock.TaiLe:
                     return "IsTaiLe";
-                case Linq.NamedBlock.Tamil:
+                case RegularExpressions.NamedBlock.Tamil:
                     return "IsTamil";
-                case Linq.NamedBlock.Telugu:
+                case RegularExpressions.NamedBlock.Telugu:
                     return "IsTelugu";
-                case Linq.NamedBlock.Thaana:
+                case RegularExpressions.NamedBlock.Thaana:
                     return "IsThaana";
-                case Linq.NamedBlock.Thai:
+                case RegularExpressions.NamedBlock.Thai:
                     return "IsThai";
-                case Linq.NamedBlock.Tibetan:
+                case RegularExpressions.NamedBlock.Tibetan:
                     return "IsTibetan";
-                case Linq.NamedBlock.UnifiedCanadianAboriginalSyllabics:
+                case RegularExpressions.NamedBlock.UnifiedCanadianAboriginalSyllabics:
                     return "IsUnifiedCanadianAboriginalSyllabics";
-                case Linq.NamedBlock.VariationSelectors:
+                case RegularExpressions.NamedBlock.VariationSelectors:
                     return "IsVariationSelectors";
-                case Linq.NamedBlock.YijingHexagramSymbols:
+                case RegularExpressions.NamedBlock.YijingHexagramSymbols:
                     return "IsYijingHexagramSymbols";
-                case Linq.NamedBlock.YiRadicals:
+                case RegularExpressions.NamedBlock.YiRadicals:
                     return "IsYiRadicals";
-                case Linq.NamedBlock.YiSyllables:
+                case RegularExpressions.NamedBlock.YiSyllables:
                     return "IsYiSyllables";
                 default:
                     return string.Empty;

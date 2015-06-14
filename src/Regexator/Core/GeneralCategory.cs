@@ -2,7 +2,7 @@
 
 using System.ComponentModel;
 
-namespace Pihrtsoft.Text.RegularExpressions.Linq
+namespace Pihrtsoft.Text.RegularExpressions
 {
     public enum GeneralCategory
     {
