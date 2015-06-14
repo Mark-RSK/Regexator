@@ -21,11 +21,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _groupNumber = groupNumber;
         }
 
-        internal override string Value(PatternWriter writer)
+        internal override void BuildContent(PatternWriter writer)
         {
-            return (writer.Settings.SeparatorAfterNumberBackreference)
-                ? Syntax.Backreference(GroupNumber) + Syntax.NoncapturingGroup()
-                : Syntax.Backreference(GroupNumber);
+            writer.WriteBackreferenceInternal(GroupNumber);
         }
 
         public int GroupNumber

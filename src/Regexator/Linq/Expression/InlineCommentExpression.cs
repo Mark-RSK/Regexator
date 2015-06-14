@@ -19,9 +19,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _comment = comment;
         }
 
-        internal override string Value(PatternWriter writer)
+        internal override void BuildContent(PatternWriter writer)
         {
-            return Syntax.InlineComment(_comment);
+            writer.WriteInlineComment(_comment);
         }
     }
 }

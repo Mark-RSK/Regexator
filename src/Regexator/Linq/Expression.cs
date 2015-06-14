@@ -143,7 +143,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        private IEnumerable<Expression> GetExpressions()
+        internal IEnumerable<Expression> GetExpressions()
         {
             Expression exp = this;
             do
@@ -237,11 +237,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal virtual void BuildContent(PatternWriter writer)
         {
-            string s = Value(writer);
-            if (s != null)
-            {
-                writer.Write(s);
-            }
+
         }
 
         internal virtual void BuildOpening(PatternWriter writer)
@@ -252,11 +248,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         internal virtual void BuildClosing(PatternWriter writer)
         {
 
-        }
-
-        internal virtual string Value(PatternWriter writer)
-        {
-            return null;
         }
 
         internal Expression AsContainer()

@@ -5,9 +5,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal sealed class PreviousMatchEnd
         : AnchorExpression
     {
-        internal override string Value(PatternWriter writer)
+        internal override void BuildContent(PatternWriter writer)
         {
-            return Syntax.PreviousMatchEnd;
+            writer.WritePreviousMatchEnd();
         }
     }
 }

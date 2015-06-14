@@ -24,16 +24,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _ignoreCase = ignoreCase;
         }
 
-        internal override string Value(PatternWriter writer)
+        internal override void BuildContent(PatternWriter writer)
         {
             if (!string.IsNullOrEmpty(_text))
             {
-                return _ignoreCase
-                    ? Syntax.GroupOptions(InlineOptions.IgnoreCase, _text)
-                    : RegexUtilities.Escape(_text);
+                if (_ignoreCase)
+                {
+                    writer.WriteGroupOptions(InlineOptions.IgnoreCase, _text);
+                }
+                else
+                {
+                    writer.WriteEscaped(_text);
+                }
             }
-
-            return string.Empty;
         }
     }
 }

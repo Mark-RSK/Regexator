@@ -10,9 +10,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
         }
 
-        internal override string Value(PatternWriter writer)
+        internal override void BuildContent(PatternWriter writer)
         {
-            return Syntax.GeneralCategory(Category, true);
+            writer.WriteNotGeneralCategory(Category);
         }
     }
 }
