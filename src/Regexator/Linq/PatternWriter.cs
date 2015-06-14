@@ -202,7 +202,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             CharGroupItem charGroupItem = value as CharGroupItem;
             if (charGroupItem != null)
             {
-                charGroupItem.BuildGroup(this);
+                charGroupItem.WriteGroupTo(this);
 
                 return;
             }
