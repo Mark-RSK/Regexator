@@ -536,6 +536,21 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.WhiteSpaceExceptNewLine());
         }
 
+        public Expression While(char value)
+        {
+            return ConcatInternal(Chars.While(value));
+        }
+
+        public Expression While(AsciiChar value)
+        {
+            return ConcatInternal(Chars.While(value));
+        }
+
+        public Expression While(CharGroupItem item)
+        {
+            return ConcatInternal(Chars.While(item));
+        }
+
         public Expression WhileNot(char value)
         {
             return ConcatInternal(Chars.WhileNot(value));
