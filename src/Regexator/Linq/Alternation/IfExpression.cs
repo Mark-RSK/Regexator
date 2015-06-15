@@ -30,7 +30,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (_condition != null)
             {
-                if (writer.Settings.ConditionWithAssertion)
+                if (writer.Settings.HasOptions(PatternOptions.ConditionWithAssertion))
                 {
                     writer.WriteAssertStart();
                 }

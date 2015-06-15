@@ -7,23 +7,48 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     public class PatternSettings
         : ICloneable
     {
+        private readonly PatternOptions _options;
+        private readonly IdentifierBoundary _boundary;
+
         public PatternSettings()
+            : this(PatternOptions.None)
         {
-            IdentifierBoundary = IdentifierBoundary.LessThan;
-            SeparatorAfterNumberBackreference = true;
+        }
+
+        public PatternSettings(PatternOptions options)
+            : this(options, IdentifierBoundary.LessThan)
+        {
+        }
+
+        public PatternSettings(IdentifierBoundary boundary)
+            : this(PatternOptions.None, boundary)
+        {
+        }
+
+        public PatternSettings(PatternOptions options, IdentifierBoundary boundary)
+        {
+            _options = options;
+            _boundary = boundary;
+        }
+
+        public bool HasOptions(PatternOptions options)
+        {
+            return (Options & options) == options;
         }
 
         public object Clone()
         {
-            return new PatternSettings() {
-                ConditionWithAssertion = ConditionWithAssertion,
-                IdentifierBoundary = IdentifierBoundary,
-                SeparatorAfterNumberBackreference = SeparatorAfterNumberBackreference,
-            };
+            return new PatternSettings(Options, IdentifierBoundary);
         }
 
-        public IdentifierBoundary IdentifierBoundary { get; set; }
-        public bool ConditionWithAssertion { get; set; }
-        public bool SeparatorAfterNumberBackreference { get; set; }
+        public PatternOptions Options
+        {
+            get { return _options; }
+        }
+
+        public IdentifierBoundary IdentifierBoundary
+        {
+            get { return _boundary; }
+        }
     }
 }

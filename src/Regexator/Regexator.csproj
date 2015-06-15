@@ -76,6 +76,7 @@
     <Compile Include="Linq\Patterns.cs" />
     <Compile Include="Linq\Expression\CharacterExpression.cs" />
     <Compile Include="Linq\Expression\AsciiCharSurroundExpression.cs" />
+    <Compile Include="Linq\PatternOptions.cs" />
     <Compile Include="Linq\Quantifier\LazyQuantifierExpression.cs" />
     <Compile Include="Linq\Quantifiers.cs" />
     <Compile Include="Linq\Quantifier\QuantifierExpression.cs" />

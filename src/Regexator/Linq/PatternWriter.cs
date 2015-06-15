@@ -551,7 +551,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             base.Write(Syntax.Backreference(groupNumber));
 
-            if (Settings.SeparatorAfterNumberBackreference)
+            if (Settings.HasOptions(PatternOptions.SeparatorAfterNumberBackreference))
             {
                 WriteNoncapturingGroupStart();
                 WriteGroupEnd();
@@ -602,22 +602,26 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public void WriteLeftIdentifierBoundary()
         {
-            base.Write(Settings.IdentifierBoundary == IdentifierBoundary.Apostrophe ? "'" : "<");
+            base.Write(Settings.IdentifierBoundary == IdentifierBoundary.Apostrophe 
+                ? '\''
+                : '<');
         }
 
         public void WriteRightIdentifierBoundary()
         {
-            base.Write(Settings.IdentifierBoundary == IdentifierBoundary.Apostrophe ? "'" : ">");
+            base.Write(Settings.IdentifierBoundary == IdentifierBoundary.Apostrophe 
+                ? '\'' 
+                : '>');
         }
 
         private void WriteLeftCurlyBracket()
         {
-            base.Write("{");
+            base.Write('{');
         }
 
         private void WriteRightCurlyBracket()
         {
-            base.Write("}");
+            base.Write('}');
         }
 
 #if DEBUG
