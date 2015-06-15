@@ -220,17 +220,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public void WriteExcludedGroupTo(PatternWriter writer)
         {
-            WriteGroupTo(writer);
-        }
-
-        internal void WriteGroupTo(PatternWriter writer)
-        {
-            writer.WriteCharGroupStart();
-
-            //todo check empty
-            WriteContentTo(writer);
-
-            writer.WriteCharGroupEnd();
+            writer.Write(this);
         }
 
         internal void WriteContentTo(PatternWriter writer)

@@ -181,6 +181,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 #endif
         }
 
+        public void Write(CharGroupItem item)
+        {
+            WriteCharGroupStart();
+
+            //todo check empty
+            item.WriteContentTo(this);
+
+            WriteCharGroupEnd();
+        }
+
         public override void Write(object value)
         {
             if (value == null)
@@ -205,8 +215,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             CharGroupItem charGroupItem = value as CharGroupItem;
             if (charGroupItem != null)
             {
-                charGroupItem.WriteGroupTo(this);
-
+                Write(charGroupItem);
                 return;
             }
 
