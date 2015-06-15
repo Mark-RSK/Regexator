@@ -731,9 +731,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.WhiteSpaces());
         }
 
-        public QuantifierExpression SkipWhiteSpace()
+        public QuantifierExpression WhileWhiteSpace()
         {
-            return ConcatInternal(Chars.SkipWhiteSpace());
+            return ConcatInternal(Chars.WhileWhiteSpace());
         }
 
         public QuantifiableExpression NotWhiteSpace()

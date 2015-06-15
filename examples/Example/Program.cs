@@ -111,8 +111,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             Console.WriteLine("whitespace lines:");
             Console.WriteLine(Alternations.Any(Anchors
-                    .StartOfLineInvariant().SkipWhiteSpace().NewLine(),
-                    Expressions.NewLine().SkipWhiteSpace().EndOfInput()));
+                    .StartOfLineInvariant().WhileWhiteSpace().NewLine(),
+                    Expressions.NewLine().WhileWhiteSpace().EndOfInput()));
             Console.WriteLine("");
 
             Console.WriteLine("empty lines:");

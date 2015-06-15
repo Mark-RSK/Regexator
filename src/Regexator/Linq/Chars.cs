@@ -206,7 +206,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return WhiteSpace().OneMany();
         }
 
-        public static QuantifierExpression SkipWhiteSpace()
+        public static QuantifierExpression WhileWhiteSpace()
         {
             return WhiteSpace().MaybeMany();
         }
