@@ -337,23 +337,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal void WriteNamedGroupStartInternal(string groupName)
         {
-            switch (Settings.IdentifierBoundary)
-            {
-                case IdentifierBoundary.LessThan:
-                    {
-                        base.Write(@"(?<");
-                        base.Write(groupName);
-                        base.Write(@">");
-                        break;
-                    }
-                case IdentifierBoundary.Apostrophe:
-                    {
-                        base.Write(@"(?'");
-                        base.Write(groupName);
-                        base.Write(@"'");
-                        break;
-                    }
-            }
+            base.Write(@"(?");
+            WriteLeftIdentifierBoundary();
+            base.Write(groupName);
+            WriteRightIdentifierBoundary();
         }
 
         public void WriteGroupOptions(InlineOptions applyOptions, object content)
@@ -402,27 +389,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal void WriteBalanceGroupStartInternal(string name1, string name2)
         {
-            switch (Settings.IdentifierBoundary)
-            {
-                case IdentifierBoundary.LessThan:
-                {
-                    base.Write(@"(?<");
-                    base.Write(name1);
-                    WriteGroupSeparator();
-                    base.Write(name2);
-                    base.Write(@">");
-                    break;
-                }
-                case IdentifierBoundary.Apostrophe:
-                {
-                    base.Write(@"(?'");
-                    base.Write(name1);
-                    WriteGroupSeparator();
-                    base.Write(name2);
-                    base.Write(@"'");
-                    break;
-                }
-            }
+            base.Write(@"(?");
+            WriteLeftIdentifierBoundary();
+            base.Write(name1);
+            WriteGroupSeparator();
+            base.Write(name2);
+            WriteRightIdentifierBoundary();
         }
 
         public void WriteGroupEnd()
@@ -523,9 +495,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal void WriteCountInternal(int exactCount)
         {
-            base.Write("{");
+            WriteLeftCurlyBracket();
             base.Write(exactCount);
-            base.Write("}");
+            WriteRightCurlyBracket();
         }
 
         public void WriteCountFrom(int minCount)
@@ -540,9 +512,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal void WriteCountFromInternal(int minCount)
         {
-            base.Write("{");
+            WriteLeftCurlyBracket();
             base.Write(minCount);
-            base.Write(",}");
+            base.Write(",");
+            WriteRightCurlyBracket();
         }
 
         public void WriteCountRange(int minCount, int maxCount)
@@ -562,11 +535,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal void WriteCountRangeInternal(int minCount, int maxCount)
         {
-            base.Write("{");
+            WriteLeftCurlyBracket();
             base.Write(minCount);
             base.Write(",");
             base.Write(maxCount);
-            base.Write("}");
+            WriteRightCurlyBracket();
         }
 
         public void WriteLazy()
@@ -587,23 +560,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal void WriteBackreferenceInternal(string groupName)
         {
-            switch (Settings.IdentifierBoundary)
-            {
-                case IdentifierBoundary.LessThan:
-                    {
-                        base.Write(@"\k<");
-                        base.Write(groupName);
-                        base.Write(">");
-                        break;
-                    }
-                case IdentifierBoundary.Apostrophe:
-                    {
-                        base.Write(@"\k'");
-                        base.Write(groupName);
-                        base.Write("'");
-                        break;
-                    }
-            }
+            base.Write(@"\k");
+            WriteLeftIdentifierBoundary();
+            base.Write(groupName);
+            WriteRightIdentifierBoundary();
         }
 
         public void WriteOptions(InlineOptions applyOptions)
@@ -638,6 +598,26 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public void WriteGroupSeparator()
         {
             base.Write(Syntax.GroupSeparator);
+        }
+
+        public void WriteLeftIdentifierBoundary()
+        {
+            base.Write(Settings.IdentifierBoundary == IdentifierBoundary.Apostrophe ? "'" : "<");
+        }
+
+        public void WriteRightIdentifierBoundary()
+        {
+            base.Write(Settings.IdentifierBoundary == IdentifierBoundary.Apostrophe ? "'" : ">");
+        }
+
+        private void WriteLeftCurlyBracket()
+        {
+            base.Write("{");
+        }
+
+        private void WriteRightCurlyBracket()
+        {
+            base.Write("}");
         }
 
 #if DEBUG
