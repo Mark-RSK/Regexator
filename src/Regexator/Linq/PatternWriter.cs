@@ -558,12 +558,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             base.Write(Syntax.NotAssertBackStart);
         }
 
-        public void WriteAny(object content)
+        public void WriteOr(object content)
         {
-            WriteAny(content, AnyGroupMode.Noncapturing);
+            WriteOr(content, AnyGroupMode.Noncapturing);
         }
 
-        internal void WriteAny(object content, AnyGroupMode mode)
+        internal void WriteOr(object content, AnyGroupMode mode)
         {
             if (mode == AnyGroupMode.Capturing)
             {
