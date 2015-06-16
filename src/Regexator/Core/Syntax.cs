@@ -54,7 +54,6 @@ namespace Pihrtsoft.Text.RegularExpressions
         internal const string CharGroupStart = "[";
         internal const string NotCharGroupStart = "[^";
         internal const string CharGroupEnd = "]";
-        internal const string GroupSeparator = "-";
 
         internal const string AsciiStart = @"\x";
         internal const string AsciiOctalStart = @"\";
@@ -195,9 +194,9 @@ namespace Pihrtsoft.Text.RegularExpressions
             switch (separator)
             {
                 case IdentifierBoundary.LessThan:
-                    return @"(?<" + name1 + GroupSeparator + name2 + @">";
+                    return @"(?<" + name1 + "-" + name2 + @">";
                 case IdentifierBoundary.Apostrophe:
-                    return @"(?'" + name1 + GroupSeparator + name2 + @"'";
+                    return @"(?'" + name1 + "-" + name2 + @"'";
             }
             return null;
         }
@@ -341,12 +340,12 @@ namespace Pihrtsoft.Text.RegularExpressions
 
         public static string Char(char first, char last)
         {
-            return Char(first, true) + GroupSeparator + Char(last, true);
+            return Char(first, true) + "-" + Char(last, true);
         }
 
         public static string Char(int firstCharCode, int lastCharCode)
         {
-            return Char(firstCharCode, true) + GroupSeparator + Char(lastCharCode, true);
+            return Char(firstCharCode, true) + "-" + Char(lastCharCode, true);
         }
 
         public static string Char(char value, bool inCharGroup)
@@ -579,7 +578,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 if (disableOptions != InlineOptions.None)
                 {
-                    return GetInlineChars(applyOptions) + GroupSeparator + GetInlineChars(disableOptions);
+                    return GetInlineChars(applyOptions) + "-" + GetInlineChars(disableOptions);
                 }
                 else
                 {
