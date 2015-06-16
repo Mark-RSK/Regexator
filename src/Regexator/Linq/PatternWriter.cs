@@ -65,14 +65,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public void Write(char value, bool inCharGroup)
         {
-            if (RegexUtilities.EscapeRequired(value, inCharGroup))
-            {
-                base.Write(RegexUtilities.EscapeInternal((int)value, inCharGroup));
-            }
-            else
-            {
-                base.Write(value);
-            }
+            WriteInternal((int)value, inCharGroup);
         }
 
         public void Write(AsciiChar value)
@@ -82,14 +75,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public void Write(AsciiChar value, bool inCharGroup)
         {
-            if (RegexUtilities.EscapeRequired(value, inCharGroup))
-            {
-                base.Write(RegexUtilities.EscapeInternal((int)value, inCharGroup));
-            }
-            else
-            {
-                base.Write((char)(int)value);
-            }
+            WriteInternal((int)value, inCharGroup);
         }
 
         public override void Write(int value)
@@ -114,13 +100,39 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal void WriteInternal(int value, bool inCharGroup)
         {
-            if (RegexUtilities.EscapeRequired(value, inCharGroup))
+            switch (RegexUtilities.GetEscapeMode(value, inCharGroup))
             {
-                base.Write(RegexUtilities.EscapeInternal(value, inCharGroup));
-            }
-            else
-            {
-                base.Write((char)value);
+                case CharEscapeMode.None:
+                    base.Write((char)value);
+                    break;
+                case CharEscapeMode.AsciiEscape:
+                    WriteAsciiHexadecimal(value);
+                    break;
+                case CharEscapeMode.BackslashEscape:
+                    base.Write(@"\");
+                    base.Write((char)value);
+                    break;
+                case CharEscapeMode.Bell:
+                    WriteBell();
+                    break;
+                case CharEscapeMode.CarriageReturn:
+                    WriteCarriageReturn();
+                    break;
+                case CharEscapeMode.Escape:
+                    WriteEscape();
+                    break;
+                case CharEscapeMode.FormFeed:
+                    WriteFormFeed();
+                    break;
+                case CharEscapeMode.Linefeed:
+                    WriteLinefeed();
+                    break;
+                case CharEscapeMode.VerticalTab:
+                    WriteVerticalTab();
+                    break;
+                case CharEscapeMode.Tab:
+                    WriteTab();
+                    break;
             }
         }
 
@@ -803,6 +815,52 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         private void WriteColon()
         {
             base.Write(':');
+        }
+
+        public void WriteAsciiHexadecimal(int charCode)
+        {
+            if (charCode < 0 || charCode > 0xFF)
+            {
+                throw new ArgumentOutOfRangeException("charCode");
+            }
+
+            base.Write(Syntax.AsciiStart);
+            base.Write(charCode.ToString("X2", CultureInfo.InvariantCulture));
+        }
+
+        private void WriteBell()
+        {
+            base.Write(Syntax.Bell);
+        }
+
+        private void WriteCarriageReturn()
+        {
+            base.Write(Syntax.CarriageReturn);
+        }
+
+        private void WriteEscape()
+        {
+            base.Write(Syntax.Escape);
+        }
+
+        private void WriteFormFeed()
+        {
+            base.Write(Syntax.FormFeed);
+        }
+
+        private void WriteLinefeed()
+        {
+            base.Write(Syntax.Linefeed);
+        }
+
+        private void WriteVerticalTab()
+        {
+            base.Write(Syntax.VerticalTab);
+        }
+
+        private void WriteTab()
+        {
+            base.Write(Syntax.Tab);
         }
 
 #if DEBUG

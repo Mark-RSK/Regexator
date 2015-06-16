@@ -138,16 +138,6 @@ namespace Pihrtsoft.Text.RegularExpressions
             return value;
         }
 
-        internal static bool EscapeRequired(char value, bool inCharGroup)
-        {
-            return EscapeRequired((int)value, inCharGroup);
-        }
-
-        internal static bool EscapeRequired(AsciiChar value, bool inCharGroup)
-        {
-            return EscapeRequired((int)value, inCharGroup);
-        }
-
         internal static bool EscapeRequired(int charCode, bool inCharGroup)
         {
             if (charCode <= 0xFF)
@@ -278,6 +268,60 @@ namespace Pihrtsoft.Text.RegularExpressions
             Debug.Assert(false);
 
             return ((char)charCode).ToString();
+        }
+
+        internal static CharEscapeMode GetEscapeMode(int charCode, bool inCharGroup)
+        {
+            if (charCode <= 0xFF)
+            {
+                switch (s_escapeModes[charCode])
+                {
+                    case EscapeMode.Backslash:
+                        {
+                            return CharEscapeMode.BackslashEscape;
+                        }
+                    case EscapeMode.Metachar:
+                        {
+                            return inCharGroup 
+                                ? CharEscapeMode.None 
+                                : CharEscapeMode.BackslashEscape;
+                        }
+                    case EscapeMode.CharGroupMetachar:
+                        {
+                            return inCharGroup 
+                                ? CharEscapeMode.BackslashEscape 
+                                : CharEscapeMode.None;
+                        }
+                    case EscapeMode.Control:
+                        {
+                            return CharEscapeMode.AsciiEscape;
+                        }
+                    case EscapeMode.SpecialControl:
+                        {
+                            switch (charCode)
+                            {
+                                case 7:
+                                    return CharEscapeMode.Bell;
+                                case 9:
+                                    return CharEscapeMode.Tab;
+                                case 10:
+                                    return CharEscapeMode.Linefeed;
+                                case 11:
+                                    return CharEscapeMode.VerticalTab;
+                                case 12:
+                                    return CharEscapeMode.FormFeed;
+                                case 13:
+                                    return CharEscapeMode.CarriageReturn;
+                                case 27:
+                                    return CharEscapeMode.Escape;
+                            }
+
+                            break;
+                        }
+                }
+            }
+
+            return CharEscapeMode.None;
         }
 
         private static string EscapeChar(int charCode)
