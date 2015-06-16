@@ -245,6 +245,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
+        internal void WriteGroupStart()
+        {
+            base.Write("(?");
+        }
+
         internal void WriteGroupContent(object content)
         {
             string text = content as string;
@@ -501,7 +506,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal void WriteNamedGroupStart(string groupName)
         {
-            base.Write(@"(?");
+            WriteGroupStart();
             WriteLeftIdentifierBoundary();
             base.Write(groupName);
             WriteRightIdentifierBoundary();
@@ -523,9 +528,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (!string.IsNullOrEmpty(options))
             {
-                base.Write("(?");
+                WriteGroupStart();
                 base.Write(options);
-                base.Write(":");
+                WriteColon();
             }
             else
             {
@@ -550,7 +555,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal void WriteBalanceGroupStartInternal(string name1, string name2)
         {
-            base.Write(@"(?");
+            WriteGroupStart();
             WriteLeftIdentifierBoundary();
             base.Write(name1);
             WriteGroupSeparator();
@@ -675,7 +680,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             WriteLeftCurlyBracket();
             base.Write(minCount);
-            base.Write(",");
+            WriteComma();
             WriteRightCurlyBracket();
         }
 
@@ -698,7 +703,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             WriteLeftCurlyBracket();
             base.Write(minCount);
-            base.Write(",");
+            WriteComma();
             base.Write(maxCount);
             WriteRightCurlyBracket();
         }
@@ -721,10 +726,15 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal void WriteBackreferenceInternal(string groupName)
         {
-            base.Write(@"\k");
+            WriteBackreferenceStart();
             WriteLeftIdentifierBoundary();
             base.Write(groupName);
             WriteRightIdentifierBoundary();
+        }
+
+        private void WriteBackreferenceStart()
+        {
+            base.Write(@"\k");
         }
 
         public void WriteOptions(InlineOptions applyOptions)
@@ -738,7 +748,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (!string.IsNullOrEmpty(options))
             {
-                base.Write("(?");
+                WriteGroupStart();
                 base.Write(options);
                 WriteGroupEnd();
             }
@@ -783,6 +793,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         private void WriteRightCurlyBracket()
         {
             base.Write('}');
+        }
+
+        private void WriteComma()
+        {
+            base.Write(',');
+        }
+
+        private void WriteColon()
+        {
+            base.Write(':');
         }
 
 #if DEBUG
