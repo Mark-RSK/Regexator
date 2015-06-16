@@ -98,6 +98,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new JoinContainerExpression(separator, (object)values);
         }
 
+        public static Expression Surround(object content, object surroundContent)
+        {
+            return new SurroundExpression(surroundContent, content, surroundContent);
+        }
+
+        internal static Expression Surround(object contentBefore, object content, object contentAfter)
+        {
+            return new SurroundExpression(contentBefore, content, contentAfter);
+        }
+
         public Regex ToRegex()
         {
             return ToRegex(RegexOptions.None);

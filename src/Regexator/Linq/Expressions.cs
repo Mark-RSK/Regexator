@@ -131,16 +131,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new InlineCommentExpression(value);
         }
 
-        internal static Expression Surround(object content, object surroundContent)
-        {
-            return new SurroundExpression(surroundContent, content, surroundContent);
-        }
-
-        internal static Expression Surround(object contentBefore, object content, object contentAfter)
-        {
-            return new SurroundExpression(contentBefore, content, contentAfter);
-        }
-
         internal static Expression Surround(object value, AsciiChar surroundChar)
         {
             return new AsciiCharSurroundExpression(value, surroundChar);

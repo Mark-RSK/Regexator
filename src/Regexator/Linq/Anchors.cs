@@ -46,22 +46,22 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static Expression AssertSurround(object content, object surroundContent)
         {
-            return Expressions.Surround(Anchors.AssertBack(surroundContent), content, Anchors.Assert(surroundContent));
+            return Expression.Surround(Anchors.AssertBack(surroundContent), content, Anchors.Assert(surroundContent));
         }
 
         public static Expression AssertSurround(object contentBefore, object content, object contentAfter)
         {
-            return Expressions.Surround(Anchors.AssertBack(contentBefore), content, Anchors.Assert(contentAfter));
+            return Expression.Surround(Anchors.AssertBack(contentBefore), content, Anchors.Assert(contentAfter));
         }
 
         public static Expression NotAssertSurround(object content, object surroundContent)
         {
-            return Expressions.Surround(Anchors.NotAssertBack(surroundContent), content, Anchors.NotAssert(surroundContent));
+            return Expression.Surround(Anchors.NotAssertBack(surroundContent), content, Anchors.NotAssert(surroundContent));
         }
 
         public static Expression NotAssertSurround(object contentBefore, object content, object contentAfter)
         {
-            return Expressions.Surround(Anchors.NotAssertBack(contentBefore), content, Anchors.NotAssert(contentAfter));
+            return Expression.Surround(Anchors.NotAssertBack(contentBefore), content, Anchors.NotAssert(contentAfter));
         }
 
         public static QuantifiableExpression StartOfInput()
@@ -140,17 +140,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiableExpression Word()
         {
-            return Expressions.Surround(Chars.WordChars(), WordBoundary()).AsNoncapturing();
+            return Expression.Surround(Chars.WordChars(), WordBoundary()).AsNoncapturing();
         }
 
         public static QuantifiableExpression Word(string text)
         {
-            return Expressions.Surround(text, WordBoundary()).AsNoncapturing();
+            return Expression.Surround(text, WordBoundary()).AsNoncapturing();
         }
 
         public static QuantifiableExpression Word(params string[] values)
         {
-            return Expressions.Surround(Alternations.Any(values), WordBoundary()).AsNoncapturing();
+            return Expression.Surround(Alternations.Any(values), WordBoundary()).AsNoncapturing();
         }
 
         public static QuantifiableExpression NotWordBoundary()
@@ -160,17 +160,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static Expression Line(object content)
         {
-            return Expressions.Surround(StartOfLine(), content, EndOfLine());
+            return Expression.Surround(StartOfLine(), content, EndOfLine());
         }
 
         public static Expression LineInvariant(object content)
         {
-            return Expressions.Surround(StartOfLineInvariant(), content, EndOfLineInvariant());
+            return Expression.Surround(StartOfLineInvariant(), content, EndOfLineInvariant());
         }
 
         public static Expression EntireInput(object content)
         {
-            return Expressions.Surround(StartOfInput(), content, EndOfInput());
+            return Expression.Surround(StartOfInput(), content, EndOfInput());
         }
     }
 }
