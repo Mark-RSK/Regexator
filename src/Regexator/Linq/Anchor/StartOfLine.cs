@@ -7,7 +7,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal sealed class StartOfLine
         : AnchorExpression
     {
-        internal override void WriteContentTo(PatternWriter writer)
+        internal override void WriteTo(PatternWriter writer)
         {
             writer.WriteStartOfLine();
         }

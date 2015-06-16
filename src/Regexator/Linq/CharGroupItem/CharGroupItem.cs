@@ -71,12 +71,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return item;
         }
 
-        //todo zkontrolovat
         public override string ToString()
         {
             using (var writer = new PatternWriter())
             {
-                WriteExcludedGroupTo(writer);
+                writer.Write(this);
                 return writer.ToString();
             }
         }
@@ -220,6 +219,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public void WriteExcludedGroupTo(PatternWriter writer)
         {
+            if (writer == null)
+            {
+                throw new ArgumentNullException("writer");
+            }
+
             writer.Write(this);
         }
 

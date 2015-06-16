@@ -15,7 +15,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         internal AnyExpression(AnyGroupMode groupMode, IEnumerable<object> content)
-            : base(content)
+            : base((object)content)
         {
             _groupMode = groupMode;
         }
@@ -26,7 +26,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         internal AnyExpression(AnyGroupMode groupMode, params object[] content)
-            : base(content)
+            : base((object)content)
         {
             _groupMode = groupMode;
         }

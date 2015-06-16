@@ -151,6 +151,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
+        internal virtual void WriteTo(PatternWriter writer)
+        {
+
+        }
+
         internal virtual void WriteContentTo(PatternWriter writer)
         {
 

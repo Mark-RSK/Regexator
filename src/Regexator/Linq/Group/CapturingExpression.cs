@@ -10,9 +10,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
         }
 
-        internal override void WriteStartTo(PatternWriter writer)
+        internal override void WriteTo(PatternWriter writer)
         {
-            writer.WriteCapturingGroupStart();
+            writer.WriteCapturingGroup(Content);
         }
     }
 }

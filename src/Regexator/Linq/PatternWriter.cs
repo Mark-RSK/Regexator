@@ -183,6 +183,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public void Write(CharGroupItem item)
         {
+            if (item == null)
+            {
+                throw new ArgumentNullException("item");
+            }
+
             WriteCharGroupStart();
 
             //todo check empty
@@ -240,6 +245,55 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
+        internal void WriteGroupContent(object content)
+        {
+            string text = content as string;
+            if (text != null)
+            {
+                Write(text);
+            }
+            else
+            {
+                object[] values = content as object[];
+                if (values != null)
+                {
+                    if (values.Length > 0)
+                    {
+                        Write(values[0]);
+
+                        for (int i = 1; i < values.Length; i++)
+                        {
+                            WriteOr();
+                            Write(values[i]);
+                        }
+                    }
+                }
+                else
+                {
+                    IEnumerable items = content as IEnumerable;
+                    if (items != null)
+                    {
+                        IEnumerator en = items.GetEnumerator();
+
+                        if (en.MoveNext())
+                        {
+                            Write(en.Current);
+
+                            while (en.MoveNext())
+                            {
+                                WriteOr();
+                                Write(en.Current);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Write(content);
+                    }
+                }
+            }
+        }
+
         public void WriteIfStart()
         {
             base.Write(Syntax.IfStart);
@@ -260,6 +314,54 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public void WriteOr()
         {
             base.Write(Syntax.Or);
+        }
+
+        public void WriteAssert(object content)
+        {
+            if (content == null)
+            {
+                throw new ArgumentNullException("content");
+            }
+
+            WriteAssertStart();
+            WriteGroupContent(content);
+            WriteGroupEnd();
+        }
+
+        public void WriteAssertBack(object content)
+        {
+            if (content == null)
+            {
+                throw new ArgumentNullException("content");
+            }
+
+            WriteAssertBackStart();
+            WriteGroupContent(content);
+            WriteGroupEnd();
+        }
+
+        public void WriteNotAssert(object content)
+        {
+            if (content == null)
+            {
+                throw new ArgumentNullException("content");
+            }
+
+            WriteNotAssertStart();
+            WriteGroupContent(content);
+            WriteGroupEnd();
+        }
+
+        public void WriteNotAssertBack(object content)
+        {
+            if (content == null)
+            {
+                throw new ArgumentNullException("content");
+            }
+
+            WriteNotAssertBackStart();
+            WriteGroupContent(content);
+            WriteGroupEnd();
         }
 
         public void WriteStartOfInput()
@@ -302,49 +404,102 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             base.Write(Syntax.PreviousMatchEnd);
         }
 
-        public void WriteAssertStart()
+        internal void WriteAssertStart()
         {
             base.Write(Syntax.AssertStart);
         }
 
-        public void WriteNotAssertStart()
+        internal void WriteNotAssertStart()
         {
             base.Write(Syntax.NotAssertStart);
         }
 
-        public void WriteAssertBackStart()
+        internal void WriteAssertBackStart()
         {
             base.Write(Syntax.AssertBackStart);
         }
 
-        public void WriteNotAssertBackStart()
+        internal void WriteNotAssertBackStart()
         {
             base.Write(Syntax.NotAssertBackStart);
         }
 
-        public void WriteCapturingGroupStart()
+        public void WriteCapturingGroup(object content)
+        {
+            if (content == null)
+            {
+                throw new ArgumentNullException("content");
+            }
+
+            WriteCapturingGroupStart();
+            WriteGroupContent(content);
+            WriteGroupEnd();
+        }
+
+        internal void WriteCapturingGroupStart()
         {
             base.Write(Syntax.CapturingGroupStart);
         }
 
-        public void WriteNoncapturingGroupStart()
+        public void WriteNoncapturingGroup(object content)
+        {
+            if (content == null)
+            {
+                throw new ArgumentNullException("content");
+            }
+
+            WriteNoncapturingGroupStart();
+            WriteGroupContent(content);
+            WriteGroupEnd();
+        }
+
+        internal void WriteNoncapturingGroupStart()
         {
             base.Write(Syntax.NoncapturingGroupStart);
         }
 
-        public void WriteNonbacktrackingGroupStart()
+        public void WriteNonbacktrackingGroup(object content)
+        {
+            if (content == null)
+            {
+                throw new ArgumentNullException("content");
+            }
+
+            WriteNonbacktrackingGroupStart();
+            WriteGroupContent(content);
+            WriteGroupEnd();
+        }
+
+        internal void WriteNonbacktrackingGroupStart()
         {
             base.Write(Syntax.NonbacktrackingGroupStart);
         }
 
-        public void WriteNamedGroupStart(string groupName)
+        public void WriteNamedGroup(string groupName, object content)
         {
+            if (content == null)
+            {
+                throw new ArgumentNullException("content");
+            }
+
             RegexUtilities.CheckGroupName(groupName);
 
-            WriteNamedGroupStartInternal(groupName);
+            WriteNamedGroupInternal(groupName, content);
         }
 
-        internal void WriteNamedGroupStartInternal(string groupName)
+        public void WriteNamedGroupInternal(string groupName, object content)
+        {
+            if (content == null)
+            {
+                throw new ArgumentNullException("content");
+            }
+
+            WriteNamedGroupStart(groupName);
+            WriteGroupContent(content);
+            WriteGroupEnd();
+        }
+
+        internal void WriteNamedGroupStart(string groupName)
         {
             base.Write(@"(?");
             WriteLeftIdentifierBoundary();
@@ -371,29 +526,26 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 base.Write("(?");
                 base.Write(options);
                 base.Write(":");
-                Write(content);
-                WriteGroupEnd();
-            }
-            else
-            {
-                Write(content);
-            }
-        }
-
-        public void WriteGroupOptionsStart(InlineOptions applyOptions, InlineOptions disableOptions)
-        {
-            string options = Syntax.GetInlineChars(applyOptions, disableOptions);
-
-            if (!string.IsNullOrEmpty(options))
-            {
-                base.Write("(?");
-                base.Write(options);
-                base.Write(":");
             }
             else
             {
                 WriteNoncapturingGroupStart();
             }
+
+            Write(content);
+            WriteGroupEnd();
+        }
+
+        internal void WriteBalanceGroup(string name1, string name2, object content)
+        {
+            if (content == null)
+            {
+                throw new ArgumentNullException("content");
+            }
+            
+            WriteBalanceGroupStartInternal(name1, name2);
+            WriteGroupContent(content);
+            WriteGroupEnd();
         }
 
         internal void WriteBalanceGroupStartInternal(string name1, string name2)

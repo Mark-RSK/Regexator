@@ -15,9 +15,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _disableOptions = disableOptions;
         }
 
-        internal override void WriteStartTo(PatternWriter writer)
+        internal override void WriteTo(PatternWriter writer)
         {
-            writer.WriteGroupOptionsStart(_applyOptions, _disableOptions);
+            writer.WriteGroupOptions(_applyOptions, _disableOptions);
         }
     }
 }
