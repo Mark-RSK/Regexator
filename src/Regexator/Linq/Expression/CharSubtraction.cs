@@ -28,32 +28,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public void WriteExcludedGroupTo(PatternWriter writer)
         {
-            WriteStartTo(writer);
-
-            WriteContentTo(writer);
-
-            WriteEndTo(writer);
+            WriteTo(writer);
         }
 
-        internal override void WriteContentTo(PatternWriter writer)
+        internal override void WriteTo(PatternWriter writer)
         {
-            //todo check empty
-            _baseGroup.WriteBaseGroupTo(writer);
-
-            writer.WriteGroupSeparator();
-
-            //todo check empty
-            _excludedGroup.WriteExcludedGroupTo(writer);
-        }
-
-        internal override void WriteStartTo(PatternWriter writer)
-        {
-            writer.WriteCharGroupStart(Negative);
-        }
-
-        internal override void WriteEndTo(PatternWriter writer)
-        {
-            writer.WriteCharGroupEnd();
+            writer.WriteSubtraction(_baseGroup, _excludedGroup, Negative);
         }
 
         public virtual bool Negative

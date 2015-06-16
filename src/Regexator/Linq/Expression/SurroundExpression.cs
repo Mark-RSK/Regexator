@@ -33,7 +33,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _contentAfter = contentAfter;
         }
 
-        internal override void WriteContentTo(PatternWriter writer)
+        internal override void WriteTo(PatternWriter writer)
         {
             writer.Write(_contentBefore);
 

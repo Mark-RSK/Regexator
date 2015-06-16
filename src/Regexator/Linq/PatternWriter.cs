@@ -139,22 +139,15 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         internal void WriteCharRange(char firstChar, char lastChar)
         {
             Write(firstChar, true);
-            WriteGroupSeparator();
+            WriteHyphen();
             Write(lastChar, true);
         }
 
-        public void WriteCharRange(int firstCharCode, int lastCharCode)
+        internal void WriteCharRange(int firstCharCode, int lastCharCode)
         {
             Write(firstCharCode, true);
-            WriteGroupSeparator();
+            WriteHyphen();
             Write(lastCharCode, true);
-        }
-
-        internal void WriteCharRangeInternal(int firstCharCode, int lastCharCode)
-        {
-            WriteInternal(firstCharCode, true);
-            WriteGroupSeparator();
-            WriteInternal(lastCharCode, true);
         }
 
         public void Write(Expression expression)
@@ -183,11 +176,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 #if DEBUG
             Debug.Assert(Expressions.Add(expression));
 #endif
-            expression.WriteStartTo(this);
-
-            expression.WriteContentTo(this);
-
-            expression.WriteEndTo(this);
+            expression.WriteTo(this);
 #if DEBUG
             Expressions.Remove(expression);
 #endif
@@ -309,6 +298,94 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                     }
                 }
             }
+        }
+
+        public void WriteIf(object testContent, object trueContent, object falseContent)
+        {
+            if (testContent == null)
+            {
+                throw new ArgumentNullException("testContent");
+            }
+
+            if (trueContent == null)
+            {
+                throw new ArgumentNullException("trueContent");
+            }
+
+            WriteIfStart();
+
+            if (Settings.HasOptions(PatternOptions.ConditionWithAssertion))
+            {
+                WriteAssertStart();
+            }
+            else
+            {
+                WriteCapturingGroupStart();
+            }
+
+            Write(testContent);
+            WriteGroupEnd();
+            Write(trueContent);
+
+            if (falseContent != null)
+            {
+                WriteOr();
+                Write(falseContent);
+            }
+
+            WriteGroupEnd();
+        }
+
+        public void WriteIfGroup(string groupName, object trueContent, object falseContent)
+        {
+            if (trueContent == null)
+            {
+                throw new ArgumentNullException("trueContent");
+            }
+
+            RegexUtilities.CheckGroupName(groupName);
+
+            WriteIfGroupInternal(groupName, trueContent, falseContent);
+        }
+
+        internal void WriteIfGroupInternal(string groupName, object trueContent, object falseContent)
+        {
+            WriteIfStart();
+            WriteIfGroupCondition(groupName);
+            Write(trueContent);
+
+            if (falseContent != null)
+            {
+                WriteOr();
+                Write(falseContent);
+            }
+
+            WriteGroupEnd();
+        }
+
+        public void WriteIfGroup(int groupNumber, object trueContent, object falseContent)
+        {
+            if (groupNumber < 0)
+            {
+                throw new ArgumentOutOfRangeException("groupNumber");
+            }
+
+            if (trueContent == null)
+            {
+                throw new ArgumentNullException("trueContent");
+            }
+
+            WriteIfStart();
+            WriteIfGroupCondition(groupNumber);
+            Write(trueContent);
+
+            if (falseContent != null)
+            {
+                WriteOr();
+                Write(falseContent);
+            }
+
+            WriteGroupEnd();
         }
 
         public void WriteIfStart()
@@ -441,6 +518,30 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             base.Write(Syntax.NotAssertBackStart);
         }
 
+        public void WriteAny(object content)
+        {
+            WriteAny(content, AnyGroupMode.Noncapturing);
+        }
+
+        internal void WriteAny(object content, AnyGroupMode mode)
+        {
+            if (mode == AnyGroupMode.Capturing)
+            {
+                WriteCapturingGroupStart();
+            }
+            else if (mode == AnyGroupMode.Noncapturing)
+            {
+                WriteNoncapturingGroupStart();
+            }
+
+            WriteGroupContent(content);
+
+            if (mode != AnyGroupMode.None)
+            {
+                WriteGroupEnd();
+            }
+        }
+
         public void WriteGroup(object content)
         {
             if (content == null)
@@ -570,7 +671,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             WriteGroupStart();
             WriteLeftIdentifierBoundary();
             base.Write(name1);
-            WriteGroupSeparator();
+            WriteHyphen();
             base.Write(name2);
             WriteRightIdentifierBoundary();
         }
@@ -610,6 +711,206 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public void WriteCharGroupEnd()
         {
             base.Write(Syntax.CharGroupEnd);
+        }
+
+        public void WriteCharGroup(NamedBlock block)
+        {
+            WriteCharGroup(block, false);
+        }
+
+        public void WriteCharGroup(NamedBlock block, bool negative)
+        {
+            WriteCharGroupStart();
+            WriteNamedBlock(block, negative);
+            WriteCharGroupEnd();
+        }
+
+        public void WriteCharGroup(GeneralCategory category)
+        {
+            WriteCharGroup(category, false);
+        }
+
+        public void WriteCharGroup(GeneralCategory category, bool negative)
+        {
+            WriteCharGroupStart();
+            WriteGeneralCategory(category, negative);
+            WriteCharGroupEnd();
+        }
+
+        public void WriteCharGroup(CharClass value)
+        {
+            WriteCharGroupStart();
+            WriteCharClass(value);
+            WriteCharGroupEnd();
+        }
+
+        public void WriteCharGroup(AsciiChar value)
+        {
+            WriteCharGroup(value, false);
+        }
+
+        public void WriteCharGroup(AsciiChar value, bool negative)
+        {
+            WriteCharGroupStart(negative);
+            Write(value, true);
+            WriteCharGroupEnd();
+        }
+
+        public void WriteCharGroup(string characters)
+        {
+            WriteCharGroup(characters, false);
+        }
+
+        public void WriteCharGroup(string characters, bool negative)
+        {
+            WriteCharGroupStart(negative);
+            Write(characters, true);
+            WriteCharGroupEnd();
+        }
+
+        public void WriteCharGroup(char value)
+        {
+            WriteCharGroup(value, false);
+        }
+
+        public void WriteCharGroup(char value, bool negative)
+        {
+            WriteCharGroupStart(negative);
+            Write(value, true);
+            WriteCharGroupEnd();
+        }
+
+        public void WriteCharGroup(char first, char last)
+        {
+            WriteCharGroup(first, last, false);
+        }
+
+        public void WriteCharGroup(char first, char last, bool negative)
+        {
+            WriteCharGroupStart(negative);
+            WriteCharRange(first, last);
+            WriteCharGroupEnd();
+        }
+
+        public void WriteCharGroup(int charCode)
+        {
+            WriteCharGroup(charCode, false);
+        }
+
+        public void WriteCharGroup(int charCode, bool negative)
+        {
+            WriteCharGroupStart(negative);
+            Write(charCode, true);
+            WriteCharGroupEnd();
+        }
+
+        public void WriteCharGroup(int firstCharCode, int lastCharCode)
+        {
+            WriteCharGroup(firstCharCode, lastCharCode, false);
+        }
+
+        public void WriteCharGroup(int firstCharCode, int lastCharCode, bool negative)
+        {
+            WriteCharGroupStart(negative);
+            WriteCharRange(firstCharCode, lastCharCode);
+            WriteCharGroupEnd();
+        }
+
+        public void WriteCharGroup(CharGroupItem item)
+        {
+            WriteCharGroup(item, false);
+        }
+
+        public void WriteCharGroup(CharGroupItem item, bool negative)
+        {
+            if (item == null)
+            {
+                throw new ArgumentNullException("item");
+            }
+
+            WriteCharGroupStart(negative);
+            item.WriteContentTo(this);
+            WriteCharGroupEnd();
+        }
+
+        public void WriteNotCharGroup(NamedBlock block)
+        {
+            WriteCharGroup(block, true);
+        }
+
+        public void WriteNotCharGroup(GeneralCategory category)
+        {
+            WriteCharGroup(category, true);
+        }
+
+        public void WriteNotCharGroup(AsciiChar value)
+        {
+            WriteCharGroup(value, true);
+        }
+
+        public void WriteNotCharGroup(string characters)
+        {
+            WriteCharGroup(characters, true);
+        }
+
+        public void WriteNotCharGroup(char value)
+        {
+            WriteCharGroup(value, true);
+        }
+
+        public void WriteNotCharGroup(char first, char last)
+        {
+            WriteCharGroup(first, last, true);
+        }
+
+        public void WriteNotCharGroup(int charCode)
+        {
+            WriteCharGroup(charCode, true);
+        }
+
+        public void WriteNotCharGroup(int firstCharCode, int lastCharCode)
+        {
+            WriteCharGroup(firstCharCode, lastCharCode, true);
+        }
+
+        public void WriteNotCharGroup(CharGroupItem item)
+        {
+            WriteCharGroup(item, true);
+        }
+
+        public void WriteSubtraction(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
+        {
+            WriteSubtraction(baseGroup, excludedGroup, false);
+        }
+
+        public void WriteNotSubtraction(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
+        {
+            WriteSubtraction(baseGroup, excludedGroup, true);
+        }
+
+        public void WriteSubtraction(IBaseGroup baseGroup, IExcludedGroup excludedGroup, bool negative)
+        {
+            if (baseGroup == null)
+            {
+                throw new ArgumentNullException("baseGroup");
+            }
+
+            if (excludedGroup == null)
+            {
+                throw new ArgumentNullException("excludedGroup");
+            }
+
+            WriteCharGroupStart(negative);
+
+            //todo check empty
+            baseGroup.WriteBaseGroupTo(this);
+
+            WriteHyphen();
+
+            //todo check empty
+            excludedGroup.WriteExcludedGroupTo(this);   
+
+            WriteCharGroupEnd();
         }
 
         public void WriteGeneralCategory(GeneralCategory category)
@@ -778,11 +1079,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             WriteGroupEnd();
         }
 
-        public void WriteGroupSeparator()
-        {
-            base.Write(Syntax.GroupSeparator);
-        }
-
         public void WriteLeftIdentifierBoundary()
         {
             base.Write(Settings.IdentifierBoundary == IdentifierBoundary.Apostrophe 
@@ -815,6 +1111,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         private void WriteColon()
         {
             base.Write(':');
+        }
+
+        private void WriteHyphen()
+        {
+            base.Write('-');
         }
 
         public void WriteAsciiHexadecimal(int charCode)

@@ -26,14 +26,24 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _negative = negative;
         }
 
+        protected override void WriteContentTo(PatternWriter writer)
+        {
+            if (writer == null)
+            {
+                throw new ArgumentNullException("writer");
+            }
+
+            writer.Write(_characters, true);
+        }
+
+        internal override void WriteTo(PatternWriter writer)
+        {
+            writer.WriteCharGroup(_characters, Negative);
+        }
+
         public override bool Negative
         {
             get { return _negative; }
-        }
-
-        internal override void WriteContentTo(PatternWriter writer)
-        {
-            writer.Write(_characters, true);
         }
     }
 }

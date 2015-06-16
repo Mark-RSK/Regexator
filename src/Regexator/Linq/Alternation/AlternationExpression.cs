@@ -22,30 +22,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _falseContent = falseContent;
         }
 
-        protected abstract void WriteConditionTo(PatternWriter writer);
-
-        internal override void WriteContentTo(PatternWriter writer)
+        internal object TrueContent
         {
-            WriteConditionTo(writer);
-
-            writer.Write(_trueContent);
-
-            if (_falseContent != null)
-            {
-                writer.WriteOr();
-
-                writer.Write(_falseContent);
-            }
+            get { return _trueContent; }
         }
 
-        internal override void WriteStartTo(PatternWriter writer)
+        internal object FalseContent
         {
-            writer.WriteIfStart();
-        }
-
-        internal override void WriteEndTo(PatternWriter writer)
-        {
-            writer.WriteGroupEnd();
+            get { return _falseContent; }
         }
     }
 }

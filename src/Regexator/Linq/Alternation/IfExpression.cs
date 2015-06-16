@@ -1,14 +1,13 @@
 // Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
-using System.Collections.Generic;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     internal sealed class IfExpression
         : AlternationExpression
     {
-        private readonly object _condition;
+        private readonly object _testContent;
 
         internal IfExpression(object testContent, object trueContent)
             : this(testContent, trueContent, null)
@@ -23,26 +22,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("testContent");
             }
 
-            _condition = testContent;
+            _testContent = testContent;
         }
 
-        protected override void WriteConditionTo(PatternWriter writer)
+        internal override void WriteTo(PatternWriter writer)
         {
-            if (_condition != null)
-            {
-                if (writer.Settings.HasOptions(PatternOptions.ConditionWithAssertion))
-                {
-                    writer.WriteAssertStart();
-                }
-                else
-                {
-                    writer.WriteCapturingGroupStart();
-                }
-
-                writer.Write(_condition);
-
-                writer.WriteGroupEnd();
-            }
+            writer.WriteIf(_testContent, TrueContent, FalseContent);
         }
     }
 }

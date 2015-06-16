@@ -166,21 +166,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         }
 
-        internal virtual void WriteContentTo(PatternWriter writer)
-        {
-
-        }
-
-        internal virtual void WriteStartTo(PatternWriter writer)
-        {
-
-        }
-
-        internal virtual void WriteEndTo(PatternWriter writer)
-        {
-
-        }
-
         internal Expression AsContainer()
         {
             return new ContainerExpression(this);

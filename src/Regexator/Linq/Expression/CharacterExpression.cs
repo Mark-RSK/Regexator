@@ -26,9 +26,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
 
             writer.WriteCharGroupStart();
-
-            WriteContentTo(writer);
-
+            WriteTo(writer);
             writer.WriteCharGroupEnd();
         }
     }

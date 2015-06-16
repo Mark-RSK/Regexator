@@ -1,20 +1,32 @@
 ﻿// Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System;
+
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     internal class NamedBlockGroup
         : CharGroupExpression
     {
-        private readonly NamedBlock _value;
+        private readonly NamedBlock _block;
 
-        public NamedBlockGroup(NamedBlock value)
+        public NamedBlockGroup(NamedBlock block)
         {
-            _value = value;
+            _block = block;
         }
 
-        internal override void WriteContentTo(PatternWriter writer)
+        protected override void WriteContentTo(PatternWriter writer)
         {
-            writer.WriteNamedBlock(_value);
+            if (writer == null)
+            {
+                throw new ArgumentNullException("writer");
+            }
+
+            writer.WriteNamedBlock(_block, Negative);
+        }
+
+        internal override void WriteTo(PatternWriter writer)
+        {
+            writer.WriteCharGroup(_block, Negative);
         }
     }
 }

@@ -22,7 +22,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _values = values;
         }
 
-        internal override void WriteContentTo(PatternWriter writer)
+        internal override void WriteTo(PatternWriter writer)
         {
             var values = _values as object[];
             if (values != null)

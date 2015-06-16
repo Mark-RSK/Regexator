@@ -33,7 +33,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("writer");
             }
 
-            writer.WriteCharRangeInternal(_first, _last);
+            writer.WriteCharRange(_first, _last);
         }
     }
 }

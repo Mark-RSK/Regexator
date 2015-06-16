@@ -31,25 +31,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _groupMode = groupMode;
         }
 
-        internal override void WriteStartTo(PatternWriter writer)
+        internal override void WriteTo(PatternWriter writer)
         {
-            switch (GroupMode)
-            {
-                case AnyGroupMode.Capturing:
-                    writer.WriteCapturingGroupStart();
-                    break;
-                case AnyGroupMode.Noncapturing:
-                    writer.WriteNoncapturingGroupStart();
-                    break;
-            }
-        }
-
-        internal override void WriteEndTo(PatternWriter writer)
-        {
-            if (GroupMode != AnyGroupMode.None)
-            {
-                writer.WriteGroupEnd();
-            }
+            writer.WriteAny(Content, GroupMode);
         }
 
         internal AnyGroupMode GroupMode

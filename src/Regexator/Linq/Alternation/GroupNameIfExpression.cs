@@ -25,9 +25,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             get { return _groupName; }
         }
 
-        protected override void WriteConditionTo(PatternWriter writer)
+        internal override void WriteTo(PatternWriter writer)
         {
-            writer.WriteIfGroupCondition(GroupName);
+            writer.WriteIfGroupInternal(GroupName, TrueContent, FalseContent);
         }
     }
 }

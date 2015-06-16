@@ -24,7 +24,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new CharCodeGroup(_charCode);
         }
 
-        internal override void WriteContentTo(PatternWriter writer)
+        internal override void WriteTo(PatternWriter writer)
         {
             writer.WriteInternal(_charCode);
         }

@@ -1,5 +1,7 @@
 ﻿// Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System;
+
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     internal sealed class CharClassGroup
@@ -12,9 +14,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _value = value;
         }
 
-        internal override void WriteContentTo(PatternWriter writer)
+        protected override void WriteContentTo(PatternWriter writer)
         {
+            if (writer == null)
+            {
+                throw new ArgumentNullException("writer");
+            }
+
             writer.WriteCharClass(_value);
+        }
+
+        internal override void WriteTo(PatternWriter writer)
+        {
+            writer.WriteCharGroup(_value);
         }
     }
 }

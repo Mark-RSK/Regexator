@@ -1,20 +1,32 @@
 ﻿// Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System;
+
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     internal sealed class GeneralCategoryGroup
         : CharGroupExpression
     {
-        private readonly GeneralCategory _value;
+        private readonly GeneralCategory _category;
 
-        public GeneralCategoryGroup(GeneralCategory value)
+        public GeneralCategoryGroup(GeneralCategory category)
         {
-            _value = value;
+            _category = category;
         }
 
-        internal override void WriteContentTo(PatternWriter writer)
+        protected override void WriteContentTo(PatternWriter writer)
         {
-            writer.WriteGeneralCategory(_value);
+            if (writer == null)
+            {
+                throw new ArgumentNullException("writer");
+            }
+
+            writer.WriteGeneralCategory(_category, Negative);
+        }
+
+        internal override void WriteTo(PatternWriter writer)
+        {
+            writer.WriteCharGroup(_category, Negative);
         }
     }
 }

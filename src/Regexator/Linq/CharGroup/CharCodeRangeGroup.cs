@@ -38,9 +38,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             get { return _negative; }
         }
 
-        internal override void WriteContentTo(PatternWriter writer)
+        protected override void WriteContentTo(PatternWriter writer)
         {
-            writer.WriteCharRangeInternal(_first, _last);
+            if (writer == null)
+            {
+                throw new ArgumentNullException("writer");
+            }
+
+            writer.WriteCharRange(_first, _last);
+        }
+
+        internal override void WriteTo(PatternWriter writer)
+        {
+            writer.WriteCharGroup(_first, _last, Negative);
         }
     }
 }
