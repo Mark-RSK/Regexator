@@ -23,14 +23,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             return Alternations.Any(
                 Anchors.StartOfLineInvariant().WhiteSpace().MaybeMany().NewLine(),
-                Expressions.NewLine().WhiteSpace().MaybeMany().EndOfInput());
+                Expressions.NewLine().WhiteSpace().MaybeMany().End());
         }
 
         public static QuantifiableExpression EmptyLines()
         {
             return Alternations.Any(
                 Anchors.StartOfLineInvariant().NewLine(),
-                Expressions.NewLine().OneMany().EndOfInput());
+                Expressions.NewLine().OneMany().End());
         }
 
         public static Expression FirstLine()

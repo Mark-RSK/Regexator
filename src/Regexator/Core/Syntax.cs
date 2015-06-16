@@ -19,7 +19,7 @@ namespace Pihrtsoft.Text.RegularExpressions
 
         public const string Start = @"\A";
         public const string StartOfLine = "^";
-        public const string EndOfInput = @"\z";
+        public const string End = @"\z";
         public const string EndOfLine = "$";
         public const string EndOrBeforeEndingNewLine = @"\Z";
         public const string WordBoundary = @"\b";

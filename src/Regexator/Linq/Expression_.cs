@@ -169,9 +169,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Anchors.StartOfLineInvariant());
         }
 
-        public QuantifiableExpression EndOfInput()
+        public QuantifiableExpression End()
         {
-            return ConcatInternal(Anchors.EndOfInput());
+            return ConcatInternal(Anchors.End());
         }
 
         public QuantifiableExpression EndOfLine()

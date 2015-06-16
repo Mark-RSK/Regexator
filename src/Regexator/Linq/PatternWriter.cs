@@ -508,9 +508,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             base.Write(Syntax.StartOfLine);
         }
 
-        public void WriteEndOfInput()
+        public void WriteEnd()
         {
-            base.Write(Syntax.EndOfInput);
+            base.Write(Syntax.End);
         }
 
         public void WriteEndOfLine()
