@@ -14,19 +14,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return NamedGroup(name, (object)content);
         }
 
-        public static QuantifiableExpression Capturing()
+        public static QuantifiableExpression Group()
         {
             return new CapturingExpression(string.Empty);
         }
 
-        public static QuantifiableExpression Capturing(object content)
+        public static QuantifiableExpression Group(object content)
         {
             return new CapturingExpression(content);
         }
 
-        public static QuantifiableExpression Capturing(params object[] content)
+        public static QuantifiableExpression Group(params object[] content)
         {
-            return Capturing((object)content);
+            return Group((object)content);
         }
 
         public static QuantifiableExpression Noncapturing(object content)

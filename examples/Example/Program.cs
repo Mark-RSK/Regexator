@@ -31,7 +31,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 .LessThanGreaterThan(
                     "!" + Expressions.SquareBrackets(
                         "CDATA" + Expressions.SquareBrackets(
-                            Expressions.CrawlInvariant().AsCapturing()
+                            Expressions.CrawlInvariant().AsGroup()
                         )
                     )
                 ));
@@ -43,7 +43,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine(Anchors
                 .WordBoundary()
                 .Count(3, Alternations
-                    .Any(values.Select(f => Groups.Capturing(f)))
+                    .Any(values.Select(f => Groups.Group(f)))
                     .WordBoundary()
                     .NotWordChar().MaybeMany().Lazy())
                 .RequireGroups(1, 2, 3));
@@ -53,7 +53,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine(Anchors
                 .WordBoundary()
                 .CountFrom(3, Alternations
-                    .Any(values.Select(f => Expression.Create(f).Capturing()))
+                    .Any(values.Select(f => Expression.Create(f).Group()))
                     .WordBoundary()
                     .NotWordChar().MaybeMany().Lazy())
                 .Backreference(1)
@@ -78,7 +78,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("");
 
             Console.WriteLine("repeated word");
-            Console.WriteLine(Anchors.Word().AsCapturing()
+            Console.WriteLine(Anchors.Word().AsGroup()
                 .WhiteSpaces()
                 .Backreference(1)
                 .WordBoundary());

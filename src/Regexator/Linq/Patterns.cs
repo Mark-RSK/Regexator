@@ -43,7 +43,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         internal static Expression ValidGroupName()
         {
             return Alternations.Any(
-                Chars.Range('1', '9').ArabicDigit().MaybeMany().AsCapturing(),
+                Chars.Range('1', '9').ArabicDigit().MaybeMany().AsGroup(),
                 Chars.WordChar().Except(Chars.ArabicDigit()).WordChar().MaybeMany()
             ).AsEntireInput();
         }

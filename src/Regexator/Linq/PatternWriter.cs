@@ -441,7 +441,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             base.Write(Syntax.NotAssertBackStart);
         }
 
-        public void WriteCapturingGroup(object content)
+        public void WriteGroup(object content)
         {
             if (content == null)
             {
@@ -455,7 +455,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal void WriteCapturingGroupStart()
         {
-            base.Write(Syntax.CapturingGroupStart);
+            base.Write('(');
         }
 
         public void WriteNoncapturingGroup(object content)

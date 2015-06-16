@@ -309,6 +309,21 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Anchors.NotAssertBack(item));
         }
 
+        public QuantifiableExpression Group()
+        {
+            return ConcatInternal(Linq.Groups.Group());
+        }
+
+        public QuantifiableExpression Group(object content)
+        {
+            return ConcatInternal(Linq.Groups.Group(content));
+        }
+
+        public QuantifiableExpression Group(params object[] content)
+        {
+            return ConcatInternal(Linq.Groups.Group(content));
+        }
+        
         public QuantifiableExpression NamedGroup(string name, object content)
         {
             return ConcatInternal(Linq.Groups.NamedGroup(name, content));
@@ -317,21 +332,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public QuantifiableExpression NamedGroup(string name, params object[] content)
         {
             return ConcatInternal(Linq.Groups.NamedGroup(name, content));
-        }
-
-        public QuantifiableExpression Capturing()
-        {
-            return ConcatInternal(Linq.Groups.Capturing());
-        }
-
-        public QuantifiableExpression Capturing(object content)
-        {
-            return ConcatInternal(Linq.Groups.Capturing(content));
-        }
-
-        public QuantifiableExpression Capturing(params object[] content)
-        {
-            return ConcatInternal(Linq.Groups.Capturing(content));
         }
 
         public QuantifiableExpression Noncapturing(object content)
@@ -409,9 +409,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Expressions.Options(applyOptions, disableOptions));
         }
 
-        public QuantifiableExpression AsCapturing()
+        public QuantifiableExpression AsGroup()
         {
-            return Linq.Groups.Capturing(this);
+            return Linq.Groups.Group(this);
+        }
+
+        public QuantifiableExpression AsGroup(string groupName)
+        {
+            return Linq.Groups.NamedGroup(groupName, this);
         }
 
         public QuantifiableExpression AsNoncapturing()

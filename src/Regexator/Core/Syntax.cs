@@ -31,7 +31,6 @@ namespace Pihrtsoft.Text.RegularExpressions
         internal const string AssertBackStart = "(?<=";
         internal const string NotAssertBackStart = "(?<!";
 
-        internal const string CapturingGroupStart = "(";
         internal const string NoncapturingGroupStart = "(?:";
         internal const string NonbacktrackingGroupStart = "(?>";
         internal const string GroupEnd = ")";
@@ -203,19 +202,19 @@ namespace Pihrtsoft.Text.RegularExpressions
             return null;
         }
 
-        public static string CapturingGroup(object content)
+        public static string Group(object content)
         {
             if (content == null)
             {
                 throw new ArgumentNullException("content");
             }
 
-            return CapturingGroupStart + Expression.GetPattern(content) + GroupEnd;
+            return "(" + Expression.GetPattern(content) + GroupEnd;
         }
 
-        public static string CapturingGroup(params object[] content)
+        public static string Group(params object[] content)
         {
-            return CapturingGroup((object)content);
+            return Group((object)content);
         }
 
         public static string NoncapturingGroup()
