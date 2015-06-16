@@ -5,7 +5,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal enum CharEscapeMode
     {
         None,
-        Ascii,
+        AsciiHexadecimal,
         Backslash,
         Bell,
         CarriageReturn,

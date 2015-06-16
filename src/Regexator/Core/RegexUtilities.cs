@@ -167,7 +167,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                 case CharEscapeMode.None:
                     Debug.Assert(false); //todo
                     return ((char)charCode).ToString();
-                case CharEscapeMode.Ascii:
+                case CharEscapeMode.AsciiHexadecimal:
                     return Syntax.AsciiHexadecimal(charCode);
                 case CharEscapeMode.Backslash:
                     return @"\" + ((char)charCode).ToString();
@@ -260,7 +260,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         {
             switch (mode)
             {
-                case CharEscapeMode.Ascii:
+                case CharEscapeMode.AsciiHexadecimal:
                     sb.Append(Syntax.AsciiStart);
                     sb.Append(((int)ch).ToString("X2", CultureInfo.InvariantCulture));
                     break;
@@ -483,23 +483,23 @@ namespace Pihrtsoft.Text.RegularExpressions
 
         internal static readonly CharEscapeMode[] EscapeModes = new CharEscapeMode[] {
             // 0 0x00
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 1 0x01
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 2 0x02
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 3 0x03
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 4 0x04
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 5 0x05
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 6 0x06
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 7 0x07
             CharEscapeMode.Bell,
             // 8 0x08
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 9 0x09
             CharEscapeMode.Tab,
             // 10 0x0A
@@ -511,41 +511,41 @@ namespace Pihrtsoft.Text.RegularExpressions
             // 13 0x0D
             CharEscapeMode.CarriageReturn,
             // 14 0x0E
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 15 0x0F
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 16 0x10
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 17 0x11
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 18 0x12
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 19 0x13
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 20 0x14
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 21 0x15
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 22 0x16
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 23 0x17
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 24 0x18
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 25 0x19
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 26 0x1A
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 27 0x1B
             CharEscapeMode.Escape,
             // 28 0x1C
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 29 0x1D
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 30 0x1E
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 31 0x1F
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 32 0x20
             CharEscapeMode.Backslash,
             // 33 0x21 !
@@ -737,71 +737,71 @@ namespace Pihrtsoft.Text.RegularExpressions
             // 126 0x7E ~
             CharEscapeMode.None,
             // 127 0x7F
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 128 0x80
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 129 0x81
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 130 0x82
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 131 0x83
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 132 0x84
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 133 0x85
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 134 0x86
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 135 0x87
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 136 0x88
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 137 0x89
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 138 0x8A
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 139 0x8B
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 140 0x8C
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 141 0x8D
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 142 0x8E
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 143 0x8F
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 144 0x90
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 145 0x91
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 146 0x92
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 147 0x93
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 148 0x94
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 149 0x95
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 150 0x96
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 151 0x97
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 152 0x98
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 153 0x99
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 154 0x9A
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 155 0x9B
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 156 0x9C
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 157 0x9D
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 158 0x9E
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 159 0x9F
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 160 0xA0
             CharEscapeMode.None,
             // 161 0xA1 ¡
@@ -998,23 +998,23 @@ namespace Pihrtsoft.Text.RegularExpressions
 
         internal static readonly CharEscapeMode[] CharGroupEscapeModes = new CharEscapeMode[] {
             // 0 0x00
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 1 0x01
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 2 0x02
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 3 0x03
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 4 0x04
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 5 0x05
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 6 0x06
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 7 0x07
             CharEscapeMode.Bell,
             // 8 0x08
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 9 0x09
             CharEscapeMode.Tab,
             // 10 0x0A
@@ -1026,41 +1026,41 @@ namespace Pihrtsoft.Text.RegularExpressions
             // 13 0x0D
             CharEscapeMode.CarriageReturn,
             // 14 0x0E
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 15 0x0F
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 16 0x10
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 17 0x11
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 18 0x12
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 19 0x13
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 20 0x14
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 21 0x15
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 22 0x16
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 23 0x17
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 24 0x18
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 25 0x19
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 26 0x1A
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 27 0x1B
             CharEscapeMode.Escape,
             // 28 0x1C
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 29 0x1D
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 30 0x1E
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 31 0x1F
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 32 0x20
             CharEscapeMode.None,
             // 33 0x21 !
@@ -1252,71 +1252,71 @@ namespace Pihrtsoft.Text.RegularExpressions
             // 126 0x7E ~
             CharEscapeMode.None,
             // 127 0x7F
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 128 0x80
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 129 0x81
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 130 0x82
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 131 0x83
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 132 0x84
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 133 0x85
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 134 0x86
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 135 0x87
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 136 0x88
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 137 0x89
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 138 0x8A
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 139 0x8B
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 140 0x8C
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 141 0x8D
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 142 0x8E
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 143 0x8F
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 144 0x90
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 145 0x91
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 146 0x92
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 147 0x93
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 148 0x94
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 149 0x95
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 150 0x96
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 151 0x97
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 152 0x98
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 153 0x99
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 154 0x9A
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 155 0x9B
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 156 0x9C
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 157 0x9D
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 158 0x9E
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 159 0x9F
-            CharEscapeMode.Ascii,
+            CharEscapeMode.AsciiHexadecimal,
             // 160 0xA0
             CharEscapeMode.None,
             // 161 0xA1 ¡

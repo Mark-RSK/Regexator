@@ -145,7 +145,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 case CharEscapeMode.None:
                     base.Write((char)value);
                     break;
-                case CharEscapeMode.Ascii:
+                case CharEscapeMode.AsciiHexadecimal:
                     WriteAsciiHexadecimal(value);
                     break;
                 case CharEscapeMode.Backslash:
