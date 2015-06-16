@@ -105,10 +105,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 case CharEscapeMode.None:
                     base.Write((char)value);
                     break;
-                case CharEscapeMode.AsciiEscape:
+                case CharEscapeMode.Ascii:
                     WriteAsciiHexadecimal(value);
                     break;
-                case CharEscapeMode.BackslashEscape:
+                case CharEscapeMode.Backslash:
                     base.Write(@"\");
                     base.Write((char)value);
                     break;

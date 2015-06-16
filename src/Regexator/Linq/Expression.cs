@@ -100,7 +100,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static Expression Surround(object content, object surroundContent)
         {
-            return new SurroundExpression(surroundContent, content, surroundContent);
+            return Surround(surroundContent, content, surroundContent);
         }
 
         internal static Expression Surround(object contentBefore, object content, object contentAfter)

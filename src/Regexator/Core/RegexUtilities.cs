@@ -278,23 +278,23 @@ namespace Pihrtsoft.Text.RegularExpressions
                 {
                     case CharKind.Backslash:
                         {
-                            return CharEscapeMode.BackslashEscape;
+                            return CharEscapeMode.Backslash;
                         }
                     case CharKind.Metachar:
                         {
-                            return inCharGroup 
-                                ? CharEscapeMode.None 
-                                : CharEscapeMode.BackslashEscape;
+                            return !inCharGroup
+                                ? CharEscapeMode.Backslash
+                                : CharEscapeMode.None;
                         }
                     case CharKind.CharGroupMetachar:
                         {
                             return inCharGroup 
-                                ? CharEscapeMode.BackslashEscape 
+                                ? CharEscapeMode.Backslash 
                                 : CharEscapeMode.None;
                         }
                     case CharKind.Control:
                         {
-                            return CharEscapeMode.AsciiEscape;
+                            return CharEscapeMode.Ascii;
                         }
                     case CharKind.SpecialControl:
                         {
