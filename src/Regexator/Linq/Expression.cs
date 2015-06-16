@@ -98,7 +98,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new JoinContainerExpression(separator, (object)values);
         }
 
-        public static Expression Surround(object content, object surroundContent)
+        public static Expression Surround(object surroundContent, object content)
         {
             return Surround(surroundContent, content, surroundContent);
         }

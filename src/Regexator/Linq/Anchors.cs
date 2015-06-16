@@ -140,17 +140,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiableExpression Word()
         {
-            return Expression.Surround(Chars.WordChars(), WordBoundary()).AsNoncapturing();
+            return Expression.Surround(WordBoundary(), Chars.WordChars()).AsNoncapturing();
         }
 
         public static QuantifiableExpression Word(string text)
         {
-            return Expression.Surround(text, WordBoundary()).AsNoncapturing();
+            return Expression.Surround(WordBoundary(), text).AsNoncapturing();
         }
 
         public static QuantifiableExpression Word(params string[] values)
         {
-            return Expression.Surround(Alternations.Any(values), WordBoundary()).AsNoncapturing();
+            return Expression.Surround(WordBoundary(), Alternations.Any(values)).AsNoncapturing();
         }
 
         public static QuantifiableExpression NotWordBoundary()
