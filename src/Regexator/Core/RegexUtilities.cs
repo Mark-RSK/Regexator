@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -138,58 +139,6 @@ namespace Pihrtsoft.Text.RegularExpressions
             return value;
         }
 
-        internal static bool EscapeRequired(int charCode, bool inCharGroup)
-        {
-            if (charCode <= 0xFF)
-            {
-                switch (_charKinds[charCode])
-                {
-                    case CharKind.Backslash:
-                        return true;
-                    case CharKind.Metachar:
-                        return !inCharGroup;
-                    case CharKind.CharGroupMetachar:
-                        return inCharGroup;
-                    case CharKind.Control:
-                        return true;
-                    case CharKind.SpecialControl:
-                        {
-                            switch (charCode)
-                            {
-                                case 7:
-                                    return true;
-                                case 9:
-                                    return true;
-                                case 10:
-                                    return true;
-                                case 11:
-                                    return true;
-                                case 12:
-                                    return true;
-                                case 13:
-                                    return true;
-                                case 27:
-                                    return true;
-                            }
-
-                            break;
-                        }
-                }
-            }
-
-            return false;
-        }
-
-        public static string Escape(char value)
-        {
-            return Escape(value, false);
-        }
-
-        public static string Escape(char value, bool inCharGroup)
-        {
-            return EscapeInternal((int)value, inCharGroup);
-        }
-
         public static string Escape(int charCode)
         {
             return Escape(charCode, false);
@@ -213,120 +162,44 @@ namespace Pihrtsoft.Text.RegularExpressions
 
         internal static string EscapeInternal(int charCode, bool inCharGroup)
         {
-            if (charCode <= 0xFF)
+            switch (GetEscapeMode(charCode, inCharGroup))
             {
-                switch (_charKinds[charCode])
-                {
-                    case CharKind.Backslash:
-                        {
-                            return EscapeChar(charCode);
-                        }
-                    case CharKind.Metachar:
-                        {
-                            if (!inCharGroup)
-                            {
-                                return EscapeChar(charCode);
-                            }
-                            break;
-                        }
-                    case CharKind.CharGroupMetachar:
-                        {
-                            if (inCharGroup)
-                            {
-                                return EscapeChar(charCode);
-                            }
-                            break;
-                        }
-                    case CharKind.Control:
-                        {
-                            return Syntax.AsciiHexadecimal(charCode);
-                        }
-                    case CharKind.SpecialControl:
-                        {
-                            switch (charCode)
-                            {
-                                case 7:
-                                    return Syntax.Bell;
-                                case 9:
-                                    return Syntax.Tab;
-                                case 10:
-                                    return Syntax.Linefeed;
-                                case 11:
-                                    return Syntax.VerticalTab;
-                                case 12:
-                                    return Syntax.FormFeed;
-                                case 13:
-                                    return Syntax.CarriageReturn;
-                                case 27:
-                                    return Syntax.Escape;
-                            }
-                            break;
-                        }
-                }
+                case CharEscapeMode.None:
+                    Debug.Assert(false); //todo
+                    return ((char)charCode).ToString();
+                case CharEscapeMode.Ascii:
+                    return Syntax.AsciiHexadecimal(charCode);
+                case CharEscapeMode.Backslash:
+                    return @"\" + ((char)charCode).ToString();
+                case CharEscapeMode.Bell:
+                    return Syntax.Bell;
+                case CharEscapeMode.CarriageReturn:
+                    return Syntax.CarriageReturn;
+                case CharEscapeMode.Escape:
+                    return Syntax.Escape;
+                case CharEscapeMode.FormFeed:
+                    return Syntax.FormFeed;
+                case CharEscapeMode.Linefeed:
+                    return Syntax.Linefeed;
+                case CharEscapeMode.Tab:
+                    return Syntax.Tab;
+                case CharEscapeMode.VerticalTab:
+                    return Syntax.VerticalTab;
+                default:
+                    return null;
             }
-
-            Debug.Assert(false);
-
-            return ((char)charCode).ToString();
         }
 
         internal static CharEscapeMode GetEscapeMode(int charCode, bool inCharGroup)
         {
             if (charCode <= 0xFF)
             {
-                switch (_charKinds[charCode])
-                {
-                    case CharKind.Backslash:
-                        {
-                            return CharEscapeMode.Backslash;
-                        }
-                    case CharKind.Metachar:
-                        {
-                            return !inCharGroup
-                                ? CharEscapeMode.Backslash
-                                : CharEscapeMode.None;
-                        }
-                    case CharKind.CharGroupMetachar:
-                        {
-                            return inCharGroup 
-                                ? CharEscapeMode.Backslash 
-                                : CharEscapeMode.None;
-                        }
-                    case CharKind.Control:
-                        {
-                            return CharEscapeMode.Ascii;
-                        }
-                    case CharKind.SpecialControl:
-                        {
-                            switch (charCode)
-                            {
-                                case 7:
-                                    return CharEscapeMode.Bell;
-                                case 9:
-                                    return CharEscapeMode.Tab;
-                                case 10:
-                                    return CharEscapeMode.Linefeed;
-                                case 11:
-                                    return CharEscapeMode.VerticalTab;
-                                case 12:
-                                    return CharEscapeMode.FormFeed;
-                                case 13:
-                                    return CharEscapeMode.CarriageReturn;
-                                case 27:
-                                    return CharEscapeMode.Escape;
-                            }
-
-                            break;
-                        }
-                }
+                return inCharGroup 
+                    ? CharGroupEscapeModes[charCode] 
+                    : EscapeModes[charCode];
             }
 
             return CharEscapeMode.None;
-        }
-
-        private static string EscapeChar(int charCode)
-        {
-            return @"\" + ((char)charCode).ToString();
         }
 
         public static string Escape(string input)
@@ -341,9 +214,12 @@ namespace Pihrtsoft.Text.RegularExpressions
                 throw new ArgumentNullException("input");
             }
 
+            CharEscapeMode mode;
+
             for (int i = 0; i < input.Length; i++)
             {
-                if (EscapeRequired((int)input[i], inCharGroup))
+                mode = GetEscapeMode((int)input[i], inCharGroup);
+                if (mode != CharEscapeMode.None)
                 {
                     StringBuilder sb = new StringBuilder();
                     char ch = input[i];
@@ -352,17 +228,20 @@ namespace Pihrtsoft.Text.RegularExpressions
 
                     do
                     {
-                        sb.Append(EscapeInternal((int)ch, inCharGroup));
+                        AppendEscape(ch, mode, sb);
                         i++;
                         lastPos = i;
 
                         while (i < input.Length)
                         {
                             ch = input[i];
-                            if (EscapeRequired((int)ch, inCharGroup))
+                            mode = GetEscapeMode((int)input[i], inCharGroup);
+
+                            if (mode != CharEscapeMode.None)
                             {
                                 break;
                             }
+
                             i++;
                         }
 
@@ -375,6 +254,42 @@ namespace Pihrtsoft.Text.RegularExpressions
             }
 
             return input;
+        }
+
+        internal static void AppendEscape(char ch, CharEscapeMode mode, StringBuilder sb)
+        {
+            switch (mode)
+            {
+                case CharEscapeMode.Ascii:
+                    sb.Append(Syntax.AsciiStart);
+                    sb.Append(((int)ch).ToString("X2", CultureInfo.InvariantCulture));
+                    break;
+                case CharEscapeMode.Backslash:
+                    sb.Append('\\');
+                    sb.Append(ch);
+                    break;
+                case CharEscapeMode.Bell:
+                    sb.Append(Syntax.Bell);
+                    break;
+                case CharEscapeMode.CarriageReturn:
+                    sb.Append(Syntax.CarriageReturn);
+                    break;
+                case CharEscapeMode.Escape:
+                    sb.Append(Syntax.Escape);
+                    break;
+                case CharEscapeMode.FormFeed:
+                    sb.Append(Syntax.FormFeed);
+                    break;
+                case CharEscapeMode.Linefeed:
+                    sb.Append(Syntax.Linefeed);
+                    break;
+                case CharEscapeMode.VerticalTab:
+                    sb.Append(Syntax.VerticalTab);
+                    break;
+                case CharEscapeMode.Tab:
+                    sb.Append(Syntax.Tab);
+                    break;
+            }
         }
 
         public static string EscapeSubstitution(string input)
@@ -516,77 +431,40 @@ namespace Pihrtsoft.Text.RegularExpressions
 
             if (charCode <= 0xFF)
             {
-                switch (_charKinds[charCode])
+                switch (GetEscapeMode(charCode, inCharGroup))
                 {
-                    case CharKind.Backslash:
-                        {
-                            yield return new CharMatchInfo(EscapeChar(charCode), "Escaped character");
-                            break;
-                        }
-                    case CharKind.Metachar:
-                        {
-                            if (!inCharGroup)
-                            {
-                                yield return new CharMatchInfo(EscapeChar(charCode), "Escaped character");
-                            }
-                            else
-                            {
-                                yield return new CharMatchInfo(((char)charCode).ToString());
-                            }
-                            break;
-                        }
-                    case CharKind.CharGroupMetachar:
-                        {
-                            if (inCharGroup)
-                            {
-                                yield return new CharMatchInfo(EscapeChar(charCode), "Escaped character");
-                            }
-                            else
-                            {
-                                yield return new CharMatchInfo(((char)charCode).ToString());
-                            }
-                            break;
-                        }
-                    case CharKind.Control:
-                        {
-                            if (inCharGroup && charCode == 8)
-                            {
-                                yield return new CharMatchInfo(Syntax.Backspace, "Escaped character");
-                            }
-                            break;
-                        }
-                    case CharKind.SpecialControl:
-                        {
-                            switch (charCode)
-                            {
-                                case 7:
-                                    yield return new CharMatchInfo(Syntax.Bell);
-                                    break;
-                                case 9:
-                                    yield return new CharMatchInfo(Syntax.Tab);
-                                    break;
-                                case 10:
-                                    yield return new CharMatchInfo(Syntax.Linefeed);
-                                    break;
-                                case 11:
-                                    yield return new CharMatchInfo(Syntax.VerticalTab);
-                                    break;
-                                case 12:
-                                    yield return new CharMatchInfo(Syntax.FormFeed);
-                                    break;
-                                case 13:
-                                    yield return new CharMatchInfo(Syntax.CarriageReturn);
-                                    break;
-                                case 27:
-                                    yield return new CharMatchInfo(Syntax.Escape);
-                                    break;
-                            }
-                            break;
-                        }
-                    default:
+                    case CharEscapeMode.Backslash:
+                        yield return new CharMatchInfo(@"\" + ((char)charCode).ToString(), "Escaped character");
+                        break;
+                    case CharEscapeMode.Bell:
+                        yield return new CharMatchInfo(Syntax.Bell);
+                        break;
+                    case CharEscapeMode.CarriageReturn:
+                        yield return new CharMatchInfo(Syntax.CarriageReturn);
+                        break;
+                    case CharEscapeMode.Escape:
+                        yield return new CharMatchInfo(Syntax.Escape);
+                        break;
+                    case CharEscapeMode.FormFeed:
+                        yield return new CharMatchInfo(Syntax.FormFeed);
+                        break;
+                    case CharEscapeMode.Linefeed:
+                        yield return new CharMatchInfo(Syntax.Linefeed);
+                        break;
+                    case CharEscapeMode.Tab:
+                        yield return new CharMatchInfo(Syntax.Tab);
+                        break;
+                    case CharEscapeMode.VerticalTab:
+                        yield return new CharMatchInfo(Syntax.VerticalTab);
+                        break;
+                    case CharEscapeMode.None:
                         yield return new CharMatchInfo(((char)charCode).ToString());
                         break;
+                }
 
+                if (inCharGroup && charCode == 8)
+                {
+                    yield return new CharMatchInfo(Syntax.Backspace, "Escaped character");
                 }
 
                 yield return new CharMatchInfo(Syntax.Unicode(charCode), "Unicode character (four hexadecimal digits)");
@@ -603,519 +481,1034 @@ namespace Pihrtsoft.Text.RegularExpressions
             }
         }
 
-        private static readonly CharKind[] _charKinds = new CharKind[] {
+        internal static readonly CharEscapeMode[] EscapeModes = new CharEscapeMode[] {
             // 0 0x00
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 1 0x01
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 2 0x02
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 3 0x03
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 4 0x04
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 5 0x05
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 6 0x06
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 7 0x07
-            CharKind.SpecialControl,
+            CharEscapeMode.Bell,
             // 8 0x08
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 9 0x09
-            CharKind.SpecialControl,
+            CharEscapeMode.Tab,
             // 10 0x0A
-            CharKind.SpecialControl,
+            CharEscapeMode.Linefeed,
             // 11 0x0B
-            CharKind.SpecialControl,
+            CharEscapeMode.VerticalTab,
             // 12 0x0C
-            CharKind.SpecialControl,
+            CharEscapeMode.FormFeed,
             // 13 0x0D
-            CharKind.SpecialControl,
+            CharEscapeMode.CarriageReturn,
             // 14 0x0E
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 15 0x0F
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 16 0x10
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 17 0x11
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 18 0x12
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 19 0x13
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 20 0x14
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 21 0x15
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 22 0x16
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 23 0x17
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 24 0x18
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 25 0x19
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 26 0x1A
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 27 0x1B
-            CharKind.SpecialControl,
+            CharEscapeMode.Escape,
             // 28 0x1C
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 29 0x1D
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 30 0x1E
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 31 0x1F
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 32 0x20
-            CharKind.Metachar,
+            CharEscapeMode.Backslash,
             // 33 0x21 !
-            CharKind.None,
+            CharEscapeMode.None,
             // 34 0x22 "
-            CharKind.None,
+            CharEscapeMode.None,
             // 35 0x23 #
-            CharKind.Metachar,
+            CharEscapeMode.Backslash,
             // 36 0x24 $
-            CharKind.Metachar,
+            CharEscapeMode.Backslash,
             // 37 0x25 %
-            CharKind.None,
+            CharEscapeMode.None,
             // 38 0x26 &
-            CharKind.None,
+            CharEscapeMode.None,
             // 39 0x27 '
-            CharKind.None,
+            CharEscapeMode.None,
             // 40 0x28 (
-            CharKind.Metachar,
+            CharEscapeMode.Backslash,
             // 41 0x29 )
-            CharKind.Metachar,
+            CharEscapeMode.Backslash,
             // 42 0x2A *
-            CharKind.Metachar,
+            CharEscapeMode.Backslash,
             // 43 0x2B +
-            CharKind.Metachar,
+            CharEscapeMode.Backslash,
             // 44 0x2C ,
-            CharKind.None,
+            CharEscapeMode.None,
             // 45 0x2D -
-            CharKind.CharGroupMetachar,
+            CharEscapeMode.None,
             // 46 0x2E .
-            CharKind.Metachar,
+            CharEscapeMode.Backslash,
             // 47 0x2F /
-            CharKind.None,
+            CharEscapeMode.None,
             // 48 0x30 0
-            CharKind.None,
+            CharEscapeMode.None,
             // 49 0x31 1
-            CharKind.None,
+            CharEscapeMode.None,
             // 50 0x32 2
-            CharKind.None,
+            CharEscapeMode.None,
             // 51 0x33 3
-            CharKind.None,
+            CharEscapeMode.None,
             // 52 0x34 4
-            CharKind.None,
+            CharEscapeMode.None,
             // 53 0x35 5
-            CharKind.None,
+            CharEscapeMode.None,
             // 54 0x36 6
-            CharKind.None,
+            CharEscapeMode.None,
             // 55 0x37 7
-            CharKind.None,
+            CharEscapeMode.None,
             // 56 0x38 8
-            CharKind.None,
+            CharEscapeMode.None,
             // 57 0x39 9
-            CharKind.None,
+            CharEscapeMode.None,
             // 58 0x3A :
-            CharKind.None,
+            CharEscapeMode.None,
             // 59 0x3B ;
-            CharKind.None,
+            CharEscapeMode.None,
             // 60 0x3C <
-            CharKind.None,
+            CharEscapeMode.None,
             // 61 0x3D =
-            CharKind.None,
+            CharEscapeMode.None,
             // 62 0x3E >
-            CharKind.None,
+            CharEscapeMode.None,
             // 63 0x3F ?
-            CharKind.Metachar,
+            CharEscapeMode.Backslash,
             // 64 0x40 @
-            CharKind.None,
+            CharEscapeMode.None,
             // 65 0x41 A
-            CharKind.None,
+            CharEscapeMode.None,
             // 66 0x42 B
-            CharKind.None,
+            CharEscapeMode.None,
             // 67 0x43 C
-            CharKind.None,
+            CharEscapeMode.None,
             // 68 0x44 D
-            CharKind.None,
+            CharEscapeMode.None,
             // 69 0x45 E
-            CharKind.None,
+            CharEscapeMode.None,
             // 70 0x46 F
-            CharKind.None,
+            CharEscapeMode.None,
             // 71 0x47 G
-            CharKind.None,
+            CharEscapeMode.None,
             // 72 0x48 H
-            CharKind.None,
+            CharEscapeMode.None,
             // 73 0x49 I
-            CharKind.None,
+            CharEscapeMode.None,
             // 74 0x4A J
-            CharKind.None,
+            CharEscapeMode.None,
             // 75 0x4B K
-            CharKind.None,
+            CharEscapeMode.None,
             // 76 0x4C L
-            CharKind.None,
+            CharEscapeMode.None,
             // 77 0x4D M
-            CharKind.None,
+            CharEscapeMode.None,
             // 78 0x4E N
-            CharKind.None,
+            CharEscapeMode.None,
             // 79 0x4F O
-            CharKind.None,
+            CharEscapeMode.None,
             // 80 0x50 P
-            CharKind.None,
+            CharEscapeMode.None,
             // 81 0x51 Q
-            CharKind.None,
+            CharEscapeMode.None,
             // 82 0x52 R
-            CharKind.None,
+            CharEscapeMode.None,
             // 83 0x53 S
-            CharKind.None,
+            CharEscapeMode.None,
             // 84 0x54 T
-            CharKind.None,
+            CharEscapeMode.None,
             // 85 0x55 U
-            CharKind.None,
+            CharEscapeMode.None,
             // 86 0x56 V
-            CharKind.None,
+            CharEscapeMode.None,
             // 87 0x57 W
-            CharKind.None,
+            CharEscapeMode.None,
             // 88 0x58 X
-            CharKind.None,
+            CharEscapeMode.None,
             // 89 0x59 Y
-            CharKind.None,
+            CharEscapeMode.None,
             // 90 0x5A Z
-            CharKind.None,
+            CharEscapeMode.None,
             // 91 0x5B [
-            CharKind.Metachar,
+            CharEscapeMode.Backslash,
             // 92 0x5C \
-            CharKind.Backslash,
+            CharEscapeMode.Backslash,
             // 93 0x5D ]
-            CharKind.CharGroupMetachar,
+            CharEscapeMode.None,
             // 94 0x5E ^
-            CharKind.Metachar,
+            CharEscapeMode.Backslash,
             // 95 0x5F _
-            CharKind.None,
+            CharEscapeMode.None,
             // 96 0x60 `
-            CharKind.None,
+            CharEscapeMode.None,
             // 97 0x61 a
-            CharKind.None,
+            CharEscapeMode.None,
             // 98 0x62 b
-            CharKind.None,
+            CharEscapeMode.None,
             // 99 0x63 c
-            CharKind.None,
+            CharEscapeMode.None,
             // 100 0x64 d
-            CharKind.None,
+            CharEscapeMode.None,
             // 101 0x65 e
-            CharKind.None,
+            CharEscapeMode.None,
             // 102 0x66 f
-            CharKind.None,
+            CharEscapeMode.None,
             // 103 0x67 g
-            CharKind.None,
+            CharEscapeMode.None,
             // 104 0x68 h
-            CharKind.None,
+            CharEscapeMode.None,
             // 105 0x69 i
-            CharKind.None,
+            CharEscapeMode.None,
             // 106 0x6A j
-            CharKind.None,
+            CharEscapeMode.None,
             // 107 0x6B k
-            CharKind.None,
+            CharEscapeMode.None,
             // 108 0x6C l
-            CharKind.None,
+            CharEscapeMode.None,
             // 109 0x6D m
-            CharKind.None,
+            CharEscapeMode.None,
             // 110 0x6E n
-            CharKind.None,
+            CharEscapeMode.None,
             // 111 0x6F o
-            CharKind.None,
+            CharEscapeMode.None,
             // 112 0x70 p
-            CharKind.None,
+            CharEscapeMode.None,
             // 113 0x71 q
-            CharKind.None,
+            CharEscapeMode.None,
             // 114 0x72 r
-            CharKind.None,
+            CharEscapeMode.None,
             // 115 0x73 s
-            CharKind.None,
+            CharEscapeMode.None,
             // 116 0x74 t
-            CharKind.None,
+            CharEscapeMode.None,
             // 117 0x75 u
-            CharKind.None,
+            CharEscapeMode.None,
             // 118 0x76 v
-            CharKind.None,
+            CharEscapeMode.None,
             // 119 0x77 w
-            CharKind.None,
+            CharEscapeMode.None,
             // 120 0x78 x
-            CharKind.None,
+            CharEscapeMode.None,
             // 121 0x79 y
-            CharKind.None,
+            CharEscapeMode.None,
             // 122 0x7A z
-            CharKind.None,
+            CharEscapeMode.None,
             // 123 0x7B {
-            CharKind.Metachar,
+            CharEscapeMode.Backslash,
             // 124 0x7C |
-            CharKind.Metachar,
+            CharEscapeMode.Backslash,
             // 125 0x7D }
-            CharKind.None,
+            CharEscapeMode.None,
             // 126 0x7E ~
-            CharKind.None,
+            CharEscapeMode.None,
             // 127 0x7F
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 128 0x80
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 129 0x81
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 130 0x82
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 131 0x83
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 132 0x84
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 133 0x85
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 134 0x86
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 135 0x87
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 136 0x88
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 137 0x89
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 138 0x8A
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 139 0x8B
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 140 0x8C
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 141 0x8D
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 142 0x8E
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 143 0x8F
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 144 0x90
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 145 0x91
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 146 0x92
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 147 0x93
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 148 0x94
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 149 0x95
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 150 0x96
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 151 0x97
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 152 0x98
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 153 0x99
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 154 0x9A
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 155 0x9B
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 156 0x9C
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 157 0x9D
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 158 0x9E
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 159 0x9F
-            CharKind.Control,
+            CharEscapeMode.Ascii,
             // 160 0xA0
-            CharKind.None,
+            CharEscapeMode.None,
             // 161 0xA1 ¡
-            CharKind.None,
+            CharEscapeMode.None,
             // 162 0xA2 ¢
-            CharKind.None,
+            CharEscapeMode.None,
             // 163 0xA3 £
-            CharKind.None,
+            CharEscapeMode.None,
             // 164 0xA4 ¤
-            CharKind.None,
+            CharEscapeMode.None,
             // 165 0xA5 ¥
-            CharKind.None,
+            CharEscapeMode.None,
             // 166 0xA6 ¦
-            CharKind.None,
+            CharEscapeMode.None,
             // 167 0xA7 §
-            CharKind.None,
+            CharEscapeMode.None,
             // 168 0xA8 ¨
-            CharKind.None,
+            CharEscapeMode.None,
             // 169 0xA9 ©
-            CharKind.None,
+            CharEscapeMode.None,
             // 170 0xAA ª
-            CharKind.None,
+            CharEscapeMode.None,
             // 171 0xAB «
-            CharKind.None,
+            CharEscapeMode.None,
             // 172 0xAC ¬
-            CharKind.None,
+            CharEscapeMode.None,
             // 173 0xAD ­
-            CharKind.None,
+            CharEscapeMode.None,
             // 174 0xAE ®
-            CharKind.None,
+            CharEscapeMode.None,
             // 175 0xAF ¯
-            CharKind.None,
+            CharEscapeMode.None,
             // 176 0xB0 °
-            CharKind.None,
+            CharEscapeMode.None,
             // 177 0xB1 ±
-            CharKind.None,
+            CharEscapeMode.None,
             // 178 0xB2 ²
-            CharKind.None,
+            CharEscapeMode.None,
             // 179 0xB3 ³
-            CharKind.None,
+            CharEscapeMode.None,
             // 180 0xB4 ´
-            CharKind.None,
+            CharEscapeMode.None,
             // 181 0xB5 µ
-            CharKind.None,
+            CharEscapeMode.None,
             // 182 0xB6 ¶
-            CharKind.None,
+            CharEscapeMode.None,
             // 183 0xB7 ·
-            CharKind.None,
+            CharEscapeMode.None,
             // 184 0xB8 ¸
-            CharKind.None,
+            CharEscapeMode.None,
             // 185 0xB9 ¹
-            CharKind.None,
+            CharEscapeMode.None,
             // 186 0xBA º
-            CharKind.None,
+            CharEscapeMode.None,
             // 187 0xBB »
-            CharKind.None,
+            CharEscapeMode.None,
             // 188 0xBC ¼
-            CharKind.None,
+            CharEscapeMode.None,
             // 189 0xBD ½
-            CharKind.None,
+            CharEscapeMode.None,
             // 190 0xBE ¾
-            CharKind.None,
+            CharEscapeMode.None,
             // 191 0xBF ¿
-            CharKind.None,
+            CharEscapeMode.None,
             // 192 0xC0 À
-            CharKind.None,
+            CharEscapeMode.None,
             // 193 0xC1 Á
-            CharKind.None,
+            CharEscapeMode.None,
             // 194 0xC2 Â
-            CharKind.None,
+            CharEscapeMode.None,
             // 195 0xC3 Ã
-            CharKind.None,
+            CharEscapeMode.None,
             // 196 0xC4 Ä
-            CharKind.None,
+            CharEscapeMode.None,
             // 197 0xC5 Å
-            CharKind.None,
+            CharEscapeMode.None,
             // 198 0xC6 Æ
-            CharKind.None,
+            CharEscapeMode.None,
             // 199 0xC7 Ç
-            CharKind.None,
+            CharEscapeMode.None,
             // 200 0xC8 È
-            CharKind.None,
+            CharEscapeMode.None,
             // 201 0xC9 É
-            CharKind.None,
+            CharEscapeMode.None,
             // 202 0xCA Ê
-            CharKind.None,
+            CharEscapeMode.None,
             // 203 0xCB Ë
-            CharKind.None,
+            CharEscapeMode.None,
             // 204 0xCC Ì
-            CharKind.None,
+            CharEscapeMode.None,
             // 205 0xCD Í
-            CharKind.None,
+            CharEscapeMode.None,
             // 206 0xCE Î
-            CharKind.None,
+            CharEscapeMode.None,
             // 207 0xCF Ï
-            CharKind.None,
+            CharEscapeMode.None,
             // 208 0xD0 Ð
-            CharKind.None,
+            CharEscapeMode.None,
             // 209 0xD1 Ñ
-            CharKind.None,
+            CharEscapeMode.None,
             // 210 0xD2 Ò
-            CharKind.None,
+            CharEscapeMode.None,
             // 211 0xD3 Ó
-            CharKind.None,
+            CharEscapeMode.None,
             // 212 0xD4 Ô
-            CharKind.None,
+            CharEscapeMode.None,
             // 213 0xD5 Õ
-            CharKind.None,
+            CharEscapeMode.None,
             // 214 0xD6 Ö
-            CharKind.None,
+            CharEscapeMode.None,
             // 215 0xD7 ×
-            CharKind.None,
+            CharEscapeMode.None,
             // 216 0xD8 Ø
-            CharKind.None,
+            CharEscapeMode.None,
             // 217 0xD9 Ù
-            CharKind.None,
+            CharEscapeMode.None,
             // 218 0xDA Ú
-            CharKind.None,
+            CharEscapeMode.None,
             // 219 0xDB Û
-            CharKind.None,
+            CharEscapeMode.None,
             // 220 0xDC Ü
-            CharKind.None,
+            CharEscapeMode.None,
             // 221 0xDD Ý
-            CharKind.None,
+            CharEscapeMode.None,
             // 222 0xDE Þ
-            CharKind.None,
+            CharEscapeMode.None,
             // 223 0xDF ß
-            CharKind.None,
+            CharEscapeMode.None,
             // 224 0xE0 à
-            CharKind.None,
+            CharEscapeMode.None,
             // 225 0xE1 á
-            CharKind.None,
+            CharEscapeMode.None,
             // 226 0xE2 â
-            CharKind.None,
+            CharEscapeMode.None,
             // 227 0xE3 ã
-            CharKind.None,
+            CharEscapeMode.None,
             // 228 0xE4 ä
-            CharKind.None,
+            CharEscapeMode.None,
             // 229 0xE5 å
-            CharKind.None,
+            CharEscapeMode.None,
             // 230 0xE6 æ
-            CharKind.None,
+            CharEscapeMode.None,
             // 231 0xE7 ç
-            CharKind.None,
+            CharEscapeMode.None,
             // 232 0xE8 è
-            CharKind.None,
+            CharEscapeMode.None,
             // 233 0xE9 é
-            CharKind.None,
+            CharEscapeMode.None,
             // 234 0xEA ê
-            CharKind.None,
+            CharEscapeMode.None,
             // 235 0xEB ë
-            CharKind.None,
+            CharEscapeMode.None,
             // 236 0xEC ì
-            CharKind.None,
+            CharEscapeMode.None,
             // 237 0xED í
-            CharKind.None,
+            CharEscapeMode.None,
             // 238 0xEE î
-            CharKind.None,
+            CharEscapeMode.None,
             // 239 0xEF ï
-            CharKind.None,
+            CharEscapeMode.None,
             // 240 0xF0 ð
-            CharKind.None,
+            CharEscapeMode.None,
             // 241 0xF1 ñ
-            CharKind.None,
+            CharEscapeMode.None,
             // 242 0xF2 ò
-            CharKind.None,
+            CharEscapeMode.None,
             // 243 0xF3 ó
-            CharKind.None,
+            CharEscapeMode.None,
             // 244 0xF4 ô
-            CharKind.None,
+            CharEscapeMode.None,
             // 245 0xF5 õ
-            CharKind.None,
+            CharEscapeMode.None,
             // 246 0xF6 ö
-            CharKind.None,
+            CharEscapeMode.None,
             // 247 0xF7 ÷
-            CharKind.None,
+            CharEscapeMode.None,
             // 248 0xF8 ø
-            CharKind.None,
+            CharEscapeMode.None,
             // 249 0xF9 ù
-            CharKind.None,
+            CharEscapeMode.None,
             // 250 0xFA ú
-            CharKind.None,
+            CharEscapeMode.None,
             // 251 0xFB û
-            CharKind.None,
+            CharEscapeMode.None,
             // 252 0xFC ü
-            CharKind.None,
+            CharEscapeMode.None,
             // 253 0xFD ý
-            CharKind.None,
+            CharEscapeMode.None,
             // 254 0xFE þ
-            CharKind.None,
+            CharEscapeMode.None,
             // 255 0xFF ÿ
-            CharKind.None,
+            CharEscapeMode.None,
+        };
+
+        internal static readonly CharEscapeMode[] CharGroupEscapeModes = new CharEscapeMode[] {
+            // 0 0x00
+            CharEscapeMode.Ascii,
+            // 1 0x01
+            CharEscapeMode.Ascii,
+            // 2 0x02
+            CharEscapeMode.Ascii,
+            // 3 0x03
+            CharEscapeMode.Ascii,
+            // 4 0x04
+            CharEscapeMode.Ascii,
+            // 5 0x05
+            CharEscapeMode.Ascii,
+            // 6 0x06
+            CharEscapeMode.Ascii,
+            // 7 0x07
+            CharEscapeMode.Bell,
+            // 8 0x08
+            CharEscapeMode.Ascii,
+            // 9 0x09
+            CharEscapeMode.Tab,
+            // 10 0x0A
+            CharEscapeMode.Linefeed,
+            // 11 0x0B
+            CharEscapeMode.VerticalTab,
+            // 12 0x0C
+            CharEscapeMode.FormFeed,
+            // 13 0x0D
+            CharEscapeMode.CarriageReturn,
+            // 14 0x0E
+            CharEscapeMode.Ascii,
+            // 15 0x0F
+            CharEscapeMode.Ascii,
+            // 16 0x10
+            CharEscapeMode.Ascii,
+            // 17 0x11
+            CharEscapeMode.Ascii,
+            // 18 0x12
+            CharEscapeMode.Ascii,
+            // 19 0x13
+            CharEscapeMode.Ascii,
+            // 20 0x14
+            CharEscapeMode.Ascii,
+            // 21 0x15
+            CharEscapeMode.Ascii,
+            // 22 0x16
+            CharEscapeMode.Ascii,
+            // 23 0x17
+            CharEscapeMode.Ascii,
+            // 24 0x18
+            CharEscapeMode.Ascii,
+            // 25 0x19
+            CharEscapeMode.Ascii,
+            // 26 0x1A
+            CharEscapeMode.Ascii,
+            // 27 0x1B
+            CharEscapeMode.Escape,
+            // 28 0x1C
+            CharEscapeMode.Ascii,
+            // 29 0x1D
+            CharEscapeMode.Ascii,
+            // 30 0x1E
+            CharEscapeMode.Ascii,
+            // 31 0x1F
+            CharEscapeMode.Ascii,
+            // 32 0x20
+            CharEscapeMode.None,
+            // 33 0x21 !
+            CharEscapeMode.None,
+            // 34 0x22 "
+            CharEscapeMode.None,
+            // 35 0x23 #
+            CharEscapeMode.None,
+            // 36 0x24 $
+            CharEscapeMode.None,
+            // 37 0x25 %
+            CharEscapeMode.None,
+            // 38 0x26 &
+            CharEscapeMode.None,
+            // 39 0x27 '
+            CharEscapeMode.None,
+            // 40 0x28 (
+            CharEscapeMode.None,
+            // 41 0x29 )
+            CharEscapeMode.None,
+            // 42 0x2A *
+            CharEscapeMode.None,
+            // 43 0x2B +
+            CharEscapeMode.None,
+            // 44 0x2C ,
+            CharEscapeMode.None,
+            // 45 0x2D -
+            CharEscapeMode.Backslash,
+            // 46 0x2E .
+            CharEscapeMode.None,
+            // 47 0x2F /
+            CharEscapeMode.None,
+            // 48 0x30 0
+            CharEscapeMode.None,
+            // 49 0x31 1
+            CharEscapeMode.None,
+            // 50 0x32 2
+            CharEscapeMode.None,
+            // 51 0x33 3
+            CharEscapeMode.None,
+            // 52 0x34 4
+            CharEscapeMode.None,
+            // 53 0x35 5
+            CharEscapeMode.None,
+            // 54 0x36 6
+            CharEscapeMode.None,
+            // 55 0x37 7
+            CharEscapeMode.None,
+            // 56 0x38 8
+            CharEscapeMode.None,
+            // 57 0x39 9
+            CharEscapeMode.None,
+            // 58 0x3A :
+            CharEscapeMode.None,
+            // 59 0x3B ;
+            CharEscapeMode.None,
+            // 60 0x3C <
+            CharEscapeMode.None,
+            // 61 0x3D =
+            CharEscapeMode.None,
+            // 62 0x3E >
+            CharEscapeMode.None,
+            // 63 0x3F ?
+            CharEscapeMode.None,
+            // 64 0x40 @
+            CharEscapeMode.None,
+            // 65 0x41 A
+            CharEscapeMode.None,
+            // 66 0x42 B
+            CharEscapeMode.None,
+            // 67 0x43 C
+            CharEscapeMode.None,
+            // 68 0x44 D
+            CharEscapeMode.None,
+            // 69 0x45 E
+            CharEscapeMode.None,
+            // 70 0x46 F
+            CharEscapeMode.None,
+            // 71 0x47 G
+            CharEscapeMode.None,
+            // 72 0x48 H
+            CharEscapeMode.None,
+            // 73 0x49 I
+            CharEscapeMode.None,
+            // 74 0x4A J
+            CharEscapeMode.None,
+            // 75 0x4B K
+            CharEscapeMode.None,
+            // 76 0x4C L
+            CharEscapeMode.None,
+            // 77 0x4D M
+            CharEscapeMode.None,
+            // 78 0x4E N
+            CharEscapeMode.None,
+            // 79 0x4F O
+            CharEscapeMode.None,
+            // 80 0x50 P
+            CharEscapeMode.None,
+            // 81 0x51 Q
+            CharEscapeMode.None,
+            // 82 0x52 R
+            CharEscapeMode.None,
+            // 83 0x53 S
+            CharEscapeMode.None,
+            // 84 0x54 T
+            CharEscapeMode.None,
+            // 85 0x55 U
+            CharEscapeMode.None,
+            // 86 0x56 V
+            CharEscapeMode.None,
+            // 87 0x57 W
+            CharEscapeMode.None,
+            // 88 0x58 X
+            CharEscapeMode.None,
+            // 89 0x59 Y
+            CharEscapeMode.None,
+            // 90 0x5A Z
+            CharEscapeMode.None,
+            // 91 0x5B [
+            CharEscapeMode.None,
+            // 92 0x5C \
+            CharEscapeMode.Backslash,
+            // 93 0x5D ]
+            CharEscapeMode.Backslash,
+            // 94 0x5E ^
+            CharEscapeMode.None,
+            // 95 0x5F _
+            CharEscapeMode.None,
+            // 96 0x60 `
+            CharEscapeMode.None,
+            // 97 0x61 a
+            CharEscapeMode.None,
+            // 98 0x62 b
+            CharEscapeMode.None,
+            // 99 0x63 c
+            CharEscapeMode.None,
+            // 100 0x64 d
+            CharEscapeMode.None,
+            // 101 0x65 e
+            CharEscapeMode.None,
+            // 102 0x66 f
+            CharEscapeMode.None,
+            // 103 0x67 g
+            CharEscapeMode.None,
+            // 104 0x68 h
+            CharEscapeMode.None,
+            // 105 0x69 i
+            CharEscapeMode.None,
+            // 106 0x6A j
+            CharEscapeMode.None,
+            // 107 0x6B k
+            CharEscapeMode.None,
+            // 108 0x6C l
+            CharEscapeMode.None,
+            // 109 0x6D m
+            CharEscapeMode.None,
+            // 110 0x6E n
+            CharEscapeMode.None,
+            // 111 0x6F o
+            CharEscapeMode.None,
+            // 112 0x70 p
+            CharEscapeMode.None,
+            // 113 0x71 q
+            CharEscapeMode.None,
+            // 114 0x72 r
+            CharEscapeMode.None,
+            // 115 0x73 s
+            CharEscapeMode.None,
+            // 116 0x74 t
+            CharEscapeMode.None,
+            // 117 0x75 u
+            CharEscapeMode.None,
+            // 118 0x76 v
+            CharEscapeMode.None,
+            // 119 0x77 w
+            CharEscapeMode.None,
+            // 120 0x78 x
+            CharEscapeMode.None,
+            // 121 0x79 y
+            CharEscapeMode.None,
+            // 122 0x7A z
+            CharEscapeMode.None,
+            // 123 0x7B {
+            CharEscapeMode.None,
+            // 124 0x7C |
+            CharEscapeMode.None,
+            // 125 0x7D }
+            CharEscapeMode.None,
+            // 126 0x7E ~
+            CharEscapeMode.None,
+            // 127 0x7F
+            CharEscapeMode.Ascii,
+            // 128 0x80
+            CharEscapeMode.Ascii,
+            // 129 0x81
+            CharEscapeMode.Ascii,
+            // 130 0x82
+            CharEscapeMode.Ascii,
+            // 131 0x83
+            CharEscapeMode.Ascii,
+            // 132 0x84
+            CharEscapeMode.Ascii,
+            // 133 0x85
+            CharEscapeMode.Ascii,
+            // 134 0x86
+            CharEscapeMode.Ascii,
+            // 135 0x87
+            CharEscapeMode.Ascii,
+            // 136 0x88
+            CharEscapeMode.Ascii,
+            // 137 0x89
+            CharEscapeMode.Ascii,
+            // 138 0x8A
+            CharEscapeMode.Ascii,
+            // 139 0x8B
+            CharEscapeMode.Ascii,
+            // 140 0x8C
+            CharEscapeMode.Ascii,
+            // 141 0x8D
+            CharEscapeMode.Ascii,
+            // 142 0x8E
+            CharEscapeMode.Ascii,
+            // 143 0x8F
+            CharEscapeMode.Ascii,
+            // 144 0x90
+            CharEscapeMode.Ascii,
+            // 145 0x91
+            CharEscapeMode.Ascii,
+            // 146 0x92
+            CharEscapeMode.Ascii,
+            // 147 0x93
+            CharEscapeMode.Ascii,
+            // 148 0x94
+            CharEscapeMode.Ascii,
+            // 149 0x95
+            CharEscapeMode.Ascii,
+            // 150 0x96
+            CharEscapeMode.Ascii,
+            // 151 0x97
+            CharEscapeMode.Ascii,
+            // 152 0x98
+            CharEscapeMode.Ascii,
+            // 153 0x99
+            CharEscapeMode.Ascii,
+            // 154 0x9A
+            CharEscapeMode.Ascii,
+            // 155 0x9B
+            CharEscapeMode.Ascii,
+            // 156 0x9C
+            CharEscapeMode.Ascii,
+            // 157 0x9D
+            CharEscapeMode.Ascii,
+            // 158 0x9E
+            CharEscapeMode.Ascii,
+            // 159 0x9F
+            CharEscapeMode.Ascii,
+            // 160 0xA0
+            CharEscapeMode.None,
+            // 161 0xA1 ¡
+            CharEscapeMode.None,
+            // 162 0xA2 ¢
+            CharEscapeMode.None,
+            // 163 0xA3 £
+            CharEscapeMode.None,
+            // 164 0xA4 ¤
+            CharEscapeMode.None,
+            // 165 0xA5 ¥
+            CharEscapeMode.None,
+            // 166 0xA6 ¦
+            CharEscapeMode.None,
+            // 167 0xA7 §
+            CharEscapeMode.None,
+            // 168 0xA8 ¨
+            CharEscapeMode.None,
+            // 169 0xA9 ©
+            CharEscapeMode.None,
+            // 170 0xAA ª
+            CharEscapeMode.None,
+            // 171 0xAB «
+            CharEscapeMode.None,
+            // 172 0xAC ¬
+            CharEscapeMode.None,
+            // 173 0xAD ­
+            CharEscapeMode.None,
+            // 174 0xAE ®
+            CharEscapeMode.None,
+            // 175 0xAF ¯
+            CharEscapeMode.None,
+            // 176 0xB0 °
+            CharEscapeMode.None,
+            // 177 0xB1 ±
+            CharEscapeMode.None,
+            // 178 0xB2 ²
+            CharEscapeMode.None,
+            // 179 0xB3 ³
+            CharEscapeMode.None,
+            // 180 0xB4 ´
+            CharEscapeMode.None,
+            // 181 0xB5 µ
+            CharEscapeMode.None,
+            // 182 0xB6 ¶
+            CharEscapeMode.None,
+            // 183 0xB7 ·
+            CharEscapeMode.None,
+            // 184 0xB8 ¸
+            CharEscapeMode.None,
+            // 185 0xB9 ¹
+            CharEscapeMode.None,
+            // 186 0xBA º
+            CharEscapeMode.None,
+            // 187 0xBB »
+            CharEscapeMode.None,
+            // 188 0xBC ¼
+            CharEscapeMode.None,
+            // 189 0xBD ½
+            CharEscapeMode.None,
+            // 190 0xBE ¾
+            CharEscapeMode.None,
+            // 191 0xBF ¿
+            CharEscapeMode.None,
+            // 192 0xC0 À
+            CharEscapeMode.None,
+            // 193 0xC1 Á
+            CharEscapeMode.None,
+            // 194 0xC2 Â
+            CharEscapeMode.None,
+            // 195 0xC3 Ã
+            CharEscapeMode.None,
+            // 196 0xC4 Ä
+            CharEscapeMode.None,
+            // 197 0xC5 Å
+            CharEscapeMode.None,
+            // 198 0xC6 Æ
+            CharEscapeMode.None,
+            // 199 0xC7 Ç
+            CharEscapeMode.None,
+            // 200 0xC8 È
+            CharEscapeMode.None,
+            // 201 0xC9 É
+            CharEscapeMode.None,
+            // 202 0xCA Ê
+            CharEscapeMode.None,
+            // 203 0xCB Ë
+            CharEscapeMode.None,
+            // 204 0xCC Ì
+            CharEscapeMode.None,
+            // 205 0xCD Í
+            CharEscapeMode.None,
+            // 206 0xCE Î
+            CharEscapeMode.None,
+            // 207 0xCF Ï
+            CharEscapeMode.None,
+            // 208 0xD0 Ð
+            CharEscapeMode.None,
+            // 209 0xD1 Ñ
+            CharEscapeMode.None,
+            // 210 0xD2 Ò
+            CharEscapeMode.None,
+            // 211 0xD3 Ó
+            CharEscapeMode.None,
+            // 212 0xD4 Ô
+            CharEscapeMode.None,
+            // 213 0xD5 Õ
+            CharEscapeMode.None,
+            // 214 0xD6 Ö
+            CharEscapeMode.None,
+            // 215 0xD7 ×
+            CharEscapeMode.None,
+            // 216 0xD8 Ø
+            CharEscapeMode.None,
+            // 217 0xD9 Ù
+            CharEscapeMode.None,
+            // 218 0xDA Ú
+            CharEscapeMode.None,
+            // 219 0xDB Û
+            CharEscapeMode.None,
+            // 220 0xDC Ü
+            CharEscapeMode.None,
+            // 221 0xDD Ý
+            CharEscapeMode.None,
+            // 222 0xDE Þ
+            CharEscapeMode.None,
+            // 223 0xDF ß
+            CharEscapeMode.None,
+            // 224 0xE0 à
+            CharEscapeMode.None,
+            // 225 0xE1 á
+            CharEscapeMode.None,
+            // 226 0xE2 â
+            CharEscapeMode.None,
+            // 227 0xE3 ã
+            CharEscapeMode.None,
+            // 228 0xE4 ä
+            CharEscapeMode.None,
+            // 229 0xE5 å
+            CharEscapeMode.None,
+            // 230 0xE6 æ
+            CharEscapeMode.None,
+            // 231 0xE7 ç
+            CharEscapeMode.None,
+            // 232 0xE8 è
+            CharEscapeMode.None,
+            // 233 0xE9 é
+            CharEscapeMode.None,
+            // 234 0xEA ê
+            CharEscapeMode.None,
+            // 235 0xEB ë
+            CharEscapeMode.None,
+            // 236 0xEC ì
+            CharEscapeMode.None,
+            // 237 0xED í
+            CharEscapeMode.None,
+            // 238 0xEE î
+            CharEscapeMode.None,
+            // 239 0xEF ï
+            CharEscapeMode.None,
+            // 240 0xF0 ð
+            CharEscapeMode.None,
+            // 241 0xF1 ñ
+            CharEscapeMode.None,
+            // 242 0xF2 ò
+            CharEscapeMode.None,
+            // 243 0xF3 ó
+            CharEscapeMode.None,
+            // 244 0xF4 ô
+            CharEscapeMode.None,
+            // 245 0xF5 õ
+            CharEscapeMode.None,
+            // 246 0xF6 ö
+            CharEscapeMode.None,
+            // 247 0xF7 ÷
+            CharEscapeMode.None,
+            // 248 0xF8 ø
+            CharEscapeMode.None,
+            // 249 0xF9 ù
+            CharEscapeMode.None,
+            // 250 0xFA ú
+            CharEscapeMode.None,
+            // 251 0xFB û
+            CharEscapeMode.None,
+            // 252 0xFC ü
+            CharEscapeMode.None,
+            // 253 0xFD ý
+            CharEscapeMode.None,
+            // 254 0xFE þ
+            CharEscapeMode.None,
+            // 255 0xFF ÿ
+            CharEscapeMode.None,
         };
     }
 }

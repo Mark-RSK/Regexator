@@ -1,4 +1,4 @@
-// Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+﻿// Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
 using System.Collections;
@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Text;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
@@ -46,7 +47,46 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (!string.IsNullOrEmpty(value))
             {
-                base.Write(RegexUtilities.Escape(value, inCharGroup));
+                CharEscapeMode mode;
+
+                for (int i = 0; i < value.Length; i++)
+                {
+                    mode = RegexUtilities.GetEscapeMode((int)value[i], inCharGroup);
+                    if (mode != CharEscapeMode.None)
+                    {
+                        StringBuilder sb = GetStringBuilder();
+                        char ch = value[i];
+                        int lastPos;
+                        sb.Append(value, 0, i);
+
+                        do
+                        {
+                            RegexUtilities.AppendEscape(ch, mode, sb);
+                            i++;
+                            lastPos = i;
+
+                            while (i < value.Length)
+                            {
+                                ch = value[i];
+                                mode = RegexUtilities.GetEscapeMode((int)ch, inCharGroup);
+
+                                if (mode != CharEscapeMode.None)
+                                {
+                                    break;
+                                }
+
+                                i++;
+                            }
+
+                            sb.Append(value, lastPos, i - lastPos);
+
+                        } while (i < value.Length);
+
+                        return;
+                    }
+                }
+
+                base.Write(value);
             }
         }
 
