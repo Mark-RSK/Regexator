@@ -2,7 +2,7 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal enum EscapeMode
+    internal enum CharKind
     {
         None,
         Backslash,

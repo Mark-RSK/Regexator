@@ -142,17 +142,17 @@ namespace Pihrtsoft.Text.RegularExpressions
         {
             if (charCode <= 0xFF)
             {
-                switch (s_escapeModes[charCode])
+                switch (_charKinds[charCode])
                 {
-                    case EscapeMode.Backslash:
+                    case CharKind.Backslash:
                         return true;
-                    case EscapeMode.Metachar:
+                    case CharKind.Metachar:
                         return !inCharGroup;
-                    case EscapeMode.CharGroupMetachar:
+                    case CharKind.CharGroupMetachar:
                         return inCharGroup;
-                    case EscapeMode.Control:
+                    case CharKind.Control:
                         return true;
-                    case EscapeMode.SpecialControl:
+                    case CharKind.SpecialControl:
                         {
                             switch (charCode)
                             {
@@ -215,13 +215,13 @@ namespace Pihrtsoft.Text.RegularExpressions
         {
             if (charCode <= 0xFF)
             {
-                switch (s_escapeModes[charCode])
+                switch (_charKinds[charCode])
                 {
-                    case EscapeMode.Backslash:
+                    case CharKind.Backslash:
                         {
                             return EscapeChar(charCode);
                         }
-                    case EscapeMode.Metachar:
+                    case CharKind.Metachar:
                         {
                             if (!inCharGroup)
                             {
@@ -229,7 +229,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                             }
                             break;
                         }
-                    case EscapeMode.CharGroupMetachar:
+                    case CharKind.CharGroupMetachar:
                         {
                             if (inCharGroup)
                             {
@@ -237,11 +237,11 @@ namespace Pihrtsoft.Text.RegularExpressions
                             }
                             break;
                         }
-                    case EscapeMode.Control:
+                    case CharKind.Control:
                         {
                             return Syntax.AsciiHexadecimal(charCode);
                         }
-                    case EscapeMode.SpecialControl:
+                    case CharKind.SpecialControl:
                         {
                             switch (charCode)
                             {
@@ -274,29 +274,29 @@ namespace Pihrtsoft.Text.RegularExpressions
         {
             if (charCode <= 0xFF)
             {
-                switch (s_escapeModes[charCode])
+                switch (_charKinds[charCode])
                 {
-                    case EscapeMode.Backslash:
+                    case CharKind.Backslash:
                         {
                             return CharEscapeMode.BackslashEscape;
                         }
-                    case EscapeMode.Metachar:
+                    case CharKind.Metachar:
                         {
                             return inCharGroup 
                                 ? CharEscapeMode.None 
                                 : CharEscapeMode.BackslashEscape;
                         }
-                    case EscapeMode.CharGroupMetachar:
+                    case CharKind.CharGroupMetachar:
                         {
                             return inCharGroup 
                                 ? CharEscapeMode.BackslashEscape 
                                 : CharEscapeMode.None;
                         }
-                    case EscapeMode.Control:
+                    case CharKind.Control:
                         {
                             return CharEscapeMode.AsciiEscape;
                         }
-                    case EscapeMode.SpecialControl:
+                    case CharKind.SpecialControl:
                         {
                             switch (charCode)
                             {
@@ -516,14 +516,14 @@ namespace Pihrtsoft.Text.RegularExpressions
 
             if (charCode <= 0xFF)
             {
-                switch (s_escapeModes[charCode])
+                switch (_charKinds[charCode])
                 {
-                    case EscapeMode.Backslash:
+                    case CharKind.Backslash:
                         {
                             yield return new CharMatchInfo(EscapeChar(charCode), "Escaped character");
                             break;
                         }
-                    case EscapeMode.Metachar:
+                    case CharKind.Metachar:
                         {
                             if (!inCharGroup)
                             {
@@ -535,7 +535,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                             }
                             break;
                         }
-                    case EscapeMode.CharGroupMetachar:
+                    case CharKind.CharGroupMetachar:
                         {
                             if (inCharGroup)
                             {
@@ -547,7 +547,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                             }
                             break;
                         }
-                    case EscapeMode.Control:
+                    case CharKind.Control:
                         {
                             if (inCharGroup && charCode == 8)
                             {
@@ -555,7 +555,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                             }
                             break;
                         }
-                    case EscapeMode.SpecialControl:
+                    case CharKind.SpecialControl:
                         {
                             switch (charCode)
                             {
@@ -603,519 +603,519 @@ namespace Pihrtsoft.Text.RegularExpressions
             }
         }
 
-        private static readonly EscapeMode[] s_escapeModes = new EscapeMode[] {
+        private static readonly CharKind[] _charKinds = new CharKind[] {
             // 0 0x00
-            EscapeMode.Control,
+            CharKind.Control,
             // 1 0x01
-            EscapeMode.Control,
+            CharKind.Control,
             // 2 0x02
-            EscapeMode.Control,
+            CharKind.Control,
             // 3 0x03
-            EscapeMode.Control,
+            CharKind.Control,
             // 4 0x04
-            EscapeMode.Control,
+            CharKind.Control,
             // 5 0x05
-            EscapeMode.Control,
+            CharKind.Control,
             // 6 0x06
-            EscapeMode.Control,
+            CharKind.Control,
             // 7 0x07
-            EscapeMode.SpecialControl,
+            CharKind.SpecialControl,
             // 8 0x08
-            EscapeMode.Control,
+            CharKind.Control,
             // 9 0x09
-            EscapeMode.SpecialControl,
+            CharKind.SpecialControl,
             // 10 0x0A
-            EscapeMode.SpecialControl,
+            CharKind.SpecialControl,
             // 11 0x0B
-            EscapeMode.SpecialControl,
+            CharKind.SpecialControl,
             // 12 0x0C
-            EscapeMode.SpecialControl,
+            CharKind.SpecialControl,
             // 13 0x0D
-            EscapeMode.SpecialControl,
+            CharKind.SpecialControl,
             // 14 0x0E
-            EscapeMode.Control,
+            CharKind.Control,
             // 15 0x0F
-            EscapeMode.Control,
+            CharKind.Control,
             // 16 0x10
-            EscapeMode.Control,
+            CharKind.Control,
             // 17 0x11
-            EscapeMode.Control,
+            CharKind.Control,
             // 18 0x12
-            EscapeMode.Control,
+            CharKind.Control,
             // 19 0x13
-            EscapeMode.Control,
+            CharKind.Control,
             // 20 0x14
-            EscapeMode.Control,
+            CharKind.Control,
             // 21 0x15
-            EscapeMode.Control,
+            CharKind.Control,
             // 22 0x16
-            EscapeMode.Control,
+            CharKind.Control,
             // 23 0x17
-            EscapeMode.Control,
+            CharKind.Control,
             // 24 0x18
-            EscapeMode.Control,
+            CharKind.Control,
             // 25 0x19
-            EscapeMode.Control,
+            CharKind.Control,
             // 26 0x1A
-            EscapeMode.Control,
+            CharKind.Control,
             // 27 0x1B
-            EscapeMode.SpecialControl,
+            CharKind.SpecialControl,
             // 28 0x1C
-            EscapeMode.Control,
+            CharKind.Control,
             // 29 0x1D
-            EscapeMode.Control,
+            CharKind.Control,
             // 30 0x1E
-            EscapeMode.Control,
+            CharKind.Control,
             // 31 0x1F
-            EscapeMode.Control,
+            CharKind.Control,
             // 32 0x20
-            EscapeMode.Metachar,
+            CharKind.Metachar,
             // 33 0x21 !
-            EscapeMode.None,
+            CharKind.None,
             // 34 0x22 "
-            EscapeMode.None,
+            CharKind.None,
             // 35 0x23 #
-            EscapeMode.Metachar,
+            CharKind.Metachar,
             // 36 0x24 $
-            EscapeMode.Metachar,
+            CharKind.Metachar,
             // 37 0x25 %
-            EscapeMode.None,
+            CharKind.None,
             // 38 0x26 &
-            EscapeMode.None,
+            CharKind.None,
             // 39 0x27 '
-            EscapeMode.None,
+            CharKind.None,
             // 40 0x28 (
-            EscapeMode.Metachar,
+            CharKind.Metachar,
             // 41 0x29 )
-            EscapeMode.Metachar,
+            CharKind.Metachar,
             // 42 0x2A *
-            EscapeMode.Metachar,
+            CharKind.Metachar,
             // 43 0x2B +
-            EscapeMode.Metachar,
+            CharKind.Metachar,
             // 44 0x2C ,
-            EscapeMode.None,
+            CharKind.None,
             // 45 0x2D -
-            EscapeMode.CharGroupMetachar,
+            CharKind.CharGroupMetachar,
             // 46 0x2E .
-            EscapeMode.Metachar,
+            CharKind.Metachar,
             // 47 0x2F /
-            EscapeMode.None,
+            CharKind.None,
             // 48 0x30 0
-            EscapeMode.None,
+            CharKind.None,
             // 49 0x31 1
-            EscapeMode.None,
+            CharKind.None,
             // 50 0x32 2
-            EscapeMode.None,
+            CharKind.None,
             // 51 0x33 3
-            EscapeMode.None,
+            CharKind.None,
             // 52 0x34 4
-            EscapeMode.None,
+            CharKind.None,
             // 53 0x35 5
-            EscapeMode.None,
+            CharKind.None,
             // 54 0x36 6
-            EscapeMode.None,
+            CharKind.None,
             // 55 0x37 7
-            EscapeMode.None,
+            CharKind.None,
             // 56 0x38 8
-            EscapeMode.None,
+            CharKind.None,
             // 57 0x39 9
-            EscapeMode.None,
+            CharKind.None,
             // 58 0x3A :
-            EscapeMode.None,
+            CharKind.None,
             // 59 0x3B ;
-            EscapeMode.None,
+            CharKind.None,
             // 60 0x3C <
-            EscapeMode.None,
+            CharKind.None,
             // 61 0x3D =
-            EscapeMode.None,
+            CharKind.None,
             // 62 0x3E >
-            EscapeMode.None,
+            CharKind.None,
             // 63 0x3F ?
-            EscapeMode.Metachar,
+            CharKind.Metachar,
             // 64 0x40 @
-            EscapeMode.None,
+            CharKind.None,
             // 65 0x41 A
-            EscapeMode.None,
+            CharKind.None,
             // 66 0x42 B
-            EscapeMode.None,
+            CharKind.None,
             // 67 0x43 C
-            EscapeMode.None,
+            CharKind.None,
             // 68 0x44 D
-            EscapeMode.None,
+            CharKind.None,
             // 69 0x45 E
-            EscapeMode.None,
+            CharKind.None,
             // 70 0x46 F
-            EscapeMode.None,
+            CharKind.None,
             // 71 0x47 G
-            EscapeMode.None,
+            CharKind.None,
             // 72 0x48 H
-            EscapeMode.None,
+            CharKind.None,
             // 73 0x49 I
-            EscapeMode.None,
+            CharKind.None,
             // 74 0x4A J
-            EscapeMode.None,
+            CharKind.None,
             // 75 0x4B K
-            EscapeMode.None,
+            CharKind.None,
             // 76 0x4C L
-            EscapeMode.None,
+            CharKind.None,
             // 77 0x4D M
-            EscapeMode.None,
+            CharKind.None,
             // 78 0x4E N
-            EscapeMode.None,
+            CharKind.None,
             // 79 0x4F O
-            EscapeMode.None,
+            CharKind.None,
             // 80 0x50 P
-            EscapeMode.None,
+            CharKind.None,
             // 81 0x51 Q
-            EscapeMode.None,
+            CharKind.None,
             // 82 0x52 R
-            EscapeMode.None,
+            CharKind.None,
             // 83 0x53 S
-            EscapeMode.None,
+            CharKind.None,
             // 84 0x54 T
-            EscapeMode.None,
+            CharKind.None,
             // 85 0x55 U
-            EscapeMode.None,
+            CharKind.None,
             // 86 0x56 V
-            EscapeMode.None,
+            CharKind.None,
             // 87 0x57 W
-            EscapeMode.None,
+            CharKind.None,
             // 88 0x58 X
-            EscapeMode.None,
+            CharKind.None,
             // 89 0x59 Y
-            EscapeMode.None,
+            CharKind.None,
             // 90 0x5A Z
-            EscapeMode.None,
+            CharKind.None,
             // 91 0x5B [
-            EscapeMode.Metachar,
+            CharKind.Metachar,
             // 92 0x5C \
-            EscapeMode.Backslash,
+            CharKind.Backslash,
             // 93 0x5D ]
-            EscapeMode.CharGroupMetachar,
+            CharKind.CharGroupMetachar,
             // 94 0x5E ^
-            EscapeMode.Metachar,
+            CharKind.Metachar,
             // 95 0x5F _
-            EscapeMode.None,
+            CharKind.None,
             // 96 0x60 `
-            EscapeMode.None,
+            CharKind.None,
             // 97 0x61 a
-            EscapeMode.None,
+            CharKind.None,
             // 98 0x62 b
-            EscapeMode.None,
+            CharKind.None,
             // 99 0x63 c
-            EscapeMode.None,
+            CharKind.None,
             // 100 0x64 d
-            EscapeMode.None,
+            CharKind.None,
             // 101 0x65 e
-            EscapeMode.None,
+            CharKind.None,
             // 102 0x66 f
-            EscapeMode.None,
+            CharKind.None,
             // 103 0x67 g
-            EscapeMode.None,
+            CharKind.None,
             // 104 0x68 h
-            EscapeMode.None,
+            CharKind.None,
             // 105 0x69 i
-            EscapeMode.None,
+            CharKind.None,
             // 106 0x6A j
-            EscapeMode.None,
+            CharKind.None,
             // 107 0x6B k
-            EscapeMode.None,
+            CharKind.None,
             // 108 0x6C l
-            EscapeMode.None,
+            CharKind.None,
             // 109 0x6D m
-            EscapeMode.None,
+            CharKind.None,
             // 110 0x6E n
-            EscapeMode.None,
+            CharKind.None,
             // 111 0x6F o
-            EscapeMode.None,
+            CharKind.None,
             // 112 0x70 p
-            EscapeMode.None,
+            CharKind.None,
             // 113 0x71 q
-            EscapeMode.None,
+            CharKind.None,
             // 114 0x72 r
-            EscapeMode.None,
+            CharKind.None,
             // 115 0x73 s
-            EscapeMode.None,
+            CharKind.None,
             // 116 0x74 t
-            EscapeMode.None,
+            CharKind.None,
             // 117 0x75 u
-            EscapeMode.None,
+            CharKind.None,
             // 118 0x76 v
-            EscapeMode.None,
+            CharKind.None,
             // 119 0x77 w
-            EscapeMode.None,
+            CharKind.None,
             // 120 0x78 x
-            EscapeMode.None,
+            CharKind.None,
             // 121 0x79 y
-            EscapeMode.None,
+            CharKind.None,
             // 122 0x7A z
-            EscapeMode.None,
+            CharKind.None,
             // 123 0x7B {
-            EscapeMode.Metachar,
+            CharKind.Metachar,
             // 124 0x7C |
-            EscapeMode.Metachar,
+            CharKind.Metachar,
             // 125 0x7D }
-            EscapeMode.None,
+            CharKind.None,
             // 126 0x7E ~
-            EscapeMode.None,
+            CharKind.None,
             // 127 0x7F
-            EscapeMode.Control,
+            CharKind.Control,
             // 128 0x80
-            EscapeMode.Control,
+            CharKind.Control,
             // 129 0x81
-            EscapeMode.Control,
+            CharKind.Control,
             // 130 0x82
-            EscapeMode.Control,
+            CharKind.Control,
             // 131 0x83
-            EscapeMode.Control,
+            CharKind.Control,
             // 132 0x84
-            EscapeMode.Control,
+            CharKind.Control,
             // 133 0x85
-            EscapeMode.Control,
+            CharKind.Control,
             // 134 0x86
-            EscapeMode.Control,
+            CharKind.Control,
             // 135 0x87
-            EscapeMode.Control,
+            CharKind.Control,
             // 136 0x88
-            EscapeMode.Control,
+            CharKind.Control,
             // 137 0x89
-            EscapeMode.Control,
+            CharKind.Control,
             // 138 0x8A
-            EscapeMode.Control,
+            CharKind.Control,
             // 139 0x8B
-            EscapeMode.Control,
+            CharKind.Control,
             // 140 0x8C
-            EscapeMode.Control,
+            CharKind.Control,
             // 141 0x8D
-            EscapeMode.Control,
+            CharKind.Control,
             // 142 0x8E
-            EscapeMode.Control,
+            CharKind.Control,
             // 143 0x8F
-            EscapeMode.Control,
+            CharKind.Control,
             // 144 0x90
-            EscapeMode.Control,
+            CharKind.Control,
             // 145 0x91
-            EscapeMode.Control,
+            CharKind.Control,
             // 146 0x92
-            EscapeMode.Control,
+            CharKind.Control,
             // 147 0x93
-            EscapeMode.Control,
+            CharKind.Control,
             // 148 0x94
-            EscapeMode.Control,
+            CharKind.Control,
             // 149 0x95
-            EscapeMode.Control,
+            CharKind.Control,
             // 150 0x96
-            EscapeMode.Control,
+            CharKind.Control,
             // 151 0x97
-            EscapeMode.Control,
+            CharKind.Control,
             // 152 0x98
-            EscapeMode.Control,
+            CharKind.Control,
             // 153 0x99
-            EscapeMode.Control,
+            CharKind.Control,
             // 154 0x9A
-            EscapeMode.Control,
+            CharKind.Control,
             // 155 0x9B
-            EscapeMode.Control,
+            CharKind.Control,
             // 156 0x9C
-            EscapeMode.Control,
+            CharKind.Control,
             // 157 0x9D
-            EscapeMode.Control,
+            CharKind.Control,
             // 158 0x9E
-            EscapeMode.Control,
+            CharKind.Control,
             // 159 0x9F
-            EscapeMode.Control,
+            CharKind.Control,
             // 160 0xA0
-            EscapeMode.None,
+            CharKind.None,
             // 161 0xA1 ¡
-            EscapeMode.None,
+            CharKind.None,
             // 162 0xA2 ¢
-            EscapeMode.None,
+            CharKind.None,
             // 163 0xA3 £
-            EscapeMode.None,
+            CharKind.None,
             // 164 0xA4 ¤
-            EscapeMode.None,
+            CharKind.None,
             // 165 0xA5 ¥
-            EscapeMode.None,
+            CharKind.None,
             // 166 0xA6 ¦
-            EscapeMode.None,
+            CharKind.None,
             // 167 0xA7 §
-            EscapeMode.None,
+            CharKind.None,
             // 168 0xA8 ¨
-            EscapeMode.None,
+            CharKind.None,
             // 169 0xA9 ©
-            EscapeMode.None,
+            CharKind.None,
             // 170 0xAA ª
-            EscapeMode.None,
+            CharKind.None,
             // 171 0xAB «
-            EscapeMode.None,
+            CharKind.None,
             // 172 0xAC ¬
-            EscapeMode.None,
+            CharKind.None,
             // 173 0xAD ­
-            EscapeMode.None,
+            CharKind.None,
             // 174 0xAE ®
-            EscapeMode.None,
+            CharKind.None,
             // 175 0xAF ¯
-            EscapeMode.None,
+            CharKind.None,
             // 176 0xB0 °
-            EscapeMode.None,
+            CharKind.None,
             // 177 0xB1 ±
-            EscapeMode.None,
+            CharKind.None,
             // 178 0xB2 ²
-            EscapeMode.None,
+            CharKind.None,
             // 179 0xB3 ³
-            EscapeMode.None,
+            CharKind.None,
             // 180 0xB4 ´
-            EscapeMode.None,
+            CharKind.None,
             // 181 0xB5 µ
-            EscapeMode.None,
+            CharKind.None,
             // 182 0xB6 ¶
-            EscapeMode.None,
+            CharKind.None,
             // 183 0xB7 ·
-            EscapeMode.None,
+            CharKind.None,
             // 184 0xB8 ¸
-            EscapeMode.None,
+            CharKind.None,
             // 185 0xB9 ¹
-            EscapeMode.None,
+            CharKind.None,
             // 186 0xBA º
-            EscapeMode.None,
+            CharKind.None,
             // 187 0xBB »
-            EscapeMode.None,
+            CharKind.None,
             // 188 0xBC ¼
-            EscapeMode.None,
+            CharKind.None,
             // 189 0xBD ½
-            EscapeMode.None,
+            CharKind.None,
             // 190 0xBE ¾
-            EscapeMode.None,
+            CharKind.None,
             // 191 0xBF ¿
-            EscapeMode.None,
+            CharKind.None,
             // 192 0xC0 À
-            EscapeMode.None,
+            CharKind.None,
             // 193 0xC1 Á
-            EscapeMode.None,
+            CharKind.None,
             // 194 0xC2 Â
-            EscapeMode.None,
+            CharKind.None,
             // 195 0xC3 Ã
-            EscapeMode.None,
+            CharKind.None,
             // 196 0xC4 Ä
-            EscapeMode.None,
+            CharKind.None,
             // 197 0xC5 Å
-            EscapeMode.None,
+            CharKind.None,
             // 198 0xC6 Æ
-            EscapeMode.None,
+            CharKind.None,
             // 199 0xC7 Ç
-            EscapeMode.None,
+            CharKind.None,
             // 200 0xC8 È
-            EscapeMode.None,
+            CharKind.None,
             // 201 0xC9 É
-            EscapeMode.None,
+            CharKind.None,
             // 202 0xCA Ê
-            EscapeMode.None,
+            CharKind.None,
             // 203 0xCB Ë
-            EscapeMode.None,
+            CharKind.None,
             // 204 0xCC Ì
-            EscapeMode.None,
+            CharKind.None,
             // 205 0xCD Í
-            EscapeMode.None,
+            CharKind.None,
             // 206 0xCE Î
-            EscapeMode.None,
+            CharKind.None,
             // 207 0xCF Ï
-            EscapeMode.None,
+            CharKind.None,
             // 208 0xD0 Ð
-            EscapeMode.None,
+            CharKind.None,
             // 209 0xD1 Ñ
-            EscapeMode.None,
+            CharKind.None,
             // 210 0xD2 Ò
-            EscapeMode.None,
+            CharKind.None,
             // 211 0xD3 Ó
-            EscapeMode.None,
+            CharKind.None,
             // 212 0xD4 Ô
-            EscapeMode.None,
+            CharKind.None,
             // 213 0xD5 Õ
-            EscapeMode.None,
+            CharKind.None,
             // 214 0xD6 Ö
-            EscapeMode.None,
+            CharKind.None,
             // 215 0xD7 ×
-            EscapeMode.None,
+            CharKind.None,
             // 216 0xD8 Ø
-            EscapeMode.None,
+            CharKind.None,
             // 217 0xD9 Ù
-            EscapeMode.None,
+            CharKind.None,
             // 218 0xDA Ú
-            EscapeMode.None,
+            CharKind.None,
             // 219 0xDB Û
-            EscapeMode.None,
+            CharKind.None,
             // 220 0xDC Ü
-            EscapeMode.None,
+            CharKind.None,
             // 221 0xDD Ý
-            EscapeMode.None,
+            CharKind.None,
             // 222 0xDE Þ
-            EscapeMode.None,
+            CharKind.None,
             // 223 0xDF ß
-            EscapeMode.None,
+            CharKind.None,
             // 224 0xE0 à
-            EscapeMode.None,
+            CharKind.None,
             // 225 0xE1 á
-            EscapeMode.None,
+            CharKind.None,
             // 226 0xE2 â
-            EscapeMode.None,
+            CharKind.None,
             // 227 0xE3 ã
-            EscapeMode.None,
+            CharKind.None,
             // 228 0xE4 ä
-            EscapeMode.None,
+            CharKind.None,
             // 229 0xE5 å
-            EscapeMode.None,
+            CharKind.None,
             // 230 0xE6 æ
-            EscapeMode.None,
+            CharKind.None,
             // 231 0xE7 ç
-            EscapeMode.None,
+            CharKind.None,
             // 232 0xE8 è
-            EscapeMode.None,
+            CharKind.None,
             // 233 0xE9 é
-            EscapeMode.None,
+            CharKind.None,
             // 234 0xEA ê
-            EscapeMode.None,
+            CharKind.None,
             // 235 0xEB ë
-            EscapeMode.None,
+            CharKind.None,
             // 236 0xEC ì
-            EscapeMode.None,
+            CharKind.None,
             // 237 0xED í
-            EscapeMode.None,
+            CharKind.None,
             // 238 0xEE î
-            EscapeMode.None,
+            CharKind.None,
             // 239 0xEF ï
-            EscapeMode.None,
+            CharKind.None,
             // 240 0xF0 ð
-            EscapeMode.None,
+            CharKind.None,
             // 241 0xF1 ñ
-            EscapeMode.None,
+            CharKind.None,
             // 242 0xF2 ò
-            EscapeMode.None,
+            CharKind.None,
             // 243 0xF3 ó
-            EscapeMode.None,
+            CharKind.None,
             // 244 0xF4 ô
-            EscapeMode.None,
+            CharKind.None,
             // 245 0xF5 õ
-            EscapeMode.None,
+            CharKind.None,
             // 246 0xF6 ö
-            EscapeMode.None,
+            CharKind.None,
             // 247 0xF7 ÷
-            EscapeMode.None,
+            CharKind.None,
             // 248 0xF8 ø
-            EscapeMode.None,
+            CharKind.None,
             // 249 0xF9 ù
-            EscapeMode.None,
+            CharKind.None,
             // 250 0xFA ú
-            EscapeMode.None,
+            CharKind.None,
             // 251 0xFB û
-            EscapeMode.None,
+            CharKind.None,
             // 252 0xFC ü
-            EscapeMode.None,
+            CharKind.None,
             // 253 0xFD ý
-            EscapeMode.None,
+            CharKind.None,
             // 254 0xFE þ
-            EscapeMode.None,
+            CharKind.None,
             // 255 0xFF ÿ
-            EscapeMode.None,
+            CharKind.None,
         };
     }
 }
