@@ -332,6 +332,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         #endregion
 
+        public static explicit operator CharGroupItem(string characters)
+        {
+            return CharGroupItem.Create(characters);
+        }
+
         internal CharGroupItem Previous { get; set; }
     }
 }
