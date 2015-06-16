@@ -154,9 +154,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Alternations.Or(this, content);
         }
 
-        public QuantifiableExpression StartOfInput()
+        public QuantifiableExpression Start()
         {
-            return ConcatInternal(Anchors.StartOfInput());
+            return ConcatInternal(Anchors.Start());
         }
 
         public QuantifiableExpression StartOfLine()

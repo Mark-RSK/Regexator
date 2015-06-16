@@ -17,7 +17,7 @@ namespace Pihrtsoft.Text.RegularExpressions
 
         public const string Or = "|";
 
-        public const string StartOfInput = @"\A";
+        public const string Start = @"\A";
         public const string StartOfLine = "^";
         public const string EndOfInput = @"\z";
         public const string EndOfLine = "$";

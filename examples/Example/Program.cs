@@ -123,7 +123,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             Console.WriteLine("first line:");
             Console.WriteLine(Anchors
-                .StartOfInput()
+                .Start()
                 .NotNewLineChar().MaybeMany());
             Console.WriteLine("");
 

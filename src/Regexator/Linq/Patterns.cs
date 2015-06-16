@@ -36,7 +36,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static Expression FirstLine()
         {
             return Anchors
-                .StartOfInput()
+                .Start()
                 .NotNewLineChar().MaybeMany();
         }
 
@@ -50,7 +50,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal static Expression TrimInlineComment()
         {
-            return Anchors.StartOfInput().WhileNot(')');
+            return Anchors.Start().WhileNot(')');
         }
     }
 }

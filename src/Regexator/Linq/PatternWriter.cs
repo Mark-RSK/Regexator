@@ -498,9 +498,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             WriteGroupEnd();
         }
 
-        public void WriteStartOfInput()
+        public void WriteStart()
         {
-            base.Write(Syntax.StartOfInput);
+            base.Write(Syntax.Start);
         }
 
         public void WriteStartOfLine()

@@ -7,7 +7,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
         internal override void WriteTo(PatternWriter writer)
         {
-            writer.WriteStartOfInput();
+            writer.WriteStart();
         }
     }
 }

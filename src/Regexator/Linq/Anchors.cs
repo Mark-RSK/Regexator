@@ -64,7 +64,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Expression.Surround(Anchors.NotAssertBack(contentBefore), content, Anchors.NotAssert(contentAfter));
         }
 
-        public static QuantifiableExpression StartOfInput()
+        public static QuantifiableExpression Start()
         {
             return new StartOfInput();
         }
@@ -170,7 +170,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static Expression EntireInput(object content)
         {
-            return Expression.Surround(StartOfInput(), content, EndOfInput());
+            return Expression.Surround(Start(), content, EndOfInput());
         }
     }
 }
