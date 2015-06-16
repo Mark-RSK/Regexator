@@ -79,7 +79,7 @@
     <Compile Include="Linq\Expression\AsciiCharSurroundExpression.cs" />
     <Compile Include="Linq\PatternOptions.cs" />
     <Compile Include="Linq\Quantifier\LazyQuantifierExpression.cs" />
-    <Compile Include="Linq\Quantifiers.cs" />
+    <Compile Include="Linq\Quantify.cs" />
     <Compile Include="Linq\Quantifier\QuantifierExpression.cs" />
     <Compile Include="Linq\Substitution\BeforeMatchSubstitution.cs" />
     <Compile Include="Linq\Substitution\AfterMatchSubstitution.cs" />

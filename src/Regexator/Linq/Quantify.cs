@@ -2,7 +2,7 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public static class Quantifiers
+    public static class Quantify
     {
         public static QuantifierExpression Maybe(object content)
         {
