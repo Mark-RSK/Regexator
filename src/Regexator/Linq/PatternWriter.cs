@@ -342,7 +342,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("trueContent");
             }
 
-            WriteIfStart();
+            WriteGroupStart();
 
             if (Settings.HasOptions(PatternOptions.ConditionWithAssertion))
             {
@@ -380,7 +380,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal void WriteIfGroupInternal(string groupName, object trueContent, object falseContent)
         {
-            WriteIfStart();
+            WriteGroupStart();
             WriteIfGroupCondition(groupName);
             Write(trueContent);
 
@@ -405,7 +405,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("trueContent");
             }
 
-            WriteIfStart();
+            WriteGroupStart();
             WriteIfGroupCondition(groupNumber);
             Write(trueContent);
 
@@ -416,11 +416,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
 
             WriteGroupEnd();
-        }
-
-        public void WriteIfStart()
-        {
-            base.Write(Syntax.IfStart);
         }
 
         internal void WriteIfGroupCondition(int groupNumber)

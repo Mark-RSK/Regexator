@@ -12,7 +12,7 @@ namespace Pihrtsoft.Text.RegularExpressions
 {
     public static partial class Syntax
     {
-        internal const string IfStart = "(?";
+        internal const string GroupStart = "(?";
         internal const string InlineCommentStart = "(?#";
 
         public const string Or = "|";
@@ -156,7 +156,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         {
             RegexUtilities.CheckGroupName(groupName);
 
-            return GroupStart(groupName, boundary) + Expression.GetPattern(content) + GroupEnd;
+            return NamedGroupStart(groupName, boundary) + Expression.GetPattern(content) + GroupEnd;
         }
 
         public static string Group(string groupName, IdentifierBoundary boundary, params object[] content)
@@ -164,7 +164,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             return Group(groupName, boundary, (object)content);
         }
 
-        internal static string GroupStart(string groupName, IdentifierBoundary boundary)
+        internal static string NamedGroupStart(string groupName, IdentifierBoundary boundary)
         {
             switch (boundary)
             {
@@ -273,7 +273,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             string text = Expression.GetPattern(content);
 
             return (!string.IsNullOrEmpty(options))
-                ? "(?" + options + ":" + text + GroupEnd
+                ? GroupStart + options + ":" + text + GroupEnd
                 : text;
         }
 
@@ -568,7 +568,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             string options = GetInlineChars(applyOptions, disableOptions);
 
             return (!string.IsNullOrEmpty(options))
-                ? "(?" + options + GroupEnd
+                ? GroupStart + options + GroupEnd
                 : string.Empty;
         }
 
