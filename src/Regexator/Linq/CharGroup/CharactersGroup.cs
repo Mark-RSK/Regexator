@@ -22,6 +22,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("characters");
             }
 
+            if (characters.Length == 0)
+            {
+                throw new ArgumentException();
+            }
+
             _characters = characters;
             _negative = negative;
         }

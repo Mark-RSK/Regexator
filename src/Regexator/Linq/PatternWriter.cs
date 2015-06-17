@@ -788,6 +788,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public void WriteCharGroup(string characters, bool negative)
         {
+            if (characters == null)
+            {
+                throw new ArgumentNullException("characters");
+            }
+
+            if (characters.Length == 0)
+            {
+                throw new ArgumentException();
+            }
+
             WriteCharGroupStart(negative);
             Write(characters, true);
             WriteCharGroupEnd();
