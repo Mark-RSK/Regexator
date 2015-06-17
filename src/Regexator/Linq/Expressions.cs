@@ -118,14 +118,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Surround(AsciiChar.LessThan, content, AsciiChar.GreaterThan);
         }
 
-        public static QuantifiableExpression Backreference(int groupNumber)
+        public static QuantifiableExpression GroupReference(int groupNumber)
         {
-            return new NumberBackreferenceExpression(groupNumber);
+            return new NumberedGroupReferenceExpression(groupNumber);
         }
 
-        public static QuantifiableExpression Backreference(string groupName)
+        public static QuantifiableExpression GroupReference(string groupName)
         {
-            return new NameBackreferenceExpression(groupName);
+            return new NamedGroupReferenceExpression(groupName);
         }
 
         public static Expression ApplyOptions(InlineOptions options)

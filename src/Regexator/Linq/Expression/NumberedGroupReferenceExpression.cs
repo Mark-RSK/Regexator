@@ -5,12 +5,12 @@ using System.Collections.Generic;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal sealed class NumberBackreferenceExpression
+    internal sealed class NumberedGroupReferenceExpression
         : QuantifiableExpression
     {
         private readonly int _groupNumber;
 
-        internal NumberBackreferenceExpression(int groupNumber)
+        internal NumberedGroupReferenceExpression(int groupNumber)
             : base()
         {
             if (groupNumber < 0)
@@ -23,7 +23,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override void WriteTo(PatternWriter writer)
         {
-            writer.WriteBackreferenceInternal(GroupNumber);
+            writer.WriteGroupReferenceInternal(GroupNumber);
         }
 
         public int GroupNumber

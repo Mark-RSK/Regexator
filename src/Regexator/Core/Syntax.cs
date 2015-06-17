@@ -2,7 +2,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Linq;
@@ -12,7 +11,6 @@ namespace Pihrtsoft.Text.RegularExpressions
 {
     public static partial class Syntax
     {
-        internal const string GroupStart = "(?";
         internal const string InlineCommentStart = "(?#";
 
         public const string Or = "|";
@@ -31,6 +29,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         internal const string AssertBackStart = "(?<=";
         internal const string NotAssertBackStart = "(?<!";
 
+        internal const string GroupStart = "(?";
         internal const string NoncapturingGroupStart = "(?:";
         internal const string NonbacktrackingGroupStart = "(?>";
         internal const string GroupEnd = ")";
@@ -122,7 +121,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             return NotAssertBack((object)content);
         }
 
-        public static string Backreference(int groupNumber)
+        public static string GroupReference(int groupNumber)
         {
             if (groupNumber < 0)
             {
@@ -132,14 +131,14 @@ namespace Pihrtsoft.Text.RegularExpressions
             return @"\" + groupNumber;
         }
 
-        public static string Backreference(string groupName, IdentifierBoundary separator)
+        public static string GroupReference(string groupName, IdentifierBoundary separator)
         {
             RegexUtilities.CheckGroupName(groupName);
 
-            return BackreferenceInternal(groupName, separator);
+            return GroupReferenceInternal(groupName, separator);
         }
 
-        internal static string BackreferenceInternal(string groupName, IdentifierBoundary separator)
+        internal static string GroupReferenceInternal(string groupName, IdentifierBoundary separator)
         {
             switch (separator)
             {

@@ -128,11 +128,11 @@
     <Compile Include="Linq\IExcludedGroup.cs" />
     <Compile Include="Linq\Alternation\AlternationExpression.cs" />
     <Compile Include="Core\InlineOptions.cs" />
-    <Compile Include="Linq\Expression\NameBackreferenceExpression.cs" />
+    <Compile Include="Linq\Expression\NamedGroupReferenceExpression.cs" />
     <Compile Include="Linq\Group\NamedGroupExpression.cs" />
     <Compile Include="Linq\Group\NonbacktrackingExpression.cs" />
     <Compile Include="Linq\Group\NoncapturingExpression.cs" />
-    <Compile Include="Linq\Expression\NumberBackreferenceExpression.cs" />
+    <Compile Include="Linq\Expression\NumberedGroupReferenceExpression.cs" />
     <Compile Include="Linq\Group\GroupOptionsExpression.cs" />
     <Compile Include="Linq\Group\AnyExpression.cs" />
     <Compile Include="Linq\Expression\QuantifiableExpression.cs" />

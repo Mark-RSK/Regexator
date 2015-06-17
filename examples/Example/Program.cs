@@ -55,9 +55,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                     .Any(values.Select(f => Expression.Create(f).Group()))
                     .WordBoundary()
                     .NotWordChar().MaybeMany().Lazy())
-                .Backreference(1)
-                .Backreference(2)
-                .Backreference(3));
+                .GroupReference(1)
+                .GroupReference(2)
+                .GroupReference(3));
             Console.WriteLine("");
 
             var quotedChar = Chars.NotChar(CharGroupItems.QuoteMark().NewLineChar()).MaybeMany();
@@ -79,7 +79,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("repeated word");
             Console.WriteLine(Anchors.Word().AsGroup()
                 .WhiteSpaces()
-                .Backreference(1)
+                .GroupReference(1)
                 .WordBoundary());
             Console.WriteLine("");
 

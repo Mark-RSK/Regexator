@@ -2,12 +2,12 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal sealed class NameBackreferenceExpression
+    internal sealed class NamedGroupReferenceExpression
         : QuantifiableExpression
     {
         private readonly string _groupName;
 
-        internal NameBackreferenceExpression(string groupName)
+        internal NamedGroupReferenceExpression(string groupName)
             : base()
         {
             RegexUtilities.CheckGroupName(groupName);
@@ -17,7 +17,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override void WriteTo(PatternWriter writer)
         {
-            writer.WriteBackreferenceInternal(GroupName);
+            writer.WriteGroupReferenceInternal(GroupName);
         }
 
         public string GroupName

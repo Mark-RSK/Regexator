@@ -2046,14 +2046,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Quantify.CountTo(maxCount, content));
         }
 
-        public QuantifiableExpression Backreference(int groupNumber)
+        public QuantifiableExpression GroupReference(int groupNumber)
         {
-            return ConcatInternal(Expressions.Backreference(groupNumber));
+            return ConcatInternal(Expressions.GroupReference(groupNumber));
         }
 
-        public QuantifiableExpression Backreference(string groupName)
+        public QuantifiableExpression GroupReference(string groupName)
         {
-            return ConcatInternal(Expressions.Backreference(groupName));
+            return ConcatInternal(Expressions.GroupReference(groupName));
         }
 
         public Expression Comment(string value)

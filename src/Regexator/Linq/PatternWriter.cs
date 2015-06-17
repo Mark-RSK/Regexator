@@ -149,7 +149,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                     WriteAsciiHexadecimal(value);
                     break;
                 case CharEscapeMode.Backslash:
-                    base.Write(@"\");
+                    WriteBackslash();
                     base.Write((char)value);
                     break;
                 case CharEscapeMode.Bell:
@@ -1052,28 +1052,24 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             base.Write(Syntax.Lazy);
         }
 
-        internal void WriteBackreferenceInternal(int groupNumber)
+        internal void WriteGroupReferenceInternal(int groupNumber)
         {
-            base.Write(Syntax.Backreference(groupNumber));
+            WriteBackslash();
+            base.Write(groupNumber);
 
-            if (Settings.HasOptions(PatternOptions.SeparatorAfterNumberBackreference))
+            if (Settings.HasOptions(PatternOptions.SeparateNumberedGroupReference))
             {
                 WriteNoncapturingGroupStart();
                 WriteGroupEnd();
             }
         }
 
-        internal void WriteBackreferenceInternal(string groupName)
+        internal void WriteGroupReferenceInternal(string groupName)
         {
-            WriteBackreferenceStart();
+            base.Write(@"\k");
             WriteLeftIdentifierBoundary();
             base.Write(groupName);
             WriteRightIdentifierBoundary();
-        }
-
-        private void WriteBackreferenceStart()
-        {
-            base.Write(@"\k");
         }
 
         public void WriteOptions(InlineOptions applyOptions)
@@ -1142,6 +1138,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         private void WriteHyphen()
         {
             base.Write('-');
+        }
+
+        private void WriteBackslash()
+        {
+            base.Write('\\');
         }
 
         public void WriteAsciiHexadecimal(int charCode)
