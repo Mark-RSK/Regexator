@@ -334,14 +334,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Linq.Groups.NamedGroup(name, content));
         }
 
-        public QuantifiableExpression Noncapturing(object content)
+        public QuantifiableExpression Enclose(object content)
         {
-            return ConcatInternal(Linq.Groups.Noncapturing(content));
+            return ConcatInternal(Linq.Groups.Enclose(content));
         }
 
-        public QuantifiableExpression Noncapturing(params object[] content)
+        public QuantifiableExpression Enclose(params object[] content)
         {
-            return ConcatInternal(Linq.Groups.Noncapturing(content));
+            return ConcatInternal(Linq.Groups.Enclose(content));
         }
 
         public QuantifiableExpression Nonbacktracking(object content)
@@ -419,9 +419,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Linq.Groups.NamedGroup(groupName, this);
         }
 
-        public QuantifiableExpression AsNoncapturing()
+        internal QuantifiableExpression AsNoncapturing()
         {
-            return Linq.Groups.Noncapturing(this);
+            return Linq.Groups.Enclose(this);
         }
 
         public QuantifiableExpression AsNonbacktracking()
