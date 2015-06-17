@@ -36,7 +36,15 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 }
                 else
                 {
-                    return !(Content is CharGroupItem);
+                    string s = Content as string;
+                    if (s != null)
+                    {
+                        return s.Length > 1;
+                    }
+                    else
+                    {
+                        return !(Content is CharGroupItem);
+                    }
                 }
             }
         }
