@@ -11,11 +11,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         private readonly AsciiChar _charBefore;
         private readonly AsciiChar _charAfter;
 
-        public AsciiCharSurroundExpression(object content, AsciiChar surroundChar)
-            : this(surroundChar, content, surroundChar)
-        {
-        }
-
         public AsciiCharSurroundExpression(AsciiChar charBefore, object content, AsciiChar charAfter)
         {
             if (content == null)
