@@ -48,11 +48,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 #endif
 
-        public QuantifierExpression CountTo(int maxCount)
-        {
-            return ConcatInternal(new CountRangeQuantifier(0, maxCount));
-        }
-
         public QuantifierExpression OneMany()
         {
             return ConcatInternal(new OneManyQuantifier());
@@ -80,6 +75,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public QuantifierExpression CountFrom(int minCount)
         {
             return ConcatInternal(new CountFromQuantifier(minCount));
+        }
+
+        public QuantifierExpression CountTo(int maxCount)
+        {
+            return ConcatInternal(new CountRangeQuantifier(0, maxCount));
         }
 
         public QuantifierExpression CountRange(int minCount, int maxCount)
