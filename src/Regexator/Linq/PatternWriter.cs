@@ -430,11 +430,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             WriteGroupEnd();
         }
 
-        public void WriteOr()
-        {
-            base.Write(Syntax.Or);
-        }
-
         public void WriteAssert(object content)
         {
             if (content == null)
@@ -543,12 +538,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             base.Write(Syntax.NotAssertBackStart);
         }
 
-        public void WriteOr(object content)
+        public void WriteOr()
         {
-            WriteOr(content, AnyGroupMode.Noncapturing);
+            base.Write(Syntax.Or);
         }
 
-        internal void WriteOr(object content, AnyGroupMode mode)
+        public void WriteAny(object content)
+        {
+            WriteAny(content, AnyGroupMode.Noncapturing);
+        }
+
+        internal void WriteAny(object content, AnyGroupMode mode)
         {
             if (mode == AnyGroupMode.Capturing)
             {

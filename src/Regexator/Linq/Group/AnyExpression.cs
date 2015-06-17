@@ -33,7 +33,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override void WriteTo(PatternWriter writer)
         {
-            writer.WriteOr(Content, GroupMode);
+            writer.WriteAny(Content, GroupMode);
         }
 
         internal AnyGroupMode GroupMode
