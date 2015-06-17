@@ -11,7 +11,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             RegexUtilities.CheckGroupName(groupName);
 
-            return ConcatInternal(Alternations.IfGroup(groupName, Expressions.Never()));
+            return ConcatInternal(Expressions.IfGroup(groupName, Expressions.Never()));
         }
 
         public Expression DisallowGroups(params string[] groupNames)
@@ -38,7 +38,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentOutOfRangeException("groupNumber");
             }
 
-            return ConcatInternal(Alternations.IfGroup(groupNumber, Expressions.Never()));
+            return ConcatInternal(Expressions.IfGroup(groupNumber, Expressions.Never()));
         }
 
         public Expression DisallowGroups(params int[] groupNumbers)
@@ -62,7 +62,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             RegexUtilities.CheckGroupName(groupName);
 
-            return ConcatInternal(Alternations.IfGroup(groupName, Expression.Empty, Expressions.Never()));
+            return ConcatInternal(Expressions.IfGroup(groupName, Expression.Empty, Expressions.Never()));
         }
 
         public Expression RequireGroups(params string[] groupNames)
@@ -89,7 +89,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentOutOfRangeException("groupNumber");
             }
 
-            return ConcatInternal(Alternations.IfGroup(groupNumber, Expression.Empty, Expressions.Never()));
+            return ConcatInternal(Expressions.IfGroup(groupNumber, Expression.Empty, Expressions.Never()));
         }
 
         public Expression RequireGroups(params int[] groupNumbers)
@@ -111,47 +111,47 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public QuantifiableExpression Any(IEnumerable<object> content)
         {
-            return ConcatInternal(Alternations.Any(content));
+            return ConcatInternal(Expressions.Any(content));
         }
 
         public QuantifiableExpression Any(params object[] content)
         {
-            return ConcatInternal(Alternations.Any(content));
+            return ConcatInternal(Expressions.Any(content));
         }
 
         public QuantifiableExpression IfGroup(string groupName, object trueContent)
         {
-            return ConcatInternal(Alternations.IfGroup(groupName, trueContent));
+            return ConcatInternal(Expressions.IfGroup(groupName, trueContent));
         }
 
         public QuantifiableExpression IfGroup(string groupName, object trueContent, object falseContent)
         {
-            return ConcatInternal(Alternations.IfGroup(groupName, trueContent, falseContent));
+            return ConcatInternal(Expressions.IfGroup(groupName, trueContent, falseContent));
         }
 
         public QuantifiableExpression IfGroup(int groupNumber, object trueContent)
         {
-            return ConcatInternal(Alternations.IfGroup(groupNumber, trueContent));
+            return ConcatInternal(Expressions.IfGroup(groupNumber, trueContent));
         }
 
         public QuantifiableExpression IfGroup(int groupNumber, object trueContent, object falseContent)
         {
-            return ConcatInternal(Alternations.IfGroup(groupNumber, trueContent, falseContent));
+            return ConcatInternal(Expressions.IfGroup(groupNumber, trueContent, falseContent));
         }
 
         public QuantifiableExpression If(Expression testContent, object trueContent)
         {
-            return ConcatInternal(Alternations.If(testContent, trueContent));
+            return ConcatInternal(Expressions.If(testContent, trueContent));
         }
 
         public QuantifiableExpression If(Expression testContent, object trueContent, object falseContent)
         {
-            return ConcatInternal(Alternations.If(testContent, trueContent, falseContent));
+            return ConcatInternal(Expressions.If(testContent, trueContent, falseContent));
         }
 
         public Expression Or(object content)
         {
-            return Alternations.Or(this, content);
+            return Expressions.Or(this, content);
         }
 
         public QuantifiableExpression Start()

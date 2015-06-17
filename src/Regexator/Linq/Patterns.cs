@@ -16,19 +16,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiableExpression LeadingTrailingWhiteSpace()
         {
-            return Alternations.Any(LeadingWhiteSpace(), TrailingWhiteSpace());
+            return Expressions.Any(LeadingWhiteSpace(), TrailingWhiteSpace());
         }
 
         public static QuantifiableExpression WhiteSpaceLines()
         {
-            return Alternations.Any(
+            return Expressions.Any(
                 Anchors.StartOfLineInvariant().WhiteSpace().MaybeMany().NewLine(),
                 Expressions.NewLine().WhiteSpace().MaybeMany().End());
         }
 
         public static QuantifiableExpression EmptyLines()
         {
-            return Alternations.Any(
+            return Expressions.Any(
                 Anchors.StartOfLineInvariant().NewLine(),
                 Expressions.NewLine().OneMany().End());
         }
@@ -42,7 +42,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal static Expression ValidGroupName()
         {
-            return Alternations.Any(
+            return Expressions.Any(
                 Chars.Range('1', '9').ArabicDigit().MaybeMany().AsGroup(),
                 Chars.WordChar().Except(Chars.ArabicDigit()).WordChar().MaybeMany()
             ).AsEntireInput();

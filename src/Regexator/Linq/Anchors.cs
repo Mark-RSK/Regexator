@@ -150,7 +150,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiableExpression Word(params string[] values)
         {
-            return Expression.Surround(WordBoundary(), Alternations.Any(values)).AsNoncapturing();
+            return Expression.Surround(WordBoundary(), Expressions.Any(values)).AsNoncapturing();
         }
 
         public static QuantifiableExpression NotWordBoundary()

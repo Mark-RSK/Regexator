@@ -116,7 +116,6 @@
     <Compile Include="Linq\CharKind.cs" />
     <Compile Include="Linq\Quantifier\CountQuantifier.cs" />
     <Compile Include="Linq\Expressions.cs" />
-    <Compile Include="Linq\Alternations.cs" />
     <Compile Include="Linq\Anchors.cs" />
     <Compile Include="Linq\Chars.cs" />
     <Compile Include="Linq\Groups.cs" />

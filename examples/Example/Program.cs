@@ -1,7 +1,6 @@
 ﻿    // Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 
@@ -42,7 +41,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("multiple words");
             Console.WriteLine(Anchors
                 .WordBoundary()
-                .Count(3, Alternations
+                .Count(3, Expressions
                     .Any(values.Select(f => Groups.Group(f)))
                     .WordBoundary()
                     .NotWordChar().MaybeMany().Lazy())
@@ -52,7 +51,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("multiple words 2");
             Console.WriteLine(Anchors
                 .WordBoundary()
-                .CountFrom(3, Alternations
+                .CountFrom(3, Expressions
                     .Any(values.Select(f => Expression.Create(f).Group()))
                     .WordBoundary()
                     .NotWordChar().MaybeMany().Lazy())
@@ -104,19 +103,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("");
 
             Console.WriteLine("leading trailing whitespace:");
-            Console.WriteLine(Alternations.Any(
+            Console.WriteLine(Expressions.Any(
                 Anchors.StartOfLine().WhiteSpaceExceptNewLine().OneMany(),
                 Chars.WhiteSpaceExceptNewLine().OneMany().EndOfLineOrBeforeCarriageReturn()));
             Console.WriteLine("");
 
             Console.WriteLine("whitespace lines:");
-            Console.WriteLine(Alternations.Any(Anchors
+            Console.WriteLine(Expressions.Any(Anchors
                     .StartOfLineInvariant().WhileWhiteSpace().NewLine(),
                     Expressions.NewLine().WhileWhiteSpace().End()));
             Console.WriteLine("");
 
             Console.WriteLine("empty lines:");
-            Console.WriteLine(Alternations.Any(Anchors
+            Console.WriteLine(Expressions.Any(Anchors
                     .StartOfLineInvariant().NewLine(),
                     Expressions.NewLine().OneMany().End()));
             Console.WriteLine("");
@@ -134,7 +133,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             Console.WriteLine("invalid file name chars:");
             var chars = Path.GetInvalidFileNameChars().OrderBy(f => (int)f).Select(f => Chars.Char(f));
-            Console.WriteLine(Alternations.Any(chars).AsNonbacktracking());
+            Console.WriteLine(Expressions.Any(chars).AsNonbacktracking());
             Console.WriteLine("");
 
             Console.ReadKey();
