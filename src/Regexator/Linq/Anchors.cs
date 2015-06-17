@@ -44,7 +44,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return NotAssertBack((object)content);
         }
 
-        public static Expression AssertSurround(object content, object surroundContent)
+        public static Expression AssertSurround(object surroundContent, object content)
         {
             return Expression.Surround(Anchors.AssertBack(surroundContent), content, Anchors.Assert(surroundContent));
         }
