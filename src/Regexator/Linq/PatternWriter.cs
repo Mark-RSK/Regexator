@@ -14,9 +14,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     public class PatternWriter
         : StringWriter
     {
-#if DEBUG
-        private readonly HashSet<Expression> _expressions;
-#endif
         private PatternSettings _settings;
 
         internal PatternWriter()
@@ -33,9 +30,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
 
             _settings = settings;
-#if DEBUG
-            _expressions = new HashSet<Expression>();
-#endif
         }
 
         public override void Write(string value)
@@ -202,24 +196,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 Expression[] items = expression.GetExpressions().ToArray();
                 for (int i = (items.Length - 1); i >= 0; i--)
                 {
-                    WriteInternal(items[i]);
+                    items[i].WriteTo(this);
                 }
             }
             else
             {
-                WriteInternal(expression);
+                expression.WriteTo(this);
             }
-        }
-
-        private void WriteInternal(Expression expression)
-        {
-#if DEBUG
-            Debug.Assert(Expressions.Add(expression));
-#endif
-            expression.WriteTo(this);
-#if DEBUG
-            Expressions.Remove(expression);
-#endif
         }
 
         public void Write(CharGroupItem item)
@@ -1190,13 +1173,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             base.Write(Syntax.Tab);
         }
-
-#if DEBUG
-        public HashSet<Expression> Expressions
-        {
-            get { return _expressions; }
-        }
-#endif
 
         public PatternSettings Settings
         {
