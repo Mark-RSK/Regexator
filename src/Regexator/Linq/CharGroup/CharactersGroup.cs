@@ -24,7 +24,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (characters.Length == 0)
             {
-                throw new ArgumentException();
+                throw new ArgumentException("Character group cannot be empty.", "characters");
             }
 
             _characters = characters;
