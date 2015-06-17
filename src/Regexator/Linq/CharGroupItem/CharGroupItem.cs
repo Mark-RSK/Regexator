@@ -82,42 +82,42 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public CharGroupItem Concat(char value)
         {
-            return Concat(CharGroupItem.Create(value));
+            return Concat(Create(value));
         }
 
         public CharGroupItem Concat(int value)
         {
-            return Concat(CharGroupItem.Create(value));
+            return Concat(Create(value));
         }
 
         public CharGroupItem Concat(AsciiChar value)
         {
-            return Concat(CharGroupItem.Create(value));
+            return Concat(Create(value));
         }
 
         public CharGroupItem Concat(string characters)
         {
-            return Concat(CharGroupItem.Create(characters));
+            return Concat(Create(characters));
         }
 
         public CharGroupItem Concat(char first, char last)
         {
-            return Concat(CharGroupItem.Create(first, last));
+            return Concat(Create(first, last));
         }
 
         public CharGroupItem Concat(int firstCharCode, int lastCharCode)
         {
-            return Concat(CharGroupItem.Create(firstCharCode, lastCharCode));
+            return Concat(Create(firstCharCode, lastCharCode));
         }
 
         public CharGroupItem Concat(NamedBlock block)
         {
-            return Concat(CharGroupItem.Create(block));
+            return Concat(Create(block));
         }
 
         public CharGroupItem Concat(GeneralCategory category)
         {
-            return Concat(CharGroupItem.Create(category));
+            return Concat(Create(category));
         }
 
         public CharGroupItem Not(NamedBlock block)
@@ -334,7 +334,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static explicit operator CharGroupItem(string characters)
         {
-            return CharGroupItem.Create(characters);
+            return Create(characters);
+        }
+
+        public static explicit operator CharGroupItem(char value)
+        {
+            return Create(value);
         }
 
         internal CharGroupItem Previous { get; set; }

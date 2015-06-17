@@ -566,6 +566,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new TextExpression(text);
         }
 
+        public static explicit operator Expression(char value)
+        {
+            return new CharExpression(value);
+        }
+
         public Regex Regex
         {
             get
