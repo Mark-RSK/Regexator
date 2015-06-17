@@ -1839,5 +1839,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             return NotChar(item).MaybeMany();
         }
+
+#if DEBUG
+        public static Expression GoTo(char value)
+        {
+            return Chars.NotChar(value).MaybeMany().Char(value);
+        }
+
+        public static Expression GoTo(AsciiChar value)
+        {
+            return Chars.NotChar(value).MaybeMany().Char(value);
+        }
+#endif
+
     }
 }

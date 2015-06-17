@@ -487,12 +487,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 #if DEBUG
         public Expression GoTo(char value)
         {
-            return ConcatInternal(Expressions.GoTo(value));
+            return ConcatInternal(Chars.GoTo(value));
         }
 
         public Expression GoTo(AsciiChar value)
         {
-            return ConcatInternal(Expressions.GoTo(value));
+            return ConcatInternal(Chars.GoTo(value));
         }
 #endif
 
