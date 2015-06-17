@@ -1741,6 +1741,61 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return NotSquareBracket().CountRange(minCount, maxCount);
         }
 
+        public static Expression Apostrophes()
+        {
+            return Chars.Apostrophe().Apostrophe();
+        }
+
+        public static Expression Apostrophes(object content)
+        {
+            return Expression.Surround(AsciiChar.Apostrophe, content);
+        }
+
+        public static Expression QuoteMarks()
+        {
+            return Chars.QuoteMark().QuoteMark();
+        }
+
+        public static Expression QuoteMarks(object content)
+        {
+            return Expression.Surround(AsciiChar.QuoteMark, content);
+        }
+
+        public static Expression Parentheses()
+        {
+            return Chars.LeftParenthesis().RightParenthesis();
+        }
+
+        public static Expression Parentheses(object content)
+        {
+            return Expression.Surround(AsciiChar.LeftParenthesis, content, AsciiChar.RightParenthesis);
+        }
+
+        public static Expression CurlyBrackets()
+        {
+            return Chars.LeftCurlyBracket().RightCurlyBracket();
+        }
+
+        public static Expression CurlyBrackets(object content)
+        {
+            return Expression.Surround(AsciiChar.LeftCurlyBracket, content, AsciiChar.RightCurlyBracket);
+        }
+
+        public static Expression SquareBrackets()
+        {
+            return Chars.LeftSquareBracket().RightSquareBracket();
+        }
+
+        public static Expression SquareBrackets(object content)
+        {
+            return Expression.Surround(AsciiChar.LeftSquareBracket, content, AsciiChar.RightSquareBracket);
+        }
+
+        public static Expression LessThanGreaterThan(object content)
+        {
+            return Expression.Surround(AsciiChar.LessThan, content, AsciiChar.GreaterThan);
+        }
+
         public static CharSubtraction WhiteSpaceExceptNewLine()
         {
             return Chars.WhiteSpace().Except(Chars.NewLineChar());

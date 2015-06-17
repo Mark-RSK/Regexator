@@ -429,49 +429,59 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Linq.Groups.Nonbacktracking(this);
         }
 
+        public Expression Apostrophes()
+        {
+            return ConcatInternal(Chars.Apostrophes());
+        }
+
         public Expression Apostrophes(object content)
         {
-            return ConcatInternal(Expressions.Apostrophes(content));
+            return ConcatInternal(Chars.Apostrophes(content));
+        }
+
+        public Expression QuoteMarks()
+        {
+            return ConcatInternal(Chars.QuoteMarks());
         }
 
         public Expression QuoteMarks(object content)
         {
-            return ConcatInternal(Expressions.QuoteMarks(content));
+            return ConcatInternal(Chars.QuoteMarks(content));
         }
 
         public Expression Parentheses()
         {
-            return ConcatInternal(Expressions.Parentheses());
+            return ConcatInternal(Chars.Parentheses());
         }
 
         public Expression Parentheses(object content)
         {
-            return ConcatInternal(Expressions.Parentheses(content));
+            return ConcatInternal(Chars.Parentheses(content));
         }
 
         public Expression CurlyBrackets()
         {
-            return ConcatInternal(Expressions.CurlyBrackets());
+            return ConcatInternal(Chars.CurlyBrackets());
         }
 
         public Expression CurlyBrackets(object content)
         {
-            return ConcatInternal(Expressions.CurlyBrackets(content));
+            return ConcatInternal(Chars.CurlyBrackets(content));
         }
 
         public Expression SquareBrackets()
         {
-            return ConcatInternal(Expressions.SquareBrackets());
+            return ConcatInternal(Chars.SquareBrackets());
         }
 
         public Expression SquareBrackets(object content)
         {
-            return ConcatInternal(Expressions.SquareBrackets(content));
+            return ConcatInternal(Chars.SquareBrackets(content));
         }
 
         public Expression LessThanGreaterThan(object content)
         {
-            return ConcatInternal(Expressions.LessThanGreaterThan(content));
+            return ConcatInternal(Chars.LessThanGreaterThan(content));
         }
 
 #if DEBUG

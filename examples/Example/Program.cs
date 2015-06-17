@@ -26,10 +26,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("");
 
             Console.WriteLine("cdata value");
-            Console.WriteLine(Expressions
+            Console.WriteLine(Chars
                 .LessThanGreaterThan(
-                    "!" + Expressions.SquareBrackets(
-                        "CDATA" + Expressions.SquareBrackets(
+                    "!" + Chars.SquareBrackets(
+                        "CDATA" + Chars.SquareBrackets(
                             Expressions.CrawlInvariant().AsGroup()
                         )
                     )
@@ -63,7 +63,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             var quotedChar = Chars.NotChar(CharGroupItems.QuoteMark().NewLineChar()).MaybeMany();
 
             Console.WriteLine("quoted text");
-            Console.WriteLine(Expressions.QuoteMarks(
+            Console.WriteLine(Chars.QuoteMarks(
                 quotedChar
                 .MaybeMany(Chars.QuoteMark(2) + quotedChar)));
             Console.WriteLine("");

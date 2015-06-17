@@ -108,6 +108,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new SurroundExpression(contentBefore, content, contentAfter);
         }
 
+        internal static Expression Surround(AsciiChar surroundChar, object value)
+        {
+            return Surround(surroundChar, value, surroundChar);
+        }
+
+        internal static Expression Surround(AsciiChar charBefore, object value, AsciiChar charAfter)
+        {
+            return new AsciiCharSurroundExpression(charBefore, value, charAfter);
+        }
+
         public Regex ToRegex()
         {
             return ToRegex(RegexOptions.None);

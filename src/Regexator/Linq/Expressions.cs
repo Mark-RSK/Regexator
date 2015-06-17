@@ -73,51 +73,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Chars.AnyInvariant().MaybeMany().Lazy();
         }
 
-        public static Expression Apostrophes(object content)
-        {
-            return Surround(content, AsciiChar.Apostrophe);
-        }
-
-        public static Expression QuoteMarks(object content)
-        {
-            return Surround(content, AsciiChar.QuoteMark);
-        }
-
-        public static Expression Parentheses()
-        {
-            return Chars.LeftParenthesis().RightParenthesis();
-        }
-
-        public static Expression Parentheses(object content)
-        {
-            return Surround(AsciiChar.LeftParenthesis, content, AsciiChar.RightParenthesis);
-        }
-
-        public static Expression CurlyBrackets()
-        {
-            return Chars.LeftCurlyBracket().RightCurlyBracket();
-        }
-
-        public static Expression CurlyBrackets(object content)
-        {
-            return Surround(AsciiChar.LeftCurlyBracket, content, AsciiChar.RightCurlyBracket);
-        }
-
-        public static Expression SquareBrackets()
-        {
-            return Chars.LeftSquareBracket().RightSquareBracket();
-        }
-
-        public static Expression SquareBrackets(object content)
-        {
-            return Surround(AsciiChar.LeftSquareBracket, content, AsciiChar.RightSquareBracket);
-        }
-
-        public static Expression LessThanGreaterThan(object content)
-        {
-            return Surround(AsciiChar.LessThan, content, AsciiChar.GreaterThan);
-        }
-
         public static QuantifiableExpression GroupReference(int groupNumber)
         {
             return new NumberedGroupReferenceExpression(groupNumber);
@@ -176,16 +131,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static Expression Comment(string value)
         {
             return new InlineCommentExpression(value);
-        }
-
-        internal static Expression Surround(object value, AsciiChar surroundChar)
-        {
-            return new AsciiCharSurroundExpression(value, surroundChar);
-        }
-
-        internal static Expression Surround(AsciiChar charBefore, object value, AsciiChar charAfter)
-        {
-            return new AsciiCharSurroundExpression(charBefore, value, charAfter);
         }
 
         public static QuantifiableExpression Never()
