@@ -46,22 +46,22 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static Expression AssertSurround(object surroundContent, object content)
         {
-            return Expression.Surround(Anchors.AssertBack(surroundContent), content, Anchors.Assert(surroundContent));
+            return AssertSurround(surroundContent, content, surroundContent);
         }
 
         public static Expression AssertSurround(object contentBefore, object content, object contentAfter)
         {
-            return Expression.Surround(Anchors.AssertBack(contentBefore), content, Anchors.Assert(contentAfter));
+            return new AssertSurroundExpression(contentBefore, content, contentAfter);
         }
 
-        public static Expression NotAssertSurround(object content, object surroundContent)
+        public static Expression NotAssertSurround(object surroundContent, object content)
         {
-            return Expression.Surround(Anchors.NotAssertBack(surroundContent), content, Anchors.NotAssert(surroundContent));
+            return NotAssertSurround(surroundContent, content, surroundContent);
         }
 
         public static Expression NotAssertSurround(object contentBefore, object content, object contentAfter)
         {
-            return Expression.Surround(Anchors.NotAssertBack(contentBefore), content, Anchors.NotAssert(contentAfter));
+            return new AssertSurroundExpression(contentBefore, content, contentAfter, true);
         }
 
         public static QuantifiableExpression Start()

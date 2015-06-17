@@ -346,7 +346,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (Settings.HasOptions(PatternOptions.ConditionWithAssertion))
             {
-                WriteAssertStart();
+                WriteAssertStart(false);
             }
             else
             {
@@ -432,48 +432,44 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public void WriteAssert(object content)
         {
+            WriteAssert(content, false);
+        }
+
+        public void WriteNotAssert(object content)
+        {
+            WriteAssert(content, true);
+        }
+
+        internal void WriteAssert(object content, bool negative)
+        {
             if (content == null)
             {
                 throw new ArgumentNullException("content");
             }
 
-            WriteAssertStart();
+            WriteAssertStart(negative);
             WriteGroupContent(content);
             WriteGroupEnd();
         }
 
         public void WriteAssertBack(object content)
         {
-            if (content == null)
-            {
-                throw new ArgumentNullException("content");
-            }
-
-            WriteAssertBackStart();
-            WriteGroupContent(content);
-            WriteGroupEnd();
-        }
-
-        public void WriteNotAssert(object content)
-        {
-            if (content == null)
-            {
-                throw new ArgumentNullException("content");
-            }
-
-            WriteNotAssertStart();
-            WriteGroupContent(content);
-            WriteGroupEnd();
+            WriteAssertBack(content, false);
         }
 
         public void WriteNotAssertBack(object content)
         {
+            WriteAssertBack(content, true);
+        }
+
+        public void WriteAssertBack(object content, bool negative)
+        {
             if (content == null)
             {
                 throw new ArgumentNullException("content");
             }
 
-            WriteNotAssertBackStart();
+            WriteAssertBackStart(negative);
             WriteGroupContent(content);
             WriteGroupEnd();
         }
@@ -518,24 +514,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             base.Write(Syntax.PreviousMatchEnd);
         }
 
-        internal void WriteAssertStart()
+        internal void WriteAssertStart(bool negative)
         {
-            base.Write(Syntax.AssertStart);
+            base.Write(negative 
+                ? Syntax.NotAssertStart 
+                : Syntax.AssertStart);
         }
 
-        internal void WriteNotAssertStart()
+        internal void WriteAssertBackStart(bool negative)
         {
-            base.Write(Syntax.NotAssertStart);
-        }
-
-        internal void WriteAssertBackStart()
-        {
-            base.Write(Syntax.AssertBackStart);
-        }
-
-        internal void WriteNotAssertBackStart()
-        {
-            base.Write(Syntax.NotAssertBackStart);
+            base.Write(negative 
+                ? Syntax.NotAssertBackStart 
+                : Syntax.AssertBackStart);
         }
 
         public void WriteOr()

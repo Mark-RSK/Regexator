@@ -59,6 +59,7 @@
     <Compile Include="Linq\CharEscapeMode.cs" />
     <Compile Include="Linq\Expression\OrContainerExpression.cs" />
     <Compile Include="Linq\Expression\JoinContainerExpression.cs" />
+    <Compile Include="Linq\Expression\AssertSurroundExpression.cs" />
     <Compile Include="Linq\Extensions\EnumerableExtensions.cs" />
     <Compile Include="Linq\Extensions\MatchExtensions.cs" />
     <Compile Include="Linq\Anchor\AnchorExpression.cs" />
