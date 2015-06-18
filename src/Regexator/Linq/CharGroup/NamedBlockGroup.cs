@@ -5,7 +5,7 @@ using System;
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     internal class NamedBlockGroup
-        : CharGroupExpression
+        : CharGroup
     {
         private readonly NamedBlock _block;
 

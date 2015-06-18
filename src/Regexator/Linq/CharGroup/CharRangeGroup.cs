@@ -5,7 +5,7 @@ using System;
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     internal sealed class CharRangeGroup
-        : CharGroupExpression
+        : CharGroup
     {
         private readonly char _firstChar;
         private readonly char _lastChar;

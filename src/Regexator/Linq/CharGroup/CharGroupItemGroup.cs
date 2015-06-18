@@ -4,18 +4,18 @@ using System;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal sealed class CharItemGroup
-        : CharGroupExpression
+    internal sealed class CharGroupItemGroup
+        : CharGroup
     {
         private readonly CharGroupItem _item;
         private readonly bool _negative;
 
-        public CharItemGroup(CharGroupItem item)
+        public CharGroupItemGroup(CharGroupItem item)
             : this(item, false)
         {
         }
 
-        public CharItemGroup(CharGroupItem item, bool negative)
+        public CharGroupItemGroup(CharGroupItem item, bool negative)
         {
             if (item == null)
             {

@@ -1,44 +1,34 @@
-﻿// Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
-
-using System;
+// Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal sealed class CharGroup
-        : CharGroupExpression
+    public abstract class CharGroup
+        : QuantifiableExpression, IBaseGroup, IExcludedGroup
     {
-        private readonly char _value;
-        private readonly bool _negative;
-
-        public CharGroup(char value)
-            : this(value, false)
+        protected CharGroup()
         {
         }
 
-        public CharGroup(char value, bool negative)
+        public CharSubtraction Except(IExcludedGroup excludedGroup)
         {
-            _value = value;
-            _negative = negative;
+            return new CharSubtraction(this, excludedGroup);
         }
 
-        protected override void WriteContentTo(PatternWriter writer)
-        {
-            if (writer == null)
-            {
-                throw new ArgumentNullException("writer");
-            }
+        protected abstract void WriteContentTo(PatternWriter writer);
 
-            writer.Write(_value, true);
+        public void WriteBaseGroupTo(PatternWriter writer)
+        {
+            WriteContentTo(writer);
         }
 
-        internal override void WriteTo(PatternWriter writer)
+        public void WriteExcludedGroupTo(PatternWriter writer)
         {
-            writer.WriteCharGroup(_value, Negative);
+            WriteTo(writer);
         }
 
-        public override bool Negative
+        public virtual bool Negative
         {
-            get { return _negative; }
+            get { return false; }
         }
     }
 }

@@ -19,7 +19,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _charCode = charCode;
         }
 
-        public override CharGroupExpression ToGroup()
+        public override CharGroup ToGroup()
         {
             return new CharCodeGroup(_charCode);
         }

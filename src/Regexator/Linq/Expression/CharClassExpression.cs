@@ -12,7 +12,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _value = value;
         }
 
-        public override CharGroupExpression ToGroup()
+        public override CharGroup ToGroup()
         {
             return new CharClassGroup(_value);
         }

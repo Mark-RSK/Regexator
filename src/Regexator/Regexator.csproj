@@ -98,7 +98,7 @@
     <Compile Include="Linq\Anchor\StartOfInput.cs" />
     <Compile Include="Linq\PatternSettings.cs" />
     <Compile Include="Core\CharClass.cs" />
-    <Compile Include="Linq\CharGroup\CharGroupExpression.cs" />
+    <Compile Include="Linq\CharGroup\CharGroup.cs" />
     <Compile Include="Linq\CharGroupItem\CharactersItem.cs" />
     <Compile Include="Linq\CharGroupItem\CharCodeCharItem.cs" />
     <Compile Include="Linq\CharGroupItem\CharacterItem.cs" />
@@ -159,9 +159,9 @@
     <Compile Include="Linq\CharGroup\CharCodeRangeGroup.cs" />
     <Compile Include="Linq\CharGroup\CharRangeGroup.cs" />
     <Compile Include="Linq\CharGroup\CharactersGroup.cs" />
-    <Compile Include="Linq\CharGroup\CharItemGroup.cs" />
+    <Compile Include="Linq\CharGroup\CharGroupItemGroup.cs" />
     <Compile Include="Linq\CharGroup\CharCodeGroup.cs" />
-    <Compile Include="Linq\CharGroup\CharGroup.cs" />
+    <Compile Include="Linq\CharGroup\CharacterGroup.cs" />
     <Compile Include="Linq\CharGroup\CharClassGroup.cs" />
     <Compile Include="Linq\CharGroup\GeneralCategoryGroup.cs" />
     <Compile Include="Linq\CharGroup\NamedBlockGroup.cs" />

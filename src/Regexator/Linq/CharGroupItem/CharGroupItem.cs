@@ -200,14 +200,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Concat(CharGroupItems.NewLineChar());
         }
 
-        public CharGroupExpression ToGroup()
+        public CharGroup ToGroup()
         {
-            return new CharItemGroup(this);
+            return new CharGroupItemGroup(this);
         }
 
-        public CharGroupExpression ToNegativeGroup()
+        public CharGroup ToNegativeGroup()
         {
-            return new CharItemGroup(this, true);
+            return new CharGroupItemGroup(this, true);
         }
 
         protected abstract void WriteItemContentTo(PatternWriter writer);
