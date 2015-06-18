@@ -646,7 +646,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 throw new ArgumentNullException("content");
             }
-            
+
             WriteBalanceGroupStartInternal(name1, name2);
             WriteGroupContent(content);
             WriteGroupEnd();
@@ -684,8 +684,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public void WriteCharGroupStart(bool negative)
         {
-            base.Write(negative 
-                ? Syntax.NotCharGroupStart 
+            base.Write(negative
+                ? Syntax.NotCharGroupStart
                 : Syntax.CharGroupStart);
         }
 
@@ -902,7 +902,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             WriteHyphen();
 
-            excludedGroup.WriteExcludedGroupTo(this);   
+            excludedGroup.WriteExcludedGroupTo(this);
 
             WriteCharGroupEnd();
         }
@@ -1071,15 +1071,15 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public void WriteLeftIdentifierBoundary()
         {
-            base.Write(Settings.IdentifierBoundary == IdentifierBoundary.Apostrophe 
+            base.Write(Settings.IdentifierBoundary == IdentifierBoundary.Apostrophe
                 ? '\''
                 : '<');
         }
 
         public void WriteRightIdentifierBoundary()
         {
-            base.Write(Settings.IdentifierBoundary == IdentifierBoundary.Apostrophe 
-                ? '\'' 
+            base.Write(Settings.IdentifierBoundary == IdentifierBoundary.Apostrophe
+                ? '\''
                 : '>');
         }
 

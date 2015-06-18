@@ -193,8 +193,8 @@ namespace Pihrtsoft.Text.RegularExpressions
         {
             if (charCode <= 0xFF)
             {
-                return inCharGroup 
-                    ? CharGroupEscapeModes[charCode] 
+                return inCharGroup
+                    ? CharGroupEscapeModes[charCode]
                     : EscapeModes[charCode];
             }
 

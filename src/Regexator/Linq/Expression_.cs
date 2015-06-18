@@ -323,7 +323,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             return ConcatInternal(Linq.Groups.Group(content));
         }
-        
+
         public QuantifiableExpression NamedGroup(string name, object content)
         {
             return ConcatInternal(Linq.Groups.NamedGroup(name, content));

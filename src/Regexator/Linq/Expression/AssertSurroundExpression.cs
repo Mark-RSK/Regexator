@@ -14,7 +14,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public AssertSurroundExpression(object contentBefore, object content, object contentAfter)
             : this(contentBefore, content, contentAfter, false)
-        { 
+        {
         }
 
         public AssertSurroundExpression(object contentBefore, object content, object contentAfter, bool negative)
