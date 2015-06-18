@@ -581,6 +581,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.WhileNot(item));
         }
 
+        public Expression WhileNotNewLine()
+        {
+            return ConcatInternal(Chars.WhileNotNewLine());
+        }
+
         public CharGroupExpression Alphanumeric()
         {
             return ConcatInternal(Chars.Alphanumeric());
