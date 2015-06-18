@@ -2,7 +2,7 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal sealed class NotWordBoundary
+    public sealed class NotWordBoundary
         : QuantifiableExpression
     {
         internal override void WriteTo(PatternWriter writer)

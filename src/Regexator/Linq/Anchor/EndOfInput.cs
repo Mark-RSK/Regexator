@@ -2,7 +2,7 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal sealed class EndOfInput
+    public sealed class EndOfInput
         : QuantifiableExpression
     {
         internal override void WriteTo(PatternWriter writer)
