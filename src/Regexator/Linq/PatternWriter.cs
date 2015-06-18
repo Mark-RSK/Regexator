@@ -2,8 +2,6 @@
 
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -329,7 +327,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (Settings.HasOptions(PatternOptions.ConditionWithAssertion))
             {
-                WriteAssertStart(false);
+                WriteAssertStart();
             }
             else
             {
@@ -415,44 +413,28 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public void WriteAssert(object content)
         {
-            WriteAssert(content, false);
+            WriteAssertStart();
+            WriteGroupContent(content);
+            WriteGroupEnd();
         }
 
         public void WriteNotAssert(object content)
         {
-            WriteAssert(content, true);
-        }
-
-        internal void WriteAssert(object content, bool negative)
-        {
-            if (content == null)
-            {
-                throw new ArgumentNullException("content");
-            }
-
-            WriteAssertStart(negative);
+            WriteNotAssertStart();
             WriteGroupContent(content);
             WriteGroupEnd();
         }
 
         public void WriteAssertBack(object content)
         {
-            WriteAssertBack(content, false);
+            WriteAssertBackStart();
+            WriteGroupContent(content);
+            WriteGroupEnd();
         }
 
         public void WriteNotAssertBack(object content)
         {
-            WriteAssertBack(content, true);
-        }
-
-        public void WriteAssertBack(object content, bool negative)
-        {
-            if (content == null)
-            {
-                throw new ArgumentNullException("content");
-            }
-
-            WriteAssertBackStart(negative);
+            WriteNotAssertBackStart();
             WriteGroupContent(content);
             WriteGroupEnd();
         }
@@ -497,18 +479,24 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             base.Write(Syntax.PreviousMatchEnd);
         }
 
-        internal void WriteAssertStart(bool negative)
+        internal void WriteAssertStart()
         {
-            base.Write(negative 
-                ? Syntax.NotAssertStart 
-                : Syntax.AssertStart);
+            base.Write(Syntax.AssertStart);
         }
 
-        internal void WriteAssertBackStart(bool negative)
+        internal void WriteNotAssertStart()
         {
-            base.Write(negative 
-                ? Syntax.NotAssertBackStart 
-                : Syntax.AssertBackStart);
+            base.Write(Syntax.NotAssertStart);
+        }
+
+        internal void WriteAssertBackStart()
+        {
+            base.Write(Syntax.AssertBackStart);
+        }
+
+        internal void WriteNotAssertBackStart()
+        {
+            base.Write(Syntax.NotAssertBackStart);
         }
 
         public void WriteOr()

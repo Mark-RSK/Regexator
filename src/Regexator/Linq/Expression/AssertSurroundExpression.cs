@@ -42,11 +42,25 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override void WriteTo(PatternWriter writer)
         {
-            writer.WriteAssertBack(_contentBefore, _negative);
+            if (_negative)
+            {
+                writer.WriteNotAssertBack(_contentBefore);
+            }
+            else
+            {
+                writer.WriteAssertBack(_contentBefore);
+            }
 
             writer.Write(_content);
 
-            writer.WriteAssert(_contentAfter, _negative);
+            if (_negative)
+            {
+                writer.WriteNotAssert(_contentAfter);
+            }
+            else
+            {
+                writer.WriteAssert(_contentAfter);
+            }
         }
     }
 }
