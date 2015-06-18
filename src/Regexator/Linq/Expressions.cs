@@ -61,16 +61,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Chars.AnyInvariant().MaybeMany().Lazy();
         }
 
-        public static QuantifiableExpression GroupReference(int groupNumber)
-        {
-            return new NumberedGroupReferenceExpression(groupNumber);
-        }
-
-        public static QuantifiableExpression GroupReference(string groupName)
-        {
-            return new NamedGroupReferenceExpression(groupName);
-        }
-
         public static Expression ApplyOptions(InlineOptions options)
         {
             return Options(options, InlineOptions.None);

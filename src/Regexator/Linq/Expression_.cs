@@ -2058,12 +2058,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public QuantifiableExpression GroupReference(int groupNumber)
         {
-            return ConcatInternal(Expressions.GroupReference(groupNumber));
+            return ConcatInternal(Linq.Groups.GroupReference(groupNumber));
         }
 
         public QuantifiableExpression GroupReference(string groupName)
         {
-            return ConcatInternal(Expressions.GroupReference(groupName));
+            return ConcatInternal(Linq.Groups.GroupReference(groupName));
         }
 
         public Expression Comment(string value)

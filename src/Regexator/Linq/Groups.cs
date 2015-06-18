@@ -133,5 +133,15 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             return new QuantifierGroupExpression(content);
         }
+
+        public static QuantifiableExpression GroupReference(int groupNumber)
+        {
+            return new NumberedGroupReferenceExpression(groupNumber);
+        }
+
+        public static QuantifiableExpression GroupReference(string groupName)
+        {
+            return new NamedGroupReferenceExpression(groupName);
+        }
     }
 }
