@@ -481,7 +481,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             }
         }
 
-        internal static readonly CharEscapeMode[] EscapeModes = new CharEscapeMode[] {
+        private static readonly CharEscapeMode[] EscapeModes = new CharEscapeMode[] {
             // 0 0x00
             CharEscapeMode.AsciiHexadecimal,
             // 1 0x01
@@ -996,7 +996,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             CharEscapeMode.None,
         };
 
-        internal static readonly CharEscapeMode[] CharGroupEscapeModes = new CharEscapeMode[] {
+        private static readonly CharEscapeMode[] CharGroupEscapeModes = new CharEscapeMode[] {
             // 0 0x00
             CharEscapeMode.AsciiHexadecimal,
             // 1 0x01
