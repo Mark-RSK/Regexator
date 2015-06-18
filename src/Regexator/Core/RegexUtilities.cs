@@ -165,7 +165,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             switch (GetEscapeMode(charCode, inCharGroup))
             {
                 case CharEscapeMode.None:
-                    Debug.Assert(false); //todo
+                    Debug.Assert(false);
                     return ((char)charCode).ToString();
                 case CharEscapeMode.AsciiHexadecimal:
                     return Syntax.AsciiHexadecimal(charCode);

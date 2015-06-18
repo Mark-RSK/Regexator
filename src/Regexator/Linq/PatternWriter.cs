@@ -825,7 +825,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
 
             WriteCharGroupStart(negative);
-            //todo check empty
             item.WriteContentTo(this);
             WriteCharGroupEnd();
         }
@@ -899,12 +898,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             WriteCharGroupStart(negative);
 
-            //todo check empty
             baseGroup.WriteBaseGroupTo(this);
 
             WriteHyphen();
 
-            //todo check empty
             excludedGroup.WriteExcludedGroupTo(this);   
 
             WriteCharGroupEnd();
