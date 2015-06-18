@@ -3,7 +3,7 @@
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     internal sealed class EndOfInput
-        : AnchorExpression
+        : QuantifiableExpression
     {
         internal override void WriteTo(PatternWriter writer)
         {

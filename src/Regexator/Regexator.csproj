@@ -62,7 +62,6 @@
     <Compile Include="Linq\Expression\AssertSurroundExpression.cs" />
     <Compile Include="Linq\Extensions\EnumerableExtensions.cs" />
     <Compile Include="Linq\Extensions\MatchExtensions.cs" />
-    <Compile Include="Linq\Anchor\AnchorExpression.cs" />
     <Compile Include="Linq\Anchor\EndOrBeforeEndingNewLine.cs" />
     <Compile Include="Linq\Anchor\NotWordBoundary.cs" />
     <Compile Include="Linq\Anchor\WordBoundary.cs" />
