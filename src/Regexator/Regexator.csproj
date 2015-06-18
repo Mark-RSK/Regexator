@@ -52,10 +52,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="Linq\Anchor\AssertBackExpression.cs" />
-    <Compile Include="Linq\Anchor\NotAssertBackExpression.cs" />
-    <Compile Include="Linq\Anchor\NotAssertExpression.cs" />
-    <Compile Include="Linq\Anchor\AssertExpression.cs" />
+    <Compile Include="Linq\Anchor\AssertBack.cs" />
+    <Compile Include="Linq\Anchor\NotAssertBack.cs" />
+    <Compile Include="Linq\Anchor\NotAssert.cs" />
+    <Compile Include="Linq\Anchor\Assert.cs" />
     <Compile Include="Linq\CharEscapeMode.cs" />
     <Compile Include="Linq\Expression\OrContainerExpression.cs" />
     <Compile Include="Linq\Expression\JoinContainerExpression.cs" />
@@ -93,7 +93,7 @@
     <Compile Include="Core\AsciiChar.cs" />
     <Compile Include="Linq\Expression\TextExpression.cs" />
     <Compile Include="Linq\Quantifier\CountFromQuantifier.cs" />
-    <Compile Include="Linq\Group\BalanceGroupExpression.cs" />
+    <Compile Include="Linq\Group\BalanceGroup.cs" />
     <Compile Include="Linq\PatternWriter.cs" />
     <Compile Include="Linq\Anchor\StartOfInput.cs" />
     <Compile Include="Linq\PatternSettings.cs" />
@@ -120,25 +120,25 @@
     <Compile Include="Linq\Expression.cs" />
     <Compile Include="Linq\Expression_.cs" />
     <Compile Include="Linq\Quantifier\CountRangeQuantifier.cs" />
-    <Compile Include="Linq\Group\GroupExpression.cs" />
+    <Compile Include="Linq\Group\GroupingExpression.cs" />
     <Compile Include="Linq\IBaseGroup.cs" />
     <Compile Include="Core\IdentifierBoundary.cs" />
     <Compile Include="Linq\IExcludedGroup.cs" />
     <Compile Include="Linq\Alternation\AlternationExpression.cs" />
     <Compile Include="Core\InlineOptions.cs" />
     <Compile Include="Linq\Expression\NamedGroupReferenceExpression.cs" />
-    <Compile Include="Linq\Group\NamedGroupExpression.cs" />
-    <Compile Include="Linq\Group\NonbacktrackingExpression.cs" />
-    <Compile Include="Linq\Group\NoncapturingExpression.cs" />
+    <Compile Include="Linq\Group\NamedGroup.cs" />
+    <Compile Include="Linq\Group\NonbacktrackingGroup.cs" />
+    <Compile Include="Linq\Group\NoncapturingGroup.cs" />
     <Compile Include="Linq\Expression\NumberedGroupReferenceExpression.cs" />
-    <Compile Include="Linq\Group\GroupOptionsExpression.cs" />
-    <Compile Include="Linq\Group\AnyExpression.cs" />
+    <Compile Include="Linq\Group\GroupOptions.cs" />
+    <Compile Include="Linq\Group\AnyGroup.cs" />
     <Compile Include="Linq\Expression\QuantifiableExpression.cs" />
     <Compile Include="Linq\Quantifier\OneManyQuantifier.cs" />
     <Compile Include="Linq\Quantifier\MaybeManyQuantifier.cs" />
     <Compile Include="Linq\QuantifierKind.cs" />
     <Compile Include="Linq\Quantifier\MaybeQuantifier.cs" />
-    <Compile Include="Linq\Group\CapturingExpression.cs" />
+    <Compile Include="Linq\Group\CapturingGroup.cs" />
     <Compile Include="Linq\Substitutions.cs" />
     <Compile Include="Linq\Substitution\NamedGroupSubstitution.cs" />
     <Compile Include="Linq\Substitution\LastCapturedGroupSubstitution.cs" />

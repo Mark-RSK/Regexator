@@ -2,17 +2,17 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal sealed class AssertBackExpression
-        : GroupExpression
+    public sealed class CapturingGroup
+        : GroupingExpression
     {
-        internal AssertBackExpression(object content)
+        public CapturingGroup(object content)
             : base(content)
         {
         }
 
         internal override void WriteTo(PatternWriter writer)
         {
-            writer.WriteAssertBack(Content);
+            writer.WriteGroup(Content);
         }
     }
 }

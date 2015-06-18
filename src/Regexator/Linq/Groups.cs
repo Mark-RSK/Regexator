@@ -6,7 +6,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
         public static QuantifiableExpression NamedGroup(string name, object content)
         {
-            return new NamedGroupExpression(name, content);
+            return new NamedGroup(name, content);
         }
 
         public static QuantifiableExpression NamedGroup(string name, params object[] content)
@@ -16,12 +16,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiableExpression Group()
         {
-            return new CapturingExpression(string.Empty);
+            return new CapturingGroup(string.Empty);
         }
 
         public static QuantifiableExpression Group(object content)
         {
-            return new CapturingExpression(content);
+            return new CapturingGroup(content);
         }
 
         public static QuantifiableExpression Group(params object[] content)
@@ -31,7 +31,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiableExpression Enclose(object content)
         {
-            return new NoncapturingExpression(content);
+            return new NoncapturingGroup(content);
         }
 
         public static QuantifiableExpression Enclose(params object[] content)
@@ -41,7 +41,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiableExpression BalanceGroup(string name1, string name2, object content)
         {
-            return new BalanceGroupExpression(name1, name2, content);
+            return new BalanceGroup(name1, name2, content);
         }
 
         public static QuantifiableExpression BalanceGroup(string name1, string name2, params object[] content)
@@ -51,7 +51,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiableExpression Nonbacktracking(object content)
         {
-            return new NonbacktrackingExpression(content);
+            return new NonbacktrackingGroup(content);
         }
 
         public static QuantifiableExpression Nonbacktracking(params object[] content)

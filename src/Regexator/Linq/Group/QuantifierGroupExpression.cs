@@ -3,7 +3,7 @@
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     internal sealed class QuantifierGroupExpression
-        : GroupExpression
+        : GroupingExpression
     {
         public QuantifierGroupExpression(object content)
             : base(content)

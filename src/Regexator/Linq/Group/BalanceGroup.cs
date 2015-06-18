@@ -2,13 +2,13 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal sealed class BalanceGroupExpression
-        : GroupExpression
+    public sealed class BalanceGroup
+        : GroupingExpression
     {
         private readonly string _name1;
         private readonly string _name2;
 
-        public BalanceGroupExpression(string name1, string name2, object content)
+        public BalanceGroup(string name1, string name2, object content)
             : base(content)
         {
             RegexUtilities.CheckGroupName(name1, "name1");

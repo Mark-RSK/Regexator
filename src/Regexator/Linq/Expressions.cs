@@ -8,12 +8,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
         public static QuantifiableExpression Any(IEnumerable<object> values)
         {
-            return new AnyExpression(values);
+            return new AnyGroup(values);
         }
 
         public static QuantifiableExpression Any(params object[] content)
         {
-            return new AnyExpression(content);
+            return new AnyGroup(content);
         }
 
         public static QuantifiableExpression IfGroup(string groupName, object trueContent)
@@ -103,7 +103,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiableExpression Options(InlineOptions applyOptions, InlineOptions disableOptions, object content)
         {
-            return new GroupOptionsExpression(applyOptions, disableOptions, content);
+            return new GroupOptions(applyOptions, disableOptions, content);
         }
 
         public static Expression Comment(string value)

@@ -5,7 +5,7 @@ using System;
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     internal sealed class OrContainerExpression
-        : GroupExpression
+        : GroupingExpression
     {
         internal OrContainerExpression(object left, object right)
             : base(Combine(left, right))

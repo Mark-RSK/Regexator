@@ -2,13 +2,13 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal sealed class GroupOptionsExpression
-        : GroupExpression
+    public sealed class GroupOptions
+        : GroupingExpression
     {
         private readonly InlineOptions _applyOptions;
         private readonly InlineOptions _disableOptions;
 
-        public GroupOptionsExpression(InlineOptions applyOptions, InlineOptions disableOptions, object content)
+        public GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, object content)
             : base(content)
         {
             _applyOptions = applyOptions;

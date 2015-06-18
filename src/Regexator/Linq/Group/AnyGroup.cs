@@ -4,28 +4,28 @@ using System.Collections.Generic;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal sealed class AnyExpression
-        : GroupExpression
+    public sealed class AnyGroup
+        : GroupingExpression
     {
         private readonly AnyGroupMode _groupMode;
 
-        internal AnyExpression(IEnumerable<object> content)
+        public AnyGroup(IEnumerable<object> content)
             : this(AnyGroupMode.Noncapturing, content)
         {
         }
 
-        internal AnyExpression(AnyGroupMode groupMode, IEnumerable<object> content)
+        internal AnyGroup(AnyGroupMode groupMode, IEnumerable<object> content)
             : base((object)content)
         {
             _groupMode = groupMode;
         }
 
-        internal AnyExpression(params object[] content)
+        public AnyGroup(params object[] content)
             : this(AnyGroupMode.Noncapturing, content)
         {
         }
 
-        internal AnyExpression(AnyGroupMode groupMode, params object[] content)
+        internal AnyGroup(AnyGroupMode groupMode, params object[] content)
             : base((object)content)
         {
             _groupMode = groupMode;
