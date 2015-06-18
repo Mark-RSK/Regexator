@@ -10,17 +10,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq.Extensions
     {
         public static IEnumerable<Match> EnumerateMatches(this Regex regex, string input)
         {
-            return EnumerateMatches(regex, input, (f) => regex.Match(f));
+            return EnumerateMatches(input, (f) => regex.Match(f));
         }
 
         public static IEnumerable<Match> EnumerateMatches(this Regex regex, string input, int startAt)
         {
-            return EnumerateMatches(regex, input, (f) => regex.Match(f, startAt));
+            return EnumerateMatches(input, (f) => regex.Match(f, startAt));
         }
 
         public static IEnumerable<Match> EnumerateMatches(this Regex regex, string input, int beginning, int length)
         {
-            return EnumerateMatches(regex, input, (f) => regex.Match(f, beginning, length));
+            return EnumerateMatches(input, (f) => regex.Match(f, beginning, length));
         }
 
         public static IEnumerable<Group> EnumerateGroups(this Regex regex, string input)
@@ -158,13 +158,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq.Extensions
             return EnumerateMatches(regex, input, beginning, length).EnumerateCaptures(groupNumber);
         }
 
-        private static IEnumerable<Match> EnumerateMatches(this Regex regex, string input, Func<string, Match> matchFactory)
+        private static IEnumerable<Match> EnumerateMatches(string input, Func<string, Match> matchFactory)
         {
-            if (regex == null)
-            {
-                throw new ArgumentNullException("regex");
-            }
-
             if (input == null)
             {
                 throw new ArgumentNullException("input");

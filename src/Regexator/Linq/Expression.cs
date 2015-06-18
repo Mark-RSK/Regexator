@@ -12,7 +12,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public partial class Expression
     {
-        private Regex _regex;
+        private string _pattern;
         internal static readonly Expression Empty = new Expression();
 
         protected Expression()
@@ -181,229 +181,184 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new ContainerExpression(this);
         }
 
-        public IEnumerable<Match> Matches(string input)
+        public MatchCollection Matches(string input)
         {
-            return Regex.EnumerateMatches(input);
+            return Regex.Matches(input, Pattern);
         }
 
-        public IEnumerable<Match> Matches(string input, int startAt)
+        public MatchCollection Matches(string input, RegexOptions options)
         {
-            return Regex.EnumerateMatches(input, startAt);
+            return Regex.Matches(input, Pattern, options);
         }
 
-        public IEnumerable<Match> Matches(string input, int beginning, int length)
+        public IEnumerable<Match> EnumerateMatches(string input)
         {
-            return Regex.EnumerateMatches(input, beginning, length);
+            return EnumerateMatches(input, RegexOptions.None);
+        }
+
+        public IEnumerable<Match> EnumerateMatches(string input, RegexOptions options)
+        {
+            Match match = Regex.Match(input, Pattern, options);
+            while (match.Success)
+            {
+                yield return match;
+                match = match.NextMatch();
+            }
         }
 
         public int MatchCount(string input)
         {
-            return Matches(input).Count();
+            return Matches(input).Count;
         }
 
-        public int MatchCount(string input, int startAt)
+        public int MatchCount(string input, RegexOptions options)
         {
-            return Matches(input, startAt).Count();
+            return Matches(input, options).Count;
         }
 
-        public int MatchCount(string input, int beginning, int length)
+        public IEnumerable<Group> EnumerateGroups(string input)
         {
-            return Matches(input, beginning, length).Count();
+            return EnumerateGroups(input, RegexOptions.None);
         }
 
-        public IEnumerable<Group> Groups(string input)
+        public IEnumerable<Group> EnumerateGroups(string input, RegexOptions options)
         {
-            return Regex.EnumerateGroups(input);
+            return EnumerateMatches(input, options).EnumerateGroups();
         }
 
-        public IEnumerable<Group> Groups(string input, int startAt)
+        public IEnumerable<Group> EnumerateGroups(string groupName, string input)
         {
-            return Regex.EnumerateGroups(input, startAt);
+            return EnumerateGroups(groupName, input, RegexOptions.None);
         }
 
-        public IEnumerable<Group> Groups(string input, int beginning, int length)
+        public IEnumerable<Group> EnumerateGroups(string groupName, string input, RegexOptions options)
         {
-            return Regex.EnumerateGroups(input, beginning, length);
+            return EnumerateMatches(input, options).EnumerateGroups(groupName);
         }
 
-        public IEnumerable<Group> Groups(string groupName,string input)
+        public IEnumerable<Group> EnumerateGroups(int groupNumber, string input)
         {
-            return Regex.EnumerateGroups(groupName, input);
+            return EnumerateGroups(groupNumber, input, RegexOptions.None);
         }
 
-        public IEnumerable<Group> Groups(string groupName, string input, int startAt)
+        public IEnumerable<Group> EnumerateGroups(int groupNumber, string input, RegexOptions options)
         {
-            return Regex.EnumerateGroups(groupName, input, startAt);
+            return EnumerateMatches(input, options).EnumerateGroups(groupNumber);
         }
 
-        public IEnumerable<Group> Groups(string groupName, string input, int beginning, int length)
+        public IEnumerable<Group> EnumerateSuccessGroups(string input)
         {
-            return Regex.EnumerateGroups(groupName, input, beginning, length);
+            return EnumerateSuccessGroups(input, RegexOptions.None);
         }
 
-        public IEnumerable<Group> Groups(int groupNumber, string input)
+        public IEnumerable<Group> EnumerateSuccessGroups(string input, RegexOptions options)
         {
-            return Regex.EnumerateGroups(groupNumber, input);
+            return EnumerateMatches(input, options).EnumerateSuccessGroups();
         }
 
-        public IEnumerable<Group> Groups(int groupNumber, string input, int startAt)
+        public IEnumerable<Group> EnumerateSuccessGroups(string groupName, string input)
         {
-            return Regex.EnumerateGroups(groupNumber, input, startAt);
+            return EnumerateSuccessGroups(groupName, input, RegexOptions.None);
         }
 
-        public IEnumerable<Group> Groups(int groupNumber, string input, int beginning, int length)
+        public IEnumerable<Group> EnumerateSuccessGroups(string groupName, string input, RegexOptions options)
         {
-            return Regex.EnumerateGroups(groupNumber, input, beginning, length);
+            return EnumerateMatches(input, options).EnumerateSuccessGroups(groupName);
         }
 
-        public IEnumerable<Group> SuccessGroups(string input)
+        public IEnumerable<Group> EnumerateSuccessGroups(int groupNumber, string input)
         {
-            return Regex.EnumerateSuccessGroups(input);
+            return EnumerateSuccessGroups(groupNumber, input, RegexOptions.None);
         }
 
-        public IEnumerable<Group> SuccessGroups(string input, int startAt)
+        public IEnumerable<Group> EnumerateSuccessGroups(int groupNumber, string input, RegexOptions options)
         {
-            return Regex.EnumerateSuccessGroups(input, startAt);
+            return EnumerateMatches(input, options).EnumerateSuccessGroups(groupNumber);
         }
 
-        public IEnumerable<Group> SuccessGroups(string input, int beginning, int length)
+        public IEnumerable<Capture> EnumerateCaptures(string input)
         {
-            return Regex.EnumerateSuccessGroups(input, beginning, length);
+            return EnumerateCaptures(input, RegexOptions.None);
         }
 
-        public IEnumerable<Group> SuccessGroups(string groupName, string input)
+        public IEnumerable<Capture> EnumerateCaptures(string input, RegexOptions options)
         {
-            return Regex.EnumerateSuccessGroups(groupName, input);
+            return EnumerateMatches(input, options).EnumerateCaptures();
         }
 
-        public IEnumerable<Group> SuccessGroups(string groupName, string input, int startAt)
+        public IEnumerable<Capture> EnumerateCaptures(string groupName, string input)
         {
-            return Regex.EnumerateSuccessGroups(groupName, input, startAt);
+            return EnumerateCaptures(groupName, input, RegexOptions.None);
         }
 
-        public IEnumerable<Group> SuccessGroups(string groupName, string input, int beginning, int length)
+        public IEnumerable<Capture> EnumerateCaptures(string groupName, string input, RegexOptions options)
         {
-            return Regex.EnumerateSuccessGroups(groupName, input, beginning, length);
+            return EnumerateMatches(input, options).EnumerateCaptures(groupName);
         }
 
-        public IEnumerable<Group> SuccessGroups(int groupNumber, string input)
+        public IEnumerable<Capture> EnumerateCaptures(int groupNumber, string input)
         {
-            return Regex.EnumerateSuccessGroups(groupNumber, input);
+            return EnumerateCaptures(groupNumber, input, RegexOptions.None);
         }
 
-        public IEnumerable<Group> SuccessGroups(int groupNumber, string input, int startAt)
+        public IEnumerable<Capture> EnumerateCaptures(int groupNumber, string input, RegexOptions options)
         {
-            return Regex.EnumerateSuccessGroups(groupNumber, input, startAt);
-        }
-
-        public IEnumerable<Group> SuccessGroups(int groupNumber, string input, int beginning, int length)
-        {
-            return Regex.EnumerateSuccessGroups(groupNumber, input, beginning, length);
-        }
-
-        public IEnumerable<Capture> Captures(string input)
-        {
-            return Regex.EnumerateCaptures(input);
-        }
-
-        public IEnumerable<Capture> Captures(string input, int startAt)
-        {
-            return Regex.EnumerateCaptures(input, startAt);
-        }
-
-        public IEnumerable<Capture> Captures(string input, int beginning, int length)
-        {
-            return Regex.EnumerateCaptures(input, beginning, length);
-        }
-
-        public IEnumerable<Capture> Captures(string groupName, string input)
-        {
-            return Regex.EnumerateCaptures(groupName, input);
-        }
-
-        public IEnumerable<Capture> Captures(string groupName, string input, int startAt)
-        {
-            return Regex.EnumerateCaptures(groupName, input, startAt);
-        }
-
-        public IEnumerable<Capture> Captures(string groupName, string input, int beginning, int length)
-        {
-            return Regex.EnumerateCaptures(groupName, input, beginning, length);
-        }
-
-        public IEnumerable<Capture> Captures(int groupNumber, string input)
-        {
-            return Regex.EnumerateCaptures(groupNumber, input);
-        }
-
-        public IEnumerable<Capture> Captures(int groupNumber, string input, int startAt)
-        {
-            return Regex.EnumerateCaptures(groupNumber, input, startAt);
-        }
-
-        public IEnumerable<Capture> Captures(int groupNumber, string input, int beginning, int length)
-        {
-            return Regex.EnumerateCaptures(groupNumber, input, beginning, length);
+            return EnumerateMatches(input, options).EnumerateCaptures(groupNumber);
         }
 
         public bool IsMatch(string input)
         {
-            return this.Regex.IsMatch(input);
+            return Regex.IsMatch(input, Pattern);
         }
 
-        public bool IsMatch(string input, int startAt)
+        public bool IsMatch(string input, RegexOptions options)
         {
-            return this.Regex.IsMatch(input, startAt);
+            return Regex.IsMatch(input, Pattern, options);
         }
 
         public Match Match(string input)
         {
-            return this.Regex.Match(input);
+            return Regex.Match(input, Pattern);
         }
 
-        public Match Match(string input, int startAt)
+        public Match Match(string input, RegexOptions options)
         {
-            return this.Regex.Match(input, startAt);
-        }
-
-        public Match Match(string input, int beginning, int length)
-        {
-            return this.Regex.Match(input, beginning, length);
+            return Regex.Match(input, Pattern, options);
         }
 
         public string Replace(string input)
         {
-            return this.Regex.Replace(input, string.Empty);
+            return Replace(input, string.Empty);
         }
 
         public string Replace(string input, MatchEvaluator evaluator)
         {
-            return this.Regex.Replace(input, evaluator);
+            return Regex.Replace(input, Pattern, evaluator);
+        }
+
+        public string Replace(string input, MatchEvaluator evaluator, RegexOptions options)
+        {
+            return Regex.Replace(input, Pattern, evaluator, options);
         }
 
         public string Replace(string input, string replacement)
         {
-            return this.Regex.Replace(input, replacement);
+            return Regex.Replace(input, Pattern, replacement);
         }
 
-        public string Replace(string input, string replacement, int count)
+        public string Replace(string input, string replacement, RegexOptions options)
         {
-            return this.Regex.Replace(input, replacement, count);
+            return Regex.Replace(input, Pattern, replacement, options);
         }
 
-        public string Replace(string input, string replacement, int count, int startAt)
+        public string[] Split(string input)
         {
-            return this.Regex.Replace(input, replacement, count, startAt);
+            return Regex.Split(input, Pattern);
         }
 
-        public string Replace(string input, MatchEvaluator evaluator, int count)
+        public string[] Split(string input, RegexOptions options)
         {
-            return this.Regex.Replace(input, evaluator, count);
-        }
-
-        public string Replace(string input, MatchEvaluator evaluator, int count, int startAt)
-        {
-            return this.Regex.Replace(input, evaluator, count, startAt);
+            return Regex.Split(input, Pattern, options);
         }
 
         #region + and | operators
@@ -571,16 +526,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new CharExpression(value);
         }
 
-        public Regex Regex
+        public string Pattern
         {
             get
             {
-                if (_regex == null)
+                if (_pattern == null)
                 {
-                    _regex = ToRegex();
+                    _pattern = ToString();
                 }
 
-                return _regex;
+                return _pattern;
             }
         }
 
