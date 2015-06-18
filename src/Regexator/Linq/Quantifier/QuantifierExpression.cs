@@ -13,7 +13,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public Expression Lazy()
         {
-            return ConcatInternal(new LazyQuantifierExpression());
+            return ConcatInternal(new LazyQuantifier());
         }
     }
 }

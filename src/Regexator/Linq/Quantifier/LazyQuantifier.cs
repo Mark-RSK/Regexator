@@ -2,10 +2,10 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public sealed class LazyQuantifierExpression
+    public sealed class LazyQuantifier
         : Expression
     {
-        public LazyQuantifierExpression()
+        public LazyQuantifier()
         {
         }
 
