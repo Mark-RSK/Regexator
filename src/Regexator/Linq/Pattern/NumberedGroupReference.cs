@@ -4,12 +4,12 @@ using System;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal sealed class NumberedGroupReference
+    public sealed class NumberedGroupReference
         : QuantifiablePattern
     {
         private readonly int _groupNumber;
 
-        internal NumberedGroupReference(int groupNumber)
+        public NumberedGroupReference(int groupNumber)
             : base()
         {
             if (groupNumber < 0)
