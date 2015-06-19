@@ -4,19 +4,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public static class Chars
     {
-        public static CharacterExpression Char(char value)
+        public static CharacterPattern Char(char value)
         {
-            return new CharExpression(value);
+            return new CharPattern(value);
         }
 
-        public static CharacterExpression Char(int charCode)
+        public static CharacterPattern Char(int charCode)
         {
-            return new CharCodeExpression(charCode);
+            return new CharCodePattern(charCode);
         }
 
-        public static CharacterExpression Char(AsciiChar value)
+        public static CharacterPattern Char(AsciiChar value)
         {
-            return new AsciiCharExpression(value);
+            return new AsciiCharPattern(value);
         }
 
         public static CharGroup Char(string characters)
@@ -54,24 +54,24 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new CharGroupItemGroup(item, true);
         }
 
-        public static CharacterExpression Char(NamedBlock block)
+        public static CharacterPattern Char(NamedBlock block)
         {
-            return new NamedBlockExpression(block);
+            return new NamedBlockPattern(block);
         }
 
-        public static CharacterExpression Char(GeneralCategory category)
+        public static CharacterPattern Char(GeneralCategory category)
         {
-            return new GeneralCategoryExpression(category);
+            return new GeneralCategoryPattern(category);
         }
 
-        public static CharacterExpression NotChar(NamedBlock block)
+        public static CharacterPattern NotChar(NamedBlock block)
         {
-            return new NotNamedBlockExpression(block);
+            return new NotNamedBlockPattern(block);
         }
 
-        public static CharacterExpression NotChar(GeneralCategory category)
+        public static CharacterPattern NotChar(GeneralCategory category)
         {
-            return new NotGeneralCategoryExpression(category);
+            return new NotGeneralCategoryPattern(category);
         }
 
         public static CharGroup Range(char first, char last)
@@ -104,17 +104,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new NotCharSubtraction(baseGroup, excludedGroup);
         }
 
-        public static QuantifiableExpression Any()
+        public static QuantifiablePattern Any()
         {
-            return new AnyCharExpression();
+            return new AnyChar();
         }
 
-        public static QuantifierExpression Any(int count)
+        public static Quantifier Any(int count)
         {
             return Any().Count(count);
         }
 
-        public static QuantifierExpression Any(int minCount, int maxCount)
+        public static Quantifier Any(int minCount, int maxCount)
         {
             return Any().CountRange(minCount, maxCount);
         }
@@ -124,1227 +124,1227 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Char(CharGroupItems.WhiteSpace().NotWhiteSpace());
         }
 
-        public static QuantifierExpression AnyInvariant(int count)
+        public static Quantifier AnyInvariant(int count)
         {
             return AnyInvariant().Count(count);
         }
 
-        public static QuantifierExpression AnyInvariant(int minCount, int maxCount)
+        public static Quantifier AnyInvariant(int minCount, int maxCount)
         {
             return AnyInvariant().CountRange(minCount, maxCount);
         }
 
-        public static Expression AnyMaybeManyLazy()
+        public static Pattern AnyMaybeManyLazy()
         {
             return Any().MaybeMany().Lazy();
         }
 
-        public static Expression AnyMaybeManyLazyInvariant()
+        public static Pattern AnyMaybeManyLazyInvariant()
         {
             return AnyInvariant().MaybeMany().Lazy();
         }
 
-        public static CharacterExpression Digit()
+        public static CharacterPattern Digit()
         {
-            return new CharClassExpression(CharClass.Digit);
+            return new CharClassPattern(CharClass.Digit);
         }
 
-        public static QuantifierExpression Digit(int count)
+        public static Quantifier Digit(int count)
         {
-            return new CharClassExpression(CharClass.Digit).Count(count);
+            return new CharClassPattern(CharClass.Digit).Count(count);
         }
 
-        public static QuantifierExpression Digit(int minCount, int maxCount)
+        public static Quantifier Digit(int minCount, int maxCount)
         {
-            return new CharClassExpression(CharClass.Digit).CountRange(minCount, maxCount);
+            return new CharClassPattern(CharClass.Digit).CountRange(minCount, maxCount);
         }
 
-        public static QuantifierExpression Digits()
+        public static Quantifier Digits()
         {
             return Digit().OneMany();
         }
 
-        public static CharacterExpression NotDigit()
+        public static CharacterPattern NotDigit()
         {
-            return new CharClassExpression(CharClass.NotDigit);
+            return new CharClassPattern(CharClass.NotDigit);
         }
 
-        public static QuantifierExpression NotDigit(int count)
+        public static Quantifier NotDigit(int count)
         {
-            return new CharClassExpression(CharClass.NotDigit).Count(count);
+            return new CharClassPattern(CharClass.NotDigit).Count(count);
         }
 
-        public static QuantifierExpression NotDigit(int minCount, int maxCount)
+        public static Quantifier NotDigit(int minCount, int maxCount)
         {
-            return new CharClassExpression(CharClass.NotDigit).CountRange(minCount, maxCount);
+            return new CharClassPattern(CharClass.NotDigit).CountRange(minCount, maxCount);
         }
 
-        public static QuantifierExpression NotDigits()
+        public static Quantifier NotDigits()
         {
             return NotDigit().OneMany();
         }
 
-        public static CharacterExpression WhiteSpace()
+        public static CharacterPattern WhiteSpace()
         {
-            return new CharClassExpression(CharClass.WhiteSpace);
+            return new CharClassPattern(CharClass.WhiteSpace);
         }
 
-        public static QuantifierExpression WhiteSpace(int count)
+        public static Quantifier WhiteSpace(int count)
         {
-            return new CharClassExpression(CharClass.WhiteSpace).Count(count);
+            return new CharClassPattern(CharClass.WhiteSpace).Count(count);
         }
 
-        public static QuantifierExpression WhiteSpace(int minCount, int maxCount)
+        public static Quantifier WhiteSpace(int minCount, int maxCount)
         {
-            return new CharClassExpression(CharClass.WhiteSpace).CountRange(minCount, maxCount);
+            return new CharClassPattern(CharClass.WhiteSpace).CountRange(minCount, maxCount);
         }
 
-        public static QuantifierExpression WhiteSpaces()
+        public static Quantifier WhiteSpaces()
         {
             return WhiteSpace().OneMany();
         }
 
-        public static QuantifierExpression WhileWhiteSpace()
+        public static Quantifier WhileWhiteSpace()
         {
             return WhiteSpace().MaybeMany();
         }
 
-        public static CharacterExpression NotWhiteSpace()
+        public static CharacterPattern NotWhiteSpace()
         {
-            return new CharClassExpression(CharClass.NotWhiteSpace);
+            return new CharClassPattern(CharClass.NotWhiteSpace);
         }
 
-        public static QuantifierExpression NotWhiteSpace(int count)
+        public static Quantifier NotWhiteSpace(int count)
         {
-            return new CharClassExpression(CharClass.NotWhiteSpace).Count(count);
+            return new CharClassPattern(CharClass.NotWhiteSpace).Count(count);
         }
 
-        public static QuantifierExpression NotWhiteSpace(int minCount, int maxCount)
+        public static Quantifier NotWhiteSpace(int minCount, int maxCount)
         {
-            return new CharClassExpression(CharClass.NotWhiteSpace).CountRange(minCount, maxCount);
+            return new CharClassPattern(CharClass.NotWhiteSpace).CountRange(minCount, maxCount);
         }
 
-        public static QuantifierExpression NotWhiteSpaces()
+        public static Quantifier NotWhiteSpaces()
         {
             return NotWhiteSpace().OneMany();
         }
 
-        public static CharacterExpression WordChar()
+        public static CharacterPattern WordChar()
         {
-            return new CharClassExpression(CharClass.WordChar);
+            return new CharClassPattern(CharClass.WordChar);
         }
 
-        public static QuantifierExpression WordChar(int count)
+        public static Quantifier WordChar(int count)
         {
-            return new CharClassExpression(CharClass.WordChar).Count(count);
+            return new CharClassPattern(CharClass.WordChar).Count(count);
         }
 
-        public static QuantifierExpression WordChar(int minCount, int maxCount)
+        public static Quantifier WordChar(int minCount, int maxCount)
         {
-            return new CharClassExpression(CharClass.WordChar).CountRange(minCount, maxCount);
+            return new CharClassPattern(CharClass.WordChar).CountRange(minCount, maxCount);
         }
 
-        public static QuantifierExpression WordChars()
+        public static Quantifier WordChars()
         {
             return WordChar().OneMany();
         }
 
-        public static CharacterExpression NotWordChar()
+        public static CharacterPattern NotWordChar()
         {
-            return new CharClassExpression(CharClass.NotWordChar);
+            return new CharClassPattern(CharClass.NotWordChar);
         }
 
-        public static QuantifierExpression NotWordChar(int count)
+        public static Quantifier NotWordChar(int count)
         {
-            return new CharClassExpression(CharClass.NotWordChar).Count(count);
+            return new CharClassPattern(CharClass.NotWordChar).Count(count);
         }
 
-        public static QuantifierExpression NotWordChar(int minCount, int maxCount)
+        public static Quantifier NotWordChar(int minCount, int maxCount)
         {
-            return new CharClassExpression(CharClass.NotWordChar).CountRange(minCount, maxCount);
+            return new CharClassPattern(CharClass.NotWordChar).CountRange(minCount, maxCount);
         }
 
-        public static QuantifierExpression NotWordChars()
+        public static Quantifier NotWordChars()
         {
             return NotWordChar().OneMany();
         }
 
-        public static CharacterExpression Tab()
+        public static CharacterPattern Tab()
         {
             return Char(AsciiChar.Tab);
         }
 
-        public static QuantifierExpression Tab(int exactCount)
+        public static Quantifier Tab(int exactCount)
         {
             return Char(AsciiChar.Tab).Count(exactCount);
         }
 
-        public static QuantifierExpression Tab(int minCount, int maxCount)
+        public static Quantifier Tab(int minCount, int maxCount)
         {
             return Char(AsciiChar.Tab).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression NotTab()
+        public static QuantifiablePattern NotTab()
         {
             return NotChar(AsciiChar.Tab);
         }
 
-        public static QuantifierExpression NotTab(int exactCount)
+        public static Quantifier NotTab(int exactCount)
         {
             return NotChar(AsciiChar.Tab).Count(exactCount);
         }
 
-        public static QuantifierExpression NotTab(int minCount, int maxCount)
+        public static Quantifier NotTab(int minCount, int maxCount)
         {
             return NotChar(AsciiChar.Tab).CountRange(minCount, maxCount);
         }
 
-        public static CharacterExpression Linefeed()
+        public static CharacterPattern Linefeed()
         {
             return Char(AsciiChar.Linefeed);
         }
 
-        public static QuantifierExpression Linefeed(int exactCount)
+        public static Quantifier Linefeed(int exactCount)
         {
             return Char(AsciiChar.Linefeed).Count(exactCount);
         }
 
-        public static QuantifierExpression Linefeed(int minCount, int maxCount)
+        public static Quantifier Linefeed(int minCount, int maxCount)
         {
             return Char(AsciiChar.Linefeed).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression NotLinefeed()
+        public static QuantifiablePattern NotLinefeed()
         {
             return NotChar(AsciiChar.Linefeed);
         }
 
-        public static QuantifierExpression NotLinefeed(int exactCount)
+        public static Quantifier NotLinefeed(int exactCount)
         {
             return NotChar(AsciiChar.Linefeed).Count(exactCount);
         }
 
-        public static QuantifierExpression NotLinefeed(int minCount, int maxCount)
+        public static Quantifier NotLinefeed(int minCount, int maxCount)
         {
             return NotChar(AsciiChar.Linefeed).CountRange(minCount, maxCount);
         }
 
-        public static CharacterExpression CarriageReturn()
+        public static CharacterPattern CarriageReturn()
         {
             return Char(AsciiChar.CarriageReturn);
         }
 
-        public static QuantifierExpression CarriageReturn(int exactCount)
+        public static Quantifier CarriageReturn(int exactCount)
         {
             return Char(AsciiChar.CarriageReturn).Count(exactCount);
         }
 
-        public static QuantifierExpression CarriageReturn(int minCount, int maxCount)
+        public static Quantifier CarriageReturn(int minCount, int maxCount)
         {
             return Char(AsciiChar.CarriageReturn).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression NotCarriageReturn()
+        public static QuantifiablePattern NotCarriageReturn()
         {
             return NotChar(AsciiChar.CarriageReturn);
         }
 
-        public static QuantifierExpression NotCarriageReturn(int exactCount)
+        public static Quantifier NotCarriageReturn(int exactCount)
         {
             return NotChar(AsciiChar.CarriageReturn).Count(exactCount);
         }
 
-        public static QuantifierExpression NotCarriageReturn(int minCount, int maxCount)
+        public static Quantifier NotCarriageReturn(int minCount, int maxCount)
         {
             return NotChar(AsciiChar.CarriageReturn).CountRange(minCount, maxCount);
         }
 
-        public static CharacterExpression Space()
+        public static CharacterPattern Space()
         {
             return Char(AsciiChar.Space);
         }
 
-        public static QuantifierExpression Space(int exactCount)
+        public static Quantifier Space(int exactCount)
         {
             return Char(AsciiChar.Space).Count(exactCount);
         }
 
-        public static QuantifierExpression Space(int minCount, int maxCount)
+        public static Quantifier Space(int minCount, int maxCount)
         {
             return Char(AsciiChar.Space).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression NotSpace()
+        public static QuantifiablePattern NotSpace()
         {
             return NotChar(AsciiChar.Space);
         }
 
-        public static QuantifierExpression NotSpace(int exactCount)
+        public static Quantifier NotSpace(int exactCount)
         {
             return NotChar(AsciiChar.Space).Count(exactCount);
         }
 
-        public static QuantifierExpression NotSpace(int minCount, int maxCount)
+        public static Quantifier NotSpace(int minCount, int maxCount)
         {
             return NotChar(AsciiChar.Space).CountRange(minCount, maxCount);
         }
 
-        public static CharacterExpression ExclamationMark()
+        public static CharacterPattern ExclamationMark()
         {
             return Char(AsciiChar.ExclamationMark);
         }
 
-        public static QuantifierExpression ExclamationMark(int exactCount)
+        public static Quantifier ExclamationMark(int exactCount)
         {
             return Char(AsciiChar.ExclamationMark).Count(exactCount);
         }
 
-        public static QuantifierExpression ExclamationMark(int minCount, int maxCount)
+        public static Quantifier ExclamationMark(int minCount, int maxCount)
         {
             return Char(AsciiChar.ExclamationMark).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression NotExclamationMark()
+        public static QuantifiablePattern NotExclamationMark()
         {
             return NotChar(AsciiChar.ExclamationMark);
         }
 
-        public static QuantifierExpression NotExclamationMark(int exactCount)
+        public static Quantifier NotExclamationMark(int exactCount)
         {
             return NotChar(AsciiChar.ExclamationMark).Count(exactCount);
         }
 
-        public static QuantifierExpression NotExclamationMark(int minCount, int maxCount)
+        public static Quantifier NotExclamationMark(int minCount, int maxCount)
         {
             return NotChar(AsciiChar.ExclamationMark).CountRange(minCount, maxCount);
         }
 
-        public static CharacterExpression QuoteMark()
+        public static CharacterPattern QuoteMark()
         {
             return Char(AsciiChar.QuoteMark);
         }
 
-        public static QuantifierExpression QuoteMark(int exactCount)
+        public static Quantifier QuoteMark(int exactCount)
         {
             return Char(AsciiChar.QuoteMark).Count(exactCount);
         }
 
-        public static QuantifierExpression QuoteMark(int minCount, int maxCount)
+        public static Quantifier QuoteMark(int minCount, int maxCount)
         {
             return Char(AsciiChar.QuoteMark).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression NotQuoteMark()
+        public static QuantifiablePattern NotQuoteMark()
         {
             return NotChar(AsciiChar.QuoteMark);
         }
 
-        public static QuantifierExpression NotQuoteMark(int exactCount)
+        public static Quantifier NotQuoteMark(int exactCount)
         {
             return NotChar(AsciiChar.QuoteMark).Count(exactCount);
         }
 
-        public static QuantifierExpression NotQuoteMark(int minCount, int maxCount)
+        public static Quantifier NotQuoteMark(int minCount, int maxCount)
         {
             return NotChar(AsciiChar.QuoteMark).CountRange(minCount, maxCount);
         }
 
-        public static CharacterExpression NumberSign()
+        public static CharacterPattern NumberSign()
         {
             return Char(AsciiChar.NumberSign);
         }
 
-        public static QuantifierExpression NumberSign(int exactCount)
+        public static Quantifier NumberSign(int exactCount)
         {
             return Char(AsciiChar.NumberSign).Count(exactCount);
         }
 
-        public static QuantifierExpression NumberSign(int minCount, int maxCount)
+        public static Quantifier NumberSign(int minCount, int maxCount)
         {
             return Char(AsciiChar.NumberSign).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression NotNumberSign()
+        public static QuantifiablePattern NotNumberSign()
         {
             return NotChar(AsciiChar.NumberSign);
         }
 
-        public static QuantifierExpression NotNumberSign(int exactCount)
+        public static Quantifier NotNumberSign(int exactCount)
         {
             return NotChar(AsciiChar.NumberSign).Count(exactCount);
         }
 
-        public static QuantifierExpression NotNumberSign(int minCount, int maxCount)
+        public static Quantifier NotNumberSign(int minCount, int maxCount)
         {
             return NotChar(AsciiChar.NumberSign).CountRange(minCount, maxCount);
         }
 
-        public static CharacterExpression Dollar()
+        public static CharacterPattern Dollar()
         {
             return Char(AsciiChar.Dollar);
         }
 
-        public static QuantifierExpression Dollar(int exactCount)
+        public static Quantifier Dollar(int exactCount)
         {
             return Char(AsciiChar.Dollar).Count(exactCount);
         }
 
-        public static QuantifierExpression Dollar(int minCount, int maxCount)
+        public static Quantifier Dollar(int minCount, int maxCount)
         {
             return Char(AsciiChar.Dollar).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression NotDollar()
+        public static QuantifiablePattern NotDollar()
         {
             return NotChar(AsciiChar.Dollar);
         }
 
-        public static QuantifierExpression NotDollar(int exactCount)
+        public static Quantifier NotDollar(int exactCount)
         {
             return NotChar(AsciiChar.Dollar).Count(exactCount);
         }
 
-        public static QuantifierExpression NotDollar(int minCount, int maxCount)
+        public static Quantifier NotDollar(int minCount, int maxCount)
         {
             return NotChar(AsciiChar.Dollar).CountRange(minCount, maxCount);
         }
 
-        public static CharacterExpression Percent()
+        public static CharacterPattern Percent()
         {
             return Char(AsciiChar.Percent);
         }
 
-        public static QuantifierExpression Percent(int exactCount)
+        public static Quantifier Percent(int exactCount)
         {
             return Char(AsciiChar.Percent).Count(exactCount);
         }
 
-        public static QuantifierExpression Percent(int minCount, int maxCount)
+        public static Quantifier Percent(int minCount, int maxCount)
         {
             return Char(AsciiChar.Percent).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression NotPercent()
+        public static QuantifiablePattern NotPercent()
         {
             return NotChar(AsciiChar.Percent);
         }
 
-        public static QuantifierExpression NotPercent(int exactCount)
+        public static Quantifier NotPercent(int exactCount)
         {
             return NotChar(AsciiChar.Percent).Count(exactCount);
         }
 
-        public static QuantifierExpression NotPercent(int minCount, int maxCount)
+        public static Quantifier NotPercent(int minCount, int maxCount)
         {
             return NotChar(AsciiChar.Percent).CountRange(minCount, maxCount);
         }
 
-        public static CharacterExpression Ampersand()
+        public static CharacterPattern Ampersand()
         {
             return Char(AsciiChar.Ampersand);
         }
 
-        public static QuantifierExpression Ampersand(int exactCount)
+        public static Quantifier Ampersand(int exactCount)
         {
             return Char(AsciiChar.Ampersand).Count(exactCount);
         }
 
-        public static QuantifierExpression Ampersand(int minCount, int maxCount)
+        public static Quantifier Ampersand(int minCount, int maxCount)
         {
             return Char(AsciiChar.Ampersand).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression NotAmpersand()
+        public static QuantifiablePattern NotAmpersand()
         {
             return NotChar(AsciiChar.Ampersand);
         }
 
-        public static QuantifierExpression NotAmpersand(int exactCount)
+        public static Quantifier NotAmpersand(int exactCount)
         {
             return NotChar(AsciiChar.Ampersand).Count(exactCount);
         }
 
-        public static QuantifierExpression NotAmpersand(int minCount, int maxCount)
+        public static Quantifier NotAmpersand(int minCount, int maxCount)
         {
             return NotChar(AsciiChar.Ampersand).CountRange(minCount, maxCount);
         }
 
-        public static CharacterExpression Apostrophe()
+        public static CharacterPattern Apostrophe()
         {
             return Char(AsciiChar.Apostrophe);
         }
 
-        public static QuantifierExpression Apostrophe(int exactCount)
+        public static Quantifier Apostrophe(int exactCount)
         {
             return Char(AsciiChar.Apostrophe).Count(exactCount);
         }
 
-        public static QuantifierExpression Apostrophe(int minCount, int maxCount)
+        public static Quantifier Apostrophe(int minCount, int maxCount)
         {
             return Char(AsciiChar.Apostrophe).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression NotApostrophe()
+        public static QuantifiablePattern NotApostrophe()
         {
             return NotChar(AsciiChar.Apostrophe);
         }
 
-        public static QuantifierExpression NotApostrophe(int exactCount)
+        public static Quantifier NotApostrophe(int exactCount)
         {
             return NotChar(AsciiChar.Apostrophe).Count(exactCount);
         }
 
-        public static QuantifierExpression NotApostrophe(int minCount, int maxCount)
+        public static Quantifier NotApostrophe(int minCount, int maxCount)
         {
             return NotChar(AsciiChar.Apostrophe).CountRange(minCount, maxCount);
         }
 
-        public static CharacterExpression LeftParenthesis()
+        public static CharacterPattern LeftParenthesis()
         {
             return Char(AsciiChar.LeftParenthesis);
         }
 
-        public static QuantifierExpression LeftParenthesis(int exactCount)
+        public static Quantifier LeftParenthesis(int exactCount)
         {
             return Char(AsciiChar.LeftParenthesis).Count(exactCount);
         }
 
-        public static QuantifierExpression LeftParenthesis(int minCount, int maxCount)
+        public static Quantifier LeftParenthesis(int minCount, int maxCount)
         {
             return Char(AsciiChar.LeftParenthesis).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression NotLeftParenthesis()
+        public static QuantifiablePattern NotLeftParenthesis()
         {
             return NotChar(AsciiChar.LeftParenthesis);
         }
 
-        public static QuantifierExpression NotLeftParenthesis(int exactCount)
+        public static Quantifier NotLeftParenthesis(int exactCount)
         {
             return NotChar(AsciiChar.LeftParenthesis).Count(exactCount);
         }
 
-        public static QuantifierExpression NotLeftParenthesis(int minCount, int maxCount)
+        public static Quantifier NotLeftParenthesis(int minCount, int maxCount)
         {
             return NotChar(AsciiChar.LeftParenthesis).CountRange(minCount, maxCount);
         }
 
-        public static CharacterExpression RightParenthesis()
+        public static CharacterPattern RightParenthesis()
         {
             return Char(AsciiChar.RightParenthesis);
         }
 
-        public static QuantifierExpression RightParenthesis(int exactCount)
+        public static Quantifier RightParenthesis(int exactCount)
         {
             return Char(AsciiChar.RightParenthesis).Count(exactCount);
         }
 
-        public static QuantifierExpression RightParenthesis(int minCount, int maxCount)
+        public static Quantifier RightParenthesis(int minCount, int maxCount)
         {
             return Char(AsciiChar.RightParenthesis).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression NotRightParenthesis()
+        public static QuantifiablePattern NotRightParenthesis()
         {
             return NotChar(AsciiChar.RightParenthesis);
         }
 
-        public static QuantifierExpression NotRightParenthesis(int exactCount)
+        public static Quantifier NotRightParenthesis(int exactCount)
         {
             return NotChar(AsciiChar.RightParenthesis).Count(exactCount);
         }
 
-        public static QuantifierExpression NotRightParenthesis(int minCount, int maxCount)
+        public static Quantifier NotRightParenthesis(int minCount, int maxCount)
         {
             return NotChar(AsciiChar.RightParenthesis).CountRange(minCount, maxCount);
         }
 
-        public static CharacterExpression Asterisk()
+        public static CharacterPattern Asterisk()
         {
             return Char(AsciiChar.Asterisk);
         }
 
-        public static QuantifierExpression Asterisk(int exactCount)
+        public static Quantifier Asterisk(int exactCount)
         {
             return Char(AsciiChar.Asterisk).Count(exactCount);
         }
 
-        public static QuantifierExpression Asterisk(int minCount, int maxCount)
+        public static Quantifier Asterisk(int minCount, int maxCount)
         {
             return Char(AsciiChar.Asterisk).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression NotAsterisk()
+        public static QuantifiablePattern NotAsterisk()
         {
             return NotChar(AsciiChar.Asterisk);
         }
 
-        public static QuantifierExpression NotAsterisk(int exactCount)
+        public static Quantifier NotAsterisk(int exactCount)
         {
             return NotChar(AsciiChar.Asterisk).Count(exactCount);
         }
 
-        public static QuantifierExpression NotAsterisk(int minCount, int maxCount)
+        public static Quantifier NotAsterisk(int minCount, int maxCount)
         {
             return NotChar(AsciiChar.Asterisk).CountRange(minCount, maxCount);
         }
 
-        public static CharacterExpression Plus()
+        public static CharacterPattern Plus()
         {
             return Char(AsciiChar.Plus);
         }
 
-        public static QuantifierExpression Plus(int exactCount)
+        public static Quantifier Plus(int exactCount)
         {
             return Char(AsciiChar.Plus).Count(exactCount);
         }
 
-        public static QuantifierExpression Plus(int minCount, int maxCount)
+        public static Quantifier Plus(int minCount, int maxCount)
         {
             return Char(AsciiChar.Plus).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression NotPlus()
+        public static QuantifiablePattern NotPlus()
         {
             return NotChar(AsciiChar.Plus);
         }
 
-        public static QuantifierExpression NotPlus(int exactCount)
+        public static Quantifier NotPlus(int exactCount)
         {
             return NotChar(AsciiChar.Plus).Count(exactCount);
         }
 
-        public static QuantifierExpression NotPlus(int minCount, int maxCount)
+        public static Quantifier NotPlus(int minCount, int maxCount)
         {
             return NotChar(AsciiChar.Plus).CountRange(minCount, maxCount);
         }
 
-        public static CharacterExpression Comma()
+        public static CharacterPattern Comma()
         {
             return Char(AsciiChar.Comma);
         }
 
-        public static QuantifierExpression Comma(int exactCount)
+        public static Quantifier Comma(int exactCount)
         {
             return Char(AsciiChar.Comma).Count(exactCount);
         }
 
-        public static QuantifierExpression Comma(int minCount, int maxCount)
+        public static Quantifier Comma(int minCount, int maxCount)
         {
             return Char(AsciiChar.Comma).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression NotComma()
+        public static QuantifiablePattern NotComma()
         {
             return NotChar(AsciiChar.Comma);
         }
 
-        public static QuantifierExpression NotComma(int exactCount)
+        public static Quantifier NotComma(int exactCount)
         {
             return NotChar(AsciiChar.Comma).Count(exactCount);
         }
 
-        public static QuantifierExpression NotComma(int minCount, int maxCount)
+        public static Quantifier NotComma(int minCount, int maxCount)
         {
             return NotChar(AsciiChar.Comma).CountRange(minCount, maxCount);
         }
 
-        public static CharacterExpression Hyphen()
+        public static CharacterPattern Hyphen()
         {
             return Char(AsciiChar.Hyphen);
         }
 
-        public static QuantifierExpression Hyphen(int exactCount)
+        public static Quantifier Hyphen(int exactCount)
         {
             return Char(AsciiChar.Hyphen).Count(exactCount);
         }
 
-        public static QuantifierExpression Hyphen(int minCount, int maxCount)
+        public static Quantifier Hyphen(int minCount, int maxCount)
         {
             return Char(AsciiChar.Hyphen).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression NotHyphen()
+        public static QuantifiablePattern NotHyphen()
         {
             return NotChar(AsciiChar.Hyphen);
         }
 
-        public static QuantifierExpression NotHyphen(int exactCount)
+        public static Quantifier NotHyphen(int exactCount)
         {
             return NotChar(AsciiChar.Hyphen).Count(exactCount);
         }
 
-        public static QuantifierExpression NotHyphen(int minCount, int maxCount)
+        public static Quantifier NotHyphen(int minCount, int maxCount)
         {
             return NotChar(AsciiChar.Hyphen).CountRange(minCount, maxCount);
         }
 
-        public static CharacterExpression Period()
+        public static CharacterPattern Period()
         {
             return Char(AsciiChar.Period);
         }
 
-        public static QuantifierExpression Period(int exactCount)
+        public static Quantifier Period(int exactCount)
         {
             return Char(AsciiChar.Period).Count(exactCount);
         }
 
-        public static QuantifierExpression Period(int minCount, int maxCount)
+        public static Quantifier Period(int minCount, int maxCount)
         {
             return Char(AsciiChar.Period).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression NotPeriod()
+        public static QuantifiablePattern NotPeriod()
         {
             return NotChar(AsciiChar.Period);
         }
 
-        public static QuantifierExpression NotPeriod(int exactCount)
+        public static Quantifier NotPeriod(int exactCount)
         {
             return NotChar(AsciiChar.Period).Count(exactCount);
         }
 
-        public static QuantifierExpression NotPeriod(int minCount, int maxCount)
+        public static Quantifier NotPeriod(int minCount, int maxCount)
         {
             return NotChar(AsciiChar.Period).CountRange(minCount, maxCount);
         }
 
-        public static CharacterExpression Slash()
+        public static CharacterPattern Slash()
         {
             return Char(AsciiChar.Slash);
         }
 
-        public static QuantifierExpression Slash(int exactCount)
+        public static Quantifier Slash(int exactCount)
         {
             return Char(AsciiChar.Slash).Count(exactCount);
         }
 
-        public static QuantifierExpression Slash(int minCount, int maxCount)
+        public static Quantifier Slash(int minCount, int maxCount)
         {
             return Char(AsciiChar.Slash).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression NotSlash()
+        public static QuantifiablePattern NotSlash()
         {
             return NotChar(AsciiChar.Slash);
         }
 
-        public static QuantifierExpression NotSlash(int exactCount)
+        public static Quantifier NotSlash(int exactCount)
         {
             return NotChar(AsciiChar.Slash).Count(exactCount);
         }
 
-        public static QuantifierExpression NotSlash(int minCount, int maxCount)
+        public static Quantifier NotSlash(int minCount, int maxCount)
         {
             return NotChar(AsciiChar.Slash).CountRange(minCount, maxCount);
         }
 
-        public static CharacterExpression Colon()
+        public static CharacterPattern Colon()
         {
             return Char(AsciiChar.Colon);
         }
 
-        public static QuantifierExpression Colon(int exactCount)
+        public static Quantifier Colon(int exactCount)
         {
             return Char(AsciiChar.Colon).Count(exactCount);
         }
 
-        public static QuantifierExpression Colon(int minCount, int maxCount)
+        public static Quantifier Colon(int minCount, int maxCount)
         {
             return Char(AsciiChar.Colon).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression NotColon()
+        public static QuantifiablePattern NotColon()
         {
             return NotChar(AsciiChar.Colon);
         }
 
-        public static QuantifierExpression NotColon(int exactCount)
+        public static Quantifier NotColon(int exactCount)
         {
             return NotChar(AsciiChar.Colon).Count(exactCount);
         }
 
-        public static QuantifierExpression NotColon(int minCount, int maxCount)
+        public static Quantifier NotColon(int minCount, int maxCount)
         {
             return NotChar(AsciiChar.Colon).CountRange(minCount, maxCount);
         }
 
-        public static CharacterExpression Semicolon()
+        public static CharacterPattern Semicolon()
         {
             return Char(AsciiChar.Semicolon);
         }
 
-        public static QuantifierExpression Semicolon(int exactCount)
+        public static Quantifier Semicolon(int exactCount)
         {
             return Char(AsciiChar.Semicolon).Count(exactCount);
         }
 
-        public static QuantifierExpression Semicolon(int minCount, int maxCount)
+        public static Quantifier Semicolon(int minCount, int maxCount)
         {
             return Char(AsciiChar.Semicolon).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression NotSemicolon()
+        public static QuantifiablePattern NotSemicolon()
         {
             return NotChar(AsciiChar.Semicolon);
         }
 
-        public static QuantifierExpression NotSemicolon(int exactCount)
+        public static Quantifier NotSemicolon(int exactCount)
         {
             return NotChar(AsciiChar.Semicolon).Count(exactCount);
         }
 
-        public static QuantifierExpression NotSemicolon(int minCount, int maxCount)
+        public static Quantifier NotSemicolon(int minCount, int maxCount)
         {
             return NotChar(AsciiChar.Semicolon).CountRange(minCount, maxCount);
         }
 
-        public static CharacterExpression LessThan()
+        public static CharacterPattern LessThan()
         {
             return Char(AsciiChar.LessThan);
         }
 
-        public static QuantifierExpression LessThan(int exactCount)
+        public static Quantifier LessThan(int exactCount)
         {
             return Char(AsciiChar.LessThan).Count(exactCount);
         }
 
-        public static QuantifierExpression LessThan(int minCount, int maxCount)
+        public static Quantifier LessThan(int minCount, int maxCount)
         {
             return Char(AsciiChar.LessThan).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression NotLessThan()
+        public static QuantifiablePattern NotLessThan()
         {
             return NotChar(AsciiChar.LessThan);
         }
 
-        public static QuantifierExpression NotLessThan(int exactCount)
+        public static Quantifier NotLessThan(int exactCount)
         {
             return NotChar(AsciiChar.LessThan).Count(exactCount);
         }
 
-        public static QuantifierExpression NotLessThan(int minCount, int maxCount)
+        public static Quantifier NotLessThan(int minCount, int maxCount)
         {
             return NotChar(AsciiChar.LessThan).CountRange(minCount, maxCount);
         }
 
-        public static CharacterExpression EqualsSign()
+        public static CharacterPattern EqualsSign()
         {
             return Char(AsciiChar.EqualsSign);
         }
 
-        public static QuantifierExpression EqualsSign(int exactCount)
+        public static Quantifier EqualsSign(int exactCount)
         {
             return Char(AsciiChar.EqualsSign).Count(exactCount);
         }
 
-        public static QuantifierExpression EqualsSign(int minCount, int maxCount)
+        public static Quantifier EqualsSign(int minCount, int maxCount)
         {
             return Char(AsciiChar.EqualsSign).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression NotEqualsSign()
+        public static QuantifiablePattern NotEqualsSign()
         {
             return NotChar(AsciiChar.EqualsSign);
         }
 
-        public static QuantifierExpression NotEqualsSign(int exactCount)
+        public static Quantifier NotEqualsSign(int exactCount)
         {
             return NotChar(AsciiChar.EqualsSign).Count(exactCount);
         }
 
-        public static QuantifierExpression NotEqualsSign(int minCount, int maxCount)
+        public static Quantifier NotEqualsSign(int minCount, int maxCount)
         {
             return NotChar(AsciiChar.EqualsSign).CountRange(minCount, maxCount);
         }
 
-        public static CharacterExpression GreaterThan()
+        public static CharacterPattern GreaterThan()
         {
             return Char(AsciiChar.GreaterThan);
         }
 
-        public static QuantifierExpression GreaterThan(int exactCount)
+        public static Quantifier GreaterThan(int exactCount)
         {
             return Char(AsciiChar.GreaterThan).Count(exactCount);
         }
 
-        public static QuantifierExpression GreaterThan(int minCount, int maxCount)
+        public static Quantifier GreaterThan(int minCount, int maxCount)
         {
             return Char(AsciiChar.GreaterThan).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression NotGreaterThan()
+        public static QuantifiablePattern NotGreaterThan()
         {
             return NotChar(AsciiChar.GreaterThan);
         }
 
-        public static QuantifierExpression NotGreaterThan(int exactCount)
+        public static Quantifier NotGreaterThan(int exactCount)
         {
             return NotChar(AsciiChar.GreaterThan).Count(exactCount);
         }
 
-        public static QuantifierExpression NotGreaterThan(int minCount, int maxCount)
+        public static Quantifier NotGreaterThan(int minCount, int maxCount)
         {
             return NotChar(AsciiChar.GreaterThan).CountRange(minCount, maxCount);
         }
 
-        public static CharacterExpression QuestionMark()
+        public static CharacterPattern QuestionMark()
         {
             return Char(AsciiChar.QuestionMark);
         }
 
-        public static QuantifierExpression QuestionMark(int exactCount)
+        public static Quantifier QuestionMark(int exactCount)
         {
             return Char(AsciiChar.QuestionMark).Count(exactCount);
         }
 
-        public static QuantifierExpression QuestionMark(int minCount, int maxCount)
+        public static Quantifier QuestionMark(int minCount, int maxCount)
         {
             return Char(AsciiChar.QuestionMark).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression NotQuestionMark()
+        public static QuantifiablePattern NotQuestionMark()
         {
             return NotChar(AsciiChar.QuestionMark);
         }
 
-        public static QuantifierExpression NotQuestionMark(int exactCount)
+        public static Quantifier NotQuestionMark(int exactCount)
         {
             return NotChar(AsciiChar.QuestionMark).Count(exactCount);
         }
 
-        public static QuantifierExpression NotQuestionMark(int minCount, int maxCount)
+        public static Quantifier NotQuestionMark(int minCount, int maxCount)
         {
             return NotChar(AsciiChar.QuestionMark).CountRange(minCount, maxCount);
         }
 
-        public static CharacterExpression At()
+        public static CharacterPattern At()
         {
             return Char(AsciiChar.At);
         }
 
-        public static QuantifierExpression At(int exactCount)
+        public static Quantifier At(int exactCount)
         {
             return Char(AsciiChar.At).Count(exactCount);
         }
 
-        public static QuantifierExpression At(int minCount, int maxCount)
+        public static Quantifier At(int minCount, int maxCount)
         {
             return Char(AsciiChar.At).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression NotAt()
+        public static QuantifiablePattern NotAt()
         {
             return NotChar(AsciiChar.At);
         }
 
-        public static QuantifierExpression NotAt(int exactCount)
+        public static Quantifier NotAt(int exactCount)
         {
             return NotChar(AsciiChar.At).Count(exactCount);
         }
 
-        public static QuantifierExpression NotAt(int minCount, int maxCount)
+        public static Quantifier NotAt(int minCount, int maxCount)
         {
             return NotChar(AsciiChar.At).CountRange(minCount, maxCount);
         }
 
-        public static CharacterExpression LeftSquareBracket()
+        public static CharacterPattern LeftSquareBracket()
         {
             return Char(AsciiChar.LeftSquareBracket);
         }
 
-        public static QuantifierExpression LeftSquareBracket(int exactCount)
+        public static Quantifier LeftSquareBracket(int exactCount)
         {
             return Char(AsciiChar.LeftSquareBracket).Count(exactCount);
         }
 
-        public static QuantifierExpression LeftSquareBracket(int minCount, int maxCount)
+        public static Quantifier LeftSquareBracket(int minCount, int maxCount)
         {
             return Char(AsciiChar.LeftSquareBracket).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression NotLeftSquareBracket()
+        public static QuantifiablePattern NotLeftSquareBracket()
         {
             return NotChar(AsciiChar.LeftSquareBracket);
         }
 
-        public static QuantifierExpression NotLeftSquareBracket(int exactCount)
+        public static Quantifier NotLeftSquareBracket(int exactCount)
         {
             return NotChar(AsciiChar.LeftSquareBracket).Count(exactCount);
         }
 
-        public static QuantifierExpression NotLeftSquareBracket(int minCount, int maxCount)
+        public static Quantifier NotLeftSquareBracket(int minCount, int maxCount)
         {
             return NotChar(AsciiChar.LeftSquareBracket).CountRange(minCount, maxCount);
         }
 
-        public static CharacterExpression Backslash()
+        public static CharacterPattern Backslash()
         {
             return Char(AsciiChar.Backslash);
         }
 
-        public static QuantifierExpression Backslash(int exactCount)
+        public static Quantifier Backslash(int exactCount)
         {
             return Char(AsciiChar.Backslash).Count(exactCount);
         }
 
-        public static QuantifierExpression Backslash(int minCount, int maxCount)
+        public static Quantifier Backslash(int minCount, int maxCount)
         {
             return Char(AsciiChar.Backslash).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression NotBackslash()
+        public static QuantifiablePattern NotBackslash()
         {
             return NotChar(AsciiChar.Backslash);
         }
 
-        public static QuantifierExpression NotBackslash(int exactCount)
+        public static Quantifier NotBackslash(int exactCount)
         {
             return NotChar(AsciiChar.Backslash).Count(exactCount);
         }
 
-        public static QuantifierExpression NotBackslash(int minCount, int maxCount)
+        public static Quantifier NotBackslash(int minCount, int maxCount)
         {
             return NotChar(AsciiChar.Backslash).CountRange(minCount, maxCount);
         }
 
-        public static CharacterExpression RightSquareBracket()
+        public static CharacterPattern RightSquareBracket()
         {
             return Char(AsciiChar.RightSquareBracket);
         }
 
-        public static QuantifierExpression RightSquareBracket(int exactCount)
+        public static Quantifier RightSquareBracket(int exactCount)
         {
             return Char(AsciiChar.RightSquareBracket).Count(exactCount);
         }
 
-        public static QuantifierExpression RightSquareBracket(int minCount, int maxCount)
+        public static Quantifier RightSquareBracket(int minCount, int maxCount)
         {
             return Char(AsciiChar.RightSquareBracket).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression NotRightSquareBracket()
+        public static QuantifiablePattern NotRightSquareBracket()
         {
             return NotChar(AsciiChar.RightSquareBracket);
         }
 
-        public static QuantifierExpression NotRightSquareBracket(int exactCount)
+        public static Quantifier NotRightSquareBracket(int exactCount)
         {
             return NotChar(AsciiChar.RightSquareBracket).Count(exactCount);
         }
 
-        public static QuantifierExpression NotRightSquareBracket(int minCount, int maxCount)
+        public static Quantifier NotRightSquareBracket(int minCount, int maxCount)
         {
             return NotChar(AsciiChar.RightSquareBracket).CountRange(minCount, maxCount);
         }
 
-        public static CharacterExpression CircumflexAccent()
+        public static CharacterPattern CircumflexAccent()
         {
             return Char(AsciiChar.CircumflexAccent);
         }
 
-        public static QuantifierExpression CircumflexAccent(int exactCount)
+        public static Quantifier CircumflexAccent(int exactCount)
         {
             return Char(AsciiChar.CircumflexAccent).Count(exactCount);
         }
 
-        public static QuantifierExpression CircumflexAccent(int minCount, int maxCount)
+        public static Quantifier CircumflexAccent(int minCount, int maxCount)
         {
             return Char(AsciiChar.CircumflexAccent).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression NotCircumflexAccent()
+        public static QuantifiablePattern NotCircumflexAccent()
         {
             return NotChar(AsciiChar.CircumflexAccent);
         }
 
-        public static QuantifierExpression NotCircumflexAccent(int exactCount)
+        public static Quantifier NotCircumflexAccent(int exactCount)
         {
             return NotChar(AsciiChar.CircumflexAccent).Count(exactCount);
         }
 
-        public static QuantifierExpression NotCircumflexAccent(int minCount, int maxCount)
+        public static Quantifier NotCircumflexAccent(int minCount, int maxCount)
         {
             return NotChar(AsciiChar.CircumflexAccent).CountRange(minCount, maxCount);
         }
 
-        public static CharacterExpression Underscore()
+        public static CharacterPattern Underscore()
         {
             return Char(AsciiChar.Underscore);
         }
 
-        public static QuantifierExpression Underscore(int exactCount)
+        public static Quantifier Underscore(int exactCount)
         {
             return Char(AsciiChar.Underscore).Count(exactCount);
         }
 
-        public static QuantifierExpression Underscore(int minCount, int maxCount)
+        public static Quantifier Underscore(int minCount, int maxCount)
         {
             return Char(AsciiChar.Underscore).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression NotUnderscore()
+        public static QuantifiablePattern NotUnderscore()
         {
             return NotChar(AsciiChar.Underscore);
         }
 
-        public static QuantifierExpression NotUnderscore(int exactCount)
+        public static Quantifier NotUnderscore(int exactCount)
         {
             return NotChar(AsciiChar.Underscore).Count(exactCount);
         }
 
-        public static QuantifierExpression NotUnderscore(int minCount, int maxCount)
+        public static Quantifier NotUnderscore(int minCount, int maxCount)
         {
             return NotChar(AsciiChar.Underscore).CountRange(minCount, maxCount);
         }
 
-        public static CharacterExpression GraveAccent()
+        public static CharacterPattern GraveAccent()
         {
             return Char(AsciiChar.GraveAccent);
         }
 
-        public static QuantifierExpression GraveAccent(int exactCount)
+        public static Quantifier GraveAccent(int exactCount)
         {
             return Char(AsciiChar.GraveAccent).Count(exactCount);
         }
 
-        public static QuantifierExpression GraveAccent(int minCount, int maxCount)
+        public static Quantifier GraveAccent(int minCount, int maxCount)
         {
             return Char(AsciiChar.GraveAccent).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression NotGraveAccent()
+        public static QuantifiablePattern NotGraveAccent()
         {
             return NotChar(AsciiChar.GraveAccent);
         }
 
-        public static QuantifierExpression NotGraveAccent(int exactCount)
+        public static Quantifier NotGraveAccent(int exactCount)
         {
             return NotChar(AsciiChar.GraveAccent).Count(exactCount);
         }
 
-        public static QuantifierExpression NotGraveAccent(int minCount, int maxCount)
+        public static Quantifier NotGraveAccent(int minCount, int maxCount)
         {
             return NotChar(AsciiChar.GraveAccent).CountRange(minCount, maxCount);
         }
 
-        public static CharacterExpression LeftCurlyBracket()
+        public static CharacterPattern LeftCurlyBracket()
         {
             return Char(AsciiChar.LeftCurlyBracket);
         }
 
-        public static QuantifierExpression LeftCurlyBracket(int exactCount)
+        public static Quantifier LeftCurlyBracket(int exactCount)
         {
             return Char(AsciiChar.LeftCurlyBracket).Count(exactCount);
         }
 
-        public static QuantifierExpression LeftCurlyBracket(int minCount, int maxCount)
+        public static Quantifier LeftCurlyBracket(int minCount, int maxCount)
         {
             return Char(AsciiChar.LeftCurlyBracket).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression NotLeftCurlyBracket()
+        public static QuantifiablePattern NotLeftCurlyBracket()
         {
             return NotChar(AsciiChar.LeftCurlyBracket);
         }
 
-        public static QuantifierExpression NotLeftCurlyBracket(int exactCount)
+        public static Quantifier NotLeftCurlyBracket(int exactCount)
         {
             return NotChar(AsciiChar.LeftCurlyBracket).Count(exactCount);
         }
 
-        public static QuantifierExpression NotLeftCurlyBracket(int minCount, int maxCount)
+        public static Quantifier NotLeftCurlyBracket(int minCount, int maxCount)
         {
             return NotChar(AsciiChar.LeftCurlyBracket).CountRange(minCount, maxCount);
         }
 
-        public static CharacterExpression VerticalLine()
+        public static CharacterPattern VerticalLine()
         {
             return Char(AsciiChar.VerticalLine);
         }
 
-        public static QuantifierExpression VerticalLine(int exactCount)
+        public static Quantifier VerticalLine(int exactCount)
         {
             return Char(AsciiChar.VerticalLine).Count(exactCount);
         }
 
-        public static QuantifierExpression VerticalLine(int minCount, int maxCount)
+        public static Quantifier VerticalLine(int minCount, int maxCount)
         {
             return Char(AsciiChar.VerticalLine).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression NotVerticalLine()
+        public static QuantifiablePattern NotVerticalLine()
         {
             return NotChar(AsciiChar.VerticalLine);
         }
 
-        public static QuantifierExpression NotVerticalLine(int exactCount)
+        public static Quantifier NotVerticalLine(int exactCount)
         {
             return NotChar(AsciiChar.VerticalLine).Count(exactCount);
         }
 
-        public static QuantifierExpression NotVerticalLine(int minCount, int maxCount)
+        public static Quantifier NotVerticalLine(int minCount, int maxCount)
         {
             return NotChar(AsciiChar.VerticalLine).CountRange(minCount, maxCount);
         }
 
-        public static CharacterExpression RightCurlyBracket()
+        public static CharacterPattern RightCurlyBracket()
         {
             return Char(AsciiChar.RightCurlyBracket);
         }
 
-        public static QuantifierExpression RightCurlyBracket(int exactCount)
+        public static Quantifier RightCurlyBracket(int exactCount)
         {
             return Char(AsciiChar.RightCurlyBracket).Count(exactCount);
         }
 
-        public static QuantifierExpression RightCurlyBracket(int minCount, int maxCount)
+        public static Quantifier RightCurlyBracket(int minCount, int maxCount)
         {
             return Char(AsciiChar.RightCurlyBracket).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression NotRightCurlyBracket()
+        public static QuantifiablePattern NotRightCurlyBracket()
         {
             return NotChar(AsciiChar.RightCurlyBracket);
         }
 
-        public static QuantifierExpression NotRightCurlyBracket(int exactCount)
+        public static Quantifier NotRightCurlyBracket(int exactCount)
         {
             return NotChar(AsciiChar.RightCurlyBracket).Count(exactCount);
         }
 
-        public static QuantifierExpression NotRightCurlyBracket(int minCount, int maxCount)
+        public static Quantifier NotRightCurlyBracket(int minCount, int maxCount)
         {
             return NotChar(AsciiChar.RightCurlyBracket).CountRange(minCount, maxCount);
         }
 
-        public static CharacterExpression Tilde()
+        public static CharacterPattern Tilde()
         {
             return Char(AsciiChar.Tilde);
         }
 
-        public static QuantifierExpression Tilde(int exactCount)
+        public static Quantifier Tilde(int exactCount)
         {
             return Char(AsciiChar.Tilde).Count(exactCount);
         }
 
-        public static QuantifierExpression Tilde(int minCount, int maxCount)
+        public static Quantifier Tilde(int minCount, int maxCount)
         {
             return Char(AsciiChar.Tilde).CountRange(minCount, maxCount);
         }
 
-        public static QuantifiableExpression NotTilde()
+        public static QuantifiablePattern NotTilde()
         {
             return NotChar(AsciiChar.Tilde);
         }
 
-        public static QuantifierExpression NotTilde(int exactCount)
+        public static Quantifier NotTilde(int exactCount)
         {
             return NotChar(AsciiChar.Tilde).Count(exactCount);
         }
 
-        public static QuantifierExpression NotTilde(int minCount, int maxCount)
+        public static Quantifier NotTilde(int minCount, int maxCount)
         {
             return NotChar(AsciiChar.Tilde).CountRange(minCount, maxCount);
         }
@@ -1354,12 +1354,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Char(CharGroupItems.CarriageReturn().Linefeed());
         }
 
-        public static QuantifierExpression NewLineChar(int count)
+        public static Quantifier NewLineChar(int count)
         {
             return NewLineChar().Count(count);
         }
 
-        public static QuantifierExpression NewLineChar(int minCount, int maxCount)
+        public static Quantifier NewLineChar(int minCount, int maxCount)
         {
             return NewLineChar().CountRange(minCount, maxCount);
         }
@@ -1369,12 +1369,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return NotChar(CharGroupItems.CarriageReturn().Linefeed());
         }
 
-        public static QuantifierExpression NotNewLineChar(int count)
+        public static Quantifier NotNewLineChar(int count)
         {
             return NotNewLineChar().Count(count);
         }
 
-        public static QuantifierExpression NotNewLineChar(int minCount, int maxCount)
+        public static Quantifier NotNewLineChar(int minCount, int maxCount)
         {
             return NotNewLineChar().CountRange(minCount, maxCount);
         }
@@ -1384,12 +1384,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Char(CharGroupItems.Alphanumeric());
         }
 
-        public static QuantifierExpression Alphanumeric(int count)
+        public static Quantifier Alphanumeric(int count)
         {
             return Alphanumeric().Count(count);
         }
 
-        public static QuantifierExpression Alphanumeric(int minCount, int maxCount)
+        public static Quantifier Alphanumeric(int minCount, int maxCount)
         {
             return Alphanumeric().CountRange(minCount, maxCount);
         }
@@ -1399,12 +1399,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return NotChar(CharGroupItems.Alphanumeric());
         }
 
-        public static QuantifierExpression NotAlphanumeric(int count)
+        public static Quantifier NotAlphanumeric(int count)
         {
             return NotAlphanumeric().Count(count);
         }
 
-        public static QuantifierExpression NotAlphanumeric(int minCount, int maxCount)
+        public static Quantifier NotAlphanumeric(int minCount, int maxCount)
         {
             return NotAlphanumeric().CountRange(minCount, maxCount);
         }
@@ -1414,12 +1414,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Char(CharGroupItems.AlphanumericLower());
         }
 
-        public static QuantifierExpression AlphanumericLower(int count)
+        public static Quantifier AlphanumericLower(int count)
         {
             return AlphanumericLower().Count(count);
         }
 
-        public static QuantifierExpression AlphanumericLower(int minCount, int maxCount)
+        public static Quantifier AlphanumericLower(int minCount, int maxCount)
         {
             return AlphanumericLower().CountRange(minCount, maxCount);
         }
@@ -1429,12 +1429,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return NotChar(CharGroupItems.AlphanumericLower());
         }
 
-        public static QuantifierExpression NotAlphanumericLower(int count)
+        public static Quantifier NotAlphanumericLower(int count)
         {
             return NotAlphanumericLower().Count(count);
         }
 
-        public static QuantifierExpression NotAlphanumericLower(int minCount, int maxCount)
+        public static Quantifier NotAlphanumericLower(int minCount, int maxCount)
         {
             return NotAlphanumericLower().CountRange(minCount, maxCount);
         }
@@ -1444,12 +1444,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Char(CharGroupItems.AlphanumericUpper());
         }
 
-        public static QuantifierExpression AlphanumericUpper(int count)
+        public static Quantifier AlphanumericUpper(int count)
         {
             return AlphanumericUpper().Count(count);
         }
 
-        public static QuantifierExpression AlphanumericUpper(int minCount, int maxCount)
+        public static Quantifier AlphanumericUpper(int minCount, int maxCount)
         {
             return AlphanumericUpper().CountRange(minCount, maxCount);
         }
@@ -1459,12 +1459,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return NotChar(CharGroupItems.AlphanumericUpper());
         }
 
-        public static QuantifierExpression NotAlphanumericUpper(int count)
+        public static Quantifier NotAlphanumericUpper(int count)
         {
             return NotAlphanumericUpper().Count(count);
         }
 
-        public static QuantifierExpression NotAlphanumericUpper(int minCount, int maxCount)
+        public static Quantifier NotAlphanumericUpper(int minCount, int maxCount)
         {
             return NotAlphanumericUpper().CountRange(minCount, maxCount);
         }
@@ -1474,12 +1474,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Char(CharGroupItems.AlphanumericUnderscore());
         }
 
-        public static QuantifierExpression AlphanumericUnderscore(int count)
+        public static Quantifier AlphanumericUnderscore(int count)
         {
             return AlphanumericUnderscore().Count(count);
         }
 
-        public static QuantifierExpression AlphanumericUnderscore(int minCount, int maxCount)
+        public static Quantifier AlphanumericUnderscore(int minCount, int maxCount)
         {
             return AlphanumericUnderscore().CountRange(minCount, maxCount);
         }
@@ -1489,12 +1489,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return NotChar(CharGroupItems.AlphanumericUnderscore());
         }
 
-        public static QuantifierExpression NotAlphanumericUnderscore(int count)
+        public static Quantifier NotAlphanumericUnderscore(int count)
         {
             return NotAlphanumericUnderscore().Count(count);
         }
 
-        public static QuantifierExpression NotAlphanumericUnderscore(int minCount, int maxCount)
+        public static Quantifier NotAlphanumericUnderscore(int minCount, int maxCount)
         {
             return NotAlphanumericUnderscore().CountRange(minCount, maxCount);
         }
@@ -1504,12 +1504,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Char(CharGroupItems.LatinLetter());
         }
 
-        public static QuantifierExpression LatinLetter(int count)
+        public static Quantifier LatinLetter(int count)
         {
             return LatinLetter().Count(count);
         }
 
-        public static QuantifierExpression LatinLetter(int minCount, int maxCount)
+        public static Quantifier LatinLetter(int minCount, int maxCount)
         {
             return LatinLetter().CountRange(minCount, maxCount);
         }
@@ -1519,12 +1519,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Char(CharGroupItems.LatinLetterLower());
         }
 
-        public static QuantifierExpression LatinLetterLower(int count)
+        public static Quantifier LatinLetterLower(int count)
         {
             return LatinLetterLower().Count(count);
         }
 
-        public static QuantifierExpression LatinLetterLower(int minCount, int maxCount)
+        public static Quantifier LatinLetterLower(int minCount, int maxCount)
         {
             return LatinLetterLower().CountRange(minCount, maxCount);
         }
@@ -1534,12 +1534,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Char(CharGroupItems.LatinLetterUpper());
         }
 
-        public static QuantifierExpression LatinLetterUpper(int count)
+        public static Quantifier LatinLetterUpper(int count)
         {
             return LatinLetterUpper().Count(count);
         }
 
-        public static QuantifierExpression LatinLetterUpper(int minCount, int maxCount)
+        public static Quantifier LatinLetterUpper(int minCount, int maxCount)
         {
             return LatinLetterUpper().CountRange(minCount, maxCount);
         }
@@ -1549,12 +1549,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return NotChar(CharGroupItems.LatinLetter());
         }
 
-        public static QuantifierExpression NotLatinLetter(int count)
+        public static Quantifier NotLatinLetter(int count)
         {
             return NotLatinLetter().Count(count);
         }
 
-        public static QuantifierExpression NotLatinLetter(int minCount, int maxCount)
+        public static Quantifier NotLatinLetter(int minCount, int maxCount)
         {
             return NotLatinLetter().CountRange(minCount, maxCount);
         }
@@ -1564,12 +1564,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return NotChar(CharGroupItems.LatinLetterLower());
         }
 
-        public static QuantifierExpression NotLatinLetterLower(int count)
+        public static Quantifier NotLatinLetterLower(int count)
         {
             return NotLatinLetterLower().Count(count);
         }
 
-        public static QuantifierExpression NotLatinLetterLower(int minCount, int maxCount)
+        public static Quantifier NotLatinLetterLower(int minCount, int maxCount)
         {
             return NotLatinLetterLower().CountRange(minCount, maxCount);
         }
@@ -1579,12 +1579,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return NotChar(CharGroupItems.LatinLetterUpper());
         }
 
-        public static QuantifierExpression NotLatinLetterUpper(int count)
+        public static Quantifier NotLatinLetterUpper(int count)
         {
             return NotLatinLetterUpper().Count(count);
         }
 
-        public static QuantifierExpression NotLatinLetterUpper(int minCount, int maxCount)
+        public static Quantifier NotLatinLetterUpper(int minCount, int maxCount)
         {
             return NotLatinLetterUpper().CountRange(minCount, maxCount);
         }
@@ -1594,12 +1594,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Char(CharGroupItems.ArabicDigit());
         }
 
-        public static QuantifierExpression ArabicDigit(int count)
+        public static Quantifier ArabicDigit(int count)
         {
             return ArabicDigit().Count(count);
         }
 
-        public static QuantifierExpression ArabicDigit(int minCount, int maxCount)
+        public static Quantifier ArabicDigit(int minCount, int maxCount)
         {
             return ArabicDigit().CountRange(minCount, maxCount);
         }
@@ -1609,12 +1609,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return NotChar(CharGroupItems.ArabicDigit());
         }
 
-        public static QuantifierExpression NotArabicDigit(int count)
+        public static Quantifier NotArabicDigit(int count)
         {
             return NotArabicDigit().Count(count);
         }
 
-        public static QuantifierExpression NotArabicDigit(int minCount, int maxCount)
+        public static Quantifier NotArabicDigit(int minCount, int maxCount)
         {
             return NotArabicDigit().CountRange(minCount, maxCount);
         }
@@ -1624,12 +1624,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Char(CharGroupItems.HexadecimalDigit());
         }
 
-        public static QuantifierExpression HexadecimalDigit(int count)
+        public static Quantifier HexadecimalDigit(int count)
         {
             return HexadecimalDigit().Count(count);
         }
 
-        public static QuantifierExpression HexadecimalDigit(int minCount, int maxCount)
+        public static Quantifier HexadecimalDigit(int minCount, int maxCount)
         {
             return HexadecimalDigit().CountRange(minCount, maxCount);
         }
@@ -1639,12 +1639,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return NotChar(CharGroupItems.HexadecimalDigit());
         }
 
-        public static QuantifierExpression NotHexadecimalDigit(int count)
+        public static Quantifier NotHexadecimalDigit(int count)
         {
             return NotHexadecimalDigit().Count(count);
         }
 
-        public static QuantifierExpression NotHexadecimalDigit(int minCount, int maxCount)
+        public static Quantifier NotHexadecimalDigit(int minCount, int maxCount)
         {
             return NotHexadecimalDigit().CountRange(minCount, maxCount);
         }
@@ -1654,12 +1654,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Char(CharGroupItems.Parenthesis());
         }
 
-        public static QuantifierExpression Parenthesis(int count)
+        public static Quantifier Parenthesis(int count)
         {
             return Parenthesis().Count(count);
         }
 
-        public static QuantifierExpression Parenthesis(int minCount, int maxCount)
+        public static Quantifier Parenthesis(int minCount, int maxCount)
         {
             return Parenthesis().CountRange(minCount, maxCount);
         }
@@ -1669,12 +1669,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return NotChar(CharGroupItems.Parenthesis());
         }
 
-        public static QuantifierExpression NotParenthesis(int count)
+        public static Quantifier NotParenthesis(int count)
         {
             return NotParenthesis().Count(count);
         }
 
-        public static QuantifierExpression NotParenthesis(int minCount, int maxCount)
+        public static Quantifier NotParenthesis(int minCount, int maxCount)
         {
             return NotParenthesis().CountRange(minCount, maxCount);
         }
@@ -1684,12 +1684,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Char(CharGroupItems.CurlyBracket());
         }
 
-        public static QuantifierExpression CurlyBracket(int count)
+        public static Quantifier CurlyBracket(int count)
         {
             return CurlyBracket().Count(count);
         }
 
-        public static QuantifierExpression CurlyBracket(int minCount, int maxCount)
+        public static Quantifier CurlyBracket(int minCount, int maxCount)
         {
             return CurlyBracket().CountRange(minCount, maxCount);
         }
@@ -1699,12 +1699,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return NotChar(CharGroupItems.CurlyBracket());
         }
 
-        public static QuantifierExpression NotCurlyBracket(int count)
+        public static Quantifier NotCurlyBracket(int count)
         {
             return NotCurlyBracket().Count(count);
         }
 
-        public static QuantifierExpression NotCurlyBracket(int minCount, int maxCount)
+        public static Quantifier NotCurlyBracket(int minCount, int maxCount)
         {
             return NotCurlyBracket().CountRange(minCount, maxCount);
         }
@@ -1714,12 +1714,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Char(CharGroupItems.SquareBracket());
         }
 
-        public static QuantifierExpression SquareBracket(int count)
+        public static Quantifier SquareBracket(int count)
         {
             return SquareBracket().Count(count);
         }
 
-        public static QuantifierExpression SquareBracket(int minCount, int maxCount)
+        public static Quantifier SquareBracket(int minCount, int maxCount)
         {
             return SquareBracket().CountRange(minCount, maxCount);
         }
@@ -1729,69 +1729,69 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return NotChar(CharGroupItems.SquareBracket());
         }
 
-        public static QuantifierExpression NotSquareBracket(int count)
+        public static Quantifier NotSquareBracket(int count)
         {
             return NotSquareBracket().Count(count);
         }
 
-        public static QuantifierExpression NotSquareBracket(int minCount, int maxCount)
+        public static Quantifier NotSquareBracket(int minCount, int maxCount)
         {
             return NotSquareBracket().CountRange(minCount, maxCount);
         }
 
-        public static Expression Apostrophes()
+        public static Pattern Apostrophes()
         {
             return Chars.Apostrophe().Apostrophe();
         }
 
-        public static Expression Apostrophes(object content)
+        public static Pattern Apostrophes(object content)
         {
-            return Expression.Surround(AsciiChar.Apostrophe, content);
+            return Pattern.Surround(AsciiChar.Apostrophe, content);
         }
 
-        public static Expression QuoteMarks()
+        public static Pattern QuoteMarks()
         {
             return Chars.QuoteMark().QuoteMark();
         }
 
-        public static Expression QuoteMarks(object content)
+        public static Pattern QuoteMarks(object content)
         {
-            return Expression.Surround(AsciiChar.QuoteMark, content);
+            return Pattern.Surround(AsciiChar.QuoteMark, content);
         }
 
-        public static Expression Parentheses()
+        public static Pattern Parentheses()
         {
             return Chars.LeftParenthesis().RightParenthesis();
         }
 
-        public static Expression Parentheses(object content)
+        public static Pattern Parentheses(object content)
         {
-            return Expression.Surround(AsciiChar.LeftParenthesis, content, AsciiChar.RightParenthesis);
+            return Pattern.Surround(AsciiChar.LeftParenthesis, content, AsciiChar.RightParenthesis);
         }
 
-        public static Expression CurlyBrackets()
+        public static Pattern CurlyBrackets()
         {
             return Chars.LeftCurlyBracket().RightCurlyBracket();
         }
 
-        public static Expression CurlyBrackets(object content)
+        public static Pattern CurlyBrackets(object content)
         {
-            return Expression.Surround(AsciiChar.LeftCurlyBracket, content, AsciiChar.RightCurlyBracket);
+            return Pattern.Surround(AsciiChar.LeftCurlyBracket, content, AsciiChar.RightCurlyBracket);
         }
 
-        public static Expression SquareBrackets()
+        public static Pattern SquareBrackets()
         {
             return Chars.LeftSquareBracket().RightSquareBracket();
         }
 
-        public static Expression SquareBrackets(object content)
+        public static Pattern SquareBrackets(object content)
         {
-            return Expression.Surround(AsciiChar.LeftSquareBracket, content, AsciiChar.RightSquareBracket);
+            return Pattern.Surround(AsciiChar.LeftSquareBracket, content, AsciiChar.RightSquareBracket);
         }
 
-        public static Expression LessThanGreaterThan(object content)
+        public static Pattern LessThanGreaterThan(object content)
         {
-            return Expression.Surround(AsciiChar.LessThan, content, AsciiChar.GreaterThan);
+            return Pattern.Surround(AsciiChar.LessThan, content, AsciiChar.GreaterThan);
         }
 
         public static CharSubtraction WhiteSpaceExceptNewLine()
@@ -1799,57 +1799,57 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Chars.WhiteSpace().Except(Chars.NewLineChar());
         }
 
-        public static QuantifierExpression WhiteSpaceExceptNewLine(int count)
+        public static Quantifier WhiteSpaceExceptNewLine(int count)
         {
             return WhiteSpaceExceptNewLine().Count(count);
         }
 
-        public static QuantifierExpression WhiteSpaceExceptNewLine(int minCount, int maxCount)
+        public static Quantifier WhiteSpaceExceptNewLine(int minCount, int maxCount)
         {
             return WhiteSpaceExceptNewLine().CountRange(minCount, maxCount);
         }
 
-        public static Expression While(char value)
+        public static Pattern While(char value)
         {
             return Char(value).MaybeMany();
         }
 
-        public static Expression While(AsciiChar value)
+        public static Pattern While(AsciiChar value)
         {
             return Char(value).MaybeMany();
         }
 
-        public static Expression While(CharGroupItem item)
+        public static Pattern While(CharGroupItem item)
         {
             return Char(item).MaybeMany();
         }
-        public static Expression WhileNot(char value)
+        public static Pattern WhileNot(char value)
         {
             return NotChar(value).MaybeMany();
         }
 
-        public static Expression WhileNot(AsciiChar value)
+        public static Pattern WhileNot(AsciiChar value)
         {
             return NotChar(value).MaybeMany();
         }
 
-        public static Expression WhileNot(CharGroupItem item)
+        public static Pattern WhileNot(CharGroupItem item)
         {
             return NotChar(item).MaybeMany();
         }
 
-        public static Expression WhileNotNewLine()
+        public static Pattern WhileNotNewLine()
         {
             return WhileNot(CharGroupItems.NewLineChar());
         }
 
 #if DEBUG
-        public static Expression GoTo(char value)
+        public static Pattern GoTo(char value)
         {
             return Chars.NotChar(value).MaybeMany().Char(value);
         }
 
-        public static Expression GoTo(AsciiChar value)
+        public static Pattern GoTo(AsciiChar value)
         {
             return Chars.NotChar(value).MaybeMany().Char(value);
         }

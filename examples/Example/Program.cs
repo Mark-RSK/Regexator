@@ -31,7 +31,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 .LessThanGreaterThan(
                     "!" + Chars.SquareBrackets(
                         "CDATA" + Chars.SquareBrackets(
-                            Expressions.CrawlInvariant().AsGroup()
+                            Patterns.CrawlInvariant().AsGroup()
                         )
                     )
                 ));
@@ -42,7 +42,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("multiple words");
             Console.WriteLine(Anchors
                 .WordBoundary()
-                .Count(3, Expressions
+                .Count(3, Patterns
                     .Any(values.Select(f => Groups.Group(f)))
                     .WordBoundary()
                     .NotWordChar().MaybeMany().Lazy())
@@ -52,8 +52,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("multiple words 2");
             Console.WriteLine(Anchors
                 .WordBoundary()
-                .CountFrom(3, Expressions
-                    .Any(values.Select(f => Expression.Create(f).Group()))
+                .CountFrom(3, Patterns
+                    .Any(values.Select(f => Pattern.Create(f).Group()))
                     .WordBoundary()
                     .NotWordChar().MaybeMany().Lazy())
                 .GroupReference(1)
@@ -90,8 +90,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             Console.WriteLine("words in any order:");
             Console.WriteLine(Anchors.StartOfLine()
-                .Assert(Expressions.CrawlInvariant().Word("word1"))
-                .Assert(Expressions.CrawlInvariant().Word("word2"))
+                .Assert(Patterns.CrawlInvariant().Word("word1"))
+                .Assert(Patterns.CrawlInvariant().Word("word2"))
                 .AnyInvariant().MaybeMany());
             Console.WriteLine("");
 
@@ -104,21 +104,21 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("");
 
             Console.WriteLine("leading trailing whitespace:");
-            Console.WriteLine(Expressions.Any(
+            Console.WriteLine(Patterns.Any(
                 Anchors.StartOfLine().WhiteSpaceExceptNewLine().OneMany(),
                 Chars.WhiteSpaceExceptNewLine().OneMany().EndOfLineOrBeforeCarriageReturn()));
             Console.WriteLine("");
 
             Console.WriteLine("whitespace lines:");
-            Console.WriteLine(Expressions.Any(Anchors
+            Console.WriteLine(Patterns.Any(Anchors
                     .StartOfLineInvariant().WhileWhiteSpace().NewLine(),
-                    Expressions.NewLine().WhileWhiteSpace().End()));
+                    Patterns.NewLine().WhileWhiteSpace().End()));
             Console.WriteLine("");
 
             Console.WriteLine("empty lines:");
-            Console.WriteLine(Expressions.Any(Anchors
+            Console.WriteLine(Patterns.Any(Anchors
                     .StartOfLineInvariant().NewLine(),
-                    Expressions.NewLine().OneMany().End()));
+                    Patterns.NewLine().OneMany().End()));
             Console.WriteLine("");
 
             Console.WriteLine("first line:");
@@ -134,7 +134,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             Console.WriteLine("invalid file name chars:");
             var chars = Path.GetInvalidFileNameChars().OrderBy(f => (int)f).Select(f => Chars.Char(f));
-            Console.WriteLine(Expressions.Any(chars).AsNonbacktracking());
+            Console.WriteLine(Patterns.Any(chars).AsNonbacktracking());
             Console.WriteLine("");
 
             Console.ReadKey();

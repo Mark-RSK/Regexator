@@ -3,7 +3,7 @@
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public sealed class CapturingGroup
-        : GroupingExpression
+        : GroupingPattern
     {
         public CapturingGroup(object content)
             : base(content)

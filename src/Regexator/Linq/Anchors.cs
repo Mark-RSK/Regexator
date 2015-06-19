@@ -4,102 +4,102 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public static class Anchors
     {
-        public static QuantifiableExpression Assert(object content)
+        public static QuantifiablePattern Assert(object content)
         {
             return new Assert(content);
         }
 
-        public static QuantifiableExpression Assert(params object[] content)
+        public static QuantifiablePattern Assert(params object[] content)
         {
             return Assert((object)content);
         }
 
-        public static QuantifiableExpression NotAssert(object content)
+        public static QuantifiablePattern NotAssert(object content)
         {
             return new NotAssert(content);
         }
 
-        public static QuantifiableExpression NotAssert(params object[] content)
+        public static QuantifiablePattern NotAssert(params object[] content)
         {
             return NotAssert((object)content);
         }
 
-        public static QuantifiableExpression AssertBack(object content)
+        public static QuantifiablePattern AssertBack(object content)
         {
             return new AssertBack(content);
         }
 
-        public static QuantifiableExpression AssertBack(params object[] content)
+        public static QuantifiablePattern AssertBack(params object[] content)
         {
             return AssertBack((object)content);
         }
 
-        public static QuantifiableExpression NotAssertBack(object content)
+        public static QuantifiablePattern NotAssertBack(object content)
         {
             return new NotAssertBack(content);
         }
 
-        public static QuantifiableExpression NotAssertBack(params object[] content)
+        public static QuantifiablePattern NotAssertBack(params object[] content)
         {
             return NotAssertBack((object)content);
         }
 
-        public static Expression AssertSurround(object surroundContent, object content)
+        public static Pattern AssertSurround(object surroundContent, object content)
         {
             return AssertSurround(surroundContent, content, surroundContent);
         }
 
-        public static Expression AssertSurround(object contentBefore, object content, object contentAfter)
+        public static Pattern AssertSurround(object contentBefore, object content, object contentAfter)
         {
-            return new AssertSurroundExpression(contentBefore, content, contentAfter);
+            return new AssertSurround(contentBefore, content, contentAfter);
         }
 
-        public static Expression NotAssertSurround(object surroundContent, object content)
+        public static Pattern NotAssertSurround(object surroundContent, object content)
         {
             return NotAssertSurround(surroundContent, content, surroundContent);
         }
 
-        public static Expression NotAssertSurround(object contentBefore, object content, object contentAfter)
+        public static Pattern NotAssertSurround(object contentBefore, object content, object contentAfter)
         {
-            return new AssertSurroundExpression(contentBefore, content, contentAfter, true);
+            return new AssertSurround(contentBefore, content, contentAfter, true);
         }
 
-        public static QuantifiableExpression Start()
+        public static QuantifiablePattern Start()
         {
             return new StartOfInput();
         }
 
-        public static QuantifiableExpression StartOfLine()
+        public static QuantifiablePattern StartOfLine()
         {
             return new StartOfLine();
         }
 
-        public static QuantifiableExpression StartOfLineInvariant()
+        public static QuantifiablePattern StartOfLineInvariant()
         {
-            return Expressions.ApplyOptions(InlineOptions.Multiline, Anchors.StartOfLine());
+            return Patterns.ApplyOptions(InlineOptions.Multiline, Anchors.StartOfLine());
         }
 
-        public static QuantifiableExpression EndOfLine()
+        public static QuantifiablePattern EndOfLine()
         {
             return new EndOfLine();
         }
 
-        public static QuantifiableExpression EndOfLineInvariant()
+        public static QuantifiablePattern EndOfLineInvariant()
         {
-            return Expressions.ApplyOptions(InlineOptions.Multiline, Anchors.EndOfLine());
+            return Patterns.ApplyOptions(InlineOptions.Multiline, Anchors.EndOfLine());
         }
 
-        public static QuantifiableExpression EndOfLineOrBeforeCarriageReturn()
+        public static QuantifiablePattern EndOfLineOrBeforeCarriageReturn()
         {
             return EndOfLine(true, false);
         }
 
-        public static QuantifiableExpression EndOfLineOrBeforeCarriageReturnInvariant()
+        public static QuantifiablePattern EndOfLineOrBeforeCarriageReturnInvariant()
         {
             return EndOfLine(true, true);
         }
 
-        internal static QuantifiableExpression EndOfLine(bool beforeCarriageReturn, bool invariant)
+        internal static QuantifiablePattern EndOfLine(bool beforeCarriageReturn, bool invariant)
         {
             if (beforeCarriageReturn)
             {
@@ -118,59 +118,59 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        public static QuantifiableExpression End()
+        public static QuantifiablePattern End()
         {
             return new EndOfInput();
         }
 
-        public static QuantifiableExpression EndOrBeforeEndingNewLine()
+        public static QuantifiablePattern EndOrBeforeEndingNewLine()
         {
             return new EndOrBeforeEndingNewLine();
         }
 
-        public static QuantifiableExpression PreviousMatchEnd()
+        public static QuantifiablePattern PreviousMatchEnd()
         {
             return new PreviousMatchEnd();
         }
 
-        public static QuantifiableExpression WordBoundary()
+        public static QuantifiablePattern WordBoundary()
         {
             return new WordBoundary();
         }
 
-        public static QuantifiableExpression Word()
+        public static QuantifiablePattern Word()
         {
-            return Expression.Surround(WordBoundary(), Chars.WordChars()).AsNoncapturing();
+            return Pattern.Surround(WordBoundary(), Chars.WordChars()).AsNoncapturing();
         }
 
-        public static QuantifiableExpression Word(string text)
+        public static QuantifiablePattern Word(string text)
         {
-            return Expression.Surround(WordBoundary(), text).AsNoncapturing();
+            return Pattern.Surround(WordBoundary(), text).AsNoncapturing();
         }
 
-        public static QuantifiableExpression Word(params string[] values)
+        public static QuantifiablePattern Word(params string[] values)
         {
-            return Expression.Surround(WordBoundary(), Expressions.Any(values)).AsNoncapturing();
+            return Pattern.Surround(WordBoundary(), Patterns.Any(values)).AsNoncapturing();
         }
 
-        public static QuantifiableExpression NotWordBoundary()
+        public static QuantifiablePattern NotWordBoundary()
         {
             return new NotWordBoundary();
         }
 
-        public static Expression Line(object content)
+        public static Pattern Line(object content)
         {
-            return Expression.Surround(StartOfLine(), content, EndOfLine());
+            return Pattern.Surround(StartOfLine(), content, EndOfLine());
         }
 
-        public static Expression LineInvariant(object content)
+        public static Pattern LineInvariant(object content)
         {
-            return Expression.Surround(StartOfLineInvariant(), content, EndOfLineInvariant());
+            return Pattern.Surround(StartOfLineInvariant(), content, EndOfLineInvariant());
         }
 
-        public static Expression EntireInput(object content)
+        public static Pattern EntireInput(object content)
         {
-            return Expression.Surround(Start(), content, End());
+            return Pattern.Surround(Start(), content, End());
         }
     }
 }

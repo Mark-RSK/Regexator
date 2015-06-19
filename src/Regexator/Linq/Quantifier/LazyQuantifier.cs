@@ -3,7 +3,7 @@
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public sealed class LazyQuantifier
-        : Expression
+        : Pattern
     {
         internal LazyQuantifier()
         {

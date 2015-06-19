@@ -3,7 +3,7 @@
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public sealed class BalanceGroup
-        : GroupingExpression
+        : GroupingPattern
     {
         private readonly string _name1;
         private readonly string _name2;

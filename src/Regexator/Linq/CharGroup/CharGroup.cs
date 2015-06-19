@@ -3,7 +3,7 @@
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public abstract class CharGroup
-        : QuantifiableExpression, IBaseGroup, IExcludedGroup
+        : QuantifiablePattern, IBaseGroup, IExcludedGroup
     {
         protected CharGroup()
         {

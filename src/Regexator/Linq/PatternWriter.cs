@@ -182,16 +182,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Write(lastCharCode, true);
         }
 
-        public void Write(Expression expression)
+        public void Write(Pattern pattern)
         {
-            if (expression == null)
+            if (pattern == null)
             {
-                throw new ArgumentNullException("expression");
+                throw new ArgumentNullException("pattern");
             }
 
-            if (expression.Previous != null)
+            if (pattern.Previous != null)
             {
-                Expression[] items = expression.GetExpressions().ToArray();
+                Pattern[] items = pattern.GetPatterns().ToArray();
                 for (int i = (items.Length - 1); i >= 0; i--)
                 {
                     items[i].WriteTo(this);
@@ -199,7 +199,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
             else
             {
-                expression.WriteTo(this);
+                pattern.WriteTo(this);
             }
         }
 
@@ -215,10 +215,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 return;
             }
 
-            Expression expression = value as Expression;
-            if (expression != null)
+            Pattern pattern = value as Pattern;
+            if (pattern != null)
             {
-                Write(expression);
+                Write(pattern);
                 return;
             }
 
