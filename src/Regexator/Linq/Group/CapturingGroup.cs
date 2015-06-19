@@ -5,6 +5,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     public sealed class CapturingGroup
         : GroupingPattern
     {
+        public CapturingGroup()
+            : this(string.Empty)
+        {
+        }
+
         public CapturingGroup(object content)
             : base(content)
         {

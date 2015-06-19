@@ -9,7 +9,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override void WriteTo(PatternWriter writer)
         {
-            _pattern.WriteTo(writer);
+            writer.Write(_pattern);
         }
     }
 }

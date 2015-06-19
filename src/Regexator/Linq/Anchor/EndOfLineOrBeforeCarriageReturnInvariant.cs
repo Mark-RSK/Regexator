@@ -2,10 +2,10 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public sealed class EndOfLineInvariant
-        : QuantifiablePattern
+    public sealed class EndOfLineOrBeforeCarriageReturnInvariant
+        : Pattern
     {
-        private static readonly QuantifiablePattern _pattern = new GroupOptions(InlineOptions.Multiline, new EndOfLine());
+        private static readonly Pattern _pattern = new NotAssertBack(Chars.CarriageReturn()) + new Assert(Chars.CarriageReturn().Maybe().EndOfLineInvariant());
 
         internal override void WriteTo(PatternWriter writer)
         {
