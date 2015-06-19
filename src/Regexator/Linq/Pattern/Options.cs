@@ -2,16 +2,26 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal sealed class InlineOptionsPattern
+    internal sealed class Options
         : Pattern
     {
         private readonly InlineOptions _applyOptions;
         private readonly InlineOptions _disableOptions;
 
-        internal InlineOptionsPattern(InlineOptions applyOptions, InlineOptions disableOptions)
+        internal Options(InlineOptions applyOptions, InlineOptions disableOptions)
         {
             _applyOptions = applyOptions;
             _disableOptions = disableOptions;
+        }
+
+        public static Pattern Apply(InlineOptions options)
+        {
+            return new Options(options, InlineOptions.None);
+        }
+
+        public static Pattern Disable(InlineOptions options)
+        {
+            return new Options(InlineOptions.None, options);
         }
 
         internal override void WriteTo(PatternWriter writer)

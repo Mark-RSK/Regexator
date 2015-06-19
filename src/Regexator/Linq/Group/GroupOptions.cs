@@ -20,6 +20,26 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _disableOptions = disableOptions;
         }
 
+        public static QuantifiablePattern Apply(InlineOptions options, object content)
+        {
+            return new GroupOptions(options, InlineOptions.None, content);
+        }
+
+        public static QuantifiablePattern Apply(InlineOptions options, params object[] content)
+        {
+            return new GroupOptions(options, InlineOptions.None, content);
+        }
+
+        public static QuantifiablePattern Disable(InlineOptions options, object content)
+        {
+            return new GroupOptions(InlineOptions.None, options, content);
+        }
+
+        public static QuantifiablePattern Disable(InlineOptions options, params object[] content)
+        {
+            return new GroupOptions(InlineOptions.None, options, (object)content);
+        }
+
         internal override void WriteTo(PatternWriter writer)
         {
             writer.WriteGroupOptions(_applyOptions, _disableOptions, Content);

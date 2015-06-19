@@ -76,7 +76,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern StartOfLineInvariant()
         {
-            return Patterns.ApplyOptions(InlineOptions.Multiline, Anchors.StartOfLine());
+            return GroupOptions.Apply(InlineOptions.Multiline, Anchors.StartOfLine());
         }
 
         public static QuantifiablePattern EndOfLine()
@@ -86,7 +86,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern EndOfLineInvariant()
         {
-            return Patterns.ApplyOptions(InlineOptions.Multiline, Anchors.EndOfLine());
+            return GroupOptions.Apply(InlineOptions.Multiline, Anchors.EndOfLine());
         }
 
         public static QuantifiablePattern EndOfLineOrBeforeCarriageReturn()
@@ -150,7 +150,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern Word(params string[] values)
         {
-            return Pattern.Surround(WordBoundary(), Patterns.Any(values)).AsNoncapturing();
+            return Pattern.Surround(WordBoundary(), new AnyGroup(values)).AsNoncapturing();
         }
 
         public static QuantifiablePattern NotWordBoundary()

@@ -42,8 +42,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("multiple words");
             Console.WriteLine(Anchors
                 .WordBoundary()
-                .Count(3, Patterns
-                    .Any(values.Select(f => Groups.Group(f)))
+                .Count(3, 
+                    new AnyGroup(values.Select(f => Groups.Group(f)))
                     .WordBoundary()
                     .NotWordChar().MaybeMany().Lazy())
                 .RequireGroups(1, 2, 3));
@@ -52,8 +52,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("multiple words 2");
             Console.WriteLine(Anchors
                 .WordBoundary()
-                .CountFrom(3, Patterns
-                    .Any(values.Select(f => Pattern.Create(f).Group()))
+                .CountFrom(3,
+                    new AnyGroup(values.Select(f => Pattern.Create(f).Group()))
                     .WordBoundary()
                     .NotWordChar().MaybeMany().Lazy())
                 .GroupReference(1)
@@ -104,19 +104,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("");
 
             Console.WriteLine("leading trailing whitespace:");
-            Console.WriteLine(Patterns.Any(
+            Console.WriteLine(new AnyGroup(
                 Anchors.StartOfLine().WhiteSpaceExceptNewLine().OneMany(),
                 Chars.WhiteSpaceExceptNewLine().OneMany().EndOfLineOrBeforeCarriageReturn()));
             Console.WriteLine("");
 
             Console.WriteLine("whitespace lines:");
-            Console.WriteLine(Patterns.Any(Anchors
+            Console.WriteLine(new AnyGroup(Anchors
                     .StartOfLineInvariant().WhileWhiteSpace().NewLine(),
                     Patterns.NewLine().WhileWhiteSpace().End()));
             Console.WriteLine("");
 
             Console.WriteLine("empty lines:");
-            Console.WriteLine(Patterns.Any(Anchors
+            Console.WriteLine(new AnyGroup(Anchors
                     .StartOfLineInvariant().NewLine(),
                     Patterns.NewLine().OneMany().End()));
             Console.WriteLine("");
@@ -134,7 +134,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             Console.WriteLine("invalid file name chars:");
             var chars = Path.GetInvalidFileNameChars().OrderBy(f => (int)f).Select(f => Chars.Char(f));
-            Console.WriteLine(Patterns.Any(chars).AsNonbacktracking());
+            Console.WriteLine(new AnyGroup(chars).AsNonbacktracking());
             Console.WriteLine("");
 
             Console.ReadKey();
