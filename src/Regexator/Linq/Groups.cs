@@ -29,14 +29,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Group((object)content);
         }
 
-        public static QuantifiablePattern Enclose(object content)
+        public static QuantifiablePattern Noncapturing(object content)
         {
             return new NoncapturingGroup(content);
         }
 
-        public static QuantifiablePattern Enclose(params object[] content)
+        public static QuantifiablePattern Noncapturing(params object[] content)
         {
-            return Enclose((object)content);
+            return Noncapturing((object)content);
         }
 
         public static QuantifiablePattern BalanceGroup(string name1, string name2, object content)
