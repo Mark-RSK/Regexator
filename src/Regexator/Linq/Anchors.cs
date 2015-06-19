@@ -61,7 +61,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static Pattern NotAssertSurround(object contentBefore, object content, object contentAfter)
         {
-            return new AssertSurround(contentBefore, content, contentAfter, true);
+            return new NotAssertSurround(contentBefore, content, contentAfter);
         }
 
         public static QuantifiablePattern StartOfInput()

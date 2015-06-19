@@ -10,14 +10,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         private readonly object _content;
         private readonly object _contentBefore;
         private readonly object _contentAfter;
-        private readonly bool _negative;
 
         public AssertSurround(object contentBefore, object content, object contentAfter)
-            : this(contentBefore, content, contentAfter, false)
-        {
-        }
-
-        public AssertSurround(object contentBefore, object content, object contentAfter, bool negative)
         {
             if (contentBefore == null)
             {
@@ -37,12 +31,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _contentBefore = contentBefore;
             _content = content;
             _contentAfter = contentAfter;
-            _negative = negative;
         }
 
         internal override void WriteTo(PatternWriter writer)
         {
-            if (_negative)
+            if (Negative)
             {
                 writer.WriteNotAssertBack(_contentBefore);
             }
@@ -53,7 +46,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             writer.Write(_content);
 
-            if (_negative)
+            if (Negative)
             {
                 writer.WriteNotAssert(_contentAfter);
             }
@@ -61,6 +54,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 writer.WriteAssert(_contentAfter);
             }
+        }
+
+        public virtual bool Negative
+        {
+            get { return false; }
         }
     }
 }
