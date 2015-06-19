@@ -677,6 +677,36 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             base.Write(Syntax.CharClass(value));
         }
 
+        public void WriteDigit()
+        {
+            base.Write(Syntax.Digit);
+        }
+
+        public void WriteWhiteSpace()
+        {
+            base.Write(Syntax.WhiteSpace);
+        }
+
+        public void WriteWordChar()
+        {
+            base.Write(Syntax.WordChar);
+        }
+
+        public void WriteNotDigit()
+        {
+            base.Write(Syntax.NotDigit);
+        }
+
+        public void WriteNotWhiteSpace()
+        {
+            base.Write(Syntax.NotWhiteSpace);
+        }
+
+        public void WriteNotWordChar()
+        {
+            base.Write(Syntax.NotWordChar);
+        }
+
         public void WriteCharGroupStart()
         {
             WriteCharGroupStart(false);

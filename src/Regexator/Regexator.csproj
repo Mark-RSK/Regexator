@@ -61,6 +61,12 @@
     <Compile Include="Linq\Anchor\Assert.cs" />
     <Compile Include="Linq\Anchor\StartOfLineInvariant.cs" />
     <Compile Include="Linq\Anchor\Word.cs" />
+    <Compile Include="Linq\Character\NotWordChar.cs" />
+    <Compile Include="Linq\Character\WordChar.cs" />
+    <Compile Include="Linq\Character\NotWhiteSpace.cs" />
+    <Compile Include="Linq\Character\WhiteSpace.cs" />
+    <Compile Include="Linq\Character\NotDigit.cs" />
+    <Compile Include="Linq\Character\Digit.cs" />
     <Compile Include="Linq\CharEscapeMode.cs" />
     <Compile Include="Linq\Group\CountTo.cs" />
     <Compile Include="Linq\Group\CountFrom.cs" />
