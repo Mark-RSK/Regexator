@@ -4,17 +4,17 @@ using System;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public sealed class IfPattern
+    public sealed class IfAssert
         : AlternationPattern
     {
         private readonly object _testContent;
 
-        public IfPattern(object testContent, object trueContent)
+        public IfAssert(object testContent, object trueContent)
             : this(testContent, trueContent, null)
         {
         }
 
-        public IfPattern(object testContent, object trueContent, object falseContent)
+        public IfAssert(object testContent, object trueContent, object falseContent)
             : base(trueContent, falseContent)
         {
             if (testContent == null)

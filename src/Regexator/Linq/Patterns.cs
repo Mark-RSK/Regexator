@@ -38,12 +38,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern If(Pattern testContent, object trueContent)
         {
-            return new IfPattern(testContent, trueContent);
+            return new IfAssert(testContent, trueContent);
         }
 
         public static QuantifiablePattern If(Pattern testContent, object trueContent, object falseContent)
         {
-            return new IfPattern(testContent, trueContent, falseContent);
+            return new IfAssert(testContent, trueContent, falseContent);
         }
 
         internal static QuantifiablePattern Or(object left, object right)

@@ -14,10 +14,5 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             writer.WriteOneMany();
         }
-
-        internal override QuantifierKind QuantifierKind
-        {
-            get { return QuantifierKind.OneMany; }
-        }
     }
 }

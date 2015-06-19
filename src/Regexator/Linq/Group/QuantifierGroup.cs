@@ -1,14 +1,25 @@
 // Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System;
+
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal sealed class QuantifierGroup
-        : GroupingPattern
+    public abstract class QuantifierGroup
+        : Quantifier
     {
-        public QuantifierGroup(object content)
-            : base(content)
+        private readonly object _content;
+
+        protected QuantifierGroup(object content)
         {
+            if (content == null)
+            {
+                throw new ArgumentNullException("content");
+            }
+
+            _content = content;
         }
+
+        protected abstract void WriteQuantifierTo(PatternWriter writer);
 
         internal override void WriteTo(PatternWriter writer)
         {
@@ -23,6 +34,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 writer.WriteGroupEnd();
             }
+
+            WriteQuantifierTo(writer);
         }
 
         private bool AddGroup
@@ -47,6 +60,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                     }
                 }
             }
+        }
+
+        internal object Content
+        {
+            get { return _content; }
         }
     }
 }

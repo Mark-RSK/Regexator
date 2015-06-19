@@ -14,10 +14,5 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             writer.WriteMaybe();
         }
-
-        internal override QuantifierKind QuantifierKind
-        {
-            get { return QuantifierKind.Maybe; }
-        }
     }
 }

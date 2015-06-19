@@ -4,13 +4,13 @@ using System;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal sealed class CountFromQuantifier
-        : Quantifier
+    internal sealed class CountFrom
+        : QuantifierGroup
     {
         private readonly int _minCount;
 
-        internal CountFromQuantifier(int minCount)
-            : base()
+        public CountFrom(int minCount, object content)
+            : base(content)
         {
             if (minCount < 0)
             {
@@ -20,8 +20,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _minCount = minCount;
         }
 
-        internal override void WriteTo(PatternWriter writer)
+        public CountFrom(int minCount, params object[] content)
+            : this(minCount, (object)content)
         {
+        }
+
+        protected override void WriteQuantifierTo(PatternWriter writer)
+        {
+            if (writer == null)
+            {
+                throw new ArgumentNullException("writer");
+            }
+
             writer.WriteCountFromInternal(_minCount);
         }
     }

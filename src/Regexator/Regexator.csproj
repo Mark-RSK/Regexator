@@ -59,6 +59,13 @@
     <Compile Include="Linq\Anchor\Assert.cs" />
     <Compile Include="Linq\Anchor\StartOfLineInvariant.cs" />
     <Compile Include="Linq\CharEscapeMode.cs" />
+    <Compile Include="Linq\Group\CountTo.cs" />
+    <Compile Include="Linq\Group\CountFrom.cs" />
+    <Compile Include="Linq\Group\CountRange.cs" />
+    <Compile Include="Linq\Group\Count.cs" />
+    <Compile Include="Linq\Group\OneMany.cs" />
+    <Compile Include="Linq\Group\MaybeMany.cs" />
+    <Compile Include="Linq\Group\Maybe.cs" />
     <Compile Include="Linq\Pattern\OrContainer.cs" />
     <Compile Include="Linq\Pattern\JoinContainer.cs" />
     <Compile Include="Linq\Pattern\AssertSurround.cs" />
@@ -71,7 +78,7 @@
     <Compile Include="Linq\Anchor\EndOfLine.cs" />
     <Compile Include="Linq\Anchor\EndOfInput.cs" />
     <Compile Include="Linq\Anchor\StartOfLine.cs" />
-    <Compile Include="Linq\Alternation\IfPattern.cs" />
+    <Compile Include="Linq\Alternation\IfAssert.cs" />
     <Compile Include="Linq\Alternation\IfGroup.cs" />
     <Compile Include="Linq\AnyGroupMode.cs" />
     <Compile Include="Linq\Group\QuantifierGroup.cs" />

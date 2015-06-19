@@ -991,6 +991,25 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             WriteRightCurlyBracket();
         }
 
+        public void WriteCountTo(int maxCount)
+        {
+            if (maxCount < 0)
+            {
+                throw new ArgumentOutOfRangeException("maxCount");
+            }
+
+            WriteCountToInternal(maxCount);
+        }
+
+        internal void WriteCountToInternal(int maxCount)
+        {
+            WriteLeftCurlyBracket();
+            base.Write(0);
+            WriteComma();
+            base.Write(maxCount);
+            WriteRightCurlyBracket();
+        }
+
         public void WriteCountRange(int minCount, int maxCount)
         {
             if (minCount < 0)

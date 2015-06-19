@@ -24,10 +24,5 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             writer.WriteCountInternal(_count);
         }
-
-        internal override QuantifierKind QuantifierKind
-        {
-            get { return QuantifierKind.Count; }
-        }
     }
 }

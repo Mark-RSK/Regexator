@@ -9,8 +9,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
         }
 
-        internal abstract QuantifierKind QuantifierKind { get; }
-
         public Pattern Lazy()
         {
             return ConcatInternal(new LazyQuantifier());

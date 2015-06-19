@@ -4,14 +4,14 @@ using System;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal sealed class CountRangeQuantifier
-        : Quantifier
+    internal sealed class CountRange
+        : QuantifierGroup
     {
         private readonly int _minCount;
         private readonly int _maxCount;
 
-        internal CountRangeQuantifier(int minCount, int maxCount)
-            : base()
+        public CountRange(int minCount, int maxCount, object content)
+            : base(content)
         {
             if (minCount < 0)
             {
@@ -27,8 +27,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _maxCount = maxCount;
         }
 
-        internal override void WriteTo(PatternWriter writer)
+        public CountRange(int minCount, int maxCount, params object[] content)
+            : this(minCount, maxCount, (object)content)
         {
+        }
+
+        protected override void WriteQuantifierTo(PatternWriter writer)
+        {
+            if (writer == null)
+            {
+                throw new ArgumentNullException("writer");
+            }
+
             writer.WriteCountRangeInternal(_minCount, _maxCount);
         }
     }
