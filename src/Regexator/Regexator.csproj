@@ -53,9 +53,11 @@
   <ItemGroup>
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Linq\Anchor\AssertBack.cs" />
+    <Compile Include="Linq\Anchor\EndOfLineInvariant.cs" />
     <Compile Include="Linq\Anchor\NotAssertBack.cs" />
     <Compile Include="Linq\Anchor\NotAssert.cs" />
     <Compile Include="Linq\Anchor\Assert.cs" />
+    <Compile Include="Linq\Anchor\StartOfLineInvariant.cs" />
     <Compile Include="Linq\CharEscapeMode.cs" />
     <Compile Include="Linq\Pattern\OrContainer.cs" />
     <Compile Include="Linq\Pattern\JoinContainer.cs" />

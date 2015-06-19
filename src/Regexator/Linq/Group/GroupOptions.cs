@@ -8,6 +8,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         private readonly InlineOptions _applyOptions;
         private readonly InlineOptions _disableOptions;
 
+        public GroupOptions(InlineOptions applyOptions, object content)
+            : this(applyOptions, InlineOptions.None, content)
+        {
+        }
+
         public GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, object content)
             : base(content)
         {
@@ -17,7 +22,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override void WriteTo(PatternWriter writer)
         {
-            writer.WriteGroupOptions(_applyOptions, _disableOptions);
+            writer.WriteGroupOptions(_applyOptions, _disableOptions, Content);
         }
     }
 }
