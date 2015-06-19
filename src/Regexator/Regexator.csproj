@@ -143,7 +143,6 @@
     <Compile Include="Linq\Pattern\QuantifiablePattern.cs" />
     <Compile Include="Linq\Quantifier\OneManyQuantifier.cs" />
     <Compile Include="Linq\Quantifier\MaybeManyQuantifier.cs" />
-    <Compile Include="Linq\QuantifierKind.cs" />
     <Compile Include="Linq\Quantifier\MaybeQuantifier.cs" />
     <Compile Include="Linq\Group\CapturingGroup.cs" />
     <Compile Include="Linq\Substitutions.cs" />
