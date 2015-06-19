@@ -5,7 +5,7 @@ using System;
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public abstract class CharacterPattern
-        : QuantifiablePattern, IExcludedGroup
+        : QuantifiablePattern, IBaseGroup, IExcludedGroup
     {
         internal CharacterPattern()
         {
@@ -16,6 +16,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public CharSubtraction Except(IExcludedGroup excludedGroup)
         {
             return new CharSubtraction(ToGroup(), excludedGroup);
+        }
+
+        public void WriteBaseGroupTo(PatternWriter writer)
+        {
+            if (writer == null)
+            {
+                throw new ArgumentNullException("writer");
+            }
+
+            WriteTo(writer);
         }
 
         public void WriteExcludedGroupTo(PatternWriter writer)
