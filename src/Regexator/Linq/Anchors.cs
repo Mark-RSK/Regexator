@@ -64,7 +64,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new AssertSurround(contentBefore, content, contentAfter, true);
         }
 
-        public static QuantifiablePattern Start()
+        public static QuantifiablePattern StartOfInput()
         {
             return new StartOfInput();
         }
@@ -170,7 +170,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static Pattern EntireInput(object content)
         {
-            return Pattern.Surround(Start(), content, EndOfInput());
+            return Pattern.Surround(StartOfInput(), content, EndOfInput());
         }
     }
 }
