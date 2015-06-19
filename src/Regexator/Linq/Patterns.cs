@@ -53,14 +53,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             return new AnyGroup(
                 Anchors.StartOfLineInvariant().WhiteSpace().MaybeMany().NewLine(),
-                Patterns.NewLine().WhiteSpace().MaybeMany().End());
+                Patterns.NewLine().WhiteSpace().MaybeMany().EndOfInput());
         }
 
         public static QuantifiablePattern EmptyLines()
         {
             return new AnyGroup(
                 Anchors.StartOfLineInvariant().NewLine(),
-                Patterns.NewLine().OneMany().End());
+                Patterns.NewLine().OneMany().EndOfInput());
         }
 
         public static Pattern FirstLine()

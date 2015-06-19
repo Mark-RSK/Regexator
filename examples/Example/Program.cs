@@ -112,13 +112,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("whitespace lines:");
             Console.WriteLine(new AnyGroup(Anchors
                     .StartOfLineInvariant().WhileWhiteSpace().NewLine(),
-                    Patterns.NewLine().WhileWhiteSpace().End()));
+                    Patterns.NewLine().WhileWhiteSpace().EndOfInput()));
             Console.WriteLine("");
 
             Console.WriteLine("empty lines:");
             Console.WriteLine(new AnyGroup(Anchors
                     .StartOfLineInvariant().NewLine(),
-                    Patterns.NewLine().OneMany().End()));
+                    Patterns.NewLine().OneMany().EndOfInput()));
             Console.WriteLine("");
 
             Console.WriteLine("first line:");

@@ -118,7 +118,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        public static QuantifiablePattern End()
+        public static QuantifiablePattern EndOfInput()
         {
             return new EndOfInput();
         }
@@ -170,7 +170,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static Pattern EntireInput(object content)
         {
-            return Pattern.Surround(Start(), content, End());
+            return Pattern.Surround(Start(), content, EndOfInput());
         }
     }
 }
