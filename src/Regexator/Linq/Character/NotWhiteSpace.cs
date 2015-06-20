@@ -3,7 +3,7 @@
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public sealed class NotWhiteSpace
-        : QuantifiablePattern
+        : CharacterPattern
     {
         internal override void WriteTo(PatternWriter writer)
         {

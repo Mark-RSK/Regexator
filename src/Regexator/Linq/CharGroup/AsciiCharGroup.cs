@@ -10,11 +10,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         private readonly AsciiChar _value;
         private readonly bool _negative;
 
-        public AsciiCharGroup(AsciiChar value)
-            : this(value, false)
-        {
-        }
-
         public AsciiCharGroup(AsciiChar value, bool negative)
         {
             _value = value;

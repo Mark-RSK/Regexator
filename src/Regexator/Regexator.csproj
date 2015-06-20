@@ -164,7 +164,6 @@
     <Compile Include="Core\RegexUtilities.cs" />
     <Compile Include="Linq\Character\CharCodePattern.cs" />
     <Compile Include="Linq\Character\AsciiCharPattern.cs" />
-    <Compile Include="Linq\Character\CharClassPattern.cs" />
     <Compile Include="Linq\Pattern\AnyChar.cs" />
     <Compile Include="Linq\Character\NotNamedBlockPattern.cs" />
     <Compile Include="Linq\Character\NotGeneralCategoryPattern.cs" />
@@ -176,9 +175,6 @@
     <Compile Include="Linq\CharGroup\CharGroupItemGroup.cs" />
     <Compile Include="Linq\CharGroup\CharCodeGroup.cs" />
     <Compile Include="Linq\CharGroup\CharacterGroup.cs" />
-    <Compile Include="Linq\CharGroup\CharClassGroup.cs" />
-    <Compile Include="Linq\CharGroup\GeneralCategoryGroup.cs" />
-    <Compile Include="Linq\CharGroup\NamedBlockGroup.cs" />
     <Compile Include="Linq\CharGroup\AsciiCharGroup.cs" />
     <Compile Include="Linq\Character\CharPattern.cs" />
     <Compile Include="Core\CaptureItemEqualityComparer.cs" />

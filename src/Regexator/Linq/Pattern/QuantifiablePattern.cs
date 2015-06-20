@@ -10,9 +10,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
         }
 
-        public QuantifierGroup Maybe()
+        public Quantifier Maybe()
         {
-            return new Maybe(this);
+            return ConcatInternal(new MaybeQuantifier());
         }
 
 #if DEBUG
@@ -29,9 +29,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 #endif
 
-        public QuantifierGroup MaybeMany()
+        public Quantifier MaybeMany()
         {
-            return new MaybeMany(this);
+            return ConcatInternal(new MaybeManyQuantifier());
         }
 
 #if DEBUG
@@ -48,9 +48,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 #endif
 
-        public QuantifierGroup OneMany()
+        public Quantifier OneMany()
         {
-            return new OneMany(this);
+            return ConcatInternal(new OneManyQuantifier());
         }
 
 #if DEBUG
@@ -67,24 +67,24 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 #endif
 
-        public QuantifierGroup Count(int exactCount)
+        public Quantifier Count(int exactCount)
         {
-            return new Count(exactCount, this);
+            return ConcatInternal(new CountQuantifier(exactCount));
         }
 
-        public QuantifierGroup CountFrom(int minCount)
+        public Quantifier CountFrom(int minCount)
         {
-            return new CountFrom(minCount, this);
+            return ConcatInternal(new CountFromQuantifier(minCount));
         }
 
-        public QuantifierGroup CountTo(int maxCount)
+        public Quantifier CountTo(int maxCount)
         {
-            return new CountTo(maxCount, this);
+            return ConcatInternal(new CountRangeQuantifier(0, maxCount));
         }
 
-        public QuantifierGroup CountRange(int minCount, int maxCount)
+        public Quantifier CountRange(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, this);
+            return ConcatInternal(new CountRangeQuantifier(minCount, maxCount));
         }
     }
 }
