@@ -10,7 +10,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         private readonly IBaseGroup _baseGroup;
         private readonly IExcludedGroup _excludedGroup;
 
-        internal CharSubtraction(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
+        public CharSubtraction(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
         {
             if (baseGroup == null)
             {
@@ -36,7 +36,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             writer.WriteSubtraction(_baseGroup, _excludedGroup, Negative);
         }
 
-        public virtual bool Negative
+        internal virtual bool Negative
         {
             get { return false; }
         }

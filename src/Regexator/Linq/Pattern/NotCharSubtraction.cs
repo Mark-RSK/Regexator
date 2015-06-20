@@ -2,7 +2,7 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal sealed class NotCharSubtraction
+    public sealed class NotCharSubtraction
         : CharSubtraction
     {
         internal NotCharSubtraction(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
@@ -10,7 +10,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
         }
 
-        public override bool Negative
+        internal override bool Negative
         {
             get { return true; }
         }
