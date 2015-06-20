@@ -207,6 +207,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Pattern.Surround(new StartOfLine(), content, new EndOfLine());
         }
 
+        public static Pattern Line(params object[] content)
+        {
+            return Line((object)content);
+        }
+
         public static Pattern LineInvariant(object content)
         {
             return Pattern.Surround(new StartOfLineInvariant(), content, new EndOfLineInvariant());
@@ -215,6 +220,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static Pattern EntireInput(object content)
         {
             return Pattern.Surround(new StartOfInput(), content, new EndOfInput());
+        }
+
+        public static Pattern EntireInput(params object[] content)
+        {
+            return EntireInput((object)content);
         }
 
         public static QuantifiablePattern Any(IEnumerable<object> values)
@@ -469,12 +479,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new StartOfInput().NotNewLineChar().MaybeMany();
         }
 
-        internal static Pattern ValidGroupName()
+        public static Pattern ValidGroupName()
         {
-            return new AnyGroup(
-                Chars.Range('1', '9').ArabicDigit().MaybeMany().AsGroup(),
-                Chars.WordChar().Except(Chars.ArabicDigit()).WordChar().MaybeMany()
-            ).AsEntireInput();
+            return Patterns.EntireInput(
+                new CapturingGroup(Chars.Range('1', '9').ArabicDigit().MaybeMany()) |
+                Chars.WordChar().Except(Chars.ArabicDigit()).WordChar().MaybeMany());
         }
 
         internal static Pattern TrimInlineComment()
