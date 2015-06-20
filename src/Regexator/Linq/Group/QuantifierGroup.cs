@@ -5,7 +5,7 @@ using System;
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public abstract class QuantifierGroup
-        : Pattern
+        : Quantifier
     {
         private readonly object _content;
 
@@ -17,11 +17,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
 
             _content = content;
-        }
-
-        public Pattern Lazy()
-        {
-            return ConcatInternal(new LazyQuantifier());
         }
 
         protected abstract void WriteQuantifierTo(PatternWriter writer);

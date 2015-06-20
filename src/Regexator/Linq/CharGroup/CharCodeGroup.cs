@@ -10,6 +10,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         private readonly int _charCode;
         private readonly bool _negative;
 
+        public CharCodeGroup(int charCode)
+            : this(charCode, false)
+        {
+        }
+
         public CharCodeGroup(int charCode, bool negative)
         {
             if (charCode < 0 || charCode > 0xFFFF)

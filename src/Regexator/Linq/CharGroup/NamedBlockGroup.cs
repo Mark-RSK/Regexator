@@ -4,21 +4,14 @@ using System;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal sealed class AsciiCharGroup
+    internal class NamedBlockGroup
         : CharGroup
     {
-        private readonly AsciiChar _value;
-        private readonly bool _negative;
+        private readonly NamedBlock _block;
 
-        public AsciiCharGroup(AsciiChar value)
-            : this(value, false)
+        public NamedBlockGroup(NamedBlock block)
         {
-        }
-
-        public AsciiCharGroup(AsciiChar value, bool negative)
-        {
-            _value = value;
-            _negative = negative;
+            _block = block;
         }
 
         protected override void WriteContentTo(PatternWriter writer)
@@ -28,17 +21,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("writer");
             }
 
-            writer.Write(_value, true);
+            writer.WriteNamedBlock(_block, Negative);
         }
 
         internal override void WriteTo(PatternWriter writer)
         {
-            writer.WriteCharGroup(_value, Negative);
-        }
-
-        public override bool Negative
-        {
-            get { return _negative; }
+            writer.WriteCharGroup(_block, Negative);
         }
     }
 }

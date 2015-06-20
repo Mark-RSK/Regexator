@@ -10,6 +10,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         private readonly char _value;
         private readonly bool _negative;
 
+        public CharacterGroup(char value)
+            : this(value, false)
+        {
+        }
+
         public CharacterGroup(char value, bool negative)
         {
             _value = value;
