@@ -134,16 +134,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return AnyInvariant().CountRange(minCount, maxCount);
         }
 
-        public static Pattern AnyMaybeManyLazy()
-        {
-            return Any().MaybeMany().Lazy();
-        }
-
-        public static Pattern AnyMaybeManyLazyInvariant()
-        {
-            return AnyInvariant().MaybeMany().Lazy();
-        }
-
         public static CharacterPattern Digit()
         {
             return new CharClassPattern(CharClass.Digit);
