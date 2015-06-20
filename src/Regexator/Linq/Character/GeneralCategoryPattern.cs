@@ -12,11 +12,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _category = category;
         }
 
-        public override CharGroup ToGroup()
-        {
-            return new GeneralCategoryGroup(_category);
-        }
-
         internal override void WriteTo(PatternWriter writer)
         {
             writer.WriteGeneralCategory(_category);

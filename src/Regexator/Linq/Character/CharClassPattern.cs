@@ -12,11 +12,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _value = value;
         }
 
-        public override CharGroup ToGroup()
-        {
-            return new CharClassGroup(_value);
-        }
-
         internal override void WriteTo(PatternWriter writer)
         {
             writer.WriteCharClass(_value);

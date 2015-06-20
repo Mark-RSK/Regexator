@@ -11,11 +11,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
         }
 
-        public abstract CharGroup ToGroup();
-
         public CharSubtraction Except(IExcludedGroup excludedGroup)
         {
-            return new CharSubtraction(ToGroup(), excludedGroup);
+            return new CharSubtraction(this, excludedGroup);
         }
 
         public void WriteBaseGroupTo(PatternWriter writer)
