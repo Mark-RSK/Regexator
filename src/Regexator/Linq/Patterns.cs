@@ -452,24 +452,21 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new AnyGroup(LeadingWhiteSpace(), TrailingWhiteSpace());
         }
 
-        public static QuantifiablePattern WhiteSpaceLines()
+        public static QuantifiablePattern WhiteSpaceLine()
         {
-            return new AnyGroup(
-                new StartOfLineInvariant().WhiteSpace().MaybeMany().NewLine(),
-                NewLine().WhiteSpace().MaybeMany().EndOfInput());
+            return new StartOfLineInvariant().WhiteSpace().MaybeMany().NewLine() |
+                Patterns.NewLine().WhiteSpace().MaybeMany().EndOfInput();
         }
 
-        public static QuantifiablePattern EmptyLines()
+        public static QuantifiablePattern EmptyLine()
         {
-            return new AnyGroup(
-                new StartOfLineInvariant().NewLine(),
-                NewLine().OneMany().EndOfInput());
+            return new StartOfLineInvariant().NewLine() |
+                Patterns.NewLine().Assert(Patterns.NewLine().MaybeMany().EndOfInput());
         }
 
         public static Pattern FirstLine()
         {
-            return new StartOfInput()
-                .NotNewLineChar().MaybeMany();
+            return new StartOfInput().NotNewLineChar().MaybeMany();
         }
 
         internal static Pattern ValidGroupName()

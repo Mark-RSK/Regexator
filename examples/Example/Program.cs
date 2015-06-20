@@ -110,15 +110,15 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("");
 
             Console.WriteLine("whitespace lines:");
-            Console.WriteLine(new AnyGroup(
-                    new StartOfLineInvariant().WhileWhiteSpace().NewLine(),
-                    Patterns.NewLine().WhileWhiteSpace().EndOfInput()));
+            Console.WriteLine(
+                new StartOfLineInvariant().WhiteSpace().MaybeMany().NewLine() |
+                Patterns.NewLine().WhiteSpace().MaybeMany().EndOfInput());
             Console.WriteLine("");
 
             Console.WriteLine("empty lines:");
-            Console.WriteLine(new AnyGroup(
-                    new StartOfLineInvariant().NewLine(),
-                    Patterns.NewLine().OneMany().EndOfInput()));
+            Console.WriteLine(
+                new StartOfLineInvariant().NewLine() |
+                Patterns.NewLine().Assert(Patterns.NewLine().MaybeMany().EndOfInput()));
             Console.WriteLine("");
 
             Console.WriteLine("first line:");
