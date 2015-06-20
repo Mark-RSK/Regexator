@@ -437,11 +437,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new NotAssert(string.Empty);
         }
 
-        public static QuantifiablePattern NewLine()
-        {
-            return Chars.CarriageReturn().Maybe().Linefeed().AsNoncapturing();
-        }
-
         public static QuantifiablePattern LinefeedWithoutCarriageReturn()
         {
             return new NotAssertBack(Chars.CarriageReturn()).Linefeed().AsNonbacktracking();
@@ -465,13 +460,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiablePattern WhiteSpaceLine()
         {
             return new StartOfLineInvariant().WhiteSpace().MaybeMany().NewLine() |
-                Patterns.NewLine().WhiteSpace().MaybeMany().EndOfInput();
+                new NewLine().WhiteSpace().MaybeMany().EndOfInput();
         }
 
         public static QuantifiablePattern EmptyLine()
         {
             return new StartOfLineInvariant().NewLine() |
-                Patterns.NewLine().Assert(Patterns.NewLine().MaybeMany().EndOfInput());
+                new NewLine().Assert(new NewLine().MaybeMany().EndOfInput());
         }
 
         public static Pattern FirstLine()

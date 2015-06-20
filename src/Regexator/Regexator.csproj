@@ -75,6 +75,7 @@
     <Compile Include="Linq\Group\OneMany.cs" />
     <Compile Include="Linq\Group\MaybeMany.cs" />
     <Compile Include="Linq\Group\Maybe.cs" />
+    <Compile Include="Linq\Pattern\NewLine.cs" />
     <Compile Include="Linq\Pattern\NotAssertSurround.cs" />
     <Compile Include="Linq\Pattern\OrContainer.cs" />
     <Compile Include="Linq\Pattern\JoinContainer.cs" />
