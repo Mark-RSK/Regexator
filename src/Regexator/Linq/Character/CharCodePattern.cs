@@ -26,6 +26,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         protected override void WriteGroupContentTo(PatternWriter writer)
         {
+            if (writer == null)
+            {
+                throw new ArgumentNullException("writer");
+            }
+
             writer.WriteInternal(_charCode, true);
         }
     }

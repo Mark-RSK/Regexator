@@ -95,8 +95,7 @@
     <Compile Include="Linq\Character\CharacterPattern.cs" />
     <Compile Include="Linq\Pattern\AsciiCharSurroundPattern.cs" />
     <Compile Include="Linq\PatternOptions.cs" />
-    <Compile Include="Linq\Quantifier\LazyQuantifier.cs" />
-    <Compile Include="Linq\Quantifier\Quantifier.cs" />
+    <Compile Include="Linq\LazyQuantifier.cs" />
     <Compile Include="Linq\Substitution\BeforeMatchSubstitution.cs" />
     <Compile Include="Linq\Substitution\AfterMatchSubstitution.cs" />
     <Compile Include="Linq\Substitution\EntireMatchSubstitution.cs" />
@@ -109,7 +108,6 @@
     <Compile Include="Linq\Pattern\Options.cs" />
     <Compile Include="Core\AsciiChar.cs" />
     <Compile Include="Linq\Pattern\TextPattern.cs" />
-    <Compile Include="Linq\Quantifier\CountFromQuantifier.cs" />
     <Compile Include="Linq\Group\BalanceGroup.cs" />
     <Compile Include="Linq\PatternWriter.cs" />
     <Compile Include="Linq\Anchor\StartOfInput.cs" />
@@ -129,12 +127,10 @@
     <Compile Include="Linq\CharGroupItems.cs" />
     <Compile Include="Linq\CharGroupItem\CharGroupItem_.cs" />
     <Compile Include="Linq\Pattern\CharSubtraction.cs" />
-    <Compile Include="Linq\Quantifier\CountQuantifier.cs" />
     <Compile Include="Linq\Patterns.cs" />
     <Compile Include="Linq\Chars.cs" />
     <Compile Include="Linq\Pattern.cs" />
     <Compile Include="Linq\Pattern_.cs" />
-    <Compile Include="Linq\Quantifier\CountRangeQuantifier.cs" />
     <Compile Include="Linq\Group\GroupingPattern.cs" />
     <Compile Include="Linq\IBaseGroup.cs" />
     <Compile Include="Core\IdentifierBoundary.cs" />
@@ -149,9 +145,6 @@
     <Compile Include="Linq\Group\GroupOptions.cs" />
     <Compile Include="Linq\Group\AnyGroup.cs" />
     <Compile Include="Linq\Pattern\QuantifiablePattern.cs" />
-    <Compile Include="Linq\Quantifier\OneManyQuantifier.cs" />
-    <Compile Include="Linq\Quantifier\MaybeManyQuantifier.cs" />
-    <Compile Include="Linq\Quantifier\MaybeQuantifier.cs" />
     <Compile Include="Linq\Group\CapturingGroup.cs" />
     <Compile Include="Linq\Substitutions.cs" />
     <Compile Include="Linq\Substitution\NamedGroupSubstitution.cs" />
@@ -176,9 +169,6 @@
     <Compile Include="Linq\CharGroup\CharGroupItemGroup.cs" />
     <Compile Include="Linq\CharGroup\CharCodeGroup.cs" />
     <Compile Include="Linq\CharGroup\CharacterGroup.cs" />
-    <Compile Include="Linq\CharGroup\CharClassGroup.cs" />
-    <Compile Include="Linq\CharGroup\GeneralCategoryGroup.cs" />
-    <Compile Include="Linq\CharGroup\NamedBlockGroup.cs" />
     <Compile Include="Linq\CharGroup\AsciiCharGroup.cs" />
     <Compile Include="Linq\Character\CharPattern.cs" />
     <Compile Include="Core\CaptureItemEqualityComparer.cs" />
