@@ -16,6 +16,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new CharSubtraction(this, excludedGroup);
         }
 
+        protected virtual void WriteGroupContentTo(PatternWriter writer)
+        {
+            WriteTo(writer);
+        }
+
         public void WriteBaseGroupTo(PatternWriter writer)
         {
             if (writer == null)
@@ -23,7 +28,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("writer");
             }
 
-            WriteTo(writer);
+            WriteGroupContentTo(writer);
         }
 
         public void WriteExcludedGroupTo(PatternWriter writer)
@@ -34,7 +39,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
 
             writer.WriteCharGroupStart();
-            WriteTo(writer);
+            WriteGroupContentTo(writer);
             writer.WriteCharGroupEnd();
         }
     }

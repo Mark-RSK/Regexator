@@ -16,5 +16,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             writer.Write(_value);
         }
+
+        protected override void WriteGroupContentTo(PatternWriter writer)
+        {
+            writer.Write(_value, true);
+        }
     }
 }

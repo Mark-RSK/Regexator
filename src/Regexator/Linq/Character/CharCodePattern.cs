@@ -23,5 +23,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             writer.WriteInternal(_charCode);
         }
+
+        protected override void WriteGroupContentTo(PatternWriter writer)
+        {
+            writer.WriteInternal(_charCode, true);
+        }
     }
 }
