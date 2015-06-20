@@ -282,72 +282,72 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Nonbacktracking((object)content);
         }
 
-        public static Quantifier Maybe(object content)
+        public static QuantifierGroup Maybe(object content)
         {
             return new Maybe(content);
         }
 
-        public static Quantifier Maybe(params object[] content)
+        public static QuantifierGroup Maybe(params object[] content)
         {
             return new Maybe((object)content);
         }
 
-        public static Quantifier MaybeMany(object content)
+        public static QuantifierGroup MaybeMany(object content)
         {
             return new MaybeMany(content);
         }
 
-        public static Quantifier MaybeMany(params object[] content)
+        public static QuantifierGroup MaybeMany(params object[] content)
         {
             return new MaybeMany((object)content);
         }
 
-        public static Quantifier OneMany(object content)
+        public static QuantifierGroup OneMany(object content)
         {
             return new OneMany(content);
         }
 
-        public static Quantifier OneMany(params object[] content)
+        public static QuantifierGroup OneMany(params object[] content)
         {
             return new OneMany((object)content);
         }
 
-        public static Quantifier Count(int exactCount, object content)
+        public static QuantifierGroup Count(int exactCount, object content)
         {
             return new Count(exactCount, content);
         }
 
-        public static Quantifier Count(int exactCount, params object[] content)
+        public static QuantifierGroup Count(int exactCount, params object[] content)
         {
             return new Count(exactCount, (object)content);
         }
 
-        public static Quantifier CountFrom(int minCount, object content)
+        public static QuantifierGroup CountFrom(int minCount, object content)
         {
             return new CountFrom(minCount, content);
         }
 
-        public static Quantifier CountFrom(int minCount, params object[] content)
+        public static QuantifierGroup CountFrom(int minCount, params object[] content)
         {
             return new CountFrom(minCount, (object)content);
         }
 
-        public static Quantifier CountRange(int minCount, int maxCount, object content)
+        public static QuantifierGroup CountRange(int minCount, int maxCount, object content)
         {
             return new CountRange(minCount, maxCount, content);
         }
 
-        public static Quantifier CountRange(int minCount, int maxCount, params object[] content)
+        public static QuantifierGroup CountRange(int minCount, int maxCount, params object[] content)
         {
             return new CountRange(minCount, maxCount, (object)content);
         }
 
-        public static Quantifier CountTo(int maxCount, object content)
+        public static QuantifierGroup CountTo(int maxCount, object content)
         {
             return new CountTo(maxCount, content);
         }
 
-        public static Quantifier CountTo(int maxCount, params object[] content)
+        public static QuantifierGroup CountTo(int maxCount, params object[] content)
         {
             return new CountTo(maxCount, (object)content);
         }
