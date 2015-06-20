@@ -2,7 +2,7 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public sealed class AnyChar
+    internal sealed class AnyChar
         : QuantifiablePattern
     {
         public AnyChar()
