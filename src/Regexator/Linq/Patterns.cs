@@ -463,14 +463,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
 #if DEBUG
-        public static Pattern GoTo(char value)
+        public static QuantifiablePattern GoTo(char value)
         {
-            return Chars.NotChar(value).MaybeMany().Char(value);
+            return Chars.NotChar(value).MaybeMany().Char(value).AsNoncapturing();
         }
 
-        public static Pattern GoTo(AsciiChar value)
+        public static QuantifiablePattern GoTo(AsciiChar value)
         {
-            return Chars.NotChar(value).MaybeMany().Char(value);
+            return Chars.NotChar(value).MaybeMany().Char(value).AsNoncapturing();
         }
 #endif
 
