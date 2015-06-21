@@ -482,12 +482,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 #if DEBUG
         public Pattern GoTo(char value)
         {
-            return ConcatInternal(Chars.GoTo(value));
+            return ConcatInternal(Patterns.GoTo(value));
         }
 
         public Pattern GoTo(AsciiChar value)
         {
-            return ConcatInternal(Chars.GoTo(value));
+            return ConcatInternal(Patterns.GoTo(value));
         }
 #endif
 
@@ -548,37 +548,37 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public Pattern While(char value)
         {
-            return ConcatInternal(Chars.While(value));
+            return ConcatInternal(Patterns.While(value));
         }
 
         public Pattern While(AsciiChar value)
         {
-            return ConcatInternal(Chars.While(value));
+            return ConcatInternal(Patterns.While(value));
         }
 
         public Pattern While(CharGroupItem item)
         {
-            return ConcatInternal(Chars.While(item));
+            return ConcatInternal(Patterns.While(item));
         }
 
         public Pattern WhileNot(char value)
         {
-            return ConcatInternal(Chars.WhileNot(value));
+            return ConcatInternal(Patterns.WhileNot(value));
         }
 
         public Pattern WhileNot(AsciiChar value)
         {
-            return ConcatInternal(Chars.WhileNot(value));
+            return ConcatInternal(Patterns.WhileNot(value));
         }
 
         public Pattern WhileNot(CharGroupItem item)
         {
-            return ConcatInternal(Chars.WhileNot(item));
+            return ConcatInternal(Patterns.WhileNot(item));
         }
 
         public Pattern WhileNotNewLine()
         {
-            return ConcatInternal(Chars.WhileNotNewLine());
+            return ConcatInternal(Patterns.WhileNotNewLine());
         }
 
         public CharGroup Alphanumeric()
@@ -753,7 +753,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public QuantifiedGroup WhileWhiteSpace()
         {
-            return ConcatInternal(Chars.WhileWhiteSpace());
+            return ConcatInternal(Patterns.WhileWhiteSpace());
         }
 
         public QuantifiablePattern NotWhiteSpace()
