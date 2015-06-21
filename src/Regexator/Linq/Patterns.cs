@@ -364,7 +364,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern GroupReference(int groupNumber)
         {
-            return new NumberedGroupReference(groupNumber);
+            return new GroupNumberReference(groupNumber);
         }
 
         public static QuantifiablePattern GroupReference(string groupName)
