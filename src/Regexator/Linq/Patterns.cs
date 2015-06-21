@@ -113,7 +113,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern StartOfLineInvariant()
         {
-            return GroupOptions.Apply(InlineOptions.Multiline, StartOfLine());
+            return Options(InlineOptions.Multiline, StartOfLine());
         }
 
         public static QuantifiablePattern EndOfLine()
@@ -123,7 +123,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern EndOfLineInvariant()
         {
-            return GroupOptions.Apply(InlineOptions.Multiline, EndOfLine());
+            return Options(InlineOptions.Multiline, EndOfLine());
         }
 
         public static QuantifiablePattern EndOfLineOrBeforeCarriageReturn()
@@ -372,19 +372,34 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new GroupNameReference(groupName);
         }
 
-        public static Pattern ApplyOptions(InlineOptions options)
+        public static Pattern Options(InlineOptions applyOptions)
         {
-            return new Options(options, InlineOptions.None);
+            return new Options(applyOptions);
         }
 
-        public static QuantifiablePattern ApplyOptions(InlineOptions options, object content)
+        public static QuantifiablePattern Options(InlineOptions applyOptions, object content)
         {
-            return new GroupOptions(options, InlineOptions.None, content);
+            return new GroupOptions(applyOptions, content);
         }
 
-        public static QuantifiablePattern ApplyOptions(InlineOptions options, params object[] content)
+        public static QuantifiablePattern Options(InlineOptions applyOptions, params object[] content)
         {
-            return new GroupOptions(options, InlineOptions.None, content);
+            return new GroupOptions(applyOptions, content);
+        }
+
+        public static Pattern Options(InlineOptions applyOptions, InlineOptions disableOptions)
+        {
+            return new Options(applyOptions, disableOptions);
+        }
+
+        public static QuantifiablePattern Options(InlineOptions applyOptions, InlineOptions disableOptions, object content)
+        {
+            return new GroupOptions(applyOptions, disableOptions, content);
+        }
+
+        public static QuantifiablePattern Options(InlineOptions applyOptions, InlineOptions disableOptions, params object[] content)
+        {
+            return new GroupOptions(applyOptions, disableOptions, content);
         }
 
         public static Pattern DisableOptions(InlineOptions options)
@@ -399,22 +414,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern DisableOptions(InlineOptions options, params object[] content)
         {
-            return new GroupOptions(InlineOptions.None, options, (object)content);
-        }
-
-        public static Pattern Options(InlineOptions applyOptions, InlineOptions disableOptions)
-        {
-            return new Options(applyOptions, disableOptions);
-        }
-
-        public static QuantifiablePattern Options(InlineOptions applyOptions, InlineOptions disableOptions, params object[] content)
-        {
-            return Options(applyOptions, disableOptions, (object)content);
-        }
-
-        public static QuantifiablePattern Options(InlineOptions applyOptions, InlineOptions disableOptions, object content)
-        {
-            return new GroupOptions(applyOptions, disableOptions, content);
+            return new GroupOptions(InlineOptions.None, options, content);
         }
 
         public static Pattern Comment(string value)

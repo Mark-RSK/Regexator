@@ -2,13 +2,18 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public sealed class GroupOptions
+    internal sealed class GroupOptions
         : GroupingPattern
     {
         private readonly InlineOptions _applyOptions;
         private readonly InlineOptions _disableOptions;
 
         public GroupOptions(InlineOptions applyOptions, object content)
+            : this(applyOptions, InlineOptions.None, content)
+        {
+        }
+
+        public GroupOptions(InlineOptions applyOptions, params object[] content)
             : this(applyOptions, InlineOptions.None, content)
         {
         }
@@ -20,24 +25,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _disableOptions = disableOptions;
         }
 
-        public static QuantifiablePattern Apply(InlineOptions options, object content)
+        public GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, params object[] content)
+            : base((object)content)
         {
-            return new GroupOptions(options, InlineOptions.None, content);
-        }
-
-        public static QuantifiablePattern Apply(InlineOptions options, params object[] content)
-        {
-            return new GroupOptions(options, InlineOptions.None, content);
-        }
-
-        public static QuantifiablePattern Disable(InlineOptions options, object content)
-        {
-            return new GroupOptions(InlineOptions.None, options, content);
-        }
-
-        public static QuantifiablePattern Disable(InlineOptions options, params object[] content)
-        {
-            return new GroupOptions(InlineOptions.None, options, (object)content);
+            _applyOptions = applyOptions;
+            _disableOptions = disableOptions;
         }
 
         internal override void WriteTo(PatternWriter writer)
