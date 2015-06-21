@@ -19,6 +19,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new AsciiCharPattern(value);
         }
 
+        public static CharacterPattern Char(NamedBlock block)
+        {
+            return new NamedBlockPattern(block);
+        }
+
+        public static CharacterPattern Char(GeneralCategory category)
+        {
+            return new GeneralCategoryPattern(category);
+        }
+
         public static CharGroup Char(string characters)
         {
             return new CharactersGroup(characters);
@@ -44,26 +54,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new AsciiCharGroup(value, true);
         }
 
-        public static CharGroup NotChar(string characters)
-        {
-            return new CharactersGroup(characters, true);
-        }
-
-        public static CharGroup NotChar(CharGroupItem item)
-        {
-            return new CharGroupItemGroup(item, true);
-        }
-
-        public static CharacterPattern Char(NamedBlock block)
-        {
-            return new NamedBlockPattern(block);
-        }
-
-        public static CharacterPattern Char(GeneralCategory category)
-        {
-            return new GeneralCategoryPattern(category);
-        }
-
         public static CharacterPattern NotChar(NamedBlock block)
         {
             return new NotNamedBlockPattern(block);
@@ -74,12 +64,22 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new NotGeneralCategoryPattern(category);
         }
 
+        public static CharGroup NotChar(string characters)
+        {
+            return new CharactersGroup(characters, true);
+        }
+
+        public static CharGroup NotChar(CharGroupItem item)
+        {
+            return new CharGroupItemGroup(item, true);
+        }
+
         public static CharGroup Range(char first, char last)
         {
             return new CharRangeGroup(first, last);
         }
 
-        public static CharGroup Range(int firstCharCode, int lastCharCode)
+        public static CharGroup Range(int firstCharCode, int lastCharCode)  
         {
             return new CharCodeRangeGroup(firstCharCode, lastCharCode);
         }
