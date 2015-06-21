@@ -91,7 +91,7 @@
     <Compile Include="Linq\Pattern\IfAssert.cs" />
     <Compile Include="Linq\Pattern\IfGroup.cs" />
     <Compile Include="Linq\AnyGroupMode.cs" />
-    <Compile Include="Linq\Group\QuantifierGroup.cs" />
+    <Compile Include="Linq\Group\QuantifiedGroup.cs" />
     <Compile Include="Linq\Character\CharacterPattern.cs" />
     <Compile Include="Linq\Pattern\AsciiCharSurroundPattern.cs" />
     <Compile Include="Linq\PatternOptions.cs" />

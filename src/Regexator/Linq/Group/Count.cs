@@ -5,7 +5,7 @@ using System;
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public sealed class Count
-        : QuantifierGroup
+        : QuantifiedGroup
     {
         private readonly int _count1;
         private readonly int _count2;

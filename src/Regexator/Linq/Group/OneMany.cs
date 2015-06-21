@@ -5,7 +5,7 @@ using System;
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public sealed class OneMany
-        : QuantifierGroup
+        : QuantifiedGroup
     {
         public OneMany(object content)
             : base(content)

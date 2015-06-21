@@ -4,12 +4,12 @@ using System;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public abstract class QuantifierGroup
+    public abstract class QuantifiedGroup
         : Quantifier
     {
         private readonly object _content;
 
-        protected QuantifierGroup(object content)
+        protected QuantifiedGroup(object content)
         {
             if (content == null)
             {
