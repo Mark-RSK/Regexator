@@ -532,17 +532,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             return "{" + exactCount + "}";
         }
 
-        public static string CountFrom(int minCount)
-        {
-            if (minCount < 0)
-            {
-                throw new ArgumentOutOfRangeException("minCount");
-            }
-
-            return "{" + minCount + ",}";
-        }
-
-        public static string CountRange(int minCount, int maxCount)
+        public static string Count(int minCount, int maxCount)
         {
             if (minCount < 0)
             {
@@ -555,6 +545,26 @@ namespace Pihrtsoft.Text.RegularExpressions
             }
 
             return "{" + minCount + "," + maxCount + "}";
+        }
+
+        public static string CountFrom(int minCount)
+        {
+            if (minCount < 0)
+            {
+                throw new ArgumentOutOfRangeException("minCount");
+            }
+
+            return "{" + minCount + ",}";
+        }
+
+        public static string CountTo(int maxCount)
+        {
+            if (maxCount < 0)
+            {
+                throw new ArgumentOutOfRangeException("maxCount");
+            }
+
+            return "{0," + maxCount + "}";
         }
 
         public static string Options(InlineOptions enableOptions)

@@ -327,11 +327,21 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new Count(exactCount, content);
         }
 
+        public static QuantifierGroup Count(int minCount, int maxCount, object content)
+        {
+            return new Count(minCount, maxCount, content);
+        }
+
         public static QuantifierGroup Count(int exactCount, params object[] content)
         {
             return new Count(exactCount, (object)content);
         }
 
+        public static QuantifierGroup Count(int minCount, int maxCount, params object[] content)
+        {
+            return new Count(minCount, maxCount, (object)content);
+        }
+        
         public static QuantifierGroup CountFrom(int minCount, object content)
         {
             return new CountFrom(minCount, content);
@@ -340,16 +350,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifierGroup CountFrom(int minCount, params object[] content)
         {
             return new CountFrom(minCount, (object)content);
-        }
-
-        public static QuantifierGroup CountRange(int minCount, int maxCount, object content)
-        {
-            return new CountRange(minCount, maxCount, content);
-        }
-
-        public static QuantifierGroup CountRange(int minCount, int maxCount, params object[] content)
-        {
-            return new CountRange(minCount, maxCount, (object)content);
         }
 
         public static QuantifierGroup CountTo(int maxCount, object content)

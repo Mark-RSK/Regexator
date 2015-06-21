@@ -7,22 +7,48 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal sealed class CountQuantifier
         : Quantifier
     {
-        private readonly int _count;
+        private readonly int _count1;
+        private readonly int _count2;
 
-        internal CountQuantifier(int count)
+        internal CountQuantifier(int exactCount)
             : base()
         {
-            if (count < 0)
+            if (exactCount < 0)
             {
-                throw new ArgumentOutOfRangeException("count");
+                throw new ArgumentOutOfRangeException("exactCount");
             }
 
-            _count = count;
+            _count1 = exactCount;
+            _count2 = -1;
+        }
+
+        internal CountQuantifier(int minCount, int maxCount)
+            : base()
+        {
+            if (minCount < 0)
+            {
+                throw new ArgumentOutOfRangeException("minCount");
+            }
+
+            if (maxCount < minCount)
+            {
+                throw new ArgumentOutOfRangeException("maxCount");
+            }
+
+            _count1 = minCount;
+            _count2 = maxCount;
         }
 
         internal override void WriteTo(PatternWriter writer)
         {
-            writer.WriteCountInternal(_count);
+            if (_count2 == -1)
+            {
+                writer.WriteCountInternal(_count1);
+            }
+            else
+            {
+                writer.WriteCountInternal(_count1, _count2);
+            }
         }
     }
 }

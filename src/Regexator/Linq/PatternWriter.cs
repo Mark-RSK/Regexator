@@ -996,10 +996,34 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             WriteCountInternal(exactCount);
         }
 
+        public void WriteCount(int minCount, int maxCount)
+        {
+            if (minCount < 0)
+            {
+                throw new ArgumentOutOfRangeException("minCount");
+            }
+
+            if (maxCount < minCount)
+            {
+                throw new ArgumentOutOfRangeException("maxCount");
+            }
+
+            WriteCountInternal(minCount, maxCount);
+        }
+
         internal void WriteCountInternal(int exactCount)
         {
             WriteLeftCurlyBracket();
             base.Write(exactCount);
+            WriteRightCurlyBracket();
+        }
+        
+        internal void WriteCountInternal(int minCount, int maxCount)
+        {
+            WriteLeftCurlyBracket();
+            base.Write(minCount);
+            WriteComma();
+            base.Write(maxCount);
             WriteRightCurlyBracket();
         }
 
@@ -1035,30 +1059,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             WriteLeftCurlyBracket();
             base.Write(0);
-            WriteComma();
-            base.Write(maxCount);
-            WriteRightCurlyBracket();
-        }
-
-        public void WriteCountRange(int minCount, int maxCount)
-        {
-            if (minCount < 0)
-            {
-                throw new ArgumentOutOfRangeException("minCount");
-            }
-
-            if (maxCount < minCount)
-            {
-                throw new ArgumentOutOfRangeException("maxCount");
-            }
-
-            WriteCountRangeInternal(minCount, maxCount);
-        }
-
-        internal void WriteCountRangeInternal(int minCount, int maxCount)
-        {
-            WriteLeftCurlyBracket();
-            base.Write(minCount);
             WriteComma();
             base.Write(maxCount);
             WriteRightCurlyBracket();

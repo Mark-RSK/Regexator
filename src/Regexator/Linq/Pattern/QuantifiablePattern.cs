@@ -72,6 +72,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(new CountQuantifier(exactCount));
         }
 
+        public Quantifier Count(int minCount, int maxCount)
+        {
+            return ConcatInternal(new CountQuantifier(minCount, maxCount));
+        }
+
         public Quantifier CountFrom(int minCount)
         {
             return ConcatInternal(new CountFromQuantifier(minCount));
@@ -79,12 +84,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public Quantifier CountTo(int maxCount)
         {
-            return ConcatInternal(new CountRangeQuantifier(0, maxCount));
-        }
-
-        public Quantifier CountRange(int minCount, int maxCount)
-        {
-            return ConcatInternal(new CountRangeQuantifier(minCount, maxCount));
+            return ConcatInternal(new CountQuantifier(0, maxCount));
         }
     }
 }

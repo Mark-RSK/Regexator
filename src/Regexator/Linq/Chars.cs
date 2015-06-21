@@ -116,7 +116,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup Any(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, Any());
+            return new Count(minCount, maxCount, Any());
         }
 
         public static CharGroup AnyInvariant()
@@ -131,7 +131,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup AnyInvariant(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, AnyInvariant());
+            return new Count(minCount, maxCount, AnyInvariant());
         }
 
         public static CharacterPattern Digit()
@@ -146,7 +146,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup Digit(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, Digit());
+            return new Count(minCount, maxCount, Digit());
         }
 
         public static QuantifierGroup Digits()
@@ -166,7 +166,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotDigit(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotDigit());
+            return new Count(minCount, maxCount, NotDigit());
         }
 
         public static QuantifierGroup NotDigits()
@@ -186,7 +186,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup WhiteSpace(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, WhiteSpace());
+            return new Count(minCount, maxCount, WhiteSpace());
         }
 
         public static QuantifierGroup WhiteSpaces()
@@ -211,7 +211,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotWhiteSpace(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotWhiteSpace());
+            return new Count(minCount, maxCount, NotWhiteSpace());
         }
 
         public static QuantifierGroup NotWhiteSpaces()
@@ -231,7 +231,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup WordChar(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, WordChar());
+            return new Count(minCount, maxCount, WordChar());
         }
 
         public static QuantifierGroup WordChars()
@@ -251,7 +251,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotWordChar(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotWordChar());
+            return new Count(minCount, maxCount, NotWordChar());
         }
 
         public static QuantifierGroup NotWordChars()
@@ -271,7 +271,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup Tab(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, Tab());
+            return new Count(minCount, maxCount, Tab());
         }
 
         public static QuantifiablePattern NotTab()
@@ -286,7 +286,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotTab(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotTab());
+            return new Count(minCount, maxCount, NotTab());
         }
 
         public static CharacterPattern Linefeed()
@@ -301,7 +301,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup Linefeed(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, Linefeed());
+            return new Count(minCount, maxCount, Linefeed());
         }
 
         public static QuantifiablePattern NotLinefeed()
@@ -316,7 +316,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotLinefeed(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotLinefeed());
+            return new Count(minCount, maxCount, NotLinefeed());
         }
 
         public static CharacterPattern CarriageReturn()
@@ -331,7 +331,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup CarriageReturn(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, CarriageReturn());
+            return new Count(minCount, maxCount, CarriageReturn());
         }
 
         public static QuantifiablePattern NotCarriageReturn()
@@ -346,7 +346,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotCarriageReturn(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotCarriageReturn());
+            return new Count(minCount, maxCount, NotCarriageReturn());
         }
 
         public static CharacterPattern Space()
@@ -361,7 +361,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup Space(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, Space());
+            return new Count(minCount, maxCount, Space());
         }
 
         public static QuantifiablePattern NotSpace()
@@ -376,7 +376,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotSpace(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotSpace());
+            return new Count(minCount, maxCount, NotSpace());
         }
 
         public static CharacterPattern ExclamationMark()
@@ -391,7 +391,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup ExclamationMark(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, ExclamationMark());
+            return new Count(minCount, maxCount, ExclamationMark());
         }
 
         public static QuantifiablePattern NotExclamationMark()
@@ -406,7 +406,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotExclamationMark(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotExclamationMark());
+            return new Count(minCount, maxCount, NotExclamationMark());
         }
 
         public static CharacterPattern QuoteMark()
@@ -421,7 +421,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup QuoteMark(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, QuoteMark());
+            return new Count(minCount, maxCount, QuoteMark());
         }
 
         public static QuantifiablePattern NotQuoteMark()
@@ -436,7 +436,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotQuoteMark(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotQuoteMark());
+            return new Count(minCount, maxCount, NotQuoteMark());
         }
 
         public static CharacterPattern NumberSign()
@@ -451,7 +451,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NumberSign(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NumberSign());
+            return new Count(minCount, maxCount, NumberSign());
         }
 
         public static QuantifiablePattern NotNumberSign()
@@ -466,7 +466,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotNumberSign(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotNumberSign());
+            return new Count(minCount, maxCount, NotNumberSign());
         }
 
         public static CharacterPattern Dollar()
@@ -481,7 +481,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup Dollar(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, Dollar());
+            return new Count(minCount, maxCount, Dollar());
         }
 
         public static QuantifiablePattern NotDollar()
@@ -496,7 +496,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotDollar(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotDollar());
+            return new Count(minCount, maxCount, NotDollar());
         }
 
         public static CharacterPattern Percent()
@@ -511,7 +511,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup Percent(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, Percent());
+            return new Count(minCount, maxCount, Percent());
         }
 
         public static QuantifiablePattern NotPercent()
@@ -526,7 +526,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotPercent(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotPercent());
+            return new Count(minCount, maxCount, NotPercent());
         }
 
         public static CharacterPattern Ampersand()
@@ -541,7 +541,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup Ampersand(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, Ampersand());
+            return new Count(minCount, maxCount, Ampersand());
         }
 
         public static QuantifiablePattern NotAmpersand()
@@ -556,7 +556,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotAmpersand(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotAmpersand());
+            return new Count(minCount, maxCount, NotAmpersand());
         }
 
         public static CharacterPattern Apostrophe()
@@ -571,7 +571,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup Apostrophe(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, Apostrophe());
+            return new Count(minCount, maxCount, Apostrophe());
         }
 
         public static QuantifiablePattern NotApostrophe()
@@ -586,7 +586,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotApostrophe(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotApostrophe());
+            return new Count(minCount, maxCount, NotApostrophe());
         }
 
         public static CharacterPattern LeftParenthesis()
@@ -601,7 +601,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup LeftParenthesis(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, LeftParenthesis());
+            return new Count(minCount, maxCount, LeftParenthesis());
         }
 
         public static QuantifiablePattern NotLeftParenthesis()
@@ -616,7 +616,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotLeftParenthesis(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotLeftParenthesis());
+            return new Count(minCount, maxCount, NotLeftParenthesis());
         }
 
         public static CharacterPattern RightParenthesis()
@@ -631,7 +631,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup RightParenthesis(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, RightParenthesis());
+            return new Count(minCount, maxCount, RightParenthesis());
         }
 
         public static QuantifiablePattern NotRightParenthesis()
@@ -646,7 +646,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotRightParenthesis(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotRightParenthesis());
+            return new Count(minCount, maxCount, NotRightParenthesis());
         }
 
         public static CharacterPattern Asterisk()
@@ -661,7 +661,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup Asterisk(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, Asterisk());
+            return new Count(minCount, maxCount, Asterisk());
         }
 
         public static QuantifiablePattern NotAsterisk()
@@ -676,7 +676,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotAsterisk(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotAsterisk());
+            return new Count(minCount, maxCount, NotAsterisk());
         }
 
         public static CharacterPattern Plus()
@@ -691,7 +691,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup Plus(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, Plus());
+            return new Count(minCount, maxCount, Plus());
         }
 
         public static QuantifiablePattern NotPlus()
@@ -706,7 +706,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotPlus(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotPlus());
+            return new Count(minCount, maxCount, NotPlus());
         }
 
         public static CharacterPattern Comma()
@@ -721,7 +721,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup Comma(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, Comma());
+            return new Count(minCount, maxCount, Comma());
         }
 
         public static QuantifiablePattern NotComma()
@@ -736,7 +736,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotComma(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotComma());
+            return new Count(minCount, maxCount, NotComma());
         }
 
         public static CharacterPattern Hyphen()
@@ -751,7 +751,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup Hyphen(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, Hyphen());
+            return new Count(minCount, maxCount, Hyphen());
         }
 
         public static QuantifiablePattern NotHyphen()
@@ -766,7 +766,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotHyphen(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotHyphen());
+            return new Count(minCount, maxCount, NotHyphen());
         }
 
         public static CharacterPattern Period()
@@ -781,7 +781,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup Period(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, Period());
+            return new Count(minCount, maxCount, Period());
         }
 
         public static QuantifiablePattern NotPeriod()
@@ -796,7 +796,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotPeriod(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotPeriod());
+            return new Count(minCount, maxCount, NotPeriod());
         }
 
         public static CharacterPattern Slash()
@@ -811,7 +811,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup Slash(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, Slash());
+            return new Count(minCount, maxCount, Slash());
         }
 
         public static QuantifiablePattern NotSlash()
@@ -826,7 +826,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotSlash(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotSlash());
+            return new Count(minCount, maxCount, NotSlash());
         }
 
         public static CharacterPattern Colon()
@@ -841,7 +841,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup Colon(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, Colon());
+            return new Count(minCount, maxCount, Colon());
         }
 
         public static QuantifiablePattern NotColon()
@@ -856,7 +856,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotColon(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotColon());
+            return new Count(minCount, maxCount, NotColon());
         }
 
         public static CharacterPattern Semicolon()
@@ -871,7 +871,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup Semicolon(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, Semicolon());
+            return new Count(minCount, maxCount, Semicolon());
         }
 
         public static QuantifiablePattern NotSemicolon()
@@ -886,7 +886,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotSemicolon(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotSemicolon());
+            return new Count(minCount, maxCount, NotSemicolon());
         }
 
         public static CharacterPattern LessThan()
@@ -901,7 +901,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup LessThan(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, LessThan());
+            return new Count(minCount, maxCount, LessThan());
         }
 
         public static QuantifiablePattern NotLessThan()
@@ -916,7 +916,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotLessThan(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotLessThan());
+            return new Count(minCount, maxCount, NotLessThan());
         }
 
         public static CharacterPattern EqualsSign()
@@ -931,7 +931,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup EqualsSign(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, EqualsSign());
+            return new Count(minCount, maxCount, EqualsSign());
         }
 
         public static QuantifiablePattern NotEqualsSign()
@@ -946,7 +946,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotEqualsSign(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotEqualsSign());
+            return new Count(minCount, maxCount, NotEqualsSign());
         }
 
         public static CharacterPattern GreaterThan()
@@ -961,7 +961,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup GreaterThan(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, GreaterThan());
+            return new Count(minCount, maxCount, GreaterThan());
         }
 
         public static QuantifiablePattern NotGreaterThan()
@@ -976,7 +976,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotGreaterThan(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotGreaterThan());
+            return new Count(minCount, maxCount, NotGreaterThan());
         }
 
         public static CharacterPattern QuestionMark()
@@ -991,7 +991,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup QuestionMark(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, QuestionMark());
+            return new Count(minCount, maxCount, QuestionMark());
         }
 
         public static QuantifiablePattern NotQuestionMark()
@@ -1006,7 +1006,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotQuestionMark(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotQuestionMark());
+            return new Count(minCount, maxCount, NotQuestionMark());
         }
 
         public static CharacterPattern At()
@@ -1021,7 +1021,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup At(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, At());
+            return new Count(minCount, maxCount, At());
         }
 
         public static QuantifiablePattern NotAt()
@@ -1036,7 +1036,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotAt(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotAt());
+            return new Count(minCount, maxCount, NotAt());
         }
 
         public static CharacterPattern LeftSquareBracket()
@@ -1051,7 +1051,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup LeftSquareBracket(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, LeftSquareBracket());
+            return new Count(minCount, maxCount, LeftSquareBracket());
         }
 
         public static QuantifiablePattern NotLeftSquareBracket()
@@ -1066,7 +1066,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotLeftSquareBracket(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotLeftSquareBracket());
+            return new Count(minCount, maxCount, NotLeftSquareBracket());
         }
 
         public static CharacterPattern Backslash()
@@ -1081,7 +1081,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup Backslash(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, Backslash());
+            return new Count(minCount, maxCount, Backslash());
         }
 
         public static QuantifiablePattern NotBackslash()
@@ -1096,7 +1096,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotBackslash(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotBackslash());
+            return new Count(minCount, maxCount, NotBackslash());
         }
 
         public static CharacterPattern RightSquareBracket()
@@ -1111,7 +1111,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup RightSquareBracket(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, RightSquareBracket());
+            return new Count(minCount, maxCount, RightSquareBracket());
         }
 
         public static QuantifiablePattern NotRightSquareBracket()
@@ -1126,7 +1126,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotRightSquareBracket(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotRightSquareBracket());
+            return new Count(minCount, maxCount, NotRightSquareBracket());
         }
 
         public static CharacterPattern CircumflexAccent()
@@ -1141,7 +1141,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup CircumflexAccent(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, CircumflexAccent());
+            return new Count(minCount, maxCount, CircumflexAccent());
         }
 
         public static QuantifiablePattern NotCircumflexAccent()
@@ -1156,7 +1156,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotCircumflexAccent(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotCircumflexAccent());
+            return new Count(minCount, maxCount, NotCircumflexAccent());
         }
 
         public static CharacterPattern Underscore()
@@ -1171,7 +1171,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup Underscore(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, Underscore());
+            return new Count(minCount, maxCount, Underscore());
         }
 
         public static QuantifiablePattern NotUnderscore()
@@ -1186,7 +1186,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotUnderscore(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotUnderscore());
+            return new Count(minCount, maxCount, NotUnderscore());
         }
 
         public static CharacterPattern GraveAccent()
@@ -1201,7 +1201,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup GraveAccent(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, GraveAccent());
+            return new Count(minCount, maxCount, GraveAccent());
         }
 
         public static QuantifiablePattern NotGraveAccent()
@@ -1216,7 +1216,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotGraveAccent(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotGraveAccent());
+            return new Count(minCount, maxCount, NotGraveAccent());
         }
 
         public static CharacterPattern LeftCurlyBracket()
@@ -1231,7 +1231,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup LeftCurlyBracket(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, LeftCurlyBracket());
+            return new Count(minCount, maxCount, LeftCurlyBracket());
         }
 
         public static QuantifiablePattern NotLeftCurlyBracket()
@@ -1246,7 +1246,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotLeftCurlyBracket(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotLeftCurlyBracket());
+            return new Count(minCount, maxCount, NotLeftCurlyBracket());
         }
 
         public static CharacterPattern VerticalLine()
@@ -1261,7 +1261,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup VerticalLine(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, VerticalLine());
+            return new Count(minCount, maxCount, VerticalLine());
         }
 
         public static QuantifiablePattern NotVerticalLine()
@@ -1276,7 +1276,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotVerticalLine(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotVerticalLine());
+            return new Count(minCount, maxCount, NotVerticalLine());
         }
 
         public static CharacterPattern RightCurlyBracket()
@@ -1291,7 +1291,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup RightCurlyBracket(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, RightCurlyBracket());
+            return new Count(minCount, maxCount, RightCurlyBracket());
         }
 
         public static QuantifiablePattern NotRightCurlyBracket()
@@ -1306,7 +1306,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotRightCurlyBracket(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotRightCurlyBracket());
+            return new Count(minCount, maxCount, NotRightCurlyBracket());
         }
 
         public static CharacterPattern Tilde()
@@ -1321,7 +1321,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup Tilde(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, Tilde());
+            return new Count(minCount, maxCount, Tilde());
         }
 
         public static QuantifiablePattern NotTilde()
@@ -1336,7 +1336,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotTilde(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotTilde());
+            return new Count(minCount, maxCount, NotTilde());
         }
 
         public static CharGroup NewLineChar()
@@ -1351,7 +1351,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NewLineChar(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NewLineChar());
+            return new Count(minCount, maxCount, NewLineChar());
         }
 
         public static CharGroup NotNewLineChar()
@@ -1366,7 +1366,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotNewLineChar(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotNewLineChar());
+            return new Count(minCount, maxCount, NotNewLineChar());
         }
 
         public static CharGroup Alphanumeric()
@@ -1381,7 +1381,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup Alphanumeric(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, Alphanumeric());
+            return new Count(minCount, maxCount, Alphanumeric());
         }
 
         public static CharGroup NotAlphanumeric()
@@ -1396,7 +1396,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotAlphanumeric(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotAlphanumeric());
+            return new Count(minCount, maxCount, NotAlphanumeric());
         }
 
         public static CharGroup AlphanumericLower()
@@ -1411,7 +1411,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup AlphanumericLower(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, AlphanumericLower());
+            return new Count(minCount, maxCount, AlphanumericLower());
         }
 
         public static CharGroup NotAlphanumericLower()
@@ -1426,7 +1426,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotAlphanumericLower(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotAlphanumericLower());
+            return new Count(minCount, maxCount, NotAlphanumericLower());
         }
 
         public static CharGroup AlphanumericUpper()
@@ -1441,7 +1441,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup AlphanumericUpper(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, AlphanumericUpper());
+            return new Count(minCount, maxCount, AlphanumericUpper());
         }
 
         public static CharGroup NotAlphanumericUpper()
@@ -1456,7 +1456,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotAlphanumericUpper(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotAlphanumericUpper());
+            return new Count(minCount, maxCount, NotAlphanumericUpper());
         }
 
         public static CharGroup AlphanumericUnderscore()
@@ -1471,7 +1471,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup AlphanumericUnderscore(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, AlphanumericUnderscore());
+            return new Count(minCount, maxCount, AlphanumericUnderscore());
         }
 
         public static CharGroup NotAlphanumericUnderscore()
@@ -1486,7 +1486,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotAlphanumericUnderscore(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotAlphanumericUnderscore());
+            return new Count(minCount, maxCount, NotAlphanumericUnderscore());
         }
 
         public static CharGroup LatinLetter()
@@ -1501,7 +1501,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup LatinLetter(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, LatinLetter());
+            return new Count(minCount, maxCount, LatinLetter());
         }
 
         public static CharGroup LatinLetterLower()
@@ -1516,7 +1516,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup LatinLetterLower(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, LatinLetterLower());
+            return new Count(minCount, maxCount, LatinLetterLower());
         }
 
         public static CharGroup LatinLetterUpper()
@@ -1531,7 +1531,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup LatinLetterUpper(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, LatinLetterUpper());
+            return new Count(minCount, maxCount, LatinLetterUpper());
         }
 
         public static CharGroup NotLatinLetter()
@@ -1546,7 +1546,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotLatinLetter(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotLatinLetter());
+            return new Count(minCount, maxCount, NotLatinLetter());
         }
 
         public static CharGroup NotLatinLetterLower()
@@ -1561,7 +1561,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotLatinLetterLower(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotLatinLetterLower());
+            return new Count(minCount, maxCount, NotLatinLetterLower());
         }
 
         public static CharGroup NotLatinLetterUpper()
@@ -1576,7 +1576,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotLatinLetterUpper(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotLatinLetterUpper());
+            return new Count(minCount, maxCount, NotLatinLetterUpper());
         }
 
         public static CharGroup ArabicDigit()
@@ -1591,7 +1591,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup ArabicDigit(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, ArabicDigit());
+            return new Count(minCount, maxCount, ArabicDigit());
         }
 
         public static CharGroup NotArabicDigit()
@@ -1606,7 +1606,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotArabicDigit(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotArabicDigit());
+            return new Count(minCount, maxCount, NotArabicDigit());
         }
 
         public static CharGroup HexadecimalDigit()
@@ -1621,7 +1621,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup HexadecimalDigit(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, HexadecimalDigit());
+            return new Count(minCount, maxCount, HexadecimalDigit());
         }
 
         public static CharGroup NotHexadecimalDigit()
@@ -1636,7 +1636,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotHexadecimalDigit(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotHexadecimalDigit());
+            return new Count(minCount, maxCount, NotHexadecimalDigit());
         }
 
         public static CharGroup Parenthesis()
@@ -1651,7 +1651,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup Parenthesis(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, Parenthesis());
+            return new Count(minCount, maxCount, Parenthesis());
         }
 
         public static CharGroup NotParenthesis()
@@ -1666,7 +1666,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotParenthesis(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotParenthesis());
+            return new Count(minCount, maxCount, NotParenthesis());
         }
 
         public static CharGroup CurlyBracket()
@@ -1681,7 +1681,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup CurlyBracket(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, CurlyBracket());
+            return new Count(minCount, maxCount, CurlyBracket());
         }
 
         public static CharGroup NotCurlyBracket()
@@ -1696,7 +1696,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotCurlyBracket(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotCurlyBracket());
+            return new Count(minCount, maxCount, NotCurlyBracket());
         }
 
         public static CharGroup SquareBracket()
@@ -1711,7 +1711,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup SquareBracket(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, SquareBracket());
+            return new Count(minCount, maxCount, SquareBracket());
         }
 
         public static CharGroup NotSquareBracket()
@@ -1726,7 +1726,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup NotSquareBracket(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, NotSquareBracket());
+            return new Count(minCount, maxCount, NotSquareBracket());
         }
 
         public static Pattern Apostrophes()
@@ -1796,7 +1796,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifierGroup WhiteSpaceExceptNewLine(int minCount, int maxCount)
         {
-            return new CountRange(minCount, maxCount, WhiteSpaceExceptNewLine());
+            return new Count(minCount, maxCount, WhiteSpaceExceptNewLine());
         }
 
         public static Pattern While(char value)

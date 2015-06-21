@@ -7,7 +7,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     public sealed class Count
         : QuantifierGroup
     {
-        private readonly int _count;
+        private readonly int _count1;
+        private readonly int _count2;
 
         public Count(int exactCount, object content)
             : base(content)
@@ -17,11 +18,29 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentOutOfRangeException("exactCount");
             }
 
-            _count = exactCount;
+            _count1 = exactCount;
+            _count2 = -1;
         }
 
-        public Count(int exactCount, params object[] content)
-            : this(exactCount, (object)content)
+        public Count(int minCount, int maxCount, object content)
+            : base(content)
+        {
+            if (minCount < 0)
+            {
+                throw new ArgumentOutOfRangeException("minCount");
+            }
+
+            if (maxCount < minCount)
+            {
+                throw new ArgumentOutOfRangeException("maxCount");
+            }
+
+            _count1 = minCount;
+            _count2 = maxCount;
+        }
+
+        public Count(int minCount, int maxCount, params object[] content)
+            : this(minCount, maxCount, (object)content)
         {
         }
 
@@ -32,7 +51,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("writer");
             }
 
-            writer.WriteCountInternal(_count);
+            if (_count2 == -1)
+            {
+                writer.WriteCountInternal(_count1);
+            }
+            else
+            {
+                writer.WriteCountInternal(_count1, _count2);
+            }
         }
     }
 }
