@@ -306,17 +306,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public QuantifiablePattern Group()
         {
-            return ConcatInternal(new CapturingGroup());
+            return ConcatInternal(new Capturing());
         }
 
         public QuantifiablePattern Group(object content)
         {
-            return ConcatInternal(new CapturingGroup(content));
+            return ConcatInternal(new Capturing(content));
         }
 
         public QuantifiablePattern Group(params object[] content)
         {
-            return ConcatInternal(new CapturingGroup(content));
+            return ConcatInternal(new Capturing(content));
         }
 
         public QuantifiablePattern NamedGroup(string name, object content)
@@ -331,22 +331,22 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public QuantifiablePattern Noncapturing(object content)
         {
-            return ConcatInternal(new NoncapturingGroup(content));
+            return ConcatInternal(new Noncapturing(content));
         }
 
         public QuantifiablePattern Noncapturing(params object[] content)
         {
-            return ConcatInternal(new NoncapturingGroup(content));
+            return ConcatInternal(new Noncapturing(content));
         }
 
         public QuantifiablePattern Nonbacktracking(object content)
         {
-            return ConcatInternal(new NonbacktrackingGroup(content));
+            return ConcatInternal(new Nonbacktracking(content));
         }
 
         public QuantifiablePattern Nonbacktracking(params object[] content)
         {
-            return ConcatInternal(new NonbacktrackingGroup(content));
+            return ConcatInternal(new Nonbacktracking(content));
         }
 
         public QuantifiablePattern BalanceGroup(string name1, string name2, object content)
@@ -406,7 +406,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public QuantifiablePattern AsGroup()
         {
-            return new CapturingGroup(this);
+            return new Capturing(this);
         }
 
         public QuantifiablePattern AsGroup(string groupName)
@@ -416,17 +416,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal QuantifiablePattern AsCapturing()
         {
-            return new CapturingGroup(this);
+            return new Capturing(this);
         }
 
         internal QuantifiablePattern AsNoncapturing()
         {
-            return new NoncapturingGroup(this);
+            return new Noncapturing(this);
         }
 
         public QuantifiablePattern AsNonbacktracking()
         {
-            return new NonbacktrackingGroup(this);
+            return new Nonbacktracking(this);
         }
 
         public Pattern Apostrophes()

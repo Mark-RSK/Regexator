@@ -223,12 +223,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern Group()
         {
-            return new CapturingGroup(string.Empty);
+            return new Capturing(string.Empty);
         }
 
         public static QuantifiablePattern Group(object content)
         {
-            return new CapturingGroup(content);
+            return new Capturing(content);
         }
 
         public static QuantifiablePattern Group(params object[] content)
@@ -238,7 +238,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern Noncapturing(object content)
         {
-            return new NoncapturingGroup(content);
+            return new Noncapturing(content);
         }
 
         public static QuantifiablePattern Noncapturing(params object[] content)
@@ -258,7 +258,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern Nonbacktracking(object content)
         {
-            return new NonbacktrackingGroup(content);
+            return new Nonbacktracking(content);
         }
 
         public static QuantifiablePattern Nonbacktracking(params object[] content)
@@ -703,7 +703,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static Pattern ValidGroupName()
         {
             return Patterns.EntireInput(
-                new CapturingGroup(Patterns.Range('1', '9').ArabicDigit().MaybeMany()) |
+                new Capturing(Patterns.Range('1', '9').ArabicDigit().MaybeMany()) |
                 Chars.WordChar().Except(Chars.ArabicDigit()).WordChar().MaybeMany());
         }
 

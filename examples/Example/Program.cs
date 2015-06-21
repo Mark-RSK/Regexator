@@ -43,7 +43,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine(
                 new WordBoundary()
                 .Count(3,
-                    new AnyGroup(values.Select(f => new CapturingGroup(f)))
+                    new AnyGroup(values.Select(f => new Capturing(f)))
                     .WordBoundary()
                     .NotWordChar().MaybeMany().Lazy())
                 .RequireGroups(1, 2, 3));

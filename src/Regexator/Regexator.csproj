@@ -142,8 +142,8 @@
     <Compile Include="Core\InlineOptions.cs" />
     <Compile Include="Linq\Pattern\GroupNameReference.cs" />
     <Compile Include="Linq\Group\NamedGroup.cs" />
-    <Compile Include="Linq\Group\NonbacktrackingGroup.cs" />
-    <Compile Include="Linq\Group\NoncapturingGroup.cs" />
+    <Compile Include="Linq\Group\Nonbacktracking.cs" />
+    <Compile Include="Linq\Group\Noncapturing.cs" />
     <Compile Include="Linq\Pattern\GroupNumberReference.cs" />
     <Compile Include="Linq\Group\GroupOptions.cs" />
     <Compile Include="Linq\Group\AnyGroup.cs" />
@@ -151,7 +151,7 @@
     <Compile Include="Linq\Quantifier\OneManyQuantifier.cs" />
     <Compile Include="Linq\Quantifier\MaybeManyQuantifier.cs" />
     <Compile Include="Linq\Quantifier\MaybeQuantifier.cs" />
-    <Compile Include="Linq\Group\CapturingGroup.cs" />
+    <Compile Include="Linq\Group\Capturing.cs" />
     <Compile Include="Linq\Substitutions.cs" />
     <Compile Include="Linq\Substitution\NamedGroupSubstitution.cs" />
     <Compile Include="Linq\Substitution\LastCapturedGroupSubstitution.cs" />

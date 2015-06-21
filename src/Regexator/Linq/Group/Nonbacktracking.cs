@@ -2,10 +2,10 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public sealed class NonbacktrackingGroup
+    public sealed class Nonbacktracking
         : GroupingPattern
     {
-        public NonbacktrackingGroup(object content)
+        public Nonbacktracking(object content)
             : base(content)
         {
         }
