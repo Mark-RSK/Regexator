@@ -142,7 +142,7 @@
     <Compile Include="Linq\IExcludedGroup.cs" />
     <Compile Include="Linq\Pattern\AlternationPattern.cs" />
     <Compile Include="Core\InlineOptions.cs" />
-    <Compile Include="Linq\Pattern\NamedGroupReference.cs" />
+    <Compile Include="Linq\Pattern\GroupNameReference.cs" />
     <Compile Include="Linq\Group\NamedGroup.cs" />
     <Compile Include="Linq\Group\NonbacktrackingGroup.cs" />
     <Compile Include="Linq\Group\NoncapturingGroup.cs" />

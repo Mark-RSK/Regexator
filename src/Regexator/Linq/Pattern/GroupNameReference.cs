@@ -2,12 +2,12 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public sealed class NamedGroupReference
+    public sealed class GroupNameReference
         : QuantifiablePattern
     {
         private readonly string _groupName;
 
-        public NamedGroupReference(string groupName)
+        public GroupNameReference(string groupName)
             : base()
         {
             RegexUtilities.CheckGroupName(groupName);

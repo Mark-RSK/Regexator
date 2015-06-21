@@ -369,7 +369,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern GroupReference(string groupName)
         {
-            return new NamedGroupReference(groupName);
+            return new GroupNameReference(groupName);
         }
 
         public static Pattern ApplyOptions(InlineOptions options)
