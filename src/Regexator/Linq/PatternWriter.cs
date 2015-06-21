@@ -726,6 +726,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             WriteCharGroup(block, false);
         }
 
+        public void WriteNotCharGroup(NamedBlock block)
+        {
+            WriteCharGroup(block, true);
+        }
+
         public void WriteCharGroup(NamedBlock block, bool negative)
         {
             WriteCharGroupStart();
@@ -736,6 +741,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public void WriteCharGroup(GeneralCategory category)
         {
             WriteCharGroup(category, false);
+        }
+
+        public void WriteNotCharGroup(GeneralCategory category)
+        {
+            WriteCharGroup(category, true);
         }
 
         public void WriteCharGroup(GeneralCategory category, bool negative)
@@ -757,6 +767,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             WriteCharGroup(value, false);
         }
 
+        public void WriteNotCharGroup(AsciiChar value)
+        {
+            WriteCharGroup(value, true);
+        }
+
         public void WriteCharGroup(AsciiChar value, bool negative)
         {
             WriteCharGroupStart(negative);
@@ -767,6 +782,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public void WriteCharGroup(string characters)
         {
             WriteCharGroup(characters, false);
+        }
+
+        public void WriteNotCharGroup(string characters)
+        {
+            WriteCharGroup(characters, true);
         }
 
         public void WriteCharGroup(string characters, bool negative)
@@ -791,6 +811,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             WriteCharGroup(value, false);
         }
 
+        public void WriteNotCharGroup(char value)
+        {
+            WriteCharGroup(value, true);
+        }
+
         public void WriteCharGroup(char value, bool negative)
         {
             WriteCharGroupStart(negative);
@@ -801,6 +826,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public void WriteCharGroup(char first, char last)
         {
             WriteCharGroup(first, last, false);
+        }
+
+        public void WriteNotCharGroup(char first, char last)
+        {
+            WriteCharGroup(first, last, true);
         }
 
         public void WriteCharGroup(char first, char last, bool negative)
@@ -815,6 +845,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             WriteCharGroup(charCode, false);
         }
 
+        public void WriteNotCharGroup(int charCode)
+        {
+            WriteCharGroup(charCode, true);
+        }
+
         public void WriteCharGroup(int charCode, bool negative)
         {
             WriteCharGroupStart(negative);
@@ -825,6 +860,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public void WriteCharGroup(int firstCharCode, int lastCharCode)
         {
             WriteCharGroup(firstCharCode, lastCharCode, false);
+        }
+
+        public void WriteNotCharGroup(int firstCharCode, int lastCharCode)
+        {
+            WriteCharGroup(firstCharCode, lastCharCode, true);
         }
 
         public void WriteCharGroup(int firstCharCode, int lastCharCode, bool negative)
@@ -839,6 +879,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             WriteCharGroup(item, false);
         }
 
+        public void WriteNotCharGroup(CharGroupItem item)
+        {
+            WriteCharGroup(item, true);
+        }
+
         public void WriteCharGroup(CharGroupItem item, bool negative)
         {
             if (item == null)
@@ -849,51 +894,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             WriteCharGroupStart(negative);
             item.WriteContentTo(this);
             WriteCharGroupEnd();
-        }
-
-        public void WriteNotCharGroup(NamedBlock block)
-        {
-            WriteCharGroup(block, true);
-        }
-
-        public void WriteNotCharGroup(GeneralCategory category)
-        {
-            WriteCharGroup(category, true);
-        }
-
-        public void WriteNotCharGroup(AsciiChar value)
-        {
-            WriteCharGroup(value, true);
-        }
-
-        public void WriteNotCharGroup(string characters)
-        {
-            WriteCharGroup(characters, true);
-        }
-
-        public void WriteNotCharGroup(char value)
-        {
-            WriteCharGroup(value, true);
-        }
-
-        public void WriteNotCharGroup(char first, char last)
-        {
-            WriteCharGroup(first, last, true);
-        }
-
-        public void WriteNotCharGroup(int charCode)
-        {
-            WriteCharGroup(charCode, true);
-        }
-
-        public void WriteNotCharGroup(int firstCharCode, int lastCharCode)
-        {
-            WriteCharGroup(firstCharCode, lastCharCode, true);
-        }
-
-        public void WriteNotCharGroup(CharGroupItem item)
-        {
-            WriteCharGroup(item, true);
         }
 
         public void WriteSubtraction(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
