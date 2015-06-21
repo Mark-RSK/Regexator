@@ -65,9 +65,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(new TextPattern(text, ignoreCase));
         }
 #else
-        public Expression Concat(string text)
+        public Pattern Concat(string text)
         {
-            return ConcatInternal(new TextExpression(text));
+            return ConcatInternal(new TextPattern(text));
         }
 #endif
 
