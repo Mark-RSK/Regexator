@@ -14,6 +14,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
         private PatternSettings _settings;
         private Stack<Pattern> _patterns;
+        private InlineOptions _appliedOptions;
+        private InlineOptions _disabledOptions;
 
         internal PatternWriter()
             : this(new PatternSettings())
@@ -1091,6 +1093,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 WriteGroupStart();
                 WriteOptionsChars(applyOptions, disableOptions);
                 WriteGroupEnd();
+
+                _appliedOptions &= applyOptions;
+                _disabledOptions &= disableOptions;
             }
         }
 
@@ -1112,8 +1117,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 WriteNoncapturingGroupStart();
             }
 
+            _appliedOptions &= applyOptions;
+            _disabledOptions &= disableOptions;
+
             Write(content);
             WriteGroupEnd();
+
+            _appliedOptions &= ~applyOptions;
+            _disabledOptions &= ~disableOptions;
         }
 
         private void WriteOptionsChars(InlineOptions applyOptions, InlineOptions disableOptions)
@@ -1271,6 +1282,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public PatternSettings Settings
         {
             get { return _settings; }
+        }
+
+        public InlineOptions AppliedOptions
+        {
+            get { return _appliedOptions; }
+        }
+
+        public InlineOptions DisabledOptions
+        {
+            get { return _disabledOptions; }
         }
     }
 }
