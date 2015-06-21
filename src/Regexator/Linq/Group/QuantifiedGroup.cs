@@ -5,7 +5,7 @@ using System;
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public abstract class QuantifiedGroup
-        : Quantifier
+        : QuantifiedPattern
     {
         private readonly object _content;
 

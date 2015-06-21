@@ -96,7 +96,7 @@
     <Compile Include="Linq\Pattern\AsciiCharSurroundPattern.cs" />
     <Compile Include="Linq\PatternOptions.cs" />
     <Compile Include="Linq\Quantifier\LazyQuantifier.cs" />
-    <Compile Include="Linq\Quantifier\Quantifier.cs" />
+    <Compile Include="Linq\Quantifier\QuantifiedPattern.cs" />
     <Compile Include="Linq\Substitution\BeforeMatchSubstitution.cs" />
     <Compile Include="Linq\Substitution\AfterMatchSubstitution.cs" />
     <Compile Include="Linq\Substitution\EntireMatchSubstitution.cs" />

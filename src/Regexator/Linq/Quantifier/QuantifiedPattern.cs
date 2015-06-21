@@ -2,10 +2,10 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public abstract class Quantifier
+    public abstract class QuantifiedPattern
         : Pattern
     {
-        protected Quantifier()
+        protected QuantifiedPattern()
         {
         }
 

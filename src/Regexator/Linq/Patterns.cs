@@ -422,42 +422,42 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new InlineComment(value);
         }
 
-        public static Pattern While(char value)
+        public static QuantifiedPattern While(char value)
         {
             return Chars.Char(value).MaybeMany();
         }
 
-        public static Pattern While(AsciiChar value)
+        public static QuantifiedPattern While(AsciiChar value)
         {
             return Chars.Char(value).MaybeMany();
         }
 
-        public static Pattern While(CharGroupItem item)
+        public static QuantifiedPattern While(CharGroupItem item)
         {
             return Chars.Char(item).MaybeMany();
         }
 
-        public static QuantifiedGroup WhileWhiteSpace()
+        public static QuantifiedPattern WhileWhiteSpace()
         {
-            return new MaybeMany(new WhiteSpace());
+            return new WhiteSpace().MaybeMany();
         }
 
-        public static Pattern WhileNot(char value)
-        {
-            return Chars.NotChar(value).MaybeMany();
-        }
-
-        public static Pattern WhileNot(AsciiChar value)
+        public static QuantifiedPattern WhileNot(char value)
         {
             return Chars.NotChar(value).MaybeMany();
         }
 
-        public static Pattern WhileNot(CharGroupItem item)
+        public static QuantifiedPattern WhileNot(AsciiChar value)
+        {
+            return Chars.NotChar(value).MaybeMany();
+        }
+
+        public static QuantifiedPattern WhileNot(CharGroupItem item)
         {
             return Chars.NotChar(item).MaybeMany();
         }
 
-        public static Pattern WhileNotNewLine()
+        public static QuantifiedPattern WhileNotNewLine()
         {
             return WhileNot(CharGroupItems.NewLineChar());
         }

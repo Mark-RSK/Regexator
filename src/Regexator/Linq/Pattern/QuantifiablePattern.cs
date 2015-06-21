@@ -10,7 +10,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
         }
 
-        public Quantifier Maybe()
+        public QuantifiedPattern Maybe()
         {
             return ConcatInternal(new MaybeQuantifier());
         }
@@ -29,7 +29,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 #endif
 
-        public Quantifier MaybeMany()
+        public QuantifiedPattern MaybeMany()
         {
             return ConcatInternal(new MaybeManyQuantifier());
         }
@@ -48,7 +48,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 #endif
 
-        public Quantifier OneMany()
+        public QuantifiedPattern OneMany()
         {
             return ConcatInternal(new OneManyQuantifier());
         }
@@ -67,22 +67,22 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 #endif
 
-        public Quantifier Count(int exactCount)
+        public QuantifiedPattern Count(int exactCount)
         {
             return ConcatInternal(new CountQuantifier(exactCount));
         }
 
-        public Quantifier Count(int minCount, int maxCount)
+        public QuantifiedPattern Count(int minCount, int maxCount)
         {
             return ConcatInternal(new CountQuantifier(minCount, maxCount));
         }
 
-        public Quantifier CountFrom(int minCount)
+        public QuantifiedPattern CountFrom(int minCount)
         {
             return ConcatInternal(new CountFromQuantifier(minCount));
         }
 
-        public Quantifier CountTo(int maxCount)
+        public QuantifiedPattern CountTo(int maxCount)
         {
             return ConcatInternal(new CountQuantifier(0, maxCount));
         }

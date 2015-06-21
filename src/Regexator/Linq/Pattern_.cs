@@ -751,7 +751,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Chars.WhiteSpaces());
         }
 
-        public QuantifiedGroup WhileWhiteSpace()
+        public QuantifiedPattern WhileWhiteSpace()
         {
             return ConcatInternal(Patterns.WhileWhiteSpace());
         }
