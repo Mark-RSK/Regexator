@@ -11,10 +11,10 @@ using Pihrtsoft.Text.RegularExpressions.Linq.Extensions;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public partial class Pattern
+    public abstract partial class Pattern
     {
         private string _value;
-        internal static readonly Pattern Empty = new Pattern();
+        internal static readonly Pattern Empty = new TextPattern();
 
         protected Pattern()
         {
