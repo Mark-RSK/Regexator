@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Pihrtsoft.Text.RegularExpressions.Linq.Extensions;
@@ -130,31 +131,36 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public override string ToString()
         {
-            return ToString(new PatternSettings());
+            return ToString(CultureInfo.CurrentCulture);
         }
 
         public string ToString(PatternSettings settings)
         {
-            if (settings == null)
-            {
-                throw new ArgumentNullException("settings");
-            }
+            return ToString(settings, CultureInfo.CurrentCulture);
+        }
 
-            using (var writer = new PatternWriter(settings))
+        public string ToString(IFormatProvider formatProvider)
+        {
+            return ToString(new PatternSettings(), formatProvider);
+        }
+
+        public string ToString(PatternSettings settings, IFormatProvider formatProvider)
+        {
+            using (var writer = new PatternWriter(settings, formatProvider))
             {
                 writer.Write(this);
                 return writer.ToString();
             }
         }
 
-        internal static string GetPattern(object content)
+        internal static string GetPattern(object content, IFormatProvider formatProvider)
         {
-            return GetPattern(content, new PatternSettings());
+            return GetPattern(content, new PatternSettings(), formatProvider);
         }
 
-        internal static string GetPattern(object content, PatternSettings settings)
+        internal static string GetPattern(object content, PatternSettings settings, IFormatProvider formatProvider)
         {
-            using (var writer = new PatternWriter(settings))
+            using (var writer = new PatternWriter(settings, formatProvider))
             {
                 writer.Write(content);
                 return writer.ToString();

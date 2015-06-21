@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using System.Linq;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
@@ -73,7 +74,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public override string ToString()
         {
-            using (var writer = new PatternWriter())
+            return ToString(CultureInfo.CurrentCulture);
+        }
+
+        public string ToString(IFormatProvider formatProvider)
+        {
+            using (var writer = new PatternWriter(formatProvider))
             {
                 writer.Write(this);
                 return writer.ToString();

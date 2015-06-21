@@ -18,12 +18,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         private InlineOptions _disabledOptions;
 
         internal PatternWriter()
-            : this(new PatternSettings())
+            : this(CultureInfo.CurrentCulture)
         {
         }
 
-        internal PatternWriter(PatternSettings settings)
-            : base()
+        internal PatternWriter(IFormatProvider formatProvider)
+            : this(new PatternSettings(), formatProvider)
+        {
+        }
+
+        internal PatternWriter(PatternSettings settings, IFormatProvider formatProvider)
+            : base(formatProvider)
         {
             if (settings == null)
             {

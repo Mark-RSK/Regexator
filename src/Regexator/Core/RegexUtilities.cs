@@ -106,7 +106,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         {
             if (!IsValidInlineOptions(options))
             {
-                throw new ArgumentException();
+                throw new ArgumentException("Value is not convertible to the InlineOptions.", "options");
             }
 
             InlineOptions value = InlineOptions.None;
