@@ -12,7 +12,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override void WriteTo(PatternWriter writer)
         {
-            writer.WriteNoncapturingGroup(Content);
+            writer.WriteNoncapturing(Content);
         }
     }
 }

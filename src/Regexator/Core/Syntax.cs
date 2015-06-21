@@ -30,8 +30,8 @@ namespace Pihrtsoft.Text.RegularExpressions
         internal const string NotAssertBackStart = "(?<!";
 
         internal const string GroupStart = "(?";
-        internal const string NoncapturingGroupStart = "(?:";
-        internal const string NonbacktrackingGroupStart = "(?>";
+        internal const string NoncapturingStart = "(?:";
+        internal const string NonbacktrackingStart = "(?>";
         internal const string GroupEnd = ")";
 
         public const string AnyChar = ".";
@@ -215,39 +215,39 @@ namespace Pihrtsoft.Text.RegularExpressions
             return Group((object)content);
         }
 
-        public static string NoncapturingGroup()
+        public static string Noncapturing()
         {
-            return NoncapturingGroupStart + GroupEnd;
+            return NoncapturingStart + GroupEnd;
         }
 
-        public static string NoncapturingGroup(object content)
+        public static string Noncapturing(object content)
         {
             if (content == null)
             {
                 throw new ArgumentNullException("content");
             }
 
-            return NoncapturingGroupStart + Pattern.GetPattern(content, CultureInfo.CurrentCulture) + GroupEnd;
+            return NoncapturingStart + Pattern.GetPattern(content, CultureInfo.CurrentCulture) + GroupEnd;
         }
 
-        public static string NoncapturingGroup(params object[] content)
+        public static string Noncapturing(params object[] content)
         {
-            return NoncapturingGroup((object)content);
+            return Noncapturing((object)content);
         }
 
-        public static string NonbacktrackingGroup(object content)
+        public static string Nonbacktracking(object content)
         {
             if (content == null)
             {
                 throw new ArgumentNullException("content");
             }
 
-            return NonbacktrackingGroupStart + Pattern.GetPattern(content, CultureInfo.CurrentCulture) + GroupEnd;
+            return NonbacktrackingStart + Pattern.GetPattern(content, CultureInfo.CurrentCulture) + GroupEnd;
         }
 
-        public static string NonbacktrackingGroup(params object[] content)
+        public static string Nonbacktracking(params object[] content)
         {
-            return NonbacktrackingGroup((object)content);
+            return Nonbacktracking((object)content);
         }
 
         public static string GroupOptions(InlineOptions applyOptions, object content)
