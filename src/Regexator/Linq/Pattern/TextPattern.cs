@@ -30,7 +30,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 if (_ignoreCase)
                 {
-                    writer.WriteGroupOptions(InlineOptions.IgnoreCase, _text);
+                    writer.WriteOptions(InlineOptions.IgnoreCase, _text);
                 }
                 else
                 {

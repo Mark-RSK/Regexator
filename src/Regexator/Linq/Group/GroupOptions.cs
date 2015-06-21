@@ -34,7 +34,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override void WriteTo(PatternWriter writer)
         {
-            writer.WriteGroupOptions(_applyOptions, _disableOptions, Content);
+            writer.WriteOptions(_applyOptions, _disableOptions, Content);
         }
     }
 }

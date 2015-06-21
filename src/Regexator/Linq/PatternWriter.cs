@@ -9,7 +9,7 @@ using System.Text;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public class PatternWriter
+    public sealed class PatternWriter
         : StringWriter
     {
         private PatternSettings _settings;
@@ -611,35 +611,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             WriteRightIdentifierBoundary();
         }
 
-        public void WriteGroupOptions(InlineOptions applyOptions, object content)
-        {
-            WriteGroupOptions(applyOptions, InlineOptions.None, content);
-        }
-
-        public void WriteGroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, object content)
-        {
-            if (content == null)
-            {
-                throw new ArgumentNullException("content");
-            }
-
-            string options = Syntax.GetInlineChars(applyOptions, disableOptions);
-
-            if (!string.IsNullOrEmpty(options))
-            {
-                WriteGroupStart();
-                base.Write(options);
-                WriteColon();
-            }
-            else
-            {
-                WriteNoncapturingGroupStart();
-            }
-
-            Write(content);
-            WriteGroupEnd();
-        }
-
         internal void WriteBalanceGroup(string name1, string name2, object content)
         {
             if (content == null)
@@ -1094,15 +1065,90 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             WriteOptions(applyOptions, InlineOptions.None);
         }
 
+        public void WriteOptions(InlineOptions applyOptions, object content)
+        {
+            WriteOptions(applyOptions, InlineOptions.None, content);
+        }
+
         public void WriteOptions(InlineOptions applyOptions, InlineOptions disableOptions)
         {
-            string options = Syntax.GetInlineChars(applyOptions, disableOptions);
-
-            if (!string.IsNullOrEmpty(options))
+            if (applyOptions != InlineOptions.None || disableOptions != InlineOptions.None)
             {
                 WriteGroupStart();
-                base.Write(options);
+                WriteOptionsChars(applyOptions, disableOptions);
                 WriteGroupEnd();
+            }
+        }
+
+        public void WriteOptions(InlineOptions applyOptions, InlineOptions disableOptions, object content)
+        {
+            if (content == null)
+            {
+                throw new ArgumentNullException("content");
+            }
+
+            if (applyOptions != InlineOptions.None || disableOptions != InlineOptions.None)
+            {
+                WriteGroupStart();
+                WriteOptionsChars(applyOptions, disableOptions);
+                WriteColon();
+            }
+            else
+            {
+                WriteNoncapturingGroupStart();
+            }
+
+            Write(content);
+            WriteGroupEnd();
+        }
+
+        private void WriteOptionsChars(InlineOptions applyOptions, InlineOptions disableOptions)
+        {
+            if (applyOptions != InlineOptions.None)
+            {
+                if (disableOptions != InlineOptions.None)
+                {
+                    WriteOptionsChars(applyOptions);
+                    WriteHyphen();
+                    WriteOptionsChars(disableOptions);
+                }
+                else
+                {
+                    WriteOptionsChars(applyOptions);
+                }
+            }
+            else if (disableOptions != InlineOptions.None)
+            {
+                WriteHyphen();
+                WriteOptionsChars(disableOptions);
+            }
+        }
+
+        private void WriteOptionsChars(InlineOptions options)
+        {
+            if ((options & InlineOptions.IgnoreCase) == InlineOptions.IgnoreCase)
+            {
+                base.Write(Syntax.IgnoreCaseChar);
+            }
+
+            if ((options & InlineOptions.Multiline) == InlineOptions.Multiline)
+            {
+                base.Write(Syntax.MultilineChar);
+            }
+
+            if ((options & InlineOptions.ExplicitCapture) == InlineOptions.ExplicitCapture)
+            {
+                base.Write(Syntax.ExplicitCaptureChar);
+            }
+
+            if ((options & InlineOptions.Singleline) == InlineOptions.Singleline)
+            {
+                base.Write(Syntax.SinglelineChar);
+            }
+
+            if ((options & InlineOptions.IgnorePatternWhitespace) == InlineOptions.IgnorePatternWhitespace)
+            {
+                base.Write(Syntax.IgnorePatternWhiteSpaceChar);
             }
         }
 
