@@ -414,6 +414,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new NamedGroup(groupName, this);
         }
 
+        internal QuantifiablePattern AsCapturing()
+        {
+            return new CapturingGroup(this);
+        }
+
         internal QuantifiablePattern AsNoncapturing()
         {
             return new NoncapturingGroup(this);
