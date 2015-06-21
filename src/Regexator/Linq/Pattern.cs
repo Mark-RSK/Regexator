@@ -34,16 +34,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(new ContainerPattern(content));
         }
 
-        public static Pattern Concat(params object[] content)
-        {
-            return Create((object)content);
-        }
-
-        public static Pattern Concat(IEnumerable<object> content)
-        {
-            return Create((object)content);
-        }
-
         public Pattern Concat(Pattern pattern)
         {
             if (pattern == null)
@@ -86,6 +76,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             first.Previous = this;
 
             return pattern;
+        }
+
+        public static Pattern Concat(params object[] content)
+        {
+            return Create((object)content);
+        }
+
+        public static Pattern Concat(IEnumerable<object> content)
+        {
+            return Create((object)content);
         }
 
         public static Pattern Join(object separator, params object[] values)
