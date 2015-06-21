@@ -126,43 +126,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Options(InlineOptions.Multiline, EndOfLine());
         }
 
-        public static QuantifiablePattern EndOfLineOrBeforeCarriageReturn()
+        public static Pattern EndOfLineOrBeforeCarriageReturn()
         {
-            return EndOfLine(true, false);
+            return new EndOfLineOrBeforeCarriageReturn();
         }
 
-        public static QuantifiablePattern EndOfLineOrBeforeCarriageReturnInvariant()
+        public static Pattern EndOfLineOrBeforeCarriageReturnInvariant()
         {
-            return EndOfLine(true, true);
+            return new EndOfLineOrBeforeCarriageReturnInvariant();
         }
 
-        internal static QuantifiablePattern EndOfLine(bool beforeCarriageReturn, bool invariant)
-        {
-            if (beforeCarriageReturn)
-            {
-                if (invariant)
-                {
-                    return new NotAssertBack(Chars.CarriageReturn()).Assert(Chars.CarriageReturn().Maybe().EndOfLineInvariant());
-                }
-                else
-                {
-                    return new NotAssertBack(Chars.CarriageReturn()).Assert(Chars.CarriageReturn().Maybe().EndOfLine());
-                }
-            }
-            else
-            {
-                if (invariant)
-                {
-                    return new EndOfLineInvariant();
-                }
-                else
-                {
-                    return new EndOfLine();
-                }
-            }
-        }
-
-        public static QuantifiablePattern EndOfInput()
+        public static Pattern EndOfInput()
         {
             return new EndOfInput();
         }
@@ -189,7 +163,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern Word()
         {
-            return Pattern.Surround(new WordBoundary(), Chars.WordChars()).AsNoncapturing();
+            return Pattern.Surround(new WordBoundary(), Patterns.WordChars()).AsNoncapturing();
         }
 
         public static QuantifiablePattern Word(string text)
@@ -422,19 +396,219 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new InlineComment(value);
         }
 
+        public static CharacterPattern Char(char value)
+        {
+            return new CharPattern(value);
+        }
+
+        public static CharacterPattern Char(int charCode)
+        {
+            return new CharCodePattern(charCode);
+        }
+
+        public static CharacterPattern Char(AsciiChar value)
+        {
+            return new AsciiCharPattern(value);
+        }
+
+        public static CharacterPattern Char(NamedBlock block)
+        {
+            return new NamedBlockPattern(block);
+        }
+
+        public static CharacterPattern Char(GeneralCategory category)
+        {
+            return new GeneralCategoryPattern(category);
+        }
+
+        public static CharGroup Char(string characters)
+        {
+            return new CharactersGroup(characters);
+        }
+
+        public static CharGroup Char(CharGroupItem item)
+        {
+            return new CharGroupItemGroup(item);
+        }
+
+        public static CharGroup NotChar(char value)
+        {
+            return new CharacterGroup(value, true);
+        }
+
+        public static CharGroup NotChar(int charCode)
+        {
+            return new CharCodeGroup(charCode, true);
+        }
+
+        public static CharGroup NotChar(AsciiChar value)
+        {
+            return new AsciiCharGroup(value, true);
+        }
+
+        public static CharacterPattern NotChar(NamedBlock block)
+        {
+            return new NotNamedBlockPattern(block);
+        }
+
+        public static CharacterPattern NotChar(GeneralCategory category)
+        {
+            return new NotGeneralCategoryPattern(category);
+        }
+
+        public static CharGroup NotChar(string characters)
+        {
+            return new CharactersGroup(characters, true);
+        }
+
+        public static CharGroup NotChar(CharGroupItem item)
+        {
+            return new CharGroupItemGroup(item, true);
+        }
+
+        public static CharGroup Range(char first, char last)
+        {
+            return new CharRangeGroup(first, last);
+        }
+
+        public static CharGroup Range(int firstCharCode, int lastCharCode)
+        {
+            return new CharCodeRangeGroup(firstCharCode, lastCharCode);
+        }
+
+        public static CharGroup NotRange(char first, char last)
+        {
+            return new CharRangeGroup(first, last, true);
+        }
+
+        public static CharGroup NotRange(int firstCharCode, int lastCharCode)
+        {
+            return new CharCodeRangeGroup(firstCharCode, lastCharCode, true);
+        }
+
+        public static CharSubtraction Subtract(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
+        {
+            return new CharSubtraction(baseGroup, excludedGroup);
+        }
+
+        public static CharSubtraction NotSubtract(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
+        {
+            return new NotCharSubtraction(baseGroup, excludedGroup);
+        }
+
+        public static QuantifiedGroup Digits()
+        {
+            return new OneMany(Chars.Digit());
+        }
+
+        public static QuantifiedGroup NotDigits()
+        {
+            return new OneMany(Chars.NotDigit());
+        }
+
+        public static QuantifiedGroup WhiteSpaces()
+        {
+            return new OneMany(Chars.WhiteSpace());
+        }
+
+        public static QuantifiedGroup NotWhiteSpaces()
+        {
+            return new OneMany(Chars.NotWhiteSpace());
+        }
+
+        public static QuantifiedGroup WordChars()
+        {
+            return new OneMany(Chars.WordChar());
+        }
+
+        public static QuantifiedGroup NotWordChars()
+        {
+            return new OneMany(Chars.NotWordChar());
+        }
+
+        public static Pattern Apostrophes()
+        {
+            return Chars.Apostrophe().Apostrophe();
+        }
+
+        public static Pattern Apostrophes(object content)
+        {
+            return Pattern.Surround(AsciiChar.Apostrophe, content);
+        }
+
+        public static Pattern QuoteMarks()
+        {
+            return Chars.QuoteMark().QuoteMark();
+        }
+
+        public static Pattern QuoteMarks(object content)
+        {
+            return Pattern.Surround(AsciiChar.QuoteMark, content);
+        }
+
+        public static Pattern Parentheses()
+        {
+            return Chars.LeftParenthesis().RightParenthesis();
+        }
+
+        public static Pattern Parentheses(object content)
+        {
+            return Pattern.Surround(AsciiChar.LeftParenthesis, content, AsciiChar.RightParenthesis);
+        }
+
+        public static Pattern CurlyBrackets()
+        {
+            return Chars.LeftCurlyBracket().RightCurlyBracket();
+        }
+
+        public static Pattern CurlyBrackets(object content)
+        {
+            return Pattern.Surround(AsciiChar.LeftCurlyBracket, content, AsciiChar.RightCurlyBracket);
+        }
+
+        public static Pattern SquareBrackets()
+        {
+            return Chars.LeftSquareBracket().RightSquareBracket();
+        }
+
+        public static Pattern SquareBrackets(object content)
+        {
+            return Pattern.Surround(AsciiChar.LeftSquareBracket, content, AsciiChar.RightSquareBracket);
+        }
+
+        public static Pattern LessThanGreaterThan(object content)
+        {
+            return Pattern.Surround(AsciiChar.LessThan, content, AsciiChar.GreaterThan);
+        }
+
+        public static CharSubtraction WhiteSpaceExceptNewLine()
+        {
+            return Chars.WhiteSpace().Except(Chars.NewLineChar());
+        }
+
+        public static QuantifiedGroup WhiteSpaceExceptNewLine(int count)
+        {
+            return new Count(count, WhiteSpaceExceptNewLine());
+        }
+
+        public static QuantifiedGroup WhiteSpaceExceptNewLine(int minCount, int maxCount)
+        {
+            return new Count(minCount, maxCount, WhiteSpaceExceptNewLine());
+        }
+
         public static QuantifiedPattern While(char value)
         {
-            return Chars.Char(value).MaybeMany();
+            return Patterns.Char(value).MaybeMany();
         }
 
         public static QuantifiedPattern While(AsciiChar value)
         {
-            return Chars.Char(value).MaybeMany();
+            return Patterns.Char(value).MaybeMany();
         }
 
         public static QuantifiedPattern While(CharGroupItem item)
         {
-            return Chars.Char(item).MaybeMany();
+            return Patterns.Char(item).MaybeMany();
         }
 
         public static QuantifiedPattern WhileWhiteSpace()
@@ -444,17 +618,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedPattern WhileNot(char value)
         {
-            return Chars.NotChar(value).MaybeMany();
+            return Patterns.NotChar(value).MaybeMany();
         }
 
         public static QuantifiedPattern WhileNot(AsciiChar value)
         {
-            return Chars.NotChar(value).MaybeMany();
+            return Patterns.NotChar(value).MaybeMany();
         }
 
         public static QuantifiedPattern WhileNot(CharGroupItem item)
         {
-            return Chars.NotChar(item).MaybeMany();
+            return Patterns.NotChar(item).MaybeMany();
         }
 
         public static QuantifiedPattern WhileNotNewLine()
@@ -465,18 +639,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 #if DEBUG
         public static QuantifiablePattern GoTo(char value)
         {
-            return Chars.NotChar(value).MaybeMany().Char(value).AsNoncapturing();
+            return Patterns.NotChar(value).MaybeMany().Char(value).AsNoncapturing();
         }
 
         public static QuantifiablePattern GoTo(AsciiChar value)
         {
-            return Chars.NotChar(value).MaybeMany().Char(value).AsNoncapturing();
+            return Patterns.NotChar(value).MaybeMany().Char(value).AsNoncapturing();
         }
 #endif
 
         public static Pattern Crawl()
         {
-            return Chars.Any().MaybeMany().Lazy();
+            return Patterns.Any().MaybeMany().Lazy();
         }
 
         public static Pattern CrawlInvariant()
@@ -501,7 +675,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static Pattern TrailingWhiteSpace()
         {
-            return Chars.WhiteSpaceExceptNewLine().OneMany().EndOfLineOrBeforeCarriageReturn();
+            return Patterns.WhiteSpaceExceptNewLine().OneMany().EndOfLineOrBeforeCarriageReturn();
         }
 
         public static QuantifiablePattern LeadingTrailingWhiteSpace()
@@ -529,7 +703,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static Pattern ValidGroupName()
         {
             return Patterns.EntireInput(
-                new CapturingGroup(Chars.Range('1', '9').ArabicDigit().MaybeMany()) |
+                new CapturingGroup(Patterns.Range('1', '9').ArabicDigit().MaybeMany()) |
                 Chars.WordChar().Except(Chars.ArabicDigit()).WordChar().MaybeMany());
         }
 

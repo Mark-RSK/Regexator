@@ -10,7 +10,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         private readonly object _content;
 
         public Word()
-            : this(Chars.WordChars())
+            : this(Patterns.WordChars())
         {
         }
 

@@ -5,7 +5,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     public sealed class EndOfLineOrBeforeCarriageReturnInvariant
         : Pattern
     {
-        private static readonly Pattern _pattern = new NotAssertBack(Chars.CarriageReturn()) + new Assert(Chars.CarriageReturn().Maybe().EndOfLineInvariant());
+        private static readonly Pattern _pattern = new NoncapturingGroup(
+            new NotAssertBack(Chars.CarriageReturn()) + 
+            new Assert(Chars.CarriageReturn().Maybe().EndOfLineInvariant()));
 
         internal override void WriteTo(PatternWriter writer)
         {

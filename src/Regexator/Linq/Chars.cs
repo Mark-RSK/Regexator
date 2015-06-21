@@ -4,106 +4,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public static class Chars
     {
-        public static CharacterPattern Char(char value)
-        {
-            return new CharPattern(value);
-        }
-
-        public static CharacterPattern Char(int charCode)
-        {
-            return new CharCodePattern(charCode);
-        }
-
-        public static CharacterPattern Char(AsciiChar value)
-        {
-            return new AsciiCharPattern(value);
-        }
-
-        public static CharacterPattern Char(NamedBlock block)
-        {
-            return new NamedBlockPattern(block);
-        }
-
-        public static CharacterPattern Char(GeneralCategory category)
-        {
-            return new GeneralCategoryPattern(category);
-        }
-
-        public static CharGroup Char(string characters)
-        {
-            return new CharactersGroup(characters);
-        }
-
-        public static CharGroup Char(CharGroupItem item)
-        {
-            return new CharGroupItemGroup(item);
-        }
-
-        public static CharGroup NotChar(char value)
-        {
-            return new CharacterGroup(value, true);
-        }
-
-        public static CharGroup NotChar(int charCode)
-        {
-            return new CharCodeGroup(charCode, true);
-        }
-
-        public static CharGroup NotChar(AsciiChar value)
-        {
-            return new AsciiCharGroup(value, true);
-        }
-
-        public static CharacterPattern NotChar(NamedBlock block)
-        {
-            return new NotNamedBlockPattern(block);
-        }
-
-        public static CharacterPattern NotChar(GeneralCategory category)
-        {
-            return new NotGeneralCategoryPattern(category);
-        }
-
-        public static CharGroup NotChar(string characters)
-        {
-            return new CharactersGroup(characters, true);
-        }
-
-        public static CharGroup NotChar(CharGroupItem item)
-        {
-            return new CharGroupItemGroup(item, true);
-        }
-
-        public static CharGroup Range(char first, char last)
-        {
-            return new CharRangeGroup(first, last);
-        }
-
-        public static CharGroup Range(int firstCharCode, int lastCharCode)  
-        {
-            return new CharCodeRangeGroup(firstCharCode, lastCharCode);
-        }
-
-        public static CharGroup NotRange(char first, char last)
-        {
-            return new CharRangeGroup(first, last, true);
-        }
-
-        public static CharGroup NotRange(int firstCharCode, int lastCharCode)
-        {
-            return new CharCodeRangeGroup(firstCharCode, lastCharCode, true);
-        }
-
-        public static CharSubtraction Subtract(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
-        {
-            return new CharSubtraction(baseGroup, excludedGroup);
-        }
-
-        public static CharSubtraction NotSubtract(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
-        {
-            return new NotCharSubtraction(baseGroup, excludedGroup);
-        }
-
         public static QuantifiablePattern Any()
         {
             return new AnyChar();
@@ -121,7 +21,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharGroup AnyInvariant()
         {
-            return Char(CharGroupItems.WhiteSpace().NotWhiteSpace());
+            return Patterns.Char(CharGroupItems.WhiteSpace().NotWhiteSpace());
         }
 
         public static QuantifiedGroup AnyInvariant(int count)
@@ -149,11 +49,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new Count(minCount, maxCount, Digit());
         }
 
-        public static QuantifiedGroup Digits()
-        {
-            return new OneMany(Digit());
-        }
-
         public static CharacterPattern NotDigit()
         {
             return new NotDigit();
@@ -167,11 +62,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotDigit(int minCount, int maxCount)
         {
             return new Count(minCount, maxCount, NotDigit());
-        }
-
-        public static QuantifiedGroup NotDigits()
-        {
-            return new OneMany(NotDigit());
         }
 
         public static CharacterPattern WhiteSpace()
@@ -189,11 +79,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new Count(minCount, maxCount, WhiteSpace());
         }
 
-        public static QuantifiedGroup WhiteSpaces()
-        {
-            return new OneMany(WhiteSpace());
-        }
-
         public static CharacterPattern NotWhiteSpace()
         {
             return new NotWhiteSpace();
@@ -207,11 +92,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotWhiteSpace(int minCount, int maxCount)
         {
             return new Count(minCount, maxCount, NotWhiteSpace());
-        }
-
-        public static QuantifiedGroup NotWhiteSpaces()
-        {
-            return new OneMany(NotWhiteSpace());
         }
 
         public static CharacterPattern WordChar()
@@ -229,11 +109,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new Count(minCount, maxCount, WordChar());
         }
 
-        public static QuantifiedGroup WordChars()
-        {
-            return new OneMany(WordChar());
-        }
-
         public static CharacterPattern NotWordChar()
         {
             return new NotWordChar();
@@ -249,14 +124,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new Count(minCount, maxCount, NotWordChar());
         }
 
-        public static QuantifiedGroup NotWordChars()
-        {
-            return new OneMany(NotWordChar());
-        }
-
         public static CharacterPattern Tab()
         {
-            return Char(AsciiChar.Tab);
+            return Patterns.Char(AsciiChar.Tab);
         }
 
         public static QuantifiedGroup Tab(int exactCount)
@@ -271,7 +141,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern NotTab()
         {
-            return NotChar(AsciiChar.Tab);
+            return Patterns.NotChar(AsciiChar.Tab);
         }
 
         public static QuantifiedGroup NotTab(int exactCount)
@@ -286,7 +156,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern Linefeed()
         {
-            return Char(AsciiChar.Linefeed);
+            return Patterns.Char(AsciiChar.Linefeed);
         }
 
         public static QuantifiedGroup Linefeed(int exactCount)
@@ -301,7 +171,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern NotLinefeed()
         {
-            return NotChar(AsciiChar.Linefeed);
+            return Patterns.NotChar(AsciiChar.Linefeed);
         }
 
         public static QuantifiedGroup NotLinefeed(int exactCount)
@@ -316,7 +186,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern CarriageReturn()
         {
-            return Char(AsciiChar.CarriageReturn);
+            return Patterns.Char(AsciiChar.CarriageReturn);
         }
 
         public static QuantifiedGroup CarriageReturn(int exactCount)
@@ -331,7 +201,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern NotCarriageReturn()
         {
-            return NotChar(AsciiChar.CarriageReturn);
+            return Patterns.NotChar(AsciiChar.CarriageReturn);
         }
 
         public static QuantifiedGroup NotCarriageReturn(int exactCount)
@@ -346,7 +216,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern Space()
         {
-            return Char(AsciiChar.Space);
+            return Patterns.Char(AsciiChar.Space);
         }
 
         public static QuantifiedGroup Space(int exactCount)
@@ -361,7 +231,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern NotSpace()
         {
-            return NotChar(AsciiChar.Space);
+            return Patterns.NotChar(AsciiChar.Space);
         }
 
         public static QuantifiedGroup NotSpace(int exactCount)
@@ -376,7 +246,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern ExclamationMark()
         {
-            return Char(AsciiChar.ExclamationMark);
+            return Patterns.Char(AsciiChar.ExclamationMark);
         }
 
         public static QuantifiedGroup ExclamationMark(int exactCount)
@@ -391,7 +261,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern NotExclamationMark()
         {
-            return NotChar(AsciiChar.ExclamationMark);
+            return Patterns.NotChar(AsciiChar.ExclamationMark);
         }
 
         public static QuantifiedGroup NotExclamationMark(int exactCount)
@@ -406,7 +276,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern QuoteMark()
         {
-            return Char(AsciiChar.QuoteMark);
+            return Patterns.Char(AsciiChar.QuoteMark);
         }
 
         public static QuantifiedGroup QuoteMark(int exactCount)
@@ -421,7 +291,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern NotQuoteMark()
         {
-            return NotChar(AsciiChar.QuoteMark);
+            return Patterns.NotChar(AsciiChar.QuoteMark);
         }
 
         public static QuantifiedGroup NotQuoteMark(int exactCount)
@@ -436,7 +306,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern NumberSign()
         {
-            return Char(AsciiChar.NumberSign);
+            return Patterns.Char(AsciiChar.NumberSign);
         }
 
         public static QuantifiedGroup NumberSign(int exactCount)
@@ -451,7 +321,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern NotNumberSign()
         {
-            return NotChar(AsciiChar.NumberSign);
+            return Patterns.NotChar(AsciiChar.NumberSign);
         }
 
         public static QuantifiedGroup NotNumberSign(int exactCount)
@@ -466,7 +336,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern Dollar()
         {
-            return Char(AsciiChar.Dollar);
+            return Patterns.Char(AsciiChar.Dollar);
         }
 
         public static QuantifiedGroup Dollar(int exactCount)
@@ -481,7 +351,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern NotDollar()
         {
-            return NotChar(AsciiChar.Dollar);
+            return Patterns.NotChar(AsciiChar.Dollar);
         }
 
         public static QuantifiedGroup NotDollar(int exactCount)
@@ -496,7 +366,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern Percent()
         {
-            return Char(AsciiChar.Percent);
+            return Patterns.Char(AsciiChar.Percent);
         }
 
         public static QuantifiedGroup Percent(int exactCount)
@@ -511,7 +381,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern NotPercent()
         {
-            return NotChar(AsciiChar.Percent);
+            return Patterns.NotChar(AsciiChar.Percent);
         }
 
         public static QuantifiedGroup NotPercent(int exactCount)
@@ -526,7 +396,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern Ampersand()
         {
-            return Char(AsciiChar.Ampersand);
+            return Patterns.Char(AsciiChar.Ampersand);
         }
 
         public static QuantifiedGroup Ampersand(int exactCount)
@@ -541,7 +411,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern NotAmpersand()
         {
-            return NotChar(AsciiChar.Ampersand);
+            return Patterns.NotChar(AsciiChar.Ampersand);
         }
 
         public static QuantifiedGroup NotAmpersand(int exactCount)
@@ -556,7 +426,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern Apostrophe()
         {
-            return Char(AsciiChar.Apostrophe);
+            return Patterns.Char(AsciiChar.Apostrophe);
         }
 
         public static QuantifiedGroup Apostrophe(int exactCount)
@@ -571,7 +441,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern NotApostrophe()
         {
-            return NotChar(AsciiChar.Apostrophe);
+            return Patterns.NotChar(AsciiChar.Apostrophe);
         }
 
         public static QuantifiedGroup NotApostrophe(int exactCount)
@@ -586,7 +456,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern LeftParenthesis()
         {
-            return Char(AsciiChar.LeftParenthesis);
+            return Patterns.Char(AsciiChar.LeftParenthesis);
         }
 
         public static QuantifiedGroup LeftParenthesis(int exactCount)
@@ -601,7 +471,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern NotLeftParenthesis()
         {
-            return NotChar(AsciiChar.LeftParenthesis);
+            return Patterns.NotChar(AsciiChar.LeftParenthesis);
         }
 
         public static QuantifiedGroup NotLeftParenthesis(int exactCount)
@@ -616,7 +486,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern RightParenthesis()
         {
-            return Char(AsciiChar.RightParenthesis);
+            return Patterns.Char(AsciiChar.RightParenthesis);
         }
 
         public static QuantifiedGroup RightParenthesis(int exactCount)
@@ -631,7 +501,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern NotRightParenthesis()
         {
-            return NotChar(AsciiChar.RightParenthesis);
+            return Patterns.NotChar(AsciiChar.RightParenthesis);
         }
 
         public static QuantifiedGroup NotRightParenthesis(int exactCount)
@@ -646,7 +516,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern Asterisk()
         {
-            return Char(AsciiChar.Asterisk);
+            return Patterns.Char(AsciiChar.Asterisk);
         }
 
         public static QuantifiedGroup Asterisk(int exactCount)
@@ -661,7 +531,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern NotAsterisk()
         {
-            return NotChar(AsciiChar.Asterisk);
+            return Patterns.NotChar(AsciiChar.Asterisk);
         }
 
         public static QuantifiedGroup NotAsterisk(int exactCount)
@@ -676,7 +546,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern Plus()
         {
-            return Char(AsciiChar.Plus);
+            return Patterns.Char(AsciiChar.Plus);
         }
 
         public static QuantifiedGroup Plus(int exactCount)
@@ -691,7 +561,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern NotPlus()
         {
-            return NotChar(AsciiChar.Plus);
+            return Patterns.NotChar(AsciiChar.Plus);
         }
 
         public static QuantifiedGroup NotPlus(int exactCount)
@@ -706,7 +576,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern Comma()
         {
-            return Char(AsciiChar.Comma);
+            return Patterns.Char(AsciiChar.Comma);
         }
 
         public static QuantifiedGroup Comma(int exactCount)
@@ -721,7 +591,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern NotComma()
         {
-            return NotChar(AsciiChar.Comma);
+            return Patterns.NotChar(AsciiChar.Comma);
         }
 
         public static QuantifiedGroup NotComma(int exactCount)
@@ -736,7 +606,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern Hyphen()
         {
-            return Char(AsciiChar.Hyphen);
+            return Patterns.Char(AsciiChar.Hyphen);
         }
 
         public static QuantifiedGroup Hyphen(int exactCount)
@@ -751,7 +621,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern NotHyphen()
         {
-            return NotChar(AsciiChar.Hyphen);
+            return Patterns.NotChar(AsciiChar.Hyphen);
         }
 
         public static QuantifiedGroup NotHyphen(int exactCount)
@@ -766,7 +636,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern Period()
         {
-            return Char(AsciiChar.Period);
+            return Patterns.Char(AsciiChar.Period);
         }
 
         public static QuantifiedGroup Period(int exactCount)
@@ -781,7 +651,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern NotPeriod()
         {
-            return NotChar(AsciiChar.Period);
+            return Patterns.NotChar(AsciiChar.Period);
         }
 
         public static QuantifiedGroup NotPeriod(int exactCount)
@@ -796,7 +666,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern Slash()
         {
-            return Char(AsciiChar.Slash);
+            return Patterns.Char(AsciiChar.Slash);
         }
 
         public static QuantifiedGroup Slash(int exactCount)
@@ -811,7 +681,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern NotSlash()
         {
-            return NotChar(AsciiChar.Slash);
+            return Patterns.NotChar(AsciiChar.Slash);
         }
 
         public static QuantifiedGroup NotSlash(int exactCount)
@@ -826,7 +696,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern Colon()
         {
-            return Char(AsciiChar.Colon);
+            return Patterns.Char(AsciiChar.Colon);
         }
 
         public static QuantifiedGroup Colon(int exactCount)
@@ -841,7 +711,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern NotColon()
         {
-            return NotChar(AsciiChar.Colon);
+            return Patterns.NotChar(AsciiChar.Colon);
         }
 
         public static QuantifiedGroup NotColon(int exactCount)
@@ -856,7 +726,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern Semicolon()
         {
-            return Char(AsciiChar.Semicolon);
+            return Patterns.Char(AsciiChar.Semicolon);
         }
 
         public static QuantifiedGroup Semicolon(int exactCount)
@@ -871,7 +741,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern NotSemicolon()
         {
-            return NotChar(AsciiChar.Semicolon);
+            return Patterns.NotChar(AsciiChar.Semicolon);
         }
 
         public static QuantifiedGroup NotSemicolon(int exactCount)
@@ -886,7 +756,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern LessThan()
         {
-            return Char(AsciiChar.LessThan);
+            return Patterns.Char(AsciiChar.LessThan);
         }
 
         public static QuantifiedGroup LessThan(int exactCount)
@@ -901,7 +771,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern NotLessThan()
         {
-            return NotChar(AsciiChar.LessThan);
+            return Patterns.NotChar(AsciiChar.LessThan);
         }
 
         public static QuantifiedGroup NotLessThan(int exactCount)
@@ -916,7 +786,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern EqualsSign()
         {
-            return Char(AsciiChar.EqualsSign);
+            return Patterns.Char(AsciiChar.EqualsSign);
         }
 
         public static QuantifiedGroup EqualsSign(int exactCount)
@@ -931,7 +801,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern NotEqualsSign()
         {
-            return NotChar(AsciiChar.EqualsSign);
+            return Patterns.NotChar(AsciiChar.EqualsSign);
         }
 
         public static QuantifiedGroup NotEqualsSign(int exactCount)
@@ -946,7 +816,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern GreaterThan()
         {
-            return Char(AsciiChar.GreaterThan);
+            return Patterns.Char(AsciiChar.GreaterThan);
         }
 
         public static QuantifiedGroup GreaterThan(int exactCount)
@@ -961,7 +831,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern NotGreaterThan()
         {
-            return NotChar(AsciiChar.GreaterThan);
+            return Patterns.NotChar(AsciiChar.GreaterThan);
         }
 
         public static QuantifiedGroup NotGreaterThan(int exactCount)
@@ -976,7 +846,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern QuestionMark()
         {
-            return Char(AsciiChar.QuestionMark);
+            return Patterns.Char(AsciiChar.QuestionMark);
         }
 
         public static QuantifiedGroup QuestionMark(int exactCount)
@@ -991,7 +861,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern NotQuestionMark()
         {
-            return NotChar(AsciiChar.QuestionMark);
+            return Patterns.NotChar(AsciiChar.QuestionMark);
         }
 
         public static QuantifiedGroup NotQuestionMark(int exactCount)
@@ -1006,7 +876,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern At()
         {
-            return Char(AsciiChar.At);
+            return Patterns.Char(AsciiChar.At);
         }
 
         public static QuantifiedGroup At(int exactCount)
@@ -1021,7 +891,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern NotAt()
         {
-            return NotChar(AsciiChar.At);
+            return Patterns.NotChar(AsciiChar.At);
         }
 
         public static QuantifiedGroup NotAt(int exactCount)
@@ -1036,7 +906,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern LeftSquareBracket()
         {
-            return Char(AsciiChar.LeftSquareBracket);
+            return Patterns.Char(AsciiChar.LeftSquareBracket);
         }
 
         public static QuantifiedGroup LeftSquareBracket(int exactCount)
@@ -1051,7 +921,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern NotLeftSquareBracket()
         {
-            return NotChar(AsciiChar.LeftSquareBracket);
+            return Patterns.NotChar(AsciiChar.LeftSquareBracket);
         }
 
         public static QuantifiedGroup NotLeftSquareBracket(int exactCount)
@@ -1066,7 +936,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern Backslash()
         {
-            return Char(AsciiChar.Backslash);
+            return Patterns.Char(AsciiChar.Backslash);
         }
 
         public static QuantifiedGroup Backslash(int exactCount)
@@ -1081,7 +951,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern NotBackslash()
         {
-            return NotChar(AsciiChar.Backslash);
+            return Patterns.NotChar(AsciiChar.Backslash);
         }
 
         public static QuantifiedGroup NotBackslash(int exactCount)
@@ -1096,7 +966,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern RightSquareBracket()
         {
-            return Char(AsciiChar.RightSquareBracket);
+            return Patterns.Char(AsciiChar.RightSquareBracket);
         }
 
         public static QuantifiedGroup RightSquareBracket(int exactCount)
@@ -1111,7 +981,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern NotRightSquareBracket()
         {
-            return NotChar(AsciiChar.RightSquareBracket);
+            return Patterns.NotChar(AsciiChar.RightSquareBracket);
         }
 
         public static QuantifiedGroup NotRightSquareBracket(int exactCount)
@@ -1126,7 +996,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern CircumflexAccent()
         {
-            return Char(AsciiChar.CircumflexAccent);
+            return Patterns.Char(AsciiChar.CircumflexAccent);
         }
 
         public static QuantifiedGroup CircumflexAccent(int exactCount)
@@ -1141,7 +1011,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern NotCircumflexAccent()
         {
-            return NotChar(AsciiChar.CircumflexAccent);
+            return Patterns.NotChar(AsciiChar.CircumflexAccent);
         }
 
         public static QuantifiedGroup NotCircumflexAccent(int exactCount)
@@ -1156,7 +1026,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern Underscore()
         {
-            return Char(AsciiChar.Underscore);
+            return Patterns.Char(AsciiChar.Underscore);
         }
 
         public static QuantifiedGroup Underscore(int exactCount)
@@ -1171,7 +1041,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern NotUnderscore()
         {
-            return NotChar(AsciiChar.Underscore);
+            return Patterns.NotChar(AsciiChar.Underscore);
         }
 
         public static QuantifiedGroup NotUnderscore(int exactCount)
@@ -1186,7 +1056,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern GraveAccent()
         {
-            return Char(AsciiChar.GraveAccent);
+            return Patterns.Char(AsciiChar.GraveAccent);
         }
 
         public static QuantifiedGroup GraveAccent(int exactCount)
@@ -1201,7 +1071,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern NotGraveAccent()
         {
-            return NotChar(AsciiChar.GraveAccent);
+            return Patterns.NotChar(AsciiChar.GraveAccent);
         }
 
         public static QuantifiedGroup NotGraveAccent(int exactCount)
@@ -1216,7 +1086,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern LeftCurlyBracket()
         {
-            return Char(AsciiChar.LeftCurlyBracket);
+            return Patterns.Char(AsciiChar.LeftCurlyBracket);
         }
 
         public static QuantifiedGroup LeftCurlyBracket(int exactCount)
@@ -1231,7 +1101,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern NotLeftCurlyBracket()
         {
-            return NotChar(AsciiChar.LeftCurlyBracket);
+            return Patterns.NotChar(AsciiChar.LeftCurlyBracket);
         }
 
         public static QuantifiedGroup NotLeftCurlyBracket(int exactCount)
@@ -1246,7 +1116,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern VerticalLine()
         {
-            return Char(AsciiChar.VerticalLine);
+            return Patterns.Char(AsciiChar.VerticalLine);
         }
 
         public static QuantifiedGroup VerticalLine(int exactCount)
@@ -1261,7 +1131,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern NotVerticalLine()
         {
-            return NotChar(AsciiChar.VerticalLine);
+            return Patterns.NotChar(AsciiChar.VerticalLine);
         }
 
         public static QuantifiedGroup NotVerticalLine(int exactCount)
@@ -1276,7 +1146,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern RightCurlyBracket()
         {
-            return Char(AsciiChar.RightCurlyBracket);
+            return Patterns.Char(AsciiChar.RightCurlyBracket);
         }
 
         public static QuantifiedGroup RightCurlyBracket(int exactCount)
@@ -1291,7 +1161,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern NotRightCurlyBracket()
         {
-            return NotChar(AsciiChar.RightCurlyBracket);
+            return Patterns.NotChar(AsciiChar.RightCurlyBracket);
         }
 
         public static QuantifiedGroup NotRightCurlyBracket(int exactCount)
@@ -1306,7 +1176,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern Tilde()
         {
-            return Char(AsciiChar.Tilde);
+            return Patterns.Char(AsciiChar.Tilde);
         }
 
         public static QuantifiedGroup Tilde(int exactCount)
@@ -1321,7 +1191,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern NotTilde()
         {
-            return NotChar(AsciiChar.Tilde);
+            return Patterns.NotChar(AsciiChar.Tilde);
         }
 
         public static QuantifiedGroup NotTilde(int exactCount)
@@ -1336,7 +1206,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharGroup NewLineChar()
         {
-            return Char(CharGroupItems.CarriageReturn().Linefeed());
+            return Patterns.Char(CharGroupItems.CarriageReturn().Linefeed());
         }
 
         public static QuantifiedGroup NewLineChar(int count)
@@ -1351,7 +1221,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharGroup NotNewLineChar()
         {
-            return NotChar(CharGroupItems.CarriageReturn().Linefeed());
+            return Patterns.NotChar(CharGroupItems.CarriageReturn().Linefeed());
         }
 
         public static QuantifiedGroup NotNewLineChar(int count)
@@ -1366,7 +1236,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharGroup Alphanumeric()
         {
-            return Char(CharGroupItems.Alphanumeric());
+            return Patterns.Char(CharGroupItems.Alphanumeric());
         }
 
         public static QuantifiedGroup Alphanumeric(int count)
@@ -1381,7 +1251,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharGroup NotAlphanumeric()
         {
-            return NotChar(CharGroupItems.Alphanumeric());
+            return Patterns.NotChar(CharGroupItems.Alphanumeric());
         }
 
         public static QuantifiedGroup NotAlphanumeric(int count)
@@ -1396,7 +1266,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharGroup AlphanumericLower()
         {
-            return Char(CharGroupItems.AlphanumericLower());
+            return Patterns.Char(CharGroupItems.AlphanumericLower());
         }
 
         public static QuantifiedGroup AlphanumericLower(int count)
@@ -1411,7 +1281,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharGroup NotAlphanumericLower()
         {
-            return NotChar(CharGroupItems.AlphanumericLower());
+            return Patterns.NotChar(CharGroupItems.AlphanumericLower());
         }
 
         public static QuantifiedGroup NotAlphanumericLower(int count)
@@ -1426,7 +1296,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharGroup AlphanumericUpper()
         {
-            return Char(CharGroupItems.AlphanumericUpper());
+            return Patterns.Char(CharGroupItems.AlphanumericUpper());
         }
 
         public static QuantifiedGroup AlphanumericUpper(int count)
@@ -1441,7 +1311,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharGroup NotAlphanumericUpper()
         {
-            return NotChar(CharGroupItems.AlphanumericUpper());
+            return Patterns.NotChar(CharGroupItems.AlphanumericUpper());
         }
 
         public static QuantifiedGroup NotAlphanumericUpper(int count)
@@ -1456,7 +1326,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharGroup AlphanumericUnderscore()
         {
-            return Char(CharGroupItems.AlphanumericUnderscore());
+            return Patterns.Char(CharGroupItems.AlphanumericUnderscore());
         }
 
         public static QuantifiedGroup AlphanumericUnderscore(int count)
@@ -1471,7 +1341,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharGroup NotAlphanumericUnderscore()
         {
-            return NotChar(CharGroupItems.AlphanumericUnderscore());
+            return Patterns.NotChar(CharGroupItems.AlphanumericUnderscore());
         }
 
         public static QuantifiedGroup NotAlphanumericUnderscore(int count)
@@ -1486,7 +1356,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharGroup LatinLetter()
         {
-            return Char(CharGroupItems.LatinLetter());
+            return Patterns.Char(CharGroupItems.LatinLetter());
         }
 
         public static QuantifiedGroup LatinLetter(int count)
@@ -1501,7 +1371,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharGroup LatinLetterLower()
         {
-            return Char(CharGroupItems.LatinLetterLower());
+            return Patterns.Char(CharGroupItems.LatinLetterLower());
         }
 
         public static QuantifiedGroup LatinLetterLower(int count)
@@ -1516,7 +1386,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharGroup LatinLetterUpper()
         {
-            return Char(CharGroupItems.LatinLetterUpper());
+            return Patterns.Char(CharGroupItems.LatinLetterUpper());
         }
 
         public static QuantifiedGroup LatinLetterUpper(int count)
@@ -1531,7 +1401,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharGroup NotLatinLetter()
         {
-            return NotChar(CharGroupItems.LatinLetter());
+            return Patterns.NotChar(CharGroupItems.LatinLetter());
         }
 
         public static QuantifiedGroup NotLatinLetter(int count)
@@ -1546,7 +1416,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharGroup NotLatinLetterLower()
         {
-            return NotChar(CharGroupItems.LatinLetterLower());
+            return Patterns.NotChar(CharGroupItems.LatinLetterLower());
         }
 
         public static QuantifiedGroup NotLatinLetterLower(int count)
@@ -1561,7 +1431,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharGroup NotLatinLetterUpper()
         {
-            return NotChar(CharGroupItems.LatinLetterUpper());
+            return Patterns.NotChar(CharGroupItems.LatinLetterUpper());
         }
 
         public static QuantifiedGroup NotLatinLetterUpper(int count)
@@ -1576,7 +1446,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharGroup ArabicDigit()
         {
-            return Char(CharGroupItems.ArabicDigit());
+            return Patterns.Char(CharGroupItems.ArabicDigit());
         }
 
         public static QuantifiedGroup ArabicDigit(int count)
@@ -1591,7 +1461,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharGroup NotArabicDigit()
         {
-            return NotChar(CharGroupItems.ArabicDigit());
+            return Patterns.NotChar(CharGroupItems.ArabicDigit());
         }
 
         public static QuantifiedGroup NotArabicDigit(int count)
@@ -1606,7 +1476,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharGroup HexadecimalDigit()
         {
-            return Char(CharGroupItems.HexadecimalDigit());
+            return Patterns.Char(CharGroupItems.HexadecimalDigit());
         }
 
         public static QuantifiedGroup HexadecimalDigit(int count)
@@ -1621,7 +1491,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharGroup NotHexadecimalDigit()
         {
-            return NotChar(CharGroupItems.HexadecimalDigit());
+            return Patterns.NotChar(CharGroupItems.HexadecimalDigit());
         }
 
         public static QuantifiedGroup NotHexadecimalDigit(int count)
@@ -1636,7 +1506,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharGroup Parenthesis()
         {
-            return Char(CharGroupItems.Parenthesis());
+            return Patterns.Char(CharGroupItems.Parenthesis());
         }
 
         public static QuantifiedGroup Parenthesis(int count)
@@ -1651,7 +1521,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharGroup NotParenthesis()
         {
-            return NotChar(CharGroupItems.Parenthesis());
+            return Patterns.NotChar(CharGroupItems.Parenthesis());
         }
 
         public static QuantifiedGroup NotParenthesis(int count)
@@ -1666,7 +1536,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharGroup CurlyBracket()
         {
-            return Char(CharGroupItems.CurlyBracket());
+            return Patterns.Char(CharGroupItems.CurlyBracket());
         }
 
         public static QuantifiedGroup CurlyBracket(int count)
@@ -1681,7 +1551,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharGroup NotCurlyBracket()
         {
-            return NotChar(CharGroupItems.CurlyBracket());
+            return Patterns.NotChar(CharGroupItems.CurlyBracket());
         }
 
         public static QuantifiedGroup NotCurlyBracket(int count)
@@ -1696,7 +1566,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharGroup SquareBracket()
         {
-            return Char(CharGroupItems.SquareBracket());
+            return Patterns.Char(CharGroupItems.SquareBracket());
         }
 
         public static QuantifiedGroup SquareBracket(int count)
@@ -1711,7 +1581,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharGroup NotSquareBracket()
         {
-            return NotChar(CharGroupItems.SquareBracket());
+            return Patterns.NotChar(CharGroupItems.SquareBracket());
         }
 
         public static QuantifiedGroup NotSquareBracket(int count)
@@ -1722,61 +1592,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotSquareBracket(int minCount, int maxCount)
         {
             return new Count(minCount, maxCount, NotSquareBracket());
-        }
-
-        public static Pattern Apostrophes()
-        {
-            return Chars.Apostrophe().Apostrophe();
-        }
-
-        public static Pattern Apostrophes(object content)
-        {
-            return Pattern.Surround(AsciiChar.Apostrophe, content);
-        }
-
-        public static Pattern QuoteMarks()
-        {
-            return Chars.QuoteMark().QuoteMark();
-        }
-
-        public static Pattern QuoteMarks(object content)
-        {
-            return Pattern.Surround(AsciiChar.QuoteMark, content);
-        }
-
-        public static Pattern Parentheses()
-        {
-            return Chars.LeftParenthesis().RightParenthesis();
-        }
-
-        public static Pattern Parentheses(object content)
-        {
-            return Pattern.Surround(AsciiChar.LeftParenthesis, content, AsciiChar.RightParenthesis);
-        }
-
-        public static Pattern CurlyBrackets()
-        {
-            return Chars.LeftCurlyBracket().RightCurlyBracket();
-        }
-
-        public static Pattern CurlyBrackets(object content)
-        {
-            return Pattern.Surround(AsciiChar.LeftCurlyBracket, content, AsciiChar.RightCurlyBracket);
-        }
-
-        public static Pattern SquareBrackets()
-        {
-            return Chars.LeftSquareBracket().RightSquareBracket();
-        }
-
-        public static Pattern SquareBrackets(object content)
-        {
-            return Pattern.Surround(AsciiChar.LeftSquareBracket, content, AsciiChar.RightSquareBracket);
-        }
-
-        public static Pattern LessThanGreaterThan(object content)
-        {
-            return Pattern.Surround(AsciiChar.LessThan, content, AsciiChar.GreaterThan);
         }
 
         public static CharSubtraction WhiteSpaceExceptNewLine()

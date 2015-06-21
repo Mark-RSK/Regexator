@@ -27,10 +27,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("");
 
             Console.WriteLine("cdata value");
-            Console.WriteLine(Chars
+            Console.WriteLine(Patterns
                 .LessThanGreaterThan(
-                    "!" + Chars.SquareBrackets(
-                        "CDATA" + Chars.SquareBrackets(
+                    "!" + Patterns.SquareBrackets(
+                        "CDATA" + Patterns.SquareBrackets(
                             Patterns.CrawlInvariant().AsGroup()
                         )
                     )
@@ -61,16 +61,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 .GroupReference(3));
             Console.WriteLine("");
 
-            var quotedChar = Chars.NotChar(CharGroupItems.QuoteMark().NewLineChar()).MaybeMany();
+            var quotedChar = Patterns.NotChar(CharGroupItems.QuoteMark().NewLineChar()).MaybeMany();
 
             Console.WriteLine("quoted text");
-            Console.WriteLine(Chars.QuoteMarks(
+            Console.WriteLine(Patterns.QuoteMarks(
                 quotedChar
                 .MaybeMany(Chars.QuoteMark(2) + quotedChar)));
             Console.WriteLine("");
 
             Console.WriteLine("digits inside b element value");
-            Console.WriteLine(Chars
+            Console.WriteLine(Patterns
                 .Digits()
                 .Assert(
                     new MaybeMany(new NotAssert("<b>").Any())
@@ -100,13 +100,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("");
 
             Console.WriteLine("trailing whitespace:");
-            Console.WriteLine(Chars.WhiteSpaceExceptNewLine().OneMany().EndOfLineOrBeforeCarriageReturn());
+            Console.WriteLine(Patterns.WhiteSpaceExceptNewLine().OneMany().EndOfLineOrBeforeCarriageReturn());
             Console.WriteLine("");
 
             Console.WriteLine("leading trailing whitespace:");
             Console.WriteLine(new AnyGroup(
                 new StartOfLine().WhiteSpaceExceptNewLine().OneMany(),
-                Chars.WhiteSpaceExceptNewLine().OneMany().EndOfLineOrBeforeCarriageReturn()));
+                Patterns.WhiteSpaceExceptNewLine().OneMany().EndOfLineOrBeforeCarriageReturn()));
             Console.WriteLine("");
 
             Console.WriteLine("whitespace lines:");
@@ -133,7 +133,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("");
 
             Console.WriteLine("invalid file name chars:");
-            var chars = Path.GetInvalidFileNameChars().OrderBy(f => (int)f).Select(f => Chars.Char(f));
+            var chars = Path.GetInvalidFileNameChars().OrderBy(f => (int)f).Select(f => Patterns.Char(f));
             Console.WriteLine(new AnyGroup(chars).AsNonbacktracking());
             Console.WriteLine("");
 
