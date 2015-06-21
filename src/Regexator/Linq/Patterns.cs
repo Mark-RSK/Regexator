@@ -31,12 +31,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new IfGroup(groupNumber, trueContent, falseContent);
         }
 
-        public static QuantifiablePattern If(Pattern testContent, object trueContent)
+        public static QuantifiablePattern IfAssert(Pattern testContent, object trueContent)
         {
             return new IfAssert(testContent, trueContent);
         }
 
-        public static QuantifiablePattern If(Pattern testContent, object trueContent, object falseContent)
+        public static QuantifiablePattern IfAssert(Pattern testContent, object trueContent, object falseContent)
         {
             return new IfAssert(testContent, trueContent, falseContent);
         }
