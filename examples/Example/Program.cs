@@ -42,7 +42,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("multiple words");
             Console.WriteLine(
                 new WordBoundary()
-                .Count(3, 
+                .Count(3,
                     new AnyGroup(values.Select(f => new CapturingGroup(f)))
                     .WordBoundary()
                     .NotWordChar().MaybeMany().Lazy())

@@ -341,7 +341,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             return new Count(minCount, maxCount, (object)content);
         }
-        
+
         public static QuantifiedGroup CountFrom(int minCount, object content)
         {
             return new CountFrom(minCount, content);

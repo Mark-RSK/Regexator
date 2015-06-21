@@ -2025,7 +2025,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             return ConcatInternal(new Count(minCount, maxCount, content));
         }
-        
+
         public QuantifiedGroup CountFrom(int minCount, object content)
         {
             return ConcatInternal(new CountFrom(minCount, content));

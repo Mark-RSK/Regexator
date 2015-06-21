@@ -13,7 +13,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public AssertSurround(object surroundContent, object content)
             : this(surroundContent, content, surroundContent)
-        { 
+        {
         }
 
         public AssertSurround(object contentBefore, object content, object contentAfter)

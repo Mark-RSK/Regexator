@@ -1009,7 +1009,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             base.Write(exactCount);
             WriteRightCurlyBracket();
         }
-        
+
         internal void WriteCountInternal(int minCount, int maxCount)
         {
             WriteLeftCurlyBracket();
