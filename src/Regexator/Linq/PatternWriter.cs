@@ -2,9 +2,9 @@
 
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
-using System.Linq;
 using System.Text;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
@@ -13,6 +13,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         : StringWriter
     {
         private PatternSettings _settings;
+        private Stack<Pattern> _patterns;
 
         internal PatternWriter()
             : this(new PatternSettings())
@@ -191,10 +192,23 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (pattern.Previous != null)
             {
-                Pattern[] items = pattern.GetPatterns().ToArray();
-                for (int i = (items.Length - 1); i >= 0; i--)
+                if (_patterns == null)
                 {
-                    items[i].WriteTo(this);
+                    _patterns = new Stack<Pattern>();
+                }
+
+                int cnt = _patterns.Count;
+                Pattern item = pattern;
+
+                do
+                {
+                    _patterns.Push(item);
+                    item = item.Previous;
+                } while (item != null);
+
+                while (_patterns.Count > cnt)
+                {
+                    _patterns.Pop().WriteTo(this);
                 }
             }
             else

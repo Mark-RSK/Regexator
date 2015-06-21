@@ -147,16 +147,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        internal IEnumerable<Pattern> GetPatterns()
-        {
-            Pattern item = this;
-            do
-            {
-                yield return item;
-                item = item.Previous;
-            } while (item != null);
-        }
-
         internal static string GetPattern(object content)
         {
             return GetPattern(content, new PatternSettings());
