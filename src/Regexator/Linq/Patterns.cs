@@ -459,8 +459,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern WhiteSpaceLine()
         {
-            return new StartOfLineInvariant().WhiteSpace().MaybeMany().NewLine() |
-                new NewLine().WhiteSpace().MaybeMany().EndOfInput();
+            return new StartOfLineInvariant().WhiteSpaceExceptNewLine().MaybeMany().NewLine() |
+                new NewLine().Assert(new WhiteSpace().MaybeMany().EndOfInput());
         }
 
         public static QuantifiablePattern EmptyLine()
