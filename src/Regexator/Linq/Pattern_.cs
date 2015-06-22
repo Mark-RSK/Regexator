@@ -511,24 +511,24 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Patterns.NotChar(item));
         }
 
-        public QuantifiablePattern Range(char first, char last)
+        public QuantifiablePattern Char(char first, char last)
         {
-            return ConcatInternal(Patterns.Range(first, last));
+            return ConcatInternal(Patterns.Char(first, last));
         }
 
-        public QuantifiablePattern Range(int firstCharCode, int lastCharCode)
+        public QuantifiablePattern Char(int firstCharCode, int lastCharCode)
         {
-            return ConcatInternal(Patterns.Range(firstCharCode, lastCharCode));
+            return ConcatInternal(Patterns.Char(firstCharCode, lastCharCode));
         }
 
-        public QuantifiablePattern NotRange(char first, char last)
+        public QuantifiablePattern NotChar(char first, char last)
         {
-            return ConcatInternal(Patterns.NotRange(first, last));
+            return ConcatInternal(Patterns.NotChar(first, last));
         }
 
-        public QuantifiablePattern NotRange(int firstCharCode, int lastCharCode)
+        public QuantifiablePattern NotChar(int firstCharCode, int lastCharCode)
         {
-            return ConcatInternal(Patterns.NotRange(firstCharCode, lastCharCode));
+            return ConcatInternal(Patterns.NotChar(firstCharCode, lastCharCode));
         }
 
         public QuantifiablePattern Char(IBaseGroup baseGroup, IExcludedGroup excludedGroup)

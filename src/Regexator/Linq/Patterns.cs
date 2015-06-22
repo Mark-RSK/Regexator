@@ -466,22 +466,22 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new CharGroupItemGroup(item, true);
         }
 
-        public static CharGroup Range(char first, char last)
+        public static CharGroup Char(char first, char last)
         {
             return new CharRangeGroup(first, last);
         }
 
-        public static CharGroup Range(int firstCharCode, int lastCharCode)
+        public static CharGroup Char(int firstCharCode, int lastCharCode)
         {
             return new CharCodeRangeGroup(firstCharCode, lastCharCode);
         }
 
-        public static CharGroup NotRange(char first, char last)
+        public static CharGroup NotChar(char first, char last)
         {
             return new CharRangeGroup(first, last, true);
         }
 
-        public static CharGroup NotRange(int firstCharCode, int lastCharCode)
+        public static CharGroup NotChar(int firstCharCode, int lastCharCode)
         {
             return new CharCodeRangeGroup(firstCharCode, lastCharCode, true);
         }
@@ -1218,7 +1218,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         internal static Pattern ValidGroupName()
         {
             return Patterns.EntireInput(
-                new Capturing(Patterns.Range('1', '9').ArabicDigit().MaybeMany()) |
+                new Capturing(Patterns.Char('1', '9').ArabicDigit().MaybeMany()) |
                 WordChar().Except(ArabicDigit()).WordChar().MaybeMany());
         }
 
