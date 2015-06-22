@@ -19,7 +19,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             var exp = left
                 .MaybeMany("." + left)
                 .At()
-                .OneMany(Chars.Alphanumeric() + right + ".")
+                .OneMany(Patterns.Alphanumeric() + right + ".")
                 .Alphanumeric()
                 .Concat(right);
 

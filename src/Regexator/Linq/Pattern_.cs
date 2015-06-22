@@ -543,7 +543,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public QuantifiablePattern WhiteSpaceExceptNewLine()
         {
-            return ConcatInternal(Chars.WhiteSpaceExceptNewLine());
+            return ConcatInternal(Patterns.WhiteSpaceExceptNewLine());
         }
 
         public Pattern While(char value)
@@ -583,82 +583,82 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public CharGroup Alphanumeric()
         {
-            return ConcatInternal(Chars.Alphanumeric());
+            return ConcatInternal(Patterns.Alphanumeric());
         }
 
         public CharGroup NotAlphanumeric()
         {
-            return ConcatInternal(Chars.NotAlphanumeric());
+            return ConcatInternal(Patterns.NotAlphanumeric());
         }
 
         public CharGroup AlphanumericLower()
         {
-            return ConcatInternal(Chars.AlphanumericLower());
+            return ConcatInternal(Patterns.AlphanumericLower());
         }
 
         public CharGroup NotAlphanumericLower()
         {
-            return ConcatInternal(Chars.NotAlphanumericLower());
+            return ConcatInternal(Patterns.NotAlphanumericLower());
         }
 
         public CharGroup AlphanumericUpper()
         {
-            return ConcatInternal(Chars.AlphanumericUpper());
+            return ConcatInternal(Patterns.AlphanumericUpper());
         }
 
         public CharGroup NotAlphanumericUpper()
         {
-            return ConcatInternal(Chars.NotAlphanumericUpper());
+            return ConcatInternal(Patterns.NotAlphanumericUpper());
         }
 
         public CharGroup AlphanumericUnderscore()
         {
-            return ConcatInternal(Chars.AlphanumericUnderscore());
+            return ConcatInternal(Patterns.AlphanumericUnderscore());
         }
 
         public CharGroup NotAlphanumericUnderscore()
         {
-            return ConcatInternal(Chars.NotAlphanumericUnderscore());
+            return ConcatInternal(Patterns.NotAlphanumericUnderscore());
         }
 
         public CharGroup LatinLetter()
         {
-            return ConcatInternal(Chars.LatinLetter());
+            return ConcatInternal(Patterns.LatinLetter());
         }
 
         public CharGroup LatinLetterLower()
         {
-            return ConcatInternal(Chars.LatinLetterLower());
+            return ConcatInternal(Patterns.LatinLetterLower());
         }
 
         public CharGroup LatinLetterUpper()
         {
-            return ConcatInternal(Chars.LatinLetterUpper());
+            return ConcatInternal(Patterns.LatinLetterUpper());
         }
 
         public CharGroup NotLatinLetter()
         {
-            return ConcatInternal(Chars.NotLatinLetter());
+            return ConcatInternal(Patterns.NotLatinLetter());
         }
 
         public CharGroup NotLatinLetterLower()
         {
-            return ConcatInternal(Chars.NotLatinLetterLower());
+            return ConcatInternal(Patterns.NotLatinLetterLower());
         }
 
         public CharGroup NotLatinLetterUpper()
         {
-            return ConcatInternal(Chars.NotLatinLetterUpper());
+            return ConcatInternal(Patterns.NotLatinLetterUpper());
         }
 
         public QuantifiablePattern Any()
         {
-            return ConcatInternal(Chars.Any());
+            return ConcatInternal(Patterns.Any());
         }
 
         public QuantifiablePattern AnyInvariant()
         {
-            return ConcatInternal(Chars.AnyInvariant());
+            return ConcatInternal(Patterns.AnyInvariant());
         }
 
         public Pattern Crawl()
@@ -673,37 +673,37 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public QuantifiablePattern ArabicDigit()
         {
-            return ConcatInternal(Chars.ArabicDigit());
+            return ConcatInternal(Patterns.ArabicDigit());
         }
 
         public QuantifiablePattern NotArabicDigit()
         {
-            return ConcatInternal(Chars.NotArabicDigit());
+            return ConcatInternal(Patterns.NotArabicDigit());
         }
 
         public QuantifiablePattern HexadecimalDigit()
         {
-            return ConcatInternal(Chars.HexadecimalDigit());
+            return ConcatInternal(Patterns.HexadecimalDigit());
         }
 
         public QuantifiablePattern NotHexadecimalDigit()
         {
-            return ConcatInternal(Chars.NotHexadecimalDigit());
+            return ConcatInternal(Patterns.NotHexadecimalDigit());
         }
 
         public QuantifiablePattern Digit()
         {
-            return ConcatInternal(Chars.Digit());
+            return ConcatInternal(Patterns.Digit());
         }
 
         public QuantifiedGroup Digit(int count)
         {
-            return ConcatInternal(Chars.Digit(count));
+            return ConcatInternal(Patterns.Digit(count));
         }
 
         public QuantifiedGroup Digit(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.Digit(minCount, maxCount));
+            return ConcatInternal(Patterns.Digit(minCount, maxCount));
         }
 
         public QuantifiedGroup Digits()
@@ -713,17 +713,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public QuantifiablePattern NotDigit()
         {
-            return ConcatInternal(Chars.NotDigit());
+            return ConcatInternal(Patterns.NotDigit());
         }
 
         public QuantifiedGroup NotDigit(int count)
         {
-            return ConcatInternal(Chars.NotDigit(count));
+            return ConcatInternal(Patterns.NotDigit(count));
         }
 
         public QuantifiedGroup NotDigit(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.NotDigit(minCount, maxCount));
+            return ConcatInternal(Patterns.NotDigit(minCount, maxCount));
         }
 
         public QuantifiedGroup NotDigits()
@@ -733,17 +733,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public QuantifiablePattern WhiteSpace()
         {
-            return ConcatInternal(Chars.WhiteSpace());
+            return ConcatInternal(Patterns.WhiteSpace());
         }
 
         public QuantifiedGroup WhiteSpace(int count)
         {
-            return ConcatInternal(Chars.WhiteSpace(count));
+            return ConcatInternal(Patterns.WhiteSpace(count));
         }
 
         public QuantifiedGroup WhiteSpace(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.WhiteSpace(minCount, maxCount));
+            return ConcatInternal(Patterns.WhiteSpace(minCount, maxCount));
         }
 
         public QuantifiedGroup WhiteSpaces()
@@ -758,17 +758,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public QuantifiablePattern NotWhiteSpace()
         {
-            return ConcatInternal(Chars.NotWhiteSpace());
+            return ConcatInternal(Patterns.NotWhiteSpace());
         }
 
         public QuantifiedGroup NotWhiteSpace(int count)
         {
-            return ConcatInternal(Chars.NotWhiteSpace(count));
+            return ConcatInternal(Patterns.NotWhiteSpace(count));
         }
 
         public QuantifiedGroup NotWhiteSpace(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.NotWhiteSpace(minCount, maxCount));
+            return ConcatInternal(Patterns.NotWhiteSpace(minCount, maxCount));
         }
 
         public QuantifiedGroup NotWhiteSpaces()
@@ -778,17 +778,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public QuantifiablePattern WordChar()
         {
-            return ConcatInternal(Chars.WordChar());
+            return ConcatInternal(Patterns.WordChar());
         }
 
         public QuantifiedGroup WordChar(int count)
         {
-            return ConcatInternal(Chars.WordChar(count));
+            return ConcatInternal(Patterns.WordChar(count));
         }
 
         public QuantifiedGroup WordChar(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.WordChar(minCount, maxCount));
+            return ConcatInternal(Patterns.WordChar(minCount, maxCount));
         }
 
         public QuantifiedGroup WordChars()
@@ -798,17 +798,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public QuantifiablePattern NotWordChar()
         {
-            return ConcatInternal(Chars.NotWordChar());
+            return ConcatInternal(Patterns.NotWordChar());
         }
 
         public QuantifiedGroup NotWordChar(int count)
         {
-            return ConcatInternal(Chars.NotWordChar(count));
+            return ConcatInternal(Patterns.NotWordChar(count));
         }
 
         public QuantifiedGroup NotWordChar(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.NotWordChar(minCount, maxCount));
+            return ConcatInternal(Patterns.NotWordChar(minCount, maxCount));
         }
 
         public QuantifiedGroup NotWordChars()
@@ -1948,32 +1948,32 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public CharGroup Parenthesis()
         {
-            return ConcatInternal(Chars.Parenthesis());
+            return ConcatInternal(Patterns.Parenthesis());
         }
 
         public CharGroup NotParenthesis()
         {
-            return ConcatInternal(Chars.NotParenthesis());
+            return ConcatInternal(Patterns.NotParenthesis());
         }
 
         public CharGroup CurlyBracket()
         {
-            return ConcatInternal(Chars.CurlyBracket());
+            return ConcatInternal(Patterns.CurlyBracket());
         }
 
         public CharGroup NotCurlyBracket()
         {
-            return ConcatInternal(Chars.NotCurlyBracket());
+            return ConcatInternal(Patterns.NotCurlyBracket());
         }
 
         public CharGroup SquareBracket()
         {
-            return ConcatInternal(Chars.SquareBracket());
+            return ConcatInternal(Patterns.SquareBracket());
         }
 
         public CharGroup NotSquareBracket()
         {
-            return ConcatInternal(Chars.NotSquareBracket());
+            return ConcatInternal(Patterns.NotSquareBracket());
         }
 
         public QuantifiedGroup Maybe(object content)
@@ -2068,12 +2068,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public QuantifiablePattern NewLineChar()
         {
-            return ConcatInternal(Chars.NewLineChar());
+            return ConcatInternal(Patterns.NewLineChar());
         }
 
         public QuantifiablePattern NotNewLineChar()
         {
-            return ConcatInternal(Chars.NotNewLineChar());
+            return ConcatInternal(Patterns.NotNewLineChar());
         }
     }
 }
