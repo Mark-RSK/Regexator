@@ -53,14 +53,9 @@
   <ItemGroup>
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Linq\Anchor\AssertBack.cs" />
-    <Compile Include="Linq\Anchor\EndOfLineOrBeforeCarriageReturnInvariant.cs" />
-    <Compile Include="Linq\Anchor\EndOfLineOrBeforeCarriageReturn.cs" />
-    <Compile Include="Linq\Anchor\EndOfLineInvariant.cs" />
     <Compile Include="Linq\Anchor\NotAssertBack.cs" />
     <Compile Include="Linq\Anchor\NotAssert.cs" />
     <Compile Include="Linq\Anchor\Assert.cs" />
-    <Compile Include="Linq\Anchor\StartOfLineInvariant.cs" />
-    <Compile Include="Linq\Anchor\Word.cs" />
     <Compile Include="Linq\Character\NotWordChar.cs" />
     <Compile Include="Linq\Character\WordChar.cs" />
     <Compile Include="Linq\Character\NotWhiteSpace.cs" />

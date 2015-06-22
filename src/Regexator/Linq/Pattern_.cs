@@ -166,7 +166,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public QuantifiablePattern StartOfLineInvariant()
         {
-            return ConcatInternal(new StartOfLineInvariant());
+            return ConcatInternal(Patterns.StartOfLineInvariant());
         }
 
         public QuantifiablePattern EndOfInput()
@@ -181,17 +181,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public QuantifiablePattern EndOfLineInvariant()
         {
-            return ConcatInternal(new EndOfLineInvariant());
+            return ConcatInternal(Patterns.EndOfLineInvariant());
         }
 
         public Pattern EndOfLineOrBeforeCarriageReturn()
         {
-            return ConcatInternal(new EndOfLineOrBeforeCarriageReturn());
+            return ConcatInternal(Patterns.EndOfLineOrBeforeCarriageReturn());
         }
 
         public Pattern EndOfLineOrBeforeCarriageReturnInvariant()
         {
-            return ConcatInternal(new EndOfLineOrBeforeCarriageReturnInvariant());
+            return ConcatInternal(Patterns.EndOfLineOrBeforeCarriageReturnInvariant());
         }
 
         public QuantifiablePattern EndOrBeforeEndingNewLine()
@@ -211,17 +211,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public QuantifiablePattern Word()
         {
-            return ConcatInternal(new Word());
+            return ConcatInternal(Patterns.Word());
         }
 
         public QuantifiablePattern Word(string text)
         {
-            return ConcatInternal(new Word(text));
+            return ConcatInternal(Patterns.Word(text));
         }
 
         public QuantifiablePattern Word(params string[] values)
         {
-            return ConcatInternal(new Word(values));
+            return ConcatInternal(Patterns.Word(values));
         }
 
         public QuantifiablePattern NotWordBoundary()

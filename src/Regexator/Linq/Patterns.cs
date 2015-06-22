@@ -128,12 +128,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static Pattern EndOfLineOrBeforeCarriageReturn()
         {
-            return new EndOfLineOrBeforeCarriageReturn();
+            return NoncapturingGroup(
+                NotAssertBack(Chars.CarriageReturn()) +
+                Assert(Chars.CarriageReturn().Maybe().EndOfLine()));
         }
 
         public static Pattern EndOfLineOrBeforeCarriageReturnInvariant()
         {
-            return new EndOfLineOrBeforeCarriageReturnInvariant();
+            return NoncapturingGroup(
+                NotAssertBack(Chars.CarriageReturn()) + 
+                Assert(Chars.CarriageReturn().Maybe().EndOfLineInvariant()));
         }
 
         public static Pattern EndOfInput()
@@ -188,7 +192,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static Pattern LineInvariant(object content)
         {
-            return Pattern.Surround(new StartOfLineInvariant(), content, new EndOfLineInvariant());
+            return Pattern.Surround(StartOfLineInvariant(), content, EndOfLineInvariant());
         }
 
         public static Pattern EntireInput(object content)
@@ -1200,13 +1204,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern WhiteSpaceLine()
         {
-            return new StartOfLineInvariant().WhiteSpaceExceptNewLine().MaybeMany().NewLine() |
+            return StartOfLineInvariant().WhiteSpaceExceptNewLine().MaybeMany().NewLine() |
                 new NewLine().Assert(new WhiteSpace().MaybeMany().EndOfInput());
         }
 
         public static QuantifiablePattern EmptyLine()
         {
-            return new StartOfLineInvariant().NewLine() |
+            return StartOfLineInvariant().NewLine() |
                 new NewLine().Assert(new NewLine().MaybeMany().EndOfInput());
         }
 
