@@ -36,7 +36,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override void WriteTo(PatternWriter writer)
         {
-            writer.WriteNoncapturingStart();
+            writer.WriteNoncapturingGroupStart();
             writer.WriteWordBoundary();
             writer.Write(_content);
             writer.WriteWordBoundary();

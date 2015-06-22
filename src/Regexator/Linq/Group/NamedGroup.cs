@@ -3,7 +3,7 @@
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public sealed class NamedGroup
-        : GroupingPattern
+        : GroupPattern
     {
         private readonly string _name;
 

@@ -30,8 +30,8 @@ namespace Pihrtsoft.Text.RegularExpressions
         internal const string NotAssertBackStart = "(?<!";
 
         internal const string GroupStart = "(?";
-        internal const string NoncapturingStart = "(?:";
-        internal const string NonbacktrackingStart = "(?>";
+        internal const string NoncapturingGroupStart = "(?:";
+        internal const string NonbacktrackingGroupStart = "(?>";
         internal const string GroupEnd = ")";
 
         public const string AnyChar = ".";
@@ -151,16 +151,16 @@ namespace Pihrtsoft.Text.RegularExpressions
             return null;
         }
 
-        public static string Group(string groupName, IdentifierBoundary boundary, object content)
+        public static string NamedGroup(string groupName, IdentifierBoundary boundary, object content)
         {
             RegexUtilities.CheckGroupName(groupName);
 
             return NamedGroupStart(groupName, boundary) + Pattern.GetPattern(content, CultureInfo.CurrentCulture) + GroupEnd;
         }
 
-        public static string Group(string groupName, IdentifierBoundary boundary, params object[] content)
+        public static string NamedGroup(string groupName, IdentifierBoundary boundary, params object[] content)
         {
-            return Group(groupName, boundary, (object)content);
+            return NamedGroup(groupName, boundary, (object)content);
         }
 
         internal static string NamedGroupStart(string groupName, IdentifierBoundary boundary)
@@ -175,20 +175,20 @@ namespace Pihrtsoft.Text.RegularExpressions
             return null;
         }
 
-        public static string BalanceGroup(string name1, string name2, IdentifierBoundary separator, object content)
+        public static string BalancingGroup(string name1, string name2, IdentifierBoundary separator, object content)
         {
             RegexUtilities.CheckGroupName(name1, "name1");
             RegexUtilities.CheckGroupName(name2, "name2");
 
-            return BalanceGroupStart(name1, name2, separator) + Pattern.GetPattern(content, CultureInfo.CurrentCulture) + GroupEnd;
+            return BalancingGroupStart(name1, name2, separator) + Pattern.GetPattern(content, CultureInfo.CurrentCulture) + GroupEnd;
         }
 
-        public static string BalanceGroup(string name1, string name2, IdentifierBoundary separator, params object[] content)
+        public static string BalancingGroup(string name1, string name2, IdentifierBoundary separator, params object[] content)
         {
-            return BalanceGroup(name1, name2, separator, (object)content);
+            return BalancingGroup(name1, name2, separator, (object)content);
         }
 
-        internal static string BalanceGroupStart(string name1, string name2, IdentifierBoundary separator)
+        internal static string BalancingGroupStart(string name1, string name2, IdentifierBoundary separator)
         {
             switch (separator)
             {
@@ -200,7 +200,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             return null;
         }
 
-        public static string Group(object content)
+        public static string CapturingGroup(object content)
         {
             if (content == null)
             {
@@ -210,44 +210,44 @@ namespace Pihrtsoft.Text.RegularExpressions
             return "(" + Pattern.GetPattern(content, CultureInfo.CurrentCulture) + GroupEnd;
         }
 
-        public static string Group(params object[] content)
+        public static string CapturingGroup(params object[] content)
         {
-            return Group((object)content);
+            return CapturingGroup((object)content);
         }
 
-        public static string Noncapturing()
+        public static string NoncapturingGroup()
         {
-            return NoncapturingStart + GroupEnd;
+            return NoncapturingGroupStart + GroupEnd;
         }
 
-        public static string Noncapturing(object content)
+        public static string NoncapturingGroup(object content)
         {
             if (content == null)
             {
                 throw new ArgumentNullException("content");
             }
 
-            return NoncapturingStart + Pattern.GetPattern(content, CultureInfo.CurrentCulture) + GroupEnd;
+            return NoncapturingGroupStart + Pattern.GetPattern(content, CultureInfo.CurrentCulture) + GroupEnd;
         }
 
-        public static string Noncapturing(params object[] content)
+        public static string NoncapturingGroup(params object[] content)
         {
-            return Noncapturing((object)content);
+            return NoncapturingGroup((object)content);
         }
 
-        public static string Nonbacktracking(object content)
+        public static string NonbacktrackingGroup(object content)
         {
             if (content == null)
             {
                 throw new ArgumentNullException("content");
             }
 
-            return NonbacktrackingStart + Pattern.GetPattern(content, CultureInfo.CurrentCulture) + GroupEnd;
+            return NonbacktrackingGroupStart + Pattern.GetPattern(content, CultureInfo.CurrentCulture) + GroupEnd;
         }
 
-        public static string Nonbacktracking(params object[] content)
+        public static string NonbacktrackingGroup(params object[] content)
         {
-            return Nonbacktracking((object)content);
+            return NonbacktrackingGroup((object)content);
         }
 
         public static string GroupOptions(InlineOptions applyOptions, object content)
@@ -281,29 +281,29 @@ namespace Pihrtsoft.Text.RegularExpressions
             return GroupOptions(applyOptions, disableOptions, (object)content);
         }
 
-        public static string CharGroup(string content)
+        public static string CharGroup(string characters)
         {
-            return CharGroup(content, false);
+            return CharGroup(characters, false);
         }
 
-        public static string CharGroup(string content, bool negative)
+        public static string CharGroup(string characters, bool negative)
         {
-            if (content == null)
+            if (characters == null)
             {
-                throw new ArgumentNullException("content");
+                throw new ArgumentNullException("characters");
             }
 
-            return CharGroupInternal(RegexUtilities.Escape(content, true), negative);
+            return CharGroupInternal(RegexUtilities.Escape(characters, true), negative);
         }
 
-        internal static string CharGroupInternal(string content, bool negative)
+        internal static string CharGroupInternal(string characters, bool negative)
         {
-            if (content.Length == 0)
+            if (characters.Length == 0)
             {
-                throw new ArgumentException("Character group cannot be empty.", "content");
+                throw new ArgumentException("Character group cannot be empty.", "characters");
             }
 
-            return (negative ? NotCharGroupStart : CharGroupStart) + content + CharGroupEnd;
+            return (negative ? NotCharGroupStart : CharGroupStart) + characters + CharGroupEnd;
         }
 
         public static string CharClass(CharClass value)
@@ -337,12 +337,12 @@ namespace Pihrtsoft.Text.RegularExpressions
             return string.Concat(values.Select(f => CharClass(f)));
         }
 
-        public static string Char(char first, char last)
+        public static string Range(char first, char last)
         {
             return Char(first, true) + "-" + Char(last, true);
         }
 
-        public static string Char(int firstCharCode, int lastCharCode)
+        public static string Range(int firstCharCode, int lastCharCode)
         {
             return Char(firstCharCode, true) + "-" + Char(lastCharCode, true);
         }

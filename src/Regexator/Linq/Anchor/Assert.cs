@@ -3,7 +3,7 @@
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     internal sealed class Assert
-        : GroupingPattern
+        : GroupPattern
     {
         public Assert(object content)
             : base(content)

@@ -3,7 +3,7 @@
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public sealed class NotAssertBack
-        : GroupingPattern
+        : GroupPattern
     {
         public NotAssertBack(object content)
             : base(content)

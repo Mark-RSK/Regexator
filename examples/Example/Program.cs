@@ -31,7 +31,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 .LessThanGreaterThan(
                     "!" + Patterns.SquareBrackets(
                         "CDATA" + Patterns.SquareBrackets(
-                            Patterns.CrawlInvariant().AsGroup()
+                            Patterns.CrawlInvariant().AsCapturingGroup()
                         )
                     )
                 ));
@@ -43,7 +43,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine(
                 Patterns.WordBoundary()
                 .Count(3,
-                    new AnyGroup(values.Select(f => new Capturing(f)))
+                    new AnyGroup(values.Select(f => new CapturingGroup(f)))
                     .WordBoundary()
                     .NotWordChar().MaybeMany().Lazy())
                 .RequireGroups(1, 2, 3));
@@ -53,7 +53,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine(
                 Patterns.WordBoundary()
                 .CountFrom(3,
-                    new AnyGroup(values.Select(f => Pattern.Create(f).Group()))
+                    new AnyGroup(values.Select(f => Pattern.Create(f).AsCapturingGroup()))
                     .WordBoundary()
                     .NotWordChar().MaybeMany().Lazy())
                 .GroupReference(1)
@@ -78,7 +78,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("");
 
             Console.WriteLine("repeated word");
-            Console.WriteLine(Patterns.Word().AsGroup()
+            Console.WriteLine(Patterns.Word().AsCapturingGroup()
                 .WhiteSpaces()
                 .GroupReference(1)
                 .WordBoundary());
@@ -128,13 +128,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("");
 
             Console.WriteLine("lf without cr:");
-            Console.WriteLine(new NotAssertBack(Chars.CarriageReturn()).Linefeed().AsNonbacktracking());
-            Console.WriteLine((new NotAssertBack("\r") + "\n").AsNonbacktracking());
+            Console.WriteLine(new NotAssertBack(Chars.CarriageReturn()).Linefeed().AsNonbacktrackingGroup());
+            Console.WriteLine((new NotAssertBack("\r") + "\n").AsNonbacktrackingGroup());
             Console.WriteLine("");
 
             Console.WriteLine("invalid file name chars:");
             var chars = Path.GetInvalidFileNameChars().OrderBy(f => (int)f).Select(f => Patterns.Char(f));
-            Console.WriteLine(new AnyGroup(chars).AsNonbacktracking());
+            Console.WriteLine(new AnyGroup(chars).AsNonbacktrackingGroup());
             Console.WriteLine("");
 
             Console.ReadKey();

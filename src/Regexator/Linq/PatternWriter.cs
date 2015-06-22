@@ -352,7 +352,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
             else
             {
-                WriteCapturingStart();
+                WriteCapturingGroupStart();
             }
 
             Write(testContent);
@@ -427,7 +427,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal void WriteIfGroupCondition(string groupName)
         {
-            WriteCapturingStart();
+            WriteCapturingGroupStart();
             base.Write(groupName);
             WriteGroupEnd();
         }
@@ -534,11 +534,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (mode == AnyGroupMode.Capturing)
             {
-                WriteCapturingStart();
+                WriteCapturingGroupStart();
             }
             else if (mode == AnyGroupMode.Noncapturing)
             {
-                WriteNoncapturingStart();
+                WriteNoncapturingGroupStart();
             }
 
             WriteGroupContent(content);
@@ -549,55 +549,55 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        public void WriteGroup(object content)
+        public void WriteCapturingGroup(object content)
         {
             if (content == null)
             {
                 throw new ArgumentNullException("content");
             }
 
-            WriteCapturingStart();
+            WriteCapturingGroupStart();
             WriteGroupContent(content);
             WriteGroupEnd();
         }
 
-        internal void WriteCapturingStart()
+        internal void WriteCapturingGroupStart()
         {
             base.Write('(');
         }
 
-        public void WriteNoncapturing(object content)
+        public void WriteNoncapturingGroup(object content)
         {
             if (content == null)
             {
                 throw new ArgumentNullException("content");
             }
 
-            WriteNoncapturingStart();
+            WriteNoncapturingGroupStart();
             WriteGroupContent(content);
             WriteGroupEnd();
         }
 
-        internal void WriteNoncapturingStart()
+        internal void WriteNoncapturingGroupStart()
         {
-            base.Write(Syntax.NoncapturingStart);
+            base.Write(Syntax.NoncapturingGroupStart);
         }
 
-        public void WriteNonbacktracking(object content)
+        public void WriteNonbacktrackingGroup(object content)
         {
             if (content == null)
             {
                 throw new ArgumentNullException("content");
             }
 
-            WriteNonbacktrackingStart();
+            WriteNonbacktrackingGroupStart();
             WriteGroupContent(content);
             WriteGroupEnd();
         }
 
-        internal void WriteNonbacktrackingStart()
+        internal void WriteNonbacktrackingGroupStart()
         {
-            base.Write(Syntax.NonbacktrackingStart);
+            base.Write(Syntax.NonbacktrackingGroupStart);
         }
 
         public void WriteNamedGroup(string groupName, object content)
@@ -632,19 +632,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             WriteRightIdentifierBoundary();
         }
 
-        internal void WriteBalanceGroup(string name1, string name2, object content)
+        internal void WriteBalancingGroup(string name1, string name2, object content)
         {
             if (content == null)
             {
                 throw new ArgumentNullException("content");
             }
 
-            WriteBalanceGroupStartInternal(name1, name2);
+            WriteBalancingGroupStart(name1, name2);
             WriteGroupContent(content);
             WriteGroupEnd();
         }
 
-        internal void WriteBalanceGroupStartInternal(string name1, string name2)
+        internal void WriteBalancingGroupStart(string name1, string name2)
         {
             WriteGroupStart();
             WriteLeftIdentifierBoundary();
@@ -1068,7 +1068,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (Settings.HasOptions(PatternOptions.SeparateNumberedGroupReference))
             {
-                WriteNoncapturingStart();
+                WriteNoncapturingGroupStart();
                 WriteGroupEnd();
             }
         }
@@ -1119,7 +1119,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
             else
             {
-                WriteNoncapturingStart();
+                WriteNoncapturingGroupStart();
             }
 
             _appliedOptions &= applyOptions;

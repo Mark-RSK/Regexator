@@ -4,17 +4,17 @@ using System;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public abstract class GroupingPattern
+    public abstract class GroupPattern
         : QuantifiablePattern
     {
         private readonly object _content;
 
-        protected GroupingPattern()
+        protected GroupPattern()
             : base()
         {
         }
 
-        protected GroupingPattern(object content)
+        protected GroupPattern(object content)
             : base()
         {
             if (content == null)

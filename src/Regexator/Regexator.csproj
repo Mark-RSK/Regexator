@@ -110,7 +110,7 @@
     <Compile Include="Core\AsciiChar.cs" />
     <Compile Include="Linq\Pattern\LiteralPattern.cs" />
     <Compile Include="Linq\Quantifier\CountFromQuantifier.cs" />
-    <Compile Include="Linq\Group\BalanceGroup.cs" />
+    <Compile Include="Linq\Group\BalancingGroup.cs" />
     <Compile Include="Linq\PatternWriter.cs" />
     <Compile Include="Linq\Anchor\StartOfInput.cs" />
     <Compile Include="Linq\PatternSettings.cs" />
@@ -134,15 +134,15 @@
     <Compile Include="Linq\Pattern.cs" />
     <Compile Include="Linq\Pattern_.cs" />
     <Compile Include="Linq\Quantifier\CountQuantifier.cs" />
-    <Compile Include="Linq\Group\GroupingPattern.cs" />
+    <Compile Include="Linq\Group\GroupPattern.cs" />
     <Compile Include="Linq\IBaseGroup.cs" />
     <Compile Include="Core\IdentifierBoundary.cs" />
     <Compile Include="Linq\IExcludedGroup.cs" />
     <Compile Include="Core\InlineOptions.cs" />
     <Compile Include="Linq\Pattern\GroupNameReference.cs" />
     <Compile Include="Linq\Group\NamedGroup.cs" />
-    <Compile Include="Linq\Group\Nonbacktracking.cs" />
-    <Compile Include="Linq\Group\Noncapturing.cs" />
+    <Compile Include="Linq\Group\NonbacktrackingGroup.cs" />
+    <Compile Include="Linq\Group\NoncapturingGroup.cs" />
     <Compile Include="Linq\Pattern\GroupNumberReference.cs" />
     <Compile Include="Linq\Group\GroupOptions.cs" />
     <Compile Include="Linq\Group\AnyGroup.cs" />
@@ -150,7 +150,7 @@
     <Compile Include="Linq\Quantifier\OneManyQuantifier.cs" />
     <Compile Include="Linq\Quantifier\MaybeManyQuantifier.cs" />
     <Compile Include="Linq\Quantifier\MaybeQuantifier.cs" />
-    <Compile Include="Linq\Group\Capturing.cs" />
+    <Compile Include="Linq\Group\CapturingGroup.cs" />
     <Compile Include="Linq\Substitutions.cs" />
     <Compile Include="Linq\Substitution\NamedGroupSubstitution.cs" />
     <Compile Include="Linq\Substitution\LastCapturedGroupSubstitution.cs" />

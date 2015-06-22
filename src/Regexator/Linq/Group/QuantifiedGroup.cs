@@ -25,7 +25,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (AddGroup)
             {
-                writer.WriteNoncapturingStart();
+                writer.WriteNoncapturingGroupStart();
             }
 
             writer.WriteGroupContent(Content);

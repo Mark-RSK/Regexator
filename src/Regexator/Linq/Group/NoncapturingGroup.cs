@@ -2,22 +2,17 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public sealed class Capturing
-        : GroupingPattern
+    public sealed class NoncapturingGroup
+        : GroupPattern
     {
-        public Capturing()
-            : this(string.Empty)
-        {
-        }
-
-        public Capturing(object content)
+        public NoncapturingGroup(object content)
             : base(content)
         {
         }
 
         internal override void WriteTo(PatternWriter writer)
         {
-            writer.WriteGroup(Content);
+            writer.WriteNoncapturingGroup(Content);
         }
     }
 }

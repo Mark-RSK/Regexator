@@ -163,17 +163,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern Word()
         {
-            return Pattern.Surround(new WordBoundary(), WordChars()).AsNoncapturing();
+            return Pattern.Surround(new WordBoundary(), WordChars()).AsNoncapturingGroup();
         }
 
         public static QuantifiablePattern Word(string text)
         {
-            return Pattern.Surround(new WordBoundary(), text).AsNoncapturing();
+            return Pattern.Surround(new WordBoundary(), text).AsNoncapturingGroup();
         }
 
         public static QuantifiablePattern Word(params string[] values)
         {
-            return Pattern.Surround(new WordBoundary(), new AnyGroup(values)).AsNoncapturing();
+            return Pattern.Surround(new WordBoundary(), new AnyGroup(values)).AsNoncapturingGroup();
         }
 
         public static Pattern Line(object content)
@@ -221,49 +221,49 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return NamedGroup(name, (object)content);
         }
 
-        public static QuantifiablePattern Group()
+        public static QuantifiablePattern CapturingGroup()
         {
-            return new Capturing(string.Empty);
+            return new CapturingGroup(string.Empty);
         }
 
-        public static QuantifiablePattern Group(object content)
+        public static QuantifiablePattern CapturingGroup(object content)
         {
-            return new Capturing(content);
+            return new CapturingGroup(content);
         }
 
-        public static QuantifiablePattern Group(params object[] content)
+        public static QuantifiablePattern CapturingGroup(params object[] content)
         {
-            return Group((object)content);
+            return CapturingGroup((object)content);
         }
 
-        public static QuantifiablePattern Noncapturing(object content)
+        public static QuantifiablePattern NoncapturingGroup(object content)
         {
-            return new Noncapturing(content);
+            return new NoncapturingGroup(content);
         }
 
-        public static QuantifiablePattern Noncapturing(params object[] content)
+        public static QuantifiablePattern NoncapturingGroup(params object[] content)
         {
-            return Noncapturing((object)content);
+            return NoncapturingGroup((object)content);
         }
 
-        public static QuantifiablePattern BalanceGroup(string name1, string name2, object content)
+        public static QuantifiablePattern BalancingGroup(string name1, string name2, object content)
         {
-            return new BalanceGroup(name1, name2, content);
+            return new BalancingGroup(name1, name2, content);
         }
 
-        public static QuantifiablePattern BalanceGroup(string name1, string name2, params object[] content)
+        public static QuantifiablePattern BalancingGroup(string name1, string name2, params object[] content)
         {
-            return BalanceGroup(name1, name2, (object)content);
+            return BalancingGroup(name1, name2, (object)content);
         }
 
-        public static QuantifiablePattern Nonbacktracking(object content)
+        public static QuantifiablePattern NonbacktrackingGroup(object content)
         {
-            return new Nonbacktracking(content);
+            return new NonbacktrackingGroup(content);
         }
 
-        public static QuantifiablePattern Nonbacktracking(params object[] content)
+        public static QuantifiablePattern NonbacktrackingGroup(params object[] content)
         {
-            return Nonbacktracking((object)content);
+            return NonbacktrackingGroup((object)content);
         }
 
         public static QuantifiedGroup Maybe(object content)
@@ -466,32 +466,32 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new CharGroupItemGroup(item, true);
         }
 
-        public static CharGroup Char(char first, char last)
+        public static CharGroup Range(char first, char last)
         {
             return new CharRangeGroup(first, last);
         }
 
-        public static CharGroup Char(int firstCharCode, int lastCharCode)
+        public static CharGroup Range(int firstCharCode, int lastCharCode)
         {
             return new CharCodeRangeGroup(firstCharCode, lastCharCode);
         }
 
-        public static CharGroup NotChar(char first, char last)
+        public static CharGroup NotRange(char first, char last)
         {
             return new CharRangeGroup(first, last, true);
         }
 
-        public static CharGroup NotChar(int firstCharCode, int lastCharCode)
+        public static CharGroup NotRange(int firstCharCode, int lastCharCode)
         {
             return new CharCodeRangeGroup(firstCharCode, lastCharCode, true);
         }
 
-        public static CharSubtraction Char(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
+        public static CharSubtraction Subtract(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
         {
             return new CharSubtraction(baseGroup, excludedGroup);
         }
 
-        public static CharSubtraction NotChar(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
+        public static CharSubtraction NotSubtract(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
         {
             return new NotCharSubtraction(baseGroup, excludedGroup);
         }
@@ -1149,12 +1149,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 #if DEBUG
         public static QuantifiablePattern GoTo(char value)
         {
-            return NotChar(value).MaybeMany().Char(value).AsNoncapturing();
+            return NotChar(value).MaybeMany().Char(value).AsNoncapturingGroup();
         }
 
         public static QuantifiablePattern GoTo(AsciiChar value)
         {
-            return NotChar(value).MaybeMany().Char(value).AsNoncapturing();
+            return NotChar(value).MaybeMany().Char(value).AsNoncapturingGroup();
         }
 #endif
 
@@ -1180,7 +1180,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern LinefeedWithoutCarriageReturn()
         {
-            return new NotAssertBack(Chars.CarriageReturn()).Linefeed().AsNonbacktracking();
+            return new NotAssertBack(Chars.CarriageReturn()).Linefeed().AsNonbacktrackingGroup();
         }
 
         public static Pattern LeadingWhiteSpace()
@@ -1218,7 +1218,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         internal static Pattern ValidGroupName()
         {
             return EntireInput(
-                new Capturing(Char('1', '9').ArabicDigit().MaybeMany()) |
+                new CapturingGroup(Range('1', '9').ArabicDigit().MaybeMany()) |
                 WordChar().Except(ArabicDigit()).WordChar().MaybeMany());
         }
 

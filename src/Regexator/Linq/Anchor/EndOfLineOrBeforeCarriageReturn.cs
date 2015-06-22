@@ -5,7 +5,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal sealed class EndOfLineOrBeforeCarriageReturn
         : Pattern
     {
-        private static readonly Pattern _pattern = new Noncapturing(
+        private static readonly Pattern _pattern = new NoncapturingGroup(
             new NotAssertBack(Chars.CarriageReturn()) +
             new Assert(Chars.CarriageReturn().Maybe().EndOfLine()));
 

@@ -2,13 +2,13 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public sealed class BalanceGroup
-        : GroupingPattern
+    public sealed class BalancingGroup
+        : GroupPattern
     {
         private readonly string _name1;
         private readonly string _name2;
 
-        public BalanceGroup(string name1, string name2, object content)
+        public BalancingGroup(string name1, string name2, object content)
             : base(content)
         {
             RegexUtilities.CheckGroupName(name1, "name1");
@@ -30,7 +30,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override void WriteTo(PatternWriter writer)
         {
-            writer.WriteBalanceGroup(Name1, Name2, Content);
+            writer.WriteBalancingGroup(Name1, Name2, Content);
         }
     }
 }

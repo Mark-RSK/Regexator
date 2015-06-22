@@ -304,19 +304,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(new NotAssertBack(item));
         }
 
-        public QuantifiablePattern Group()
+        public QuantifiablePattern CapturingGroup()
         {
-            return ConcatInternal(new Capturing());
+            return ConcatInternal(new CapturingGroup());
         }
 
-        public QuantifiablePattern Group(object content)
+        public QuantifiablePattern CapturingGroup(object content)
         {
-            return ConcatInternal(new Capturing(content));
+            return ConcatInternal(new CapturingGroup(content));
         }
 
-        public QuantifiablePattern Group(params object[] content)
+        public QuantifiablePattern CapturingGroup(params object[] content)
         {
-            return ConcatInternal(new Capturing(content));
+            return ConcatInternal(new CapturingGroup(content));
         }
 
         public QuantifiablePattern NamedGroup(string name, object content)
@@ -329,34 +329,34 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(new NamedGroup(name, content));
         }
 
-        public QuantifiablePattern Noncapturing(object content)
+        public QuantifiablePattern NoncapturingGroup(object content)
         {
-            return ConcatInternal(new Noncapturing(content));
+            return ConcatInternal(new NoncapturingGroup(content));
         }
 
-        public QuantifiablePattern Noncapturing(params object[] content)
+        public QuantifiablePattern NoncapturingGroup(params object[] content)
         {
-            return ConcatInternal(new Noncapturing(content));
+            return ConcatInternal(new NoncapturingGroup(content));
         }
 
-        public QuantifiablePattern Nonbacktracking(object content)
+        public QuantifiablePattern NonbacktrackingGroup(object content)
         {
-            return ConcatInternal(new Nonbacktracking(content));
+            return ConcatInternal(new NonbacktrackingGroup(content));
         }
 
-        public QuantifiablePattern Nonbacktracking(params object[] content)
+        public QuantifiablePattern NonbacktrackingGroup(params object[] content)
         {
-            return ConcatInternal(new Nonbacktracking(content));
+            return ConcatInternal(new NonbacktrackingGroup(content));
         }
 
-        public QuantifiablePattern BalanceGroup(string name1, string name2, object content)
+        public QuantifiablePattern BalancingGroup(string name1, string name2, object content)
         {
-            return ConcatInternal(new BalanceGroup(name1, name2, content));
+            return ConcatInternal(new BalancingGroup(name1, name2, content));
         }
 
-        public QuantifiablePattern BalanceGroup(string name1, string name2, params object[] content)
+        public QuantifiablePattern BalancingGroup(string name1, string name2, params object[] content)
         {
-            return ConcatInternal(new BalanceGroup(name1, name2, content));
+            return ConcatInternal(new BalancingGroup(name1, name2, content));
         }
 
         public Pattern Options(InlineOptions applyOptions)
@@ -404,24 +404,24 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Patterns.DisableOptions(options, content));
         }
 
-        public QuantifiablePattern AsGroup()
+        public QuantifiablePattern AsCapturingGroup()
         {
-            return new Capturing(this);
+            return new CapturingGroup(this);
         }
 
-        public QuantifiablePattern AsGroup(string groupName)
+        public QuantifiablePattern AsCapturingGroup(string groupName)
         {
             return new NamedGroup(groupName, this);
         }
 
-        internal QuantifiablePattern AsNoncapturing()
+        public QuantifiablePattern AsNoncapturingGroup()
         {
-            return new Noncapturing(this);
+            return new NoncapturingGroup(this);
         }
 
-        public QuantifiablePattern AsNonbacktracking()
+        public QuantifiablePattern AsNonbacktrackingGroup()
         {
-            return new Nonbacktracking(this);
+            return new NonbacktrackingGroup(this);
         }
 
         public Pattern Apostrophes()
@@ -511,34 +511,34 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Patterns.NotChar(item));
         }
 
-        public QuantifiablePattern Char(char first, char last)
+        public QuantifiablePattern Range(char first, char last)
         {
-            return ConcatInternal(Patterns.Char(first, last));
+            return ConcatInternal(Patterns.Range(first, last));
         }
 
-        public QuantifiablePattern Char(int firstCharCode, int lastCharCode)
+        public QuantifiablePattern Range(int firstCharCode, int lastCharCode)
         {
-            return ConcatInternal(Patterns.Char(firstCharCode, lastCharCode));
+            return ConcatInternal(Patterns.Range(firstCharCode, lastCharCode));
         }
 
-        public QuantifiablePattern NotChar(char first, char last)
+        public QuantifiablePattern NotRange(char first, char last)
         {
-            return ConcatInternal(Patterns.NotChar(first, last));
+            return ConcatInternal(Patterns.NotRange(first, last));
         }
 
-        public QuantifiablePattern NotChar(int firstCharCode, int lastCharCode)
+        public QuantifiablePattern NotRange(int firstCharCode, int lastCharCode)
         {
-            return ConcatInternal(Patterns.NotChar(firstCharCode, lastCharCode));
+            return ConcatInternal(Patterns.NotRange(firstCharCode, lastCharCode));
         }
 
-        public QuantifiablePattern Char(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
+        public QuantifiablePattern Subtract(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
         {
-            return ConcatInternal(Patterns.Char(baseGroup, excludedGroup));
+            return ConcatInternal(Patterns.Subtract(baseGroup, excludedGroup));
         }
 
-        public QuantifiablePattern NotChar(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
+        public QuantifiablePattern NotSubtract(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
         {
-            return ConcatInternal(Patterns.NotChar(baseGroup, excludedGroup));
+            return ConcatInternal(Patterns.NotSubtract(baseGroup, excludedGroup));
         }
 
         public QuantifiablePattern WhiteSpaceExceptNewLine()
