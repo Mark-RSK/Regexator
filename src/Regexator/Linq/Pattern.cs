@@ -14,7 +14,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     public abstract partial class Pattern
     {
         private string _value;
-        internal static readonly Pattern Empty = new TextPattern();
+        internal static readonly Pattern Empty = new LiteralPattern();
 
         protected Pattern()
         {
@@ -53,7 +53,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public Pattern Concat(string text, bool ignoreCase)
         {
-            return ConcatInternal(new TextPattern(text, ignoreCase));
+            return ConcatInternal(new LiteralPattern(text, ignoreCase));
         }
 #else
         public Pattern Concat(string text)
@@ -514,7 +514,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static explicit operator Pattern(string text)
         {
-            return new TextPattern(text);
+            return new LiteralPattern(text);
         }
 
         public static explicit operator Pattern(char value)

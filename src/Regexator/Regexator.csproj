@@ -108,7 +108,7 @@
     <Compile Include="Linq\Pattern\InlineComment.cs" />
     <Compile Include="Linq\Pattern\Options.cs" />
     <Compile Include="Core\AsciiChar.cs" />
-    <Compile Include="Linq\Pattern\TextPattern.cs" />
+    <Compile Include="Linq\Pattern\LiteralPattern.cs" />
     <Compile Include="Linq\Quantifier\CountFromQuantifier.cs" />
     <Compile Include="Linq\Group\BalanceGroup.cs" />
     <Compile Include="Linq\PatternWriter.cs" />

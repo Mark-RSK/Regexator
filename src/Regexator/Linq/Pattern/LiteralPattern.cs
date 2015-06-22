@@ -2,23 +2,23 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal sealed class TextPattern
+    internal sealed class LiteralPattern
         : Pattern
     {
         private readonly string _text;
         private readonly bool _ignoreCase;
 
-        internal TextPattern()
+        internal LiteralPattern()
             : this(null)
         {
         }
 
-        internal TextPattern(string text)
+        internal LiteralPattern(string text)
             : this(text, false)
         {
         }
 
-        internal TextPattern(string text, bool ignoreCase)
+        internal LiteralPattern(string text, bool ignoreCase)
         {
             _text = text;
             _ignoreCase = ignoreCase;
