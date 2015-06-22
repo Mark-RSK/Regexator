@@ -138,7 +138,6 @@
     <Compile Include="Linq\IBaseGroup.cs" />
     <Compile Include="Core\IdentifierBoundary.cs" />
     <Compile Include="Linq\IExcludedGroup.cs" />
-    <Compile Include="Linq\Pattern\AlternationPattern.cs" />
     <Compile Include="Core\InlineOptions.cs" />
     <Compile Include="Linq\Pattern\GroupNameReference.cs" />
     <Compile Include="Linq\Group\NamedGroup.cs" />

@@ -2,7 +2,7 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public sealed class Digit
+    internal sealed class Digit
         : CharacterPattern
     {
         internal override void WriteTo(PatternWriter writer)

@@ -6,9 +6,11 @@ using System.Globalization;
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public sealed class IfGroup
-        : AlternationPattern
+        : QuantifiablePattern
     {
         private readonly string _groupName;
+        private readonly object _trueContent;
+        private readonly object _falseContent;
 
         public IfGroup(string groupName, object trueContent)
             : this(groupName, trueContent, null)
@@ -16,11 +18,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         public IfGroup(string groupName, object trueContent, object falseContent)
-            : base(trueContent, falseContent)
         {
             RegexUtilities.CheckGroupName(groupName);
 
+            if (trueContent == null)
+            {
+                throw new ArgumentNullException("trueContent");
+            }
+
             _groupName = groupName;
+            _trueContent = trueContent;
+            _falseContent = falseContent;
         }
 
         public IfGroup(int groupNumber, object trueContent)
@@ -29,14 +37,20 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         public IfGroup(int groupNumber, object trueContent, object falseContent)
-            : base(trueContent, falseContent)
         {
             if (groupNumber < 0)
             {
                 throw new ArgumentOutOfRangeException("groupNumber");
             }
 
+            if (trueContent == null)
+            {
+                throw new ArgumentNullException("trueContent");
+            }
+
             _groupName = groupNumber.ToString(CultureInfo.InvariantCulture);
+            _trueContent = trueContent;
+            _falseContent = falseContent;
         }
 
         public string GroupName
@@ -46,7 +60,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override void WriteTo(PatternWriter writer)
         {
-            writer.WriteIfGroupInternal(GroupName, TrueContent, FalseContent);
+            writer.WriteIfGroupInternal(GroupName, _trueContent, _falseContent);
         }
     }
 }

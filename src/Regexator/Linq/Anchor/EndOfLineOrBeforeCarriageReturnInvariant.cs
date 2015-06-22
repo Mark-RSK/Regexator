@@ -2,7 +2,7 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public sealed class EndOfLineOrBeforeCarriageReturnInvariant
+    internal sealed class EndOfLineOrBeforeCarriageReturnInvariant
         : Pattern
     {
         private static readonly Pattern _pattern = new Noncapturing(

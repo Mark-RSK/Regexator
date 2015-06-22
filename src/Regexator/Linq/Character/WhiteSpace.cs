@@ -2,7 +2,7 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public sealed class WhiteSpace
+    internal sealed class WhiteSpace
         : CharacterPattern
     {
         internal override void WriteTo(PatternWriter writer)

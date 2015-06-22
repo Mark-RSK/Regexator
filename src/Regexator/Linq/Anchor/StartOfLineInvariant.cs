@@ -2,7 +2,7 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public sealed class StartOfLineInvariant
+    internal sealed class StartOfLineInvariant
         : QuantifiablePattern
     {
         private static readonly QuantifiablePattern _pattern = new GroupOptions(InlineOptions.Multiline, new StartOfLine());

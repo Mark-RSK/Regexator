@@ -4,7 +4,7 @@ using System;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public sealed class Word
+    internal sealed class Word
         : QuantifiablePattern
     {
         private readonly object _content;

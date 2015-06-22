@@ -2,7 +2,7 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public sealed class NewLine
+    internal sealed class NewLine
         : QuantifiablePattern
     {
         private static readonly Pattern _pattern = Chars.CarriageReturn().Maybe().Linefeed().AsNoncapturing();

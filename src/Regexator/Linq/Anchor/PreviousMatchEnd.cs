@@ -2,7 +2,7 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public sealed class PreviousMatchEnd
+    internal sealed class PreviousMatchEnd
         : QuantifiablePattern
     {
         internal override void WriteTo(PatternWriter writer)

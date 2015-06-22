@@ -658,6 +658,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Chars.AnyInvariant().MaybeMany().Lazy();
         }
 
+        public static QuantifiablePattern NewLine()
+        {
+            return new NewLine();
+        }
+
         public static QuantifiablePattern Never()
         {
             return new NotAssert(string.Empty);

@@ -5,9 +5,11 @@ using System;
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public sealed class IfAssert
-        : AlternationPattern
+        : QuantifiablePattern
     {
         private readonly object _testContent;
+        private readonly object _trueContent;
+        private readonly object _falseContent;
 
         public IfAssert(object testContent, object trueContent)
             : this(testContent, trueContent, null)
@@ -15,19 +17,25 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         public IfAssert(object testContent, object trueContent, object falseContent)
-            : base(trueContent, falseContent)
         {
             if (testContent == null)
             {
                 throw new ArgumentNullException("testContent");
             }
 
+            if (trueContent == null)
+            {
+                throw new ArgumentNullException("trueContent");
+            }
+
             _testContent = testContent;
+            _trueContent = trueContent;
+            _falseContent = falseContent;
         }
 
         internal override void WriteTo(PatternWriter writer)
         {
-            writer.WriteIf(_testContent, TrueContent, FalseContent);
+            writer.WriteIf(_testContent, _trueContent, _falseContent);
         }
     }
 }

@@ -41,7 +41,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             Console.WriteLine("multiple words");
             Console.WriteLine(
-                new WordBoundary()
+                Patterns.WordBoundary()
                 .Count(3,
                     new AnyGroup(values.Select(f => new Capturing(f)))
                     .WordBoundary()
@@ -51,7 +51,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             Console.WriteLine("multiple words 2");
             Console.WriteLine(
-                new WordBoundary()
+                Patterns.WordBoundary()
                 .CountFrom(3,
                     new AnyGroup(values.Select(f => Pattern.Create(f).Group()))
                     .WordBoundary()
@@ -78,25 +78,25 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("");
 
             Console.WriteLine("repeated word");
-            Console.WriteLine(new Word().AsGroup()
+            Console.WriteLine(Patterns.Word().AsGroup()
                 .WhiteSpaces()
                 .GroupReference(1)
                 .WordBoundary());
             Console.WriteLine("");
 
             Console.WriteLine("any word");
-            Console.WriteLine(new Word("word1", "word2", "word3"));
+            Console.WriteLine(Patterns.Word("word1", "word2", "word3"));
             Console.WriteLine("");
 
             Console.WriteLine("words in any order:");
-            Console.WriteLine(new StartOfLine()
+            Console.WriteLine(Patterns.StartOfLine()
                 .Assert(Patterns.CrawlInvariant().Word("word1"))
                 .Assert(Patterns.CrawlInvariant().Word("word2"))
                 .AnyInvariant().MaybeMany());
             Console.WriteLine("");
 
             Console.WriteLine("leading whitespace:");
-            Console.WriteLine(new StartOfLine().WhiteSpaceExceptNewLine().OneMany());
+            Console.WriteLine(Patterns.StartOfLine().WhiteSpaceExceptNewLine().OneMany());
             Console.WriteLine("");
 
             Console.WriteLine("trailing whitespace:");
@@ -105,25 +105,25 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             Console.WriteLine("leading trailing whitespace:");
             Console.WriteLine(new AnyGroup(
-                new StartOfLine().WhiteSpaceExceptNewLine().OneMany(),
+                Patterns.StartOfLine().WhiteSpaceExceptNewLine().OneMany(),
                 Patterns.WhiteSpaceExceptNewLine().OneMany().EndOfLineOrBeforeCarriageReturn()));
             Console.WriteLine("");
 
             Console.WriteLine("whitespace lines:");
             Console.WriteLine(
-                new StartOfLineInvariant().WhiteSpace().MaybeMany().NewLine() |
-                new NewLine().WhiteSpace().MaybeMany().EndOfInput());
+                Patterns.StartOfLineInvariant().WhiteSpace().MaybeMany().NewLine() |
+                Patterns.NewLine().WhiteSpace().MaybeMany().EndOfInput());
             Console.WriteLine("");
 
             Console.WriteLine("empty lines:");
             Console.WriteLine(
-                new StartOfLineInvariant().NewLine() |
-                new NewLine().Assert(new NewLine().MaybeMany().EndOfInput()));
+                Patterns.StartOfLineInvariant().NewLine() |
+                Patterns.NewLine().Assert(Patterns.NewLine().MaybeMany().EndOfInput()));
             Console.WriteLine("");
 
             Console.WriteLine("first line:");
             Console.WriteLine(
-                new StartOfInput()
+                Patterns.StartOfInput()
                 .NotNewLineChar().MaybeMany());
             Console.WriteLine("");
 

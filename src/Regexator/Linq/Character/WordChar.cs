@@ -2,7 +2,7 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public sealed class WordChar
+    internal sealed class WordChar
         : CharacterPattern
     {
         internal override void WriteTo(PatternWriter writer)

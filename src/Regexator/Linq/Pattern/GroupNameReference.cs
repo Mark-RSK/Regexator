@@ -2,7 +2,7 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public sealed class GroupNameReference
+    internal sealed class GroupNameReference
         : QuantifiablePattern
     {
         private readonly string _groupName;
