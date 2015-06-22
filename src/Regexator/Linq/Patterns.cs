@@ -700,7 +700,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new StartOfInput().NotNewLineChar().MaybeMany();
         }
 
-        public static Pattern ValidGroupName()
+        internal static Pattern ValidGroupName()
         {
             return Patterns.EntireInput(
                 new Capturing(Patterns.Range('1', '9').ArabicDigit().MaybeMany()) |
