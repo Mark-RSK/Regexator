@@ -486,12 +486,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new CharCodeRangeGroup(firstCharCode, lastCharCode, true);
         }
 
-        public static CharSubtraction Subtract(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
+        public static CharSubtraction Char(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
         {
             return new CharSubtraction(baseGroup, excludedGroup);
         }
 
-        public static CharSubtraction NotSubtract(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
+        public static CharSubtraction NotChar(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
         {
             return new NotCharSubtraction(baseGroup, excludedGroup);
         }

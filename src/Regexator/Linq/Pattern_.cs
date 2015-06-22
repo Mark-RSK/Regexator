@@ -531,14 +531,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Patterns.NotRange(firstCharCode, lastCharCode));
         }
 
-        public QuantifiablePattern Subtract(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
+        public QuantifiablePattern Char(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
         {
-            return ConcatInternal(Patterns.Subtract(baseGroup, excludedGroup));
+            return ConcatInternal(Patterns.Char(baseGroup, excludedGroup));
         }
 
-        public QuantifiablePattern NotSubtract(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
+        public QuantifiablePattern NotChar(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
         {
-            return ConcatInternal(Patterns.NotSubtract(baseGroup, excludedGroup));
+            return ConcatInternal(Patterns.NotChar(baseGroup, excludedGroup));
         }
 
         public QuantifiablePattern WhiteSpaceExceptNewLine()
