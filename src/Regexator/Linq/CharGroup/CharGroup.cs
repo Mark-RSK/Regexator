@@ -9,16 +9,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
         }
 
-        public static CharGroup Create(string characters)
-        {
-            return new CharactersGroup(characters);
-        }
-
-        public static CharGroup Create(CharGroupItem item)
-        {
-            return new CharGroupItemGroup(item);
-        }
-
         public CharSubtraction Except(IExcludedGroup excludedGroup)
         {
             return new CharSubtraction(this, excludedGroup);

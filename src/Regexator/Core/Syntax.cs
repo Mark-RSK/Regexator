@@ -43,12 +43,12 @@ namespace Pihrtsoft.Text.RegularExpressions
         public const string NotWordChar = @"\W";
         public const string Bell = @"\a";
         public const string Backspace = @"\b";
-        public const string Escape = @"\e";
-        public const string FormFeed = @"\f";
-        public const string Linefeed = @"\n";
-        public const string CarriageReturn = @"\r";
         public const string Tab = @"\t";
+        public const string Linefeed = @"\n";
         public const string VerticalTab = @"\v";
+        public const string FormFeed = @"\f";
+        public const string CarriageReturn = @"\r";
+        public const string Escape = @"\e";
 
         internal const string CharGroupStart = "[";
         internal const string NotCharGroupStart = "[^";
