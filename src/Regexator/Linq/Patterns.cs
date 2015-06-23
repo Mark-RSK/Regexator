@@ -2190,17 +2190,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Pattern.Surround(AsciiChar.LessThan, content, AsciiChar.GreaterThan);
         }
 
-        public static QuantifiedPattern While(char value)
+        public static QuantifiedPattern WhileChar(char value)
         {
             return Character(value).MaybeMany();
         }
 
-        public static QuantifiedPattern While(AsciiChar value)
+        public static QuantifiedPattern WhileChar(AsciiChar value)
         {
             return Character(value).MaybeMany();
         }
 
-        public static QuantifiedPattern While(CharGroupItem item)
+        public static QuantifiedPattern WhileChar(CharGroupItem item)
         {
             return Character(item).MaybeMany();
         }
@@ -2210,24 +2210,24 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return WhiteSpace().MaybeMany();
         }
 
-        public static QuantifiedPattern WhileNot(char value)
+        public static QuantifiedPattern WhileNotChar(char value)
         {
             return NotCharacter(value).MaybeMany();
         }
 
-        public static QuantifiedPattern WhileNot(AsciiChar value)
+        public static QuantifiedPattern WhileNotChar(AsciiChar value)
         {
             return NotCharacter(value).MaybeMany();
         }
 
-        public static QuantifiedPattern WhileNot(CharGroupItem item)
+        public static QuantifiedPattern WhileNotChar(CharGroupItem item)
         {
             return NotCharacter(item).MaybeMany();
         }
 
         public static QuantifiedPattern WhileNotNewLine()
         {
-            return WhileNot(CharGroupItems.NewLineChar());
+            return WhileNotChar(CharGroupItems.NewLineChar());
         }
 
 #if DEBUG
@@ -2308,7 +2308,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal static Pattern TrimInlineComment()
         {
-            return StartOfInput().WhileNot(')');
+            return StartOfInput().WhileNotChar(')');
         }
     }
 }

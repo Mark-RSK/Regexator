@@ -546,34 +546,34 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Patterns.WhiteSpaceExceptNewLine());
         }
 
-        public Pattern While(char value)
+        public Pattern WhileChar(char value)
         {
-            return ConcatInternal(Patterns.While(value));
+            return ConcatInternal(Patterns.WhileChar(value));
         }
 
-        public Pattern While(AsciiChar value)
+        public Pattern WhileChar(AsciiChar value)
         {
-            return ConcatInternal(Patterns.While(value));
+            return ConcatInternal(Patterns.WhileChar(value));
         }
 
-        public Pattern While(CharGroupItem item)
+        public Pattern WhileChar(CharGroupItem item)
         {
-            return ConcatInternal(Patterns.While(item));
+            return ConcatInternal(Patterns.WhileChar(item));
         }
 
-        public Pattern WhileNot(char value)
+        public Pattern WhileNotChar(char value)
         {
-            return ConcatInternal(Patterns.WhileNot(value));
+            return ConcatInternal(Patterns.WhileNotChar(value));
         }
 
-        public Pattern WhileNot(AsciiChar value)
+        public Pattern WhileNotChar(AsciiChar value)
         {
-            return ConcatInternal(Patterns.WhileNot(value));
+            return ConcatInternal(Patterns.WhileNotChar(value));
         }
 
-        public Pattern WhileNot(CharGroupItem item)
+        public Pattern WhileNotChar(CharGroupItem item)
         {
-            return ConcatInternal(Patterns.WhileNot(item));
+            return ConcatInternal(Patterns.WhileNotChar(item));
         }
 
         public Pattern WhileNotNewLine()
