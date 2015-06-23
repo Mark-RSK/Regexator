@@ -5,7 +5,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal sealed class NewLine
         : QuantifiablePattern
     {
-        private static readonly Pattern _pattern = Chars.CarriageReturn().Maybe().Linefeed().AsNoncapturingGroup();
+        private static readonly Pattern _pattern = Patterns.CarriageReturn().Maybe().Linefeed().AsNoncapturingGroup();
 
         public NewLine()
         {

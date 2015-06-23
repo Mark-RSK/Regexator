@@ -66,7 +66,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("quoted text");
             Console.WriteLine(Patterns.QuoteMarks(
                 quotedChar
-                .MaybeMany(Chars.QuoteMark(2) + quotedChar)));
+                .MaybeMany(Patterns.QuoteMark(2) + quotedChar)));
             Console.WriteLine("");
 
             Console.WriteLine("digits inside b element value");
@@ -128,7 +128,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("");
 
             Console.WriteLine("lf without cr:");
-            Console.WriteLine(new NotAssertBack(Chars.CarriageReturn()).Linefeed().AsNonbacktrackingGroup());
+            Console.WriteLine(new NotAssertBack(Patterns.CarriageReturn()).Linefeed().AsNonbacktrackingGroup());
             Console.WriteLine((new NotAssertBack("\r") + "\n").AsNonbacktrackingGroup());
             Console.WriteLine("");
 

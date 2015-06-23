@@ -125,7 +125,6 @@
     <Compile Include="Linq\CharGroupItem\CharGroupItem_.cs" />
     <Compile Include="Linq\Pattern\CharSubtraction.cs" />
     <Compile Include="Linq\Patterns.cs" />
-    <Compile Include="Linq\Chars.cs" />
     <Compile Include="Linq\Pattern.cs" />
     <Compile Include="Linq\Pattern_.cs" />
     <Compile Include="Linq\Quantifier\CountQuantifier.cs" />

@@ -868,1082 +868,1082 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public QuantifiablePattern Tab()
         {
-            return ConcatInternal(Chars.Tab());
+            return ConcatInternal(Patterns.Tab());
         }
 
         public QuantifiedGroup Tab(int exactCount)
         {
-            return ConcatInternal(Chars.Tab(exactCount));
+            return ConcatInternal(Patterns.Tab(exactCount));
         }
 
         public QuantifiedGroup Tab(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.Tab(minCount, maxCount));
+            return ConcatInternal(Patterns.Tab(minCount, maxCount));
         }
 
         public QuantifiablePattern NotTab()
         {
-            return ConcatInternal(Chars.NotTab());
+            return ConcatInternal(Patterns.NotTab());
         }
 
         public QuantifiedGroup NotTab(int exactCount)
         {
-            return ConcatInternal(Chars.NotTab(exactCount));
+            return ConcatInternal(Patterns.NotTab(exactCount));
         }
 
         public QuantifiedGroup NotTab(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.NotTab(minCount, maxCount));
+            return ConcatInternal(Patterns.NotTab(minCount, maxCount));
         }
 
         public QuantifiablePattern Linefeed()
         {
-            return ConcatInternal(Chars.Linefeed());
+            return ConcatInternal(Patterns.Linefeed());
         }
 
         public QuantifiedGroup Linefeed(int exactCount)
         {
-            return ConcatInternal(Chars.Linefeed(exactCount));
+            return ConcatInternal(Patterns.Linefeed(exactCount));
         }
 
         public QuantifiedGroup Linefeed(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.Linefeed(minCount, maxCount));
+            return ConcatInternal(Patterns.Linefeed(minCount, maxCount));
         }
 
         public QuantifiablePattern NotLinefeed()
         {
-            return ConcatInternal(Chars.NotLinefeed());
+            return ConcatInternal(Patterns.NotLinefeed());
         }
 
         public QuantifiedGroup NotLinefeed(int exactCount)
         {
-            return ConcatInternal(Chars.NotLinefeed(exactCount));
+            return ConcatInternal(Patterns.NotLinefeed(exactCount));
         }
 
         public QuantifiedGroup NotLinefeed(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.NotLinefeed(minCount, maxCount));
+            return ConcatInternal(Patterns.NotLinefeed(minCount, maxCount));
         }
 
         public QuantifiablePattern CarriageReturn()
         {
-            return ConcatInternal(Chars.CarriageReturn());
+            return ConcatInternal(Patterns.CarriageReturn());
         }
 
         public QuantifiedGroup CarriageReturn(int exactCount)
         {
-            return ConcatInternal(Chars.CarriageReturn(exactCount));
+            return ConcatInternal(Patterns.CarriageReturn(exactCount));
         }
 
         public QuantifiedGroup CarriageReturn(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.CarriageReturn(minCount, maxCount));
+            return ConcatInternal(Patterns.CarriageReturn(minCount, maxCount));
         }
 
         public QuantifiablePattern NotCarriageReturn()
         {
-            return ConcatInternal(Chars.NotCarriageReturn());
+            return ConcatInternal(Patterns.NotCarriageReturn());
         }
 
         public QuantifiedGroup NotCarriageReturn(int exactCount)
         {
-            return ConcatInternal(Chars.NotCarriageReturn(exactCount));
+            return ConcatInternal(Patterns.NotCarriageReturn(exactCount));
         }
 
         public QuantifiedGroup NotCarriageReturn(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.NotCarriageReturn(minCount, maxCount));
+            return ConcatInternal(Patterns.NotCarriageReturn(minCount, maxCount));
         }
 
         public QuantifiablePattern Space()
         {
-            return ConcatInternal(Chars.Space());
+            return ConcatInternal(Patterns.Space());
         }
 
         public QuantifiedGroup Space(int exactCount)
         {
-            return ConcatInternal(Chars.Space(exactCount));
+            return ConcatInternal(Patterns.Space(exactCount));
         }
 
         public QuantifiedGroup Space(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.Space(minCount, maxCount));
+            return ConcatInternal(Patterns.Space(minCount, maxCount));
         }
 
         public QuantifiablePattern NotSpace()
         {
-            return ConcatInternal(Chars.NotSpace());
+            return ConcatInternal(Patterns.NotSpace());
         }
 
         public QuantifiedGroup NotSpace(int exactCount)
         {
-            return ConcatInternal(Chars.NotSpace(exactCount));
+            return ConcatInternal(Patterns.NotSpace(exactCount));
         }
 
         public QuantifiedGroup NotSpace(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.NotSpace(minCount, maxCount));
+            return ConcatInternal(Patterns.NotSpace(minCount, maxCount));
         }
 
         public QuantifiablePattern ExclamationMark()
         {
-            return ConcatInternal(Chars.ExclamationMark());
+            return ConcatInternal(Patterns.ExclamationMark());
         }
 
         public QuantifiedGroup ExclamationMark(int exactCount)
         {
-            return ConcatInternal(Chars.ExclamationMark(exactCount));
+            return ConcatInternal(Patterns.ExclamationMark(exactCount));
         }
 
         public QuantifiedGroup ExclamationMark(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.ExclamationMark(minCount, maxCount));
+            return ConcatInternal(Patterns.ExclamationMark(minCount, maxCount));
         }
 
         public QuantifiablePattern NotExclamationMark()
         {
-            return ConcatInternal(Chars.NotExclamationMark());
+            return ConcatInternal(Patterns.NotExclamationMark());
         }
 
         public QuantifiedGroup NotExclamationMark(int exactCount)
         {
-            return ConcatInternal(Chars.NotExclamationMark(exactCount));
+            return ConcatInternal(Patterns.NotExclamationMark(exactCount));
         }
 
         public QuantifiedGroup NotExclamationMark(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.NotExclamationMark(minCount, maxCount));
+            return ConcatInternal(Patterns.NotExclamationMark(minCount, maxCount));
         }
 
         public QuantifiablePattern QuoteMark()
         {
-            return ConcatInternal(Chars.QuoteMark());
+            return ConcatInternal(Patterns.QuoteMark());
         }
 
         public QuantifiedGroup QuoteMark(int exactCount)
         {
-            return ConcatInternal(Chars.QuoteMark(exactCount));
+            return ConcatInternal(Patterns.QuoteMark(exactCount));
         }
 
         public QuantifiedGroup QuoteMark(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.QuoteMark(minCount, maxCount));
+            return ConcatInternal(Patterns.QuoteMark(minCount, maxCount));
         }
 
         public QuantifiablePattern NotQuoteMark()
         {
-            return ConcatInternal(Chars.NotQuoteMark());
+            return ConcatInternal(Patterns.NotQuoteMark());
         }
 
         public QuantifiedGroup NotQuoteMark(int exactCount)
         {
-            return ConcatInternal(Chars.NotQuoteMark(exactCount));
+            return ConcatInternal(Patterns.NotQuoteMark(exactCount));
         }
 
         public QuantifiedGroup NotQuoteMark(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.NotQuoteMark(minCount, maxCount));
+            return ConcatInternal(Patterns.NotQuoteMark(minCount, maxCount));
         }
 
         public QuantifiablePattern NumberSign()
         {
-            return ConcatInternal(Chars.NumberSign());
+            return ConcatInternal(Patterns.NumberSign());
         }
 
         public QuantifiedGroup NumberSign(int exactCount)
         {
-            return ConcatInternal(Chars.NumberSign(exactCount));
+            return ConcatInternal(Patterns.NumberSign(exactCount));
         }
 
         public QuantifiedGroup NumberSign(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.NumberSign(minCount, maxCount));
+            return ConcatInternal(Patterns.NumberSign(minCount, maxCount));
         }
 
         public QuantifiablePattern NotNumberSign()
         {
-            return ConcatInternal(Chars.NotNumberSign());
+            return ConcatInternal(Patterns.NotNumberSign());
         }
 
         public QuantifiedGroup NotNumberSign(int exactCount)
         {
-            return ConcatInternal(Chars.NotNumberSign(exactCount));
+            return ConcatInternal(Patterns.NotNumberSign(exactCount));
         }
 
         public QuantifiedGroup NotNumberSign(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.NotNumberSign(minCount, maxCount));
+            return ConcatInternal(Patterns.NotNumberSign(minCount, maxCount));
         }
 
         public QuantifiablePattern Dollar()
         {
-            return ConcatInternal(Chars.Dollar());
+            return ConcatInternal(Patterns.Dollar());
         }
 
         public QuantifiedGroup Dollar(int exactCount)
         {
-            return ConcatInternal(Chars.Dollar(exactCount));
+            return ConcatInternal(Patterns.Dollar(exactCount));
         }
 
         public QuantifiedGroup Dollar(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.Dollar(minCount, maxCount));
+            return ConcatInternal(Patterns.Dollar(minCount, maxCount));
         }
 
         public QuantifiablePattern NotDollar()
         {
-            return ConcatInternal(Chars.NotDollar());
+            return ConcatInternal(Patterns.NotDollar());
         }
 
         public QuantifiedGroup NotDollar(int exactCount)
         {
-            return ConcatInternal(Chars.NotDollar(exactCount));
+            return ConcatInternal(Patterns.NotDollar(exactCount));
         }
 
         public QuantifiedGroup NotDollar(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.NotDollar(minCount, maxCount));
+            return ConcatInternal(Patterns.NotDollar(minCount, maxCount));
         }
 
         public QuantifiablePattern Percent()
         {
-            return ConcatInternal(Chars.Percent());
+            return ConcatInternal(Patterns.Percent());
         }
 
         public QuantifiedGroup Percent(int exactCount)
         {
-            return ConcatInternal(Chars.Percent(exactCount));
+            return ConcatInternal(Patterns.Percent(exactCount));
         }
 
         public QuantifiedGroup Percent(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.Percent(minCount, maxCount));
+            return ConcatInternal(Patterns.Percent(minCount, maxCount));
         }
 
         public QuantifiablePattern NotPercent()
         {
-            return ConcatInternal(Chars.NotPercent());
+            return ConcatInternal(Patterns.NotPercent());
         }
 
         public QuantifiedGroup NotPercent(int exactCount)
         {
-            return ConcatInternal(Chars.NotPercent(exactCount));
+            return ConcatInternal(Patterns.NotPercent(exactCount));
         }
 
         public QuantifiedGroup NotPercent(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.NotPercent(minCount, maxCount));
+            return ConcatInternal(Patterns.NotPercent(minCount, maxCount));
         }
 
         public QuantifiablePattern Ampersand()
         {
-            return ConcatInternal(Chars.Ampersand());
+            return ConcatInternal(Patterns.Ampersand());
         }
 
         public QuantifiedGroup Ampersand(int exactCount)
         {
-            return ConcatInternal(Chars.Ampersand(exactCount));
+            return ConcatInternal(Patterns.Ampersand(exactCount));
         }
 
         public QuantifiedGroup Ampersand(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.Ampersand(minCount, maxCount));
+            return ConcatInternal(Patterns.Ampersand(minCount, maxCount));
         }
 
         public QuantifiablePattern NotAmpersand()
         {
-            return ConcatInternal(Chars.NotAmpersand());
+            return ConcatInternal(Patterns.NotAmpersand());
         }
 
         public QuantifiedGroup NotAmpersand(int exactCount)
         {
-            return ConcatInternal(Chars.NotAmpersand(exactCount));
+            return ConcatInternal(Patterns.NotAmpersand(exactCount));
         }
 
         public QuantifiedGroup NotAmpersand(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.NotAmpersand(minCount, maxCount));
+            return ConcatInternal(Patterns.NotAmpersand(minCount, maxCount));
         }
 
         public QuantifiablePattern Apostrophe()
         {
-            return ConcatInternal(Chars.Apostrophe());
+            return ConcatInternal(Patterns.Apostrophe());
         }
 
         public QuantifiedGroup Apostrophe(int exactCount)
         {
-            return ConcatInternal(Chars.Apostrophe(exactCount));
+            return ConcatInternal(Patterns.Apostrophe(exactCount));
         }
 
         public QuantifiedGroup Apostrophe(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.Apostrophe(minCount, maxCount));
+            return ConcatInternal(Patterns.Apostrophe(minCount, maxCount));
         }
 
         public QuantifiablePattern NotApostrophe()
         {
-            return ConcatInternal(Chars.NotApostrophe());
+            return ConcatInternal(Patterns.NotApostrophe());
         }
 
         public QuantifiedGroup NotApostrophe(int exactCount)
         {
-            return ConcatInternal(Chars.NotApostrophe(exactCount));
+            return ConcatInternal(Patterns.NotApostrophe(exactCount));
         }
 
         public QuantifiedGroup NotApostrophe(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.NotApostrophe(minCount, maxCount));
+            return ConcatInternal(Patterns.NotApostrophe(minCount, maxCount));
         }
 
         public QuantifiablePattern LeftParenthesis()
         {
-            return ConcatInternal(Chars.LeftParenthesis());
+            return ConcatInternal(Patterns.LeftParenthesis());
         }
 
         public QuantifiedGroup LeftParenthesis(int exactCount)
         {
-            return ConcatInternal(Chars.LeftParenthesis(exactCount));
+            return ConcatInternal(Patterns.LeftParenthesis(exactCount));
         }
 
         public QuantifiedGroup LeftParenthesis(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.LeftParenthesis(minCount, maxCount));
+            return ConcatInternal(Patterns.LeftParenthesis(minCount, maxCount));
         }
 
         public QuantifiablePattern NotLeftParenthesis()
         {
-            return ConcatInternal(Chars.NotLeftParenthesis());
+            return ConcatInternal(Patterns.NotLeftParenthesis());
         }
 
         public QuantifiedGroup NotLeftParenthesis(int exactCount)
         {
-            return ConcatInternal(Chars.NotLeftParenthesis(exactCount));
+            return ConcatInternal(Patterns.NotLeftParenthesis(exactCount));
         }
 
         public QuantifiedGroup NotLeftParenthesis(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.NotLeftParenthesis(minCount, maxCount));
+            return ConcatInternal(Patterns.NotLeftParenthesis(minCount, maxCount));
         }
 
         public QuantifiablePattern RightParenthesis()
         {
-            return ConcatInternal(Chars.RightParenthesis());
+            return ConcatInternal(Patterns.RightParenthesis());
         }
 
         public QuantifiedGroup RightParenthesis(int exactCount)
         {
-            return ConcatInternal(Chars.RightParenthesis(exactCount));
+            return ConcatInternal(Patterns.RightParenthesis(exactCount));
         }
 
         public QuantifiedGroup RightParenthesis(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.RightParenthesis(minCount, maxCount));
+            return ConcatInternal(Patterns.RightParenthesis(minCount, maxCount));
         }
 
         public QuantifiablePattern NotRightParenthesis()
         {
-            return ConcatInternal(Chars.NotRightParenthesis());
+            return ConcatInternal(Patterns.NotRightParenthesis());
         }
 
         public QuantifiedGroup NotRightParenthesis(int exactCount)
         {
-            return ConcatInternal(Chars.NotRightParenthesis(exactCount));
+            return ConcatInternal(Patterns.NotRightParenthesis(exactCount));
         }
 
         public QuantifiedGroup NotRightParenthesis(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.NotRightParenthesis(minCount, maxCount));
+            return ConcatInternal(Patterns.NotRightParenthesis(minCount, maxCount));
         }
 
         public QuantifiablePattern Asterisk()
         {
-            return ConcatInternal(Chars.Asterisk());
+            return ConcatInternal(Patterns.Asterisk());
         }
 
         public QuantifiedGroup Asterisk(int exactCount)
         {
-            return ConcatInternal(Chars.Asterisk(exactCount));
+            return ConcatInternal(Patterns.Asterisk(exactCount));
         }
 
         public QuantifiedGroup Asterisk(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.Asterisk(minCount, maxCount));
+            return ConcatInternal(Patterns.Asterisk(minCount, maxCount));
         }
 
         public QuantifiablePattern NotAsterisk()
         {
-            return ConcatInternal(Chars.NotAsterisk());
+            return ConcatInternal(Patterns.NotAsterisk());
         }
 
         public QuantifiedGroup NotAsterisk(int exactCount)
         {
-            return ConcatInternal(Chars.NotAsterisk(exactCount));
+            return ConcatInternal(Patterns.NotAsterisk(exactCount));
         }
 
         public QuantifiedGroup NotAsterisk(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.NotAsterisk(minCount, maxCount));
+            return ConcatInternal(Patterns.NotAsterisk(minCount, maxCount));
         }
 
         public QuantifiablePattern Plus()
         {
-            return ConcatInternal(Chars.Plus());
+            return ConcatInternal(Patterns.Plus());
         }
 
         public QuantifiedGroup Plus(int exactCount)
         {
-            return ConcatInternal(Chars.Plus(exactCount));
+            return ConcatInternal(Patterns.Plus(exactCount));
         }
 
         public QuantifiedGroup Plus(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.Plus(minCount, maxCount));
+            return ConcatInternal(Patterns.Plus(minCount, maxCount));
         }
 
         public QuantifiablePattern NotPlus()
         {
-            return ConcatInternal(Chars.NotPlus());
+            return ConcatInternal(Patterns.NotPlus());
         }
 
         public QuantifiedGroup NotPlus(int exactCount)
         {
-            return ConcatInternal(Chars.NotPlus(exactCount));
+            return ConcatInternal(Patterns.NotPlus(exactCount));
         }
 
         public QuantifiedGroup NotPlus(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.NotPlus(minCount, maxCount));
+            return ConcatInternal(Patterns.NotPlus(minCount, maxCount));
         }
 
         public QuantifiablePattern Comma()
         {
-            return ConcatInternal(Chars.Comma());
+            return ConcatInternal(Patterns.Comma());
         }
 
         public QuantifiedGroup Comma(int exactCount)
         {
-            return ConcatInternal(Chars.Comma(exactCount));
+            return ConcatInternal(Patterns.Comma(exactCount));
         }
 
         public QuantifiedGroup Comma(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.Comma(minCount, maxCount));
+            return ConcatInternal(Patterns.Comma(minCount, maxCount));
         }
 
         public QuantifiablePattern NotComma()
         {
-            return ConcatInternal(Chars.NotComma());
+            return ConcatInternal(Patterns.NotComma());
         }
 
         public QuantifiedGroup NotComma(int exactCount)
         {
-            return ConcatInternal(Chars.NotComma(exactCount));
+            return ConcatInternal(Patterns.NotComma(exactCount));
         }
 
         public QuantifiedGroup NotComma(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.NotComma(minCount, maxCount));
+            return ConcatInternal(Patterns.NotComma(minCount, maxCount));
         }
 
         public QuantifiablePattern Hyphen()
         {
-            return ConcatInternal(Chars.Hyphen());
+            return ConcatInternal(Patterns.Hyphen());
         }
 
         public QuantifiedGroup Hyphen(int exactCount)
         {
-            return ConcatInternal(Chars.Hyphen(exactCount));
+            return ConcatInternal(Patterns.Hyphen(exactCount));
         }
 
         public QuantifiedGroup Hyphen(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.Hyphen(minCount, maxCount));
+            return ConcatInternal(Patterns.Hyphen(minCount, maxCount));
         }
 
         public QuantifiablePattern NotHyphen()
         {
-            return ConcatInternal(Chars.NotHyphen());
+            return ConcatInternal(Patterns.NotHyphen());
         }
 
         public QuantifiedGroup NotHyphen(int exactCount)
         {
-            return ConcatInternal(Chars.NotHyphen(exactCount));
+            return ConcatInternal(Patterns.NotHyphen(exactCount));
         }
 
         public QuantifiedGroup NotHyphen(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.NotHyphen(minCount, maxCount));
+            return ConcatInternal(Patterns.NotHyphen(minCount, maxCount));
         }
 
         public QuantifiablePattern Period()
         {
-            return ConcatInternal(Chars.Period());
+            return ConcatInternal(Patterns.Period());
         }
 
         public QuantifiedGroup Period(int exactCount)
         {
-            return ConcatInternal(Chars.Period(exactCount));
+            return ConcatInternal(Patterns.Period(exactCount));
         }
 
         public QuantifiedGroup Period(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.Period(minCount, maxCount));
+            return ConcatInternal(Patterns.Period(minCount, maxCount));
         }
 
         public QuantifiablePattern NotPeriod()
         {
-            return ConcatInternal(Chars.NotPeriod());
+            return ConcatInternal(Patterns.NotPeriod());
         }
 
         public QuantifiedGroup NotPeriod(int exactCount)
         {
-            return ConcatInternal(Chars.NotPeriod(exactCount));
+            return ConcatInternal(Patterns.NotPeriod(exactCount));
         }
 
         public QuantifiedGroup NotPeriod(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.NotPeriod(minCount, maxCount));
+            return ConcatInternal(Patterns.NotPeriod(minCount, maxCount));
         }
 
         public QuantifiablePattern Slash()
         {
-            return ConcatInternal(Chars.Slash());
+            return ConcatInternal(Patterns.Slash());
         }
 
         public QuantifiedGroup Slash(int exactCount)
         {
-            return ConcatInternal(Chars.Slash(exactCount));
+            return ConcatInternal(Patterns.Slash(exactCount));
         }
 
         public QuantifiedGroup Slash(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.Slash(minCount, maxCount));
+            return ConcatInternal(Patterns.Slash(minCount, maxCount));
         }
 
         public QuantifiablePattern NotSlash()
         {
-            return ConcatInternal(Chars.NotSlash());
+            return ConcatInternal(Patterns.NotSlash());
         }
 
         public QuantifiedGroup NotSlash(int exactCount)
         {
-            return ConcatInternal(Chars.NotSlash(exactCount));
+            return ConcatInternal(Patterns.NotSlash(exactCount));
         }
 
         public QuantifiedGroup NotSlash(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.NotSlash(minCount, maxCount));
+            return ConcatInternal(Patterns.NotSlash(minCount, maxCount));
         }
 
         public QuantifiablePattern Colon()
         {
-            return ConcatInternal(Chars.Colon());
+            return ConcatInternal(Patterns.Colon());
         }
 
         public QuantifiedGroup Colon(int exactCount)
         {
-            return ConcatInternal(Chars.Colon(exactCount));
+            return ConcatInternal(Patterns.Colon(exactCount));
         }
 
         public QuantifiedGroup Colon(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.Colon(minCount, maxCount));
+            return ConcatInternal(Patterns.Colon(minCount, maxCount));
         }
 
         public QuantifiablePattern NotColon()
         {
-            return ConcatInternal(Chars.NotColon());
+            return ConcatInternal(Patterns.NotColon());
         }
 
         public QuantifiedGroup NotColon(int exactCount)
         {
-            return ConcatInternal(Chars.NotColon(exactCount));
+            return ConcatInternal(Patterns.NotColon(exactCount));
         }
 
         public QuantifiedGroup NotColon(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.NotColon(minCount, maxCount));
+            return ConcatInternal(Patterns.NotColon(minCount, maxCount));
         }
 
         public QuantifiablePattern Semicolon()
         {
-            return ConcatInternal(Chars.Semicolon());
+            return ConcatInternal(Patterns.Semicolon());
         }
 
         public QuantifiedGroup Semicolon(int exactCount)
         {
-            return ConcatInternal(Chars.Semicolon(exactCount));
+            return ConcatInternal(Patterns.Semicolon(exactCount));
         }
 
         public QuantifiedGroup Semicolon(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.Semicolon(minCount, maxCount));
+            return ConcatInternal(Patterns.Semicolon(minCount, maxCount));
         }
 
         public QuantifiablePattern NotSemicolon()
         {
-            return ConcatInternal(Chars.NotSemicolon());
+            return ConcatInternal(Patterns.NotSemicolon());
         }
 
         public QuantifiedGroup NotSemicolon(int exactCount)
         {
-            return ConcatInternal(Chars.NotSemicolon(exactCount));
+            return ConcatInternal(Patterns.NotSemicolon(exactCount));
         }
 
         public QuantifiedGroup NotSemicolon(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.NotSemicolon(minCount, maxCount));
+            return ConcatInternal(Patterns.NotSemicolon(minCount, maxCount));
         }
 
         public QuantifiablePattern LessThan()
         {
-            return ConcatInternal(Chars.LessThan());
+            return ConcatInternal(Patterns.LessThan());
         }
 
         public QuantifiedGroup LessThan(int exactCount)
         {
-            return ConcatInternal(Chars.LessThan(exactCount));
+            return ConcatInternal(Patterns.LessThan(exactCount));
         }
 
         public QuantifiedGroup LessThan(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.LessThan(minCount, maxCount));
+            return ConcatInternal(Patterns.LessThan(minCount, maxCount));
         }
 
         public QuantifiablePattern NotLessThan()
         {
-            return ConcatInternal(Chars.NotLessThan());
+            return ConcatInternal(Patterns.NotLessThan());
         }
 
         public QuantifiedGroup NotLessThan(int exactCount)
         {
-            return ConcatInternal(Chars.NotLessThan(exactCount));
+            return ConcatInternal(Patterns.NotLessThan(exactCount));
         }
 
         public QuantifiedGroup NotLessThan(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.NotLessThan(minCount, maxCount));
+            return ConcatInternal(Patterns.NotLessThan(minCount, maxCount));
         }
 
         public QuantifiablePattern EqualsSign()
         {
-            return ConcatInternal(Chars.EqualsSign());
+            return ConcatInternal(Patterns.EqualsSign());
         }
 
         public QuantifiedGroup EqualsSign(int exactCount)
         {
-            return ConcatInternal(Chars.EqualsSign(exactCount));
+            return ConcatInternal(Patterns.EqualsSign(exactCount));
         }
 
         public QuantifiedGroup EqualsSign(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.EqualsSign(minCount, maxCount));
+            return ConcatInternal(Patterns.EqualsSign(minCount, maxCount));
         }
 
         public QuantifiablePattern NotEqualsSign()
         {
-            return ConcatInternal(Chars.NotEqualsSign());
+            return ConcatInternal(Patterns.NotEqualsSign());
         }
 
         public QuantifiedGroup NotEqualsSign(int exactCount)
         {
-            return ConcatInternal(Chars.NotEqualsSign(exactCount));
+            return ConcatInternal(Patterns.NotEqualsSign(exactCount));
         }
 
         public QuantifiedGroup NotEqualsSign(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.NotEqualsSign(minCount, maxCount));
+            return ConcatInternal(Patterns.NotEqualsSign(minCount, maxCount));
         }
 
         public QuantifiablePattern GreaterThan()
         {
-            return ConcatInternal(Chars.GreaterThan());
+            return ConcatInternal(Patterns.GreaterThan());
         }
 
         public QuantifiedGroup GreaterThan(int exactCount)
         {
-            return ConcatInternal(Chars.GreaterThan(exactCount));
+            return ConcatInternal(Patterns.GreaterThan(exactCount));
         }
 
         public QuantifiedGroup GreaterThan(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.GreaterThan(minCount, maxCount));
+            return ConcatInternal(Patterns.GreaterThan(minCount, maxCount));
         }
 
         public QuantifiablePattern NotGreaterThan()
         {
-            return ConcatInternal(Chars.NotGreaterThan());
+            return ConcatInternal(Patterns.NotGreaterThan());
         }
 
         public QuantifiedGroup NotGreaterThan(int exactCount)
         {
-            return ConcatInternal(Chars.NotGreaterThan(exactCount));
+            return ConcatInternal(Patterns.NotGreaterThan(exactCount));
         }
 
         public QuantifiedGroup NotGreaterThan(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.NotGreaterThan(minCount, maxCount));
+            return ConcatInternal(Patterns.NotGreaterThan(minCount, maxCount));
         }
 
         public QuantifiablePattern QuestionMark()
         {
-            return ConcatInternal(Chars.QuestionMark());
+            return ConcatInternal(Patterns.QuestionMark());
         }
 
         public QuantifiedGroup QuestionMark(int exactCount)
         {
-            return ConcatInternal(Chars.QuestionMark(exactCount));
+            return ConcatInternal(Patterns.QuestionMark(exactCount));
         }
 
         public QuantifiedGroup QuestionMark(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.QuestionMark(minCount, maxCount));
+            return ConcatInternal(Patterns.QuestionMark(minCount, maxCount));
         }
 
         public QuantifiablePattern NotQuestionMark()
         {
-            return ConcatInternal(Chars.NotQuestionMark());
+            return ConcatInternal(Patterns.NotQuestionMark());
         }
 
         public QuantifiedGroup NotQuestionMark(int exactCount)
         {
-            return ConcatInternal(Chars.NotQuestionMark(exactCount));
+            return ConcatInternal(Patterns.NotQuestionMark(exactCount));
         }
 
         public QuantifiedGroup NotQuestionMark(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.NotQuestionMark(minCount, maxCount));
+            return ConcatInternal(Patterns.NotQuestionMark(minCount, maxCount));
         }
 
         public QuantifiablePattern At()
         {
-            return ConcatInternal(Chars.At());
+            return ConcatInternal(Patterns.At());
         }
 
         public QuantifiedGroup At(int exactCount)
         {
-            return ConcatInternal(Chars.At(exactCount));
+            return ConcatInternal(Patterns.At(exactCount));
         }
 
         public QuantifiedGroup At(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.At(minCount, maxCount));
+            return ConcatInternal(Patterns.At(minCount, maxCount));
         }
 
         public QuantifiablePattern NotAt()
         {
-            return ConcatInternal(Chars.NotAt());
+            return ConcatInternal(Patterns.NotAt());
         }
 
         public QuantifiedGroup NotAt(int exactCount)
         {
-            return ConcatInternal(Chars.NotAt(exactCount));
+            return ConcatInternal(Patterns.NotAt(exactCount));
         }
 
         public QuantifiedGroup NotAt(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.NotAt(minCount, maxCount));
+            return ConcatInternal(Patterns.NotAt(minCount, maxCount));
         }
 
         public QuantifiablePattern LeftSquareBracket()
         {
-            return ConcatInternal(Chars.LeftSquareBracket());
+            return ConcatInternal(Patterns.LeftSquareBracket());
         }
 
         public QuantifiedGroup LeftSquareBracket(int exactCount)
         {
-            return ConcatInternal(Chars.LeftSquareBracket(exactCount));
+            return ConcatInternal(Patterns.LeftSquareBracket(exactCount));
         }
 
         public QuantifiedGroup LeftSquareBracket(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.LeftSquareBracket(minCount, maxCount));
+            return ConcatInternal(Patterns.LeftSquareBracket(minCount, maxCount));
         }
 
         public QuantifiablePattern NotLeftSquareBracket()
         {
-            return ConcatInternal(Chars.NotLeftSquareBracket());
+            return ConcatInternal(Patterns.NotLeftSquareBracket());
         }
 
         public QuantifiedGroup NotLeftSquareBracket(int exactCount)
         {
-            return ConcatInternal(Chars.NotLeftSquareBracket(exactCount));
+            return ConcatInternal(Patterns.NotLeftSquareBracket(exactCount));
         }
 
         public QuantifiedGroup NotLeftSquareBracket(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.NotLeftSquareBracket(minCount, maxCount));
+            return ConcatInternal(Patterns.NotLeftSquareBracket(minCount, maxCount));
         }
 
         public QuantifiablePattern Backslash()
         {
-            return ConcatInternal(Chars.Backslash());
+            return ConcatInternal(Patterns.Backslash());
         }
 
         public QuantifiedGroup Backslash(int exactCount)
         {
-            return ConcatInternal(Chars.Backslash(exactCount));
+            return ConcatInternal(Patterns.Backslash(exactCount));
         }
 
         public QuantifiedGroup Backslash(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.Backslash(minCount, maxCount));
+            return ConcatInternal(Patterns.Backslash(minCount, maxCount));
         }
 
         public QuantifiablePattern NotBackslash()
         {
-            return ConcatInternal(Chars.NotBackslash());
+            return ConcatInternal(Patterns.NotBackslash());
         }
 
         public QuantifiedGroup NotBackslash(int exactCount)
         {
-            return ConcatInternal(Chars.NotBackslash(exactCount));
+            return ConcatInternal(Patterns.NotBackslash(exactCount));
         }
 
         public QuantifiedGroup NotBackslash(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.NotBackslash(minCount, maxCount));
+            return ConcatInternal(Patterns.NotBackslash(minCount, maxCount));
         }
 
         public QuantifiablePattern RightSquareBracket()
         {
-            return ConcatInternal(Chars.RightSquareBracket());
+            return ConcatInternal(Patterns.RightSquareBracket());
         }
 
         public QuantifiedGroup RightSquareBracket(int exactCount)
         {
-            return ConcatInternal(Chars.RightSquareBracket(exactCount));
+            return ConcatInternal(Patterns.RightSquareBracket(exactCount));
         }
 
         public QuantifiedGroup RightSquareBracket(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.RightSquareBracket(minCount, maxCount));
+            return ConcatInternal(Patterns.RightSquareBracket(minCount, maxCount));
         }
 
         public QuantifiablePattern NotRightSquareBracket()
         {
-            return ConcatInternal(Chars.NotRightSquareBracket());
+            return ConcatInternal(Patterns.NotRightSquareBracket());
         }
 
         public QuantifiedGroup NotRightSquareBracket(int exactCount)
         {
-            return ConcatInternal(Chars.NotRightSquareBracket(exactCount));
+            return ConcatInternal(Patterns.NotRightSquareBracket(exactCount));
         }
 
         public QuantifiedGroup NotRightSquareBracket(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.NotRightSquareBracket(minCount, maxCount));
+            return ConcatInternal(Patterns.NotRightSquareBracket(minCount, maxCount));
         }
 
         public QuantifiablePattern CircumflexAccent()
         {
-            return ConcatInternal(Chars.CircumflexAccent());
+            return ConcatInternal(Patterns.CircumflexAccent());
         }
 
         public QuantifiedGroup CircumflexAccent(int exactCount)
         {
-            return ConcatInternal(Chars.CircumflexAccent(exactCount));
+            return ConcatInternal(Patterns.CircumflexAccent(exactCount));
         }
 
         public QuantifiedGroup CircumflexAccent(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.CircumflexAccent(minCount, maxCount));
+            return ConcatInternal(Patterns.CircumflexAccent(minCount, maxCount));
         }
 
         public QuantifiablePattern NotCircumflexAccent()
         {
-            return ConcatInternal(Chars.NotCircumflexAccent());
+            return ConcatInternal(Patterns.NotCircumflexAccent());
         }
 
         public QuantifiedGroup NotCircumflexAccent(int exactCount)
         {
-            return ConcatInternal(Chars.NotCircumflexAccent(exactCount));
+            return ConcatInternal(Patterns.NotCircumflexAccent(exactCount));
         }
 
         public QuantifiedGroup NotCircumflexAccent(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.NotCircumflexAccent(minCount, maxCount));
+            return ConcatInternal(Patterns.NotCircumflexAccent(minCount, maxCount));
         }
 
         public QuantifiablePattern Underscore()
         {
-            return ConcatInternal(Chars.Underscore());
+            return ConcatInternal(Patterns.Underscore());
         }
 
         public QuantifiedGroup Underscore(int exactCount)
         {
-            return ConcatInternal(Chars.Underscore(exactCount));
+            return ConcatInternal(Patterns.Underscore(exactCount));
         }
 
         public QuantifiedGroup Underscore(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.Underscore(minCount, maxCount));
+            return ConcatInternal(Patterns.Underscore(minCount, maxCount));
         }
 
         public QuantifiablePattern NotUnderscore()
         {
-            return ConcatInternal(Chars.NotUnderscore());
+            return ConcatInternal(Patterns.NotUnderscore());
         }
 
         public QuantifiedGroup NotUnderscore(int exactCount)
         {
-            return ConcatInternal(Chars.NotUnderscore(exactCount));
+            return ConcatInternal(Patterns.NotUnderscore(exactCount));
         }
 
         public QuantifiedGroup NotUnderscore(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.NotUnderscore(minCount, maxCount));
+            return ConcatInternal(Patterns.NotUnderscore(minCount, maxCount));
         }
 
         public QuantifiablePattern GraveAccent()
         {
-            return ConcatInternal(Chars.GraveAccent());
+            return ConcatInternal(Patterns.GraveAccent());
         }
 
         public QuantifiedGroup GraveAccent(int exactCount)
         {
-            return ConcatInternal(Chars.GraveAccent(exactCount));
+            return ConcatInternal(Patterns.GraveAccent(exactCount));
         }
 
         public QuantifiedGroup GraveAccent(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.GraveAccent(minCount, maxCount));
+            return ConcatInternal(Patterns.GraveAccent(minCount, maxCount));
         }
 
         public QuantifiablePattern NotGraveAccent()
         {
-            return ConcatInternal(Chars.NotGraveAccent());
+            return ConcatInternal(Patterns.NotGraveAccent());
         }
 
         public QuantifiedGroup NotGraveAccent(int exactCount)
         {
-            return ConcatInternal(Chars.NotGraveAccent(exactCount));
+            return ConcatInternal(Patterns.NotGraveAccent(exactCount));
         }
 
         public QuantifiedGroup NotGraveAccent(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.NotGraveAccent(minCount, maxCount));
+            return ConcatInternal(Patterns.NotGraveAccent(minCount, maxCount));
         }
 
         public QuantifiablePattern LeftCurlyBracket()
         {
-            return ConcatInternal(Chars.LeftCurlyBracket());
+            return ConcatInternal(Patterns.LeftCurlyBracket());
         }
 
         public QuantifiedGroup LeftCurlyBracket(int exactCount)
         {
-            return ConcatInternal(Chars.LeftCurlyBracket(exactCount));
+            return ConcatInternal(Patterns.LeftCurlyBracket(exactCount));
         }
 
         public QuantifiedGroup LeftCurlyBracket(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.LeftCurlyBracket(minCount, maxCount));
+            return ConcatInternal(Patterns.LeftCurlyBracket(minCount, maxCount));
         }
 
         public QuantifiablePattern NotLeftCurlyBracket()
         {
-            return ConcatInternal(Chars.NotLeftCurlyBracket());
+            return ConcatInternal(Patterns.NotLeftCurlyBracket());
         }
 
         public QuantifiedGroup NotLeftCurlyBracket(int exactCount)
         {
-            return ConcatInternal(Chars.NotLeftCurlyBracket(exactCount));
+            return ConcatInternal(Patterns.NotLeftCurlyBracket(exactCount));
         }
 
         public QuantifiedGroup NotLeftCurlyBracket(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.NotLeftCurlyBracket(minCount, maxCount));
+            return ConcatInternal(Patterns.NotLeftCurlyBracket(minCount, maxCount));
         }
 
         public QuantifiablePattern VerticalLine()
         {
-            return ConcatInternal(Chars.VerticalLine());
+            return ConcatInternal(Patterns.VerticalLine());
         }
 
         public QuantifiedGroup VerticalLine(int exactCount)
         {
-            return ConcatInternal(Chars.VerticalLine(exactCount));
+            return ConcatInternal(Patterns.VerticalLine(exactCount));
         }
 
         public QuantifiedGroup VerticalLine(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.VerticalLine(minCount, maxCount));
+            return ConcatInternal(Patterns.VerticalLine(minCount, maxCount));
         }
 
         public QuantifiablePattern NotVerticalLine()
         {
-            return ConcatInternal(Chars.NotVerticalLine());
+            return ConcatInternal(Patterns.NotVerticalLine());
         }
 
         public QuantifiedGroup NotVerticalLine(int exactCount)
         {
-            return ConcatInternal(Chars.NotVerticalLine(exactCount));
+            return ConcatInternal(Patterns.NotVerticalLine(exactCount));
         }
 
         public QuantifiedGroup NotVerticalLine(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.NotVerticalLine(minCount, maxCount));
+            return ConcatInternal(Patterns.NotVerticalLine(minCount, maxCount));
         }
 
         public QuantifiablePattern RightCurlyBracket()
         {
-            return ConcatInternal(Chars.RightCurlyBracket());
+            return ConcatInternal(Patterns.RightCurlyBracket());
         }
 
         public QuantifiedGroup RightCurlyBracket(int exactCount)
         {
-            return ConcatInternal(Chars.RightCurlyBracket(exactCount));
+            return ConcatInternal(Patterns.RightCurlyBracket(exactCount));
         }
 
         public QuantifiedGroup RightCurlyBracket(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.RightCurlyBracket(minCount, maxCount));
+            return ConcatInternal(Patterns.RightCurlyBracket(minCount, maxCount));
         }
 
         public QuantifiablePattern NotRightCurlyBracket()
         {
-            return ConcatInternal(Chars.NotRightCurlyBracket());
+            return ConcatInternal(Patterns.NotRightCurlyBracket());
         }
 
         public QuantifiedGroup NotRightCurlyBracket(int exactCount)
         {
-            return ConcatInternal(Chars.NotRightCurlyBracket(exactCount));
+            return ConcatInternal(Patterns.NotRightCurlyBracket(exactCount));
         }
 
         public QuantifiedGroup NotRightCurlyBracket(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.NotRightCurlyBracket(minCount, maxCount));
+            return ConcatInternal(Patterns.NotRightCurlyBracket(minCount, maxCount));
         }
 
         public QuantifiablePattern Tilde()
         {
-            return ConcatInternal(Chars.Tilde());
+            return ConcatInternal(Patterns.Tilde());
         }
 
         public QuantifiedGroup Tilde(int exactCount)
         {
-            return ConcatInternal(Chars.Tilde(exactCount));
+            return ConcatInternal(Patterns.Tilde(exactCount));
         }
 
         public QuantifiedGroup Tilde(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.Tilde(minCount, maxCount));
+            return ConcatInternal(Patterns.Tilde(minCount, maxCount));
         }
 
         public QuantifiablePattern NotTilde()
         {
-            return ConcatInternal(Chars.NotTilde());
+            return ConcatInternal(Patterns.NotTilde());
         }
 
         public QuantifiedGroup NotTilde(int exactCount)
         {
-            return ConcatInternal(Chars.NotTilde(exactCount));
+            return ConcatInternal(Patterns.NotTilde(exactCount));
         }
 
         public QuantifiedGroup NotTilde(int minCount, int maxCount)
         {
-            return ConcatInternal(Chars.NotTilde(minCount, maxCount));
+            return ConcatInternal(Patterns.NotTilde(minCount, maxCount));
         }
 
         public CharGroup Parenthesis()
