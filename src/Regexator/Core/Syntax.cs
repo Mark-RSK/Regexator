@@ -339,87 +339,87 @@ namespace Pihrtsoft.Text.RegularExpressions
 
         public static string Range(char first, char last)
         {
-            return Char(first, true) + "-" + Char(last, true);
+            return Character(first, true) + "-" + Character(last, true);
         }
 
         public static string Range(int firstCharCode, int lastCharCode)
         {
-            return Char(firstCharCode, true) + "-" + Char(lastCharCode, true);
+            return Character(firstCharCode, true) + "-" + Character(lastCharCode, true);
         }
 
-        public static string Char(char value, bool inCharGroup)
+        public static string Character(char value, bool inCharGroup)
         {
             return RegexUtilities.EscapeInternal((int)value, inCharGroup);
         }
 
-        public static string Char(int charCode)
+        public static string Character(int charCode)
         {
-            return Char(charCode, false);
+            return Character(charCode, false);
         }
 
-        public static string Char(int charCode, bool inCharGroup)
+        public static string Character(int charCode, bool inCharGroup)
         {
             return RegexUtilities.Escape(charCode, inCharGroup);
         }
 
-        public static string Char(AsciiChar value)
+        public static string Character(AsciiChar value)
         {
-            return Char(value, false);
+            return Character(value, false);
         }
 
-        public static string Char(AsciiChar value, bool inCharGroup)
+        public static string Character(AsciiChar value, bool inCharGroup)
         {
             return RegexUtilities.EscapeInternal((int)value, inCharGroup);
         }
 
-        public static string Char(char value)
+        public static string Character(char value)
         {
-            return Char(value, false);
+            return Character(value, false);
         }
 
-        public static string Char(IEnumerable<char> values)
+        public static string Character(IEnumerable<char> values)
         {
-            return Char(values, false);
+            return Character(values, false);
         }
 
-        public static string Char(IEnumerable<char> values, bool inCharGroup)
+        public static string Character(IEnumerable<char> values, bool inCharGroup)
         {
             if (values == null)
             {
                 throw new ArgumentNullException("values");
             }
 
-            return string.Concat(values.Select(f => Char(f, inCharGroup)));
+            return string.Concat(values.Select(f => Character(f, inCharGroup)));
         }
 
-        public static string Char(IEnumerable<int> charCodes)
+        public static string Character(IEnumerable<int> charCodes)
         {
-            return Char(charCodes, false);
+            return Character(charCodes, false);
         }
 
-        public static string Char(IEnumerable<int> charCodes, bool inCharGroup)
+        public static string Character(IEnumerable<int> charCodes, bool inCharGroup)
         {
             if (charCodes == null)
             {
                 throw new ArgumentNullException("charCodes");
             }
 
-            return string.Concat(charCodes.Select(f => Char(f, inCharGroup)));
+            return string.Concat(charCodes.Select(f => Character(f, inCharGroup)));
         }
 
-        public static string Char(IEnumerable<AsciiChar> values)
+        public static string Character(IEnumerable<AsciiChar> values)
         {
-            return Char(values, false);
+            return Character(values, false);
         }
 
-        public static string Char(IEnumerable<AsciiChar> values, bool inCharGroup)
+        public static string Character(IEnumerable<AsciiChar> values, bool inCharGroup)
         {
             if (values == null)
             {
                 throw new ArgumentNullException("values");
             }
 
-            return string.Concat(values.Select(f => Char(f, inCharGroup)));
+            return string.Concat(values.Select(f => Character(f, inCharGroup)));
         }
 
         public static string Unicode(char value)

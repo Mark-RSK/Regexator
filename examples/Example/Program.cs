@@ -61,7 +61,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 .GroupReference(3));
             Console.WriteLine("");
 
-            var quotedChar = Patterns.NotChar(CharGroupItems.QuoteMark().NewLineChar()).MaybeMany();
+            var quotedChar = Patterns.NotCharacter(CharGroupItems.QuoteMark().NewLineChar()).MaybeMany();
 
             Console.WriteLine("quoted text");
             Console.WriteLine(Patterns.QuoteMarks(
@@ -133,7 +133,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("");
 
             Console.WriteLine("invalid file name chars:");
-            var chars = Path.GetInvalidFileNameChars().OrderBy(f => (int)f).Select(f => Patterns.Char(f));
+            var chars = Path.GetInvalidFileNameChars().OrderBy(f => (int)f).Select(f => Patterns.Character(f));
             Console.WriteLine(new AnyGroup(chars).AsNonbacktrackingGroup());
             Console.WriteLine("");
 

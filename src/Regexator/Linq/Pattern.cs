@@ -453,7 +453,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("left");
             }
 
-            return left.Concat(Patterns.Char(right));
+            return left.Concat(Patterns.Character(right));
         }
 
         [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
@@ -465,7 +465,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("right");
             }
 
-            return Patterns.Char(left).Concat(right);
+            return Patterns.Character(left).Concat(right);
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]

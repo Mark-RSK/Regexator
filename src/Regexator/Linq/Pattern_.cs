@@ -491,24 +491,24 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 #endif
 
-        public QuantifiablePattern Char(string characters)
+        public QuantifiablePattern Character(string characters)
         {
-            return ConcatInternal(Patterns.Char(characters));
+            return ConcatInternal(Patterns.Character(characters));
         }
 
-        public QuantifiablePattern Char(CharGroupItem item)
+        public QuantifiablePattern Character(CharGroupItem item)
         {
-            return ConcatInternal(Patterns.Char(item));
+            return ConcatInternal(Patterns.Character(item));
         }
 
-        public QuantifiablePattern NotChar(string characters)
+        public QuantifiablePattern NotCharacter(string characters)
         {
-            return ConcatInternal(Patterns.NotChar(characters));
+            return ConcatInternal(Patterns.NotCharacter(characters));
         }
 
-        public QuantifiablePattern NotChar(CharGroupItem item)
+        public QuantifiablePattern NotCharacter(CharGroupItem item)
         {
-            return ConcatInternal(Patterns.NotChar(item));
+            return ConcatInternal(Patterns.NotCharacter(item));
         }
 
         public QuantifiablePattern Range(char first, char last)
@@ -816,54 +816,54 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Patterns.NotWordChars());
         }
 
-        public QuantifiablePattern Char(char value)
+        public QuantifiablePattern Character(char value)
         {
-            return ConcatInternal(Patterns.Char(value));
+            return ConcatInternal(Patterns.Character(value));
         }
 
-        public QuantifiablePattern Char(int charCode)
+        public QuantifiablePattern Character(int charCode)
         {
-            return ConcatInternal(Patterns.Char(charCode));
+            return ConcatInternal(Patterns.Character(charCode));
         }
 
-        public QuantifiablePattern Char(AsciiChar value)
+        public QuantifiablePattern Character(AsciiChar value)
         {
-            return ConcatInternal(Patterns.Char(value));
+            return ConcatInternal(Patterns.Character(value));
         }
 
-        public QuantifiablePattern Char(NamedBlock block)
+        public QuantifiablePattern Character(NamedBlock block)
         {
-            return ConcatInternal(Patterns.Char(block));
+            return ConcatInternal(Patterns.Character(block));
         }
 
-        public QuantifiablePattern Char(GeneralCategory category)
+        public QuantifiablePattern Character(GeneralCategory category)
         {
-            return ConcatInternal(Patterns.Char(category));
+            return ConcatInternal(Patterns.Character(category));
         }
 
-        public QuantifiablePattern NotChar(char value)
+        public QuantifiablePattern NotCharacter(char value)
         {
-            return ConcatInternal(Patterns.NotChar(value));
+            return ConcatInternal(Patterns.NotCharacter(value));
         }
 
-        public QuantifiablePattern NotChar(int charCode)
+        public QuantifiablePattern NotCharacter(int charCode)
         {
-            return ConcatInternal(Patterns.NotChar(charCode));
+            return ConcatInternal(Patterns.NotCharacter(charCode));
         }
 
-        public QuantifiablePattern NotChar(AsciiChar value)
+        public QuantifiablePattern NotCharacter(AsciiChar value)
         {
-            return ConcatInternal(Patterns.NotChar(value));
+            return ConcatInternal(Patterns.NotCharacter(value));
         }
 
-        public QuantifiablePattern NotChar(NamedBlock block)
+        public QuantifiablePattern NotCharacter(NamedBlock block)
         {
-            return ConcatInternal(Patterns.NotChar(block));
+            return ConcatInternal(Patterns.NotCharacter(block));
         }
 
-        public QuantifiablePattern NotChar(GeneralCategory category)
+        public QuantifiablePattern NotCharacter(GeneralCategory category)
         {
-            return ConcatInternal(Patterns.NotChar(category));
+            return ConcatInternal(Patterns.NotCharacter(category));
         }
 
         public QuantifiablePattern Tab()
