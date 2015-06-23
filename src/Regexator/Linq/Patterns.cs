@@ -2231,12 +2231,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
 #if DEBUG
-        public static QuantifiablePattern GoTo(char value)
+        public static QuantifiablePattern GoToChar(char value)
         {
             return NotCharacter(value).MaybeMany().Character(value).AsNoncapturingGroup();
         }
 
-        public static QuantifiablePattern GoTo(AsciiChar value)
+        public static QuantifiablePattern GoToChar(AsciiChar value)
         {
             return NotCharacter(value).MaybeMany().Character(value).AsNoncapturingGroup();
         }

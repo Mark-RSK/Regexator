@@ -480,14 +480,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
 #if DEBUG
-        public QuantifiablePattern GoTo(char value)
+        public QuantifiablePattern GoToChar(char value)
         {
-            return ConcatInternal(Patterns.GoTo(value));
+            return ConcatInternal(Patterns.GoToChar(value));
         }
 
-        public QuantifiablePattern GoTo(AsciiChar value)
+        public QuantifiablePattern GoToChar(AsciiChar value)
         {
-            return ConcatInternal(Patterns.GoTo(value));
+            return ConcatInternal(Patterns.GoToChar(value));
         }
 #endif
 
