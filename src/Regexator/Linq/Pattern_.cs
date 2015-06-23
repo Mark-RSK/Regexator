@@ -2063,7 +2063,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public QuantifiablePattern NewLine()
         {
-            return ConcatInternal(new NewLine());
+            return ConcatInternal(Patterns.NewLine());
         }
 
         public QuantifiablePattern NewLineChar()
