@@ -11,7 +11,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             RegexUtilities.CheckGroupName(groupName);
 
-            return ConcatInternal(new IfGroup(groupName, Patterns.Never()));
+            return ConcatInternal(Patterns.IfGroup(groupName, Patterns.Never()));
         }
 
         public Pattern DisallowGroups(params string[] groupNames)
@@ -38,7 +38,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentOutOfRangeException("groupNumber");
             }
 
-            return ConcatInternal(new IfGroup(groupNumber, Patterns.Never()));
+            return ConcatInternal(Patterns.IfGroup(groupNumber, Patterns.Never()));
         }
 
         public Pattern DisallowGroups(params int[] groupNumbers)
@@ -62,7 +62,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             RegexUtilities.CheckGroupName(groupName);
 
-            return ConcatInternal(new IfGroup(groupName, Pattern.Empty, Patterns.Never()));
+            return ConcatInternal(Patterns.IfGroup(groupName, Pattern.Empty, Patterns.Never()));
         }
 
         public Pattern RequireGroups(params string[] groupNames)
@@ -89,7 +89,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentOutOfRangeException("groupNumber");
             }
 
-            return ConcatInternal(new IfGroup(groupNumber, Pattern.Empty, Patterns.Never()));
+            return ConcatInternal(Patterns.IfGroup(groupNumber, Pattern.Empty, Patterns.Never()));
         }
 
         public Pattern RequireGroups(params int[] groupNumbers)
@@ -111,42 +111,42 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public QuantifiablePattern Any(IEnumerable<object> content)
         {
-            return ConcatInternal(new AnyGroup(content));
+            return ConcatInternal(Patterns.Any(content));
         }
 
         public QuantifiablePattern Any(params object[] content)
         {
-            return ConcatInternal(new AnyGroup(content));
+            return ConcatInternal(Patterns.Any(content));
         }
 
         public QuantifiablePattern IfGroup(string groupName, object trueContent)
         {
-            return ConcatInternal(new IfGroup(groupName, trueContent));
+            return ConcatInternal(Patterns.IfGroup(groupName, trueContent));
         }
 
         public QuantifiablePattern IfGroup(string groupName, object trueContent, object falseContent)
         {
-            return ConcatInternal(new IfGroup(groupName, trueContent, falseContent));
+            return ConcatInternal(Patterns.IfGroup(groupName, trueContent, falseContent));
         }
 
         public QuantifiablePattern IfGroup(int groupNumber, object trueContent)
         {
-            return ConcatInternal(new IfGroup(groupNumber, trueContent));
+            return ConcatInternal(Patterns.IfGroup(groupNumber, trueContent));
         }
 
         public QuantifiablePattern IfGroup(int groupNumber, object trueContent, object falseContent)
         {
-            return ConcatInternal(new IfGroup(groupNumber, trueContent, falseContent));
+            return ConcatInternal(Patterns.IfGroup(groupNumber, trueContent, falseContent));
         }
 
         public QuantifiablePattern IfAssert(Pattern testContent, object trueContent)
         {
-            return ConcatInternal(new IfAssert(testContent, trueContent));
+            return ConcatInternal(Patterns.IfAssert(testContent, trueContent));
         }
 
         public QuantifiablePattern IfAssert(Pattern testContent, object trueContent, object falseContent)
         {
-            return ConcatInternal(new IfAssert(testContent, trueContent, falseContent));
+            return ConcatInternal(Patterns.IfAssert(testContent, trueContent, falseContent));
         }
 
         public Pattern Or(object content)
@@ -156,12 +156,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public QuantifiablePattern StartOfInput()
         {
-            return ConcatInternal(new StartOfInput());
+            return ConcatInternal(Patterns.StartOfInput());
         }
 
         public QuantifiablePattern StartOfLine()
         {
-            return ConcatInternal(new StartOfLine());
+            return ConcatInternal(Patterns.StartOfLine());
         }
 
         public QuantifiablePattern StartOfLineInvariant()
@@ -171,12 +171,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public QuantifiablePattern EndOfInput()
         {
-            return ConcatInternal(new EndOfInput());
+            return ConcatInternal(Patterns.EndOfInput());
         }
 
         public QuantifiablePattern EndOfLine()
         {
-            return ConcatInternal(new EndOfLine());
+            return ConcatInternal(Patterns.EndOfLine());
         }
 
         public QuantifiablePattern EndOfLineInvariant()
@@ -196,17 +196,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public QuantifiablePattern EndOrBeforeEndingNewLine()
         {
-            return ConcatInternal(new EndOrBeforeEndingNewLine());
+            return ConcatInternal(Patterns.EndOrBeforeEndingNewLine());
         }
 
         public QuantifiablePattern PreviousMatchEnd()
         {
-            return ConcatInternal(new PreviousMatchEnd());
+            return ConcatInternal(Patterns.PreviousMatchEnd());
         }
 
         public QuantifiablePattern WordBoundary()
         {
-            return ConcatInternal(new WordBoundary());
+            return ConcatInternal(Patterns.WordBoundary());
         }
 
         public QuantifiablePattern Word()
@@ -226,7 +226,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public QuantifiablePattern NotWordBoundary()
         {
-            return ConcatInternal(new NotWordBoundary());
+            return ConcatInternal(Patterns.NotWordBoundary());
         }
 
         public Pattern AsLine()
@@ -246,117 +246,117 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public QuantifiablePattern Assert(object content)
         {
-            return ConcatInternal(new Assert(content));
+            return ConcatInternal(Patterns.Assert(content));
         }
 
         public QuantifiablePattern Assert(params object[] content)
         {
-            return ConcatInternal(new Assert(content));
+            return ConcatInternal(Patterns.Assert(content));
         }
 
         public QuantifiablePattern Assert(CharGroupItem item)
         {
-            return ConcatInternal(new Assert(item));
+            return ConcatInternal(Patterns.Assert(item));
         }
 
         public QuantifiablePattern NotAssert(object content)
         {
-            return ConcatInternal(new NotAssert(content));
+            return ConcatInternal(Patterns.NotAssert(content));
         }
 
         public QuantifiablePattern NotAssert(params object[] content)
         {
-            return ConcatInternal(new NotAssert(content));
+            return ConcatInternal(Patterns.NotAssert(content));
         }
 
         public QuantifiablePattern NotAssert(CharGroupItem item)
         {
-            return ConcatInternal(new NotAssert(item));
+            return ConcatInternal(Patterns.NotAssert(item));
         }
 
         public QuantifiablePattern AssertBack(object content)
         {
-            return ConcatInternal(new AssertBack(content));
+            return ConcatInternal(Patterns.AssertBack(content));
         }
 
         public QuantifiablePattern AssertBack(params object[] content)
         {
-            return ConcatInternal(new AssertBack(content));
+            return ConcatInternal(Patterns.AssertBack(content));
         }
 
         public QuantifiablePattern AssertBack(CharGroupItem item)
         {
-            return ConcatInternal(new AssertBack(item));
+            return ConcatInternal(Patterns.AssertBack(item));
         }
 
         public QuantifiablePattern NotAssertBack(object content)
         {
-            return ConcatInternal(new NotAssertBack(content));
+            return ConcatInternal(Patterns.NotAssertBack(content));
         }
 
         public QuantifiablePattern NotAssertBack(params object[] content)
         {
-            return ConcatInternal(new NotAssertBack(content));
+            return ConcatInternal(Patterns.NotAssertBack(content));
         }
 
         public QuantifiablePattern NotAssertBack(CharGroupItem item)
         {
-            return ConcatInternal(new NotAssertBack(item));
+            return ConcatInternal(Patterns.NotAssertBack(item));
         }
 
         public QuantifiablePattern CapturingGroup()
         {
-            return ConcatInternal(new CapturingGroup());
+            return ConcatInternal(Patterns.CapturingGroup());
         }
 
         public QuantifiablePattern CapturingGroup(object content)
         {
-            return ConcatInternal(new CapturingGroup(content));
+            return ConcatInternal(Patterns.CapturingGroup(content));
         }
 
         public QuantifiablePattern CapturingGroup(params object[] content)
         {
-            return ConcatInternal(new CapturingGroup(content));
+            return ConcatInternal(Patterns.CapturingGroup(content));
         }
 
         public QuantifiablePattern NamedGroup(string name, object content)
         {
-            return ConcatInternal(new NamedGroup(name, content));
+            return ConcatInternal(Patterns.NamedGroup(name, content));
         }
 
         public QuantifiablePattern NamedGroup(string name, params object[] content)
         {
-            return ConcatInternal(new NamedGroup(name, content));
+            return ConcatInternal(Patterns.NamedGroup(name, content));
         }
 
         public QuantifiablePattern NoncapturingGroup(object content)
         {
-            return ConcatInternal(new NoncapturingGroup(content));
+            return ConcatInternal(Patterns.NoncapturingGroup((content)));
         }
 
         public QuantifiablePattern NoncapturingGroup(params object[] content)
         {
-            return ConcatInternal(new NoncapturingGroup(content));
+            return ConcatInternal(Patterns.NoncapturingGroup(content));
         }
 
         public QuantifiablePattern NonbacktrackingGroup(object content)
         {
-            return ConcatInternal(new NonbacktrackingGroup(content));
+            return ConcatInternal(Patterns.NonbacktrackingGroup(content));
         }
 
         public QuantifiablePattern NonbacktrackingGroup(params object[] content)
         {
-            return ConcatInternal(new NonbacktrackingGroup(content));
+            return ConcatInternal(Patterns.NonbacktrackingGroup(content));
         }
 
         public QuantifiablePattern BalancingGroup(string name1, string name2, object content)
         {
-            return ConcatInternal(new BalancingGroup(name1, name2, content));
+            return ConcatInternal(Patterns.BalancingGroup(name1, name2, content));
         }
 
         public QuantifiablePattern BalancingGroup(string name1, string name2, params object[] content)
         {
-            return ConcatInternal(new BalancingGroup(name1, name2, content));
+            return ConcatInternal(Patterns.BalancingGroup(name1, name2, content));
         }
 
         public Pattern Options(InlineOptions applyOptions)
@@ -406,22 +406,22 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public QuantifiablePattern AsCapturingGroup()
         {
-            return new CapturingGroup(this);
+            return Patterns.CapturingGroup(this);
         }
 
         public QuantifiablePattern AsCapturingGroup(string groupName)
         {
-            return new NamedGroup(groupName, this);
+            return Patterns.NamedGroup(groupName, this);
         }
 
         public QuantifiablePattern AsNoncapturingGroup()
         {
-            return new NoncapturingGroup(this);
+            return Patterns.NoncapturingGroup(this);
         }
 
         public QuantifiablePattern AsNonbacktrackingGroup()
         {
-            return new NonbacktrackingGroup(this);
+            return Patterns.NonbacktrackingGroup(this);
         }
 
         public Pattern Apostrophes()
@@ -1978,87 +1978,87 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public QuantifiedGroup Maybe(object content)
         {
-            return ConcatInternal(new Maybe(content));
+            return ConcatInternal(Patterns.Maybe(content));
         }
 
         public QuantifiedGroup Maybe(params object[] content)
         {
-            return ConcatInternal(new Maybe(content));
+            return ConcatInternal(Patterns.Maybe(content));
         }
 
         public QuantifiedGroup MaybeMany(object content)
         {
-            return ConcatInternal(new MaybeMany(content));
+            return ConcatInternal(Patterns.MaybeMany(content));
         }
 
         public QuantifiedGroup MaybeMany(params object[] content)
         {
-            return ConcatInternal(new MaybeMany(content));
+            return ConcatInternal(Patterns.MaybeMany(content));
         }
 
         public QuantifiedGroup OneMany(object content)
         {
-            return ConcatInternal(new OneMany(content));
+            return ConcatInternal(Patterns.OneMany(content));
         }
 
         public QuantifiedGroup OneMany(params object[] content)
         {
-            return ConcatInternal(new OneMany(content));
+            return ConcatInternal(Patterns.OneMany(content));
         }
 
         public QuantifiedGroup Count(int exactCount, object content)
         {
-            return ConcatInternal(new Count(exactCount, content));
+            return ConcatInternal(Patterns.Count(exactCount, content));
         }
 
         public QuantifiedGroup Count(int minCount, int maxCount, object content)
         {
-            return ConcatInternal(new Count(minCount, maxCount, content));
+            return ConcatInternal(Patterns.Count(minCount, maxCount, content));
         }
 
         public QuantifiedGroup Count(int exactCount, params object[] content)
         {
-            return ConcatInternal(new Count(exactCount, content));
+            return ConcatInternal(Patterns.Count(exactCount, content));
         }
 
         public QuantifiedGroup Count(int minCount, int maxCount, params object[] content)
         {
-            return ConcatInternal(new Count(minCount, maxCount, content));
+            return ConcatInternal(Patterns.Count(minCount, maxCount, content));
         }
 
         public QuantifiedGroup CountFrom(int minCount, object content)
         {
-            return ConcatInternal(new CountFrom(minCount, content));
+            return ConcatInternal(Patterns.CountFrom(minCount, content));
         }
 
         public QuantifiedGroup CountFrom(int minCount, params object[] content)
         {
-            return ConcatInternal(new CountFrom(minCount, content));
+            return ConcatInternal(Patterns.CountFrom(minCount, content));
         }
 
         public QuantifiedGroup CountTo(int maxCount, object content)
         {
-            return ConcatInternal(new CountTo(maxCount, content));
+            return ConcatInternal(Patterns.CountTo(maxCount, content));
         }
 
         public QuantifiedGroup CountTo(int maxCount, params object[] content)
         {
-            return ConcatInternal(new CountTo(maxCount, content));
+            return ConcatInternal(Patterns.CountTo(maxCount, content));
         }
 
         public QuantifiablePattern GroupReference(int groupNumber)
         {
-            return ConcatInternal(new GroupNumberReference(groupNumber));
+            return ConcatInternal(Patterns.GroupReference(groupNumber));
         }
 
         public QuantifiablePattern GroupReference(string groupName)
         {
-            return ConcatInternal(new GroupNameReference(groupName));
+            return ConcatInternal(Patterns.GroupReference(groupName));
         }
 
         public Pattern Comment(string value)
         {
-            return ConcatInternal(new InlineComment(value));
+            return ConcatInternal(Patterns.Comment(value));
         }
 
         public QuantifiablePattern NewLine()

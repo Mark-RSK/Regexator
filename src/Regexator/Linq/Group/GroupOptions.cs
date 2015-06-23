@@ -13,20 +13,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
         }
 
-        public GroupOptions(InlineOptions applyOptions, params object[] content)
-            : this(applyOptions, InlineOptions.None, content)
-        {
-        }
-
         public GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, object content)
             : base(content)
-        {
-            _applyOptions = applyOptions;
-            _disableOptions = disableOptions;
-        }
-
-        public GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, params object[] content)
-            : base((object)content)
         {
             _applyOptions = applyOptions;
             _disableOptions = disableOptions;

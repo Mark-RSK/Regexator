@@ -13,7 +13,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern IfGroup(string groupName, object trueContent)
         {
-            return new IfGroup(groupName, trueContent);
+            return IfGroup(groupName, trueContent, null);
         }
 
         public static QuantifiablePattern IfGroup(string groupName, object trueContent, object falseContent)
@@ -23,7 +23,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern IfGroup(int groupNumber, object trueContent)
         {
-            return new IfGroup(groupNumber, trueContent);
+            return IfGroup(groupNumber, trueContent, null);
         }
 
         public static QuantifiablePattern IfGroup(int groupNumber, object trueContent, object falseContent)
@@ -33,7 +33,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern IfAssert(Pattern testContent, object trueContent)
         {
-            return new IfAssert(testContent, trueContent);
+            return IfAssert(testContent, trueContent, null);
         }
 
         public static QuantifiablePattern IfAssert(Pattern testContent, object trueContent, object falseContent)
@@ -140,7 +140,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 Assert(CarriageReturn().Maybe().EndOfLineInvariant()));
         }
 
-        public static Pattern EndOfInput()
+        public static QuantifiablePattern EndOfInput()
         {
             return new EndOfInput();
         }
@@ -167,22 +167,22 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern Word()
         {
-            return Pattern.Surround(new WordBoundary(), WordChars()).AsNoncapturingGroup();
+            return Pattern.Surround(WordBoundary(), WordChars()).AsNoncapturingGroup();
         }
 
         public static QuantifiablePattern Word(string text)
         {
-            return Pattern.Surround(new WordBoundary(), text).AsNoncapturingGroup();
+            return Pattern.Surround(WordBoundary(), text).AsNoncapturingGroup();
         }
 
         public static QuantifiablePattern Word(params string[] values)
         {
-            return Pattern.Surround(new WordBoundary(), new AnyGroup(values)).AsNoncapturingGroup();
+            return Pattern.Surround(WordBoundary(), Any(values)).AsNoncapturingGroup();
         }
 
         public static Pattern Line(object content)
         {
-            return Pattern.Surround(new StartOfLine(), content, new EndOfLine());
+            return Pattern.Surround(StartOfLine(), content, EndOfLine());
         }
 
         public static Pattern Line(params object[] content)
@@ -197,7 +197,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static Pattern EntireInput(object content)
         {
-            return Pattern.Surround(new StartOfInput(), content, new EndOfInput());
+            return Pattern.Surround(StartOfInput(), content, EndOfInput());
         }
 
         public static Pattern EntireInput(params object[] content)
@@ -277,7 +277,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup Maybe(params object[] content)
         {
-            return new Maybe((object)content);
+            return Maybe((object)content);
         }
 
         public static QuantifiedGroup MaybeMany(object content)
@@ -287,7 +287,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup MaybeMany(params object[] content)
         {
-            return new MaybeMany((object)content);
+            return MaybeMany((object)content);
         }
 
         public static QuantifiedGroup OneMany(object content)
@@ -297,7 +297,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup OneMany(params object[] content)
         {
-            return new OneMany((object)content);
+            return OneMany((object)content);
         }
 
         public static QuantifiedGroup Count(int exactCount, object content)
@@ -305,19 +305,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new Count(exactCount, content);
         }
 
+        public static QuantifiedGroup Count(int exactCount, params object[] content)
+        {
+            return Count(exactCount, (object)content);
+        }
+
         public static QuantifiedGroup Count(int minCount, int maxCount, object content)
         {
             return new Count(minCount, maxCount, content);
         }
 
-        public static QuantifiedGroup Count(int exactCount, params object[] content)
-        {
-            return new Count(exactCount, (object)content);
-        }
-
         public static QuantifiedGroup Count(int minCount, int maxCount, params object[] content)
         {
-            return new Count(minCount, maxCount, (object)content);
+            return Count(minCount, maxCount, (object)content);
         }
 
         public static QuantifiedGroup CountFrom(int minCount, object content)
@@ -327,7 +327,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup CountFrom(int minCount, params object[] content)
         {
-            return new CountFrom(minCount, (object)content);
+            return CountFrom(minCount, (object)content);
         }
 
         public static QuantifiedGroup CountTo(int maxCount, object content)
@@ -337,7 +337,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup CountTo(int maxCount, params object[] content)
         {
-            return new CountTo(maxCount, (object)content);
+            return CountTo(maxCount, (object)content);
         }
 
         public static QuantifiablePattern GroupReference(int groupNumber)
@@ -362,7 +362,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern Options(InlineOptions applyOptions, params object[] content)
         {
-            return new GroupOptions(applyOptions, content);
+            return Options(applyOptions, (object)content);
         }
 
         public static Pattern Options(InlineOptions applyOptions, InlineOptions disableOptions)
@@ -377,7 +377,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern Options(InlineOptions applyOptions, InlineOptions disableOptions, params object[] content)
         {
-            return new GroupOptions(applyOptions, disableOptions, content);
+            return Options(applyOptions, disableOptions, (object)content);
         }
 
         public static Pattern DisableOptions(InlineOptions options)
@@ -392,7 +392,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern DisableOptions(InlineOptions options, params object[] content)
         {
-            return new GroupOptions(InlineOptions.None, options, content);
+            return Options(InlineOptions.None, options, (object)content);
         }
 
         public static Pattern Comment(string value)
@@ -502,1082 +502,1082 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern Tab()
         {
-            return Patterns.Character(AsciiChar.Tab);
+            return Character(AsciiChar.Tab);
         }
 
         public static QuantifiedGroup Tab(int exactCount)
         {
-            return new Count(exactCount, Tab());
+            return Count(exactCount, Tab());
         }
 
         public static QuantifiedGroup Tab(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, Tab());
+            return Count(minCount, maxCount, Tab());
         }
 
         public static QuantifiablePattern NotTab()
         {
-            return Patterns.NotCharacter(AsciiChar.Tab);
+            return NotCharacter(AsciiChar.Tab);
         }
 
         public static QuantifiedGroup NotTab(int exactCount)
         {
-            return new Count(exactCount, NotTab());
+            return Count(exactCount, NotTab());
         }
 
         public static QuantifiedGroup NotTab(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotTab());
+            return Count(minCount, maxCount, NotTab());
         }
 
         public static CharacterPattern Linefeed()
         {
-            return Patterns.Character(AsciiChar.Linefeed);
+            return Character(AsciiChar.Linefeed);
         }
 
         public static QuantifiedGroup Linefeed(int exactCount)
         {
-            return new Count(exactCount, Linefeed());
+            return Count(exactCount, Linefeed());
         }
 
         public static QuantifiedGroup Linefeed(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, Linefeed());
+            return Count(minCount, maxCount, Linefeed());
         }
 
         public static QuantifiablePattern NotLinefeed()
         {
-            return Patterns.NotCharacter(AsciiChar.Linefeed);
+            return NotCharacter(AsciiChar.Linefeed);
         }
 
         public static QuantifiedGroup NotLinefeed(int exactCount)
         {
-            return new Count(exactCount, NotLinefeed());
+            return Count(exactCount, NotLinefeed());
         }
 
         public static QuantifiedGroup NotLinefeed(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotLinefeed());
+            return Count(minCount, maxCount, NotLinefeed());
         }
 
         public static CharacterPattern CarriageReturn()
         {
-            return Patterns.Character(AsciiChar.CarriageReturn);
+            return Character(AsciiChar.CarriageReturn);
         }
 
         public static QuantifiedGroup CarriageReturn(int exactCount)
         {
-            return new Count(exactCount, CarriageReturn());
+            return Count(exactCount, CarriageReturn());
         }
 
         public static QuantifiedGroup CarriageReturn(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, CarriageReturn());
+            return Count(minCount, maxCount, CarriageReturn());
         }
 
         public static QuantifiablePattern NotCarriageReturn()
         {
-            return Patterns.NotCharacter(AsciiChar.CarriageReturn);
+            return NotCharacter(AsciiChar.CarriageReturn);
         }
 
         public static QuantifiedGroup NotCarriageReturn(int exactCount)
         {
-            return new Count(exactCount, NotCarriageReturn());
+            return Count(exactCount, NotCarriageReturn());
         }
 
         public static QuantifiedGroup NotCarriageReturn(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotCarriageReturn());
+            return Count(minCount, maxCount, NotCarriageReturn());
         }
 
         public static CharacterPattern Space()
         {
-            return Patterns.Character(AsciiChar.Space);
+            return Character(AsciiChar.Space);
         }
 
         public static QuantifiedGroup Space(int exactCount)
         {
-            return new Count(exactCount, Space());
+            return Count(exactCount, Space());
         }
 
         public static QuantifiedGroup Space(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, Space());
+            return Count(minCount, maxCount, Space());
         }
 
         public static QuantifiablePattern NotSpace()
         {
-            return Patterns.NotCharacter(AsciiChar.Space);
+            return NotCharacter(AsciiChar.Space);
         }
 
         public static QuantifiedGroup NotSpace(int exactCount)
         {
-            return new Count(exactCount, NotSpace());
+            return Count(exactCount, NotSpace());
         }
 
         public static QuantifiedGroup NotSpace(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotSpace());
+            return Count(minCount, maxCount, NotSpace());
         }
 
         public static CharacterPattern ExclamationMark()
         {
-            return Patterns.Character(AsciiChar.ExclamationMark);
+            return Character(AsciiChar.ExclamationMark);
         }
 
         public static QuantifiedGroup ExclamationMark(int exactCount)
         {
-            return new Count(exactCount, ExclamationMark());
+            return Count(exactCount, ExclamationMark());
         }
 
         public static QuantifiedGroup ExclamationMark(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, ExclamationMark());
+            return Count(minCount, maxCount, ExclamationMark());
         }
 
         public static QuantifiablePattern NotExclamationMark()
         {
-            return Patterns.NotCharacter(AsciiChar.ExclamationMark);
+            return NotCharacter(AsciiChar.ExclamationMark);
         }
 
         public static QuantifiedGroup NotExclamationMark(int exactCount)
         {
-            return new Count(exactCount, NotExclamationMark());
+            return Count(exactCount, NotExclamationMark());
         }
 
         public static QuantifiedGroup NotExclamationMark(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotExclamationMark());
+            return Count(minCount, maxCount, NotExclamationMark());
         }
 
         public static CharacterPattern QuoteMark()
         {
-            return Patterns.Character(AsciiChar.QuoteMark);
+            return Character(AsciiChar.QuoteMark);
         }
 
         public static QuantifiedGroup QuoteMark(int exactCount)
         {
-            return new Count(exactCount, QuoteMark());
+            return Count(exactCount, QuoteMark());
         }
 
         public static QuantifiedGroup QuoteMark(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, QuoteMark());
+            return Count(minCount, maxCount, QuoteMark());
         }
 
         public static QuantifiablePattern NotQuoteMark()
         {
-            return Patterns.NotCharacter(AsciiChar.QuoteMark);
+            return NotCharacter(AsciiChar.QuoteMark);
         }
 
         public static QuantifiedGroup NotQuoteMark(int exactCount)
         {
-            return new Count(exactCount, NotQuoteMark());
+            return Count(exactCount, NotQuoteMark());
         }
 
         public static QuantifiedGroup NotQuoteMark(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotQuoteMark());
+            return Count(minCount, maxCount, NotQuoteMark());
         }
 
         public static CharacterPattern NumberSign()
         {
-            return Patterns.Character(AsciiChar.NumberSign);
+            return Character(AsciiChar.NumberSign);
         }
 
         public static QuantifiedGroup NumberSign(int exactCount)
         {
-            return new Count(exactCount, NumberSign());
+            return Count(exactCount, NumberSign());
         }
 
         public static QuantifiedGroup NumberSign(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NumberSign());
+            return Count(minCount, maxCount, NumberSign());
         }
 
         public static QuantifiablePattern NotNumberSign()
         {
-            return Patterns.NotCharacter(AsciiChar.NumberSign);
+            return NotCharacter(AsciiChar.NumberSign);
         }
 
         public static QuantifiedGroup NotNumberSign(int exactCount)
         {
-            return new Count(exactCount, NotNumberSign());
+            return Count(exactCount, NotNumberSign());
         }
 
         public static QuantifiedGroup NotNumberSign(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotNumberSign());
+            return Count(minCount, maxCount, NotNumberSign());
         }
 
         public static CharacterPattern Dollar()
         {
-            return Patterns.Character(AsciiChar.Dollar);
+            return Character(AsciiChar.Dollar);
         }
 
         public static QuantifiedGroup Dollar(int exactCount)
         {
-            return new Count(exactCount, Dollar());
+            return Count(exactCount, Dollar());
         }
 
         public static QuantifiedGroup Dollar(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, Dollar());
+            return Count(minCount, maxCount, Dollar());
         }
 
         public static QuantifiablePattern NotDollar()
         {
-            return Patterns.NotCharacter(AsciiChar.Dollar);
+            return NotCharacter(AsciiChar.Dollar);
         }
 
         public static QuantifiedGroup NotDollar(int exactCount)
         {
-            return new Count(exactCount, NotDollar());
+            return Count(exactCount, NotDollar());
         }
 
         public static QuantifiedGroup NotDollar(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotDollar());
+            return Count(minCount, maxCount, NotDollar());
         }
 
         public static CharacterPattern Percent()
         {
-            return Patterns.Character(AsciiChar.Percent);
+            return Character(AsciiChar.Percent);
         }
 
         public static QuantifiedGroup Percent(int exactCount)
         {
-            return new Count(exactCount, Percent());
+            return Count(exactCount, Percent());
         }
 
         public static QuantifiedGroup Percent(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, Percent());
+            return Count(minCount, maxCount, Percent());
         }
 
         public static QuantifiablePattern NotPercent()
         {
-            return Patterns.NotCharacter(AsciiChar.Percent);
+            return NotCharacter(AsciiChar.Percent);
         }
 
         public static QuantifiedGroup NotPercent(int exactCount)
         {
-            return new Count(exactCount, NotPercent());
+            return Count(exactCount, NotPercent());
         }
 
         public static QuantifiedGroup NotPercent(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotPercent());
+            return Count(minCount, maxCount, NotPercent());
         }
 
         public static CharacterPattern Ampersand()
         {
-            return Patterns.Character(AsciiChar.Ampersand);
+            return Character(AsciiChar.Ampersand);
         }
 
         public static QuantifiedGroup Ampersand(int exactCount)
         {
-            return new Count(exactCount, Ampersand());
+            return Count(exactCount, Ampersand());
         }
 
         public static QuantifiedGroup Ampersand(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, Ampersand());
+            return Count(minCount, maxCount, Ampersand());
         }
 
         public static QuantifiablePattern NotAmpersand()
         {
-            return Patterns.NotCharacter(AsciiChar.Ampersand);
+            return NotCharacter(AsciiChar.Ampersand);
         }
 
         public static QuantifiedGroup NotAmpersand(int exactCount)
         {
-            return new Count(exactCount, NotAmpersand());
+            return Count(exactCount, NotAmpersand());
         }
 
         public static QuantifiedGroup NotAmpersand(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotAmpersand());
+            return Count(minCount, maxCount, NotAmpersand());
         }
 
         public static CharacterPattern Apostrophe()
         {
-            return Patterns.Character(AsciiChar.Apostrophe);
+            return Character(AsciiChar.Apostrophe);
         }
 
         public static QuantifiedGroup Apostrophe(int exactCount)
         {
-            return new Count(exactCount, Apostrophe());
+            return Count(exactCount, Apostrophe());
         }
 
         public static QuantifiedGroup Apostrophe(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, Apostrophe());
+            return Count(minCount, maxCount, Apostrophe());
         }
 
         public static QuantifiablePattern NotApostrophe()
         {
-            return Patterns.NotCharacter(AsciiChar.Apostrophe);
+            return NotCharacter(AsciiChar.Apostrophe);
         }
 
         public static QuantifiedGroup NotApostrophe(int exactCount)
         {
-            return new Count(exactCount, NotApostrophe());
+            return Count(exactCount, NotApostrophe());
         }
 
         public static QuantifiedGroup NotApostrophe(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotApostrophe());
+            return Count(minCount, maxCount, NotApostrophe());
         }
 
         public static CharacterPattern LeftParenthesis()
         {
-            return Patterns.Character(AsciiChar.LeftParenthesis);
+            return Character(AsciiChar.LeftParenthesis);
         }
 
         public static QuantifiedGroup LeftParenthesis(int exactCount)
         {
-            return new Count(exactCount, LeftParenthesis());
+            return Count(exactCount, LeftParenthesis());
         }
 
         public static QuantifiedGroup LeftParenthesis(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, LeftParenthesis());
+            return Count(minCount, maxCount, LeftParenthesis());
         }
 
         public static QuantifiablePattern NotLeftParenthesis()
         {
-            return Patterns.NotCharacter(AsciiChar.LeftParenthesis);
+            return NotCharacter(AsciiChar.LeftParenthesis);
         }
 
         public static QuantifiedGroup NotLeftParenthesis(int exactCount)
         {
-            return new Count(exactCount, NotLeftParenthesis());
+            return Count(exactCount, NotLeftParenthesis());
         }
 
         public static QuantifiedGroup NotLeftParenthesis(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotLeftParenthesis());
+            return Count(minCount, maxCount, NotLeftParenthesis());
         }
 
         public static CharacterPattern RightParenthesis()
         {
-            return Patterns.Character(AsciiChar.RightParenthesis);
+            return Character(AsciiChar.RightParenthesis);
         }
 
         public static QuantifiedGroup RightParenthesis(int exactCount)
         {
-            return new Count(exactCount, RightParenthesis());
+            return Count(exactCount, RightParenthesis());
         }
 
         public static QuantifiedGroup RightParenthesis(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, RightParenthesis());
+            return Count(minCount, maxCount, RightParenthesis());
         }
 
         public static QuantifiablePattern NotRightParenthesis()
         {
-            return Patterns.NotCharacter(AsciiChar.RightParenthesis);
+            return NotCharacter(AsciiChar.RightParenthesis);
         }
 
         public static QuantifiedGroup NotRightParenthesis(int exactCount)
         {
-            return new Count(exactCount, NotRightParenthesis());
+            return Count(exactCount, NotRightParenthesis());
         }
 
         public static QuantifiedGroup NotRightParenthesis(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotRightParenthesis());
+            return Count(minCount, maxCount, NotRightParenthesis());
         }
 
         public static CharacterPattern Asterisk()
         {
-            return Patterns.Character(AsciiChar.Asterisk);
+            return Character(AsciiChar.Asterisk);
         }
 
         public static QuantifiedGroup Asterisk(int exactCount)
         {
-            return new Count(exactCount, Asterisk());
+            return Count(exactCount, Asterisk());
         }
 
         public static QuantifiedGroup Asterisk(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, Asterisk());
+            return Count(minCount, maxCount, Asterisk());
         }
 
         public static QuantifiablePattern NotAsterisk()
         {
-            return Patterns.NotCharacter(AsciiChar.Asterisk);
+            return NotCharacter(AsciiChar.Asterisk);
         }
 
         public static QuantifiedGroup NotAsterisk(int exactCount)
         {
-            return new Count(exactCount, NotAsterisk());
+            return Count(exactCount, NotAsterisk());
         }
 
         public static QuantifiedGroup NotAsterisk(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotAsterisk());
+            return Count(minCount, maxCount, NotAsterisk());
         }
 
         public static CharacterPattern Plus()
         {
-            return Patterns.Character(AsciiChar.Plus);
+            return Character(AsciiChar.Plus);
         }
 
         public static QuantifiedGroup Plus(int exactCount)
         {
-            return new Count(exactCount, Plus());
+            return Count(exactCount, Plus());
         }
 
         public static QuantifiedGroup Plus(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, Plus());
+            return Count(minCount, maxCount, Plus());
         }
 
         public static QuantifiablePattern NotPlus()
         {
-            return Patterns.NotCharacter(AsciiChar.Plus);
+            return NotCharacter(AsciiChar.Plus);
         }
 
         public static QuantifiedGroup NotPlus(int exactCount)
         {
-            return new Count(exactCount, NotPlus());
+            return Count(exactCount, NotPlus());
         }
 
         public static QuantifiedGroup NotPlus(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotPlus());
+            return Count(minCount, maxCount, NotPlus());
         }
 
         public static CharacterPattern Comma()
         {
-            return Patterns.Character(AsciiChar.Comma);
+            return Character(AsciiChar.Comma);
         }
 
         public static QuantifiedGroup Comma(int exactCount)
         {
-            return new Count(exactCount, Comma());
+            return Count(exactCount, Comma());
         }
 
         public static QuantifiedGroup Comma(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, Comma());
+            return Count(minCount, maxCount, Comma());
         }
 
         public static QuantifiablePattern NotComma()
         {
-            return Patterns.NotCharacter(AsciiChar.Comma);
+            return NotCharacter(AsciiChar.Comma);
         }
 
         public static QuantifiedGroup NotComma(int exactCount)
         {
-            return new Count(exactCount, NotComma());
+            return Count(exactCount, NotComma());
         }
 
         public static QuantifiedGroup NotComma(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotComma());
+            return Count(minCount, maxCount, NotComma());
         }
 
         public static CharacterPattern Hyphen()
         {
-            return Patterns.Character(AsciiChar.Hyphen);
+            return Character(AsciiChar.Hyphen);
         }
 
         public static QuantifiedGroup Hyphen(int exactCount)
         {
-            return new Count(exactCount, Hyphen());
+            return Count(exactCount, Hyphen());
         }
 
         public static QuantifiedGroup Hyphen(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, Hyphen());
+            return Count(minCount, maxCount, Hyphen());
         }
 
         public static QuantifiablePattern NotHyphen()
         {
-            return Patterns.NotCharacter(AsciiChar.Hyphen);
+            return NotCharacter(AsciiChar.Hyphen);
         }
 
         public static QuantifiedGroup NotHyphen(int exactCount)
         {
-            return new Count(exactCount, NotHyphen());
+            return Count(exactCount, NotHyphen());
         }
 
         public static QuantifiedGroup NotHyphen(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotHyphen());
+            return Count(minCount, maxCount, NotHyphen());
         }
 
         public static CharacterPattern Period()
         {
-            return Patterns.Character(AsciiChar.Period);
+            return Character(AsciiChar.Period);
         }
 
         public static QuantifiedGroup Period(int exactCount)
         {
-            return new Count(exactCount, Period());
+            return Count(exactCount, Period());
         }
 
         public static QuantifiedGroup Period(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, Period());
+            return Count(minCount, maxCount, Period());
         }
 
         public static QuantifiablePattern NotPeriod()
         {
-            return Patterns.NotCharacter(AsciiChar.Period);
+            return NotCharacter(AsciiChar.Period);
         }
 
         public static QuantifiedGroup NotPeriod(int exactCount)
         {
-            return new Count(exactCount, NotPeriod());
+            return Count(exactCount, NotPeriod());
         }
 
         public static QuantifiedGroup NotPeriod(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotPeriod());
+            return Count(minCount, maxCount, NotPeriod());
         }
 
         public static CharacterPattern Slash()
         {
-            return Patterns.Character(AsciiChar.Slash);
+            return Character(AsciiChar.Slash);
         }
 
         public static QuantifiedGroup Slash(int exactCount)
         {
-            return new Count(exactCount, Slash());
+            return Count(exactCount, Slash());
         }
 
         public static QuantifiedGroup Slash(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, Slash());
+            return Count(minCount, maxCount, Slash());
         }
 
         public static QuantifiablePattern NotSlash()
         {
-            return Patterns.NotCharacter(AsciiChar.Slash);
+            return NotCharacter(AsciiChar.Slash);
         }
 
         public static QuantifiedGroup NotSlash(int exactCount)
         {
-            return new Count(exactCount, NotSlash());
+            return Count(exactCount, NotSlash());
         }
 
         public static QuantifiedGroup NotSlash(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotSlash());
+            return Count(minCount, maxCount, NotSlash());
         }
 
         public static CharacterPattern Colon()
         {
-            return Patterns.Character(AsciiChar.Colon);
+            return Character(AsciiChar.Colon);
         }
 
         public static QuantifiedGroup Colon(int exactCount)
         {
-            return new Count(exactCount, Colon());
+            return Count(exactCount, Colon());
         }
 
         public static QuantifiedGroup Colon(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, Colon());
+            return Count(minCount, maxCount, Colon());
         }
 
         public static QuantifiablePattern NotColon()
         {
-            return Patterns.NotCharacter(AsciiChar.Colon);
+            return NotCharacter(AsciiChar.Colon);
         }
 
         public static QuantifiedGroup NotColon(int exactCount)
         {
-            return new Count(exactCount, NotColon());
+            return Count(exactCount, NotColon());
         }
 
         public static QuantifiedGroup NotColon(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotColon());
+            return Count(minCount, maxCount, NotColon());
         }
 
         public static CharacterPattern Semicolon()
         {
-            return Patterns.Character(AsciiChar.Semicolon);
+            return Character(AsciiChar.Semicolon);
         }
 
         public static QuantifiedGroup Semicolon(int exactCount)
         {
-            return new Count(exactCount, Semicolon());
+            return Count(exactCount, Semicolon());
         }
 
         public static QuantifiedGroup Semicolon(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, Semicolon());
+            return Count(minCount, maxCount, Semicolon());
         }
 
         public static QuantifiablePattern NotSemicolon()
         {
-            return Patterns.NotCharacter(AsciiChar.Semicolon);
+            return NotCharacter(AsciiChar.Semicolon);
         }
 
         public static QuantifiedGroup NotSemicolon(int exactCount)
         {
-            return new Count(exactCount, NotSemicolon());
+            return Count(exactCount, NotSemicolon());
         }
 
         public static QuantifiedGroup NotSemicolon(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotSemicolon());
+            return Count(minCount, maxCount, NotSemicolon());
         }
 
         public static CharacterPattern LessThan()
         {
-            return Patterns.Character(AsciiChar.LessThan);
+            return Character(AsciiChar.LessThan);
         }
 
         public static QuantifiedGroup LessThan(int exactCount)
         {
-            return new Count(exactCount, LessThan());
+            return Count(exactCount, LessThan());
         }
 
         public static QuantifiedGroup LessThan(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, LessThan());
+            return Count(minCount, maxCount, LessThan());
         }
 
         public static QuantifiablePattern NotLessThan()
         {
-            return Patterns.NotCharacter(AsciiChar.LessThan);
+            return NotCharacter(AsciiChar.LessThan);
         }
 
         public static QuantifiedGroup NotLessThan(int exactCount)
         {
-            return new Count(exactCount, NotLessThan());
+            return Count(exactCount, NotLessThan());
         }
 
         public static QuantifiedGroup NotLessThan(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotLessThan());
+            return Count(minCount, maxCount, NotLessThan());
         }
 
         public static CharacterPattern EqualsSign()
         {
-            return Patterns.Character(AsciiChar.EqualsSign);
+            return Character(AsciiChar.EqualsSign);
         }
 
         public static QuantifiedGroup EqualsSign(int exactCount)
         {
-            return new Count(exactCount, EqualsSign());
+            return Count(exactCount, EqualsSign());
         }
 
         public static QuantifiedGroup EqualsSign(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, EqualsSign());
+            return Count(minCount, maxCount, EqualsSign());
         }
 
         public static QuantifiablePattern NotEqualsSign()
         {
-            return Patterns.NotCharacter(AsciiChar.EqualsSign);
+            return NotCharacter(AsciiChar.EqualsSign);
         }
 
         public static QuantifiedGroup NotEqualsSign(int exactCount)
         {
-            return new Count(exactCount, NotEqualsSign());
+            return Count(exactCount, NotEqualsSign());
         }
 
         public static QuantifiedGroup NotEqualsSign(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotEqualsSign());
+            return Count(minCount, maxCount, NotEqualsSign());
         }
 
         public static CharacterPattern GreaterThan()
         {
-            return Patterns.Character(AsciiChar.GreaterThan);
+            return Character(AsciiChar.GreaterThan);
         }
 
         public static QuantifiedGroup GreaterThan(int exactCount)
         {
-            return new Count(exactCount, GreaterThan());
+            return Count(exactCount, GreaterThan());
         }
 
         public static QuantifiedGroup GreaterThan(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, GreaterThan());
+            return Count(minCount, maxCount, GreaterThan());
         }
 
         public static QuantifiablePattern NotGreaterThan()
         {
-            return Patterns.NotCharacter(AsciiChar.GreaterThan);
+            return NotCharacter(AsciiChar.GreaterThan);
         }
 
         public static QuantifiedGroup NotGreaterThan(int exactCount)
         {
-            return new Count(exactCount, NotGreaterThan());
+            return Count(exactCount, NotGreaterThan());
         }
 
         public static QuantifiedGroup NotGreaterThan(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotGreaterThan());
+            return Count(minCount, maxCount, NotGreaterThan());
         }
 
         public static CharacterPattern QuestionMark()
         {
-            return Patterns.Character(AsciiChar.QuestionMark);
+            return Character(AsciiChar.QuestionMark);
         }
 
         public static QuantifiedGroup QuestionMark(int exactCount)
         {
-            return new Count(exactCount, QuestionMark());
+            return Count(exactCount, QuestionMark());
         }
 
         public static QuantifiedGroup QuestionMark(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, QuestionMark());
+            return Count(minCount, maxCount, QuestionMark());
         }
 
         public static QuantifiablePattern NotQuestionMark()
         {
-            return Patterns.NotCharacter(AsciiChar.QuestionMark);
+            return NotCharacter(AsciiChar.QuestionMark);
         }
 
         public static QuantifiedGroup NotQuestionMark(int exactCount)
         {
-            return new Count(exactCount, NotQuestionMark());
+            return Count(exactCount, NotQuestionMark());
         }
 
         public static QuantifiedGroup NotQuestionMark(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotQuestionMark());
+            return Count(minCount, maxCount, NotQuestionMark());
         }
 
         public static CharacterPattern At()
         {
-            return Patterns.Character(AsciiChar.At);
+            return Character(AsciiChar.At);
         }
 
         public static QuantifiedGroup At(int exactCount)
         {
-            return new Count(exactCount, At());
+            return Count(exactCount, At());
         }
 
         public static QuantifiedGroup At(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, At());
+            return Count(minCount, maxCount, At());
         }
 
         public static QuantifiablePattern NotAt()
         {
-            return Patterns.NotCharacter(AsciiChar.At);
+            return NotCharacter(AsciiChar.At);
         }
 
         public static QuantifiedGroup NotAt(int exactCount)
         {
-            return new Count(exactCount, NotAt());
+            return Count(exactCount, NotAt());
         }
 
         public static QuantifiedGroup NotAt(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotAt());
+            return Count(minCount, maxCount, NotAt());
         }
 
         public static CharacterPattern LeftSquareBracket()
         {
-            return Patterns.Character(AsciiChar.LeftSquareBracket);
+            return Character(AsciiChar.LeftSquareBracket);
         }
 
         public static QuantifiedGroup LeftSquareBracket(int exactCount)
         {
-            return new Count(exactCount, LeftSquareBracket());
+            return Count(exactCount, LeftSquareBracket());
         }
 
         public static QuantifiedGroup LeftSquareBracket(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, LeftSquareBracket());
+            return Count(minCount, maxCount, LeftSquareBracket());
         }
 
         public static QuantifiablePattern NotLeftSquareBracket()
         {
-            return Patterns.NotCharacter(AsciiChar.LeftSquareBracket);
+            return NotCharacter(AsciiChar.LeftSquareBracket);
         }
 
         public static QuantifiedGroup NotLeftSquareBracket(int exactCount)
         {
-            return new Count(exactCount, NotLeftSquareBracket());
+            return Count(exactCount, NotLeftSquareBracket());
         }
 
         public static QuantifiedGroup NotLeftSquareBracket(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotLeftSquareBracket());
+            return Count(minCount, maxCount, NotLeftSquareBracket());
         }
 
         public static CharacterPattern Backslash()
         {
-            return Patterns.Character(AsciiChar.Backslash);
+            return Character(AsciiChar.Backslash);
         }
 
         public static QuantifiedGroup Backslash(int exactCount)
         {
-            return new Count(exactCount, Backslash());
+            return Count(exactCount, Backslash());
         }
 
         public static QuantifiedGroup Backslash(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, Backslash());
+            return Count(minCount, maxCount, Backslash());
         }
 
         public static QuantifiablePattern NotBackslash()
         {
-            return Patterns.NotCharacter(AsciiChar.Backslash);
+            return NotCharacter(AsciiChar.Backslash);
         }
 
         public static QuantifiedGroup NotBackslash(int exactCount)
         {
-            return new Count(exactCount, NotBackslash());
+            return Count(exactCount, NotBackslash());
         }
 
         public static QuantifiedGroup NotBackslash(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotBackslash());
+            return Count(minCount, maxCount, NotBackslash());
         }
 
         public static CharacterPattern RightSquareBracket()
         {
-            return Patterns.Character(AsciiChar.RightSquareBracket);
+            return Character(AsciiChar.RightSquareBracket);
         }
 
         public static QuantifiedGroup RightSquareBracket(int exactCount)
         {
-            return new Count(exactCount, RightSquareBracket());
+            return Count(exactCount, RightSquareBracket());
         }
 
         public static QuantifiedGroup RightSquareBracket(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, RightSquareBracket());
+            return Count(minCount, maxCount, RightSquareBracket());
         }
 
         public static QuantifiablePattern NotRightSquareBracket()
         {
-            return Patterns.NotCharacter(AsciiChar.RightSquareBracket);
+            return NotCharacter(AsciiChar.RightSquareBracket);
         }
 
         public static QuantifiedGroup NotRightSquareBracket(int exactCount)
         {
-            return new Count(exactCount, NotRightSquareBracket());
+            return Count(exactCount, NotRightSquareBracket());
         }
 
         public static QuantifiedGroup NotRightSquareBracket(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotRightSquareBracket());
+            return Count(minCount, maxCount, NotRightSquareBracket());
         }
 
         public static CharacterPattern CircumflexAccent()
         {
-            return Patterns.Character(AsciiChar.CircumflexAccent);
+            return Character(AsciiChar.CircumflexAccent);
         }
 
         public static QuantifiedGroup CircumflexAccent(int exactCount)
         {
-            return new Count(exactCount, CircumflexAccent());
+            return Count(exactCount, CircumflexAccent());
         }
 
         public static QuantifiedGroup CircumflexAccent(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, CircumflexAccent());
+            return Count(minCount, maxCount, CircumflexAccent());
         }
 
         public static QuantifiablePattern NotCircumflexAccent()
         {
-            return Patterns.NotCharacter(AsciiChar.CircumflexAccent);
+            return NotCharacter(AsciiChar.CircumflexAccent);
         }
 
         public static QuantifiedGroup NotCircumflexAccent(int exactCount)
         {
-            return new Count(exactCount, NotCircumflexAccent());
+            return Count(exactCount, NotCircumflexAccent());
         }
 
         public static QuantifiedGroup NotCircumflexAccent(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotCircumflexAccent());
+            return Count(minCount, maxCount, NotCircumflexAccent());
         }
 
         public static CharacterPattern Underscore()
         {
-            return Patterns.Character(AsciiChar.Underscore);
+            return Character(AsciiChar.Underscore);
         }
 
         public static QuantifiedGroup Underscore(int exactCount)
         {
-            return new Count(exactCount, Underscore());
+            return Count(exactCount, Underscore());
         }
 
         public static QuantifiedGroup Underscore(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, Underscore());
+            return Count(minCount, maxCount, Underscore());
         }
 
         public static QuantifiablePattern NotUnderscore()
         {
-            return Patterns.NotCharacter(AsciiChar.Underscore);
+            return NotCharacter(AsciiChar.Underscore);
         }
 
         public static QuantifiedGroup NotUnderscore(int exactCount)
         {
-            return new Count(exactCount, NotUnderscore());
+            return Count(exactCount, NotUnderscore());
         }
 
         public static QuantifiedGroup NotUnderscore(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotUnderscore());
+            return Count(minCount, maxCount, NotUnderscore());
         }
 
         public static CharacterPattern GraveAccent()
         {
-            return Patterns.Character(AsciiChar.GraveAccent);
+            return Character(AsciiChar.GraveAccent);
         }
 
         public static QuantifiedGroup GraveAccent(int exactCount)
         {
-            return new Count(exactCount, GraveAccent());
+            return Count(exactCount, GraveAccent());
         }
 
         public static QuantifiedGroup GraveAccent(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, GraveAccent());
+            return Count(minCount, maxCount, GraveAccent());
         }
 
         public static QuantifiablePattern NotGraveAccent()
         {
-            return Patterns.NotCharacter(AsciiChar.GraveAccent);
+            return NotCharacter(AsciiChar.GraveAccent);
         }
 
         public static QuantifiedGroup NotGraveAccent(int exactCount)
         {
-            return new Count(exactCount, NotGraveAccent());
+            return Count(exactCount, NotGraveAccent());
         }
 
         public static QuantifiedGroup NotGraveAccent(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotGraveAccent());
+            return Count(minCount, maxCount, NotGraveAccent());
         }
 
         public static CharacterPattern LeftCurlyBracket()
         {
-            return Patterns.Character(AsciiChar.LeftCurlyBracket);
+            return Character(AsciiChar.LeftCurlyBracket);
         }
 
         public static QuantifiedGroup LeftCurlyBracket(int exactCount)
         {
-            return new Count(exactCount, LeftCurlyBracket());
+            return Count(exactCount, LeftCurlyBracket());
         }
 
         public static QuantifiedGroup LeftCurlyBracket(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, LeftCurlyBracket());
+            return Count(minCount, maxCount, LeftCurlyBracket());
         }
 
         public static QuantifiablePattern NotLeftCurlyBracket()
         {
-            return Patterns.NotCharacter(AsciiChar.LeftCurlyBracket);
+            return NotCharacter(AsciiChar.LeftCurlyBracket);
         }
 
         public static QuantifiedGroup NotLeftCurlyBracket(int exactCount)
         {
-            return new Count(exactCount, NotLeftCurlyBracket());
+            return Count(exactCount, NotLeftCurlyBracket());
         }
 
         public static QuantifiedGroup NotLeftCurlyBracket(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotLeftCurlyBracket());
+            return Count(minCount, maxCount, NotLeftCurlyBracket());
         }
 
         public static CharacterPattern VerticalLine()
         {
-            return Patterns.Character(AsciiChar.VerticalLine);
+            return Character(AsciiChar.VerticalLine);
         }
 
         public static QuantifiedGroup VerticalLine(int exactCount)
         {
-            return new Count(exactCount, VerticalLine());
+            return Count(exactCount, VerticalLine());
         }
 
         public static QuantifiedGroup VerticalLine(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, VerticalLine());
+            return Count(minCount, maxCount, VerticalLine());
         }
 
         public static QuantifiablePattern NotVerticalLine()
         {
-            return Patterns.NotCharacter(AsciiChar.VerticalLine);
+            return NotCharacter(AsciiChar.VerticalLine);
         }
 
         public static QuantifiedGroup NotVerticalLine(int exactCount)
         {
-            return new Count(exactCount, NotVerticalLine());
+            return Count(exactCount, NotVerticalLine());
         }
 
         public static QuantifiedGroup NotVerticalLine(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotVerticalLine());
+            return Count(minCount, maxCount, NotVerticalLine());
         }
 
         public static CharacterPattern RightCurlyBracket()
         {
-            return Patterns.Character(AsciiChar.RightCurlyBracket);
+            return Character(AsciiChar.RightCurlyBracket);
         }
 
         public static QuantifiedGroup RightCurlyBracket(int exactCount)
         {
-            return new Count(exactCount, RightCurlyBracket());
+            return Count(exactCount, RightCurlyBracket());
         }
 
         public static QuantifiedGroup RightCurlyBracket(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, RightCurlyBracket());
+            return Count(minCount, maxCount, RightCurlyBracket());
         }
 
         public static QuantifiablePattern NotRightCurlyBracket()
         {
-            return Patterns.NotCharacter(AsciiChar.RightCurlyBracket);
+            return NotCharacter(AsciiChar.RightCurlyBracket);
         }
 
         public static QuantifiedGroup NotRightCurlyBracket(int exactCount)
         {
-            return new Count(exactCount, NotRightCurlyBracket());
+            return Count(exactCount, NotRightCurlyBracket());
         }
 
         public static QuantifiedGroup NotRightCurlyBracket(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotRightCurlyBracket());
+            return Count(minCount, maxCount, NotRightCurlyBracket());
         }
 
         public static CharacterPattern Tilde()
         {
-            return Patterns.Character(AsciiChar.Tilde);
+            return Character(AsciiChar.Tilde);
         }
 
         public static QuantifiedGroup Tilde(int exactCount)
         {
-            return new Count(exactCount, Tilde());
+            return Count(exactCount, Tilde());
         }
 
         public static QuantifiedGroup Tilde(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, Tilde());
+            return Count(minCount, maxCount, Tilde());
         }
 
         public static QuantifiablePattern NotTilde()
         {
-            return Patterns.NotCharacter(AsciiChar.Tilde);
+            return NotCharacter(AsciiChar.Tilde);
         }
 
         public static QuantifiedGroup NotTilde(int exactCount)
         {
-            return new Count(exactCount, NotTilde());
+            return Count(exactCount, NotTilde());
         }
 
         public static QuantifiedGroup NotTilde(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotTilde());
+            return Count(minCount, maxCount, NotTilde());
         }
 
         public static QuantifiablePattern Any()
@@ -1587,12 +1587,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup Any(int count)
         {
-            return new Count(count, Any());
+            return Count(count, Any());
         }
 
         public static QuantifiedGroup Any(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, Any());
+            return Count(minCount, maxCount, Any());
         }
 
         public static CharGroup AnyInvariant()
@@ -1602,12 +1602,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup AnyInvariant(int count)
         {
-            return new Count(count, AnyInvariant());
+            return Count(count, AnyInvariant());
         }
 
         public static QuantifiedGroup AnyInvariant(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, AnyInvariant());
+            return Count(minCount, maxCount, AnyInvariant());
         }
 
         public static CharacterPattern Digit()
@@ -1617,17 +1617,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup Digit(int count)
         {
-            return new Count(count, Digit());
+            return Count(count, Digit());
         }
 
         public static QuantifiedGroup Digit(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, Digit());
+            return Count(minCount, maxCount, Digit());
         }
 
         public static QuantifiedGroup Digits()
         {
-            return new OneMany(Digit());
+            return OneMany(Digit());
         }
 
         public static CharacterPattern NotDigit()
@@ -1637,17 +1637,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup NotDigit(int count)
         {
-            return new Count(count, NotDigit());
+            return Count(count, NotDigit());
         }
 
         public static QuantifiedGroup NotDigit(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotDigit());
+            return Count(minCount, maxCount, NotDigit());
         }
 
         public static QuantifiedGroup NotDigits()
         {
-            return new OneMany(NotDigit());
+            return OneMany(NotDigit());
         }
 
         public static CharacterPattern WhiteSpace()
@@ -1657,17 +1657,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup WhiteSpace(int count)
         {
-            return new Count(count, WhiteSpace());
+            return Count(count, WhiteSpace());
         }
 
         public static QuantifiedGroup WhiteSpace(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, WhiteSpace());
+            return Count(minCount, maxCount, WhiteSpace());
         }
 
         public static QuantifiedGroup WhiteSpaces()
         {
-            return new OneMany(WhiteSpace());
+            return OneMany(WhiteSpace());
         }
 
         public static CharacterPattern NotWhiteSpace()
@@ -1677,17 +1677,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup NotWhiteSpace(int count)
         {
-            return new Count(count, NotWhiteSpace());
+            return Count(count, NotWhiteSpace());
         }
 
         public static QuantifiedGroup NotWhiteSpace(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotWhiteSpace());
+            return Count(minCount, maxCount, NotWhiteSpace());
         }
 
         public static QuantifiedGroup NotWhiteSpaces()
         {
-            return new OneMany(NotWhiteSpace());
+            return OneMany(NotWhiteSpace());
         }
 
         public static CharacterPattern WordChar()
@@ -1697,17 +1697,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup WordChar(int count)
         {
-            return new Count(count, WordChar());
+            return Count(count, WordChar());
         }
 
         public static QuantifiedGroup WordChar(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, WordChar());
+            return Count(minCount, maxCount, WordChar());
         }
 
         public static QuantifiedGroup WordChars()
         {
-            return new OneMany(WordChar());
+            return OneMany(WordChar());
         }
 
         public static CharacterPattern NotWordChar()
@@ -1717,17 +1717,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup NotWordChar(int count)
         {
-            return new Count(count, NotWordChar());
+            return Count(count, NotWordChar());
         }
 
         public static QuantifiedGroup NotWordChar(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotWordChar());
+            return Count(minCount, maxCount, NotWordChar());
         }
 
         public static QuantifiedGroup NotWordChars()
         {
-            return new OneMany(NotWordChar());
+            return OneMany(NotWordChar());
         }
 
         public static CharGroup NewLineChar()
@@ -1737,12 +1737,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup NewLineChar(int count)
         {
-            return new Count(count, NewLineChar());
+            return Count(count, NewLineChar());
         }
 
         public static QuantifiedGroup NewLineChar(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NewLineChar());
+            return Count(minCount, maxCount, NewLineChar());
         }
 
         public static CharGroup NotNewLineChar()
@@ -1752,12 +1752,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup NotNewLineChar(int count)
         {
-            return new Count(count, NotNewLineChar());
+            return Count(count, NotNewLineChar());
         }
 
         public static QuantifiedGroup NotNewLineChar(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotNewLineChar());
+            return Count(minCount, maxCount, NotNewLineChar());
         }
 
         public static CharGroup Alphanumeric()
@@ -1767,12 +1767,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup Alphanumeric(int count)
         {
-            return new Count(count, Alphanumeric());
+            return Count(count, Alphanumeric());
         }
 
         public static QuantifiedGroup Alphanumeric(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, Alphanumeric());
+            return Count(minCount, maxCount, Alphanumeric());
         }
 
         public static CharGroup NotAlphanumeric()
@@ -1782,12 +1782,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup NotAlphanumeric(int count)
         {
-            return new Count(count, NotAlphanumeric());
+            return Count(count, NotAlphanumeric());
         }
 
         public static QuantifiedGroup NotAlphanumeric(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotAlphanumeric());
+            return Count(minCount, maxCount, NotAlphanumeric());
         }
 
         public static CharGroup AlphanumericLower()
@@ -1797,12 +1797,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup AlphanumericLower(int count)
         {
-            return new Count(count, AlphanumericLower());
+            return Count(count, AlphanumericLower());
         }
 
         public static QuantifiedGroup AlphanumericLower(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, AlphanumericLower());
+            return Count(minCount, maxCount, AlphanumericLower());
         }
 
         public static CharGroup NotAlphanumericLower()
@@ -1812,12 +1812,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup NotAlphanumericLower(int count)
         {
-            return new Count(count, NotAlphanumericLower());
+            return Count(count, NotAlphanumericLower());
         }
 
         public static QuantifiedGroup NotAlphanumericLower(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotAlphanumericLower());
+            return Count(minCount, maxCount, NotAlphanumericLower());
         }
 
         public static CharGroup AlphanumericUpper()
@@ -1827,12 +1827,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup AlphanumericUpper(int count)
         {
-            return new Count(count, AlphanumericUpper());
+            return Count(count, AlphanumericUpper());
         }
 
         public static QuantifiedGroup AlphanumericUpper(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, AlphanumericUpper());
+            return Count(minCount, maxCount, AlphanumericUpper());
         }
 
         public static CharGroup NotAlphanumericUpper()
@@ -1842,12 +1842,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup NotAlphanumericUpper(int count)
         {
-            return new Count(count, NotAlphanumericUpper());
+            return Count(count, NotAlphanumericUpper());
         }
 
         public static QuantifiedGroup NotAlphanumericUpper(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotAlphanumericUpper());
+            return Count(minCount, maxCount, NotAlphanumericUpper());
         }
 
         public static CharGroup AlphanumericUnderscore()
@@ -1857,12 +1857,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup AlphanumericUnderscore(int count)
         {
-            return new Count(count, AlphanumericUnderscore());
+            return Count(count, AlphanumericUnderscore());
         }
 
         public static QuantifiedGroup AlphanumericUnderscore(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, AlphanumericUnderscore());
+            return Count(minCount, maxCount, AlphanumericUnderscore());
         }
 
         public static CharGroup NotAlphanumericUnderscore()
@@ -1872,12 +1872,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup NotAlphanumericUnderscore(int count)
         {
-            return new Count(count, NotAlphanumericUnderscore());
+            return Count(count, NotAlphanumericUnderscore());
         }
 
         public static QuantifiedGroup NotAlphanumericUnderscore(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotAlphanumericUnderscore());
+            return Count(minCount, maxCount, NotAlphanumericUnderscore());
         }
 
         public static CharGroup LatinLetter()
@@ -1887,42 +1887,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup LatinLetter(int count)
         {
-            return new Count(count, LatinLetter());
+            return Count(count, LatinLetter());
         }
 
         public static QuantifiedGroup LatinLetter(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, LatinLetter());
-        }
-
-        public static CharGroup LatinLetterLower()
-        {
-            return Character(CharGroupItems.LatinLetterLower());
-        }
-
-        public static QuantifiedGroup LatinLetterLower(int count)
-        {
-            return new Count(count, LatinLetterLower());
-        }
-
-        public static QuantifiedGroup LatinLetterLower(int minCount, int maxCount)
-        {
-            return new Count(minCount, maxCount, LatinLetterLower());
-        }
-
-        public static CharGroup LatinLetterUpper()
-        {
-            return Character(CharGroupItems.LatinLetterUpper());
-        }
-
-        public static QuantifiedGroup LatinLetterUpper(int count)
-        {
-            return new Count(count, LatinLetterUpper());
-        }
-
-        public static QuantifiedGroup LatinLetterUpper(int minCount, int maxCount)
-        {
-            return new Count(minCount, maxCount, LatinLetterUpper());
+            return Count(minCount, maxCount, LatinLetter());
         }
 
         public static CharGroup NotLatinLetter()
@@ -1932,12 +1902,27 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup NotLatinLetter(int count)
         {
-            return new Count(count, NotLatinLetter());
+            return Count(count, NotLatinLetter());
         }
 
         public static QuantifiedGroup NotLatinLetter(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotLatinLetter());
+            return Count(minCount, maxCount, NotLatinLetter());
+        }
+
+        public static CharGroup LatinLetterLower()
+        {
+            return Character(CharGroupItems.LatinLetterLower());
+        }
+
+        public static QuantifiedGroup LatinLetterLower(int count)
+        {
+            return Count(count, LatinLetterLower());
+        }
+
+        public static QuantifiedGroup LatinLetterLower(int minCount, int maxCount)
+        {
+            return Count(minCount, maxCount, LatinLetterLower());
         }
 
         public static CharGroup NotLatinLetterLower()
@@ -1947,12 +1932,27 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup NotLatinLetterLower(int count)
         {
-            return new Count(count, NotLatinLetterLower());
+            return Count(count, NotLatinLetterLower());
         }
 
         public static QuantifiedGroup NotLatinLetterLower(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotLatinLetterLower());
+            return Count(minCount, maxCount, NotLatinLetterLower());
+        }
+
+        public static CharGroup LatinLetterUpper()
+        {
+            return Character(CharGroupItems.LatinLetterUpper());
+        }
+
+        public static QuantifiedGroup LatinLetterUpper(int count)
+        {
+            return Count(count, LatinLetterUpper());
+        }
+
+        public static QuantifiedGroup LatinLetterUpper(int minCount, int maxCount)
+        {
+            return Count(minCount, maxCount, LatinLetterUpper());
         }
 
         public static CharGroup NotLatinLetterUpper()
@@ -1962,12 +1962,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup NotLatinLetterUpper(int count)
         {
-            return new Count(count, NotLatinLetterUpper());
+            return Count(count, NotLatinLetterUpper());
         }
 
         public static QuantifiedGroup NotLatinLetterUpper(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotLatinLetterUpper());
+            return Count(minCount, maxCount, NotLatinLetterUpper());
         }
 
         public static CharGroup ArabicDigit()
@@ -1977,12 +1977,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup ArabicDigit(int count)
         {
-            return new Count(count, ArabicDigit());
+            return Count(count, ArabicDigit());
         }
 
         public static QuantifiedGroup ArabicDigit(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, ArabicDigit());
+            return Count(minCount, maxCount, ArabicDigit());
         }
 
         public static CharGroup NotArabicDigit()
@@ -1992,12 +1992,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup NotArabicDigit(int count)
         {
-            return new Count(count, NotArabicDigit());
+            return Count(count, NotArabicDigit());
         }
 
         public static QuantifiedGroup NotArabicDigit(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotArabicDigit());
+            return Count(minCount, maxCount, NotArabicDigit());
         }
 
         public static CharGroup HexadecimalDigit()
@@ -2007,12 +2007,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup HexadecimalDigit(int count)
         {
-            return new Count(count, HexadecimalDigit());
+            return Count(count, HexadecimalDigit());
         }
 
         public static QuantifiedGroup HexadecimalDigit(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, HexadecimalDigit());
+            return Count(minCount, maxCount, HexadecimalDigit());
         }
 
         public static CharGroup NotHexadecimalDigit()
@@ -2022,12 +2022,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup NotHexadecimalDigit(int count)
         {
-            return new Count(count, NotHexadecimalDigit());
+            return Count(count, NotHexadecimalDigit());
         }
 
         public static QuantifiedGroup NotHexadecimalDigit(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotHexadecimalDigit());
+            return Count(minCount, maxCount, NotHexadecimalDigit());
         }
 
         public static CharGroup Parenthesis()
@@ -2037,12 +2037,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup Parenthesis(int count)
         {
-            return new Count(count, Parenthesis());
+            return Count(count, Parenthesis());
         }
 
         public static QuantifiedGroup Parenthesis(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, Parenthesis());
+            return Count(minCount, maxCount, Parenthesis());
         }
 
         public static CharGroup NotParenthesis()
@@ -2052,12 +2052,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup NotParenthesis(int count)
         {
-            return new Count(count, NotParenthesis());
+            return Count(count, NotParenthesis());
         }
 
         public static QuantifiedGroup NotParenthesis(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotParenthesis());
+            return Count(minCount, maxCount, NotParenthesis());
         }
 
         public static CharGroup CurlyBracket()
@@ -2067,12 +2067,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup CurlyBracket(int count)
         {
-            return new Count(count, CurlyBracket());
+            return Count(count, CurlyBracket());
         }
 
         public static QuantifiedGroup CurlyBracket(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, CurlyBracket());
+            return Count(minCount, maxCount, CurlyBracket());
         }
 
         public static CharGroup NotCurlyBracket()
@@ -2082,12 +2082,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup NotCurlyBracket(int count)
         {
-            return new Count(count, NotCurlyBracket());
+            return Count(count, NotCurlyBracket());
         }
 
         public static QuantifiedGroup NotCurlyBracket(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotCurlyBracket());
+            return Count(minCount, maxCount, NotCurlyBracket());
         }
 
         public static CharGroup SquareBracket()
@@ -2097,12 +2097,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup SquareBracket(int count)
         {
-            return new Count(count, SquareBracket());
+            return Count(count, SquareBracket());
         }
 
         public static QuantifiedGroup SquareBracket(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, SquareBracket());
+            return Count(minCount, maxCount, SquareBracket());
         }
 
         public static CharGroup NotSquareBracket()
@@ -2112,12 +2112,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup NotSquareBracket(int count)
         {
-            return new Count(count, NotSquareBracket());
+            return Count(count, NotSquareBracket());
         }
 
         public static QuantifiedGroup NotSquareBracket(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, NotSquareBracket());
+            return Count(minCount, maxCount, NotSquareBracket());
         }
 
         public static CharSubtraction WhiteSpaceExceptNewLine()
@@ -2127,12 +2127,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup WhiteSpaceExceptNewLine(int count)
         {
-            return new Count(count, WhiteSpaceExceptNewLine());
+            return Count(count, WhiteSpaceExceptNewLine());
         }
 
         public static QuantifiedGroup WhiteSpaceExceptNewLine(int minCount, int maxCount)
         {
-            return new Count(minCount, maxCount, WhiteSpaceExceptNewLine());
+            return Count(minCount, maxCount, WhiteSpaceExceptNewLine());
         }
 
         public static Pattern Apostrophes()
@@ -2207,7 +2207,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedPattern WhileWhiteSpace()
         {
-            return new WhiteSpace().MaybeMany();
+            return WhiteSpace().MaybeMany();
         }
 
         public static QuantifiedPattern WhileNot(char value)
@@ -2259,17 +2259,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern Never()
         {
-            return new NotAssert(string.Empty);
+            return NotAssert(string.Empty);
         }
 
         public static QuantifiablePattern LinefeedWithoutCarriageReturn()
         {
-            return new NotAssertBack(CarriageReturn()).Linefeed().AsNonbacktrackingGroup();
+            return NotAssertBack(CarriageReturn()).Linefeed().AsNonbacktrackingGroup();
         }
 
         public static Pattern LeadingWhiteSpace()
         {
-            return new StartOfLine().WhiteSpaceExceptNewLine().OneMany();
+            return StartOfLine().WhiteSpaceExceptNewLine().OneMany();
         }
 
         public static Pattern TrailingWhiteSpace()
@@ -2279,36 +2279,36 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern LeadingTrailingWhiteSpace()
         {
-            return new AnyGroup(LeadingWhiteSpace(), TrailingWhiteSpace());
+            return Any(LeadingWhiteSpace(), TrailingWhiteSpace());
         }
 
         public static QuantifiablePattern WhiteSpaceLine()
         {
             return StartOfLineInvariant().WhiteSpaceExceptNewLine().MaybeMany().NewLine() |
-                Patterns.NewLine().Assert(new WhiteSpace().MaybeMany().EndOfInput());
+                NewLine().Assert(WhiteSpace().MaybeMany().EndOfInput());
         }
 
         public static QuantifiablePattern EmptyLine()
         {
             return StartOfLineInvariant().NewLine() |
-                Patterns.NewLine().Assert(Patterns.NewLine().MaybeMany().EndOfInput());
+                NewLine().Assert(NewLine().MaybeMany().EndOfInput());
         }
 
         public static Pattern FirstLine()
         {
-            return new StartOfInput().NotNewLineChar().MaybeMany();
+            return StartOfInput().NotNewLineChar().MaybeMany();
         }
 
         internal static Pattern ValidGroupName()
         {
             return EntireInput(
-                new CapturingGroup(Range('1', '9').ArabicDigit().MaybeMany()) |
+                CapturingGroup(Range('1', '9').ArabicDigit().MaybeMany()) |
                 WordChar().Except(ArabicDigit()).WordChar().MaybeMany());
         }
 
         internal static Pattern TrimInlineComment()
         {
-            return new StartOfInput().WhileNot(')');
+            return StartOfInput().WhileNot(')');
         }
     }
 }
