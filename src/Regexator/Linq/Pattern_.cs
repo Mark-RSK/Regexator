@@ -9,104 +9,42 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
         public QuantifiablePattern DisallowGroup(string groupName)
         {
-            RegexUtilities.CheckGroupName(groupName);
-
-            return ConcatInternal(Patterns.IfGroup(groupName, Patterns.Never()));
+            return ConcatInternal(Patterns.DisallowGroup(groupName));
         }
 
         public Pattern DisallowGroups(params string[] groupNames)
         {
-            if (groupNames == null || groupNames.Length == 0)
-            {
-                return Pattern.Empty;
-            }
-
-            Pattern exp = DisallowGroup(groupNames[0]);
-
-            for (int i = 1; i < groupNames.Length; i++)
-            {
-                exp = exp.DisallowGroup(groupNames[i]);
-            }
-
-            return exp;
+            return ConcatInternal(Patterns.DisallowGroups(groupNames));
         }
 
         public QuantifiablePattern DisallowGroup(int groupNumber)
         {
-            if (groupNumber < 0)
-            {
-                throw new ArgumentOutOfRangeException("groupNumber");
-            }
-
-            return ConcatInternal(Patterns.IfGroup(groupNumber, Patterns.Never()));
+            return ConcatInternal(Patterns.DisallowGroup(groupNumber));
         }
 
         public Pattern DisallowGroups(params int[] groupNumbers)
         {
-            if (groupNumbers == null || groupNumbers.Length == 0)
-            {
-                return Pattern.Empty;
-            }
-
-            Pattern exp = DisallowGroup(groupNumbers[0]);
-
-            for (int i = 1; i < groupNumbers.Length; i++)
-            {
-                exp = exp.DisallowGroup(groupNumbers[i]);
-            }
-
-            return exp;
+            return ConcatInternal(Patterns.DisallowGroups(groupNumbers));
         }
 
         public QuantifiablePattern RequireGroup(string groupName)
         {
-            RegexUtilities.CheckGroupName(groupName);
-
-            return ConcatInternal(Patterns.IfGroup(groupName, Pattern.Empty, Patterns.Never()));
+            return ConcatInternal(Patterns.RequireGroup(groupName));
         }
 
         public Pattern RequireGroups(params string[] groupNames)
         {
-            if (groupNames == null || groupNames.Length == 0)
-            {
-                return Pattern.Empty;
-            }
-
-            Pattern exp = RequireGroup(groupNames[0]);
-
-            for (int i = 1; i < groupNames.Length; i++)
-            {
-                exp = exp.RequireGroup(groupNames[i]);
-            }
-
-            return exp;
+            return ConcatInternal(Patterns.RequireGroups(groupNames));
         }
 
         public QuantifiablePattern RequireGroup(int groupNumber)
         {
-            if (groupNumber < 0)
-            {
-                throw new ArgumentOutOfRangeException("groupNumber");
-            }
-
-            return ConcatInternal(Patterns.IfGroup(groupNumber, Pattern.Empty, Patterns.Never()));
+            return ConcatInternal(Patterns.RequireGroup(groupNumber));
         }
 
         public Pattern RequireGroups(params int[] groupNumbers)
         {
-            if (groupNumbers == null || groupNumbers.Length == 0)
-            {
-                return Pattern.Empty;
-            }
-
-            Pattern exp = RequireGroup(groupNumbers[0]);
-
-            for (int i = 1; i < groupNumbers.Length; i++)
-            {
-                exp = exp.RequireGroup(groupNumbers[i]);
-            }
-
-            return exp;
+            return ConcatInternal(Patterns.RequireGroups(groupNumbers));
         }
 
         public QuantifiablePattern Any(IEnumerable<object> content)

@@ -1,5 +1,6 @@
 // Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System;
 using System.Collections.Generic;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
@@ -268,6 +269,108 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiablePattern NonbacktrackingGroup(params object[] content)
         {
             return NonbacktrackingGroup((object)content);
+        }
+
+        public static QuantifiablePattern DisallowGroup(string groupName)
+        {
+            RegexUtilities.CheckGroupName(groupName);
+
+            return IfGroup(groupName, Never());
+        }
+
+        public static Pattern DisallowGroups(params string[] groupNames)
+        {
+            if (groupNames == null || groupNames.Length == 0)
+            {
+                return Pattern.Empty;
+            }
+
+            Pattern exp = DisallowGroup(groupNames[0]);
+
+            for (int i = 1; i < groupNames.Length; i++)
+            {
+                exp = exp.DisallowGroup(groupNames[i]);
+            }
+
+            return exp;
+        }
+
+        public static QuantifiablePattern DisallowGroup(int groupNumber)
+        {
+            if (groupNumber < 0)
+            {
+                throw new ArgumentOutOfRangeException("groupNumber");
+            }
+
+            return IfGroup(groupNumber, Never());
+        }
+
+        public static Pattern DisallowGroups(params int[] groupNumbers)
+        {
+            if (groupNumbers == null || groupNumbers.Length == 0)
+            {
+                return Pattern.Empty;
+            }
+
+            Pattern exp = DisallowGroup(groupNumbers[0]);
+
+            for (int i = 1; i < groupNumbers.Length; i++)
+            {
+                exp = exp.DisallowGroup(groupNumbers[i]);
+            }
+
+            return exp;
+        }
+
+        public static QuantifiablePattern RequireGroup(string groupName)
+        {
+            RegexUtilities.CheckGroupName(groupName);
+
+            return IfGroup(groupName, Pattern.Empty, Never());
+        }
+
+        public static Pattern RequireGroups(params string[] groupNames)
+        {
+            if (groupNames == null || groupNames.Length == 0)
+            {
+                return Pattern.Empty;
+            }
+
+            Pattern exp = RequireGroup(groupNames[0]);
+
+            for (int i = 1; i < groupNames.Length; i++)
+            {
+                exp = exp.RequireGroup(groupNames[i]);
+            }
+
+            return exp;
+        }
+
+        public static QuantifiablePattern RequireGroup(int groupNumber)
+        {
+            if (groupNumber < 0)
+            {
+                throw new ArgumentOutOfRangeException("groupNumber");
+            }
+
+            return IfGroup(groupNumber, Pattern.Empty, Never());
+        }
+
+        public static Pattern RequireGroups(params int[] groupNumbers)
+        {
+            if (groupNumbers == null || groupNumbers.Length == 0)
+            {
+                return Pattern.Empty;
+            }
+
+            Pattern exp = RequireGroup(groupNumbers[0]);
+
+            for (int i = 1; i < groupNumbers.Length; i++)
+            {
+                exp = exp.RequireGroup(groupNumbers[i]);
+            }
+
+            return exp;
         }
 
         public static QuantifiedGroup Maybe(object content)
