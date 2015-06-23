@@ -527,23 +527,23 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public void WriteAny(object content)
         {
-            WriteAny(content, AnyGroupMode.Noncapturing);
+            WriteAny(content, GroupMode.Noncapturing);
         }
 
-        internal void WriteAny(object content, AnyGroupMode mode)
+        internal void WriteAny(object content, GroupMode mode)
         {
-            if (mode == AnyGroupMode.Capturing)
+            if (mode == GroupMode.Capturing)
             {
                 WriteCapturingGroupStart();
             }
-            else if (mode == AnyGroupMode.Noncapturing)
+            else if (mode == GroupMode.Noncapturing)
             {
                 WriteNoncapturingGroupStart();
             }
 
             WriteGroupContent(content);
 
-            if (mode != AnyGroupMode.None)
+            if (mode != GroupMode.None)
             {
                 WriteGroupEnd();
             }

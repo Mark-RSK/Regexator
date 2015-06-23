@@ -7,25 +7,25 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal sealed class AnyGroup
         : GroupPattern
     {
-        private readonly AnyGroupMode _groupMode;
+        private readonly GroupMode _groupMode;
 
         public AnyGroup(IEnumerable<object> content)
-            : this(AnyGroupMode.Noncapturing, content)
+            : this(GroupMode.Noncapturing, content)
         {
         }
 
-        internal AnyGroup(AnyGroupMode groupMode, IEnumerable<object> content)
+        internal AnyGroup(GroupMode groupMode, IEnumerable<object> content)
             : base((object)content)
         {
             _groupMode = groupMode;
         }
 
         public AnyGroup(params object[] content)
-            : this(AnyGroupMode.Noncapturing, content)
+            : this(GroupMode.Noncapturing, content)
         {
         }
 
-        internal AnyGroup(AnyGroupMode groupMode, params object[] content)
+        internal AnyGroup(GroupMode groupMode, params object[] content)
             : base((object)content)
         {
             _groupMode = groupMode;
@@ -36,7 +36,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             writer.WriteAny(Content, GroupMode);
         }
 
-        internal AnyGroupMode GroupMode
+        internal GroupMode GroupMode
         {
             get { return _groupMode; }
         }

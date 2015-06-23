@@ -2,7 +2,7 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal enum AnyGroupMode
+    internal enum GroupMode
     {
         None,
         Capturing,
