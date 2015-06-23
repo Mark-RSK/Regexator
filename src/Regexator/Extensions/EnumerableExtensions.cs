@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace Pihrtsoft.Text.RegularExpressions.Linq.Extensions
+namespace Pihrtsoft.Text.RegularExpressions.Extensions
 {
     public static class EnumerableExtensions
     {
