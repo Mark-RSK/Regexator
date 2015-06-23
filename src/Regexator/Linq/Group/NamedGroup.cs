@@ -2,7 +2,7 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public sealed class NamedGroup
+    internal sealed class NamedGroup
         : GroupPattern
     {
         private readonly string _name;

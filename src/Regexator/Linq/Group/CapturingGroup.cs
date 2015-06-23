@@ -2,7 +2,7 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public sealed class CapturingGroup
+    internal sealed class CapturingGroup
         : GroupPattern
     {
         public CapturingGroup()

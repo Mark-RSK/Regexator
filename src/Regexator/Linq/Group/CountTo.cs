@@ -4,7 +4,7 @@ using System;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public sealed class CountTo
+    internal sealed class CountTo
         : QuantifiedGroup
     {
         private readonly int _maxCount;

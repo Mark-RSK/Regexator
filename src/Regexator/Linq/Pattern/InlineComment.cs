@@ -4,7 +4,7 @@ using System;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public sealed class InlineComment
+    internal sealed class InlineComment
         : Pattern
     {
         private readonly string _comment;

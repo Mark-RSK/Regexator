@@ -4,7 +4,7 @@ using System;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public sealed class OneMany
+    internal sealed class OneMany
         : QuantifiedGroup
     {
         public OneMany(object content)

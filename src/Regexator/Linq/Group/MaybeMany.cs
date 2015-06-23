@@ -4,7 +4,7 @@ using System;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public sealed class MaybeMany
+    internal sealed class MaybeMany
         : QuantifiedGroup
     {
         public MaybeMany(object content)

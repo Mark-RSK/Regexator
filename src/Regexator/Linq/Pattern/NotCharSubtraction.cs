@@ -2,10 +2,10 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public sealed class NotCharSubtraction
+    internal sealed class NotCharSubtraction
         : CharSubtraction
     {
-        internal NotCharSubtraction(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
+        public NotCharSubtraction(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
             : base(baseGroup, excludedGroup)
         {
         }

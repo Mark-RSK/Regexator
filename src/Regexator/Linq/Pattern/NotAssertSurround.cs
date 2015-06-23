@@ -2,7 +2,7 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public sealed class NotAssertSurround
+    internal sealed class NotAssertSurround
         : AssertSurround
     {
         public NotAssertSurround(object contentBefore, object content, object contentAfter)

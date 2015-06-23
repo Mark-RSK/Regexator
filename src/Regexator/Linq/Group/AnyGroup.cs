@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public sealed class AnyGroup
+    internal sealed class AnyGroup
         : GroupPattern
     {
         private readonly AnyGroupMode _groupMode;

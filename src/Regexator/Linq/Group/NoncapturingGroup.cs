@@ -2,7 +2,7 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public sealed class NoncapturingGroup
+    internal sealed class NoncapturingGroup
         : GroupPattern
     {
         public NoncapturingGroup(object content)

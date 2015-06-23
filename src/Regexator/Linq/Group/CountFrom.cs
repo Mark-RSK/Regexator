@@ -4,7 +4,7 @@ using System;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public sealed class CountFrom
+    internal sealed class CountFrom
         : QuantifiedGroup
     {
         private readonly int _minCount;

@@ -4,7 +4,7 @@ using System;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public class AssertSurround
+    internal class AssertSurround
         : Pattern
     {
         private readonly object _content;

@@ -12,9 +12,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             Console.WriteLine("email");
 
-            var left = new OneMany(CharGroupItem.Create("!#$%&'*+/=?^_`{|}~-").Alphanumeric());
+            var left = Patterns.OneMany(CharGroupItem.Create("!#$%&'*+/=?^_`{|}~-").Alphanumeric());
 
-            var right = new Maybe(new MaybeMany(CharGroupItem.Create("-").Alphanumeric()).Alphanumeric());
+            var right = Patterns.Maybe(Patterns.MaybeMany(CharGroupItem.Create("-").Alphanumeric()).Alphanumeric());
 
             var exp = left
                 .MaybeMany("." + left)
@@ -43,7 +43,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine(
                 Patterns.WordBoundary()
                 .Count(3,
-                    new AnyGroup(values.Select(f => new CapturingGroup(f)))
+                    Patterns.Any(values.Select(f => Patterns.CapturingGroup(f)))
                     .WordBoundary()
                     .NotWordChar().MaybeMany().Lazy())
                 .RequireGroups(1, 2, 3));
@@ -53,7 +53,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine(
                 Patterns.WordBoundary()
                 .CountFrom(3,
-                    new AnyGroup(values.Select(f => Pattern.Create(f).AsCapturingGroup()))
+                    Patterns.Any(values.Select(f => Pattern.Create(f).AsCapturingGroup()))
                     .WordBoundary()
                     .NotWordChar().MaybeMany().Lazy())
                 .GroupReference(1)
@@ -73,7 +73,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine(Patterns
                 .Digits()
                 .Assert(
-                    new MaybeMany(new NotAssert("<b>").Any())
+                    Patterns.MaybeMany(Patterns.NotAssert("<b>").Any())
                     .Concat("</b>")));
             Console.WriteLine("");
 
@@ -104,7 +104,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("");
 
             Console.WriteLine("leading trailing whitespace:");
-            Console.WriteLine(new AnyGroup(
+            Console.WriteLine(Patterns.Any(
                 Patterns.StartOfLine().WhiteSpaceExceptNewLine().OneMany(),
                 Patterns.WhiteSpaceExceptNewLine().OneMany().EndOfLineOrBeforeCarriageReturn()));
             Console.WriteLine("");
@@ -128,13 +128,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("");
 
             Console.WriteLine("lf without cr:");
-            Console.WriteLine(new NotAssertBack(Patterns.CarriageReturn()).Linefeed().AsNonbacktrackingGroup());
-            Console.WriteLine((new NotAssertBack("\r") + "\n").AsNonbacktrackingGroup());
+            Console.WriteLine(Patterns.NotAssertBack(Patterns.CarriageReturn()).Linefeed().AsNonbacktrackingGroup());
+            Console.WriteLine((Patterns.NotAssertBack("\r") + "\n").AsNonbacktrackingGroup());
             Console.WriteLine("");
 
             Console.WriteLine("invalid file name chars:");
             var chars = Path.GetInvalidFileNameChars().OrderBy(f => (int)f).Select(f => Patterns.Character(f));
-            Console.WriteLine(new AnyGroup(chars).AsNonbacktrackingGroup());
+            Console.WriteLine(Patterns.Any(chars).AsNonbacktrackingGroup());
             Console.WriteLine("");
 
             Console.ReadKey();
