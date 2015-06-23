@@ -136,7 +136,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static Pattern EndOfLineOrBeforeCarriageReturnInvariant()
         {
             return NoncapturingGroup(
-                NotAssertBack(CarriageReturn()) + 
+                NotAssertBack(CarriageReturn()) +
                 Assert(CarriageReturn().Maybe().EndOfLineInvariant()));
         }
 
