@@ -12,11 +12,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         private readonly object _trueContent;
         private readonly object _falseContent;
 
-        public IfGroup(string groupName, object trueContent)
-            : this(groupName, trueContent, null)
-        {
-        }
-
         public IfGroup(string groupName, object trueContent, object falseContent)
         {
             RegexUtilities.CheckGroupName(groupName);
@@ -29,11 +24,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _groupName = groupName;
             _trueContent = trueContent;
             _falseContent = falseContent;
-        }
-
-        public IfGroup(int groupNumber, object trueContent)
-            : this(groupNumber, trueContent, null)
-        {
         }
 
         public IfGroup(int groupNumber, object trueContent, object falseContent)

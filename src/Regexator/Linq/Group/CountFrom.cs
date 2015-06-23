@@ -20,11 +20,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _minCount = minCount;
         }
 
-        public CountFrom(int minCount, params object[] content)
-            : this(minCount, (object)content)
-        {
-        }
-
         protected override void WriteQuantifierTo(PatternWriter writer)
         {
             if (writer == null)

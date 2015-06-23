@@ -39,11 +39,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _count2 = maxCount;
         }
 
-        public Count(int minCount, int maxCount, params object[] content)
-            : this(minCount, maxCount, (object)content)
-        {
-        }
-
         protected override void WriteQuantifierTo(PatternWriter writer)
         {
             if (writer == null)

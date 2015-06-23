@@ -20,11 +20,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _maxCount = maxCount;
         }
 
-        public CountTo(int maxCount, params object[] content)
-            : this(maxCount, (object)content)
-        {
-        }
-
         protected override void WriteQuantifierTo(PatternWriter writer)
         {
             if (writer == null)

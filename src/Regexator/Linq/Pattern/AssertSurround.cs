@@ -11,11 +11,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         private readonly object _contentBefore;
         private readonly object _contentAfter;
 
-        public AssertSurround(object surroundContent, object content)
-            : this(surroundContent, content, surroundContent)
-        {
-        }
-
         public AssertSurround(object contentBefore, object content, object contentAfter)
         {
             if (contentBefore == null)

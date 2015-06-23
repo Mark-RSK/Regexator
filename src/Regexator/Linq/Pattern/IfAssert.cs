@@ -11,11 +11,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         private readonly object _trueContent;
         private readonly object _falseContent;
 
-        public IfAssert(object testContent, object trueContent)
-            : this(testContent, trueContent, null)
-        {
-        }
-
         public IfAssert(object testContent, object trueContent, object falseContent)
         {
             if (testContent == null)

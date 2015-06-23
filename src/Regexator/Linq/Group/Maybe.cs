@@ -12,11 +12,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
         }
 
-        public Maybe(params object[] content)
-            : this((object)content)
-        {
-        }
-
         protected override void WriteQuantifierTo(PatternWriter writer)
         {
             if (writer == null)
