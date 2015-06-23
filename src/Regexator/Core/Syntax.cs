@@ -377,51 +377,6 @@ namespace Pihrtsoft.Text.RegularExpressions
             return Character(value, false);
         }
 
-        public static string Character(IEnumerable<char> values)
-        {
-            return Character(values, false);
-        }
-
-        public static string Character(IEnumerable<char> values, bool inCharGroup)
-        {
-            if (values == null)
-            {
-                throw new ArgumentNullException("values");
-            }
-
-            return string.Concat(values.Select(f => Character(f, inCharGroup)));
-        }
-
-        public static string Character(IEnumerable<int> charCodes)
-        {
-            return Character(charCodes, false);
-        }
-
-        public static string Character(IEnumerable<int> charCodes, bool inCharGroup)
-        {
-            if (charCodes == null)
-            {
-                throw new ArgumentNullException("charCodes");
-            }
-
-            return string.Concat(charCodes.Select(f => Character(f, inCharGroup)));
-        }
-
-        public static string Character(IEnumerable<AsciiChar> values)
-        {
-            return Character(values, false);
-        }
-
-        public static string Character(IEnumerable<AsciiChar> values, bool inCharGroup)
-        {
-            if (values == null)
-            {
-                throw new ArgumentNullException("values");
-            }
-
-            return string.Concat(values.Select(f => Character(f, inCharGroup)));
-        }
-
         public static string Unicode(char value)
         {
             return UnicodeInternal((int)value);
