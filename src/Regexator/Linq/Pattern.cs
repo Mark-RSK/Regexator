@@ -132,6 +132,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ToString(CultureInfo.CurrentCulture);
         }
 
+        public string ToString(PatternOptions options)
+        {
+            return ToString(new PatternSettings(options));
+        }
+
         public string ToString(PatternSettings settings)
         {
             return ToString(settings, CultureInfo.CurrentCulture);
