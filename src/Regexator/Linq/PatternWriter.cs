@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
@@ -1066,7 +1067,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             WriteBackslash();
             base.Write(groupNumber);
 
-            if (Settings.HasOptions(PatternOptions.SeparateNumberedGroupReference))
+            if (Settings.HasOptions(PatternOptions.SeparateGroupNumberReference))
             {
                 WriteNoncapturingGroupStart();
                 WriteGroupEnd();
@@ -1298,5 +1299,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             get { return _disabledOptions; }
         }
+
+        internal RegexOptions RegexOptions { get; set; }
     }
 }

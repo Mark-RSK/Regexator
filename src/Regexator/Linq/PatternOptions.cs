@@ -9,6 +9,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
         None = 0,
         ConditionWithAssertion = 1,
-        SeparateNumberedGroupReference = 2
+        SeparateGroupNumberReference = 2
     }
 }
