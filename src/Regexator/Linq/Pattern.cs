@@ -410,40 +410,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
-        public static Pattern operator +(Pattern left, CharGroupItem right)
-        {
-            if (left == null)
-            {
-                throw new ArgumentNullException("left");
-            }
-
-            if (right == null)
-            {
-                throw new ArgumentNullException("right");
-            }
-
-            return left.Concat(right);
-        }
-
-        [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
-        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
-        public static Pattern operator +(CharGroupItem left, Pattern right)
-        {
-            if (left == null)
-            {
-                throw new ArgumentNullException("left");
-            }
-
-            if (right == null)
-            {
-                throw new ArgumentNullException("right");
-            }
-
-            return Pattern.Create(left).Concat(right);
-        }
-
-        [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
-        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static Pattern operator +(Pattern left, char right)
         {
             if (left == null)
