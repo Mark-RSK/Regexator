@@ -4,6 +4,26 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public partial class CharGroupItem
     {
+        public CharGroupItem NamedBlock(NamedBlock block)
+        {
+            return Concat(CharGroupItems.NamedBlock(block));
+        }
+
+        public CharGroupItem NotNamedBlock(NamedBlock block)
+        {
+            return Concat(CharGroupItems.NotNamedBlock(block));
+        }
+
+        public CharGroupItem GeneralCategory(GeneralCategory category)
+        {
+            return Concat(CharGroupItems.GeneralCategory(category));
+        }
+
+        public CharGroupItem NotGeneralCategory(GeneralCategory category)
+        {
+            return Concat(CharGroupItems.NotGeneralCategory(category));
+        }
+
         public CharGroupItem Tab()
         {
             return Concat(CharGroupItems.Tab());

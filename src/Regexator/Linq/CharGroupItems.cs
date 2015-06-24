@@ -4,9 +4,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public static class CharGroupItems
     {
+        public static CharGroupItem NamedBlock(NamedBlock block)
+        {
+            return new NamedBlockCharItem(block);
+        }
+
         public static CharGroupItem NotNamedBlock(NamedBlock block)
         {
             return new NamedBlockCharItem(block, true);
+        }
+
+        public static CharGroupItem GeneralCategory(GeneralCategory category)
+        {
+            return new GeneralCategoryCharItem(category);
         }
 
         public static CharGroupItem NotGeneralCategory(GeneralCategory category)
