@@ -68,7 +68,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         EqualsSign = 61,
         GreaterThan = 62,
         QuestionMark = 63,
-        At = 64,
+        AtSign = 64,
         CapitalLetterA = 65,
         CapitalLetterB = 66,
         CapitalLetterC = 67,

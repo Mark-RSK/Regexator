@@ -129,9 +129,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Concat(CharGroupItems.QuestionMark());
         }
 
-        public CharGroupItem At()
+        public CharGroupItem AtSign()
         {
-            return Concat(CharGroupItems.At());
+            return Concat(CharGroupItems.AtSign());
         }
 
         public CharGroupItem LeftSquareBracket()

@@ -1353,34 +1353,34 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Count(minCount, maxCount, NotQuestionMark());
         }
 
-        public static CharacterPattern At()
+        public static CharacterPattern AtSign()
         {
-            return Character(AsciiChar.At);
+            return Character(AsciiChar.AtSign);
         }
 
-        public static QuantifiedGroup At(int exactCount)
+        public static QuantifiedGroup AtSign(int exactCount)
         {
-            return Count(exactCount, At());
+            return Count(exactCount, AtSign());
         }
 
-        public static QuantifiedGroup At(int minCount, int maxCount)
+        public static QuantifiedGroup AtSign(int minCount, int maxCount)
         {
-            return Count(minCount, maxCount, At());
+            return Count(minCount, maxCount, AtSign());
         }
 
-        public static QuantifiablePattern NotAt()
+        public static QuantifiablePattern NotAtSign()
         {
-            return NotCharacter(AsciiChar.At);
+            return NotCharacter(AsciiChar.AtSign);
         }
 
-        public static QuantifiedGroup NotAt(int exactCount)
+        public static QuantifiedGroup NotAtSign(int exactCount)
         {
-            return Count(exactCount, NotAt());
+            return Count(exactCount, NotAtSign());
         }
 
-        public static QuantifiedGroup NotAt(int minCount, int maxCount)
+        public static QuantifiedGroup NotAtSign(int minCount, int maxCount)
         {
-            return Count(minCount, maxCount, NotAt());
+            return Count(minCount, maxCount, NotAtSign());
         }
 
         public static CharacterPattern LeftSquareBracket()

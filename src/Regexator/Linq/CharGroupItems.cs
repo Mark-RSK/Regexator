@@ -219,9 +219,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new AsciiCharItem(AsciiChar.QuestionMark);
         }
 
-        public static CharGroupItem At()
+        public static CharGroupItem AtSign()
         {
-            return new AsciiCharItem(AsciiChar.At);
+            return new AsciiCharItem(AsciiChar.AtSign);
         }
 
         public static CharGroupItem LeftSquareBracket()

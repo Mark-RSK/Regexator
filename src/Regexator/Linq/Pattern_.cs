@@ -1554,34 +1554,34 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Patterns.NotQuestionMark(minCount, maxCount));
         }
 
-        public QuantifiablePattern At()
+        public QuantifiablePattern AtSign()
         {
-            return ConcatInternal(Patterns.At());
+            return ConcatInternal(Patterns.AtSign());
         }
 
-        public QuantifiedGroup At(int exactCount)
+        public QuantifiedGroup AtSign(int exactCount)
         {
-            return ConcatInternal(Patterns.At(exactCount));
+            return ConcatInternal(Patterns.AtSign(exactCount));
         }
 
-        public QuantifiedGroup At(int minCount, int maxCount)
+        public QuantifiedGroup AtSign(int minCount, int maxCount)
         {
-            return ConcatInternal(Patterns.At(minCount, maxCount));
+            return ConcatInternal(Patterns.AtSign(minCount, maxCount));
         }
 
-        public QuantifiablePattern NotAt()
+        public QuantifiablePattern NotAtSign()
         {
-            return ConcatInternal(Patterns.NotAt());
+            return ConcatInternal(Patterns.NotAtSign());
         }
 
-        public QuantifiedGroup NotAt(int exactCount)
+        public QuantifiedGroup NotAtSign(int exactCount)
         {
-            return ConcatInternal(Patterns.NotAt(exactCount));
+            return ConcatInternal(Patterns.NotAtSign(exactCount));
         }
 
-        public QuantifiedGroup NotAt(int minCount, int maxCount)
+        public QuantifiedGroup NotAtSign(int minCount, int maxCount)
         {
-            return ConcatInternal(Patterns.NotAt(minCount, maxCount));
+            return ConcatInternal(Patterns.NotAtSign(minCount, maxCount));
         }
 
         public QuantifiablePattern LeftSquareBracket()
