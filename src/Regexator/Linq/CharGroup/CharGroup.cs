@@ -29,6 +29,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new GroupCharGroup(this, !Negative);
         }
 
+        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static CharGroup operator !(CharGroup group)
         {
             if (group == null)

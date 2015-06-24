@@ -336,6 +336,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return CharGroupItem.Create(left).Concat(right);
         }
 
+        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static CharGroup operator !(CharGroupItem item)
         {
             if (item == null)
