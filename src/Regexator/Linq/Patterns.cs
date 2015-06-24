@@ -42,19 +42,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new IfAssert(testContent, trueContent, falseContent);
         }
 
-        public static Assert Assert(object content)
+        public static Assertion Assert(object content)
         {
-            return new Assert(content);
+            return new Assertion(content);
         }
 
-        public static Assert Assert(params object[] content)
+        public static Assertion Assert(params object[] content)
         {
             return Assert((object)content);
         }
 
         public static QuantifiablePattern NotAssert(object content)
         {
-            return new NotAssert(content);
+            return new NegativeAssertion(content);
         }
 
         public static QuantifiablePattern NotAssert(params object[] content)
@@ -62,19 +62,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return NotAssert((object)content);
         }
 
-        public static AssertBack AssertBack(object content)
+        public static BackAssertion AssertBack(object content)
         {
-            return new AssertBack(content);
+            return new BackAssertion(content);
         }
 
-        public static AssertBack AssertBack(params object[] content)
+        public static BackAssertion AssertBack(params object[] content)
         {
             return AssertBack((object)content);
         }
 
         public static QuantifiablePattern NotAssertBack(object content)
         {
-            return new NotAssertBack(content);
+            return new NegativeBackAssertion(content);
         }
 
         public static QuantifiablePattern NotAssertBack(params object[] content)

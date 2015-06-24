@@ -2,22 +2,22 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public sealed class NotAssertBack
+    public sealed class NegativeAssertion
         : GroupPattern
     {
-        public NotAssertBack(object content)
+        internal NegativeAssertion(object content)
             : base(content)
         {
         }
 
-        public NotAssertBack(AssertBack value)
+        internal NegativeAssertion(Assertion value)
             : base(value)
         {
         }
 
         internal override void WriteTo(PatternWriter writer)
         {
-            writer.WriteNotAssertBack(Content);
+            writer.WriteNotAssert(Content);
         }
     }
 }

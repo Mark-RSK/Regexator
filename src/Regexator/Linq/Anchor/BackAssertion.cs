@@ -4,27 +4,27 @@ using System;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public sealed class Assert
+    public sealed class BackAssertion
         : GroupPattern
     {
-        internal Assert(object content)
+        internal BackAssertion(object content)
             : base(content)
         {
         }
 
         internal override void WriteTo(PatternWriter writer)
         {
-            writer.WriteAssert(Content);
+            writer.WriteAssertBack(Content);
         }
 
-        public static NotAssert operator !(Assert value)
+        public static NegativeBackAssertion operator !(BackAssertion value)
         {
             if (value == null)
             {
                 throw new ArgumentNullException("value");
             }
 
-            return new NotAssert(value);
+            return new NegativeBackAssertion(value);
         }
     }
 }
