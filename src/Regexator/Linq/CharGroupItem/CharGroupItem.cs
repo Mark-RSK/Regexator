@@ -259,7 +259,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             } while (item != null);
         }
 
-        #region + operator
+        #region + and ! operators
 
         [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
@@ -334,6 +334,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
 
             return CharGroupItem.Create(left).Concat(right);
+        }
+
+        public static CharGroup operator !(CharGroupItem item)
+        {
+            if (item == null)
+            {
+                throw new ArgumentNullException("item");
+            }
+
+            return Patterns.NotCharacter(item);
         }
 
         #endregion

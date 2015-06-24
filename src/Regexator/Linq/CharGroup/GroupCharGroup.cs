@@ -4,31 +4,33 @@ using System;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal sealed class CharacterGroup
+    internal sealed class GroupCharGroup
         : CharGroup
     {
-        private readonly char _value;
+        private readonly CharGroup _group;
         private readonly bool _negative;
 
-        public CharacterGroup(char value, bool negative)
+        internal GroupCharGroup(CharGroup group, bool negative)
         {
-            _value = value;
+            if (group == null)
+            {
+                throw new ArgumentNullException("group");
+            }
+
+            _group = group;
             _negative = negative;
         }
 
         internal override void WriteContentTo(PatternWriter writer)
         {
-            if (writer == null)
-            {
-                throw new ArgumentNullException("writer");
-            }
-
-            writer.Write(_value, true);
+            _group.WriteContentTo(writer);
         }
 
         internal override void WriteTo(PatternWriter writer)
         {
-            writer.WriteCharGroup(_value, Negative);
+            writer.WriteCharGroupStart(Negative);
+            _group.WriteContentTo(writer);
+            writer.WriteCharGroupEnd();
         }
 
         public override bool Negative
