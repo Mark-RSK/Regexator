@@ -2,11 +2,16 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal sealed class NotAssert
+    public sealed class NotAssert
         : GroupPattern
     {
         public NotAssert(object content)
             : base(content)
+        {
+        }
+
+        public NotAssert(Assert value)
+            : base(value)
         {
         }
 

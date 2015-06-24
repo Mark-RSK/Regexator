@@ -4,7 +4,7 @@ using System;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal abstract class GroupPattern
+    public abstract class GroupPattern
         : QuantifiablePattern
     {
         private readonly object _content;
@@ -23,6 +23,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
 
             _content = content;
+        }
+
+        protected GroupPattern(GroupPattern group)
+            : base()
+        {
+            if (group == null)
+            {
+                throw new ArgumentNullException("group");
+            }
+
+            _content = group.Content;
         }
 
         internal object Content
