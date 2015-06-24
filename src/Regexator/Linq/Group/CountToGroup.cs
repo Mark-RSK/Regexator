@@ -4,12 +4,12 @@ using System;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal sealed class CountTo
+    internal sealed class CountToGroup
         : QuantifiedGroup
     {
         private readonly int _maxCount;
 
-        public CountTo(int maxCount, object content)
+        public CountToGroup(int maxCount, object content)
             : base(content)
         {
             if (maxCount < 0)

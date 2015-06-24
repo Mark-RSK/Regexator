@@ -375,7 +375,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup Maybe(object content)
         {
-            return new Maybe(content);
+            return new MaybeGroup(content);
         }
 
         public static QuantifiedGroup Maybe(params object[] content)
@@ -385,7 +385,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup MaybeMany(object content)
         {
-            return new MaybeMany(content);
+            return new MaybeManyGroup(content);
         }
 
         public static QuantifiedGroup MaybeMany(params object[] content)
@@ -395,7 +395,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup OneMany(object content)
         {
-            return new OneMany(content);
+            return new OneManyGroup(content);
         }
 
         public static QuantifiedGroup OneMany(params object[] content)
@@ -405,7 +405,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup Count(int exactCount, object content)
         {
-            return new Count(exactCount, content);
+            return new CountGroup(exactCount, content);
         }
 
         public static QuantifiedGroup Count(int exactCount, params object[] content)
@@ -415,7 +415,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup Count(int minCount, int maxCount, object content)
         {
-            return new Count(minCount, maxCount, content);
+            return new CountGroup(minCount, maxCount, content);
         }
 
         public static QuantifiedGroup Count(int minCount, int maxCount, params object[] content)
@@ -425,7 +425,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup CountFrom(int minCount, object content)
         {
-            return new CountFrom(minCount, content);
+            return new CountFromGroup(minCount, content);
         }
 
         public static QuantifiedGroup CountFrom(int minCount, params object[] content)
@@ -435,7 +435,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiedGroup CountTo(int maxCount, object content)
         {
-            return new CountTo(maxCount, content);
+            return new CountToGroup(maxCount, content);
         }
 
         public static QuantifiedGroup CountTo(int maxCount, params object[] content)

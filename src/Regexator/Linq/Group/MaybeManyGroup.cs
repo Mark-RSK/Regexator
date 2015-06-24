@@ -4,10 +4,10 @@ using System;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal sealed class Maybe
+    internal sealed class MaybeManyGroup
         : QuantifiedGroup
     {
-        public Maybe(object content)
+        public MaybeManyGroup(object content)
             : base(content)
         {
         }
@@ -19,7 +19,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("writer");
             }
 
-            writer.WriteMaybe();
+            writer.WriteMaybeMany();
         }
     }
 }

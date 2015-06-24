@@ -4,13 +4,13 @@ using System;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal sealed class Count
+    internal sealed class CountGroup
         : QuantifiedGroup
     {
         private readonly int _count1;
         private readonly int _count2;
 
-        public Count(int exactCount, object content)
+        public CountGroup(int exactCount, object content)
             : base(content)
         {
             if (exactCount < 0)
@@ -22,7 +22,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _count2 = -1;
         }
 
-        public Count(int minCount, int maxCount, object content)
+        public CountGroup(int minCount, int maxCount, object content)
             : base(content)
         {
             if (minCount < 0)
