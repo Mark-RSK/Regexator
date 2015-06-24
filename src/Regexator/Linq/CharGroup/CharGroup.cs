@@ -26,6 +26,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             WriteTo(writer);
         }
 
+        public static explicit operator CharGroup(string characters)
+        {
+            return new CharactersGroup(characters);
+        }
+
+        public static explicit operator CharGroup(CharGroupItem item)
+        {
+            return new CharGroupItemGroup(item);
+        }
+
         public virtual bool Negative
         {
             get { return false; }
