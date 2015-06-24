@@ -3,15 +3,10 @@
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public abstract class CharGroup
-        : QuantifiablePattern, IBaseGroup, IExcludedGroup
+        : QuantifiablePattern, IExcludedGroup
     {
         protected CharGroup()
         {
-        }
-
-        public CharSubtraction Except(IExcludedGroup excludedGroup)
-        {
-            return new CharSubtraction(this, excludedGroup);
         }
 
         protected abstract void WriteContentTo(PatternWriter writer);
