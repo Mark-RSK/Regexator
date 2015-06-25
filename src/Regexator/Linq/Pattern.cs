@@ -225,22 +225,22 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return EnumerateMatches(input, options).EnumerateGroups();
         }
 
-        public IEnumerable<Group> EnumerateGroups(string groupName, string input)
+        public IEnumerable<Group> EnumerateGroups(string input, string groupName)
         {
-            return EnumerateGroups(groupName, input, RegexOptions.None);
+            return EnumerateGroups(input, groupName, RegexOptions.None);
         }
 
-        public IEnumerable<Group> EnumerateGroups(string groupName, string input, RegexOptions options)
+        public IEnumerable<Group> EnumerateGroups(string input, string groupName, RegexOptions options)
         {
             return EnumerateMatches(input, options).EnumerateGroups(groupName);
         }
 
-        public IEnumerable<Group> EnumerateGroups(int groupNumber, string input)
+        public IEnumerable<Group> EnumerateGroups(string input, int groupNumber)
         {
-            return EnumerateGroups(groupNumber, input, RegexOptions.None);
+            return EnumerateGroups(input, groupNumber, RegexOptions.None);
         }
 
-        public IEnumerable<Group> EnumerateGroups(int groupNumber, string input, RegexOptions options)
+        public IEnumerable<Group> EnumerateGroups(string input, int groupNumber, RegexOptions options)
         {
             return EnumerateMatches(input, options).EnumerateGroups(groupNumber);
         }
@@ -255,22 +255,22 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return EnumerateMatches(input, options).EnumerateSuccessGroups();
         }
 
-        public IEnumerable<Group> EnumerateSuccessGroups(string groupName, string input)
+        public IEnumerable<Group> EnumerateSuccessGroups(string input, string groupName)
         {
-            return EnumerateSuccessGroups(groupName, input, RegexOptions.None);
+            return EnumerateSuccessGroups(input, groupName, RegexOptions.None);
         }
 
-        public IEnumerable<Group> EnumerateSuccessGroups(string groupName, string input, RegexOptions options)
+        public IEnumerable<Group> EnumerateSuccessGroups(string input, string groupName, RegexOptions options)
         {
             return EnumerateMatches(input, options).EnumerateSuccessGroups(groupName);
         }
 
-        public IEnumerable<Group> EnumerateSuccessGroups(int groupNumber, string input)
+        public IEnumerable<Group> EnumerateSuccessGroups(string input, int groupNumber)
         {
-            return EnumerateSuccessGroups(groupNumber, input, RegexOptions.None);
+            return EnumerateSuccessGroups(input, groupNumber, RegexOptions.None);
         }
 
-        public IEnumerable<Group> EnumerateSuccessGroups(int groupNumber, string input, RegexOptions options)
+        public IEnumerable<Group> EnumerateSuccessGroups(string input, int groupNumber, RegexOptions options)
         {
             return EnumerateMatches(input, options).EnumerateSuccessGroups(groupNumber);
         }
@@ -285,22 +285,22 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return EnumerateMatches(input, options).EnumerateCaptures();
         }
 
-        public IEnumerable<Capture> EnumerateCaptures(string groupName, string input)
+        public IEnumerable<Capture> EnumerateCaptures(string input, string groupName)
         {
-            return EnumerateCaptures(groupName, input, RegexOptions.None);
+            return EnumerateCaptures(input, groupName, RegexOptions.None);
         }
 
-        public IEnumerable<Capture> EnumerateCaptures(string groupName, string input, RegexOptions options)
+        public IEnumerable<Capture> EnumerateCaptures(string input, string groupName, RegexOptions options)
         {
             return EnumerateMatches(input, options).EnumerateCaptures(groupName);
         }
 
-        public IEnumerable<Capture> EnumerateCaptures(int groupNumber, string input)
+        public IEnumerable<Capture> EnumerateCaptures(string input, int groupNumber)
         {
-            return EnumerateCaptures(groupNumber, input, RegexOptions.None);
+            return EnumerateCaptures(input, groupNumber, RegexOptions.None);
         }
 
-        public IEnumerable<Capture> EnumerateCaptures(int groupNumber, string input, RegexOptions options)
+        public IEnumerable<Capture> EnumerateCaptures(string input, int groupNumber, RegexOptions options)
         {
             return EnumerateMatches(input, options).EnumerateCaptures(groupNumber);
         }
