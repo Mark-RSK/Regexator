@@ -6,11 +6,16 @@ using System.Diagnostics.CodeAnalysis;
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public sealed class BackAssertion
-        : GroupPattern
+        : GroupPattern, IInvertible<NegativeBackAssertion>
     {
         internal BackAssertion(object content)
             : base(content)
         {
+        }
+
+        public NegativeBackAssertion Invert()
+        {
+            return new NegativeBackAssertion(this);
         }
 
         internal override void WriteTo(PatternWriter writer)
@@ -26,7 +31,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("value");
             }
 
-            return new NegativeBackAssertion(value);
+            return value.Invert();
         }
     }
 }
