@@ -104,9 +104,14 @@ namespace Pihrtsoft.Text.RegularExpressions
 
         public static InlineOptions Convert(RegexOptions options)
         {
-            if (!IsValidInlineOptions(options))
+            return Convert(options, false);
+        }
+
+        public static InlineOptions Convert(RegexOptions options, bool throwOnInvalid)
+        {
+            if (throwOnInvalid && !IsValidInlineOptions(options))
             {
-                throw new ArgumentException("Value is not convertible to the InlineOptions.", "options");
+                throw new ArgumentException(string.Format(CultureInfo.CurrentCulture, "Value is not convertible to the {0}.", typeof(InlineOptions).FullName),  "options");
             }
 
             InlineOptions value = InlineOptions.None;
