@@ -5,6 +5,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal sealed class NotWordChar
         : CharacterPattern
     {
+        public override CharGroup Invert()
+        {
+            return new CharClassCharGroup(CharClass.WordChar);
+        }
+
         internal override void WriteTo(PatternWriter writer)
         {
             writer.WriteNotWordChar();

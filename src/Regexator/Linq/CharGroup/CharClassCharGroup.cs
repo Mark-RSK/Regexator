@@ -2,22 +2,24 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal sealed class NotGeneralCategoryPattern
-        : GeneralCategoryPattern
+    internal sealed class CharClassCharGroup
+        : CharGroup
     {
-        internal NotGeneralCategoryPattern(GeneralCategory category)
-            : base(category)
+        private readonly CharClass _value;
+
+        public CharClassCharGroup(CharClass value)
         {
+            _value = value;
         }
 
-        public override CharGroup Invert()
+        internal override void WriteContentTo(PatternWriter writer)
         {
-            return new GeneralCategoryCharGroup(Category, false);
+            writer.WriteCharClass(_value);
         }
 
         internal override void WriteTo(PatternWriter writer)
         {
-            writer.WriteNotGeneralCategory(Category);
+            writer.WriteCharGroup(_value);
         }
     }
 }

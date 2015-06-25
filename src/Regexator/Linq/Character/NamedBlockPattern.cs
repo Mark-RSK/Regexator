@@ -12,6 +12,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _block = block;
         }
 
+        public override CharGroup Invert()
+        {
+            return new NamedBlockCharGroup(_block, true);
+        }
+
         internal override void WriteTo(PatternWriter writer)
         {
             writer.WriteNamedBlock(_block);

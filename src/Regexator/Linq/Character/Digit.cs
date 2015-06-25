@@ -5,6 +5,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal sealed class Digit
         : CharacterPattern
     {
+        public override CharGroup Invert()
+        {
+            return new CharClassCharGroup(CharClass.NotDigit);
+        }
+
         internal override void WriteTo(PatternWriter writer)
         {
             writer.WriteDigit();

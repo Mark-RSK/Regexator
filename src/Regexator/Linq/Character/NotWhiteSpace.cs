@@ -5,6 +5,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal sealed class NotWhiteSpace
         : CharacterPattern
     {
+        public override CharGroup Invert()
+        {
+            return new CharClassCharGroup(CharClass.WhiteSpace);
+        }
+
         internal override void WriteTo(PatternWriter writer)
         {
             writer.WriteNotWhiteSpace();

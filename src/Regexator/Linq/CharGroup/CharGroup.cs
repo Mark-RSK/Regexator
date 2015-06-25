@@ -6,7 +6,7 @@ using System.Diagnostics.CodeAnalysis;
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public abstract class CharGroup
-        : QuantifiablePattern, IExcludedGroup
+        : QuantifiablePattern, IExcludedGroup, IInvertible<CharGroup>
     {
         protected CharGroup()
         {
@@ -24,7 +24,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             WriteTo(writer);
         }
 
-        internal CharGroup Invert()
+        public CharGroup Invert()
         {
             return new GroupCharGroup(this, !Negative);
         }

@@ -19,6 +19,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _charCode = charCode;
         }
 
+        public override CharGroup Invert()
+        {
+            return new CharCodeGroup(_charCode, true);
+        }
+
         internal override void WriteTo(PatternWriter writer)
         {
             writer.WriteInternal(_charCode);
