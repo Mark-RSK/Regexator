@@ -396,18 +396,21 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public void WriteIfGroup(string groupName, object trueContent, object falseContent)
         {
+            WriteIfGroupInternal(groupName, trueContent, falseContent, true);
+        }
+
+        internal void WriteIfGroupInternal(string groupName, object trueContent, object falseContent, bool checkGroupName)
+        {
+            if (checkGroupName)
+            {
+                RegexUtilities.CheckGroupName(groupName);
+            }
+
             if (trueContent == null)
             {
                 throw new ArgumentNullException("trueContent");
             }
 
-            RegexUtilities.CheckGroupName(groupName);
-
-            WriteIfGroupInternal(groupName, trueContent, falseContent);
-        }
-
-        internal void WriteIfGroupInternal(string groupName, object trueContent, object falseContent)
-        {
             InlineOptions currentOptions = _currentOptions;
 
             WriteGroupStart();
