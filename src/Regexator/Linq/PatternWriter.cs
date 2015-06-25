@@ -305,48 +305,64 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _currentOptions &= applyOptions;
             _currentOptions &= ~disableOptions;
 
-            string text = content as string;
-            if (text != null)
+            Pattern pattern = content as Pattern;
+            if (pattern != null)
             {
-                Write(text);
+                Write(pattern);
             }
             else
             {
-                object[] values = content as object[];
-                if (values != null)
+                string text = content as string;
+                if (text != null)
                 {
-                    if (values.Length > 0)
-                    {
-                        Write(values[0]);
-
-                        for (int i = 1; i < values.Length; i++)
-                        {
-                            WriteOr();
-                            Write(values[i]);
-                        }
-                    }
+                    Write(text);
                 }
                 else
                 {
-                    IEnumerable items = content as IEnumerable;
-                    if (items != null)
+                    CharGroupItem charGroupItem = content as CharGroupItem;
+                    if (charGroupItem != null)
                     {
-                        IEnumerator en = items.GetEnumerator();
-
-                        if (en.MoveNext())
-                        {
-                            Write(en.Current);
-
-                            while (en.MoveNext())
-                            {
-                                WriteOr();
-                                Write(en.Current);
-                            }
-                        }
+                        Write(charGroupItem);
                     }
                     else
                     {
-                        Write(content);
+                        object[] values = content as object[];
+                        if (values != null)
+                        {
+                            if (values.Length > 0)
+                            {
+                                Write(values[0]);
+
+                                for (int i = 1; i < values.Length; i++)
+                                {
+                                    WriteOr();
+                                    Write(values[i]);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            IEnumerable items = content as IEnumerable;
+                            if (items != null)
+                            {
+                                IEnumerator en = items.GetEnumerator();
+
+                                if (en.MoveNext())
+                                {
+                                    Write(en.Current);
+
+                                    while (en.MoveNext())
+                                    {
+                                        WriteOr();
+                                        Write(en.Current);
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                Write(content);
+                            }
+                        }
                     }
                 }
             }
@@ -1237,11 +1253,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         internal void WriteLeftParenthesis()
         {
             base.Write('(');
-        }
-
-        internal void WriteRightParenthesis()
-        {
-            base.Write(')');
         }
 
         private void WriteLeftCurlyBracket()
