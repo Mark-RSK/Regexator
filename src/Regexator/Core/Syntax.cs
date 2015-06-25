@@ -200,7 +200,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             return null;
         }
 
-        public static string CapturingGroup(object content)
+        public static string Group(object content)
         {
             if (content == null)
             {
@@ -210,9 +210,9 @@ namespace Pihrtsoft.Text.RegularExpressions
             return "(" + Pattern.GetPattern(content, CultureInfo.CurrentCulture) + GroupEnd;
         }
 
-        public static string CapturingGroup(params object[] content)
+        public static string Group(params object[] content)
         {
-            return CapturingGroup((object)content);
+            return Group((object)content);
         }
 
         public static string NoncapturingGroup()

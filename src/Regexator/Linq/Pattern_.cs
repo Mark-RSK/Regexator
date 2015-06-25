@@ -242,19 +242,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Patterns.NotAssertBack(item));
         }
 
-        public QuantifiablePattern CapturingGroup()
+        public QuantifiablePattern Group()
         {
-            return ConcatInternal(Patterns.CapturingGroup());
+            return ConcatInternal(Patterns.Group());
         }
 
-        public QuantifiablePattern CapturingGroup(object content)
+        public QuantifiablePattern Group(object content)
         {
-            return ConcatInternal(Patterns.CapturingGroup(content));
+            return ConcatInternal(Patterns.Group(content));
         }
 
-        public QuantifiablePattern CapturingGroup(params object[] content)
+        public QuantifiablePattern Group(params object[] content)
         {
-            return ConcatInternal(Patterns.CapturingGroup(content));
+            return ConcatInternal(Patterns.Group(content));
         }
 
         public QuantifiablePattern NamedGroup(string name, object content)
@@ -342,12 +342,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Patterns.DisableOptions(options, content));
         }
 
-        public QuantifiablePattern AsCapturingGroup()
+        public QuantifiablePattern AsGroup()
         {
-            return Patterns.CapturingGroup(this);
+            return Patterns.Group(this);
         }
 
-        public QuantifiablePattern AsCapturingGroup(string groupName)
+        public QuantifiablePattern AsNamedGroup(string groupName)
         {
             return Patterns.NamedGroup(groupName, this);
         }

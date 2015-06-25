@@ -376,7 +376,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
             else
             {
-                WriteCapturingGroupStart();
+                WriteLeftParenthesis();
             }
 
             Write(testContent);
@@ -461,7 +461,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal void WriteIfGroupCondition(string groupName)
         {
-            WriteCapturingGroupStart();
+            WriteLeftParenthesis();
             base.Write(groupName);
             WriteGroupEnd();
         }
@@ -566,9 +566,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal void WriteAny(object content, GroupMode mode)
         {
-            if (mode == GroupMode.Capturing)
+            if (mode == GroupMode.Numbered)
             {
-                WriteCapturingGroupStart();
+                WriteLeftParenthesis();
             }
             else if (mode == GroupMode.Noncapturing)
             {
@@ -583,21 +583,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        public void WriteCapturingGroup(object content)
+        public void WriteNumberedGroup(object content)
         {
             if (content == null)
             {
                 throw new ArgumentNullException("content");
             }
 
-            WriteCapturingGroupStart();
+            WriteLeftParenthesis();
             WriteGroupContent(content);
             WriteGroupEnd();
-        }
-
-        internal void WriteCapturingGroupStart()
-        {
-            base.Write('(');
         }
 
         public void WriteNoncapturingGroup(object content)
@@ -1234,6 +1229,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             base.Write(Settings.IdentifierBoundary == IdentifierBoundary.Apostrophe
                 ? '\''
                 : '>');
+        }
+
+        internal void WriteLeftParenthesis()
+        {
+            base.Write('(');
+        }
+
+        internal void WriteRightParenthesis()
+        {
+            base.Write(')');
         }
 
         private void WriteLeftCurlyBracket()
