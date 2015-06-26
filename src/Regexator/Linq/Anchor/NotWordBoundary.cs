@@ -2,9 +2,13 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal sealed class NotWordBoundary
+    public sealed class NotWordBoundary
         : QuantifiablePattern
     {
+        internal NotWordBoundary()
+        {
+        }
+
         internal override void WriteTo(PatternWriter writer)
         {
             writer.WriteNotWordBoundary();

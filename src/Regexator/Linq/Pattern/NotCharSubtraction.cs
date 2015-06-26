@@ -1,18 +1,39 @@
 // Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System;
+
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal sealed class NotCharSubtraction
-        : CharSubtraction
+    public class NotCharSubtraction
+        : QuantifiablePattern, IExcludedGroup
     {
-        public NotCharSubtraction(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
-            : base(baseGroup, excludedGroup)
+        private readonly IBaseGroup _baseGroup;
+        private readonly IExcludedGroup _excludedGroup;
+
+        internal NotCharSubtraction(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
         {
+            if (baseGroup == null)
+            {
+                throw new ArgumentNullException("baseGroup");
+            }
+
+            if (excludedGroup == null)
+            {
+                throw new ArgumentNullException("excludedGroup");
+            }
+
+            _baseGroup = baseGroup;
+            _excludedGroup = excludedGroup;
         }
 
-        internal override bool Negative
+        public void WriteExcludedGroupTo(PatternWriter writer)
         {
-            get { return true; }
+            WriteTo(writer);
+        }
+
+        internal override void WriteTo(PatternWriter writer)
+        {
+            writer.WriteSubtraction(_baseGroup, _excludedGroup, true);
         }
     }
 }

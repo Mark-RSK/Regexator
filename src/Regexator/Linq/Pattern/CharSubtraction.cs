@@ -1,11 +1,12 @@
 // Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public class CharSubtraction
-        : QuantifiablePattern, IExcludedGroup
+        : QuantifiablePattern, IExcludedGroup, IInvertible<NotCharSubtraction>
     {
         private readonly IBaseGroup _baseGroup;
         private readonly IExcludedGroup _excludedGroup;
@@ -26,6 +27,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _excludedGroup = excludedGroup;
         }
 
+        public NotCharSubtraction Invert()
+        {
+            return new NotCharSubtraction(_baseGroup, _excludedGroup);
+        }
+
         public void WriteExcludedGroupTo(PatternWriter writer)
         {
             WriteTo(writer);
@@ -33,12 +39,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override void WriteTo(PatternWriter writer)
         {
-            writer.WriteSubtraction(_baseGroup, _excludedGroup, Negative);
+            writer.WriteSubtraction(_baseGroup, _excludedGroup);
         }
 
-        internal virtual bool Negative
+        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
+        public static NotCharSubtraction operator !(CharSubtraction value)
         {
-            get { return false; }
+            if (value == null)
+            {
+                throw new ArgumentNullException("value");
+            }
+
+            return value.Invert();
         }
     }
 }

@@ -337,14 +337,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
-        public static CharGroup operator !(CharGroupItem item)
+        public static CharGroup operator !(CharGroupItem value)
         {
-            if (item == null)
+            if (value == null)
             {
-                throw new ArgumentNullException("item");
+                throw new ArgumentNullException("value");
             }
 
-            return Patterns.NotCharacter(item);
+            return Patterns.NotCharacter(value);
         }
 
         #endregion

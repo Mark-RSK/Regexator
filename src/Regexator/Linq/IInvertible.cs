@@ -2,7 +2,7 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal interface IInvertible<TPattern> where TPattern : Pattern
+    public interface IInvertible<TPattern> where TPattern : Pattern
     {
         TPattern Invert();
     }

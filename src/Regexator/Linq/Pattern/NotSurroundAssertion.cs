@@ -4,14 +4,14 @@ using System;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal class AssertSurround
+    public class NotSurroundAssertion
         : Pattern
     {
         private readonly object _content;
         private readonly object _contentBefore;
         private readonly object _contentAfter;
 
-        public AssertSurround(object contentBefore, object content, object contentAfter)
+        internal NotSurroundAssertion(object contentBefore, object content, object contentAfter)
         {
             if (contentBefore == null)
             {
@@ -35,30 +35,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override void WriteTo(PatternWriter writer)
         {
-            if (Negative)
-            {
-                writer.WriteNotAssertBack(_contentBefore);
-            }
-            else
-            {
-                writer.WriteAssertBack(_contentBefore);
-            }
-
+            writer.WriteNotAssertBack(_contentBefore);
             writer.Write(_content);
-
-            if (Negative)
-            {
-                writer.WriteNotAssert(_contentAfter);
-            }
-            else
-            {
-                writer.WriteAssert(_contentAfter);
-            }
-        }
-
-        public virtual bool Negative
-        {
-            get { return false; }
+            writer.WriteNotAssert(_contentAfter);
         }
     }
 }

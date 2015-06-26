@@ -30,14 +30,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
-        public static CharGroup operator !(CharGroup group)
+        public static CharGroup operator !(CharGroup value)
         {
-            if (group == null)
+            if (value == null)
             {
-                throw new ArgumentNullException("group");
+                throw new ArgumentNullException("value");
             }
 
-            return group.Invert();
+            return value.Invert();
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]

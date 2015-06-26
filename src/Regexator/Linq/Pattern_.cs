@@ -7,6 +7,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public partial class Pattern
     {
+        public TPattern Not<TPattern>(IInvertible<TPattern> value) where TPattern : Pattern
+        {
+            return ConcatInternal(Patterns.Not(value));
+        }
+
         public QuantifiablePattern DisallowGroup(string groupName)
         {
             return ConcatInternal(Patterns.DisallowGroup(groupName));

@@ -56,6 +56,7 @@
     <Compile Include="Linq\Anchor\NegativeBackAssertion.cs" />
     <Compile Include="Linq\Anchor\NegativeAssertion.cs" />
     <Compile Include="Linq\Anchor\Assertion.cs" />
+    <Compile Include="Linq\Anchor\NotWordBoundary.cs" />
     <Compile Include="Linq\Character\NotWordChar.cs" />
     <Compile Include="Linq\Character\WordChar.cs" />
     <Compile Include="Linq\Character\NotWhiteSpace.cs" />
@@ -74,14 +75,14 @@
     <Compile Include="Linq\Group\MaybeManyGroup.cs" />
     <Compile Include="Linq\Group\MaybeGroup.cs" />
     <Compile Include="Linq\IInvertible.cs" />
-    <Compile Include="Linq\Pattern\NotAssertSurround.cs" />
+    <Compile Include="Linq\Pattern\NotSurroundAssertion.cs" />
+    <Compile Include="Linq\Pattern\NotCharSubtraction.cs" />
     <Compile Include="Linq\Pattern\OrContainer.cs" />
     <Compile Include="Linq\Pattern\JoinContainer.cs" />
-    <Compile Include="Linq\Pattern\AssertSurround.cs" />
+    <Compile Include="Linq\Pattern\SurroundAssertion.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Extensions\MatchExtensions.cs" />
     <Compile Include="Linq\Anchor\EndOrBeforeEndingNewLine.cs" />
-    <Compile Include="Linq\Anchor\NotWordBoundary.cs" />
     <Compile Include="Linq\Anchor\WordBoundary.cs" />
     <Compile Include="Linq\Anchor\PreviousMatchEnd.cs" />
     <Compile Include="Linq\Anchor\EndOfLine.cs" />
@@ -101,7 +102,6 @@
     <Compile Include="Linq\Substitution\EntireMatchSubstitution.cs" />
     <Compile Include="Linq\Substitution\EntireInputSubstitution.cs" />
     <Compile Include="Linq\Substitution\Substitution.cs" />
-    <Compile Include="Linq\Pattern\NotCharSubtraction.cs" />
     <Compile Include="Linq\Pattern\SurroundPattern.cs" />
     <Compile Include="Linq\Pattern\ContainerPattern.cs" />
     <Compile Include="Linq\Pattern\InlineComment.cs" />

@@ -7,6 +7,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public static class Patterns
     {
+        public static TPattern Not<TPattern>(IInvertible<TPattern> value) where TPattern : Pattern
+        {
+            if (value == null)
+            {
+                throw new ArgumentNullException("value");
+            }
+
+            return value.Invert();
+        }
+
         internal static QuantifiablePattern Or(object left, object right)
         {
             return new OrContainer(left, right);
@@ -82,24 +92,24 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return NotAssertBack((object)content);
         }
 
-        public static Pattern AssertSurround(object surroundContent, object content)
+        public static SurroundAssertion AssertSurround(object surroundContent, object content)
         {
             return AssertSurround(surroundContent, content, surroundContent);
         }
 
-        public static Pattern AssertSurround(object contentBefore, object content, object contentAfter)
+        public static SurroundAssertion AssertSurround(object contentBefore, object content, object contentAfter)
         {
-            return new AssertSurround(contentBefore, content, contentAfter);
+            return new SurroundAssertion(contentBefore, content, contentAfter);
         }
 
-        public static Pattern NotAssertSurround(object surroundContent, object content)
+        public static NotSurroundAssertion NotAssertSurround(object surroundContent, object content)
         {
             return NotAssertSurround(surroundContent, content, surroundContent);
         }
 
-        public static Pattern NotAssertSurround(object contentBefore, object content, object contentAfter)
+        public static NotSurroundAssertion NotAssertSurround(object contentBefore, object content, object contentAfter)
         {
-            return new NotAssertSurround(contentBefore, content, contentAfter);
+            return new NotSurroundAssertion(contentBefore, content, contentAfter);
         }
 
         public static QuantifiablePattern StartOfInput()
@@ -156,12 +166,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new PreviousMatchEnd();
         }
 
-        public static QuantifiablePattern WordBoundary()
+        public static WordBoundary WordBoundary()
         {
             return new WordBoundary();
         }
 
-        public static QuantifiablePattern NotWordBoundary()
+        public static NotWordBoundary NotWordBoundary()
         {
             return new NotWordBoundary();
         }
@@ -598,7 +608,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new CharSubtraction(baseGroup, excludedGroup);
         }
 
-        public static CharSubtraction NotSubtract(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
+        public static NotCharSubtraction NotSubtract(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
         {
             return new NotCharSubtraction(baseGroup, excludedGroup);
         }
