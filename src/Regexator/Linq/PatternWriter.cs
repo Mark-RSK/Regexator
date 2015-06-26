@@ -382,8 +382,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("trueContent");
             }
 
-            InlineOptions currentOptions = _currentOptions;
-
             WriteGroupStart();
 
             if (Settings.HasOptions(PatternOptions.ConditionWithAssertion))
@@ -397,6 +395,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             Write(testContent);
             WriteGroupEnd();
+
+            InlineOptions currentOptions = _currentOptions;
+            
             Write(trueContent);
 
             if (falseContent != null)
@@ -427,10 +428,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("trueContent");
             }
 
-            InlineOptions currentOptions = _currentOptions;
-
             WriteGroupStart();
             WriteIfGroupCondition(groupName);
+
+            InlineOptions currentOptions = _currentOptions;
+            
             Write(trueContent);
 
             if (falseContent != null)
@@ -456,10 +458,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("trueContent");
             }
 
-            InlineOptions currentOptions = _currentOptions;
-
             WriteGroupStart();
             WriteIfGroupCondition(groupNumber);
+
+            InlineOptions currentOptions = _currentOptions;
+            
             Write(trueContent);
 
             if (falseContent != null)
