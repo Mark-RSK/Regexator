@@ -5,6 +5,9 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
+    /// <summary>
+    /// Represents a character group pattern.
+    /// </summary>
     public abstract class CharGroup
         : QuantifiablePattern, IExcludedGroup, IInvertible<CharGroup>
     {

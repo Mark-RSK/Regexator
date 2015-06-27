@@ -2,8 +2,15 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
+    /// <summary>
+    /// Represents the base part of the character subtraction pattern.
+    /// </summary>
     public interface IBaseGroup
     {
+        /// <summary>
+        /// Writes the base group to the output.
+        /// </summary>
+        /// <param name="writer">The output to be written to.</param>
         void WriteBaseGroupTo(PatternWriter writer);
     }
 }

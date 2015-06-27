@@ -5,6 +5,9 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
+    /// <summary>
+    /// Represents a single character pattern. This includes a literal character, Unicode general category or named block pattern, character class pattern ((non-)digit, (non-)white-space, (non-)word). 
+    /// </summary>
     public abstract class CharacterPattern
         : QuantifiablePattern, IBaseGroup, IExcludedGroup, IInvertible<CharGroup>
     {
@@ -12,8 +15,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
         }
 
+        /// <summary>
+        /// Returns a patterns that matches what is not matched by the current instance./>
+        /// </summary>
+        /// <returns></returns>
         public abstract CharGroup Invert();
 
+        /// <summary>
+        /// Specifies a pattern that matches a character matched by the current instance but not matched by the excluded character group.
+        /// </summary>
+        /// <param name="excludedGroup">Excluded group pattern to be subtracted.</param>
+        /// <returns></returns>
         public CharSubtraction Except(IExcludedGroup excludedGroup)
         {
             return new CharSubtraction(this, excludedGroup);
@@ -24,6 +36,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             WriteTo(writer);
         }
 
+        /// <summary>
+        /// Writes the character pattern to the output.
+        /// </summary>
+        /// <param name="writer">The output to be written to.</param>
         public void WriteBaseGroupTo(PatternWriter writer)
         {
             if (writer == null)
@@ -34,6 +50,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             WriteGroupContentTo(writer);
         }
 
+        /// <summary>
+        /// A character group containing the current instance in written to the output.
+        /// </summary>
+        /// <param name="writer">The output to be written to.</param>
         public void WriteExcludedGroupTo(PatternWriter writer)
         {
             if (writer == null)

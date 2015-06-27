@@ -2,8 +2,15 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
+    /// <summary>
+    /// Represents the excluded part of the character subtraction pattern.
+    /// </summary>
     public interface IExcludedGroup
     {
+        /// <summary>
+        /// Writes the excluded group to the output.
+        /// </summary>
+        /// <param name="writer">The output to be written to.</param>
         void WriteExcludedGroupTo(PatternWriter writer);
     }
 }
