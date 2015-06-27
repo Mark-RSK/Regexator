@@ -6,7 +6,7 @@ using System.Diagnostics.CodeAnalysis;
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
-    /// Represents a character group pattern.
+    /// Represents a positive or a negative character group pattern.
     /// </summary>
     public abstract class CharacterGroup
         : QuantifiablePattern, IExcludedGroup, IInvertible<CharacterGroup>
@@ -17,16 +17,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal abstract void WriteContentTo(PatternWriter writer);
 
-        public void WriteBaseGroupTo(PatternWriter writer)
-        {
-            WriteContentTo(writer);
-        }
-
+        /// <summary>
+        /// Writes the current instance of the character group to the output.
+        /// </summary>
+        /// <param name="writer">The output to be written to.</param>
         public void WriteExcludedGroupTo(PatternWriter writer)
         {
             WriteTo(writer);
         }
 
+        /// <summary>
+        /// If the current instance is a positive character group, it returns a negative character group. Otherwise, it returns a positive character group. Newly created group has the same content as the current instance.
+        /// </summary>
         public CharacterGroup Invert()
         {
             return new GroupCharGroup(this, !Negative);
@@ -55,6 +57,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new CharGroupItemGroup(item);
         }
 
+        /// <summary>
+        /// Gets a value that indicates whether the current instance is a positive or a negative character group.
+        /// </summary>
         public virtual bool Negative
         {
             get { return false; }
