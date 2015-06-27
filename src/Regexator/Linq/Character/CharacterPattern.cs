@@ -6,7 +6,7 @@ using System.Diagnostics.CodeAnalysis;
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
-    /// Represents a single character pattern. This includes a literal character, Unicode general category or named block pattern, character class pattern ((non-)digit, (non-)white-space, (non-)word). 
+    /// Represents a single character pattern. This includes a character literal, Unicode general category or named block pattern, character class pattern ((non-)digit, (non-)white-space, (non-)word). 
     /// </summary>
     public abstract class CharacterPattern
         : QuantifiablePattern, IBaseGroup, IExcludedGroup, IInvertible<CharacterGroup>
@@ -51,7 +51,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// A character group containing the current instance in written to the output.
+        /// A character group containing the current instance is written to the output.
         /// </summary>
         /// <param name="writer">The output to be written to.</param>
         public void WriteExcludedGroupTo(PatternWriter writer)

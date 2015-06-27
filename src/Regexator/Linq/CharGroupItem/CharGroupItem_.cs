@@ -2,7 +2,7 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public partial class CharGroupItem
+    public abstract partial class CharGroupItem
     {
         public CharGroupItem NamedBlock(NamedBlock block)
         {
