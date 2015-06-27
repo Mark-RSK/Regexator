@@ -197,9 +197,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Patterns.Assert(content));
         }
 
-        public QuantifiablePattern Assert(CharGrouping item)
+        public QuantifiablePattern Assert(CharGrouping value)
         {
-            return ConcatInternal(Patterns.Assert(item));
+            return ConcatInternal(Patterns.Assert(value));
         }
 
         public QuantifiablePattern NotAssert(object content)
@@ -212,9 +212,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Patterns.NotAssert(content));
         }
 
-        public QuantifiablePattern NotAssert(CharGrouping item)
+        public QuantifiablePattern NotAssert(CharGrouping value)
         {
-            return ConcatInternal(Patterns.NotAssert(item));
+            return ConcatInternal(Patterns.NotAssert(value));
         }
 
         public QuantifiablePattern AssertBack(object content)
@@ -227,9 +227,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Patterns.AssertBack(content));
         }
 
-        public QuantifiablePattern AssertBack(CharGrouping item)
+        public QuantifiablePattern AssertBack(CharGrouping value)
         {
-            return ConcatInternal(Patterns.AssertBack(item));
+            return ConcatInternal(Patterns.AssertBack(value));
         }
 
         public QuantifiablePattern NotAssertBack(object content)
@@ -242,9 +242,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Patterns.NotAssertBack(content));
         }
 
-        public QuantifiablePattern NotAssertBack(CharGrouping item)
+        public QuantifiablePattern NotAssertBack(CharGrouping value)
         {
-            return ConcatInternal(Patterns.NotAssertBack(item));
+            return ConcatInternal(Patterns.NotAssertBack(value));
         }
 
         public QuantifiablePattern Group()
@@ -439,9 +439,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Patterns.Character(characters));
         }
 
-        public QuantifiablePattern Character(CharGrouping item)
+        public QuantifiablePattern Character(CharGrouping value)
         {
-            return ConcatInternal(Patterns.Character(item));
+            return ConcatInternal(Patterns.Character(value));
         }
 
         public QuantifiablePattern NotCharacter(string characters)
@@ -449,9 +449,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Patterns.NotCharacter(characters));
         }
 
-        public QuantifiablePattern NotCharacter(CharGrouping item)
+        public QuantifiablePattern NotCharacter(CharGrouping value)
         {
-            return ConcatInternal(Patterns.NotCharacter(item));
+            return ConcatInternal(Patterns.NotCharacter(value));
         }
 
         public QuantifiablePattern Range(char first, char last)
@@ -499,9 +499,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Patterns.WhileChar(value));
         }
 
-        public Pattern WhileChar(CharGrouping item)
+        public Pattern WhileChar(CharGrouping value)
         {
-            return ConcatInternal(Patterns.WhileChar(item));
+            return ConcatInternal(Patterns.WhileChar(value));
         }
 
         public Pattern WhileNotChar(char value)
@@ -514,9 +514,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Patterns.WhileNotChar(value));
         }
 
-        public Pattern WhileNotChar(CharGrouping item)
+        public Pattern WhileNotChar(CharGrouping value)
         {
-            return ConcatInternal(Patterns.WhileNotChar(item));
+            return ConcatInternal(Patterns.WhileNotChar(value));
         }
 
         public Pattern WhileNotNewLine()

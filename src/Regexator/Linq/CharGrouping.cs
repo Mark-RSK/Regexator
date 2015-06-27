@@ -115,21 +115,21 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new CharacterClass(value);
         }
 
-        private CharGrouping Concat(CharGrouping item)
+        private CharGrouping Concat(CharGrouping value)
         {
-            if (item == null)
+            if (value == null)
             {
-                throw new ArgumentNullException("item");
+                throw new ArgumentNullException("value");
             }
 
-            CharGrouping first = item;
+            CharGrouping first = value;
             while (first.Previous != null)
             {
                 first = first.Previous;
             }
 
             first.Previous = this;
-            return item;
+            return value;
         }
 
         public override string ToString()

@@ -234,9 +234,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        public void Write(CharGrouping item)
+        public void Write(CharGrouping value)
         {
-            WriteCharGroup(item);
+            WriteCharGroup(value);
         }
 
         public override void Write(object value)
@@ -925,25 +925,25 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             WriteCharGroupEnd();
         }
 
-        public void WriteCharGroup(CharGrouping item)
+        public void WriteCharGroup(CharGrouping value)
         {
-            WriteCharGroup(item, false);
+            WriteCharGroup(value, false);
         }
 
-        public void WriteNotCharGroup(CharGrouping item)
+        public void WriteNotCharGroup(CharGrouping value)
         {
-            WriteCharGroup(item, true);
+            WriteCharGroup(value, true);
         }
 
-        public void WriteCharGroup(CharGrouping item, bool negative)
+        public void WriteCharGroup(CharGrouping value, bool negative)
         {
-            if (item == null)
+            if (value == null)
             {
                 throw new ArgumentNullException("item");
             }
 
             WriteCharGroupStart(negative);
-            item.WriteContentTo(this);
+            value.WriteContentTo(this);
             WriteCharGroupEnd();
         }
 

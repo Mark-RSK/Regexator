@@ -543,9 +543,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return CharacterGroup.Create(characters, false);
         }
 
-        public static CharacterGroup Character(CharGrouping item)
+        public static CharacterGroup Character(CharGrouping value)
         {
-            return CharacterGroup.Create(item, false);
+            return CharacterGroup.Create(value, false);
         }
 
         public static CharacterGroup NotCharacter(char value)
@@ -578,9 +578,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return CharacterGroup.Create(characters, true);
         }
 
-        public static CharacterGroup NotCharacter(CharGrouping item)
+        public static CharacterGroup NotCharacter(CharGrouping value)
         {
-            return CharacterGroup.Create(item, true);
+            return CharacterGroup.Create(value, true);
         }
 
         public static CharacterGroup Range(char first, char last)
@@ -2313,9 +2313,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Character(value).MaybeMany();
         }
 
-        public static QuantifiedPattern WhileChar(CharGrouping item)
+        public static QuantifiedPattern WhileChar(CharGrouping value)
         {
-            return Character(item).MaybeMany();
+            return Character(value).MaybeMany();
         }
 
         public static QuantifiedPattern WhileWhiteSpace()
@@ -2333,9 +2333,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return NotCharacter(value).MaybeMany();
         }
 
-        public static QuantifiedPattern WhileNotChar(CharGrouping item)
+        public static QuantifiedPattern WhileNotChar(CharGrouping value)
         {
-            return NotCharacter(item).MaybeMany();
+            return NotCharacter(value).MaybeMany();
         }
 
         public static QuantifiedPattern WhileNotNewLine()

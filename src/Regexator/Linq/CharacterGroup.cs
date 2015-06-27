@@ -17,52 +17,52 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal static CharacterGroup Create(char value, bool negative)
         {
-            return new LiteralCharacterGroup(value, negative);
+            return new CharCharacterGroup(value, negative);
         }
 
         internal static CharacterGroup Create(int charCode, bool negative)
         {
-            return new CharCodeGroup(charCode, negative);
+            return new CharCodeCharacterGroup(charCode, negative);
         }
 
         internal static CharacterGroup Create(AsciiChar value, bool negative)
         {
-            return new AsciiCharGroup(value, negative);
+            return new AsciiCharCharacterGroup(value, negative);
         }
 
         internal static CharacterGroup Create(string characters, bool negative)
         {
-            return new LiteralCharactersGroup(characters, negative);
+            return new CharsCharacterGroup(characters, negative);
         }
 
         internal static CharacterGroup Create(char firstChar, char lastChar, bool negative)
         {
-            return new CharRangeGroup(firstChar, lastChar, negative);
+            return new CharRangeCharacterGroup(firstChar, lastChar, negative);
         }
 
         internal static CharacterGroup Create(int firstCharCode, int lastCharCode, bool negative)
         {
-            return new CharCodeRangeGroup(firstCharCode, lastCharCode, negative);
+            return new CharCodeRangeCharacterGroup(firstCharCode, lastCharCode, negative);
         }
 
         internal static CharacterGroup Create(GeneralCategory category, bool negative)
         {
-            return new GeneralCategoryCharGroup(category, negative);
+            return new GeneralCategoryCharacterGroup(category, negative);
         }
 
         internal static CharacterGroup Create(NamedBlock block, bool negative)
         {
-            return new NamedBlockCharGroup(block, negative);
+            return new NamedBlockCharacterGroup(block, negative);
         }
 
         internal static CharacterGroup Create(CharClass value)
         {
-            return new CharClassCharGroup(value);
+            return new CharClassCharacterGroup(value);
         }
 
         internal static CharacterGroup Create(CharGrouping value, bool negative)
         {
-            return new CharGroupItemGroup(value, negative);
+            return new CharGroupingCharacterGroup(value, negative);
         }
 
         internal abstract void WriteContentTo(PatternWriter writer);
@@ -81,7 +81,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         public CharacterGroup Invert()
         {
-            return new GroupCharGroup(this, !Negative);
+            return new CharacterGroupGroup(this, !Negative);
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
@@ -98,13 +98,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static explicit operator CharacterGroup(string characters)
         {
-            return new LiteralCharactersGroup(characters);
+            return new CharsCharacterGroup(characters);
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
-        public static explicit operator CharacterGroup(CharGrouping item)
+        public static explicit operator CharacterGroup(CharGrouping value)
         {
-            return new CharGroupItemGroup(item);
+            return new CharGroupingCharacterGroup(value);
         }
 
         /// <summary>
