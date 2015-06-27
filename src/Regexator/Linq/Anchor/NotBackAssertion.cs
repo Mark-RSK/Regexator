@@ -2,6 +2,9 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
+    /// <summary>
+    /// A zero-width negative lookbehind assertion.
+    /// </summary>
     public sealed class NotBackAssertion
         : GroupPattern
     {

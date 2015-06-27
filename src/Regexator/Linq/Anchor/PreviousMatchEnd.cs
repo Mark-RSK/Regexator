@@ -2,6 +2,9 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
+    /// <summary>
+    /// Specifies that the match must occur at the position where the previous match ended.
+    /// </summary>
     internal sealed class PreviousMatchEnd
         : QuantifiablePattern
     {

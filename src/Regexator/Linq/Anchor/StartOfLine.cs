@@ -2,6 +2,9 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
+    /// <summary>
+    /// Specifies that the match must occur at the beginning of the string (or line if the Multiline option is applied).
+    /// </summary>
     internal sealed class StartOfLine
         : QuantifiablePattern
     {

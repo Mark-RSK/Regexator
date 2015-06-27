@@ -2,6 +2,9 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
+    /// <summary>
+    /// Specifies that a match must occur at the end of the string, or before \n at the end of the string.
+    /// </summary>
     internal sealed class EndOrBeforeEndingNewLine
         : QuantifiablePattern
     {

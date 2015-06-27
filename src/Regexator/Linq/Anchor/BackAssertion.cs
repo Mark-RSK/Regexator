@@ -5,6 +5,9 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
+    /// <summary>
+    /// A zero-width positive lookbehind assertion.
+    /// </summary>
     public sealed class BackAssertion
         : GroupPattern, IInvertible<NotBackAssertion>
     {
@@ -13,6 +16,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
         }
 
+        /// <summary>
+        /// Returns a new instance of the <see cref="NotBackAssertion" class./>
+        /// </summary>
+        /// <returns></returns>
         public NotBackAssertion Invert()
         {
             return new NotBackAssertion(this);
