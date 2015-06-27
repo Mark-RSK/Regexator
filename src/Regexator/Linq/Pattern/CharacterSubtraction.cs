@@ -5,6 +5,9 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
+    /// <summary>
+    /// Represent a character subtraction pattern.
+    /// </summary>
     public class CharacterSubtraction
         : QuantifiablePattern, IExcludedGroup, IInvertible<NotCharacterSubtraction>
     {
@@ -27,11 +30,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _excludedGroup = excludedGroup;
         }
 
+        /// <summary>
+        /// Returns a negative character subtraction that has the same content as the current instance./>
+        /// </summary>
+        /// <returns></returns>
         public NotCharacterSubtraction Invert()
         {
             return new NotCharacterSubtraction(_baseGroup, _excludedGroup);
         }
 
+        /// <summary>
+        /// Writes the current instance of the character subtraction to the output.
+        /// </summary>
+        /// <param name="writer">The output to be written to.</param>
         public void WriteExcludedGroupTo(PatternWriter writer)
         {
             WriteTo(writer);

@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
+    /// <summary>
+    /// Represents a base class for a regex substitution.
+    /// </summary>
     public abstract class Substitution
     {
         private Substitution _previous;

@@ -2,6 +2,9 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
+    /// <summary>
+    /// Represents a pattern that can be quantified.
+    /// </summary>
     public abstract class QuantifiablePattern
         : Pattern
     {
@@ -10,6 +13,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
         }
 
+        /// <summary>
+        /// Specifies that a pattern must be matched zero or one time.
+        /// </summary>
+        /// <returns></returns>
         public QuantifiedPattern Maybe()
         {
             return ConcatInternal(new QuantifiedGroup.MaybeQuantifiedPattern());
@@ -28,7 +35,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 #endif
-
+        /// <summary>
+        /// Specifies that a pattern must be matched zero or many times.
+        /// </summary>
+        /// <returns></returns>
         public QuantifiedPattern MaybeMany()
         {
             return ConcatInternal(new QuantifiedGroup.MaybeManyQuantifiedPattern());
@@ -48,6 +58,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 #endif
 
+        /// <summary>
+        /// Specifies that a pattern must be matched one or many times.
+        /// </summary>
+        /// <returns></returns>
         public QuantifiedPattern OneMany()
         {
             return ConcatInternal(new QuantifiedGroup.OneManyQuantifiedPattern());
@@ -66,22 +80,42 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 #endif
-
+        /// <summary>
+        /// Specifies that a pattern must be matched exactly n times.
+        /// </summary>
+        /// <param name="exactCount">A number of times the pattern must be matched.</param>
+        /// <returns></returns>
         public QuantifiedPattern Count(int exactCount)
         {
             return ConcatInternal(new QuantifiedGroup.CountQuantifiedPattern(exactCount));
         }
 
+        /// <summary>
+        /// Specifies that a pattern must be matched from n to m times.
+        /// </summary>
+        /// <param name="minCount">A minimal number of times the pattern must be matched.</param>
+        /// <param name="maxCount">A maximum number of times the pattern can be matched.</param>
+        /// <returns></returns>
         public QuantifiedPattern Count(int minCount, int maxCount)
         {
             return ConcatInternal(new QuantifiedGroup.CountQuantifiedPattern(minCount, maxCount));
         }
 
+        /// <summary>
+        /// Specifies that a pattern must be matched at least n times.
+        /// </summary>
+        /// <param name="minCount">A minimal number of times the pattern must be matched.</param>
+        /// <returns></returns>
         public QuantifiedPattern CountFrom(int minCount)
         {
             return ConcatInternal(new QuantifiedGroup.CountFromQuantifiedPattern(minCount));
         }
 
+        /// <summary>
+        /// Specifies that a pattern must be matched at most n times.
+        /// </summary>
+        /// <param name="maxCount">A maximum number of times the pattern can be matched.</param>
+        /// <returns></returns>
         public QuantifiedPattern CountTo(int maxCount)
         {
             return ConcatInternal(new QuantifiedGroup.CountQuantifiedPattern(0, maxCount));

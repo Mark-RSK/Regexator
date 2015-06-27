@@ -4,6 +4,9 @@ using System;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
+    /// <summary>
+    /// Represent a negative character subtraction pattern.
+    /// </summary>
     public class NotCharacterSubtraction
         : QuantifiablePattern, IExcludedGroup
     {
@@ -26,6 +29,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _excludedGroup = excludedGroup;
         }
 
+        /// <summary>
+        /// Writes the current instance of the negative character subtraction to the output.
+        /// </summary>
+        /// <param name="writer">The output to be written to.</param>
         public void WriteExcludedGroupTo(PatternWriter writer)
         {
             WriteTo(writer);

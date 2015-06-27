@@ -12,7 +12,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         private readonly object _contentBefore;
         private readonly object _contentAfter;
 
-        public SurroundAssertion(object contentBefore, object content, object contentAfter)
+        internal SurroundAssertion(object contentBefore, object content, object contentAfter)
         {
             if (contentBefore == null)
             {
