@@ -234,7 +234,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        public void Write(CharGroupItem item)
+        public void Write(CharGrouping item)
         {
             WriteCharGroup(item);
         }
@@ -260,7 +260,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 return;
             }
 
-            CharGroupItem charGroupItem = value as CharGroupItem;
+            CharGrouping charGroupItem = value as CharGrouping;
             if (charGroupItem != null)
             {
                 Write(charGroupItem);
@@ -319,7 +319,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 }
                 else
                 {
-                    CharGroupItem charGroupItem = content as CharGroupItem;
+                    CharGrouping charGroupItem = content as CharGrouping;
                     if (charGroupItem != null)
                     {
                         Write(charGroupItem);
@@ -925,17 +925,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             WriteCharGroupEnd();
         }
 
-        public void WriteCharGroup(CharGroupItem item)
+        public void WriteCharGroup(CharGrouping item)
         {
             WriteCharGroup(item, false);
         }
 
-        public void WriteNotCharGroup(CharGroupItem item)
+        public void WriteNotCharGroup(CharGrouping item)
         {
             WriteCharGroup(item, true);
         }
 
-        public void WriteCharGroup(CharGroupItem item, bool negative)
+        public void WriteCharGroup(CharGrouping item, bool negative)
         {
             if (item == null)
             {

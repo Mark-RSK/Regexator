@@ -52,7 +52,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
-        public static explicit operator CharacterGroup(CharGroupItem item)
+        public static explicit operator CharacterGroup(CharGrouping item)
         {
             return new CharGroupItemGroup(item);
         }

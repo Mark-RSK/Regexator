@@ -11,10 +11,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     /// <summary>
     /// Represents the content of the character group. Content can be a base group or an excluded group.
     /// </summary>
-    public abstract partial class CharGroupItem
+    public abstract partial class CharGrouping
         : IBaseGroup, IExcludedGroup
     {
-        protected CharGroupItem()
+        protected CharGrouping()
         {
         }
 
@@ -23,9 +23,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="characters">A set of characters.</param>
         /// <returns></returns>
-        public static CharGroupItem Create(string characters)
+        public static CharGrouping Create(string characters)
         {
-            return new CharactersItem(characters);
+            return new Characters(characters);
         }
 
         /// <summary>
@@ -33,9 +33,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="value">The character.</param>
         /// <returns></returns>
-        public static CharGroupItem Create(char value)
+        public static CharGrouping Create(char value)
         {
-            return new CharacterItem(value);
+            return new Character(value);
         }
 
         /// <summary>
@@ -44,9 +44,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="first">The first character of the range.</param>
         /// <param name="last">The last character of the range.</param>
         /// <returns></returns>
-        public static CharGroupItem Create(char first, char last)
+        public static CharGrouping Create(char first, char last)
         {
-            return new RangeCharItem(first, last);
+            return new CharacterRange(first, last);
         }
 
         /// <summary>
@@ -54,9 +54,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="charCode">The character code.</param>
         /// <returns></returns>
-        public static CharGroupItem Create(int charCode)
+        public static CharGrouping Create(int charCode)
         {
-            return new CharCodeCharItem(charCode);
+            return new CharacterCode(charCode);
         }
 
         /// <summary>
@@ -65,9 +65,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="firstCharCode">The first character code of the range.</param>
         /// <param name="lastCharCode">The last character code of the range.</param>
         /// <returns></returns>
-        public static CharGroupItem Create(int firstCharCode, int lastCharCode)
+        public static CharGrouping Create(int firstCharCode, int lastCharCode)
         {
-            return new CodeRangeCharItem(firstCharCode, lastCharCode);
+            return new CharacterCodeRange(firstCharCode, lastCharCode);
         }
 
         /// <summary>
@@ -75,9 +75,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="value">An enumerated constant that identifies an ASCII character literal.</param>
         /// <returns></returns>
-        public static CharGroupItem Create(AsciiChar value)
+        public static CharGrouping Create(AsciiChar value)
         {
-            return new AsciiCharItem(value);
+            return new AsciiCharacter(value);
         }
 
         /// <summary>
@@ -85,14 +85,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="block">An enumerated constant that identifies an Unicode named block.</param>
         /// <returns></returns>
-        public static CharGroupItem Create(NamedBlock block)
+        public static CharGrouping Create(NamedBlock block)
         {
             return Create(block, false);
         }
 
-        public static CharGroupItem Create(NamedBlock block, bool negative)
+        public static CharGrouping Create(NamedBlock block, bool negative)
         {
-            return new NamedBlockCharItem(block, negative);
+            return new UnicodeNamedBlock(block, negative);
         }
 
         /// <summary>
@@ -100,29 +100,29 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="category">An enumerated constant that identifies an Unicode general category.</param>
         /// <returns></returns>
-        public static CharGroupItem Create(GeneralCategory category)
+        public static CharGrouping Create(GeneralCategory category)
         {
             return Create(category, false);
         }
 
-        public static CharGroupItem Create(GeneralCategory category, bool negative)
+        public static CharGrouping Create(GeneralCategory category, bool negative)
         {
-            return new GeneralCategoryCharItem(category, negative);
+            return new UnicodeGeneralCategory(category, negative);
         }
 
-        internal static CharGroupItem Create(CharClass value)
+        internal static CharGrouping Create(CharClass value)
         {
-            return new CharClassCharItem(value);
+            return new CharacterClass(value);
         }
 
-        private CharGroupItem Concat(CharGroupItem item)
+        private CharGrouping Concat(CharGrouping item)
         {
             if (item == null)
             {
                 throw new ArgumentNullException("item");
             }
 
-            CharGroupItem first = item;
+            CharGrouping first = item;
             while (first.Previous != null)
             {
                 first = first.Previous;
@@ -147,399 +147,399 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a character literal to the current instance of the <see cref="CharGroupItem"/>.
+        /// Appends a character literal to the current instance of the <see cref="CharGrouping"/>.
         /// </summary>
         /// <param name="value">The character.</param>
         /// <returns></returns>
-        public CharGroupItem Concat(char value)
+        public CharGrouping Concat(char value)
         {
             return Concat(Create(value));
         }
 
         /// <summary>
-        /// Appends a character literal to the current instance of the <see cref="CharGroupItem"/>.
+        /// Appends a character literal to the current instance of the <see cref="CharGrouping"/>.
         /// </summary>
         /// <param name="value">The character code.</param>
         /// <returns></returns>
-        public CharGroupItem Concat(int value)
+        public CharGrouping Concat(int value)
         {
             return Concat(Create(value));
         }
 
         /// <summary>
-        /// Appends a character literal to the current instance of the <see cref="CharGroupItem"/>.
+        /// Appends a character literal to the current instance of the <see cref="CharGrouping"/>.
         /// </summary>
         /// <param name="value">An enumerated constant that identifies an ASCII character literal.</param>
         /// <returns></returns>
-        public CharGroupItem Concat(AsciiChar value)
+        public CharGrouping Concat(AsciiChar value)
         {
             return Concat(Create(value));
         }
 
         /// <summary>
-        /// Appends a character literal to the current instance of the <see cref="CharGroupItem"/>.
+        /// Appends a character literal to the current instance of the <see cref="CharGrouping"/>.
         /// </summary>
         /// <param name="value">A set of characters.</param>
         /// <returns></returns>
-        public CharGroupItem Concat(string characters)
+        public CharGrouping Concat(string characters)
         {
             return Concat(Create(characters));
         }
 
         /// <summary>
-        /// Appends a character range to the current instance of the <see cref="CharGroupItem"/>.
+        /// Appends a character range to the current instance of the <see cref="CharGrouping"/>.
         /// </summary>
         /// <param name="first">The first character of the range.</param>
         /// <param name="last">The last character of the range.</param>
         /// <returns></returns>
-        public CharGroupItem Concat(char first, char last)
+        public CharGrouping Concat(char first, char last)
         {
             return Concat(Create(first, last));
         }
 
         /// <summary>
-        /// Appends a character range to the current instance of the <see cref="CharGroupItem"/>.
+        /// Appends a character range to the current instance of the <see cref="CharGrouping"/>.
         /// </summary>
         /// <param name="firstCharCode">The first character code of the range.</param>
         /// <param name="lastCharCode">The last character code of the range.</param>
         /// <returns></returns>
-        public CharGroupItem Concat(int firstCharCode, int lastCharCode)
+        public CharGrouping Concat(int firstCharCode, int lastCharCode)
         {
             return Concat(Create(firstCharCode, lastCharCode));
         }
 
         /// <summary>
-        /// Appends an Unicode named block pattern to the current instance of the <see cref="CharGroupItem"/>.
+        /// Appends an Unicode named block pattern to the current instance of the <see cref="CharGrouping"/>.
         /// </summary>
         /// <param name="block">An enumerated constant that identifies an Unicode named block.</param>
         /// <returns></returns>
-        public CharGroupItem Concat(NamedBlock block)
+        public CharGrouping Concat(NamedBlock block)
         {
             return Concat(Create(block));
         }
 
         /// <summary>
-        /// Appends an Unicode general category pattern to the current instance of the <see cref="CharGroupItem"/>.
+        /// Appends an Unicode general category pattern to the current instance of the <see cref="CharGrouping"/>.
         /// </summary>
         /// <param name="category">An enumerated constant that identifies an Unicode general category.</param>
         /// <returns></returns>
-        public CharGroupItem Concat(GeneralCategory category)
+        public CharGrouping Concat(GeneralCategory category)
         {
             return Concat(Create(category));
         }
 
         /// <summary>
-        /// Appends a negative Unicode named block pattern to the current instance of the <see cref="CharGroupItem"/>.
+        /// Appends a negative Unicode named block pattern to the current instance of the <see cref="CharGrouping"/>.
         /// </summary>
         /// <param name="block">An enumerated constant that identifies an Unicode named block.</param>
         /// <returns></returns>
-        public CharGroupItem Not(NamedBlock block)
+        public CharGrouping Not(NamedBlock block)
         {
-            return Concat(CharGroupItems.NotNamedBlock(block));
+            return Concat(CharGroupings.NotNamedBlock(block));
         }
 
         /// <summary>
-        /// Appends a negative Unicode general category pattern to the current instance of the <see cref="CharGroupItem"/>.
+        /// Appends a negative Unicode general category pattern to the current instance of the <see cref="CharGrouping"/>.
         /// </summary>
         /// <param name="category">An enumerated constant that identifies an Unicode general category.</param>
         /// <returns></returns>
-        public CharGroupItem Not(GeneralCategory category)
+        public CharGrouping Not(GeneralCategory category)
         {
-            return Concat(CharGroupItems.NotGeneralCategory(category));
+            return Concat(CharGroupings.NotGeneralCategory(category));
         }
 
         /// <summary>
-        /// Appends a digit character class to the current instance of the <see cref="CharGroupItem"/>.
+        /// Appends a digit character class to the current instance of the <see cref="CharGrouping"/>.
         /// </summary>
         /// <returns></returns>
-        public CharGroupItem Digit()
+        public CharGrouping Digit()
         {
-            return Concat(CharGroupItems.Digit());
+            return Concat(CharGroupings.Digit());
         }
 
         /// <summary>
-        /// Appends a non-digit character class to the current instance of the <see cref="CharGroupItem"/>.
+        /// Appends a non-digit character class to the current instance of the <see cref="CharGrouping"/>.
         /// </summary>
         /// <returns></returns>
-        public CharGroupItem NotDigit()
+        public CharGrouping NotDigit()
         {
-            return Concat(CharGroupItems.NotDigit());
+            return Concat(CharGroupings.NotDigit());
         }
 
         /// <summary>
-        /// Appends a white-space character class to the current instance of the <see cref="CharGroupItem"/>.
+        /// Appends a white-space character class to the current instance of the <see cref="CharGrouping"/>.
         /// </summary>
         /// <returns></returns>
-        public CharGroupItem WhiteSpace()
+        public CharGrouping WhiteSpace()
         {
-            return Concat(CharGroupItems.WhiteSpace());
+            return Concat(CharGroupings.WhiteSpace());
         }
 
         /// <summary>
-        /// Appends a non-white-space character class to the current instance of the <see cref="CharGroupItem"/>.
+        /// Appends a non-white-space character class to the current instance of the <see cref="CharGrouping"/>.
         /// </summary>
         /// <returns></returns>
-        public CharGroupItem NotWhiteSpace()
+        public CharGrouping NotWhiteSpace()
         {
-            return Concat(CharGroupItems.NotWhiteSpace());
+            return Concat(CharGroupings.NotWhiteSpace());
         }
 
         /// <summary>
-        /// Appends a word character class to the current instance of the <see cref="CharGroupItem"/>.
+        /// Appends a word character class to the current instance of the <see cref="CharGrouping"/>.
         /// </summary>
         /// <returns></returns>
-        public CharGroupItem WordChar()
+        public CharGrouping WordChar()
         {
-            return Concat(CharGroupItems.WordChar());
+            return Concat(CharGroupings.WordChar());
         }
 
         /// <summary>
-        /// Appends a non-word character class to the current instance of the <see cref="CharGroupItem"/>.
+        /// Appends a non-word character class to the current instance of the <see cref="CharGrouping"/>.
         /// </summary>
         /// <returns></returns>
-        public CharGroupItem NotWordChar()
+        public CharGrouping NotWordChar()
         {
-            return Concat(CharGroupItems.NotWordChar());
+            return Concat(CharGroupings.NotWordChar());
         }
 
-        public CharGroupItem Alphanumeric()
+        public CharGrouping Alphanumeric()
         {
-            return Concat(CharGroupItems.Alphanumeric());
+            return Concat(CharGroupings.Alphanumeric());
         }
 
-        public CharGroupItem AlphanumericLower()
+        public CharGrouping AlphanumericLower()
         {
-            return Concat(CharGroupItems.AlphanumericLower());
+            return Concat(CharGroupings.AlphanumericLower());
         }
 
-        public CharGroupItem AlphanumericUpper()
+        public CharGrouping AlphanumericUpper()
         {
-            return Concat(CharGroupItems.AlphanumericUpper());
+            return Concat(CharGroupings.AlphanumericUpper());
         }
 
-        public CharGroupItem LatinLetter()
+        public CharGrouping LatinLetter()
         {
-            return Concat(CharGroupItems.LatinLetter());
+            return Concat(CharGroupings.LatinLetter());
         }
 
-        public CharGroupItem LatinLetterLower()
+        public CharGrouping LatinLetterLower()
         {
-            return Concat(CharGroupItems.LatinLetterLower());
+            return Concat(CharGroupings.LatinLetterLower());
         }
 
-        public CharGroupItem LatinLetterUpper()
+        public CharGrouping LatinLetterUpper()
         {
-            return Concat(CharGroupItems.LatinLetterUpper());
+            return Concat(CharGroupings.LatinLetterUpper());
         }
 
-        public CharGroupItem ArabicDigit()
+        public CharGrouping ArabicDigit()
         {
-            return Concat(CharGroupItems.ArabicDigit());
+            return Concat(CharGroupings.ArabicDigit());
         }
 
-        public CharGroupItem NewLineChar()
+        public CharGrouping NewLineChar()
         {
-            return Concat(CharGroupItems.NewLineChar());
+            return Concat(CharGroupings.NewLineChar());
         }
 
-        public CharGroupItem NamedBlock(NamedBlock block)
+        public CharGrouping NamedBlock(NamedBlock block)
         {
-            return Concat(CharGroupItems.NamedBlock(block));
+            return Concat(CharGroupings.NamedBlock(block));
         }
 
-        public CharGroupItem NotNamedBlock(NamedBlock block)
+        public CharGrouping NotNamedBlock(NamedBlock block)
         {
-            return Concat(CharGroupItems.NotNamedBlock(block));
+            return Concat(CharGroupings.NotNamedBlock(block));
         }
 
-        public CharGroupItem GeneralCategory(GeneralCategory category)
+        public CharGrouping GeneralCategory(GeneralCategory category)
         {
-            return Concat(CharGroupItems.GeneralCategory(category));
+            return Concat(CharGroupings.GeneralCategory(category));
         }
 
-        public CharGroupItem NotGeneralCategory(GeneralCategory category)
+        public CharGrouping NotGeneralCategory(GeneralCategory category)
         {
-            return Concat(CharGroupItems.NotGeneralCategory(category));
+            return Concat(CharGroupings.NotGeneralCategory(category));
         }
 
-        public CharGroupItem Tab()
+        public CharGrouping Tab()
         {
-            return Concat(CharGroupItems.Tab());
+            return Concat(CharGroupings.Tab());
         }
 
-        public CharGroupItem Linefeed()
+        public CharGrouping Linefeed()
         {
-            return Concat(CharGroupItems.Linefeed());
+            return Concat(CharGroupings.Linefeed());
         }
 
-        public CharGroupItem CarriageReturn()
+        public CharGrouping CarriageReturn()
         {
-            return Concat(CharGroupItems.CarriageReturn());
+            return Concat(CharGroupings.CarriageReturn());
         }
 
-        public CharGroupItem Space()
+        public CharGrouping Space()
         {
-            return Concat(CharGroupItems.Space());
+            return Concat(CharGroupings.Space());
         }
 
-        public CharGroupItem ExclamationMark()
+        public CharGrouping ExclamationMark()
         {
-            return Concat(CharGroupItems.ExclamationMark());
+            return Concat(CharGroupings.ExclamationMark());
         }
 
-        public CharGroupItem QuoteMark()
+        public CharGrouping QuoteMark()
         {
-            return Concat(CharGroupItems.QuoteMark());
+            return Concat(CharGroupings.QuoteMark());
         }
 
-        public CharGroupItem NumberSign()
+        public CharGrouping NumberSign()
         {
-            return Concat(CharGroupItems.NumberSign());
+            return Concat(CharGroupings.NumberSign());
         }
 
-        public CharGroupItem Dollar()
+        public CharGrouping Dollar()
         {
-            return Concat(CharGroupItems.Dollar());
+            return Concat(CharGroupings.Dollar());
         }
 
-        public CharGroupItem Percent()
+        public CharGrouping Percent()
         {
-            return Concat(CharGroupItems.Percent());
+            return Concat(CharGroupings.Percent());
         }
 
-        public CharGroupItem Ampersand()
+        public CharGrouping Ampersand()
         {
-            return Concat(CharGroupItems.Ampersand());
+            return Concat(CharGroupings.Ampersand());
         }
 
-        public CharGroupItem Apostrophe()
+        public CharGrouping Apostrophe()
         {
-            return Concat(CharGroupItems.Apostrophe());
+            return Concat(CharGroupings.Apostrophe());
         }
 
-        public CharGroupItem LeftParenthesis()
+        public CharGrouping LeftParenthesis()
         {
-            return Concat(CharGroupItems.LeftParenthesis());
+            return Concat(CharGroupings.LeftParenthesis());
         }
 
-        public CharGroupItem RightParenthesis()
+        public CharGrouping RightParenthesis()
         {
-            return Concat(CharGroupItems.RightParenthesis());
+            return Concat(CharGroupings.RightParenthesis());
         }
 
-        public CharGroupItem Asterisk()
+        public CharGrouping Asterisk()
         {
-            return Concat(CharGroupItems.Asterisk());
+            return Concat(CharGroupings.Asterisk());
         }
 
-        public CharGroupItem Plus()
+        public CharGrouping Plus()
         {
-            return Concat(CharGroupItems.Plus());
+            return Concat(CharGroupings.Plus());
         }
 
-        public CharGroupItem Comma()
+        public CharGrouping Comma()
         {
-            return Concat(CharGroupItems.Comma());
+            return Concat(CharGroupings.Comma());
         }
 
-        public CharGroupItem Hyphen()
+        public CharGrouping Hyphen()
         {
-            return Concat(CharGroupItems.Hyphen());
+            return Concat(CharGroupings.Hyphen());
         }
 
-        public CharGroupItem Period()
+        public CharGrouping Period()
         {
-            return Concat(CharGroupItems.Period());
+            return Concat(CharGroupings.Period());
         }
 
-        public CharGroupItem Slash()
+        public CharGrouping Slash()
         {
-            return Concat(CharGroupItems.Slash());
+            return Concat(CharGroupings.Slash());
         }
 
-        public CharGroupItem Colon()
+        public CharGrouping Colon()
         {
-            return Concat(CharGroupItems.Colon());
+            return Concat(CharGroupings.Colon());
         }
 
-        public CharGroupItem Semicolon()
+        public CharGrouping Semicolon()
         {
-            return Concat(CharGroupItems.Semicolon());
+            return Concat(CharGroupings.Semicolon());
         }
 
-        public CharGroupItem LessThan()
+        public CharGrouping LessThan()
         {
-            return Concat(CharGroupItems.LessThan());
+            return Concat(CharGroupings.LessThan());
         }
 
-        public CharGroupItem EqualsSign()
+        public CharGrouping EqualsSign()
         {
-            return Concat(CharGroupItems.EqualsSign());
+            return Concat(CharGroupings.EqualsSign());
         }
 
-        public CharGroupItem GreaterThan()
+        public CharGrouping GreaterThan()
         {
-            return Concat(CharGroupItems.GreaterThan());
+            return Concat(CharGroupings.GreaterThan());
         }
 
-        public CharGroupItem QuestionMark()
+        public CharGrouping QuestionMark()
         {
-            return Concat(CharGroupItems.QuestionMark());
+            return Concat(CharGroupings.QuestionMark());
         }
 
-        public CharGroupItem AtSign()
+        public CharGrouping AtSign()
         {
-            return Concat(CharGroupItems.AtSign());
+            return Concat(CharGroupings.AtSign());
         }
 
-        public CharGroupItem LeftSquareBracket()
+        public CharGrouping LeftSquareBracket()
         {
-            return Concat(CharGroupItems.LeftSquareBracket());
+            return Concat(CharGroupings.LeftSquareBracket());
         }
 
-        public CharGroupItem Backslash()
+        public CharGrouping Backslash()
         {
-            return Concat(CharGroupItems.Backslash());
+            return Concat(CharGroupings.Backslash());
         }
 
-        public CharGroupItem RightSquareBracket()
+        public CharGrouping RightSquareBracket()
         {
-            return Concat(CharGroupItems.RightSquareBracket());
+            return Concat(CharGroupings.RightSquareBracket());
         }
 
-        public CharGroupItem CircumflexAccent()
+        public CharGrouping CircumflexAccent()
         {
-            return Concat(CharGroupItems.CircumflexAccent());
+            return Concat(CharGroupings.CircumflexAccent());
         }
 
-        public CharGroupItem Underscore()
+        public CharGrouping Underscore()
         {
-            return Concat(CharGroupItems.Underscore());
+            return Concat(CharGroupings.Underscore());
         }
 
-        public CharGroupItem GraveAccent()
+        public CharGrouping GraveAccent()
         {
-            return Concat(CharGroupItems.GraveAccent());
+            return Concat(CharGroupings.GraveAccent());
         }
 
-        public CharGroupItem LeftCurlyBracket()
+        public CharGrouping LeftCurlyBracket()
         {
-            return Concat(CharGroupItems.LeftCurlyBracket());
+            return Concat(CharGroupings.LeftCurlyBracket());
         }
 
-        public CharGroupItem VerticalLine()
+        public CharGrouping VerticalLine()
         {
-            return Concat(CharGroupItems.VerticalLine());
+            return Concat(CharGroupings.VerticalLine());
         }
 
-        public CharGroupItem RightCurlyBracket()
+        public CharGrouping RightCurlyBracket()
         {
-            return Concat(CharGroupItems.RightCurlyBracket());
+            return Concat(CharGroupings.RightCurlyBracket());
         }
 
-        public CharGroupItem Tilde()
+        public CharGrouping Tilde()
         {
-            return Concat(CharGroupItems.Tilde());
+            return Concat(CharGroupings.Tilde());
         }
 
         /// <summary>
@@ -589,7 +589,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (Previous != null)
             {
-                CharGroupItem[] items = GetItems().ToArray();
+                CharGrouping[] items = GetItems().ToArray();
                 for (int i = (items.Length - 1); i >= 0; i--)
                 {
                     items[i].WriteItemContentTo(writer);
@@ -601,9 +601,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        private IEnumerable<CharGroupItem> GetItems()
+        private IEnumerable<CharGrouping> GetItems()
         {
-            CharGroupItem item = this;
+            CharGrouping item = this;
             do
             {
                 yield return item;
@@ -613,7 +613,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
-        public static CharGroupItem operator +(CharGroupItem left, CharGroupItem right)
+        public static CharGrouping operator +(CharGrouping left, CharGrouping right)
         {
             if (left == null)
             {
@@ -630,7 +630,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
-        public static CharGroupItem operator +(CharGroupItem left, string right)
+        public static CharGrouping operator +(CharGrouping left, string right)
         {
             if (left == null)
             {
@@ -647,7 +647,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
-        public static CharGroupItem operator +(string left, CharGroupItem right)
+        public static CharGrouping operator +(string left, CharGrouping right)
         {
             if (left == null)
             {
@@ -659,12 +659,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("right");
             }
 
-            return CharGroupItem.Create(left).Concat(right);
+            return CharGrouping.Create(left).Concat(right);
         }
 
         [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
-        public static CharGroupItem operator +(CharGroupItem left, char right)
+        public static CharGrouping operator +(CharGrouping left, char right)
         {
             if (left == null)
             {
@@ -676,18 +676,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
-        public static CharGroupItem operator +(char left, CharGroupItem right)
+        public static CharGrouping operator +(char left, CharGrouping right)
         {
             if (right == null)
             {
                 throw new ArgumentNullException("right");
             }
 
-            return CharGroupItem.Create(left).Concat(right);
+            return CharGrouping.Create(left).Concat(right);
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
-        public static CharacterGroup operator !(CharGroupItem value)
+        public static CharacterGroup operator !(CharGrouping value)
         {
             if (value == null)
             {
@@ -697,16 +697,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Patterns.NotCharacter(value);
         }
 
-        public static explicit operator CharGroupItem(string characters)
+        public static explicit operator CharGrouping(string characters)
         {
             return Create(characters);
         }
 
-        public static explicit operator CharGroupItem(char value)
+        public static explicit operator CharGrouping(char value)
         {
             return Create(value);
         }
 
-        internal CharGroupItem Previous { get; set; }
+        internal CharGrouping Previous { get; set; }
     }
 }

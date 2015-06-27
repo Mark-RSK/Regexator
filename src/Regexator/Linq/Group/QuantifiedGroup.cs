@@ -56,7 +56,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                     }
                     else
                     {
-                        return !(Content is CharGroupItem);
+                        return !(Content is CharGrouping);
                     }
                 }
             }

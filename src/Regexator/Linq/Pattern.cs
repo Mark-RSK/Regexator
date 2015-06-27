@@ -459,13 +459,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
-        public static QuantifiablePattern operator |(Pattern left, CharGroupItem right)
+        public static QuantifiablePattern operator |(Pattern left, CharGrouping right)
         {
             return Patterns.Or(left, right);
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
-        public static QuantifiablePattern operator |(CharGroupItem left, Pattern right)
+        public static QuantifiablePattern operator |(CharGrouping left, Pattern right)
         {
             return Patterns.Or(left, right);
         }

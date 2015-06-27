@@ -7,15 +7,15 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal sealed class CharGroupItemGroup
         : CharacterGroup
     {
-        private readonly CharGroupItem _item;
+        private readonly CharGrouping _item;
         private readonly bool _negative;
 
-        public CharGroupItemGroup(CharGroupItem item)
+        public CharGroupItemGroup(CharGrouping item)
             : this(item, false)
         {
         }
 
-        public CharGroupItemGroup(CharGroupItem item, bool negative)
+        public CharGroupItemGroup(CharGrouping item, bool negative)
         {
             if (item == null)
             {

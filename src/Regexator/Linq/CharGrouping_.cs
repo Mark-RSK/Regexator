@@ -4,14 +4,14 @@ using System;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public abstract partial class CharGroupItem
+    public abstract partial class CharGrouping
     {
-        internal sealed class CharacterItem
-            : CharGroupItem
+        internal sealed class Character
+            : CharGrouping
         {
             private readonly char _value;
 
-            public CharacterItem(char value)
+            public Character(char value)
             {
                 _value = value;
             }
@@ -27,12 +27,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        internal sealed class CharCodeCharItem
-            : CharGroupItem
+        internal sealed class CharacterCode
+            : CharGrouping
         {
             private readonly int _charCode;
 
-            public CharCodeCharItem(int charCode)
+            public CharacterCode(int charCode)
             {
                 if (charCode < 0 || charCode > 0xFFFF)
                 {
@@ -53,12 +53,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        internal sealed class AsciiCharItem
-            : CharGroupItem
+        internal sealed class AsciiCharacter
+            : CharGrouping
         {
             private readonly AsciiChar _value;
 
-            public AsciiCharItem(AsciiChar value)
+            public AsciiCharacter(AsciiChar value)
             {
                 _value = value;
             }
@@ -74,12 +74,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        internal sealed class CharactersItem
-            : CharGroupItem
+        internal sealed class Characters
+            : CharGrouping
         {
             private readonly string _characters;
 
-            public CharactersItem(string characters)
+            public Characters(string characters)
             {
                 if (characters == null)
                 {
@@ -105,13 +105,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        internal sealed class RangeCharItem
-            : CharGroupItem
+        internal sealed class CharacterRange
+            : CharGrouping
         {
             private readonly char _firstChar;
             private readonly char _lastChar;
 
-            public RangeCharItem(char firstChar, char lastChar)
+            public CharacterRange(char firstChar, char lastChar)
             {
                 if (lastChar < firstChar)
                 {
@@ -133,13 +133,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        internal sealed class CodeRangeCharItem
-            : CharGroupItem
+        internal sealed class CharacterCodeRange
+            : CharGrouping
         {
             private readonly int _first;
             private readonly int _last;
 
-            public CodeRangeCharItem(int firstCharCode, int lastCharCode)
+            public CharacterCodeRange(int firstCharCode, int lastCharCode)
             {
                 if (firstCharCode < 0 || firstCharCode > 0xFFFF)
                 {
@@ -166,12 +166,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        internal sealed class CharClassCharItem
-            : CharGroupItem
+        internal sealed class CharacterClass
+            : CharGrouping
         {
             private readonly CharClass _value;
 
-            public CharClassCharItem(CharClass value)
+            public CharacterClass(CharClass value)
             {
                 _value = value;
             }
@@ -187,13 +187,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        internal class GeneralCategoryCharItem
-            : CharGroupItem
+        internal class UnicodeGeneralCategory
+            : CharGrouping
         {
             private readonly GeneralCategory _category;
             private readonly bool _negative;
 
-            public GeneralCategoryCharItem(GeneralCategory category, bool negative)
+            public UnicodeGeneralCategory(GeneralCategory category, bool negative)
             {
                 _category = category;
                 _negative = negative;
@@ -215,13 +215,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        internal class NamedBlockCharItem
-            : CharGroupItem
+        internal class UnicodeNamedBlock
+            : CharGrouping
         {
             private readonly NamedBlock _block;
             private readonly bool _negative;
 
-            public NamedBlockCharItem(NamedBlock block, bool negative)
+            public UnicodeNamedBlock(NamedBlock block, bool negative)
             {
                 _block = block;
                 _negative = negative;

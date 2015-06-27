@@ -12,9 +12,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             Console.WriteLine("email");
 
-            var left = Patterns.OneMany(CharGroupItem.Create("!#$%&'*+/=?^_`{|}~-").Alphanumeric());
+            var left = Patterns.OneMany(CharGrouping.Create("!#$%&'*+/=?^_`{|}~-").Alphanumeric());
 
-            var right = Patterns.Maybe(Patterns.MaybeMany(CharGroupItem.Create("-").Alphanumeric()).Alphanumeric());
+            var right = Patterns.Maybe(Patterns.MaybeMany(CharGrouping.Create("-").Alphanumeric()).Alphanumeric());
 
             var exp = left
                 .MaybeMany("." + left)
@@ -61,7 +61,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 .GroupReference(3));
             Console.WriteLine("");
 
-            var quotedChar = Patterns.NotCharacter(CharGroupItems.QuoteMark().NewLineChar()).MaybeMany();
+            var quotedChar = Patterns.NotCharacter(CharGroupings.QuoteMark().NewLineChar()).MaybeMany();
 
             Console.WriteLine("quoted text");
             Console.WriteLine(Patterns.QuoteMarks(
