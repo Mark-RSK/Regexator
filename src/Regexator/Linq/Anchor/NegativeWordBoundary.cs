@@ -5,10 +5,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     /// <summary>
     /// Specifies that the match must not occur on a boundary between a word character (\w) and a non-word character (\W).
     /// </summary>
-    public sealed class NotWordBoundary
+    public sealed class NegativeWordBoundary
         : QuantifiablePattern
     {
-        internal NotWordBoundary()
+        internal NegativeWordBoundary()
         {
         }
 

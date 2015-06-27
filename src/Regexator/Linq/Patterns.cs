@@ -171,9 +171,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new WordBoundary();
         }
 
-        public static NotWordBoundary NotWordBoundary()
+        public static NegativeWordBoundary NotWordBoundary()
         {
-            return new NotWordBoundary();
+            return new NegativeWordBoundary();
         }
 
         public static QuantifiablePattern Word()

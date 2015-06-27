@@ -9,16 +9,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     /// Specifies that the match must occur on a boundary between a word character (\w) and a non-word character (\W). The match may also occur on a word boundary at the beginning or end of the string.
     /// </summary>
     public sealed class WordBoundary
-        : QuantifiablePattern, IInvertible<NotWordBoundary>
+        : QuantifiablePattern, IInvertible<NegativeWordBoundary>
     {
 
         /// <summary>
         /// Returns a new instance of the <see cref="NotWordBoundary" class./>
         /// </summary>
         /// <returns></returns>
-        public NotWordBoundary Invert()
+        public NegativeWordBoundary Invert()
         {
-            return new NotWordBoundary();
+            return new NegativeWordBoundary();
         }
 
         internal override void WriteTo(PatternWriter writer)
@@ -27,7 +27,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
-        public static NotWordBoundary operator !(WordBoundary value)
+        public static NegativeWordBoundary operator !(WordBoundary value)
         {
             if (value == null)
             {

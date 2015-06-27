@@ -56,7 +56,7 @@
     <Compile Include="Linq\Anchor\NegativeBackAssertion.cs" />
     <Compile Include="Linq\Anchor\NegativeAssertion.cs" />
     <Compile Include="Linq\Anchor\Assertion.cs" />
-    <Compile Include="Linq\Anchor\NotWordBoundary.cs" />
+    <Compile Include="Linq\Anchor\NegativeWordBoundary.cs" />
     <Compile Include="Linq\CharacterGroup_.cs" />
     <Compile Include="Linq\CharacterPattern_.cs" />
     <Compile Include="Core\CharEscapeMode.cs" />
