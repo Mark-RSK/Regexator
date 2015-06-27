@@ -68,11 +68,11 @@
     <Compile Include="Linq\Group\MaybeManyGroup.cs" />
     <Compile Include="Linq\Group\MaybeGroup.cs" />
     <Compile Include="Linq\IInvertible.cs" />
-    <Compile Include="Linq\Pattern\NegativeSurroundAssertion.cs" />
-    <Compile Include="Linq\Pattern\NegativeCharacterSubtraction.cs" />
-    <Compile Include="Linq\Pattern\OrContainer.cs" />
-    <Compile Include="Linq\Pattern\JoinContainer.cs" />
-    <Compile Include="Linq\Pattern\SurroundAssertion.cs" />
+    <Compile Include="Linq\NegativeSurroundAssertion.cs" />
+    <Compile Include="Linq\NegativeCharacterSubtraction.cs" />
+    <Compile Include="Linq\OrContainer.cs" />
+    <Compile Include="Linq\JoinContainer.cs" />
+    <Compile Include="Linq\SurroundAssertion.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Extensions\MatchExtensions.cs" />
     <Compile Include="Linq\Anchor\EndOrBeforeEndingNewLine.cs" />
@@ -81,12 +81,12 @@
     <Compile Include="Linq\Anchor\EndOfLine.cs" />
     <Compile Include="Linq\Anchor\EndOfInput.cs" />
     <Compile Include="Linq\Anchor\StartOfLine.cs" />
-    <Compile Include="Linq\Pattern\IfAssert.cs" />
-    <Compile Include="Linq\Pattern\IfGroup.cs" />
+    <Compile Include="Linq\IfAssert.cs" />
+    <Compile Include="Linq\IfGroup.cs" />
     <Compile Include="Linq\GroupMode.cs" />
     <Compile Include="Linq\Group\QuantifiedGroup.cs" />
     <Compile Include="Linq\CharacterPattern.cs" />
-    <Compile Include="Linq\Pattern\AsciiCharSurroundPattern.cs" />
+    <Compile Include="Linq\AsciiCharSurroundPattern.cs" />
     <Compile Include="Linq\PatternOptions.cs" />
     <Compile Include="Linq\LazyQuantifier.cs" />
     <Compile Include="Linq\QuantifiedPattern_.cs" />
@@ -96,12 +96,12 @@
     <Compile Include="Linq\Substitution\EntireMatchSubstitution.cs" />
     <Compile Include="Linq\Substitution\EntireInputSubstitution.cs" />
     <Compile Include="Linq\Substitution\Substitution.cs" />
-    <Compile Include="Linq\Pattern\SurroundPattern.cs" />
-    <Compile Include="Linq\Pattern\ContainerPattern.cs" />
-    <Compile Include="Linq\Pattern\InlineComment.cs" />
-    <Compile Include="Linq\Pattern\Options.cs" />
+    <Compile Include="Linq\SurroundPattern.cs" />
+    <Compile Include="Linq\ContainerPattern.cs" />
+    <Compile Include="Linq\InlineComment.cs" />
+    <Compile Include="Linq\Options.cs" />
     <Compile Include="Core\AsciiChar.cs" />
-    <Compile Include="Linq\Pattern\LiteralPattern.cs" />
+    <Compile Include="Linq\LiteralPattern.cs" />
     <Compile Include="Linq\Group\BalancingGroup.cs" />
     <Compile Include="Linq\PatternWriter.cs" />
     <Compile Include="Linq\Anchor\StartOfInput.cs" />
@@ -110,7 +110,7 @@
     <Compile Include="Linq\CharacterGroup.cs" />
     <Compile Include="Linq\CharGrouping.cs" />
     <Compile Include="Linq\CharGroupings.cs" />
-    <Compile Include="Linq\Pattern\CharacterSubtraction.cs" />
+    <Compile Include="Linq\CharacterSubtraction.cs" />
     <Compile Include="Linq\Patterns.cs" />
     <Compile Include="Linq\Pattern.cs" />
     <Compile Include="Linq\Pattern_.cs" />
@@ -119,14 +119,14 @@
     <Compile Include="Core\IdentifierBoundary.cs" />
     <Compile Include="Linq\IExcludedGroup.cs" />
     <Compile Include="Core\InlineOptions.cs" />
-    <Compile Include="Linq\Pattern\GroupNameReference.cs" />
+    <Compile Include="Linq\GroupNameReference.cs" />
     <Compile Include="Linq\Group\NamedGroup.cs" />
     <Compile Include="Linq\Group\NonbacktrackingGroup.cs" />
     <Compile Include="Linq\Group\NoncapturingGroup.cs" />
-    <Compile Include="Linq\Pattern\GroupNumberReference.cs" />
+    <Compile Include="Linq\GroupNumberReference.cs" />
     <Compile Include="Linq\Group\GroupOptions.cs" />
     <Compile Include="Linq\Group\AnyGroup.cs" />
-    <Compile Include="Linq\Pattern\QuantifiablePattern.cs" />
+    <Compile Include="Linq\QuantifiablePattern.cs" />
     <Compile Include="Linq\Group\NumberedGroup.cs" />
     <Compile Include="Linq\Substitutions.cs" />
     <Compile Include="Linq\Substitution\NamedGroupSubstitution.cs" />
@@ -137,7 +137,7 @@
     <Compile Include="Core\GeneralCategory.cs" />
     <Compile Include="Core\CharMatchInfo.cs" />
     <Compile Include="Core\RegexUtilities.cs" />
-    <Compile Include="Linq\Pattern\AnyChar.cs" />
+    <Compile Include="Linq\AnyChar.cs" />
     <Compile Include="Core\CaptureItemEqualityComparer.cs" />
     <Compile Include="Core\SplitItemKind.cs" />
     <Compile Include="Core\ResultMode.cs" />
@@ -184,7 +184,9 @@
       <SubType>Designer</SubType>
     </CodeAnalysisDictionary>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Linq\Pattern\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
