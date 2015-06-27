@@ -68,7 +68,7 @@
     <Compile Include="Linq\Group\MaybeManyGroup.cs" />
     <Compile Include="Linq\Group\MaybeGroup.cs" />
     <Compile Include="Linq\IInvertible.cs" />
-    <Compile Include="Linq\Pattern\NotSurroundAssertion.cs" />
+    <Compile Include="Linq\Pattern\NegativeSurroundAssertion.cs" />
     <Compile Include="Linq\Pattern\NegativeCharacterSubtraction.cs" />
     <Compile Include="Linq\Pattern\OrContainer.cs" />
     <Compile Include="Linq\Pattern\JoinContainer.cs" />

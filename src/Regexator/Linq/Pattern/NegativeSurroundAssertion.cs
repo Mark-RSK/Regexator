@@ -4,14 +4,14 @@ using System;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public class NotSurroundAssertion
+    public class NegativeSurroundAssertion
         : Pattern
     {
         private readonly object _content;
         private readonly object _contentBefore;
         private readonly object _contentAfter;
 
-        internal NotSurroundAssertion(object contentBefore, object content, object contentAfter)
+        internal NegativeSurroundAssertion(object contentBefore, object content, object contentAfter)
         {
             if (contentBefore == null)
             {

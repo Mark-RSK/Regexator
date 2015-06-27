@@ -102,14 +102,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new SurroundAssertion(contentBefore, content, contentAfter);
         }
 
-        public static NotSurroundAssertion NotAssertSurround(object surroundContent, object content)
+        public static NegativeSurroundAssertion NotAssertSurround(object surroundContent, object content)
         {
             return NotAssertSurround(surroundContent, content, surroundContent);
         }
 
-        public static NotSurroundAssertion NotAssertSurround(object contentBefore, object content, object contentAfter)
+        public static NegativeSurroundAssertion NotAssertSurround(object contentBefore, object content, object contentAfter)
         {
-            return new NotSurroundAssertion(contentBefore, content, contentAfter);
+            return new NegativeSurroundAssertion(contentBefore, content, contentAfter);
         }
 
         public static QuantifiablePattern StartOfInput()

@@ -6,7 +6,7 @@ using System.Diagnostics.CodeAnalysis;
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public sealed class SurroundAssertion
-        : Pattern, IInvertible<NotSurroundAssertion>
+        : Pattern, IInvertible<NegativeSurroundAssertion>
     {
         private readonly object _content;
         private readonly object _contentBefore;
@@ -34,9 +34,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _contentAfter = contentAfter;
         }
 
-        public NotSurroundAssertion Invert()
+        public NegativeSurroundAssertion Invert()
         {
-            return new NotSurroundAssertion(_contentBefore, _content, _contentAfter);
+            return new NegativeSurroundAssertion(_contentBefore, _content, _contentAfter);
         }
 
         internal override void WriteTo(PatternWriter writer)
@@ -47,7 +47,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
-        public static NotSurroundAssertion operator !(SurroundAssertion value)
+        public static NegativeSurroundAssertion operator !(SurroundAssertion value)
         {
             if (value == null)
             {
