@@ -4,13 +4,13 @@ using System;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public class NotCharSubtraction
+    public class NotCharacterSubtraction
         : QuantifiablePattern, IExcludedGroup
     {
         private readonly IBaseGroup _baseGroup;
         private readonly IExcludedGroup _excludedGroup;
 
-        internal NotCharSubtraction(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
+        internal NotCharacterSubtraction(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
         {
             if (baseGroup == null)
             {

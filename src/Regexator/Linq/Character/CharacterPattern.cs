@@ -26,9 +26,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="excludedGroup">Excluded group pattern to be subtracted.</param>
         /// <returns></returns>
-        public CharSubtraction Except(IExcludedGroup excludedGroup)
+        public CharacterSubtraction Except(IExcludedGroup excludedGroup)
         {
-            return new CharSubtraction(this, excludedGroup);
+            return new CharacterSubtraction(this, excludedGroup);
         }
 
         protected virtual void WriteGroupContentTo(PatternWriter writer)

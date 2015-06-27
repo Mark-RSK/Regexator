@@ -5,13 +5,13 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public class CharSubtraction
-        : QuantifiablePattern, IExcludedGroup, IInvertible<NotCharSubtraction>
+    public class CharacterSubtraction
+        : QuantifiablePattern, IExcludedGroup, IInvertible<NotCharacterSubtraction>
     {
         private readonly IBaseGroup _baseGroup;
         private readonly IExcludedGroup _excludedGroup;
 
-        internal CharSubtraction(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
+        internal CharacterSubtraction(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
         {
             if (baseGroup == null)
             {
@@ -27,9 +27,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _excludedGroup = excludedGroup;
         }
 
-        public NotCharSubtraction Invert()
+        public NotCharacterSubtraction Invert()
         {
-            return new NotCharSubtraction(_baseGroup, _excludedGroup);
+            return new NotCharacterSubtraction(_baseGroup, _excludedGroup);
         }
 
         public void WriteExcludedGroupTo(PatternWriter writer)
@@ -43,7 +43,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
-        public static NotCharSubtraction operator !(CharSubtraction value)
+        public static NotCharacterSubtraction operator !(CharacterSubtraction value)
         {
             if (value == null)
             {

@@ -603,14 +603,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new CharCodeRangeGroup(firstCharCode, lastCharCode, true);
         }
 
-        public static CharSubtraction Subtract(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
+        public static CharacterSubtraction Subtract(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
         {
-            return new CharSubtraction(baseGroup, excludedGroup);
+            return new CharacterSubtraction(baseGroup, excludedGroup);
         }
 
-        public static NotCharSubtraction NotSubtract(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
+        public static NotCharacterSubtraction NotSubtract(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
         {
-            return new NotCharSubtraction(baseGroup, excludedGroup);
+            return new NotCharacterSubtraction(baseGroup, excludedGroup);
         }
 
         public static CharacterPattern Tab()
@@ -2233,7 +2233,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Count(minCount, maxCount, NotSquareBracket());
         }
 
-        public static CharSubtraction WhiteSpaceExceptNewLine()
+        public static CharacterSubtraction WhiteSpaceExceptNewLine()
         {
             return WhiteSpace().Except(NewLineChar());
         }
