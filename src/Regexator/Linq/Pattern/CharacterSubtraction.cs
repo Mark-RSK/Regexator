@@ -9,7 +9,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     /// Represent a character subtraction pattern.
     /// </summary>
     public class CharacterSubtraction
-        : QuantifiablePattern, IExcludedGroup, IInvertible<NotCharacterSubtraction>
+        : QuantifiablePattern, IExcludedGroup, IInvertible<NegativeCharacterSubtraction>
     {
         private readonly IBaseGroup _baseGroup;
         private readonly IExcludedGroup _excludedGroup;
@@ -34,9 +34,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Returns a negative character subtraction that has the same content as the current instance./>
         /// </summary>
         /// <returns></returns>
-        public NotCharacterSubtraction Invert()
+        public NegativeCharacterSubtraction Invert()
         {
-            return new NotCharacterSubtraction(_baseGroup, _excludedGroup);
+            return new NegativeCharacterSubtraction(_baseGroup, _excludedGroup);
         }
 
         /// <summary>
@@ -54,7 +54,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
-        public static NotCharacterSubtraction operator !(CharacterSubtraction value)
+        public static NegativeCharacterSubtraction operator !(CharacterSubtraction value)
         {
             if (value == null)
             {

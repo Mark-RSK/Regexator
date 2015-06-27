@@ -69,7 +69,7 @@
     <Compile Include="Linq\Group\MaybeGroup.cs" />
     <Compile Include="Linq\IInvertible.cs" />
     <Compile Include="Linq\Pattern\NotSurroundAssertion.cs" />
-    <Compile Include="Linq\Pattern\NotCharacterSubtraction.cs" />
+    <Compile Include="Linq\Pattern\NegativeCharacterSubtraction.cs" />
     <Compile Include="Linq\Pattern\OrContainer.cs" />
     <Compile Include="Linq\Pattern\JoinContainer.cs" />
     <Compile Include="Linq\Pattern\SurroundAssertion.cs" />
