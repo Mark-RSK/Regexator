@@ -126,11 +126,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 writer.WriteGeneralCategory(_category, _negative);
             }
-
-            public GeneralCategory Category
-            {
-                get { return _category; }
-            }
         }
 
         internal class NamedBlockCharacterPattern
@@ -153,11 +148,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             internal override void WriteTo(PatternWriter writer)
             {
                 writer.WriteNamedBlock(_block, _negative);
-            }
-
-            public NamedBlock Block
-            {
-                get { return _block; }
             }
         }
 
