@@ -6,52 +6,52 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
         public static CharGroupItem NamedBlock(NamedBlock block)
         {
-            return new NamedBlockCharItem(block);
+            return CharGroupItem.Create(block);
         }
 
         public static CharGroupItem NotNamedBlock(NamedBlock block)
         {
-            return new NamedBlockCharItem(block, true);
+            return CharGroupItem.Create(block, true);
         }
 
         public static CharGroupItem GeneralCategory(GeneralCategory category)
         {
-            return new GeneralCategoryCharItem(category);
+            return CharGroupItem.Create(category);
         }
 
         public static CharGroupItem NotGeneralCategory(GeneralCategory category)
         {
-            return new GeneralCategoryCharItem(category, true);
+            return CharGroupItem.Create(category, true);
         }
 
         public static CharGroupItem Digit()
         {
-            return new CharClassCharItem(CharClass.Digit);
+            return CharGroupItem.Create(CharClass.Digit);
         }
 
         public static CharGroupItem NotDigit()
         {
-            return new CharClassCharItem(CharClass.NotDigit);
+            return CharGroupItem.Create(CharClass.NotDigit);
         }
 
         public static CharGroupItem WhiteSpace()
         {
-            return new CharClassCharItem(CharClass.WhiteSpace);
+            return CharGroupItem.Create(CharClass.WhiteSpace);
         }
 
         public static CharGroupItem NotWhiteSpace()
         {
-            return new CharClassCharItem(CharClass.NotWhiteSpace);
+            return CharGroupItem.Create(CharClass.NotWhiteSpace);
         }
 
         public static CharGroupItem WordChar()
         {
-            return new CharClassCharItem(CharClass.WordChar);
+            return CharGroupItem.Create(CharClass.WordChar);
         }
 
         public static CharGroupItem NotWordChar()
         {
-            return new CharClassCharItem(CharClass.NotWordChar);
+            return CharGroupItem.Create(CharClass.NotWordChar);
         }
 
         public static CharGroupItem Alphanumeric()
@@ -106,182 +106,182 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharGroupItem Tab()
         {
-            return new AsciiCharItem(AsciiChar.Tab);
+            return CharGroupItem.Create(AsciiChar.Tab);
         }
 
         public static CharGroupItem Linefeed()
         {
-            return new AsciiCharItem(AsciiChar.Linefeed);
+            return CharGroupItem.Create(AsciiChar.Linefeed);
         }
 
         public static CharGroupItem CarriageReturn()
         {
-            return new AsciiCharItem(AsciiChar.CarriageReturn);
+            return CharGroupItem.Create(AsciiChar.CarriageReturn);
         }
 
         public static CharGroupItem Space()
         {
-            return new AsciiCharItem(AsciiChar.Space);
+            return CharGroupItem.Create(AsciiChar.Space);
         }
 
         public static CharGroupItem ExclamationMark()
         {
-            return new AsciiCharItem(AsciiChar.ExclamationMark);
+            return CharGroupItem.Create(AsciiChar.ExclamationMark);
         }
 
         public static CharGroupItem QuoteMark()
         {
-            return new AsciiCharItem(AsciiChar.QuoteMark);
+            return CharGroupItem.Create(AsciiChar.QuoteMark);
         }
 
         public static CharGroupItem NumberSign()
         {
-            return new AsciiCharItem(AsciiChar.NumberSign);
+            return CharGroupItem.Create(AsciiChar.NumberSign);
         }
 
         public static CharGroupItem Dollar()
         {
-            return new AsciiCharItem(AsciiChar.Dollar);
+            return CharGroupItem.Create(AsciiChar.Dollar);
         }
 
         public static CharGroupItem Percent()
         {
-            return new AsciiCharItem(AsciiChar.Percent);
+            return CharGroupItem.Create(AsciiChar.Percent);
         }
 
         public static CharGroupItem Ampersand()
         {
-            return new AsciiCharItem(AsciiChar.Ampersand);
+            return CharGroupItem.Create(AsciiChar.Ampersand);
         }
 
         public static CharGroupItem Apostrophe()
         {
-            return new AsciiCharItem(AsciiChar.Apostrophe);
+            return CharGroupItem.Create(AsciiChar.Apostrophe);
         }
 
         public static CharGroupItem LeftParenthesis()
         {
-            return new AsciiCharItem(AsciiChar.LeftParenthesis);
+            return CharGroupItem.Create(AsciiChar.LeftParenthesis);
         }
 
         public static CharGroupItem RightParenthesis()
         {
-            return new AsciiCharItem(AsciiChar.RightParenthesis);
+            return CharGroupItem.Create(AsciiChar.RightParenthesis);
         }
 
         public static CharGroupItem Asterisk()
         {
-            return new AsciiCharItem(AsciiChar.Asterisk);
+            return CharGroupItem.Create(AsciiChar.Asterisk);
         }
 
         public static CharGroupItem Plus()
         {
-            return new AsciiCharItem(AsciiChar.Plus);
+            return CharGroupItem.Create(AsciiChar.Plus);
         }
 
         public static CharGroupItem Comma()
         {
-            return new AsciiCharItem(AsciiChar.Comma);
+            return CharGroupItem.Create(AsciiChar.Comma);
         }
 
         public static CharGroupItem Hyphen()
         {
-            return new AsciiCharItem(AsciiChar.Hyphen);
+            return CharGroupItem.Create(AsciiChar.Hyphen);
         }
 
         public static CharGroupItem Period()
         {
-            return new AsciiCharItem(AsciiChar.Period);
+            return CharGroupItem.Create(AsciiChar.Period);
         }
 
         public static CharGroupItem Slash()
         {
-            return new AsciiCharItem(AsciiChar.Slash);
+            return CharGroupItem.Create(AsciiChar.Slash);
         }
 
         public static CharGroupItem Colon()
         {
-            return new AsciiCharItem(AsciiChar.Colon);
+            return CharGroupItem.Create(AsciiChar.Colon);
         }
 
         public static CharGroupItem Semicolon()
         {
-            return new AsciiCharItem(AsciiChar.Semicolon);
+            return CharGroupItem.Create(AsciiChar.Semicolon);
         }
 
         public static CharGroupItem LessThan()
         {
-            return new AsciiCharItem(AsciiChar.LessThan);
+            return CharGroupItem.Create(AsciiChar.LessThan);
         }
 
         public static CharGroupItem EqualsSign()
         {
-            return new AsciiCharItem(AsciiChar.EqualsSign);
+            return CharGroupItem.Create(AsciiChar.EqualsSign);
         }
 
         public static CharGroupItem GreaterThan()
         {
-            return new AsciiCharItem(AsciiChar.GreaterThan);
+            return CharGroupItem.Create(AsciiChar.GreaterThan);
         }
 
         public static CharGroupItem QuestionMark()
         {
-            return new AsciiCharItem(AsciiChar.QuestionMark);
+            return CharGroupItem.Create(AsciiChar.QuestionMark);
         }
 
         public static CharGroupItem AtSign()
         {
-            return new AsciiCharItem(AsciiChar.AtSign);
+            return CharGroupItem.Create(AsciiChar.AtSign);
         }
 
         public static CharGroupItem LeftSquareBracket()
         {
-            return new AsciiCharItem(AsciiChar.LeftSquareBracket);
+            return CharGroupItem.Create(AsciiChar.LeftSquareBracket);
         }
 
         public static CharGroupItem Backslash()
         {
-            return new AsciiCharItem(AsciiChar.Backslash);
+            return CharGroupItem.Create(AsciiChar.Backslash);
         }
 
         public static CharGroupItem RightSquareBracket()
         {
-            return new AsciiCharItem(AsciiChar.RightSquareBracket);
+            return CharGroupItem.Create(AsciiChar.RightSquareBracket);
         }
 
         public static CharGroupItem CircumflexAccent()
         {
-            return new AsciiCharItem(AsciiChar.CircumflexAccent);
+            return CharGroupItem.Create(AsciiChar.CircumflexAccent);
         }
 
         public static CharGroupItem Underscore()
         {
-            return new AsciiCharItem(AsciiChar.Underscore);
+            return CharGroupItem.Create(AsciiChar.Underscore);
         }
 
         public static CharGroupItem GraveAccent()
         {
-            return new AsciiCharItem(AsciiChar.GraveAccent);
+            return CharGroupItem.Create(AsciiChar.GraveAccent);
         }
 
         public static CharGroupItem LeftCurlyBracket()
         {
-            return new AsciiCharItem(AsciiChar.LeftCurlyBracket);
+            return CharGroupItem.Create(AsciiChar.LeftCurlyBracket);
         }
 
         public static CharGroupItem VerticalLine()
         {
-            return new AsciiCharItem(AsciiChar.VerticalLine);
+            return CharGroupItem.Create(AsciiChar.VerticalLine);
         }
 
         public static CharGroupItem RightCurlyBracket()
         {
-            return new AsciiCharItem(AsciiChar.RightCurlyBracket);
+            return CharGroupItem.Create(AsciiChar.RightCurlyBracket);
         }
 
         public static CharGroupItem Tilde()
         {
-            return new AsciiCharItem(AsciiChar.Tilde);
+            return CharGroupItem.Create(AsciiChar.Tilde);
         }
 
         public static CharGroupItem Parenthesis()
