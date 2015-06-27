@@ -6,16 +6,16 @@ using System.Diagnostics.CodeAnalysis;
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public sealed class Assertion
-        : GroupPattern, IInvertible<NegativeAssertion>
+        : GroupPattern, IInvertible<NotAssertion>
     {
         internal Assertion(object content)
             : base(content)
         {
         }
 
-        public NegativeAssertion Invert()
+        public NotAssertion Invert()
         {
-            return new NegativeAssertion(this);
+            return new NotAssertion(this);
         }
 
         internal override void WriteTo(PatternWriter writer)
@@ -24,7 +24,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
-        public static NegativeAssertion operator !(Assertion value)
+        public static NotAssertion operator !(Assertion value)
         {
             if (value == null)
             {

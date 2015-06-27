@@ -53,8 +53,8 @@
   <ItemGroup>
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Linq\Anchor\BackAssertion.cs" />
-    <Compile Include="Linq\Anchor\NegativeBackAssertion.cs" />
-    <Compile Include="Linq\Anchor\NegativeAssertion.cs" />
+    <Compile Include="Linq\Anchor\NotBackAssertion.cs" />
+    <Compile Include="Linq\Anchor\NotAssertion.cs" />
     <Compile Include="Linq\Anchor\Assertion.cs" />
     <Compile Include="Linq\Anchor\NotWordBoundary.cs" />
     <Compile Include="Linq\Character\NotWordChar.cs" />
