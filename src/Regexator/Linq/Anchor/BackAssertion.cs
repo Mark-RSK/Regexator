@@ -9,7 +9,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     /// A zero-width positive lookbehind assertion.
     /// </summary>
     public sealed class BackAssertion
-        : GroupingPattern, IInvertible<NotBackAssertion>
+        : GroupingPattern, IInvertible<NegativeBackAssertion>
     {
         internal BackAssertion(object content)
             : base(content)
@@ -20,9 +20,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Returns a new instance of the <see cref="NotBackAssertion" class./>
         /// </summary>
         /// <returns></returns>
-        public NotBackAssertion Invert()
+        public NegativeBackAssertion Invert()
         {
-            return new NotBackAssertion(this);
+            return new NegativeBackAssertion(this);
         }
 
         internal override void WriteTo(PatternWriter writer)
@@ -31,7 +31,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
-        public static NotBackAssertion operator !(BackAssertion value)
+        public static NegativeBackAssertion operator !(BackAssertion value)
         {
             if (value == null)
             {
