@@ -9,7 +9,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     /// A zero-width positive lookahead assertion.
     /// </summary>
     public sealed class Assertion
-        : GroupingPattern, IInvertible<NotAssertion>
+        : GroupingPattern, IInvertible<NegativeAssertion>
     {
         internal Assertion(object content)
             : base(content)
@@ -20,9 +20,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Returns a new instance of the <see cref="NotAssertion" class./>
         /// </summary>
         /// <returns></returns>
-        public NotAssertion Invert()
+        public NegativeAssertion Invert()
         {
-            return new NotAssertion(this);
+            return new NegativeAssertion(this);
         }
 
         internal override void WriteTo(PatternWriter writer)
@@ -31,7 +31,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
-        public static NotAssertion operator !(Assertion value)
+        public static NegativeAssertion operator !(Assertion value)
         {
             if (value == null)
             {

@@ -5,15 +5,15 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     /// <summary>
     /// A zero-width negative lookahead assertion.
     /// </summary>
-    public sealed class NotAssertion
+    public sealed class NegativeAssertion
         : GroupingPattern
     {
-        internal NotAssertion(object content)
+        internal NegativeAssertion(object content)
             : base(content)
         {
         }
 
-        internal NotAssertion(Assertion value)
+        internal NegativeAssertion(Assertion value)
             : base(value)
         {
         }

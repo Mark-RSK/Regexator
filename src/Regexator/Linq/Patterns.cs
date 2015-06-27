@@ -64,7 +64,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern NotAssert(object content)
         {
-            return new NotAssertion(content);
+            return new NegativeAssertion(content);
         }
 
         public static QuantifiablePattern NotAssert(params object[] content)
