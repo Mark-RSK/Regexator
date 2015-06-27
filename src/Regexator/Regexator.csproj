@@ -58,12 +58,7 @@
     <Compile Include="Linq\Anchor\Assertion.cs" />
     <Compile Include="Linq\Anchor\NotWordBoundary.cs" />
     <Compile Include="Linq\CharacterGroup_.cs" />
-    <Compile Include="Linq\Character\NotWordChar.cs" />
-    <Compile Include="Linq\Character\WordChar.cs" />
-    <Compile Include="Linq\Character\NotWhiteSpace.cs" />
-    <Compile Include="Linq\Character\WhiteSpace.cs" />
-    <Compile Include="Linq\Character\NotDigit.cs" />
-    <Compile Include="Linq\Character\Digit.cs" />
+    <Compile Include="Linq\CharacterPattern_.cs" />
     <Compile Include="Core\CharEscapeMode.cs" />
     <Compile Include="Linq\CharGrouping_.cs" />
     <Compile Include="Linq\Group\CountToGroup.cs" />
@@ -90,7 +85,7 @@
     <Compile Include="Linq\Pattern\IfGroup.cs" />
     <Compile Include="Linq\GroupMode.cs" />
     <Compile Include="Linq\Group\QuantifiedGroup.cs" />
-    <Compile Include="Linq\Character\CharacterPattern.cs" />
+    <Compile Include="Linq\CharacterPattern.cs" />
     <Compile Include="Linq\Pattern\AsciiCharSurroundPattern.cs" />
     <Compile Include="Linq\PatternOptions.cs" />
     <Compile Include="Linq\Quantifier\LazyQuantifier.cs" />
@@ -146,14 +141,7 @@
     <Compile Include="Core\GeneralCategory.cs" />
     <Compile Include="Core\CharMatchInfo.cs" />
     <Compile Include="Core\RegexUtilities.cs" />
-    <Compile Include="Linq\Character\CharCodePattern.cs" />
-    <Compile Include="Linq\Character\AsciiCharPattern.cs" />
     <Compile Include="Linq\Pattern\AnyChar.cs" />
-    <Compile Include="Linq\Character\NotNamedBlockPattern.cs" />
-    <Compile Include="Linq\Character\NotGeneralCategoryPattern.cs" />
-    <Compile Include="Linq\Character\GeneralCategoryPattern.cs" />
-    <Compile Include="Linq\Character\NamedBlockPattern.cs" />
-    <Compile Include="Linq\Character\CharPattern.cs" />
     <Compile Include="Core\CaptureItemEqualityComparer.cs" />
     <Compile Include="Core\SplitItemKind.cs" />
     <Compile Include="Core\ResultMode.cs" />

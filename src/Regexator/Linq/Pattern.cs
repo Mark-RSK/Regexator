@@ -491,7 +491,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static explicit operator Pattern(char value)
         {
-            return new CharPattern(value);
+            return CharacterPattern.Create(value);
         }
 
         internal string Value

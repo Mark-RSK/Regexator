@@ -8,11 +8,41 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     /// <summary>
     /// Represents a single character pattern. This includes a character literal, Unicode general category or named block pattern, character class pattern ((non-)digit, (non-)white-space, (non-)word). 
     /// </summary>
-    public abstract class CharacterPattern
+    public abstract partial class CharacterPattern
         : QuantifiablePattern, IBaseGroup, IExcludedGroup, IInvertible<CharacterGroup>
     {
         internal CharacterPattern()
         {
+        }
+
+        internal static CharacterPattern Create(char value)
+        {
+            return new CharCharacterPattern(value);
+        }
+
+        internal static CharacterPattern Create(int charCode)
+        {
+            return new CharCodeCharacterPattern(charCode);
+        }
+
+        internal static CharacterPattern Create(AsciiChar value)
+        {
+            return new AsciiCharCharacterPattern(value);
+        }
+
+        internal static CharacterPattern Create(CharClass value)
+        {
+            return new CharClassCharacterPattern(value);
+        }
+
+        internal static CharacterPattern Create(GeneralCategory category, bool negative)
+        {
+            return new GeneralCategoryCharacterPattern(category, negative);
+        }
+
+        internal static CharacterPattern Create(NamedBlock block, bool negative)
+        {
+            return new NamedBlockCharacterPattern(block, negative);
         }
 
         /// <summary>

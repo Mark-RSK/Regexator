@@ -939,7 +939,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (value == null)
             {
-                throw new ArgumentNullException("item");
+                throw new ArgumentNullException("value");
             }
 
             WriteCharGroupStart(negative);

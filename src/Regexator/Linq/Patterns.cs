@@ -515,27 +515,27 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern Character(char value)
         {
-            return new CharPattern(value);
+            return CharacterPattern.Create(value);
         }
 
         public static CharacterPattern Character(int charCode)
         {
-            return new CharCodePattern(charCode);
+            return CharacterPattern.Create(charCode);
         }
 
         public static CharacterPattern Character(AsciiChar value)
         {
-            return new AsciiCharPattern(value);
+            return CharacterPattern.Create(value);
         }
 
         public static CharacterPattern Character(NamedBlock block)
         {
-            return new NamedBlockPattern(block);
+            return CharacterPattern.Create(block, false);
         }
 
         public static CharacterPattern Character(GeneralCategory category)
         {
-            return new GeneralCategoryPattern(category);
+            return CharacterPattern.Create(category, false);
         }
 
         public static CharacterGroup Character(string characters)
@@ -565,12 +565,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern NotCharacter(NamedBlock block)
         {
-            return new NotNamedBlockPattern(block);
+            return CharacterPattern.Create(block, true);
         }
 
         public static CharacterPattern NotCharacter(GeneralCategory category)
         {
-            return new NotGeneralCategoryPattern(category);
+            return CharacterPattern.Create(category, true);
         }
 
         public static CharacterGroup NotCharacter(string characters)
@@ -1725,7 +1725,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern Digit()
         {
-            return new Digit();
+            return CharacterPattern.Create(CharClass.Digit);
         }
 
         public static QuantifiedGroup Digit(int count)
@@ -1745,7 +1745,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern NotDigit()
         {
-            return new NotDigit();
+            return CharacterPattern.Create(CharClass.NotDigit);
         }
 
         public static QuantifiedGroup NotDigit(int count)
@@ -1765,7 +1765,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern WhiteSpace()
         {
-            return new WhiteSpace();
+            return CharacterPattern.Create(CharClass.WhiteSpace);
         }
 
         public static QuantifiedGroup WhiteSpace(int count)
@@ -1785,7 +1785,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern NotWhiteSpace()
         {
-            return new NotWhiteSpace();
+            return CharacterPattern.Create(CharClass.NotWhiteSpace);
         }
 
         public static QuantifiedGroup NotWhiteSpace(int count)
@@ -1805,7 +1805,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern WordChar()
         {
-            return new WordChar();
+            return CharacterPattern.Create(CharClass.WordChar);
         }
 
         public static QuantifiedGroup WordChar(int count)
@@ -1825,7 +1825,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterPattern NotWordChar()
         {
-            return new NotWordChar();
+            return CharacterPattern.Create(CharClass.NotWordChar);
         }
 
         public static QuantifiedGroup NotWordChar(int count)
