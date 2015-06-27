@@ -4,18 +4,18 @@ using System;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal sealed class LiteralsCharacterGroup
+    internal sealed class LiteralCharactersGroup
         : CharacterGroup
     {
         private readonly string _characters;
         private readonly bool _negative;
 
-        public LiteralsCharacterGroup(string characters)
+        public LiteralCharactersGroup(string characters)
             : this(characters, false)
         {
         }
 
-        public LiteralsCharacterGroup(string characters, bool negative)
+        public LiteralCharactersGroup(string characters, bool negative)
         {
             if (characters == null)
             {

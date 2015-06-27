@@ -48,7 +48,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static explicit operator CharacterGroup(string characters)
         {
-            return new LiteralsCharacterGroup(characters);
+            return new LiteralCharactersGroup(characters);
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]

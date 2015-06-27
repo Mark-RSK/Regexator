@@ -167,7 +167,7 @@
     <Compile Include="Linq\Character\NamedBlockPattern.cs" />
     <Compile Include="Linq\CharGroup\CharCodeRangeGroup.cs" />
     <Compile Include="Linq\CharGroup\CharRangeGroup.cs" />
-    <Compile Include="Linq\CharGroup\LiteralsCharacterGroup.cs" />
+    <Compile Include="Linq\CharGroup\LiteralCharactersGroup.cs" />
     <Compile Include="Linq\CharGroup\CharGroupItemGroup.cs" />
     <Compile Include="Linq\CharGroup\CharCodeGroup.cs" />
     <Compile Include="Linq\CharGroup\LiteralCharacterGroup.cs" />

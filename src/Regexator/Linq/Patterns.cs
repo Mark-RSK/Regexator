@@ -540,7 +540,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterGroup Character(string characters)
         {
-            return new LiteralsCharacterGroup(characters);
+            return new LiteralCharactersGroup(characters);
         }
 
         public static CharacterGroup Character(CharGroupItem item)
@@ -575,7 +575,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterGroup NotCharacter(string characters)
         {
-            return new LiteralsCharacterGroup(characters, true);
+            return new LiteralCharactersGroup(characters, true);
         }
 
         public static CharacterGroup NotCharacter(CharGroupItem item)
