@@ -540,27 +540,27 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterGroup Character(string characters)
         {
-            return new LiteralCharactersGroup(characters);
+            return CharacterGroup.Create(characters, false);
         }
 
         public static CharacterGroup Character(CharGrouping item)
         {
-            return new CharGroupItemGroup(item);
+            return CharacterGroup.Create(item, false);
         }
 
         public static CharacterGroup NotCharacter(char value)
         {
-            return new LiteralCharacterGroup(value, true);
+            return CharacterGroup.Create(value, true);
         }
 
         public static CharacterGroup NotCharacter(int charCode)
         {
-            return new CharCodeGroup(charCode, true);
+            return CharacterGroup.Create(charCode, true);
         }
 
         public static CharacterGroup NotCharacter(AsciiChar value)
         {
-            return new AsciiCharGroup(value, true);
+            return CharacterGroup.Create(value, true);
         }
 
         public static CharacterPattern NotCharacter(NamedBlock block)
@@ -575,32 +575,32 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharacterGroup NotCharacter(string characters)
         {
-            return new LiteralCharactersGroup(characters, true);
+            return CharacterGroup.Create(characters, true);
         }
 
         public static CharacterGroup NotCharacter(CharGrouping item)
         {
-            return new CharGroupItemGroup(item, true);
+            return CharacterGroup.Create(item, true);
         }
 
         public static CharacterGroup Range(char first, char last)
         {
-            return new CharRangeGroup(first, last);
+            return CharacterGroup.Create(first, last, false);
         }
 
         public static CharacterGroup Range(int firstCharCode, int lastCharCode)
         {
-            return new CharCodeRangeGroup(firstCharCode, lastCharCode);
+            return CharacterGroup.Create(firstCharCode, lastCharCode, false);
         }
 
         public static CharacterGroup NotRange(char first, char last)
         {
-            return new CharRangeGroup(first, last, true);
+            return CharacterGroup.Create(first, last, true);
         }
 
         public static CharacterGroup NotRange(int firstCharCode, int lastCharCode)
         {
-            return new CharCodeRangeGroup(firstCharCode, lastCharCode, true);
+            return CharacterGroup.Create(firstCharCode, lastCharCode, true);
         }
 
         public static CharacterSubtraction Subtract(IBaseGroup baseGroup, IExcludedGroup excludedGroup)

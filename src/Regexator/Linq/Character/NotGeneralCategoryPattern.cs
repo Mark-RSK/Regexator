@@ -12,7 +12,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public override CharacterGroup Invert()
         {
-            return new GeneralCategoryCharGroup(Category, false);
+            return CharacterGroup.Create(Category, false);
         }
 
         internal override void WriteTo(PatternWriter writer)

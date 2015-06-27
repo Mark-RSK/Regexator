@@ -14,7 +14,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public override CharacterGroup Invert()
         {
-            return new GeneralCategoryCharGroup(_category, true);
+            return CharacterGroup.Create(_category, true);
         }
 
         internal override void WriteTo(PatternWriter writer)

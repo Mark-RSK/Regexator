@@ -8,11 +8,61 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     /// <summary>
     /// Represents a positive or a negative character group pattern.
     /// </summary>
-    public abstract class CharacterGroup
+    public abstract partial class CharacterGroup
         : QuantifiablePattern, IExcludedGroup, IInvertible<CharacterGroup>
     {
         protected CharacterGroup()
         {
+        }
+
+        internal static CharacterGroup Create(char value, bool negative)
+        {
+            return new LiteralCharacterGroup(value, negative);
+        }
+
+        internal static CharacterGroup Create(int charCode, bool negative)
+        {
+            return new CharCodeGroup(charCode, negative);
+        }
+
+        internal static CharacterGroup Create(AsciiChar value, bool negative)
+        {
+            return new AsciiCharGroup(value, negative);
+        }
+
+        internal static CharacterGroup Create(string characters, bool negative)
+        {
+            return new LiteralCharactersGroup(characters, negative);
+        }
+
+        internal static CharacterGroup Create(char firstChar, char lastChar, bool negative)
+        {
+            return new CharRangeGroup(firstChar, lastChar, negative);
+        }
+
+        internal static CharacterGroup Create(int firstCharCode, int lastCharCode, bool negative)
+        {
+            return new CharCodeRangeGroup(firstCharCode, lastCharCode, negative);
+        }
+
+        internal static CharacterGroup Create(GeneralCategory category, bool negative)
+        {
+            return new GeneralCategoryCharGroup(category, negative);
+        }
+
+        internal static CharacterGroup Create(NamedBlock block, bool negative)
+        {
+            return new NamedBlockCharGroup(block, negative);
+        }
+
+        internal static CharacterGroup Create(CharClass value)
+        {
+            return new CharClassCharGroup(value);
+        }
+
+        internal static CharacterGroup Create(CharGrouping value, bool negative)
+        {
+            return new CharGroupItemGroup(value, negative);
         }
 
         internal abstract void WriteContentTo(PatternWriter writer);

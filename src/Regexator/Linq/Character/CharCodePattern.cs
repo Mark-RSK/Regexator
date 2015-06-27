@@ -21,7 +21,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public override CharacterGroup Invert()
         {
-            return new CharCodeGroup(_charCode, true);
+            return CharacterGroup.Create(_charCode, true);
         }
 
         internal override void WriteTo(PatternWriter writer)

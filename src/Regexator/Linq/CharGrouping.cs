@@ -548,7 +548,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharacterGroup ToGroup()
         {
-            return new CharGroupItemGroup(this);
+            return CharacterGroup.Create(this, false);
         }
 
         /// <summary>
@@ -557,7 +557,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharacterGroup ToNegativeGroup()
         {
-            return new CharGroupItemGroup(this, true);
+            return CharacterGroup.Create(this, true);
         }
 
         protected abstract void WriteItemContentTo(PatternWriter writer);

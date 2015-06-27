@@ -7,7 +7,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
         public override CharacterGroup Invert()
         {
-            return new CharClassCharGroup(CharClass.NotDigit);
+            return CharacterGroup.Create(CharClass.NotDigit);
         }
 
         internal override void WriteTo(PatternWriter writer)
