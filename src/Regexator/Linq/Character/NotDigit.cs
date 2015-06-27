@@ -5,7 +5,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal sealed class NotDigit
         : CharacterPattern
     {
-        public override CharGroup Invert()
+        public override CharacterGroup Invert()
         {
             return new CharClassCharGroup(CharClass.Digit);
         }

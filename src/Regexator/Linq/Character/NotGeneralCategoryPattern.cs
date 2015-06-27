@@ -10,7 +10,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
         }
 
-        public override CharGroup Invert()
+        public override CharacterGroup Invert()
         {
             return new GeneralCategoryCharGroup(Category, false);
         }

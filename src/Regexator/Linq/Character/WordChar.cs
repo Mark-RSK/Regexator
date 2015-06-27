@@ -5,7 +5,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal sealed class WordChar
         : CharacterPattern
     {
-        public override CharGroup Invert()
+        public override CharacterGroup Invert()
         {
             return new CharClassCharGroup(CharClass.NotWordChar);
         }

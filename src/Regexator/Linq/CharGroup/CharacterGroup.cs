@@ -1,39 +1,63 @@
-﻿// Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+// Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal sealed class CharacterGroup
-        : CharGroup
+    /// <summary>
+    /// Represents a character group pattern.
+    /// </summary>
+    public abstract class CharacterGroup
+        : QuantifiablePattern, IExcludedGroup, IInvertible<CharacterGroup>
     {
-        private readonly char _value;
-        private readonly bool _negative;
-
-        public CharacterGroup(char value, bool negative)
+        protected CharacterGroup()
         {
-            _value = value;
-            _negative = negative;
         }
 
-        internal override void WriteContentTo(PatternWriter writer)
+        internal abstract void WriteContentTo(PatternWriter writer);
+
+        public void WriteBaseGroupTo(PatternWriter writer)
         {
-            if (writer == null)
+            WriteContentTo(writer);
+        }
+
+        public void WriteExcludedGroupTo(PatternWriter writer)
+        {
+            WriteTo(writer);
+        }
+
+        public CharacterGroup Invert()
+        {
+            return new GroupCharGroup(this, !Negative);
+        }
+
+        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
+        public static CharacterGroup operator !(CharacterGroup value)
+        {
+            if (value == null)
             {
-                throw new ArgumentNullException("writer");
+                throw new ArgumentNullException("value");
             }
 
-            writer.Write(_value, true);
+            return value.Invert();
         }
 
-        internal override void WriteTo(PatternWriter writer)
+        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
+        public static explicit operator CharacterGroup(string characters)
         {
-            writer.WriteCharGroup(_value, Negative);
+            return new LiteralsCharacterGroup(characters);
         }
 
-        public override bool Negative
+        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
+        public static explicit operator CharacterGroup(CharGroupItem item)
         {
-            get { return _negative; }
+            return new CharGroupItemGroup(item);
+        }
+
+        public virtual bool Negative
+        {
+            get { return false; }
         }
     }
 }

@@ -524,72 +524,72 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Patterns.WhileNotNewLine());
         }
 
-        public CharGroup Alphanumeric()
+        public CharacterGroup Alphanumeric()
         {
             return ConcatInternal(Patterns.Alphanumeric());
         }
 
-        public CharGroup NotAlphanumeric()
+        public CharacterGroup NotAlphanumeric()
         {
             return ConcatInternal(Patterns.NotAlphanumeric());
         }
 
-        public CharGroup AlphanumericLower()
+        public CharacterGroup AlphanumericLower()
         {
             return ConcatInternal(Patterns.AlphanumericLower());
         }
 
-        public CharGroup NotAlphanumericLower()
+        public CharacterGroup NotAlphanumericLower()
         {
             return ConcatInternal(Patterns.NotAlphanumericLower());
         }
 
-        public CharGroup AlphanumericUpper()
+        public CharacterGroup AlphanumericUpper()
         {
             return ConcatInternal(Patterns.AlphanumericUpper());
         }
 
-        public CharGroup NotAlphanumericUpper()
+        public CharacterGroup NotAlphanumericUpper()
         {
             return ConcatInternal(Patterns.NotAlphanumericUpper());
         }
 
-        public CharGroup AlphanumericUnderscore()
+        public CharacterGroup AlphanumericUnderscore()
         {
             return ConcatInternal(Patterns.AlphanumericUnderscore());
         }
 
-        public CharGroup NotAlphanumericUnderscore()
+        public CharacterGroup NotAlphanumericUnderscore()
         {
             return ConcatInternal(Patterns.NotAlphanumericUnderscore());
         }
 
-        public CharGroup LatinLetter()
+        public CharacterGroup LatinLetter()
         {
             return ConcatInternal(Patterns.LatinLetter());
         }
 
-        public CharGroup LatinLetterLower()
+        public CharacterGroup LatinLetterLower()
         {
             return ConcatInternal(Patterns.LatinLetterLower());
         }
 
-        public CharGroup LatinLetterUpper()
+        public CharacterGroup LatinLetterUpper()
         {
             return ConcatInternal(Patterns.LatinLetterUpper());
         }
 
-        public CharGroup NotLatinLetter()
+        public CharacterGroup NotLatinLetter()
         {
             return ConcatInternal(Patterns.NotLatinLetter());
         }
 
-        public CharGroup NotLatinLetterLower()
+        public CharacterGroup NotLatinLetterLower()
         {
             return ConcatInternal(Patterns.NotLatinLetterLower());
         }
 
-        public CharGroup NotLatinLetterUpper()
+        public CharacterGroup NotLatinLetterUpper()
         {
             return ConcatInternal(Patterns.NotLatinLetterUpper());
         }
@@ -1889,32 +1889,32 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Patterns.NotTilde(minCount, maxCount));
         }
 
-        public CharGroup Parenthesis()
+        public CharacterGroup Parenthesis()
         {
             return ConcatInternal(Patterns.Parenthesis());
         }
 
-        public CharGroup NotParenthesis()
+        public CharacterGroup NotParenthesis()
         {
             return ConcatInternal(Patterns.NotParenthesis());
         }
 
-        public CharGroup CurlyBracket()
+        public CharacterGroup CurlyBracket()
         {
             return ConcatInternal(Patterns.CurlyBracket());
         }
 
-        public CharGroup NotCurlyBracket()
+        public CharacterGroup NotCurlyBracket()
         {
             return ConcatInternal(Patterns.NotCurlyBracket());
         }
 
-        public CharGroup SquareBracket()
+        public CharacterGroup SquareBracket()
         {
             return ConcatInternal(Patterns.SquareBracket());
         }
 
-        public CharGroup NotSquareBracket()
+        public CharacterGroup NotSquareBracket()
         {
             return ConcatInternal(Patterns.NotSquareBracket());
         }

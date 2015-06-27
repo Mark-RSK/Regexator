@@ -3,7 +3,7 @@
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     internal sealed class NamedBlockCharGroup
-        : CharGroup
+        : CharacterGroup
     {
         private readonly NamedBlock _block;
         private readonly bool _negative;

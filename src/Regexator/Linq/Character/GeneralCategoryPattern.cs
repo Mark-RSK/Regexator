@@ -12,7 +12,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _category = category;
         }
 
-        public override CharGroup Invert()
+        public override CharacterGroup Invert()
         {
             return new GeneralCategoryCharGroup(_category, true);
         }

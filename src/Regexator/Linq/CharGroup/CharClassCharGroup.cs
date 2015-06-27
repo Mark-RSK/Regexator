@@ -3,7 +3,7 @@
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     internal sealed class CharClassCharGroup
-        : CharGroup
+        : CharacterGroup
     {
         private readonly CharClass _value;
 

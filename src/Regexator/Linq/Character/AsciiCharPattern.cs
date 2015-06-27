@@ -14,7 +14,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _value = value;
         }
 
-        public override CharGroup Invert()
+        public override CharacterGroup Invert()
         {
             return new AsciiCharGroup(_value, true);
         }

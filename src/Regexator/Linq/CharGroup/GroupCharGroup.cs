@@ -5,12 +5,12 @@ using System;
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     internal sealed class GroupCharGroup
-        : CharGroup
+        : CharacterGroup
     {
-        private readonly CharGroup _group;
+        private readonly CharacterGroup _group;
         private readonly bool _negative;
 
-        internal GroupCharGroup(CharGroup group, bool negative)
+        internal GroupCharGroup(CharacterGroup group, bool negative)
         {
             if (group == null)
             {

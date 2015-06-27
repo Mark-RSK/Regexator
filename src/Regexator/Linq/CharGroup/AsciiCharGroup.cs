@@ -5,7 +5,7 @@ using System;
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     internal sealed class AsciiCharGroup
-        : CharGroup
+        : CharacterGroup
     {
         private readonly AsciiChar _value;
         private readonly bool _negative;

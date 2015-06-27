@@ -206,12 +206,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Concat(CharGroupItems.NewLineChar());
         }
 
-        public CharGroup ToGroup()
+        public CharacterGroup ToGroup()
         {
             return new CharGroupItemGroup(this);
         }
 
-        public CharGroup ToNegativeGroup()
+        public CharacterGroup ToNegativeGroup()
         {
             return new CharGroupItemGroup(this, true);
         }
@@ -337,7 +337,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
-        public static CharGroup operator !(CharGroupItem value)
+        public static CharacterGroup operator !(CharGroupItem value)
         {
             if (value == null)
             {
