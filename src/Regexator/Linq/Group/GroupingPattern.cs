@@ -7,17 +7,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     /// <summary>
     /// Represents a base class for all kind of grouping constructs including assertions.
     /// </summary>
-    public abstract class GroupPattern
+    public abstract class GroupingPattern
         : QuantifiablePattern
     {
         private readonly object _content;
 
-        protected GroupPattern()
+        protected GroupingPattern()
             : base()
         {
         }
 
-        protected GroupPattern(object content)
+        protected GroupingPattern(object content)
             : base()
         {
             if (content == null)
@@ -28,7 +28,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _content = content;
         }
 
-        protected GroupPattern(GroupPattern group)
+        protected GroupingPattern(GroupingPattern group)
             : base()
         {
             if (group == null)

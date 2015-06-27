@@ -6,7 +6,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     /// A zero-width negative lookbehind assertion.
     /// </summary>
     public sealed class NotBackAssertion
-        : GroupPattern
+        : GroupingPattern
     {
         internal NotBackAssertion(object content)
             : base(content)

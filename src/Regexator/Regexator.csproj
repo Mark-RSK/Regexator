@@ -132,7 +132,7 @@
     <Compile Include="Linq\Pattern.cs" />
     <Compile Include="Linq\Pattern_.cs" />
     <Compile Include="Linq\Quantifier\CountQuantifier.cs" />
-    <Compile Include="Linq\Group\GroupPattern.cs" />
+    <Compile Include="Linq\Group\GroupingPattern.cs" />
     <Compile Include="Linq\IBaseGroup.cs" />
     <Compile Include="Core\IdentifierBoundary.cs" />
     <Compile Include="Linq\IExcludedGroup.cs" />

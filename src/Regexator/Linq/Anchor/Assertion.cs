@@ -9,7 +9,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     /// A zero-width positive lookahead assertion.
     /// </summary>
     public sealed class Assertion
-        : GroupPattern, IInvertible<NotAssertion>
+        : GroupingPattern, IInvertible<NotAssertion>
     {
         internal Assertion(object content)
             : base(content)

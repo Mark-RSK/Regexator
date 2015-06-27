@@ -3,7 +3,7 @@
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     internal sealed class NonbacktrackingGroup
-        : GroupPattern
+        : GroupingPattern
     {
         public NonbacktrackingGroup(object content)
             : base(content)

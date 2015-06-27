@@ -9,7 +9,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     /// A zero-width positive lookbehind assertion.
     /// </summary>
     public sealed class BackAssertion
-        : GroupPattern, IInvertible<NotBackAssertion>
+        : GroupingPattern, IInvertible<NotBackAssertion>
     {
         internal BackAssertion(object content)
             : base(content)

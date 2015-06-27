@@ -3,7 +3,7 @@
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     internal sealed class GroupOptions
-        : GroupPattern
+        : GroupingPattern
     {
         private readonly InlineOptions _applyOptions;
         private readonly InlineOptions _disableOptions;
