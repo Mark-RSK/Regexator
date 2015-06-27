@@ -9,6 +9,9 @@ using Pihrtsoft.Text.RegularExpressions.Extensions;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
+    /// <summary>
+    /// Represents a base class for regex patterns.
+    /// </summary>
     public abstract partial class Pattern
     {
         private string _value;

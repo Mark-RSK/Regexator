@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public partial class Pattern
+    public abstract partial class Pattern
     {
         public TPattern Not<TPattern>(IInvertible<TPattern> value) where TPattern : Pattern
         {

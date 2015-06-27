@@ -4,6 +4,9 @@ using System;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
+    /// <summary>
+    /// Represents a base class for all kind of grouping constructs including assertions.
+    /// </summary>
     public abstract class GroupPattern
         : QuantifiablePattern
     {
