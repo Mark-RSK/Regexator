@@ -2,17 +2,16 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal sealed class OneManyQuantifier
-        : QuantifiedPattern
+    public abstract partial class QuantifiedPattern
+        : Pattern
     {
-        public OneManyQuantifier()
-            : base()
+        protected QuantifiedPattern()
         {
         }
 
-        internal override void WriteTo(PatternWriter writer)
+        public Pattern Lazy()
         {
-            writer.WriteOneMany();
+            return ConcatInternal(new LazyQuantifier());
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public QuantifiedPattern Maybe()
         {
-            return ConcatInternal(new MaybeQuantifier());
+            return ConcatInternal(new QuantifiedGroup.MaybeQuantifiedPattern());
         }
 
 #if DEBUG
@@ -31,7 +31,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public QuantifiedPattern MaybeMany()
         {
-            return ConcatInternal(new MaybeManyQuantifier());
+            return ConcatInternal(new QuantifiedGroup.MaybeManyQuantifiedPattern());
         }
 
 #if DEBUG
@@ -50,7 +50,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public QuantifiedPattern OneMany()
         {
-            return ConcatInternal(new OneManyQuantifier());
+            return ConcatInternal(new QuantifiedGroup.OneManyQuantifiedPattern());
         }
 
 #if DEBUG
@@ -69,22 +69,22 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public QuantifiedPattern Count(int exactCount)
         {
-            return ConcatInternal(new CountQuantifier(exactCount));
+            return ConcatInternal(new QuantifiedGroup.CountQuantifiedPattern(exactCount));
         }
 
         public QuantifiedPattern Count(int minCount, int maxCount)
         {
-            return ConcatInternal(new CountQuantifier(minCount, maxCount));
+            return ConcatInternal(new QuantifiedGroup.CountQuantifiedPattern(minCount, maxCount));
         }
 
         public QuantifiedPattern CountFrom(int minCount)
         {
-            return ConcatInternal(new CountFromQuantifier(minCount));
+            return ConcatInternal(new QuantifiedGroup.CountFromQuantifiedPattern(minCount));
         }
 
         public QuantifiedPattern CountTo(int maxCount)
         {
-            return ConcatInternal(new CountQuantifier(0, maxCount));
+            return ConcatInternal(new QuantifiedGroup.CountQuantifiedPattern(0, maxCount));
         }
     }
 }

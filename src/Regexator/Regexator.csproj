@@ -88,8 +88,9 @@
     <Compile Include="Linq\CharacterPattern.cs" />
     <Compile Include="Linq\Pattern\AsciiCharSurroundPattern.cs" />
     <Compile Include="Linq\PatternOptions.cs" />
-    <Compile Include="Linq\Quantifier\LazyQuantifier.cs" />
-    <Compile Include="Linq\Quantifier\QuantifiedPattern.cs" />
+    <Compile Include="Linq\LazyQuantifier.cs" />
+    <Compile Include="Linq\QuantifiedPattern_.cs" />
+    <Compile Include="Linq\QuantifiedPattern.cs" />
     <Compile Include="Linq\Substitution\BeforeMatchSubstitution.cs" />
     <Compile Include="Linq\Substitution\AfterMatchSubstitution.cs" />
     <Compile Include="Linq\Substitution\EntireMatchSubstitution.cs" />
@@ -101,7 +102,6 @@
     <Compile Include="Linq\Pattern\Options.cs" />
     <Compile Include="Core\AsciiChar.cs" />
     <Compile Include="Linq\Pattern\LiteralPattern.cs" />
-    <Compile Include="Linq\Quantifier\CountFromQuantifier.cs" />
     <Compile Include="Linq\Group\BalancingGroup.cs" />
     <Compile Include="Linq\PatternWriter.cs" />
     <Compile Include="Linq\Anchor\StartOfInput.cs" />
@@ -114,7 +114,6 @@
     <Compile Include="Linq\Patterns.cs" />
     <Compile Include="Linq\Pattern.cs" />
     <Compile Include="Linq\Pattern_.cs" />
-    <Compile Include="Linq\Quantifier\CountQuantifier.cs" />
     <Compile Include="Linq\Group\GroupingPattern.cs" />
     <Compile Include="Linq\IBaseGroup.cs" />
     <Compile Include="Core\IdentifierBoundary.cs" />
@@ -128,9 +127,6 @@
     <Compile Include="Linq\Group\GroupOptions.cs" />
     <Compile Include="Linq\Group\AnyGroup.cs" />
     <Compile Include="Linq\Pattern\QuantifiablePattern.cs" />
-    <Compile Include="Linq\Quantifier\OneManyQuantifier.cs" />
-    <Compile Include="Linq\Quantifier\MaybeManyQuantifier.cs" />
-    <Compile Include="Linq\Quantifier\MaybeQuantifier.cs" />
     <Compile Include="Linq\Group\NumberedGroup.cs" />
     <Compile Include="Linq\Substitutions.cs" />
     <Compile Include="Linq\Substitution\NamedGroupSubstitution.cs" />
