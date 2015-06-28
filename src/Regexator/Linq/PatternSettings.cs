@@ -22,7 +22,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         public PatternSettings(PatternOptions options)
-            : this(options, IdentifierBoundary.LessThan)
+            : this(options, IdentifierBoundary.LessThanGreaterThan)
         {
         }
 

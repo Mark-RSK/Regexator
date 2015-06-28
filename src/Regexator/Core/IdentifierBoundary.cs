@@ -8,9 +8,9 @@ namespace Pihrtsoft.Text.RegularExpressions
     public enum IdentifierBoundary
     {
         /// <summary>
-        /// Group name will be enclosed in less than character on the left side and greater than character on the right side.
+        /// Group name will be enclosed in less-than character on the left side and greater-than character on the right side.
         /// </summary>
-        LessThan,
+        LessThanGreaterThan,
 
         /// <summary>
         /// Group name will be enclosed in apostrophes.
