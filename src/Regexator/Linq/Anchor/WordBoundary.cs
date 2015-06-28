@@ -6,14 +6,14 @@ using System.Diagnostics.CodeAnalysis;
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
-    /// Specifies that the match must occur on a boundary between a word character (\w) and a non-word character (\W). The match may also occur on a word boundary at the beginning or end of the string.
+    /// Specifies that the match must occur on a boundary between a word character (\w) and a non-word character (\W).
+    /// The match may also occur on a word boundary at the beginning or end of the string.
     /// </summary>
     public sealed class WordBoundary
         : QuantifiablePattern, IInvertible<NegativeWordBoundary>
     {
-
         /// <summary>
-        /// Returns a new instance of the <see cref="NotWordBoundary" class./>
+        /// Returns an instance of the <see cref="NotWordBoundary" class./>
         /// </summary>
         /// <returns></returns>
         public NegativeWordBoundary Invert()

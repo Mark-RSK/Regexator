@@ -8,12 +8,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     /// <summary>
     /// Represents a base class for a regex substitution.
     /// </summary>
-    public abstract class Substitution
+    public abstract partial class Substitution
     {
         private Substitution _previous;
 
         protected Substitution()
         {
+        }
+
+        public static Substitution Create(string text)
+        {
+            return new LiteralSubstitution(text);
         }
 
         internal Substitution Concat(Substitution substitution)
@@ -82,7 +87,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public Substitution Text(string value)
         {
-            return Concat(Substitutions.Text(value));
+            return Concat(Substitution.Create(value));
         }
 
         internal virtual string Value

@@ -6,37 +6,33 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
         public static Substitution NamedGroup(string groupName)
         {
-            return new NamedGroupSubstitution(groupName);
+            return new Substitution.NamedGroupSubstitution(groupName);
         }
 
         public static Substitution LastCapturedGroup()
         {
-            return new LastCapturedGroupSubstitution();
+            return new Substitution.LastCapturedGroupSubstitution();
         }
 
         public static Substitution EntireInput()
         {
-            return new EntireInputSubstitution();
+            return new Substitution.EntireInputSubstitution();
         }
 
         public static Substitution EntireMatch()
         {
-            return new EntireMatchSubstitution();
+            return new Substitution.EntireMatchSubstitution();
         }
 
         public static Substitution AfterMatch()
         {
-            return new AfterMatchSubstitution();
+            return new Substitution.AfterMatchSubstitution();
         }
 
         public static Substitution BeforeMatch()
         {
-            return new BeforeMatchSubstitution();
+            return new Substitution.BeforeMatchSubstitution();
         }
 
-        public static Substitution Text(string value)
-        {
-            return new TextSubstitution(value);
-        }
     }
 }

@@ -17,7 +17,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a new instance of the <see cref="NotAssertion" class./>
+        /// Returns an instance of the <see cref="NotAssertion" class./>
         /// </summary>
         /// <returns></returns>
         public NegativeAssertion Invert()

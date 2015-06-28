@@ -4,7 +4,10 @@ using System;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public abstract class QuantifiedGroup
+    /// <summary>
+    /// Represents a pattern that is quantified, i.e. the quantifier is applied on it. If required, pattern will be enclosed in the the (noncapturing) group.
+    /// </summary>
+    public abstract partial class QuantifiedGroup
         : QuantifiedPattern
     {
         private readonly object _content;

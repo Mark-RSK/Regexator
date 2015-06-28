@@ -2,6 +2,9 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
+    /// <summary>
+    /// Represents a pattern that is quantified, i.e. the quantifier is applied on it.
+    /// </summary>
     public abstract partial class QuantifiedPattern
         : Pattern
     {
@@ -9,6 +12,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
         }
 
+        /// <summary>
+        /// Specifies that the quantifier is lazy. Quantified pattern will be matched as few times as possible.
+        /// </summary>
+        /// <returns></returns>
         public Pattern Lazy()
         {
             return ConcatInternal(new LazyQuantifier());
