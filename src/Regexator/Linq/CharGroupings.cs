@@ -93,12 +93,22 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharGrouping LetterLower()
         {
-            return GeneralCategory(RegularExpressions.GeneralCategory.LetterLowercase);
+            return CharGrouping.Create(RegularExpressions.GeneralCategory.LetterLowercase);
+        }
+
+        public static CharGrouping NotLetterLower()
+        {
+            return CharGrouping.Create(RegularExpressions.GeneralCategory.LetterLowercase, true);
         }
 
         public static CharGrouping LetterUpper()
         {
-            return GeneralCategory(RegularExpressions.GeneralCategory.LetterUppercase);
+            return CharGrouping.Create(RegularExpressions.GeneralCategory.LetterUppercase);
+        }
+
+        public static CharGrouping NotLetterUpper()
+        {
+            return CharGrouping.Create(RegularExpressions.GeneralCategory.LetterUppercase, true);
         }
 
         public static CharGrouping ArabicDigit()
