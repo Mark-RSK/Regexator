@@ -50,7 +50,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("pattern");
             }
 
-            return ConcatInternal(pattern.AsContainer());
+            return ConcatInternal(new ContainerPattern(pattern));
         }
 
 #if DEBUG
@@ -183,11 +183,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         internal virtual void WriteTo(PatternWriter writer)
         {
 
-        }
-
-        internal Pattern AsContainer()
-        {
-            return new ContainerPattern(this);
         }
 
         public MatchCollection Matches(string input)
