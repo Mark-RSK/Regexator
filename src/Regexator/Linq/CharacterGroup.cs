@@ -81,7 +81,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         public CharacterGroup Invert()
         {
-            return new CharacterGroupGroup(this, !Negative);
+            return new CharacterGroupCharacterGroup(this, !Negative);
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
