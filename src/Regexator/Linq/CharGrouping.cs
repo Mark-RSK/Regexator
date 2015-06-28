@@ -25,7 +25,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static CharGrouping Create(string characters)
         {
-            return new Characters(characters);
+            return new CharactersCharGrouping(characters);
         }
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static CharGrouping Create(char value)
         {
-            return new Character(value);
+            return new CharacterCharGrouping(value);
         }
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static CharGrouping Create(char first, char last)
         {
-            return new CharacterRange(first, last);
+            return new CharacterRangeCharGrouping(first, last);
         }
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static CharGrouping Create(int charCode)
         {
-            return new CharacterCode(charCode);
+            return new CharacterCodeCharGrouping(charCode);
         }
 
         /// <summary>
@@ -67,7 +67,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static CharGrouping Create(int firstCharCode, int lastCharCode)
         {
-            return new CharacterCodeRange(firstCharCode, lastCharCode);
+            return new CharacterCodeRangeCharGrouping(firstCharCode, lastCharCode);
         }
 
         /// <summary>
@@ -77,7 +77,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static CharGrouping Create(AsciiChar value)
         {
-            return new AsciiCharacter(value);
+            return new AsciiCharacterCharGrouping(value);
         }
 
         /// <summary>
@@ -92,7 +92,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharGrouping Create(NamedBlock block, bool negative)
         {
-            return new UnicodeNamedBlock(block, negative);
+            return new NamedBlockCharGrouping(block, negative);
         }
 
         /// <summary>
@@ -107,12 +107,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static CharGrouping Create(GeneralCategory category, bool negative)
         {
-            return new UnicodeGeneralCategory(category, negative);
+            return new GeneralCategoryCharGrouping(category, negative);
         }
 
         internal static CharGrouping Create(CharClass value)
         {
-            return new CharacterClass(value);
+            return new CharacterClassCharGrouping(value);
         }
 
         private CharGrouping Concat(CharGrouping value)
