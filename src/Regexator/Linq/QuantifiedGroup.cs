@@ -26,14 +26,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override void WriteTo(PatternWriter writer)
         {
-            if (AddGroup)
+            bool addGroup = AddGroup;
+
+            if (addGroup)
             {
                 writer.WriteNoncapturingGroupStart();
             }
 
             writer.WriteGroupContent(Content);
 
-            if (AddGroup)
+            if (addGroup)
             {
                 writer.WriteGroupEnd();
             }
