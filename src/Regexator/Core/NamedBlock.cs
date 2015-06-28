@@ -2,441 +2,658 @@
 
 using System.ComponentModel;
 
-//TODO add xml comments
-
 namespace Pihrtsoft.Text.RegularExpressions
 {
+    /// <summary>
+    /// Specifies the Unicode named block. The set of supported named blocks is based on Unicode 4.0.
+    /// </summary>
     public enum NamedBlock
     {
-        ///<summary>Code point range FB00 - FB4F</summary>
+        /// <summary>
+        /// Pattern is \p{IsAlphabeticPresentationForms}, code point range is FB00 - FB4F.
+        /// </summary>
         [Description("FB00 - FB4F")]
         AlphabeticPresentationForms,
 
-        ///<summary>Code point range 0600 - 06FF</summary>
+        /// <summary>
+        /// Pattern is \p{IsArabic}, code point range is 0600 - 06FF.
+        /// </summary>
         [Description("0600 - 06FF")]
         Arabic,
 
-        ///<summary>Code point range FB50 - FDFF</summary>
+        /// <summary>
+        /// Pattern is \p{IsArabicPresentationForms-A}, code point range is FB50 - FDFF.
+        /// </summary>
         [Description("FB50 - FDFF")]
         ArabicPresentationFormsA,
 
-        ///<summary>Code point range FE70 - FEFF</summary>
+        /// <summary>
+        /// Pattern is \p{IsArabicPresentationForms-B}, code point range is FE70 - FEFF.
+        /// </summary>
         [Description("FE70 - FEFF")]
         ArabicPresentationFormsB,
 
-        ///<summary>Code point range 0530 - 058F</summary>
+        /// <summary>
+        /// Pattern is \p{IsArmenian}, code point range is 0530 - 058F.
+        /// </summary>
         [Description("0530 - 058F")]
         Armenian,
 
-        ///<summary>Code point range 2190 - 21FF</summary>
+        /// <summary>
+        /// Pattern is \p{IsArrows}, code point range is 2190 - 21FF.
+        /// </summary>
         [Description("2190 - 21FF")]
         Arrows,
 
-        ///<summary>Code point range 0000 - 007F</summary>
+        /// <summary>
+        /// Pattern is \p{IsBasicLatin}, code point range is 0000 - 007F.
+        /// </summary>
         [Description("0000 - 007F")]
         BasicLatin,
 
-        ///<summary>Code point range 0980 - 09FF</summary>
+        /// <summary>
+        /// Pattern is \p{IsBengali}, code point range is 0980 - 09FF.
+        /// </summary>
         [Description("0980 - 09FF")]
         Bengali,
 
-        ///<summary>Code point range 2580 - 259F</summary>
+        /// <summary>
+        /// Pattern is \p{IsBlockElements}, code point range is 2580 - 259F.
+        /// </summary>
         [Description("2580 - 259F")]
         BlockElements,
 
-        ///<summary>Code point range 3100 - 312F</summary>
+        /// <summary>
+        /// Pattern is \p{IsBopomofo}, code point range is 3100 - 312F.
+        /// </summary>
         [Description("3100 - 312F")]
         Bopomofo,
 
-        ///<summary>Code point range 31A0 - 31BF</summary>
+        /// <summary>
+        /// Pattern is \p{IsBopomofoExtended}, code point range is 31A0 - 31BF.
+        /// </summary>
         [Description("31A0 - 31BF")]
         BopomofoExtended,
 
-        ///<summary>Code point range 2500 - 257F</summary>
+        /// <summary>
+        /// Pattern is \p{IsBoxDrawing}, code point range is 2500 - 257F.
+        /// </summary>
         [Description("2500 - 257F")]
         BoxDrawing,
 
-        ///<summary>Code point range 2800 - 28FF</summary>
+        /// <summary>
+        /// Pattern is \p{IsBraillePatterns}, code point range is 2800 - 28FF.
+        /// </summary>
         [Description("2800 - 28FF")]
         BraillePatterns,
 
-        ///<summary>Code point range 1740 - 175F</summary>
+        /// <summary>
+        /// Pattern is \p{IsBuhid}, code point range is 1740 - 175F.
+        /// </summary>
         [Description("1740 - 175F")]
         Buhid,
 
-        ///<summary>Code point range 3300 - 33FF</summary>
+        /// <summary>
+        /// Pattern is \p{IsCJKCompatibility}, code point range is 3300 - 33FF.
+        /// </summary>
         [Description("3300 - 33FF")]
         CJKCompatibility,
 
-        ///<summary>Code point range FE30 - FE4F</summary>
+        /// <summary>
+        /// Pattern is \p{IsCJKCompatibilityForms}, code point range is FE30 - FE4F.
+        /// </summary>
         [Description("FE30 - FE4F")]
         CJKCompatibilityForms,
 
-        ///<summary>Code point range F900 - FAFF</summary>
+        /// <summary>
+        /// Pattern is \p{IsCJKCompatibilityIdeographs}, code point range is F900 - FAFF.
+        /// </summary>
         [Description("F900 - FAFF")]
         CJKCompatibilityIdeographs,
 
-        ///<summary>Code point range 2E80 - 2EFF</summary>
+        /// <summary>
+        /// Pattern is \p{IsCJKRadicalsSupplement}, code point range is 2E80 - 2EFF.
+        /// </summary>
         [Description("2E80 - 2EFF")]
         CJKRadicalsSupplement,
 
-        ///<summary>Code point range 3000 - 303F</summary>
+        /// <summary>
+        /// Pattern is \p{IsCJKSymbolsandPunctuation}, code point range is 3000 - 303F.
+        /// </summary>
         [Description("3000 - 303F")]
         CJKSymbolsAndPunctuation,
 
-        ///<summary>Code point range 4E00 - 9FFF</summary>
+        /// <summary>
+        /// Pattern is \p{IsCJKUnifiedIdeographs}, code point range is 4E00 - 9FFF.
+        /// </summary>
         [Description("4E00 - 9FFF")]
         CJKUnifiedIdeographs,
 
-        ///<summary>Code point range 3400 - 4DBF</summary>
+        /// <summary>
+        /// Pattern is \p{IsCJKUnifiedIdeographsExtensionA}, code point range is 3400 - 4DBF.
+        /// </summary>
         [Description("3400 - 4DBF")]
         CJKUnifiedIdeographsExtensionA,
 
-        ///<summary>Code point range 0300 - 036F</summary>
+        /// <summary>
+        /// Pattern is \p{IsCombiningDiacriticalMarks}, code point range is 0300 - 036F.
+        /// </summary>
         [Description("0300 - 036F")]
         CombiningDiacriticalMarks,
 
-        ///<summary>Code point range 20D0 - 20FF</summary>
+        /// <summary>
+        /// Pattern is \p{IsCombiningDiacriticalMarksforSymbols}, code point range is 20D0 - 20FF.
+        /// </summary>
         [Description("20D0 - 20FF")]
         CombiningDiacriticalMarksForSymbols,
 
-        ///<summary>Code point range FE20 - FE2F</summary>
+        /// <summary>
+        /// Pattern is \p{IsCombiningHalfMarks}, code point range is FE20 - FE2F.
+        /// </summary>
         [Description("FE20 - FE2F")]
         CombiningHalfMarks,
 
-        ///<summary>Code point range 20D0 - 20FF</summary>
+        /// <summary>
+        /// Pattern is \p{IsCombiningMarksforSymbols}, code point range is 20D0 - 20FF.
+        /// </summary>
         [Description("20D0 - 20FF")]
         CombiningMarksForSymbols,
 
-        ///<summary>Code point range 2400 - 243F</summary>
+        /// <summary>
+        /// Pattern is \p{IsControlPictures}, code point range is 2400 - 243F.
+        /// </summary>
         [Description("2400 - 243F")]
         ControlPictures,
 
-        ///<summary>Code point range 20A0 - 20CF</summary>
+        /// <summary>
+        /// Pattern is \p{IsCurrencySymbols}, code point range is 20A0 - 20CF.
+        /// </summary>
         [Description("20A0 - 20CF")]
         CurrencySymbols,
 
-        ///<summary>Code point range 0400 - 04FF</summary>
+        /// <summary>
+        /// Pattern is \p{IsCyrillic}, code point range is 0400 - 04FF.
+        /// </summary>
         [Description("0400 - 04FF")]
         Cyrillic,
 
-        ///<summary>Code point range 0500 - 052F</summary>
+        /// <summary>
+        /// Pattern is \p{IsCyrillicSupplement}, code point range is 0500 - 052F.
+        /// </summary>
         [Description("0500 - 052F")]
         CyrillicSupplement,
 
-        ///<summary>Code point range 0900 - 097F</summary>
+        /// <summary>
+        /// Pattern is \p{IsDevanagari}, code point range is 0900 - 097F.
+        /// </summary>
         [Description("0900 - 097F")]
         Devanagari,
 
-        ///<summary>Code point range 2700 - 27BF</summary>
+        /// <summary>
+        /// Pattern is \p{IsDingbats}, code point range is 2700 - 27BF.
+        /// </summary>
         [Description("2700 - 27BF")]
         Dingbats,
 
-        ///<summary>Code point range 2460 - 24FF</summary>
+        /// <summary>
+        /// Pattern is \p{IsEnclosedAlphanumerics}, code point range is 2460 - 24FF.
+        /// </summary>
         [Description("2460 - 24FF")]
         EnclosedAlphanumerics,
 
-        ///<summary>Code point range 3200 - 32FF</summary>
+        /// <summary>
+        /// Pattern is \p{IsEnclosedCJKLettersandMonths}, code point range is 3200 - 32FF.
+        /// </summary>
         [Description("3200 - 32FF")]
         EnclosedCJKLettersAndMonths,
 
-        ///<summary>Code point range 1200 - 137F</summary>
+        /// <summary>
+        /// Pattern is \p{IsEthiopic}, code point range is 1200 - 137F.
+        /// </summary>
         [Description("1200 - 137F")]
         Ethiopic,
 
-        ///<summary>Code point range 2000 - 206F</summary>
+        /// <summary>
+        /// Pattern is \p{IsGeneralPunctuation}, code point range is 2000 - 206F.
+        /// </summary>
         [Description("2000 - 206F")]
         GeneralPunctuation,
 
-        ///<summary>Code point range 25A0 - 25FF</summary>
+        /// <summary>
+        /// Pattern is \p{IsGeometricShapes}, code point range is 25A0 - 25FF.
+        /// </summary>
         [Description("25A0 - 25FF")]
         GeometricShapes,
 
-        ///<summary>Code point range 10A0 - 10FF</summary>
+        /// <summary>
+        /// Pattern is \p{IsGeorgian}, code point range is 10A0 - 10FF.
+        /// </summary>
         [Description("10A0 - 10FF")]
         Georgian,
 
-        ///<summary>Code point range 0370 - 03FF</summary>
+        /// <summary>
+        /// Pattern is \p{IsGreek}, code point range is 0370 - 03FF.
+        /// </summary>
         [Description("0370 - 03FF")]
         Greek,
 
-        ///<summary>Code point range 0370 - 03FF</summary>
+        /// <summary>
+        /// Pattern is \p{IsGreekandCoptic}, code point range is 0370 - 03FF.
+        /// </summary>
         [Description("0370 - 03FF")]
         GreekAndCoptic,
 
-        ///<summary>Code point range 1F00 - 1FFF</summary>
+        /// <summary>
+        /// Pattern is \p{IsGreekExtended}, code point range is 1F00 - 1FFF.
+        /// </summary>
         [Description("1F00 - 1FFF")]
         GreekExtended,
 
-        ///<summary>Code point range 0A80 - 0AFF</summary>
+        /// <summary>
+        /// Pattern is \p{IsGujarati}, code point range is 0A80 - 0AFF.
+        /// </summary>
         [Description("0A80 - 0AFF")]
         Gujarati,
 
-        ///<summary>Code point range 0A00 - 0A7F</summary>
+        /// <summary>
+        /// Pattern is \p{IsGurmukhi}, code point range is 0A00 - 0A7F.
+        /// </summary>
         [Description("0A00 - 0A7F")]
         Gurmukhi,
 
-        ///<summary>Code point range FF00 - FFEF</summary>
+        /// <summary>
+        /// Pattern is \p{IsHalfwidthandFullwidthForms}, code point range is FF00 - FFEF.
+        /// </summary>
         [Description("FF00 - FFEF")]
         HalfWidthAndFullWidthForms,
 
-        ///<summary>Code point range 3130 - 318F</summary>
+        /// <summary>
+        /// Pattern is \p{IsHangulCompatibilityJamo}, code point range is 3130 - 318F.
+        /// </summary>
         [Description("3130 - 318F")]
         HangulCompatibilityJamo,
 
-        ///<summary>Code point range 1100 - 11FF</summary>
+        /// <summary>
+        /// Pattern is \p{IsHangulJamo}, code point range is 1100 - 11FF.
+        /// </summary>
         [Description("1100 - 11FF")]
         HangulJamo,
 
-        ///<summary>Code point range AC00 - D7AF</summary>
+        /// <summary>
+        /// Pattern is \p{IsHangulSyllables}, code point range is AC00 - D7AF.
+        /// </summary>
         [Description("AC00 - D7AF")]
         HangulSyllables,
 
-        ///<summary>Code point range 1720 - 173F</summary>
+        /// <summary>
+        /// Pattern is \p{IsHanunoo}, code point range is 1720 - 173F.
+        /// </summary>
         [Description("1720 - 173F")]
         Hanunoo,
 
-        ///<summary>Code point range 0590 - 05FF</summary>
+        /// <summary>
+        /// Pattern is \p{IsHebrew}, code point range is 0590 - 05FF.
+        /// </summary>
         [Description("0590 - 05FF")]
         Hebrew,
 
-        ///<summary>Code point range DB80 - DBFF</summary>
+        /// <summary>
+        /// Pattern is \p{IsHighPrivateUseSurrogates}, code point range is DB80 - DBFF.
+        /// </summary>
         [Description("DB80 - DBFF")]
         HighPrivateUseSurrogates,
 
-        ///<summary>Code point range D800 - DB7F</summary>
+        /// <summary>
+        /// Pattern is \p{IsHighSurrogates}, code point range is D800 - DB7F.
+        /// </summary>
         [Description("D800 - DB7F")]
         HighSurrogates,
 
-        ///<summary>Code point range 3040 - 309F</summary>
+        /// <summary>
+        /// Pattern is \p{IsHiragana}, code point range is 3040 - 309F.
+        /// </summary>
         [Description("3040 - 309F")]
         Hiragana,
 
-        ///<summary>Code point range 13A0 - 13FF</summary>
+        /// <summary>
+        /// Pattern is \p{IsCherokee}, code point range is 13A0 - 13FF.
+        /// </summary>
         [Description("13A0 - 13FF")]
         Cherokee,
 
-        ///<summary>Code point range 2FF0 - 2FFF</summary>
+        /// <summary>
+        /// Pattern is \p{IsIdeographicDescriptionCharacters}, code point range is 2FF0 - 2FFF.
+        /// </summary>
         [Description("2FF0 - 2FFF")]
         IdeographicDescriptionCharacters,
 
-        ///<summary>Code point range 0250 - 02AF</summary>
+        /// <summary>
+        /// Pattern is \p{IsIPAExtensions}, code point range is 0250 - 02AF.
+        /// </summary>
         [Description("0250 - 02AF")]
         IPAExtensions,
 
-        ///<summary>Code point range 3190 - 319F</summary>
+        /// <summary>
+        /// Pattern is \p{IsKanbun}, code point range is 3190 - 319F.
+        /// </summary>
         [Description("3190 - 319F")]
         Kanbun,
 
-        ///<summary>Code point range 2F00 - 2FDF</summary>
+        /// <summary>
+        /// Pattern is \p{IsKangxiRadicals}, code point range is 2F00 - 2FDF.
+        /// </summary>
         [Description("2F00 - 2FDF")]
         KangxiRadicals,
 
-        ///<summary>Code point range 0C80 - 0CFF</summary>
+        /// <summary>
+        /// Pattern is \p{IsKannada}, code point range is 0C80 - 0CFF.
+        /// </summary>
         [Description("0C80 - 0CFF")]
         Kannada,
 
-        ///<summary>Code point range 30A0 - 30FF</summary>
+        /// <summary>
+        /// Pattern is \p{IsKatakana}, code point range is 30A0 - 30FF.
+        /// </summary>
         [Description("30A0 - 30FF")]
         Katakana,
 
-        ///<summary>Code point range 31F0 - 31FF</summary>
+        /// <summary>
+        /// Pattern is \p{IsKatakanaPhoneticExtensions}, code point range is 31F0 - 31FF.
+        /// </summary>
         [Description("31F0 - 31FF")]
         KatakanaPhoneticExtensions,
 
-        ///<summary>Code point range 1780 - 17FF</summary>
+        /// <summary>
+        /// Pattern is \p{IsKhmer}, code point range is 1780 - 17FF.
+        /// </summary>
         [Description("1780 - 17FF")]
         Khmer,
 
-        ///<summary>Code point range 19E0 - 19FF</summary>
+        /// <summary>
+        /// Pattern is \p{IsKhmerSymbols}, code point range is 19E0 - 19FF.
+        /// </summary>
         [Description("19E0 - 19FF")]
         KhmerSymbols,
 
-        ///<summary>Code point range 0E80 - 0EFF</summary>
+        /// <summary>
+        /// Pattern is \p{IsLao}, code point range is 0E80 - 0EFF.
+        /// </summary>
         [Description("0E80 - 0EFF")]
         Lao,
 
-        ///<summary>Code point range 0080 - 00FF</summary>
+        /// <summary>
+        /// Pattern is \p{IsLatin-1Supplement}, code point range is 0080 - 00FF.
+        /// </summary>
         [Description("0080 - 00FF")]
         Latin1Supplement,
 
-        ///<summary>Code point range 0100 - 017F</summary>
+        /// <summary>
+        /// Pattern is \p{IsLatinExtended-A}, code point range is 0100 - 017F.
+        /// </summary>
         [Description("0100 - 017F")]
         LatinExtendedA,
 
-        ///<summary>Code point range 1E00 - 1EFF</summary>
+        /// <summary>
+        /// Pattern is \p{IsLatinExtendedAdditional}, code point range is 1E00 - 1EFF.
+        /// </summary>
         [Description("1E00 - 1EFF")]
         LatinExtendedAdditional,
 
-        ///<summary>Code point range 0180 - 024F</summary>
+        /// <summary>
+        /// Pattern is \p{IsLatinExtended-B}, code point range is 0180 - 024F.
+        /// </summary>
         [Description("0180 - 024F")]
         LatinExtendedB,
 
-        ///<summary>Code point range 2100 - 214F</summary>
+        /// <summary>
+        /// Pattern is \p{IsLetterlikeSymbols}, code point range is 2100 - 214F.
+        /// </summary>
         [Description("2100 - 214F")]
         LetterLikeSymbols,
 
-        ///<summary>Code point range 1900 - 194F</summary>
+        /// <summary>
+        /// Pattern is \p{IsLimbu}, code point range is 1900 - 194F.
+        /// </summary>
         [Description("1900 - 194F")]
         Limbu,
 
-        ///<summary>Code point range DC00 - DFFF</summary>
+        /// <summary>
+        /// Pattern is \p{IsLowSurrogates}, code point range is DC00 - DFFF.
+        /// </summary>
         [Description("DC00 - DFFF")]
         LowSurrogates,
 
-        ///<summary>Code point range 0D00 - 0D7F</summary>
+        /// <summary>
+        /// Pattern is \p{IsMalayalam}, code point range is 0D00 - 0D7F.
+        /// </summary>
         [Description("0D00 - 0D7F")]
         Malayalam,
 
-        ///<summary>Code point range 2200 - 22FF</summary>
+        /// <summary>
+        /// Pattern is \p{IsMathematicalOperators}, code point range is 2200 - 22FF.
+        /// </summary>
         [Description("2200 - 22FF")]
         MathematicalOperators,
 
-        ///<summary>Code point range 27C0 - 27EF</summary>
+        /// <summary>
+        /// Pattern is \p{IsMiscellaneousMathematicalSymbols-A}, code point range is 27C0 - 27EF.
+        /// </summary>
         [Description("27C0 - 27EF")]
         MiscellaneousMathematicalSymbolsA,
 
-        ///<summary>Code point range 2980 - 29FF</summary>
+        /// <summary>
+        /// Pattern is \p{IsMiscellaneousMathematicalSymbols-B}, code point range is 2980 - 29FF.
+        /// </summary>
         [Description("2980 - 29FF")]
         MiscellaneousMathematicalSymbolsB,
 
-        ///<summary>Code point range 2600 - 26FF</summary>
+        /// <summary>
+        /// Pattern is \p{IsMiscellaneousSymbols}, code point range is 2600 - 26FF.
+        /// </summary>
         [Description("2600 - 26FF")]
         MiscellaneousSymbols,
 
-        ///<summary>Code point range 2B00 - 2BFF</summary>
+        /// <summary>
+        /// Pattern is \p{IsMiscellaneousSymbolsandArrows}, code point range is 2B00 - 2BFF.
+        /// </summary>
         [Description("2B00 - 2BFF")]
         MiscellaneousSymbolsAndArrows,
 
-        ///<summary>Code point range 2300 - 23FF</summary>
+        /// <summary>
+        /// Pattern is \p{IsMiscellaneousTechnical}, code point range is 2300 - 23FF.
+        /// </summary>
         [Description("2300 - 23FF")]
         MiscellaneousTechnical,
 
-        ///<summary>Code point range 1800 - 18AF</summary>
+        /// <summary>
+        /// Pattern is \p{IsMongolian}, code point range is 1800 - 18AF.
+        /// </summary>
         [Description("1800 - 18AF")]
         Mongolian,
 
-        ///<summary>Code point range 1000 - 109F</summary>
+        /// <summary>
+        /// Pattern is \p{IsMyanmar}, code point range is 1000 - 109F.
+        /// </summary>
         [Description("1000 - 109F")]
         Myanmar,
 
-        ///<summary>Code point range 2150 - 218F</summary>
+        /// <summary>
+        /// Pattern is \p{IsNumberForms}, code point range is 2150 - 218F.
+        /// </summary>
         [Description("2150 - 218F")]
         NumberForms,
 
-        ///<summary>Code point range 1680 - 169F</summary>
+        /// <summary>
+        /// Pattern is \p{IsOgham}, code point range is 1680 - 169F.
+        /// </summary>
         [Description("1680 - 169F")]
         Ogham,
 
-        ///<summary>Code point range 2440 - 245F</summary>
+        /// <summary>
+        /// Pattern is \p{IsOpticalCharacterRecognition}, code point range is 2440 - 245F.
+        /// </summary>
         [Description("2440 - 245F")]
         OpticalCharacterRecognition,
 
-        ///<summary>Code point range 0B00 - 0B7F</summary>
+        /// <summary>
+        /// Pattern is \p{IsOriya}, code point range is 0B00 - 0B7F.
+        /// </summary>
         [Description("0B00 - 0B7F")]
         Oriya,
 
-        ///<summary>Code point range 1D00 - 1D7F</summary>
+        /// <summary>
+        /// Pattern is \p{IsPhoneticExtensions}, code point range is 1D00 - 1D7F.
+        /// </summary>
         [Description("1D00 - 1D7F")]
         PhoneticExtensions,
 
-        ///<summary>Code point range E000 - F8FF</summary>
+        /// <summary>
+        /// Pattern is \p{IsPrivateUse}, code point range is E000 - F8FF.
+        /// </summary>
         [Description("E000 - F8FF")]
         PrivateUse,
 
-        ///<summary>Code point range E000 - F8FF</summary>
+        /// <summary>
+        /// Pattern is \p{IsPrivateUseArea}, code point range is E000 - F8FF.
+        /// </summary>
         [Description("E000 - F8FF")]
         PrivateUseArea,
 
-        ///<summary>Code point range 16A0 - 16FF</summary>
+        /// <summary>
+        /// Pattern is \p{IsRunic}, code point range is 16A0 - 16FF.
+        /// </summary>
         [Description("16A0 - 16FF")]
         Runic,
 
-        ///<summary>Code point range 0D80 - 0DFF</summary>
+        /// <summary>
+        /// Pattern is \p{IsSinhala}, code point range is 0D80 - 0DFF.
+        /// </summary>
         [Description("0D80 - 0DFF")]
         Sinhala,
 
-        ///<summary>Code point range FE50 - FE6F</summary>
+        /// <summary>
+        /// Pattern is \p{IsSmallFormVariants}, code point range is FE50 - FE6F.
+        /// </summary>
         [Description("FE50 - FE6F")]
         SmallFormVariants,
 
-        ///<summary>Code point range 02B0 - 02FF</summary>
+        /// <summary>
+        /// Pattern is \p{IsSpacingModifierLetters}, code point range is 02B0 - 02FF.
+        /// </summary>
         [Description("02B0 - 02FF")]
         SpacingModifierLetters,
 
-        ///<summary>Code point range FFF0 - FFFF</summary>
+        /// <summary>
+        /// Pattern is \p{IsSpecials}, code point range is FFF0 - FFFF.
+        /// </summary>
         [Description("FFF0 - FFFF")]
         Specials,
 
-        ///<summary>Code point range 2070 - 209F</summary>
+        /// <summary>
+        /// Pattern is \p{IsSuperscriptsandSubscripts}, code point range is 2070 - 209F.
+        /// </summary>
         [Description("2070 - 209F")]
         SuperscriptsAndSubscripts,
 
-        ///<summary>Code point range 27F0 - 27FF</summary>
+        /// <summary>
+        /// Pattern is \p{IsSupplementalArrows-A}, code point range is 27F0 - 27FF.
+        /// </summary>
         [Description("27F0 - 27FF")]
         SupplementalArrowsA,
 
-        ///<summary>Code point range 2900 - 297F</summary>
+        /// <summary>
+        /// Pattern is \p{IsSupplementalArrows-B}, code point range is 2900 - 297F.
+        /// </summary>
         [Description("2900 - 297F")]
         SupplementalArrowsB,
 
-        ///<summary>Code point range 2A00 - 2AFF</summary>
+        /// <summary>
+        /// Pattern is \p{IsSupplementalMathematicalOperators}, code point range is 2A00 - 2AFF.
+        /// </summary>
         [Description("2A00 - 2AFF")]
         SupplementalMathematicalOperators,
 
-        ///<summary>Code point range 0700 - 074F</summary>
+        /// <summary>
+        /// Pattern is \p{IsSyriac}, code point range is 0700 - 074F.
+        /// </summary>
         [Description("0700 - 074F")]
         Syriac,
 
-        ///<summary>Code point range 1700 - 171F</summary>
+        /// <summary>
+        /// Pattern is \p{IsTagalog}, code point range is 1700 - 171F.
+        /// </summary>
         [Description("1700 - 171F")]
         Tagalog,
 
-        ///<summary>Code point range 1760 - 177F</summary>
+        /// <summary>
+        /// Pattern is \p{IsTagbanwa}, code point range is 1760 - 177F.
+        /// </summary>
         [Description("1760 - 177F")]
         Tagbanwa,
 
-        ///<summary>Code point range 1950 - 197F</summary>
+        /// <summary>
+        /// Pattern is \p{IsTaiLe}, code point range is 1950 - 197F.
+        /// </summary>
         [Description("1950 - 197F")]
         TaiLe,
 
-        ///<summary>Code point range 0B80 - 0BFF</summary>
+        /// <summary>
+        /// Pattern is \p{IsTamil}, code point range is 0B80 - 0BFF.
+        /// </summary>
         [Description("0B80 - 0BFF")]
         Tamil,
 
-        ///<summary>Code point range 0C00 - 0C7F</summary>
+        /// <summary>
+        /// Pattern is \p{IsTelugu}, code point range is 0C00 - 0C7F.
+        /// </summary>
         [Description("0C00 - 0C7F")]
         Telugu,
 
-        ///<summary>Code point range 0780 - 07BF</summary>
+        /// <summary>
+        /// Pattern is \p{IsThaana}, code point range is 0780 - 07BF.
+        /// </summary>
         [Description("0780 - 07BF")]
         Thaana,
 
-        ///<summary>Code point range 0E00 - 0E7F</summary>
+        /// <summary>
+        /// Pattern is \p{IsThai}, code point range is 0E00 - 0E7F.
+        /// </summary>
         [Description("0E00 - 0E7F")]
         Thai,
 
-        ///<summary>Code point range 0F00 - 0FFF</summary>
+        /// <summary>
+        /// Pattern is \p{IsTibetan}, code point range is 0F00 - 0FFF.
+        /// </summary>
         [Description("0F00 - 0FFF")]
         Tibetan,
 
-        ///<summary>Code point range 1400 - 167F</summary>
+        /// <summary>
+        /// Pattern is \p{IsUnifiedCanadianAboriginalSyllabics}, code point range is 1400 - 167F.
+        /// </summary>
         [Description("1400 - 167F")]
         UnifiedCanadianAboriginalSyllabics,
 
-        ///<summary>Code point range FE00 - FE0F</summary>
+        /// <summary>
+        /// Pattern is \p{IsVariationSelectors}, code point range is FE00 - FE0F.
+        /// </summary>
         [Description("FE00 - FE0F")]
         VariationSelectors,
 
-        ///<summary>Code point range 4DC0 - 4DFF</summary>
+        /// <summary>
+        /// Pattern is \p{IsYijingHexagramSymbols}, code point range is 4DC0 - 4DFF.
+        /// </summary>
         [Description("4DC0 - 4DFF")]
         YijingHexagramSymbols,
 
-        ///<summary>Code point range A490 - A4CF</summary>
+        /// <summary>
+        /// Pattern is \p{IsYiRadicals}, code point range is A490 - A4CF.
+        /// </summary>
         [Description("A490 - A4CF")]
         YiRadicals,
 
-        ///<summary>Code point range A000 - A48F</summary>
+        /// <summary>
+        /// Pattern is \p{IsYiSyllables}, code point range is A000 - A48F.
+        /// </summary>
         [Description("A000 - A48F")]
         YiSyllables,
     }

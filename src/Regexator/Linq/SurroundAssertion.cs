@@ -3,10 +3,11 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
 
-//TODO add xml comments
-
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
+    /// <summary>
+    /// A pattern consisting of a base pattern that is surrounded with patterns interpreted as lookbehind and lookahead assertion, respectively.
+    /// </summary>
     public sealed class SurroundAssertion
         : Pattern, IInvertible<NegativeSurroundAssertion>
     {
@@ -36,6 +37,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _contentAfter = contentAfter;
         }
 
+        /// <summary>
+        /// Returns an instance of the <see cref="NegativeSurroundAssertion"/> class.
+        /// </summary>
+        /// <returns></returns>
         public NegativeSurroundAssertion Invert()
         {
             return new NegativeSurroundAssertion(_contentBefore, _content, _contentAfter);

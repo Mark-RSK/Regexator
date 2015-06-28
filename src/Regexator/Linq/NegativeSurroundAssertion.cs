@@ -4,8 +4,9 @@ using System;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    //TODO add xml comments
-
+    /// <summary>
+    /// A pattern consisting of a base pattern that is surrounded with patterns interpreted as negative lookbehind and negative lookahead assertion, respectively.
+    /// </summary>
     public class NegativeSurroundAssertion
         : Pattern
     {
