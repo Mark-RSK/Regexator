@@ -53,7 +53,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             object[] result = new object[left.Length + right.Length];
 
             Array.Copy(left, result, left.Length);
-            Array.Copy(right, 0, result,  left.Length, right.Length);
+            Array.Copy(right, 0, result, left.Length, right.Length);
 
             return result;
         }

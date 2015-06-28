@@ -111,7 +111,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         {
             if (throwOnInvalid && !IsValidInlineOptions(options))
             {
-                throw new ArgumentException(string.Format(CultureInfo.CurrentCulture, "Value is not convertible to the {0}.", typeof(InlineOptions).FullName),  "options");
+                throw new ArgumentException(string.Format(CultureInfo.CurrentCulture, "Value is not convertible to the {0}.", typeof(InlineOptions).FullName), "options");
             }
 
             InlineOptions value = InlineOptions.None;

@@ -32,7 +32,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal PatternWriter(PatternSettings settings, IFormatProvider formatProvider)
             : this(settings, formatProvider, RegexOptions.None)
-        { 
+        {
         }
 
         internal PatternWriter(PatternSettings settings, IFormatProvider formatProvider, RegexOptions options)
@@ -263,10 +263,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 return;
             }
 
-            CharGrouping charGroupItem = value as CharGrouping;
-            if (charGroupItem != null)
+            CharGrouping charGrouping = value as CharGrouping;
+            if (charGrouping != null)
             {
-                Write(charGroupItem);
+                Write(charGrouping);
                 return;
             }
 
@@ -322,10 +322,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 }
                 else
                 {
-                    CharGrouping charGroupItem = content as CharGrouping;
-                    if (charGroupItem != null)
+                    CharGrouping charGrouping = content as CharGrouping;
+                    if (charGrouping != null)
                     {
-                        Write(charGroupItem);
+                        Write(charGrouping);
                     }
                     else
                     {
@@ -400,7 +400,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             WriteGroupEnd();
 
             InlineOptions currentOptions = _currentOptions;
-            
+
             Write(trueContent);
 
             if (falseContent != null)
@@ -435,7 +435,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             WriteIfGroupCondition(groupName);
 
             InlineOptions currentOptions = _currentOptions;
-            
+
             Write(trueContent);
 
             if (falseContent != null)
@@ -465,7 +465,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             WriteIfGroupCondition(groupNumber);
 
             InlineOptions currentOptions = _currentOptions;
-            
+
             Write(trueContent);
 
             if (falseContent != null)
@@ -1349,14 +1349,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal Stack<CharGrouping> CharGroupings
         {
-            get 
+            get
             {
                 if (_charGroupings == null)
                 {
                     _charGroupings = new Stack<CharGrouping>();
                 }
 
-                return _charGroupings; 
+                return _charGroupings;
             }
         }
     }

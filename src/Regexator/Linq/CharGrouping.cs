@@ -19,7 +19,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Creates and returns a new instance of the <see cref="CharGroupItem" and adds a set of characters to it./>
+        /// Creates and returns a new instance of the <see cref="CharGrouping" and adds a set of characters to it./>
         /// </summary>
         /// <param name="characters">A set of characters.</param>
         /// <returns></returns>
@@ -29,7 +29,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Creates and returns a new instance of the <see cref="CharGroupItem" and adds a character literal to it./>
+        /// Creates and returns a new instance of the <see cref="CharGrouping" and adds a character literal to it./>
         /// </summary>
         /// <param name="value">The character.</param>
         /// <returns></returns>
@@ -39,7 +39,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Creates and returns a new instance of the <see cref="CharGroupItem" and adds a character range to it./>
+        /// Creates and returns a new instance of the <see cref="CharGrouping" and adds a character range to it./>
         /// </summary>
         /// <param name="first">The first character of the range.</param>
         /// <param name="last">The last character of the range.</param>
@@ -50,7 +50,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Creates and returns a new instance of the <see cref="CharGroupItem" and adds a character to it./>
+        /// Creates and returns a new instance of the <see cref="CharGrouping" and adds a character to it./>
         /// </summary>
         /// <param name="charCode">The character code.</param>
         /// <returns></returns>
@@ -60,7 +60,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Creates and returns a new instance of the <see cref="CharGroupItem" and adds a character range to it./>
+        /// Creates and returns a new instance of the <see cref="CharGrouping" and adds a character range to it./>
         /// </summary>
         /// <param name="firstCharCode">The first character code of the range.</param>
         /// <param name="lastCharCode">The last character code of the range.</param>
@@ -71,7 +71,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Creates and returns a new instance of the <see cref="CharGroupItem" and adds a character to it./>
+        /// Creates and returns a new instance of the <see cref="CharGrouping" and adds a character to it./>
         /// </summary>
         /// <param name="value">An enumerated constant that identifies an ASCII character literal.</param>
         /// <returns></returns>
@@ -81,7 +81,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Creates and returns a new instance of the <see cref="CharGroupItem" and adds a Unicode named block to it./>
+        /// Creates and returns a new instance of the <see cref="CharGrouping" and adds a Unicode named block to it./>
         /// </summary>
         /// <param name="block">An enumerated constant that identifies an Unicode named block.</param>
         /// <returns></returns>
@@ -96,7 +96,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Creates and returns a new instance of the <see cref="CharGroupItem" and adds an Unicode general category to it./>
+        /// Creates and returns a new instance of the <see cref="CharGrouping" and adds an Unicode general category to it./>
         /// </summary>
         /// <param name="category">An enumerated constant that identifies an Unicode general category.</param>
         /// <returns></returns>
@@ -550,7 +550,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Transforms the current instance of the <see cref="CharGroupItem" to the positive character group./>
+        /// Transforms the current instance of the <see cref="CharGrouping" to the positive character group./>
         /// </summary>
         /// <returns></returns>
         public CharacterGroup ToGroup()
@@ -559,7 +559,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Transforms the current instance of the <see cref="CharGroupItem" to the negative character group./>
+        /// Transforms the current instance of the <see cref="CharGrouping" to the negative character group./>
         /// </summary>
         /// <returns></returns>
         public CharacterGroup ToNegativeGroup()
