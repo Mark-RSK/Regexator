@@ -7,10 +7,12 @@ using System.Globalization;
 using System.Text.RegularExpressions;
 using Pihrtsoft.Text.RegularExpressions.Extensions;
 
+//TODO add xml comments
+
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
-    /// Represents a base class for regex patterns.
+    /// Represents a base class for regex pattern.
     /// </summary>
     public abstract partial class Pattern
     {
@@ -21,6 +23,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
         }
 
+        /// <summary>
+        /// Creates and returns a new instance of the <see cref="Pattern"/> class using provided content.
+        /// </summary>
+        /// <param name="content">The content of the pattern.</param>
+        /// <returns></returns>
         public static Pattern Create(object content)
         {
             return new ContainerPattern(content);

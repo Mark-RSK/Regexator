@@ -4,12 +4,18 @@ using System;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public class PatternSettings
+    /// <summary>
+    /// Specifies a set of features to support on the <see cref="PatternWriter"/> object.
+    /// </summary>
+    public sealed class PatternSettings
         : ICloneable
     {
         private readonly PatternOptions _options;
         private readonly IdentifierBoundary _boundary;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PatternSettings"/> class.
+        /// </summary>
         public PatternSettings()
             : this(PatternOptions.None)
         {

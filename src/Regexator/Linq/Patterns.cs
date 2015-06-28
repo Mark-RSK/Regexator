@@ -3,6 +3,8 @@
 using System;
 using System.Collections.Generic;
 
+//TODO add xml comments
+
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public static class Patterns

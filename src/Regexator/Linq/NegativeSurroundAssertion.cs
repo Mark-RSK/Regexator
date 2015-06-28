@@ -4,6 +4,8 @@ using System;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
+    //TODO add xml comments
+
     public class NegativeSurroundAssertion
         : Pattern
     {
