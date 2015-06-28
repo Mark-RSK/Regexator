@@ -8,6 +8,8 @@ using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 
+//TODO add xml comments
+
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public sealed class PatternWriter

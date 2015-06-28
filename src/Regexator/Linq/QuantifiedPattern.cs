@@ -3,7 +3,7 @@
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
-    /// Represents a pattern that is quantified, i.e. the quantifier is applied on it.
+    /// Represents a pattern that is quantified, i.e. quantifier is applied on it.
     /// </summary>
     public abstract partial class QuantifiedPattern
         : Pattern

@@ -3,6 +3,8 @@
 using System.Collections.Generic;
 using System.Text;
 
+//TODO add xml comments
+
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
