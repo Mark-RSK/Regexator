@@ -2,6 +2,8 @@
 
 using System.ComponentModel;
 
+//TODO add xml comments
+
 namespace Pihrtsoft.Text.RegularExpressions
 {
     public enum NamedBlock
