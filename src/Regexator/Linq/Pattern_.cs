@@ -489,6 +489,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Patterns.WhiteSpaceExceptNewLine());
         }
 
+        public QuantifiedGroup WhiteSpaceExceptNewLine(int count)
+        {
+            return ConcatInternal(Patterns.WhiteSpaceExceptNewLine(count));
+        }
+
+        public QuantifiedGroup WhiteSpaceExceptNewLine(int minCount, int maxCount)
+        {
+            return ConcatInternal(Patterns.WhiteSpaceExceptNewLine(minCount, maxCount));
+        }
+
         public Pattern WhileChar(char value)
         {
             return ConcatInternal(Patterns.WhileChar(value));
@@ -524,96 +534,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Patterns.WhileNotNewLine());
         }
 
-        public CharacterGroup Alphanumeric()
-        {
-            return ConcatInternal(Patterns.Alphanumeric());
-        }
-
-        public CharacterGroup NotAlphanumeric()
-        {
-            return ConcatInternal(Patterns.NotAlphanumeric());
-        }
-
-        public CharacterGroup AlphanumericLower()
-        {
-            return ConcatInternal(Patterns.AlphanumericLower());
-        }
-
-        public CharacterGroup NotAlphanumericLower()
-        {
-            return ConcatInternal(Patterns.NotAlphanumericLower());
-        }
-
-        public CharacterGroup AlphanumericUpper()
-        {
-            return ConcatInternal(Patterns.AlphanumericUpper());
-        }
-
-        public CharacterGroup NotAlphanumericUpper()
-        {
-            return ConcatInternal(Patterns.NotAlphanumericUpper());
-        }
-
-        public CharacterGroup AlphanumericUnderscore()
-        {
-            return ConcatInternal(Patterns.AlphanumericUnderscore());
-        }
-
-        public CharacterGroup NotAlphanumericUnderscore()
-        {
-            return ConcatInternal(Patterns.NotAlphanumericUnderscore());
-        }
-
-        public CharacterGroup LatinLetter()
-        {
-            return ConcatInternal(Patterns.LatinLetter());
-        }
-
-        public CharacterGroup LatinLetterLower()
-        {
-            return ConcatInternal(Patterns.LatinLetterLower());
-        }
-
-        public CharacterGroup LatinLetterUpper()
-        {
-            return ConcatInternal(Patterns.LatinLetterUpper());
-        }
-
-        public CharacterGroup NotLatinLetter()
-        {
-            return ConcatInternal(Patterns.NotLatinLetter());
-        }
-
-        public CharacterGroup NotLatinLetterLower()
-        {
-            return ConcatInternal(Patterns.NotLatinLetterLower());
-        }
-
-        public CharacterGroup NotLatinLetterUpper()
-        {
-            return ConcatInternal(Patterns.NotLatinLetterUpper());
-        }
-
-        public CharacterPattern LetterLower()
-        {
-            return ConcatInternal(Patterns.LetterLower());
-        }
-
-        public CharacterPattern NotLetterLower()
-        {
-            return ConcatInternal(Patterns.NotLetterLower());
-        }
-
-        public CharacterPattern LetterUpper()
-        {
-            return ConcatInternal(Patterns.LetterUpper());
-        }
-
-        public CharacterPattern NotLetterUpper()
-        {
-            return ConcatInternal(Patterns.NotLetterUpper());
-        }
-
         public QuantifiablePattern Any()
         {
             return ConcatInternal(Patterns.Any());
@@ -634,24 +554,334 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Patterns.CrawlInvariant());
         }
 
+        public CharacterGroup Alphanumeric()
+        {
+            return ConcatInternal(Patterns.Alphanumeric());
+        }
+
+        public QuantifiedGroup Alphanumeric(int count)
+        {
+            return ConcatInternal(Patterns.Alphanumeric(count));
+        }
+
+        public QuantifiedGroup Alphanumeric(int minCount, int maxCount)
+        {
+            return ConcatInternal(Patterns.Alphanumeric(minCount, maxCount));
+        }
+
+        public CharacterGroup NotAlphanumeric()
+        {
+            return ConcatInternal(Patterns.NotAlphanumeric());
+        }
+
+        public QuantifiedGroup NotAlphanumeric(int count)
+        {
+            return ConcatInternal(Patterns.NotAlphanumeric(count));
+        }
+
+        public QuantifiedGroup NotAlphanumeric(int minCount, int maxCount)
+        {
+            return ConcatInternal(Patterns.NotAlphanumeric(minCount, maxCount));
+        }
+
+        public CharacterGroup AlphanumericLower()
+        {
+            return ConcatInternal(Patterns.AlphanumericLower());
+        }
+
+        public QuantifiedGroup AlphanumericLower(int count)
+        {
+            return ConcatInternal(Patterns.AlphanumericLower(count));
+        }
+
+        public QuantifiedGroup AlphanumericLower(int minCount, int maxCount)
+        {
+            return ConcatInternal(Patterns.AlphanumericLower(minCount, maxCount));
+        }
+
+        public CharacterGroup NotAlphanumericLower()
+        {
+            return ConcatInternal(Patterns.NotAlphanumericLower());
+        }
+
+        public QuantifiedGroup NotAlphanumericLower(int count)
+        {
+            return ConcatInternal(Patterns.NotAlphanumericLower(count));
+        }
+
+        public QuantifiedGroup NotAlphanumericLower(int minCount, int maxCount)
+        {
+            return ConcatInternal(Patterns.NotAlphanumericLower(minCount, maxCount));
+        }
+
+        public CharacterGroup AlphanumericUpper()
+        {
+            return ConcatInternal(Patterns.AlphanumericUpper());
+        }
+
+        public QuantifiedGroup AlphanumericUpper(int count)
+        {
+            return ConcatInternal(Patterns.AlphanumericUpper(count));
+        }
+
+        public QuantifiedGroup AlphanumericUpper(int minCount, int maxCount)
+        {
+            return ConcatInternal(Patterns.AlphanumericUpper(minCount, maxCount));
+        }
+
+        public CharacterGroup NotAlphanumericUpper()
+        {
+            return ConcatInternal(Patterns.NotAlphanumericUpper());
+        }
+
+        public QuantifiedGroup NotAlphanumericUpper(int count)
+        {
+            return ConcatInternal(Patterns.NotAlphanumericUpper(count));
+        }
+
+        public QuantifiedGroup NotAlphanumericUpper(int minCount, int maxCount)
+        {
+            return ConcatInternal(Patterns.NotAlphanumericUpper(minCount, maxCount));
+        }
+
+        public CharacterGroup AlphanumericUnderscore()
+        {
+            return ConcatInternal(Patterns.AlphanumericUnderscore());
+        }
+
+        public QuantifiedGroup AlphanumericUnderscore(int count)
+        {
+            return ConcatInternal(Patterns.AlphanumericUnderscore(count));
+        }
+
+        public QuantifiedGroup AlphanumericUnderscore(int minCount, int maxCount)
+        {
+            return ConcatInternal(Patterns.AlphanumericUnderscore(minCount, maxCount));
+        }
+
+        public CharacterGroup NotAlphanumericUnderscore()
+        {
+            return ConcatInternal(Patterns.NotAlphanumericUnderscore());
+        }
+
+        public QuantifiedGroup NotAlphanumericUnderscore(int count)
+        {
+            return ConcatInternal(Patterns.NotAlphanumericUnderscore(count));
+        }
+
+        public QuantifiedGroup NotAlphanumericUnderscore(int minCount, int maxCount)
+        {
+            return ConcatInternal(Patterns.NotAlphanumericUnderscore(minCount, maxCount));
+        }
+        
+        public CharacterGroup LatinLetter()
+        {
+            return ConcatInternal(Patterns.LatinLetter());
+        }
+
+        public QuantifiedGroup LatinLetter(int count)
+        {
+            return ConcatInternal(Patterns.LatinLetter(count));
+        }
+
+        public QuantifiedGroup LatinLetter(int minCount, int maxCount)
+        {
+            return ConcatInternal(Patterns.LatinLetter(minCount, maxCount));
+        }
+
+        public CharacterGroup LatinLetterLower()
+        {
+            return ConcatInternal(Patterns.LatinLetterLower());
+        }
+
+        public QuantifiedGroup LatinLetterLower(int count)
+        {
+            return ConcatInternal(Patterns.LatinLetterLower(count));
+        }
+
+        public QuantifiedGroup LatinLetterLower(int minCount, int maxCount)
+        {
+            return ConcatInternal(Patterns.LatinLetterLower(minCount, maxCount));
+        }
+
+        public CharacterGroup LatinLetterUpper()
+        {
+            return ConcatInternal(Patterns.LatinLetterUpper());
+        }
+
+        public QuantifiedGroup LatinLetterUpper(int count)
+        {
+            return ConcatInternal(Patterns.LatinLetterUpper(count));
+        }
+
+        public QuantifiedGroup LatinLetterUpper(int minCount, int maxCount)
+        {
+            return ConcatInternal(Patterns.LatinLetterUpper(minCount, maxCount));
+        }
+
+        public CharacterGroup NotLatinLetter()
+        {
+            return ConcatInternal(Patterns.NotLatinLetter());
+        }
+
+        public QuantifiedGroup NotLatinLetter(int count)
+        {
+            return ConcatInternal(Patterns.NotLatinLetter(count));
+        }
+
+        public QuantifiedGroup NotLatinLetter(int minCount, int maxCount)
+        {
+            return ConcatInternal(Patterns.NotLatinLetter(minCount, maxCount));
+        }
+
+        public CharacterGroup NotLatinLetterLower()
+        {
+            return ConcatInternal(Patterns.NotLatinLetterLower());
+        }
+
+        public QuantifiedGroup NotLatinLetterLower(int count)
+        {
+            return ConcatInternal(Patterns.NotLatinLetterLower(count));
+        }
+
+        public QuantifiedGroup NotLatinLetterLower(int minCount, int maxCount)
+        {
+            return ConcatInternal(Patterns.NotLatinLetterLower(minCount, maxCount));
+        }
+
+        public CharacterGroup NotLatinLetterUpper()
+        {
+            return ConcatInternal(Patterns.NotLatinLetterUpper());
+        }
+
+        public QuantifiedGroup NotLatinLetterUpper(int count)
+        {
+            return ConcatInternal(Patterns.NotLatinLetterUpper(count));
+        }
+
+        public QuantifiedGroup NotLatinLetterUpper(int minCount, int maxCount)
+        {
+            return ConcatInternal(Patterns.NotLatinLetterUpper(minCount, maxCount));
+        }
+
+        public CharacterPattern LetterLower()
+        {
+            return ConcatInternal(Patterns.LetterLower());
+        }
+
+        public QuantifiedGroup LetterLower(int count)
+        {
+            return ConcatInternal(Patterns.LetterLower(count));
+        }
+
+        public QuantifiedGroup LetterLower(int minCount, int maxCount)
+        {
+            return ConcatInternal(Patterns.LetterLower(minCount, maxCount));
+        }
+
+        public CharacterPattern NotLetterLower()
+        {
+            return ConcatInternal(Patterns.NotLetterLower());
+        }
+
+        public QuantifiedGroup NotLetterLower(int count)
+        {
+            return ConcatInternal(Patterns.NotLetterLower(count));
+        }
+
+        public QuantifiedGroup NotLetterLower(int minCount, int maxCount)
+        {
+            return ConcatInternal(Patterns.NotLetterLower(minCount, maxCount));
+        }
+
+        public CharacterPattern LetterUpper()
+        {
+            return ConcatInternal(Patterns.LetterUpper());
+        }
+
+        public QuantifiedGroup LetterUpper(int count)
+        {
+            return ConcatInternal(Patterns.LetterUpper(count));
+        }
+
+        public QuantifiedGroup LetterUpper(int minCount, int maxCount)
+        {
+            return ConcatInternal(Patterns.LetterUpper(minCount, maxCount));
+        }
+
+        public CharacterPattern NotLetterUpper()
+        {
+            return ConcatInternal(Patterns.NotLetterUpper());
+        }
+
+        public QuantifiedGroup NotLetterUpper(int count)
+        {
+            return ConcatInternal(Patterns.NotLetterUpper(count));
+        }
+
+        public QuantifiedGroup NotLetterUpper(int minCount, int maxCount)
+        {
+            return ConcatInternal(Patterns.NotLetterUpper(minCount, maxCount));
+        }
+
         public QuantifiablePattern ArabicDigit()
         {
             return ConcatInternal(Patterns.ArabicDigit());
         }
 
+        public QuantifiedGroup ArabicDigit(int count)
+        {
+            return ConcatInternal(Patterns.ArabicDigit(count));
+        }
+
+        public QuantifiedGroup ArabicDigit(int minCount, int maxCount)
+        {
+            return ConcatInternal(Patterns.ArabicDigit(minCount, maxCount));
+        }
+        
         public QuantifiablePattern NotArabicDigit()
         {
             return ConcatInternal(Patterns.NotArabicDigit());
         }
 
+        public QuantifiedGroup NotArabicDigit(int count)
+        {
+            return ConcatInternal(Patterns.NotArabicDigit(count));
+        }
+
+        public QuantifiedGroup NotArabicDigit(int minCount, int maxCount)
+        {
+            return ConcatInternal(Patterns.NotArabicDigit(minCount, maxCount));
+        }
+        
         public QuantifiablePattern HexadecimalDigit()
         {
             return ConcatInternal(Patterns.HexadecimalDigit());
         }
 
+        public QuantifiedGroup HexadecimalDigit(int count)
+        {
+            return ConcatInternal(Patterns.HexadecimalDigit(count));
+        }
+
+        public QuantifiedGroup HexadecimalDigit(int minCount, int maxCount)
+        {
+            return ConcatInternal(Patterns.HexadecimalDigit(minCount, maxCount));
+        }
+
         public QuantifiablePattern NotHexadecimalDigit()
         {
             return ConcatInternal(Patterns.NotHexadecimalDigit());
+        }
+
+        public QuantifiedGroup NotHexadecimalDigit(int count)
+        {
+            return ConcatInternal(Patterns.NotHexadecimalDigit(count));
+        }
+
+        public QuantifiedGroup NotHexadecimalDigit(int minCount, int maxCount)
+        {
+            return ConcatInternal(Patterns.NotHexadecimalDigit(minCount, maxCount));
         }
 
         public QuantifiablePattern Digit()
