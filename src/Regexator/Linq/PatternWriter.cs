@@ -17,6 +17,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
         private PatternSettings _settings;
         private Stack<Pattern> _patterns;
+        private Stack<CharGrouping> _charGroupings;
         private InlineOptions _currentOptions;
 
         internal PatternWriter()
@@ -1344,6 +1345,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public InlineOptions CurrentOptions
         {
             get { return _currentOptions; }
+        }
+
+        internal Stack<CharGrouping> CharGroupings
+        {
+            get 
+            {
+                if (_charGroupings == null)
+                {
+                    _charGroupings = new Stack<CharGrouping>();
+                }
+
+                return _charGroupings; 
+            }
         }
     }
 }

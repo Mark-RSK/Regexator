@@ -596,26 +596,24 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (Previous != null)
             {
-                CharGrouping[] items = GetItems().ToArray();
-                for (int i = (items.Length - 1); i >= 0; i--)
+                CharGrouping item = this;
+                Stack<CharGrouping> stack = writer.CharGroupings;
+
+                do
                 {
-                    items[i].WriteItemContentTo(writer);
+                    stack.Push(item);
+                    item = item.Previous;
+                } while (item != null);
+
+                while (stack.Count > 0)
+                {
+                    stack.Pop().WriteItemContentTo(writer);
                 }
             }
             else
             {
                 WriteItemContentTo(writer);
             }
-        }
-
-        private IEnumerable<CharGrouping> GetItems()
-        {
-            CharGrouping item = this;
-            do
-            {
-                yield return item;
-                item = item.Previous;
-            } while (item != null);
         }
 
         [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
