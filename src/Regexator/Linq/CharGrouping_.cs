@@ -242,5 +242,26 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 writer.WriteNamedBlock(_block, Negative);
             }
         }
+
+        internal class CharGroupingCharGrouping
+            : CharGrouping
+        {
+            private readonly CharGrouping _value;
+
+            public CharGroupingCharGrouping(CharGrouping value)
+            {
+                _value = value;
+            }
+
+            protected override void WriteItemContentTo(PatternWriter writer)
+            {
+                if (writer == null)
+                {
+                    throw new ArgumentNullException("writer");
+                }
+
+                _value.WriteItemContentTo(writer);
+            }
+        }
     }
 }

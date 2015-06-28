@@ -115,6 +115,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new CharacterClassCharGrouping(value);
         }
 
+        internal static CharGrouping Create(CharGrouping value)
+        {
+            return new CharGroupingCharGrouping(value);
+        }
+
         private CharGrouping Concat(CharGrouping value)
         {
             if (value == null)
@@ -627,7 +632,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("right");
             }
 
-            return left.Concat(right);
+            return left.Concat(Create(right));
         }
 
         [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
@@ -661,7 +666,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("right");
             }
 
-            return CharGrouping.Create(left).Concat(right);
+            return CharGrouping.Create(left).Concat(Create(right));
         }
 
         [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
@@ -685,7 +690,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("right");
             }
 
-            return CharGrouping.Create(left).Concat(right);
+            return CharGrouping.Create(left).Concat(Create(right));
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
