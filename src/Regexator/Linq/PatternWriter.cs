@@ -583,16 +583,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public void WriteAny(object content)
         {
-            WriteAny(content, GroupMode.Noncapturing);
+            WriteAny(content, GroupMode.NoncapturingGroup);
         }
 
         internal void WriteAny(object content, GroupMode mode)
         {
-            if (mode == GroupMode.Numbered)
+            if (mode == GroupMode.Group)
             {
                 WriteLeftParenthesis();
             }
-            else if (mode == GroupMode.Noncapturing)
+            else if (mode == GroupMode.NoncapturingGroup)
             {
                 WriteNoncapturingGroupStart();
             }

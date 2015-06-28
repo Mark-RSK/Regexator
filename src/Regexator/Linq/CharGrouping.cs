@@ -302,6 +302,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Concat(CharGroupings.NotWordChar());
         }
 
+        //TODO add xml comments
+
         public CharGrouping Alphanumeric()
         {
             return Concat(CharGroupings.Alphanumeric());

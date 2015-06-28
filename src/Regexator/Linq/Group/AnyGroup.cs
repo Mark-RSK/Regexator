@@ -10,7 +10,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         private readonly GroupMode _groupMode;
 
         public AnyGroup(IEnumerable<object> content)
-            : this(GroupMode.Noncapturing, content)
+            : this(GroupMode.NoncapturingGroup, content)
         {
         }
 
@@ -21,7 +21,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         public AnyGroup(params object[] content)
-            : this(GroupMode.Noncapturing, content)
+            : this(GroupMode.NoncapturingGroup, content)
         {
         }
 
