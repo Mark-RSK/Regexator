@@ -81,9 +81,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Creates and returns a new instance of the <see cref="CharGrouping"/> and adds a Unicode named block to it.
+        /// Creates and returns a new instance of the <see cref="CharGrouping"/> and adds Unicode named block to it.
         /// </summary>
-        /// <param name="block">An enumerated constant that identifies an Unicode named block.</param>
+        /// <param name="block">An enumerated constant that identifies Unicode named block.</param>
         /// <returns></returns>
         public static CharGrouping Create(NamedBlock block)
         {
@@ -96,9 +96,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Creates and returns a new instance of the <see cref="CharGrouping"/> and adds an Unicode general category to it.
+        /// Creates and returns a new instance of the <see cref="CharGrouping"/> and adds Unicode general category to it.
         /// </summary>
-        /// <param name="category">An enumerated constant that identifies an Unicode general category.</param>
+        /// <param name="category">An enumerated constant that identifies Unicode general category.</param>
         /// <returns></returns>
         public static CharGrouping Create(GeneralCategory category)
         {
@@ -152,7 +152,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a character literal to the current instance of the <see cref="CharGrouping"/>.
+        /// Matches Unicode character.
         /// </summary>
         /// <param name="value">The character.</param>
         /// <returns></returns>
@@ -162,7 +162,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a character literal to the current instance of the <see cref="CharGrouping"/>.
+        /// Matches Unicode character.
         /// </summary>
         /// <param name="value">The character code.</param>
         /// <returns></returns>
@@ -172,9 +172,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a character literal to the current instance of the <see cref="CharGrouping"/>.
+        /// Matches Unicode character.
         /// </summary>
-        /// <param name="value">An enumerated constant that identifies an ASCII character literal.</param>
+        /// <param name="value">An enumerated constant that identifies a character literal.</param>
         /// <returns></returns>
         public CharGrouping Concat(AsciiChar value)
         {
@@ -182,7 +182,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a character literal to the current instance of the <see cref="CharGrouping"/>.
+        /// Matches any one of the characters.
         /// </summary>
         /// <param name="value">A set of characters.</param>
         /// <returns></returns>
@@ -192,7 +192,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a character range to the current instance of the <see cref="CharGrouping"/>.
+        /// Matches any one character from the range.
         /// </summary>
         /// <param name="first">The first character of the range.</param>
         /// <param name="last">The last character of the range.</param>
@@ -203,7 +203,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a character range to the current instance of the <see cref="CharGrouping"/>.
+        /// Matches any one character from the range.
         /// </summary>
         /// <param name="firstCharCode">The first character code of the range.</param>
         /// <param name="lastCharCode">The last character code of the range.</param>
@@ -214,9 +214,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends an Unicode named block pattern to the current instance of the <see cref="CharGrouping"/>.
+        /// Matches a character from a particular Unicode named block.
         /// </summary>
-        /// <param name="block">An enumerated constant that identifies an Unicode named block.</param>
+        /// <param name="block">An enumerated constant that identifies Unicode named block.</param>
         /// <returns></returns>
         public CharGrouping Concat(NamedBlock block)
         {
@@ -224,9 +224,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends an Unicode general category pattern to the current instance of the <see cref="CharGrouping"/>.
+        /// Matches a character from a particular Unicode general category.
         /// </summary>
-        /// <param name="category">An enumerated constant that identifies an Unicode general category.</param>
+        /// <param name="category">An enumerated constant that identifies Unicode general category.</param>
         /// <returns></returns>
         public CharGrouping Concat(GeneralCategory category)
         {
@@ -234,9 +234,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a negative Unicode named block pattern to the current instance of the <see cref="CharGrouping"/>.
+        /// Matches a character that is not from a particular Unicode named block.
         /// </summary>
-        /// <param name="block">An enumerated constant that identifies an Unicode named block.</param>
+        /// <param name="block">An enumerated constant that identifies Unicode named block.</param>
         /// <returns></returns>
         public CharGrouping Not(NamedBlock block)
         {
@@ -244,9 +244,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a negative Unicode general category pattern to the current instance of the <see cref="CharGrouping"/>.
+        /// Matches a character that is not from a particular Unicode general category.
         /// </summary>
-        /// <param name="category">An enumerated constant that identifies an Unicode general category.</param>
+        /// <param name="category">An enumerated constant that identifies Unicode general category.</param>
         /// <returns></returns>
         public CharGrouping Not(GeneralCategory category)
         {
@@ -254,7 +254,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a digit character class to the current instance of the <see cref="CharGrouping"/>.
+        /// Matches a character from the digit character class.
         /// </summary>
         /// <returns></returns>
         public CharGrouping Digit()
@@ -263,7 +263,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a non-digit character class to the current instance of the <see cref="CharGrouping"/>.
+        /// Matches a character that is not from the digit character class.
         /// </summary>
         /// <returns></returns>
         public CharGrouping NotDigit()
@@ -272,7 +272,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a white-space character class to the current instance of the <see cref="CharGrouping"/>.
+        /// Matches a character from the white-space character class.
         /// </summary>
         /// <returns></returns>
         public CharGrouping WhiteSpace()
@@ -281,7 +281,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a non-white-space character class to the current instance of the <see cref="CharGrouping"/>.
+        /// Matches a character that is not from the white-space character class.
         /// </summary>
         /// <returns></returns>
         public CharGrouping NotWhiteSpace()
@@ -290,7 +290,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a word character class to the current instance of the <see cref="CharGrouping"/>.
+        /// Matches a character from the word character class.
         /// </summary>
         /// <returns></returns>
         public CharGrouping WordChar()
@@ -299,7 +299,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a non-word character class to the current instance of the <see cref="CharGrouping"/>.
+        /// Matches a character that is not from the word character class.
         /// </summary>
         /// <returns></returns>
         public CharGrouping NotWordChar()
@@ -307,263 +307,433 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Concat(CharGroupings.NotWordChar());
         }
 
-        //TODO add xml comments
-
+        /// <summary>
+        /// Matches a latin alphabet letter or an arabic digit.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping Alphanumeric()
         {
             return Concat(CharGroupings.Alphanumeric());
         }
 
+        /// <summary>
+        /// Matches a latin alphabet lower-case letter or an arabic digit.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping AlphanumericLower()
         {
             return Concat(CharGroupings.AlphanumericLower());
         }
 
+        /// <summary>
+        /// Matches a latin alphabet upper-case letter or an arabic digit.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping AlphanumericUpper()
         {
             return Concat(CharGroupings.AlphanumericUpper());
         }
 
+        /// <summary>
+        /// Matches a latin alphabet letter.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping LatinLetter()
         {
             return Concat(CharGroupings.LatinLetter());
         }
 
+        /// <summary>
+        /// Matches a latin alphabet lower-case letter or an arabic digit.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping LatinLetterLower()
         {
             return Concat(CharGroupings.LatinLetterLower());
         }
 
+        /// <summary>
+        /// Matches a latin alphabet upper-case letter or an arabic digit.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping LatinLetterUpper()
         {
             return Concat(CharGroupings.LatinLetterUpper());
         }
 
+        /// <summary>
+        /// Matches a lower-case letter. That is, a letter from the general category LetterLowercase.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping LetterLower()
         {
             return Concat(CharGroupings.LetterLower());
         }
 
+        /// <summary>
+        /// Matches a character that is not a lower-case letter. That is, a character that is not from the general category LetterLowercase.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping NotLetterLower()
         {
             return Concat(CharGroupings.NotLetterLower());
         }
 
+        /// <summary>
+        /// Matches a upper-case letter. That is, a letter from the general category LetterUppercase.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping LetterUpper()
         {
             return Concat(CharGroupings.LetterUpper());
         }
 
+        /// <summary>
+        /// Matches a character that is not a upper-case letter. That is, a character that is not from the general category LetterUppercase.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping NotLetterUpper()
         {
             return Concat(CharGroupings.NotLetterUpper());
         }
 
+        /// <summary>
+        /// Matches an arabic digit. This can be a digit in range from 0 to 9.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping ArabicDigit()
         {
             return Concat(CharGroupings.ArabicDigit());
         }
 
+        /// <summary>
+        /// Matches a new line character. This can be a linefeed character or a carriage return character.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping NewLineChar()
         {
             return Concat(CharGroupings.NewLineChar());
         }
 
-        public CharGrouping NamedBlock(NamedBlock block)
-        {
-            return Concat(CharGroupings.NamedBlock(block));
-        }
-
-        public CharGrouping NotNamedBlock(NamedBlock block)
-        {
-            return Concat(CharGroupings.NotNamedBlock(block));
-        }
-
-        public CharGrouping GeneralCategory(GeneralCategory category)
-        {
-            return Concat(CharGroupings.GeneralCategory(category));
-        }
-
-        public CharGrouping NotGeneralCategory(GeneralCategory category)
-        {
-            return Concat(CharGroupings.NotGeneralCategory(category));
-        }
-
+        /// <summary>
+        /// Matches a tab.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping Tab()
         {
             return Concat(CharGroupings.Tab());
         }
 
+        /// <summary>
+        /// Matches a linefeed.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping Linefeed()
         {
             return Concat(CharGroupings.Linefeed());
         }
 
+        /// <summary>
+        /// Matches a carriage return.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping CarriageReturn()
         {
             return Concat(CharGroupings.CarriageReturn());
         }
 
+        /// <summary>
+        /// Matches a space character.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping Space()
         {
             return Concat(CharGroupings.Space());
         }
 
+        /// <summary>
+        /// Matches an exclamation mark.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping ExclamationMark()
         {
             return Concat(CharGroupings.ExclamationMark());
         }
 
+        /// <summary>
+        /// Matches a quotation mark.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping QuoteMark()
         {
             return Concat(CharGroupings.QuoteMark());
         }
 
+        /// <summary>
+        /// Matches a number sign.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping NumberSign()
         {
             return Concat(CharGroupings.NumberSign());
         }
 
+        /// <summary>
+        /// Matches a dollar character.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping Dollar()
         {
             return Concat(CharGroupings.Dollar());
         }
 
+        /// <summary>
+        /// Matches a percent sign.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping Percent()
         {
             return Concat(CharGroupings.Percent());
         }
 
+        /// <summary>
+        /// Matches an ampersand character.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping Ampersand()
         {
             return Concat(CharGroupings.Ampersand());
         }
 
+        /// <summary>
+        /// Matches an apostrophe.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping Apostrophe()
         {
             return Concat(CharGroupings.Apostrophe());
         }
 
+        /// <summary>
+        /// Matches a left parenthesis.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping LeftParenthesis()
         {
             return Concat(CharGroupings.LeftParenthesis());
         }
 
+        /// <summary>
+        /// Matches a right parenthesis.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping RightParenthesis()
         {
             return Concat(CharGroupings.RightParenthesis());
         }
 
+        /// <summary>
+        /// Matches an asterisk.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping Asterisk()
         {
             return Concat(CharGroupings.Asterisk());
         }
 
+        /// <summary>
+        /// Matches a plus sign.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping Plus()
         {
             return Concat(CharGroupings.Plus());
         }
 
+        /// <summary>
+        /// Matches a comma.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping Comma()
         {
             return Concat(CharGroupings.Comma());
         }
 
+        /// <summary>
+        /// Matches a hyphen
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping Hyphen()
         {
             return Concat(CharGroupings.Hyphen());
         }
 
+        /// <summary>
+        /// Matches a period.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping Period()
         {
             return Concat(CharGroupings.Period());
         }
 
+        /// <summary>
+        /// Matches a slash.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping Slash()
         {
             return Concat(CharGroupings.Slash());
         }
 
+        /// <summary>
+        /// Matches a colon.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping Colon()
         {
             return Concat(CharGroupings.Colon());
         }
 
+        /// <summary>
+        /// Matches a semicolon.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping Semicolon()
         {
             return Concat(CharGroupings.Semicolon());
         }
 
+        /// <summary>
+        /// Matches a less-than sign.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping LessThan()
         {
             return Concat(CharGroupings.LessThan());
         }
 
+        /// <summary>
+        /// Matches an equals sign.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping EqualsSign()
         {
             return Concat(CharGroupings.EqualsSign());
         }
 
+        /// <summary>
+        /// Matches a greater-than sign.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping GreaterThan()
         {
             return Concat(CharGroupings.GreaterThan());
         }
 
+        /// <summary>
+        /// Matches a question mark.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping QuestionMark()
         {
             return Concat(CharGroupings.QuestionMark());
         }
 
+        /// <summary>
+        /// Matches at sign.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping AtSign()
         {
             return Concat(CharGroupings.AtSign());
         }
 
+        /// <summary>
+        /// Matches left square bracket.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping LeftSquareBracket()
         {
             return Concat(CharGroupings.LeftSquareBracket());
         }
 
+        /// <summary>
+        /// Matches a backslash.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping Backslash()
         {
             return Concat(CharGroupings.Backslash());
         }
 
+        /// <summary>
+        /// Matches right square bracket.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping RightSquareBracket()
         {
             return Concat(CharGroupings.RightSquareBracket());
         }
 
+        /// <summary>
+        /// Matches a circumflex accent.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping CircumflexAccent()
         {
             return Concat(CharGroupings.CircumflexAccent());
         }
 
+        /// <summary>
+        /// Matches an underscore.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping Underscore()
         {
             return Concat(CharGroupings.Underscore());
         }
 
+        /// <summary>
+        /// Matches a grave accent.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping GraveAccent()
         {
             return Concat(CharGroupings.GraveAccent());
         }
 
+        /// <summary>
+        /// Matches a left curly bracket.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping LeftCurlyBracket()
         {
             return Concat(CharGroupings.LeftCurlyBracket());
         }
 
+        /// <summary>
+        /// Matches a vertical line.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping VerticalLine()
         {
             return Concat(CharGroupings.VerticalLine());
         }
 
+        /// <summary>
+        /// Matches a right curly bracket.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping RightCurlyBracket()
         {
             return Concat(CharGroupings.RightCurlyBracket());
         }
 
+        /// <summary>
+        /// Matches a tilde.
+        /// </summary>
+        /// <returns></returns>
         public CharGrouping Tilde()
         {
             return Concat(CharGroupings.Tilde());
