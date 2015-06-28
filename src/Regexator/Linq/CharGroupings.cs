@@ -91,6 +91,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return CharGrouping.Create('A', 'Z');
         }
 
+        public static CharGrouping LetterLower()
+        {
+            return GeneralCategory(RegularExpressions.GeneralCategory.LetterLowercase);
+        }
+
+        public static CharGrouping LetterUpper()
+        {
+            return GeneralCategory(RegularExpressions.GeneralCategory.LetterUppercase);
+        }
+
         public static CharGrouping ArabicDigit()
         {
             return CharGrouping.Create('0', '9');

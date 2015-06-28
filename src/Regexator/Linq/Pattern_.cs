@@ -594,6 +594,26 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Patterns.NotLatinLetterUpper());
         }
 
+        public CharacterPattern LetterLower()
+        {
+            return ConcatInternal(Patterns.LetterLower());
+        }
+
+        public CharacterPattern NotLetterLower()
+        {
+            return ConcatInternal(Patterns.NotLetterLower());
+        }
+
+        public CharacterPattern LetterUpper()
+        {
+            return ConcatInternal(Patterns.LetterUpper());
+        }
+
+        public CharacterPattern NotLetterUpper()
+        {
+            return ConcatInternal(Patterns.NotLetterUpper());
+        }
+
         public QuantifiablePattern Any()
         {
             return ConcatInternal(Patterns.Any());

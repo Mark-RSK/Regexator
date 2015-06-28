@@ -2085,6 +2085,66 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Count(minCount, maxCount, NotLatinLetterUpper());
         }
 
+        public static CharacterPattern LetterLower()
+        {
+            return Character(GeneralCategory.LetterLowercase);
+        }
+
+        public static QuantifiedGroup LetterLower(int count)
+        {
+            return Count(count, LetterLower());
+        }
+
+        public static QuantifiedGroup LetterLower(int minCount, int maxCount)
+        {
+            return Count(minCount, maxCount, LetterLower());
+        }
+
+        public static CharacterPattern NotLetterLower()
+        {
+            return NotCharacter(GeneralCategory.LetterLowercase);
+        }
+
+        public static QuantifiedGroup NotLetterLower(int count)
+        {
+            return Count(count, NotLetterLower());
+        }
+
+        public static QuantifiedGroup NotLetterLower(int minCount, int maxCount)
+        {
+            return Count(minCount, maxCount, NotLetterLower());
+        }
+
+        public static CharacterPattern LetterUpper()
+        {
+            return Character(GeneralCategory.LetterUppercase);
+        }
+
+        public static QuantifiedGroup LetterUpper(int count)
+        {
+            return Count(count, LetterUpper());
+        }
+
+        public static QuantifiedGroup LetterUpper(int minCount, int maxCount)
+        {
+            return Count(minCount, maxCount, LetterUpper());
+        }
+
+        public static CharacterPattern NotLetterUpper()
+        {
+            return NotCharacter(GeneralCategory.LetterUppercase);
+        }
+
+        public static QuantifiedGroup NotLetterUpper(int count)
+        {
+            return Count(count, NotLetterUpper());
+        }
+
+        public static QuantifiedGroup NotLetterUpper(int minCount, int maxCount)
+        {
+            return Count(minCount, maxCount, NotLetterUpper());
+        }
+
         public static CharacterGroup ArabicDigit()
         {
             return Character(CharGroupings.ArabicDigit());

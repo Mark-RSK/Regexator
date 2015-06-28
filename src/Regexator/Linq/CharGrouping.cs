@@ -339,6 +339,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Concat(CharGroupings.LatinLetterUpper());
         }
 
+        public CharGrouping LetterLower()
+        {
+            return Concat(CharGroupings.LetterLower());
+        }
+
+        public CharGrouping LetterUpper()
+        {
+            return Concat(CharGroupings.LetterUpper());
+        }
+
         public CharGrouping ArabicDigit()
         {
             return Concat(CharGroupings.ArabicDigit());
