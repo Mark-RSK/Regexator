@@ -3,12 +3,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-//TODO add xml comments
-
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
-    /// Represents a base class for a regex substitution.
+    /// Represents a base class for a substitution in the replacement pattern.
     /// </summary>
     public abstract partial class Substitution
     {
@@ -18,6 +16,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
         }
 
+        /// <summary>
+        /// Creates and returns a new instance of the <see cref="Substitution"/> class.
+        /// </summary>
+        /// <param name="text">The literal text.</param>
+        /// <returns></returns>
         public static Substitution Create(string text)
         {
             return new LiteralSubstitution(text);
@@ -29,6 +32,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return substitution;
         }
 
+        /// <summary>
+        /// Converts the value of this instance to a <see cref="System.String"/>.
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             if (Previous != null)
@@ -57,36 +64,67 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             } while (s != null);
         }
 
+
+        /// <summary>
+        /// Substitutes the last substring matched by the named group.
+        /// </summary>
+        /// <param name="groupName">Valid regex group name.</param>
+        /// <returns></returns>
         public Substitution NamedGroup(string groupName)
         {
             return Concat(Substitutions.NamedGroup(groupName));
         }
 
+        /// <summary>
+        /// Substitutes the last captured group.
+        /// </summary>
+        /// <returns></returns>
         public Substitution LastCapturedGroup()
         {
             return Concat(Substitutions.LastCapturedGroup());
         }
 
+        /// <summary>
+        /// Substitutes the entire input string.
+        /// </summary>
+        /// <returns></returns>
         public Substitution EntireInput()
         {
             return Concat(Substitutions.EntireInput());
         }
 
+        /// <summary>
+        /// Substitutes the entire match.
+        /// </summary>
+        /// <returns></returns>
         public Substitution EntireMatch()
         {
             return Concat(Substitutions.EntireMatch());
         }
 
+        /// <summary>
+        /// Substitutes all the text of the input string after the match.
+        /// </summary>
+        /// <returns></returns>
         public Substitution AfterMatch()
         {
             return Concat(Substitutions.AfterMatch());
         }
 
+        /// <summary>
+        /// Substitutes all the text of the input string before the match.
+        /// </summary>
+        /// <returns></returns>
         public Substitution BeforeMatch()
         {
             return Concat(Substitutions.BeforeMatch());
         }
 
+        /// <summary>
+        /// Adds literal text to the replacement pattern.
+        /// </summary>
+        /// <param name="value">The literal text.</param>
+        /// <returns></returns>
         public Substitution Text(string value)
         {
             return Concat(Substitution.Create(value));
