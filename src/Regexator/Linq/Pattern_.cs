@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
@@ -302,47 +303,47 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Patterns.BalancingGroup(name1, name2, content));
         }
 
-        public Pattern Options(InlineOptions applyOptions)
+        public Pattern Options(RegexOptions applyOptions)
         {
             return ConcatInternal(Patterns.Options(applyOptions));
         }
 
-        public QuantifiablePattern Options(InlineOptions applyOptions, object content)
+        public QuantifiablePattern Options(RegexOptions applyOptions, object content)
         {
             return ConcatInternal(Patterns.Options(applyOptions, content));
         }
 
-        public QuantifiablePattern Options(InlineOptions applyOptions, params object[] content)
+        public QuantifiablePattern Options(RegexOptions applyOptions, params object[] content)
         {
             return ConcatInternal(Patterns.Options(applyOptions, content));
         }
 
-        public Pattern Options(InlineOptions applyOptions, InlineOptions disableOptions)
+        public Pattern Options(RegexOptions applyOptions, RegexOptions disableOptions)
         {
             return ConcatInternal(Patterns.Options(applyOptions, disableOptions));
         }
 
-        public QuantifiablePattern Options(InlineOptions applyOptions, InlineOptions disableOptions, object content)
+        public QuantifiablePattern Options(RegexOptions applyOptions, RegexOptions disableOptions, object content)
         {
             return ConcatInternal(Patterns.Options(applyOptions, disableOptions, content));
         }
 
-        public QuantifiablePattern Options(InlineOptions applyOptions, InlineOptions disableOptions, params object[] content)
+        public QuantifiablePattern Options(RegexOptions applyOptions, RegexOptions disableOptions, params object[] content)
         {
             return ConcatInternal(Patterns.Options(applyOptions, disableOptions, content));
         }
 
-        public Pattern DisableOptions(InlineOptions options)
+        public Pattern DisableOptions(RegexOptions options)
         {
             return ConcatInternal(Patterns.DisableOptions(options));
         }
 
-        public QuantifiablePattern DisableOptions(InlineOptions options, object content)
+        public QuantifiablePattern DisableOptions(RegexOptions options, object content)
         {
             return ConcatInternal(Patterns.DisableOptions(options, content));
         }
 
-        public QuantifiablePattern DisableOptions(InlineOptions options, params object[] content)
+        public QuantifiablePattern DisableOptions(RegexOptions options, params object[] content)
         {
             return ConcatInternal(Patterns.DisableOptions(options, content));
         }

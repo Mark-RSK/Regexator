@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 //TODO add xml comments
 
@@ -126,7 +127,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern StartOfLineInvariant()
         {
-            return Options(InlineOptions.Multiline, StartOfLine());
+            return Options(RegexOptions.Multiline, StartOfLine());
         }
 
         public static QuantifiablePattern EndOfLine()
@@ -136,7 +137,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern EndOfLineInvariant()
         {
-            return Options(InlineOptions.Multiline, EndOfLine());
+            return Options(RegexOptions.Multiline, EndOfLine());
         }
 
         public static Pattern EndOfLineOrBeforeCarriageReturn()
@@ -465,49 +466,49 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new GroupNameReference(groupName);
         }
 
-        public static Pattern Options(InlineOptions applyOptions)
+        public static Pattern Options(RegexOptions applyOptions)
         {
             return new Options(applyOptions);
         }
 
-        public static QuantifiablePattern Options(InlineOptions applyOptions, object content)
+        public static QuantifiablePattern Options(RegexOptions applyOptions, object content)
         {
             return new GroupOptions(applyOptions, content);
         }
 
-        public static QuantifiablePattern Options(InlineOptions applyOptions, params object[] content)
+        public static QuantifiablePattern Options(RegexOptions applyOptions, params object[] content)
         {
             return Options(applyOptions, (object)content);
         }
 
-        public static Pattern Options(InlineOptions applyOptions, InlineOptions disableOptions)
+        public static Pattern Options(RegexOptions applyOptions, RegexOptions disableOptions)
         {
             return new Options(applyOptions, disableOptions);
         }
 
-        public static QuantifiablePattern Options(InlineOptions applyOptions, InlineOptions disableOptions, object content)
+        public static QuantifiablePattern Options(RegexOptions applyOptions, RegexOptions disableOptions, object content)
         {
             return new GroupOptions(applyOptions, disableOptions, content);
         }
 
-        public static QuantifiablePattern Options(InlineOptions applyOptions, InlineOptions disableOptions, params object[] content)
+        public static QuantifiablePattern Options(RegexOptions applyOptions, RegexOptions disableOptions, params object[] content)
         {
             return Options(applyOptions, disableOptions, (object)content);
         }
 
-        public static Pattern DisableOptions(InlineOptions options)
+        public static Pattern DisableOptions(RegexOptions options)
         {
-            return new Options(InlineOptions.None, options);
+            return new Options(RegexOptions.None, options);
         }
 
-        public static QuantifiablePattern DisableOptions(InlineOptions options, object content)
+        public static QuantifiablePattern DisableOptions(RegexOptions options, object content)
         {
-            return new GroupOptions(InlineOptions.None, options, content);
+            return new GroupOptions(RegexOptions.None, options, content);
         }
 
-        public static QuantifiablePattern DisableOptions(InlineOptions options, params object[] content)
+        public static QuantifiablePattern DisableOptions(RegexOptions options, params object[] content)
         {
-            return Options(InlineOptions.None, options, (object)content);
+            return Options(RegexOptions.None, options, (object)content);
         }
 
         public static Pattern Comment(string value)

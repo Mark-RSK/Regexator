@@ -110,7 +110,6 @@
     <Compile Include="Linq\IBaseGroup.cs" />
     <Compile Include="Core\IdentifierBoundary.cs" />
     <Compile Include="Linq\IExcludedGroup.cs" />
-    <Compile Include="Core\InlineOptions.cs" />
     <Compile Include="Linq\GroupNameReference.cs" />
     <Compile Include="Linq\Group\NamedGroup.cs" />
     <Compile Include="Linq\Group\NonbacktrackingGroup.cs" />

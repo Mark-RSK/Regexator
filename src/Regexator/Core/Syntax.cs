@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Pihrtsoft.Text.RegularExpressions.Linq;
 
 //TODO add xml comments
@@ -252,18 +253,33 @@ namespace Pihrtsoft.Text.RegularExpressions
             return NonbacktrackingGroup((object)content);
         }
 
-        public static string GroupOptions(InlineOptions applyOptions, object content)
-        {
-            return GroupOptions(applyOptions, InlineOptions.None, content);
-        }
-
-        public static string GroupOptions(InlineOptions applyOptions, params object[] content)
+        public static string GroupOptions(RegexOptions applyOptions, params object[] content)
         {
             return GroupOptions(applyOptions, (object)content);
         }
 
-        public static string GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, object content)
+        public static string GroupOptions(RegexOptions applyOptions, object content)
         {
+            return GroupOptions(applyOptions, RegexOptions.None, content);
+        }
+
+        public static string GroupOptions(RegexOptions applyOptions, RegexOptions disableOptions, params object[] content)
+        {
+            return GroupOptions(applyOptions, disableOptions, (object)content);
+        }
+        
+        public static string GroupOptions(RegexOptions applyOptions, RegexOptions disableOptions, object content)
+        {
+            if (!RegexUtilities.IsValidInlineOptions(applyOptions))
+            {
+                throw new ArgumentNullException("applyOptions");
+            }
+
+            if (!RegexUtilities.IsValidInlineOptions(disableOptions))
+            {
+                throw new ArgumentNullException("disableOptions");
+            }
+
             if (content == null)
             {
                 throw new ArgumentNullException("content");
@@ -276,11 +292,6 @@ namespace Pihrtsoft.Text.RegularExpressions
             return (!string.IsNullOrEmpty(options))
                 ? GroupStart + options + ":" + text + GroupEnd
                 : text;
-        }
-
-        public static string GroupOptions(InlineOptions applyOptions, InlineOptions disableOptions, params object[] content)
-        {
-            return GroupOptions(applyOptions, disableOptions, (object)content);
         }
 
         public static string CharGroup(string characters)
@@ -524,13 +535,23 @@ namespace Pihrtsoft.Text.RegularExpressions
             return "{0," + maxCount + "}";
         }
 
-        public static string Options(InlineOptions enableOptions)
+        public static string Options(RegexOptions enableOptions)
         {
-            return Options(enableOptions, InlineOptions.None);
+            return Options(enableOptions, RegexOptions.None);
         }
 
-        public static string Options(InlineOptions applyOptions, InlineOptions disableOptions)
+        public static string Options(RegexOptions applyOptions, RegexOptions disableOptions)
         {
+            if (!RegexUtilities.IsValidInlineOptions(applyOptions))
+            {
+                throw new ArgumentNullException("applyOptions");
+            }
+
+            if (!RegexUtilities.IsValidInlineOptions(disableOptions))
+            {
+                throw new ArgumentNullException("disableOptions");
+            }
+
             string options = GetInlineChars(applyOptions, disableOptions);
 
             return (!string.IsNullOrEmpty(options))
@@ -538,11 +559,11 @@ namespace Pihrtsoft.Text.RegularExpressions
                 : string.Empty;
         }
 
-        internal static string GetInlineChars(InlineOptions applyOptions, InlineOptions disableOptions)
+        internal static string GetInlineChars(RegexOptions applyOptions, RegexOptions disableOptions)
         {
-            if (applyOptions != InlineOptions.None)
+            if (applyOptions != RegexOptions.None)
             {
-                if (disableOptions != InlineOptions.None)
+                if (disableOptions != RegexOptions.None)
                 {
                     return GetInlineChars(applyOptions) + "-" + GetInlineChars(disableOptions);
                 }
@@ -551,7 +572,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                     return GetInlineChars(applyOptions);
                 }
             }
-            else if (disableOptions != InlineOptions.None)
+            else if (disableOptions != RegexOptions.None)
             {
                 return GetInlineChars(disableOptions);
             }
@@ -559,36 +580,36 @@ namespace Pihrtsoft.Text.RegularExpressions
             return string.Empty;
         }
 
-        public static string GetInlineChars(InlineOptions options)
+        internal static string GetInlineChars(RegexOptions options)
         {
-            return options != InlineOptions.None
+            return options != RegexOptions.None
                 ? new string(EnumerateInlineChars(options).ToArray())
                 : string.Empty;
         }
 
-        internal static IEnumerable<char> EnumerateInlineChars(InlineOptions options)
+        internal static IEnumerable<char> EnumerateInlineChars(RegexOptions options)
         {
-            if ((options & InlineOptions.IgnoreCase) == InlineOptions.IgnoreCase)
+            if ((options & RegexOptions.IgnoreCase) == RegexOptions.IgnoreCase)
             {
                 yield return IgnoreCaseChar;
             }
 
-            if ((options & InlineOptions.Multiline) == InlineOptions.Multiline)
+            if ((options & RegexOptions.Multiline) == RegexOptions.Multiline)
             {
                 yield return MultilineChar;
             }
 
-            if ((options & InlineOptions.ExplicitCapture) == InlineOptions.ExplicitCapture)
+            if ((options & RegexOptions.ExplicitCapture) == RegexOptions.ExplicitCapture)
             {
                 yield return ExplicitCaptureChar;
             }
 
-            if ((options & InlineOptions.Singleline) == InlineOptions.Singleline)
+            if ((options & RegexOptions.Singleline) == RegexOptions.Singleline)
             {
                 yield return SinglelineChar;
             }
 
-            if ((options & InlineOptions.IgnorePatternWhitespace) == InlineOptions.IgnorePatternWhitespace)
+            if ((options & RegexOptions.IgnorePatternWhitespace) == RegexOptions.IgnorePatternWhitespace)
             {
                 yield return IgnorePatternWhiteSpaceChar;
             }

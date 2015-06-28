@@ -18,7 +18,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         private PatternSettings _settings;
         private Stack<Pattern> _patterns;
         private Stack<CharGrouping> _charGroupings;
-        private InlineOptions _currentOptions;
+        private RegexOptions _currentOptions;
 
         internal PatternWriter()
             : this(CultureInfo.CurrentCulture)
@@ -47,7 +47,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (options != RegexOptions.None)
             {
-                _currentOptions = RegexUtilities.Convert(options);
+                _currentOptions = options;
             }
         }
 
@@ -298,12 +298,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal void WriteGroupContent(object content)
         {
-            WriteGroupContent(content, InlineOptions.None, InlineOptions.None);
+            WriteGroupContent(content, RegexOptions.None, RegexOptions.None);
         }
 
-        internal void WriteGroupContent(object content, InlineOptions applyOptions, InlineOptions disableOptions)
+        internal void WriteGroupContent(object content, RegexOptions applyOptions, RegexOptions disableOptions)
         {
-            InlineOptions currentOptions = _currentOptions;
+            RegexOptions currentOptions = _currentOptions;
 
             _currentOptions &= applyOptions;
             _currentOptions &= ~disableOptions;
@@ -399,7 +399,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Write(testContent);
             WriteGroupEnd();
 
-            InlineOptions currentOptions = _currentOptions;
+            RegexOptions currentOptions = _currentOptions;
 
             Write(trueContent);
 
@@ -434,7 +434,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             WriteGroupStart();
             WriteIfGroupCondition(groupName);
 
-            InlineOptions currentOptions = _currentOptions;
+            RegexOptions currentOptions = _currentOptions;
 
             Write(trueContent);
 
@@ -464,7 +464,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             WriteGroupStart();
             WriteIfGroupCondition(groupNumber);
 
-            InlineOptions currentOptions = _currentOptions;
+            RegexOptions currentOptions = _currentOptions;
 
             Write(trueContent);
 
@@ -1135,20 +1135,25 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             WriteRightIdentifierBoundary();
         }
 
-        public void WriteOptions(InlineOptions applyOptions)
+        public void WriteOptions(RegexOptions applyOptions)
         {
-            WriteOptions(applyOptions, InlineOptions.None);
+            WriteOptions(applyOptions, RegexOptions.None);
         }
 
-        public void WriteOptions(InlineOptions applyOptions, object content)
+        public void WriteOptions(RegexOptions applyOptions, RegexOptions disableOptions)
         {
-            WriteOptions(applyOptions, InlineOptions.None, content);
-        }
-
-        public void WriteOptions(InlineOptions applyOptions, InlineOptions disableOptions)
-        {
-            if (applyOptions != InlineOptions.None || disableOptions != InlineOptions.None)
+            if (applyOptions != RegexOptions.None || disableOptions != RegexOptions.None)
             {
+                if (!RegexUtilities.IsValidInlineOptions(applyOptions))
+                {
+                    throw new ArgumentNullException("applyOptions");
+                }
+
+                if (!RegexUtilities.IsValidInlineOptions(disableOptions))
+                {
+                    throw new ArgumentNullException("disableOptions");
+                }
+
                 WriteGroupStart();
                 WriteOptionsChars(applyOptions, disableOptions);
                 WriteGroupEnd();
@@ -1158,14 +1163,29 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        public void WriteOptions(InlineOptions applyOptions, InlineOptions disableOptions, object content)
+        public void WriteOptions(RegexOptions applyOptions, object content)
         {
+            WriteOptions(applyOptions, RegexOptions.None, content);
+        }
+
+        internal void WriteOptions(RegexOptions applyOptions, RegexOptions disableOptions, object content)
+        {
+            if (!RegexUtilities.IsValidInlineOptions(applyOptions))
+            {
+                throw new ArgumentNullException("applyOptions");
+            }
+
+            if (!RegexUtilities.IsValidInlineOptions(disableOptions))
+            {
+                throw new ArgumentNullException("disableOptions");
+            }
+
             if (content == null)
             {
                 throw new ArgumentNullException("content");
             }
 
-            if (applyOptions != InlineOptions.None || disableOptions != InlineOptions.None)
+            if (applyOptions != RegexOptions.None || disableOptions != RegexOptions.None)
             {
                 WriteGroupStart();
                 WriteOptionsChars(applyOptions, disableOptions);
@@ -1180,11 +1200,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             WriteGroupEnd();
         }
 
-        private void WriteOptionsChars(InlineOptions applyOptions, InlineOptions disableOptions)
+        private void WriteOptionsChars(RegexOptions applyOptions, RegexOptions disableOptions)
         {
-            if (applyOptions != InlineOptions.None)
+            if (applyOptions != RegexOptions.None)
             {
-                if (disableOptions != InlineOptions.None)
+                if (disableOptions != RegexOptions.None)
                 {
                     WriteOptionsChars(applyOptions);
                     WriteHyphen();
@@ -1195,36 +1215,36 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                     WriteOptionsChars(applyOptions);
                 }
             }
-            else if (disableOptions != InlineOptions.None)
+            else if (disableOptions != RegexOptions.None)
             {
                 WriteHyphen();
                 WriteOptionsChars(disableOptions);
             }
         }
 
-        private void WriteOptionsChars(InlineOptions options)
+        private void WriteOptionsChars(RegexOptions options)
         {
-            if ((options & InlineOptions.IgnoreCase) == InlineOptions.IgnoreCase)
+            if ((options & RegexOptions.IgnoreCase) == RegexOptions.IgnoreCase)
             {
                 base.Write(Syntax.IgnoreCaseChar);
             }
 
-            if ((options & InlineOptions.Multiline) == InlineOptions.Multiline)
+            if ((options & RegexOptions.Multiline) == RegexOptions.Multiline)
             {
                 base.Write(Syntax.MultilineChar);
             }
 
-            if ((options & InlineOptions.ExplicitCapture) == InlineOptions.ExplicitCapture)
+            if ((options & RegexOptions.ExplicitCapture) == RegexOptions.ExplicitCapture)
             {
                 base.Write(Syntax.ExplicitCaptureChar);
             }
 
-            if ((options & InlineOptions.Singleline) == InlineOptions.Singleline)
+            if ((options & RegexOptions.Singleline) == RegexOptions.Singleline)
             {
                 base.Write(Syntax.SinglelineChar);
             }
 
-            if ((options & InlineOptions.IgnorePatternWhitespace) == InlineOptions.IgnorePatternWhitespace)
+            if ((options & RegexOptions.IgnorePatternWhitespace) == RegexOptions.IgnorePatternWhitespace)
             {
                 base.Write(Syntax.IgnorePatternWhiteSpaceChar);
             }
@@ -1342,7 +1362,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             get { return _settings; }
         }
 
-        public InlineOptions CurrentOptions
+        public RegexOptions CurrentOptions
         {
             get { return _currentOptions; }
         }

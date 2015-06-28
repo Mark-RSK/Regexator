@@ -18,7 +18,7 @@ namespace Pihrtsoft.Text.RegularExpressions
 {
     public static class RegexUtilities
     {
-        internal static readonly RegexOptions InlineRegexOptions = RegexOptions.IgnoreCase | RegexOptions.Multiline | RegexOptions.ExplicitCapture | RegexOptions.Singleline | RegexOptions.IgnorePatternWhitespace;
+        public static readonly RegexOptions InlineOptions = RegexOptions.IgnoreCase | RegexOptions.Multiline | RegexOptions.ExplicitCapture | RegexOptions.Singleline | RegexOptions.IgnorePatternWhitespace;
 
         internal static readonly Pattern TrimInlineComment = Patterns.TrimInlineComment();
         internal static readonly Pattern ValidGroupName = Patterns.ValidGroupName();
@@ -69,81 +69,7 @@ namespace Pihrtsoft.Text.RegularExpressions
 
         public static bool IsValidInlineOptions(RegexOptions options)
         {
-            return (options & ~InlineRegexOptions) == RegexOptions.None;
-        }
-
-        public static RegexOptions Convert(InlineOptions options)
-        {
-            RegexOptions value = RegexOptions.None;
-
-            if ((options & InlineOptions.IgnoreCase) == InlineOptions.IgnoreCase)
-            {
-                value |= RegexOptions.IgnoreCase;
-            }
-
-            if ((options & InlineOptions.Multiline) == InlineOptions.Multiline)
-            {
-                value |= RegexOptions.Multiline;
-            }
-
-            if ((options & InlineOptions.ExplicitCapture) == InlineOptions.ExplicitCapture)
-            {
-                value |= RegexOptions.ExplicitCapture;
-            }
-
-            if ((options & InlineOptions.Singleline) == InlineOptions.Singleline)
-            {
-                value |= RegexOptions.Singleline;
-            }
-
-            if ((options & InlineOptions.IgnorePatternWhitespace) == InlineOptions.IgnorePatternWhitespace)
-            {
-                value |= RegexOptions.IgnorePatternWhitespace;
-            }
-
-            return value;
-        }
-
-        public static InlineOptions Convert(RegexOptions options)
-        {
-            return Convert(options, false);
-        }
-
-        public static InlineOptions Convert(RegexOptions options, bool throwOnInvalid)
-        {
-            if (throwOnInvalid && !IsValidInlineOptions(options))
-            {
-                throw new ArgumentException(string.Format(CultureInfo.CurrentCulture, "Value is not convertible to the {0}.", typeof(InlineOptions).FullName), "options");
-            }
-
-            InlineOptions value = InlineOptions.None;
-
-            if ((options & RegexOptions.IgnoreCase) == RegexOptions.IgnoreCase)
-            {
-                value |= InlineOptions.IgnoreCase;
-            }
-
-            if ((options & RegexOptions.Multiline) == RegexOptions.Multiline)
-            {
-                value |= InlineOptions.Multiline;
-            }
-
-            if ((options & RegexOptions.ExplicitCapture) == RegexOptions.ExplicitCapture)
-            {
-                value |= InlineOptions.ExplicitCapture;
-            }
-
-            if ((options & RegexOptions.Singleline) == RegexOptions.Singleline)
-            {
-                value |= InlineOptions.Singleline;
-            }
-
-            if ((options & RegexOptions.IgnorePatternWhitespace) == RegexOptions.IgnorePatternWhitespace)
-            {
-                value |= InlineOptions.IgnorePatternWhitespace;
-            }
-
-            return value;
+            return (options & ~InlineOptions) == RegexOptions.None;
         }
 
         public static string Escape(int charCode)
