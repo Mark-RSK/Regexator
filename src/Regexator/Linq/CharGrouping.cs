@@ -90,7 +90,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Create(block, false);
         }
 
-        public static CharGrouping Create(NamedBlock block, bool negative)
+        internal static CharGrouping Create(NamedBlock block, bool negative)
         {
             return new NamedBlockCharGrouping(block, negative);
         }
@@ -105,7 +105,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Create(category, false);
         }
 
-        public static CharGrouping Create(GeneralCategory category, bool negative)
+        internal static CharGrouping Create(GeneralCategory category, bool negative)
         {
             return new GeneralCategoryCharGrouping(category, negative);
         }
