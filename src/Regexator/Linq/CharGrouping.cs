@@ -152,7 +152,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches Unicode character.
+        /// Appends a pattern that matches specified Unicode character.
         /// </summary>
         /// <param name="value">The character.</param>
         /// <returns></returns>
@@ -162,7 +162,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches Unicode character.
+        /// Appends a pattern that matches specified Unicode character.
         /// </summary>
         /// <param name="value">The character code.</param>
         /// <returns></returns>
@@ -172,7 +172,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches Unicode character.
+        /// Appends a pattern that matches specified Unicode character.
         /// </summary>
         /// <param name="value">An enumerated constant that identifies a character literal.</param>
         /// <returns></returns>
@@ -182,7 +182,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches any one of the characters.
+        /// Appends a pattern that matches any one of the specified characters.
         /// </summary>
         /// <param name="value">A set of characters.</param>
         /// <returns></returns>
@@ -192,7 +192,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches any one character from the range.
+        /// Appends a pattern that matches any one character from the specified range.
         /// </summary>
         /// <param name="first">The first character of the range.</param>
         /// <param name="last">The last character of the range.</param>
@@ -203,7 +203,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches any one character from the range.
+        /// Appends a pattern that matches any one character from the specified range.
         /// </summary>
         /// <param name="firstCharCode">The first character code of the range.</param>
         /// <param name="lastCharCode">The last character code of the range.</param>
@@ -214,7 +214,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a character from a particular Unicode named block.
+        /// Appends a pattern that matches a character from a particular Unicode named block.
         /// </summary>
         /// <param name="block">An enumerated constant that identifies Unicode named block.</param>
         /// <returns></returns>
@@ -224,7 +224,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a character from a particular Unicode general category.
+        /// Appends a pattern that matches a character from a particular Unicode general category.
         /// </summary>
         /// <param name="category">An enumerated constant that identifies Unicode general category.</param>
         /// <returns></returns>
@@ -234,7 +234,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a character that is not from a particular Unicode named block.
+        /// Appends a pattern that matches a character that is not from a particular Unicode named block.
         /// </summary>
         /// <param name="block">An enumerated constant that identifies Unicode named block.</param>
         /// <returns></returns>
@@ -244,7 +244,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a character that is not from a particular Unicode general category.
+        /// Appends a pattern that matches a character that is not from a particular Unicode general category.
         /// </summary>
         /// <param name="category">An enumerated constant that identifies Unicode general category.</param>
         /// <returns></returns>
@@ -254,7 +254,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a character from the digit character class.
+        /// Appends a pattern that matches a character from the digit character class.
         /// </summary>
         /// <returns></returns>
         public CharGrouping Digit()
@@ -263,7 +263,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a character that is not from the digit character class.
+        /// Appends a pattern that matches a character that is not from the digit character class.
         /// </summary>
         /// <returns></returns>
         public CharGrouping NotDigit()
@@ -272,7 +272,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a character from the white-space character class.
+        /// Appends a pattern that matches a character from the white-space character class.
         /// </summary>
         /// <returns></returns>
         public CharGrouping WhiteSpace()
@@ -281,7 +281,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a character that is not from the white-space character class.
+        /// Appends a pattern that matches a character that is not from the white-space character class.
         /// </summary>
         /// <returns></returns>
         public CharGrouping NotWhiteSpace()
@@ -290,7 +290,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a character from the word character class.
+        /// Appends a pattern that matches a character from the word character class.
         /// </summary>
         /// <returns></returns>
         public CharGrouping WordChar()
@@ -299,7 +299,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a character that is not from the word character class.
+        /// Appends a pattern that matches a character that is not from the word character class.
         /// </summary>
         /// <returns></returns>
         public CharGrouping NotWordChar()
@@ -308,7 +308,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a latin alphabet letter or an arabic digit.
+        /// Appends a pattern that matches a latin alphabet letter or an arabic digit.
         /// </summary>
         /// <returns></returns>
         public CharGrouping Alphanumeric()
@@ -317,7 +317,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a latin alphabet lower-case letter or an arabic digit.
+        /// Appends a pattern that matches a latin alphabet lower-case letter or an arabic digit.
         /// </summary>
         /// <returns></returns>
         public CharGrouping AlphanumericLower()
@@ -326,7 +326,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a latin alphabet upper-case letter or an arabic digit.
+        /// Appends a pattern that matches a latin alphabet upper-case letter or an arabic digit.
         /// </summary>
         /// <returns></returns>
         public CharGrouping AlphanumericUpper()
@@ -335,7 +335,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a latin alphabet letter.
+        /// Appends a pattern that matches a latin alphabet letter, an arabic digit or an underscore.
+        /// </summary>
+        /// <returns></returns>
+        public CharGrouping AlphanumericUnderscore()
+        {
+            return Concat(CharGroupings.AlphanumericUnderscore());
+        }
+
+        /// <summary>
+        /// Appends a pattern that matches a latin alphabet letter.
         /// </summary>
         /// <returns></returns>
         public CharGrouping LatinLetter()
@@ -344,7 +353,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a latin alphabet lower-case letter.
+        /// Appends a pattern that matches a latin alphabet lower-case letter.
         /// </summary>
         /// <returns></returns>
         public CharGrouping LatinLetterLower()
@@ -353,7 +362,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a latin alphabet upper-case letter.
+        /// Appends a pattern that matches a latin alphabet upper-case letter.
         /// </summary>
         /// <returns></returns>
         public CharGrouping LatinLetterUpper()
@@ -362,7 +371,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a lower-case letter. That is, a letter from Unicode general category LetterLowercase.
+        /// Appends a pattern that matches a lower-case letter, i.e. a letter from Unicode general category LetterLowercase.
         /// </summary>
         /// <returns></returns>
         public CharGrouping LetterLower()
@@ -371,7 +380,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a character that is not a lower-case letter. That is, a character that is not from Unicode general category LetterLowercase.
+        /// Appends a pattern that matches a character that is not a lower-case letter. i.e. a character that is not from Unicode general category LetterLowercase.
         /// </summary>
         /// <returns></returns>
         public CharGrouping NotLetterLower()
@@ -380,7 +389,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a upper-case letter. That is, a letter from Unicode general category LetterUppercase.
+        /// Appends a pattern that matches a upper-case letter. i.e. a letter from Unicode general category LetterUppercase.
         /// </summary>
         /// <returns></returns>
         public CharGrouping LetterUpper()
@@ -389,7 +398,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a character that is not a upper-case letter. That is, a character that is not from Unicode general category LetterUppercase.
+        /// Appends a pattern that matches a character that is not a upper-case letter. i.e. a character that is not from Unicode general category LetterUppercase.
         /// </summary>
         /// <returns></returns>
         public CharGrouping NotLetterUpper()
@@ -398,7 +407,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches an arabic digit. This can be a digit in range from 0 to 9.
+        /// Matches an arabic digit.
         /// </summary>
         /// <returns></returns>
         public CharGrouping ArabicDigit()
@@ -407,7 +416,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a new line character. This can be a linefeed character or a carriage return character.
+        /// Appends a pattern that matches a new line character, i.e. a linefeed character or a carriage return character.
         /// </summary>
         /// <returns></returns>
         public CharGrouping NewLineChar()
@@ -416,7 +425,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a tab.
+        /// Appends a pattern that matches a tab.
         /// </summary>
         /// <returns></returns>
         public CharGrouping Tab()
@@ -425,7 +434,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a linefeed.
+        /// Appends a pattern that matches a linefeed.
         /// </summary>
         /// <returns></returns>
         public CharGrouping Linefeed()
@@ -434,7 +443,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a carriage return.
+        /// Appends a pattern that matches a carriage return.
         /// </summary>
         /// <returns></returns>
         public CharGrouping CarriageReturn()
@@ -443,7 +452,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a space character.
+        /// Appends a pattern that matches a space character.
         /// </summary>
         /// <returns></returns>
         public CharGrouping Space()
@@ -452,7 +461,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches an exclamation mark.
+        /// Appends a pattern that matches an exclamation mark.
         /// </summary>
         /// <returns></returns>
         public CharGrouping ExclamationMark()
@@ -461,7 +470,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a quotation mark.
+        /// Appends a pattern that matches a quotation mark.
         /// </summary>
         /// <returns></returns>
         public CharGrouping QuoteMark()
@@ -470,7 +479,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a number sign.
+        /// Appends a pattern that matches a number sign.
         /// </summary>
         /// <returns></returns>
         public CharGrouping NumberSign()
@@ -479,7 +488,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a dollar character.
+        /// Appends a pattern that matches a dollar character.
         /// </summary>
         /// <returns></returns>
         public CharGrouping Dollar()
@@ -488,7 +497,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a percent sign.
+        /// Appends a pattern that matches a percent sign.
         /// </summary>
         /// <returns></returns>
         public CharGrouping Percent()
@@ -497,7 +506,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches an ampersand character.
+        /// Matches an ampersand.
         /// </summary>
         /// <returns></returns>
         public CharGrouping Ampersand()
@@ -506,7 +515,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches an apostrophe.
+        /// Appends a pattern that matches an apostrophe.
         /// </summary>
         /// <returns></returns>
         public CharGrouping Apostrophe()
@@ -515,7 +524,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a left parenthesis.
+        /// Appends a pattern that matches a left parenthesis.
         /// </summary>
         /// <returns></returns>
         public CharGrouping LeftParenthesis()
@@ -524,7 +533,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a right parenthesis.
+        /// Appends a pattern that matches a right parenthesis.
         /// </summary>
         /// <returns></returns>
         public CharGrouping RightParenthesis()
@@ -533,7 +542,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches an asterisk.
+        /// Appends a pattern that matches an asterisk.
         /// </summary>
         /// <returns></returns>
         public CharGrouping Asterisk()
@@ -542,7 +551,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a plus sign.
+        /// Appends a pattern that matches a plus sign.
         /// </summary>
         /// <returns></returns>
         public CharGrouping Plus()
@@ -551,7 +560,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a comma.
+        /// Appends a pattern that matches a comma.
         /// </summary>
         /// <returns></returns>
         public CharGrouping Comma()
@@ -560,7 +569,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a hyphen
+        /// Appends a pattern that matches a hyphen.
         /// </summary>
         /// <returns></returns>
         public CharGrouping Hyphen()
@@ -569,7 +578,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a period.
+        /// Appends a pattern that matches a period.
         /// </summary>
         /// <returns></returns>
         public CharGrouping Period()
@@ -578,7 +587,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a slash.
+        /// Appends a pattern that matches a slash.
         /// </summary>
         /// <returns></returns>
         public CharGrouping Slash()
@@ -587,7 +596,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a colon.
+        /// Appends a pattern that matches a colon.
         /// </summary>
         /// <returns></returns>
         public CharGrouping Colon()
@@ -596,7 +605,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a semicolon.
+        /// Appends a pattern that matches a semicolon.
         /// </summary>
         /// <returns></returns>
         public CharGrouping Semicolon()
@@ -605,7 +614,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a less-than sign.
+        /// Appends a pattern that matches a less-than sign.
         /// </summary>
         /// <returns></returns>
         public CharGrouping LessThan()
@@ -614,7 +623,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches an equals sign.
+        /// Appends a pattern that matches an equals sign.
         /// </summary>
         /// <returns></returns>
         public CharGrouping EqualsSign()
@@ -623,7 +632,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a greater-than sign.
+        /// Appends a pattern that matches a greater-than sign.
         /// </summary>
         /// <returns></returns>
         public CharGrouping GreaterThan()
@@ -632,7 +641,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a question mark.
+        /// Appends a pattern that matches a question mark.
         /// </summary>
         /// <returns></returns>
         public CharGrouping QuestionMark()
@@ -641,7 +650,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches at sign.
+        /// Appends a pattern that matches an at sign.
         /// </summary>
         /// <returns></returns>
         public CharGrouping AtSign()
@@ -650,7 +659,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches left square bracket.
+        /// Appends a pattern that matches left square bracket.
         /// </summary>
         /// <returns></returns>
         public CharGrouping LeftSquareBracket()
@@ -659,7 +668,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a backslash.
+        /// Appends a pattern that matches a backslash.
         /// </summary>
         /// <returns></returns>
         public CharGrouping Backslash()
@@ -668,7 +677,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches right square bracket.
+        /// Appends a pattern that matches right square bracket.
         /// </summary>
         /// <returns></returns>
         public CharGrouping RightSquareBracket()
@@ -677,7 +686,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a circumflex accent.
+        /// Appends a pattern that matches a circumflex accent.
         /// </summary>
         /// <returns></returns>
         public CharGrouping CircumflexAccent()
@@ -686,7 +695,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches an underscore.
+        /// Appends a pattern that matches an underscore.
         /// </summary>
         /// <returns></returns>
         public CharGrouping Underscore()
@@ -695,7 +704,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a grave accent.
+        /// Appends a pattern that matches a grave accent.
         /// </summary>
         /// <returns></returns>
         public CharGrouping GraveAccent()
@@ -704,7 +713,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a left curly bracket.
+        /// Appends a pattern that matches a left curly bracket.
         /// </summary>
         /// <returns></returns>
         public CharGrouping LeftCurlyBracket()
@@ -713,7 +722,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a vertical line.
+        /// Appends a pattern that matches a vertical line.
         /// </summary>
         /// <returns></returns>
         public CharGrouping VerticalLine()
@@ -722,7 +731,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a right curly bracket.
+        /// Appends a pattern that matches a right curly bracket.
         /// </summary>
         /// <returns></returns>
         public CharGrouping RightCurlyBracket()
@@ -731,7 +740,34 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a tilde.
+        /// Appends a pattern that matches left or right parenthesis.
+        /// </summary>
+        /// <returns></returns>
+        public CharGrouping Parenthesis()
+        {
+            return Concat(CharGroupings.Parenthesis());
+        }
+
+        /// <summary>
+        /// Appends a pattern that matches left or right square bracket.
+        /// </summary>
+        /// <returns></returns>
+        public CharGrouping SquareBracket()
+        {
+            return Concat(CharGroupings.SquareBracket());
+        }
+
+        /// <summary>
+        /// Appends a pattern that matches left or right curly bracket.
+        /// </summary>
+        /// <returns></returns>
+        public CharGrouping CurlyBracket()
+        {
+            return Concat(CharGroupings.CurlyBracket());
+        }
+
+        /// <summary>
+        /// Appends a pattern that matches a tilde.
         /// </summary>
         /// <returns></returns>
         public CharGrouping Tilde()
@@ -740,7 +776,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Transforms the current instance of the <see cref="CharGrouping" to the positive character group./>
+        /// Converts the current instance of the <see cref="CharGrouping"/> to the positive character group.
         /// </summary>
         /// <returns></returns>
         public CharacterGroup ToGroup()
@@ -749,7 +785,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Transforms the current instance of the <see cref="CharGrouping" to the negative character group./>
+        /// Converts the current instance of the <see cref="CharGrouping"/> to the negative character group.
         /// </summary>
         /// <returns></returns>
         public CharacterGroup ToNegativeGroup()
