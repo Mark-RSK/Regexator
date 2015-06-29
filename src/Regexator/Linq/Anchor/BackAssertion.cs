@@ -6,7 +6,7 @@ using System.Diagnostics.CodeAnalysis;
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
-    /// A zero-width positive lookbehind assertion.
+    /// Represents a zero-width positive lookbehind assertion.
     /// </summary>
     public sealed class BackAssertion
         : GroupingPattern, IInvertible<NegativeBackAssertion>

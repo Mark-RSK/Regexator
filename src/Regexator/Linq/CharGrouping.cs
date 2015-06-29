@@ -344,7 +344,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a latin alphabet lower-case letter or an arabic digit.
+        /// Matches a latin alphabet lower-case letter.
         /// </summary>
         /// <returns></returns>
         public CharGrouping LatinLetterLower()
@@ -353,7 +353,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a latin alphabet upper-case letter or an arabic digit.
+        /// Matches a latin alphabet upper-case letter.
         /// </summary>
         /// <returns></returns>
         public CharGrouping LatinLetterUpper()
@@ -362,7 +362,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a lower-case letter. That is, a letter from the general category LetterLowercase.
+        /// Matches a lower-case letter. That is, a letter from Unicode general category LetterLowercase.
         /// </summary>
         /// <returns></returns>
         public CharGrouping LetterLower()
@@ -371,7 +371,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a character that is not a lower-case letter. That is, a character that is not from the general category LetterLowercase.
+        /// Matches a character that is not a lower-case letter. That is, a character that is not from Unicode general category LetterLowercase.
         /// </summary>
         /// <returns></returns>
         public CharGrouping NotLetterLower()
@@ -380,7 +380,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a upper-case letter. That is, a letter from the general category LetterUppercase.
+        /// Matches a upper-case letter. That is, a letter from Unicode general category LetterUppercase.
         /// </summary>
         /// <returns></returns>
         public CharGrouping LetterUpper()
@@ -389,7 +389,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Matches a character that is not a upper-case letter. That is, a character that is not from the general category LetterUppercase.
+        /// Matches a character that is not a upper-case letter. That is, a character that is not from Unicode general category LetterUppercase.
         /// </summary>
         /// <returns></returns>
         public CharGrouping NotLetterUpper()

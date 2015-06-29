@@ -3,7 +3,7 @@
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
-    /// Returns a patterns that has opposite meaning than the current instance. For example word boundary will be inverted into a non-word boundary.
+    /// Returns a pattern that has opposite meaning than the current instance. For example a word boundary will be inverted into a non-word boundary.
     /// </summary>
     /// <typeparam name="TPattern">A pattern to be inverted.</typeparam>
     public interface IInvertible<TPattern> where TPattern : Pattern

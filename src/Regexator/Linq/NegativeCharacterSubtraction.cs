@@ -5,7 +5,7 @@ using System;
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
-    /// Represent a negative character subtraction pattern.
+    /// Represents a negative character subtraction pattern.
     /// </summary>
     public class NegativeCharacterSubtraction
         : QuantifiablePattern, IExcludedGroup

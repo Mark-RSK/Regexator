@@ -3,7 +3,7 @@
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
-    /// A zero-width negative lookahead assertion.
+    /// Represents a zero-width negative lookahead assertion.
     /// </summary>
     public sealed class NegativeAssertion
         : GroupingPattern
