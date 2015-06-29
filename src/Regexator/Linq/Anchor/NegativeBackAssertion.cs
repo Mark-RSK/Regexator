@@ -20,7 +20,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override void AppendTo(PatternBuilder builder)
         {
-            builder.AppendNotAssertBack(Content);
+            builder.AppendNegativeBackAssertion(Content);
         }
     }
 }

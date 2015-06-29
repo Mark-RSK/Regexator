@@ -38,9 +38,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override void AppendTo(PatternBuilder builder)
         {
-            builder.AppendNotAssertBack(_contentBefore);
+            builder.AppendNegativeBackAssertion(_contentBefore);
             builder.Append(_content);
-            builder.AppendNotAssert(_contentAfter);
+            builder.AppendNegativeAssertion(_contentAfter);
         }
     }
 }

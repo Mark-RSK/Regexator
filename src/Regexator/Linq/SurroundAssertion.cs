@@ -48,9 +48,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override void AppendTo(PatternBuilder builder)
         {
-            builder.AppendAssertBack(_contentBefore);
+            builder.AppendBackAssertion(_contentBefore);
             builder.Append(_content);
-            builder.AppendAssert(_contentAfter);
+            builder.AppendAssertion(_contentAfter);
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]

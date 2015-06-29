@@ -27,7 +27,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override void AppendTo(PatternBuilder builder)
         {
-            builder.AppendAssertBack(Content);
+            builder.AppendBackAssertion(Content);
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
