@@ -22,6 +22,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal static QuantifiablePattern Or(object left, object right)
         {
+            if (left == null)
+            {
+                throw new ArgumentNullException("left");
+            }
+
+            if (right == null)
+            {
+                throw new ArgumentNullException("right");
+            }
+
             return new OrContainer(left, right);
         }
 

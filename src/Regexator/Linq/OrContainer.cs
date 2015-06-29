@@ -7,44 +7,34 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal sealed class OrContainer
         : GroupingPattern
     {
-        internal OrContainer(object left, object right)
-            : base(Combine(left, right))
+        internal OrContainer(object first, object second)
+            : base(Combine(first, second))
         {
         }
 
-        private static object Combine(object left, object right)
+        private static object Combine(object first, object second)
         {
-            if (left == null)
-            {
-                throw new ArgumentNullException("left");
-            }
+            var x = first as OrContainer;
+            var y = second as OrContainer;
 
-            if (right == null)
+            if (x != null)
             {
-                throw new ArgumentNullException("right");
-            }
-
-            var l = left as OrContainer;
-            var r = right as OrContainer;
-
-            if (l != null)
-            {
-                if (r != null)
+                if (y != null)
                 {
-                    return Combine(l.Content as object[], r.Content as object[]);
+                    return Combine(x.Content as object[], y.Content as object[]);
                 }
                 else
                 {
-                    return Combine(l.Content as object[], right);
+                    return Combine(x.Content as object[], second);
                 }
             }
-            else if (r != null)
+            else if (y != null)
             {
-                return Combine(left, r.Content as object[]);
+                return Combine(first, y.Content as object[]);
             }
             else
             {
-                return new object[] { left, right };
+                return new object[] { first, second };
             }
         }
 
