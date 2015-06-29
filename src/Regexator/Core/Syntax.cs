@@ -27,10 +27,10 @@ namespace Pihrtsoft.Text.RegularExpressions
         public const string NotWordBoundary = @"\B";
         public const string PreviousMatchEnd = @"\G";
 
-        internal const string AssertStart = "(?=";
-        internal const string NotAssertStart = "(?!";
-        internal const string AssertBackStart = "(?<=";
-        internal const string NotAssertBackStart = "(?<!";
+        internal const string AssertionStart = "(?=";
+        internal const string NegativeAssertionStart = "(?!";
+        internal const string BackAssertionStart = "(?<=";
+        internal const string NegativeBackAssertionStart = "(?<!";
 
         internal const string GroupStart = "(?";
         internal const string NoncapturingGroupStart = "(?:";
@@ -54,7 +54,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         public const string Escape = @"\e";
 
         internal const string CharGroupStart = "[";
-        internal const string NotCharGroupStart = "[^";
+        internal const string NegativeCharGroupStart = "[^";
         internal const string CharGroupEnd = "]";
 
         internal const string AsciiStart = @"\x";
@@ -84,44 +84,44 @@ namespace Pihrtsoft.Text.RegularExpressions
         public const string SubstituteAfterMatch = SubstitutionChar + "'";
         public const string SubstituteBeforeMatch = SubstitutionChar + "`";
 
-        public static string Assert(object content)
+        public static string Assertion(object content)
         {
-            return AssertStart + Pattern.GetPattern(content) + GroupEnd;
+            return AssertionStart + Pattern.GetPattern(content) + GroupEnd;
         }
 
-        public static string Assert(params object[] content)
+        public static string Assertion(params object[] content)
         {
-            return Assert((object)content);
+            return Assertion((object)content);
         }
 
-        public static string NotAssert(object content)
+        public static string NegativeAssertion(object content)
         {
-            return NotAssertStart + Pattern.GetPattern(content) + GroupEnd;
+            return NegativeAssertionStart + Pattern.GetPattern(content) + GroupEnd;
         }
 
-        public static string NotAssert(params object[] content)
+        public static string NegativeAssertion(params object[] content)
         {
-            return NotAssert((object)content);
+            return NegativeAssertion((object)content);
         }
 
-        public static string AssertBack(object content)
+        public static string BackAssertion(object content)
         {
-            return AssertBackStart + Pattern.GetPattern(content) + GroupEnd;
+            return BackAssertionStart + Pattern.GetPattern(content) + GroupEnd;
         }
 
-        public static string AssertBack(params object[] content)
+        public static string BackAssertion(params object[] content)
         {
-            return AssertBack((object)content);
+            return BackAssertion((object)content);
         }
 
-        public static string NotAssertBack(object content)
+        public static string NegativeBackAssertion(object content)
         {
-            return NotAssertBackStart + Pattern.GetPattern(content) + GroupEnd;
+            return NegativeBackAssertionStart + Pattern.GetPattern(content) + GroupEnd;
         }
 
-        public static string NotAssertBack(params object[] content)
+        public static string NegativeBackAssertion(params object[] content)
         {
-            return NotAssertBack((object)content);
+            return NegativeBackAssertion((object)content);
         }
 
         public static string GroupReference(int groupNumber)
@@ -316,7 +316,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                 throw new ArgumentException("Character group cannot be empty.", "characters");
             }
 
-            return (negative ? NotCharGroupStart : CharGroupStart) + characters + CharGroupEnd;
+            return (negative ? NegativeCharGroupStart : CharGroupStart) + characters + CharGroupEnd;
         }
 
         public static string CharClass(CharClass value)
