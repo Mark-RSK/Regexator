@@ -3,7 +3,7 @@
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
-    /// Specifies that the match must occur at the beginning of the string.
+    /// Specifies that the match must occur at the beginning of the string. This class cannot be inherited.
     /// </summary>
     internal sealed class StartOfInput
         : QuantifiablePattern

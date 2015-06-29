@@ -73,7 +73,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Creates and returns a new instance of the <see cref="CharGrouping"/> and adds a character to it.
         /// </summary>
-        /// <param name="value">An enumerated constant that identifies an ASCII character literal.</param>
+        /// <param name="value">An enumerated constant that identifies ASCII character.</param>
         /// <returns></returns>
         public static CharGrouping Create(AsciiChar value)
         {
@@ -214,7 +214,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character from a particular Unicode named block.
+        /// Appends a pattern that matches a character from the specified Unicode named block.
         /// </summary>
         /// <param name="block">An enumerated constant that identifies Unicode named block.</param>
         /// <returns></returns>
@@ -224,7 +224,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character from a particular Unicode general category.
+        /// Appends a pattern that matches a character from the specified Unicode general category.
         /// </summary>
         /// <param name="category">An enumerated constant that identifies Unicode general category.</param>
         /// <returns></returns>
@@ -234,7 +234,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not from a particular Unicode named block.
+        /// Appends a pattern that matches a character that is not from the specified Unicode named block.
         /// </summary>
         /// <param name="block">An enumerated constant that identifies Unicode named block.</param>
         /// <returns></returns>
@@ -244,7 +244,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not from a particular Unicode general category.
+        /// Appends a pattern that matches a character that is not from the specified Unicode general category.
         /// </summary>
         /// <param name="category">An enumerated constant that identifies Unicode general category.</param>
         /// <returns></returns>

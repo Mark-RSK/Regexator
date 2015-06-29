@@ -3,7 +3,7 @@
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
-    /// Represents a zero-width negative lookbehind assertion.
+    /// Represents a zero-width negative lookbehind assertion. This class cannot be inherited.
     /// </summary>
     public sealed class NegativeBackAssertion
         : GroupingPattern

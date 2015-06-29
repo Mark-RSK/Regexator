@@ -3,7 +3,7 @@
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
-    /// Specifies that the match must not occur on a boundary between a word character (\w) and a non-word character (\W).
+    /// Specifies that the match must not occur on a boundary between a word character (\w) and a non-word character (\W). This class cannot be inherited.
     /// </summary>
     public sealed class NegativeWordBoundary
         : QuantifiablePattern

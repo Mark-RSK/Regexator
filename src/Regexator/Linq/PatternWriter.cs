@@ -12,6 +12,9 @@ using System.Text.RegularExpressions;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
+    /// <summary>
+    /// Extends a <see cref="System.Text.StringWriter"/> for writing regular expression pattern to a string. This class cannot be inherited.
+    /// </summary>
     public sealed class PatternWriter
         : StringWriter
     {
@@ -20,16 +23,28 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         private Stack<CharGrouping> _charGroupings;
         private RegexOptions _currentOptions;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PatternWriter"/> class.
+        /// </summary>
         internal PatternWriter()
             : this(CultureInfo.CurrentCulture)
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PatternWriter"/> class with the specified format control.
+        /// </summary>
+        /// <param name="formatProvider">An <see cref="System.IFormatProvider"/> object that controls formatting.</param>
         internal PatternWriter(IFormatProvider formatProvider)
             : this(new PatternSettings(), formatProvider)
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PatternWriter"/> class with the specified settings and format control.
+        /// </summary>
+        /// <param name="settings">A settings that controls pattern formatting.</param>
+        /// <param name="formatProvider">An <see cref="System.IFormatProvider"/> object that controls formatting.</param>
         internal PatternWriter(PatternSettings settings, IFormatProvider formatProvider)
             : this(settings, formatProvider, RegexOptions.None)
         {
@@ -51,12 +66,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
+        /// <summary>
+        /// Writes a string literal to this instance of the <see cref="PatternWriter"/>.
+        /// </summary>
+        /// <param name="value">The string literal to write.</param>
         public override void Write(string value)
         {
             Write(value, false);
         }
 
-        public void Write(string value, bool inCharGroup)
+        internal void Write(string value, bool inCharGroup)
         {
             if (!string.IsNullOrEmpty(value))
             {
@@ -103,7 +122,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        public void WriteInternal(string value)
+        internal void WriteInternal(string value)
         {
             if (!string.IsNullOrEmpty(value))
             {
@@ -111,32 +130,44 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
+        /// <summary>
+        /// Writes a character literal to this instance of the <see cref="PatternWriter"/>.
+        /// </summary>
+        /// <param name="value">The character literal to write.</param>
         public override void Write(char value)
         {
             Write(value, false);
         }
 
-        public void Write(char value, bool inCharGroup)
+        internal void Write(char value, bool inCharGroup)
         {
             WriteInternal((int)value, inCharGroup);
         }
 
+        /// <summary>
+        /// Writes a character literal to this instance of the <see cref="PatternWriter"/>.
+        /// </summary>
+        /// <param name="value">An enumerated constant that identifies an ASCII character.</param>
         public void Write(AsciiChar value)
         {
             Write(value, false);
         }
 
-        public void Write(AsciiChar value, bool inCharGroup)
+        internal void Write(AsciiChar value, bool inCharGroup)
         {
             WriteInternal((int)value, inCharGroup);
         }
 
+        /// <summary>
+        /// Writes a character literal to this instance of the <see cref="PatternWriter"/>.
+        /// </summary>
+        /// <param name="value">The character code.</param>
         public override void Write(int value)
         {
             Write(value, false);
         }
 
-        public void Write(int value, bool inCharGroup)
+        internal void Write(int value, bool inCharGroup)
         {
             if (value < 0 || value > 0xFFFF)
             {
@@ -203,6 +234,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Write(lastCharCode, true);
         }
 
+        /// <summary>
+        /// Writes the text representation of a pattern to this instance of the <see cref="PatternWriter"/>.
+        /// </summary>
+        /// <param name="pattern">The pattern to write.</param>
         public void Write(Pattern pattern)
         {
             if (pattern == null)
@@ -237,11 +272,21 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
+        /// <summary>
+        /// Writes the text representation of a pattern to this instance of the <see cref="PatternWriter"/>.
+        /// </summary>
+        /// <param name="pattern">The pattern to write.</param>
         public void Write(CharGrouping value)
         {
             WriteCharGroup(value);
         }
 
+        /// <summary>
+        /// Tries to write the text representation of an object this instance of the <see cref="PatternWriter"/>.
+        /// The object must be convertible to <see cref="Pattern"/>, <see cref="CharGrouping"/> or a <see cref="System.String"/>.
+        /// For a recursive call, the object must be converible to an array of object or <see cref="System.Collections.IEnumerable"/>.
+        /// </summary>
+        /// <param name="value">The object to write.</param>
         public override void Write(object value)
         {
             if (value == null)
@@ -373,6 +418,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _currentOptions = currentOptions;
         }
 
+        /// <summary>
+        /// Writes an if construct to this instace of the <see cref="PatternWriter"/>.
+        /// </summary>
+        /// <param name="testContent"></param>
+        /// <param name="trueContent"></param>
+        /// <param name="falseContent"></param>
         public void WriteIf(object testContent, object trueContent, object falseContent)
         {
             if (testContent == null)

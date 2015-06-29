@@ -6,7 +6,7 @@ using System.Diagnostics.CodeAnalysis;
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
-    /// A pattern consisting of a base pattern that is surrounded with patterns interpreted as lookbehind and lookahead assertion, respectively.
+    /// A pattern consisting of a base pattern that is surrounded with patterns interpreted as lookbehind and lookahead assertion, respectively. This class cannot be inherited.
     /// </summary>
     public sealed class SurroundAssertion
         : Pattern, IInvertible<NegativeSurroundAssertion>

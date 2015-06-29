@@ -7,7 +7,7 @@ using System;
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
-    /// Specifies a set of features to support on the <see cref="PatternWriter"/> object.
+    /// Specifies a set of features to support on the <see cref="PatternWriter"/> object. This class cannot be inherited.
     /// </summary>
     public sealed class PatternSettings
         : ICloneable

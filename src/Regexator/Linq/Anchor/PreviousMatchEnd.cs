@@ -3,7 +3,7 @@
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
-    /// Specifies that the match must occur at the position where the previous match ended.
+    /// Specifies that the match must occur at the position where the previous match ended. This class cannot be inherited.
     /// </summary>
     internal sealed class PreviousMatchEnd
         : QuantifiablePattern

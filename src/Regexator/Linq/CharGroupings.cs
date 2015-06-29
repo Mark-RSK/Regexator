@@ -5,7 +5,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     public static class CharGroupings
     {
         /// <summary>
-        /// Returns a pattern that matches a character from a particular Unicode named block.
+        /// Returns a pattern that matches a character from the specified Unicode named block.
         /// </summary>
         /// <param name="block">An enumerated constant that identifies Unicode named block.</param>
         /// <returns></returns>
@@ -15,7 +15,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a character that is not from a particular Unicode named block.
+        /// Returns a pattern that matches a character that is not from the specified Unicode named block.
         /// </summary>
         /// <param name="block">An enumerated constant that identifies Unicode named block.</param>
         /// <returns></returns>
@@ -25,7 +25,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a character from a particular Unicode general category.
+        /// Returns a pattern that matches a character from the specified Unicode general category.
         /// </summary>
         /// <param name="category">An enumerated constant that identifies Unicode general category.</param>
         /// <returns></returns>
@@ -35,7 +35,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a character that is not from a particular Unicode general category.
+        /// Returns a pattern that matches a character that is not from the specified Unicode general category.
         /// </summary>
         /// <param name="category">An enumerated constant that identifies Unicode general category.</param>
         /// <returns></returns>
