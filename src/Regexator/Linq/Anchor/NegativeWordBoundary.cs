@@ -14,7 +14,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override void AppendTo(PatternBuilder builder)
         {
-            builder.AppendNegativeWordBoundary();
+            builder.AppendNotWordBoundary();
         }
     }
 }
