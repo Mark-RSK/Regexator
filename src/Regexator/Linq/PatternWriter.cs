@@ -284,7 +284,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Tries to write the text representation of an object this instance of the <see cref="PatternWriter"/>.
         /// The object must be convertible to <see cref="Pattern"/>, <see cref="CharGrouping"/> or a <see cref="System.String"/>.
-        /// For a recursive call, the object must be converible to an array of object or <see cref="System.Collections.IEnumerable"/>.
+        /// For a recursive call, the object must be convertible to an array of object or <see cref="System.Collections.IEnumerable"/>.
         /// </summary>
         /// <param name="value">The object to write.</param>
         public override void Write(object value)

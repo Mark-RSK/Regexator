@@ -35,6 +35,22 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new OrContainer(left, right);
         }
 
+        /// <summary>
+        /// Returns an if construct with the specified pattern to test and a pattern to match if the test pattern is matched.
+        /// </summary>
+        /// <param name="testContent">The test pattern to match.</param>
+        /// <param name="trueContent">The pattern to match if the test pattern is matched.</param>
+        /// <returns></returns>
+        public static QuantifiablePattern IfAssert(Pattern testContent, object trueContent)
+        {
+            return IfAssert(testContent, trueContent, null);
+        }
+
+        public static QuantifiablePattern IfAssert(Pattern testContent, object trueContent, object falseContent)
+        {
+            return new IfAssert(testContent, trueContent, falseContent);
+        }
+
         public static QuantifiablePattern IfGroup(string groupName, object trueContent)
         {
             return IfGroup(groupName, trueContent, null);
@@ -55,51 +71,81 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new IfGroup(groupNumber, trueContent, falseContent);
         }
 
-        public static QuantifiablePattern IfAssert(Pattern testContent, object trueContent)
-        {
-            return IfAssert(testContent, trueContent, null);
-        }
-
-        public static QuantifiablePattern IfAssert(Pattern testContent, object trueContent, object falseContent)
-        {
-            return new IfAssert(testContent, trueContent, falseContent);
-        }
-
+        /// <summary>
+        /// Returns a zero-width positive lookahead assertion with a specified content.
+        /// </summary>
+        /// <param name="content">The object to be added as assertion content.</param>
+        /// <returns></returns>
         public static Assertion Assert(object content)
         {
             return new Assertion(content);
         }
 
+        /// <summary>
+        /// Returns a zero-width positive lookahead assertion with a specified content.
+        /// </summary>
+        /// <param name="content">An object array that contains zero or more objects to be added as assertion content.</param>
+        /// <returns></returns>
         public static Assertion Assert(params object[] content)
         {
             return Assert((object)content);
         }
 
+        /// <summary>
+        /// Returns a zero-width negative lookahead assertion with a specified content.
+        /// </summary>
+        /// <param name="content">The object to be added as assertion content.</param>
+        /// <returns></returns>
         public static QuantifiablePattern NotAssert(object content)
         {
             return new NegativeAssertion(content);
         }
 
+        /// <summary>
+        /// Returns a zero-width negative lookahead assertion with a specified content.
+        /// </summary>
+        /// <param name="content">An object array that contains zero or more objects to be added as assertion content.</param>
+        /// <returns></returns>
         public static QuantifiablePattern NotAssert(params object[] content)
         {
             return NotAssert((object)content);
         }
 
+        /// <summary>
+        /// Returns a zero-width positive lookbehind assertion with a specified content.
+        /// </summary>
+        /// <param name="content">The object to be added as assertion content.</param>
+        /// <returns></returns>
         public static BackAssertion AssertBack(object content)
         {
             return new BackAssertion(content);
         }
 
+        /// <summary>
+        /// Returns a zero-width positive lookbehind assertion with a specified content.
+        /// </summary>
+        /// <param name="content">An object array that contains zero or more objects to be added as assertion content.</param>
+        /// <returns></returns>
         public static BackAssertion AssertBack(params object[] content)
         {
             return AssertBack((object)content);
         }
 
+        /// <summary>
+        /// Returns a zero-width negative lookbehind assertion with a specified content.
+        /// </summary>
+        /// <param name="content">The object to be added as assertion content.</param>
+        /// <returns></returns>
         public static QuantifiablePattern NotAssertBack(object content)
         {
             return new NegativeBackAssertion(content);
         }
 
+        /// <summary>
+        /// Returns a zero-width negative lookbehind assertion with a specified content.
+        /// </summary>
+        /// <param name="content">An object array that contains zero or more objects to be added as assertion content.</param>
+        /// <returns></returns>
         public static QuantifiablePattern NotAssertBack(params object[] content)
         {
             return NotAssertBack((object)content);
