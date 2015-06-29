@@ -8,9 +8,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal sealed class EndOrBeforeEndingNewLine
         : QuantifiablePattern
     {
-        internal override void WriteTo(PatternWriter writer)
+        internal override void AppendTo(PatternBuilder builder)
         {
-            writer.WriteEndOrBeforeEndingNewLine();
+            builder.AppendEndOrBeforeEndingNewLine();
         }
     }
 }

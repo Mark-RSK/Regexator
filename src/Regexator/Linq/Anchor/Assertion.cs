@@ -25,9 +25,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new NegativeAssertion(this);
         }
 
-        internal override void WriteTo(PatternWriter writer)
+        internal override void AppendTo(PatternBuilder builder)
         {
-            writer.WriteAssert(Content);
+            builder.AppendAssert(Content);
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]

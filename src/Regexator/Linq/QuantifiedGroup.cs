@@ -22,25 +22,25 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _content = content;
         }
 
-        protected abstract void WriteQuantifierTo(PatternWriter writer);
+        protected abstract void AppendQuantifierTo(PatternBuilder builder);
 
-        internal override void WriteTo(PatternWriter writer)
+        internal override void AppendTo(PatternBuilder builder)
         {
             bool addGroup = AddGroup;
 
             if (addGroup)
             {
-                writer.WriteNoncapturingGroupStart();
+                builder.AppendNoncapturingGroupStart();
             }
 
-            writer.WriteGroupContent(Content);
+            builder.AppendGroupContent(Content);
 
             if (addGroup)
             {
-                writer.WriteGroupEnd();
+                builder.AppendGroupEnd();
             }
 
-            WriteQuantifierTo(writer);
+            AppendQuantifierTo(builder);
         }
 
         private bool AddGroup

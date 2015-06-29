@@ -41,20 +41,20 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 _count2 = maxCount;
             }
 
-            protected override void WriteQuantifierTo(PatternWriter writer)
+            protected override void AppendQuantifierTo(PatternBuilder builder)
             {
-                if (writer == null)
+                if (builder == null)
                 {
-                    throw new ArgumentNullException("writer");
+                    throw new ArgumentNullException("builder");
                 }
 
                 if (_count2 == -1)
                 {
-                    writer.WriteCountInternal(_count1);
+                    builder.AppendCountInternal(_count1);
                 }
                 else
                 {
-                    writer.WriteCountInternal(_count1, _count2);
+                    builder.AppendCountInternal(_count1, _count2);
                 }
             }
         }
@@ -75,14 +75,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 _minCount = minCount;
             }
 
-            protected override void WriteQuantifierTo(PatternWriter writer)
+            protected override void AppendQuantifierTo(PatternBuilder builder)
             {
-                if (writer == null)
+                if (builder == null)
                 {
-                    throw new ArgumentNullException("writer");
+                    throw new ArgumentNullException("builder");
                 }
 
-                writer.WriteCountFromInternal(_minCount);
+                builder.AppendCountFromInternal(_minCount);
             }
         }
 
@@ -94,14 +94,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
             }
 
-            protected override void WriteQuantifierTo(PatternWriter writer)
+            protected override void AppendQuantifierTo(PatternBuilder builder)
             {
-                if (writer == null)
+                if (builder == null)
                 {
-                    throw new ArgumentNullException("writer");
+                    throw new ArgumentNullException("builder");
                 }
 
-                writer.WriteMaybe();
+                builder.AppendMaybe();
             }
         }
 
@@ -113,14 +113,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
             }
 
-            protected override void WriteQuantifierTo(PatternWriter writer)
+            protected override void AppendQuantifierTo(PatternBuilder builder)
             {
-                if (writer == null)
+                if (builder == null)
                 {
-                    throw new ArgumentNullException("writer");
+                    throw new ArgumentNullException("builder");
                 }
 
-                writer.WriteMaybeMany();
+                builder.AppendMaybeMany();
             }
         }
 
@@ -132,14 +132,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
             }
 
-            protected override void WriteQuantifierTo(PatternWriter writer)
+            protected override void AppendQuantifierTo(PatternBuilder builder)
             {
-                if (writer == null)
+                if (builder == null)
                 {
-                    throw new ArgumentNullException("writer");
+                    throw new ArgumentNullException("builder");
                 }
 
-                writer.WriteOneMany();
+                builder.AppendOneMany();
             }
         }
     }

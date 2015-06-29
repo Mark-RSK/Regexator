@@ -26,17 +26,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _ignoreCase = ignoreCase;
         }
 
-        internal override void WriteTo(PatternWriter writer)
+        internal override void AppendTo(PatternBuilder builder)
         {
             if (!string.IsNullOrEmpty(_text))
             {
                 if (_ignoreCase)
                 {
-                    writer.WriteOptions(RegexOptions.IgnoreCase, _text);
+                    builder.AppendOptions(RegexOptions.IgnoreCase, _text);
                 }
                 else
                 {
-                    writer.Write(_text);
+                    builder.Append(_text);
                 }
             }
         }

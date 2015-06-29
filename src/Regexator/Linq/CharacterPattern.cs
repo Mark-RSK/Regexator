@@ -61,39 +61,39 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new CharacterSubtraction(this, excludedGroup);
         }
 
-        protected virtual void WriteGroupContentTo(PatternWriter writer)
+        protected virtual void AppendGroupContentTo(PatternBuilder builder)
         {
-            WriteTo(writer);
+            AppendTo(builder);
         }
 
         /// <summary>
-        /// Writes the character pattern to the output.
+        /// Appends the text representation of the current instance of the character pattern to the specified <see cref="PatternBuilder"/>.
         /// </summary>
-        /// <param name="writer">The output to be written to.</param>
-        public void WriteBaseGroupTo(PatternWriter writer)
+        /// <param name="builder">The builder to use for appending the character pattern text.</param>
+        public void AppendBaseGroupTo(PatternBuilder builder)
         {
-            if (writer == null)
+            if (builder == null)
             {
-                throw new ArgumentNullException("writer");
+                throw new ArgumentNullException("builder");
             }
 
-            WriteGroupContentTo(writer);
+            AppendGroupContentTo(builder);
         }
 
         /// <summary>
-        /// A character group containing the current instance is written to the output.
+        /// Appends the text representation of the character group containing the current instance to the specified <see cref="PatternBuilder"/>.
         /// </summary>
-        /// <param name="writer">The output to be written to.</param>
-        public void WriteExcludedGroupTo(PatternWriter writer)
+        /// <param name="builder">The builder to use for appending the character group text.</param>
+        public void AppendExcludedGroupTo(PatternBuilder builder)
         {
-            if (writer == null)
+            if (builder == null)
             {
-                throw new ArgumentNullException("writer");
+                throw new ArgumentNullException("builder");
             }
 
-            writer.WriteCharGroupStart();
-            WriteGroupContentTo(writer);
-            writer.WriteCharGroupEnd();
+            builder.AppendCharGroupStart();
+            AppendGroupContentTo(builder);
+            builder.AppendCharGroupEnd();
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]

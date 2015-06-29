@@ -31,9 +31,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _groupMode = groupMode;
         }
 
-        internal override void WriteTo(PatternWriter writer)
+        internal override void AppendTo(PatternBuilder builder)
         {
-            writer.WriteAny(Content, GroupMode);
+            builder.AppendAny(Content, GroupMode);
         }
 
         internal GroupMode GroupMode

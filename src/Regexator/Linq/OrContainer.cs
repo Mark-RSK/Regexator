@@ -70,9 +70,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return result;
         }
 
-        internal override void WriteTo(PatternWriter writer)
+        internal override void AppendTo(PatternBuilder builder)
         {
-            writer.WriteNoncapturingGroup(Content);
+            builder.AppendNoncapturingGroup(Content);
         }
     }
 }

@@ -46,11 +46,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new NegativeSurroundAssertion(_contentBefore, _content, _contentAfter);
         }
 
-        internal override void WriteTo(PatternWriter writer)
+        internal override void AppendTo(PatternBuilder builder)
         {
-            writer.WriteAssertBack(_contentBefore);
-            writer.Write(_content);
-            writer.WriteAssert(_contentAfter);
+            builder.AppendAssertBack(_contentBefore);
+            builder.Append(_content);
+            builder.AppendAssert(_contentAfter);
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]

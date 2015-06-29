@@ -28,9 +28,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             get { return _name; }
         }
 
-        internal override void WriteTo(PatternWriter writer)
+        internal override void AppendTo(PatternBuilder builder)
         {
-            writer.WriteNamedGroupInternal(Name, Content);
+            builder.AppendNamedGroupInternal(Name, Content);
         }
     }
 }

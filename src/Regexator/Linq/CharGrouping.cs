@@ -139,16 +139,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public override string ToString()
         {
-            return ToString(CultureInfo.CurrentCulture);
-        }
-
-        public string ToString(IFormatProvider formatProvider)
-        {
-            using (var writer = new PatternWriter(formatProvider))
-            {
-                WriteContentTo(writer);
-                return writer.ToString();
-            }
+            var builder = new PatternBuilder();
+            AppendContentTo(builder);
+            return builder.ToString();
         }
 
         /// <summary>
@@ -793,37 +786,37 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return CharacterGroup.Create(this, true);
         }
 
-        protected abstract void WriteItemContentTo(PatternWriter writer);
+        protected abstract void AppendItemContentTo(PatternBuilder builder);
 
         /// <summary>
-        /// Writes the current instance to the output.
+        /// Appends the text representation of the current instance of the character grouping to the specified <see cref="PatternBuilder"/>.
         /// </summary>
-        /// <param name="writer">The output to be written to.</param>
-        public void WriteBaseGroupTo(PatternWriter writer)
+        /// <param name="builder">The builder to use for appending the character grouping text.</param>
+        public void AppendBaseGroupTo(PatternBuilder builder)
         {
-            WriteContentTo(writer);
+            AppendContentTo(builder);
         }
 
         /// <summary>
-        /// A character group containing the current instance is written to the output.
+        /// Appends the text representation of the character group containing the current instance to the specified <see cref="PatternBuilder"/>.
         /// </summary>
-        /// <param name="writer">The output to be written to.</param>
-        public void WriteExcludedGroupTo(PatternWriter writer)
+        /// <param name="builder">The builder to use for appending the character group text.</param>
+        public void AppendExcludedGroupTo(PatternBuilder builder)
         {
-            if (writer == null)
+            if (builder == null)
             {
-                throw new ArgumentNullException("writer");
+                throw new ArgumentNullException("builder");
             }
 
-            writer.Write(this);
+            builder.Append(this);
         }
 
-        internal void WriteContentTo(PatternWriter writer)
+        internal void AppendContentTo(PatternBuilder builder)
         {
             if (Previous != null)
             {
                 CharGrouping item = this;
-                Stack<CharGrouping> stack = writer.CharGroupings;
+                Stack<CharGrouping> stack = builder.CharGroupings;
 
                 do
                 {
@@ -833,12 +826,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
                 while (stack.Count > 0)
                 {
-                    stack.Pop().WriteItemContentTo(writer);
+                    stack.Pop().AppendItemContentTo(builder);
                 }
             }
             else
             {
-                WriteItemContentTo(writer);
+                AppendItemContentTo(builder);
             }
         }
 

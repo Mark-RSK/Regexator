@@ -36,11 +36,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _contentAfter = contentAfter;
         }
 
-        internal override void WriteTo(PatternWriter writer)
+        internal override void AppendTo(PatternBuilder builder)
         {
-            writer.WriteNotAssertBack(_contentBefore);
-            writer.Write(_content);
-            writer.WriteNotAssert(_contentAfter);
+            builder.AppendNotAssertBack(_contentBefore);
+            builder.Append(_content);
+            builder.AppendNotAssert(_contentAfter);
         }
     }
 }

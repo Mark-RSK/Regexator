@@ -40,17 +40,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Writes the current instance of the character subtraction to the output.
+        /// Appends the text representation of the current instance of the character subtraction to the specified <see cref="PatternBuilder"/>.
         /// </summary>
-        /// <param name="writer">The output to be written to.</param>
-        public void WriteExcludedGroupTo(PatternWriter writer)
+        /// <param name="builder">The builder to use for appending the character subtraction text.</param>
+        public void AppendExcludedGroupTo(PatternBuilder builder)
         {
-            WriteTo(writer);
+            AppendTo(builder);
         }
 
-        internal override void WriteTo(PatternWriter writer)
+        internal override void AppendTo(PatternBuilder builder)
         {
-            writer.WriteSubtraction(_baseGroup, _excludedGroup);
+            builder.AppendSubtraction(_baseGroup, _excludedGroup);
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]

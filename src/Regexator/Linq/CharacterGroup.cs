@@ -65,15 +65,15 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new CharGroupingCharacterGroup(value, negative);
         }
 
-        internal abstract void WriteContentTo(PatternWriter writer);
+        internal abstract void AppendContentTo(PatternBuilder builder);
 
         /// <summary>
-        /// Writes the current instance of the character group to the output.
+        /// Appends the text representation of the current instance of the character group to the specified <see cref="PatternBuilder"/>.
         /// </summary>
-        /// <param name="writer">The output to be written to.</param>
-        public void WriteExcludedGroupTo(PatternWriter writer)
+        /// <param name="builder">The builder to use for appending the character group text.</param>
+        public void AppendExcludedGroupTo(PatternBuilder builder)
         {
-            WriteTo(writer);
+            AppendTo(builder);
         }
 
         /// <summary>

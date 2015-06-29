@@ -22,19 +22,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 return CharacterGroup.Create(_value, true);
             }
 
-            internal override void WriteTo(PatternWriter writer)
+            internal override void AppendTo(PatternBuilder builder)
             {
-                writer.Write(_value);
+                builder.Append(_value);
             }
 
-            protected override void WriteGroupContentTo(PatternWriter writer)
+            protected override void AppendGroupContentTo(PatternBuilder builder)
             {
-                if (writer == null)
+                if (builder == null)
                 {
-                    throw new ArgumentNullException("writer");
+                    throw new ArgumentNullException("builder");
                 }
 
-                writer.Write(_value, true);
+                builder.Append(_value, true);
             }
         }
 
@@ -58,19 +58,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 return CharacterGroup.Create(_charCode, true);
             }
 
-            internal override void WriteTo(PatternWriter writer)
+            internal override void AppendTo(PatternBuilder builder)
             {
-                writer.WriteInternal(_charCode);
+                builder.AppendInternal(_charCode);
             }
 
-            protected override void WriteGroupContentTo(PatternWriter writer)
+            protected override void AppendGroupContentTo(PatternBuilder builder)
             {
-                if (writer == null)
+                if (builder == null)
                 {
-                    throw new ArgumentNullException("writer");
+                    throw new ArgumentNullException("builder");
                 }
 
-                writer.WriteInternal(_charCode, true);
+                builder.AppendInternal(_charCode, true);
             }
         }
 
@@ -89,19 +89,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 return CharacterGroup.Create(_value, true);
             }
 
-            internal override void WriteTo(PatternWriter writer)
+            internal override void AppendTo(PatternBuilder builder)
             {
-                writer.Write(_value);
+                builder.Append(_value);
             }
 
-            protected override void WriteGroupContentTo(PatternWriter writer)
+            protected override void AppendGroupContentTo(PatternBuilder builder)
             {
-                if (writer == null)
+                if (builder == null)
                 {
-                    throw new ArgumentNullException("writer");
+                    throw new ArgumentNullException("builder");
                 }
 
-                writer.Write(_value, true);
+                builder.Append(_value, true);
             }
         }
 
@@ -122,9 +122,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 return CharacterGroup.Create(_category, !_negative);
             }
 
-            internal override void WriteTo(PatternWriter writer)
+            internal override void AppendTo(PatternBuilder builder)
             {
-                writer.WriteGeneralCategory(_category, _negative);
+                builder.AppendGeneralCategory(_category, _negative);
             }
         }
 
@@ -145,9 +145,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 return CharacterGroup.Create(_block, !_negative);
             }
 
-            internal override void WriteTo(PatternWriter writer)
+            internal override void AppendTo(PatternBuilder builder)
             {
-                writer.WriteNamedBlock(_block, _negative);
+                builder.AppendNamedBlock(_block, _negative);
             }
         }
 
@@ -182,9 +182,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 return null;
             }
 
-            internal override void WriteTo(PatternWriter writer)
+            internal override void AppendTo(PatternBuilder builder)
             {
-                writer.WriteCharClass(_value);
+                builder.AppendCharClass(_value);
             }
         }
     }

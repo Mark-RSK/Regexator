@@ -28,9 +28,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _falseContent = falseContent;
         }
 
-        internal override void WriteTo(PatternWriter writer)
+        internal override void AppendTo(PatternBuilder builder)
         {
-            writer.WriteIf(_testContent, _trueContent, _falseContent);
+            builder.AppendIf(_testContent, _trueContent, _falseContent);
         }
     }
 }

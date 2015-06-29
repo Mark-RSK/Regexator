@@ -48,9 +48,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             get { return _groupName; }
         }
 
-        internal override void WriteTo(PatternWriter writer)
+        internal override void AppendTo(PatternBuilder builder)
         {
-            writer.WriteIfGroupInternal(GroupName, _trueContent, _falseContent, false);
+            builder.AppendIfGroupInternal(GroupName, _trueContent, _falseContent, false);
         }
     }
 }

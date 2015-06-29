@@ -18,19 +18,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 _negative = negative;
             }
 
-            internal override void WriteContentTo(PatternWriter writer)
+            internal override void AppendContentTo(PatternBuilder builder)
             {
-                if (writer == null)
+                if (builder == null)
                 {
-                    throw new ArgumentNullException("writer");
+                    throw new ArgumentNullException("builder");
                 }
 
-                writer.Write(_value, true);
+                builder.Append(_value, true);
             }
 
-            internal override void WriteTo(PatternWriter writer)
+            internal override void AppendTo(PatternBuilder builder)
             {
-                writer.WriteCharGroup(_value, Negative);
+                builder.AppendCharGroup(_value, Negative);
             }
 
             public override bool Negative
@@ -51,19 +51,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 _negative = negative;
             }
 
-            internal override void WriteContentTo(PatternWriter writer)
+            internal override void AppendContentTo(PatternBuilder builder)
             {
-                if (writer == null)
+                if (builder == null)
                 {
-                    throw new ArgumentNullException("writer");
+                    throw new ArgumentNullException("builder");
                 }
 
-                writer.Write(_value, true);
+                builder.Append(_value, true);
             }
 
-            internal override void WriteTo(PatternWriter writer)
+            internal override void AppendTo(PatternBuilder builder)
             {
-                writer.WriteCharGroup(_value, Negative);
+                builder.AppendCharGroup(_value, Negative);
             }
 
             public override bool Negative
@@ -94,19 +94,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 get { return _negative; }
             }
 
-            internal override void WriteContentTo(PatternWriter writer)
+            internal override void AppendContentTo(PatternBuilder builder)
             {
-                if (writer == null)
+                if (builder == null)
                 {
-                    throw new ArgumentNullException("writer");
+                    throw new ArgumentNullException("builder");
                 }
 
-                writer.WriteInternal(_charCode, true);
+                builder.AppendInternal(_charCode, true);
             }
 
-            internal override void WriteTo(PatternWriter writer)
+            internal override void AppendTo(PatternBuilder builder)
             {
-                writer.WriteCharGroup(_charCode, Negative);
+                builder.AppendCharGroup(_charCode, Negative);
             }
         }
 
@@ -137,19 +137,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 _negative = negative;
             }
 
-            internal override void WriteContentTo(PatternWriter writer)
+            internal override void AppendContentTo(PatternBuilder builder)
             {
-                if (writer == null)
+                if (builder == null)
                 {
-                    throw new ArgumentNullException("writer");
+                    throw new ArgumentNullException("builder");
                 }
 
-                writer.Write(_characters, true);
+                builder.Append(_characters, true);
             }
 
-            internal override void WriteTo(PatternWriter writer)
+            internal override void AppendTo(PatternBuilder builder)
             {
-                writer.WriteCharGroup(_characters, Negative);
+                builder.AppendCharGroup(_characters, Negative);
             }
 
             public override bool Negative
@@ -182,19 +182,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 get { return _negative; }
             }
 
-            internal override void WriteContentTo(PatternWriter writer)
+            internal override void AppendContentTo(PatternBuilder builder)
             {
-                if (writer == null)
+                if (builder == null)
                 {
-                    throw new ArgumentNullException("writer");
+                    throw new ArgumentNullException("builder");
                 }
 
-                writer.WriteCharRange(_firstChar, _lastChar);
+                builder.AppendCharRange(_firstChar, _lastChar);
             }
 
-            internal override void WriteTo(PatternWriter writer)
+            internal override void AppendTo(PatternBuilder builder)
             {
-                writer.WriteCharGroup(_firstChar, _lastChar, Negative);
+                builder.AppendCharGroup(_firstChar, _lastChar, Negative);
             }
         }
 
@@ -227,19 +227,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 get { return _negative; }
             }
 
-            internal override void WriteContentTo(PatternWriter writer)
+            internal override void AppendContentTo(PatternBuilder builder)
             {
-                if (writer == null)
+                if (builder == null)
                 {
-                    throw new ArgumentNullException("writer");
+                    throw new ArgumentNullException("builder");
                 }
 
-                writer.WriteCharRange(_first, _last);
+                builder.AppendCharRange(_first, _last);
             }
 
-            internal override void WriteTo(PatternWriter writer)
+            internal override void AppendTo(PatternBuilder builder)
             {
-                writer.WriteCharGroup(_first, _last, Negative);
+                builder.AppendCharGroup(_first, _last, Negative);
             }
         }
 
@@ -255,14 +255,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 _negative = negative;
             }
 
-            internal override void WriteContentTo(PatternWriter writer)
+            internal override void AppendContentTo(PatternBuilder builder)
             {
-                writer.WriteGeneralCategory(_category, Negative);
+                builder.AppendGeneralCategory(_category, Negative);
             }
 
-            internal override void WriteTo(PatternWriter writer)
+            internal override void AppendTo(PatternBuilder builder)
             {
-                writer.WriteCharGroup(_category, Negative);
+                builder.AppendCharGroup(_category, Negative);
             }
 
             public override bool Negative
@@ -283,14 +283,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 _negative = negative;
             }
 
-            internal override void WriteContentTo(PatternWriter writer)
+            internal override void AppendContentTo(PatternBuilder builder)
             {
-                writer.WriteNamedBlock(_block, Negative);
+                builder.AppendNamedBlock(_block, Negative);
             }
 
-            internal override void WriteTo(PatternWriter writer)
+            internal override void AppendTo(PatternBuilder builder)
             {
-                writer.WriteCharGroup(_block, Negative);
+                builder.AppendCharGroup(_block, Negative);
             }
 
             public override bool Negative
@@ -309,14 +309,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 _value = value;
             }
 
-            internal override void WriteContentTo(PatternWriter writer)
+            internal override void AppendContentTo(PatternBuilder builder)
             {
-                writer.WriteCharClass(_value);
+                builder.AppendCharClass(_value);
             }
 
-            internal override void WriteTo(PatternWriter writer)
+            internal override void AppendTo(PatternBuilder builder)
             {
-                writer.WriteCharGroup(_value);
+                builder.AppendCharGroup(_value);
             }
         }
 
@@ -342,14 +342,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 _negative = negative;
             }
 
-            internal override void WriteContentTo(PatternWriter writer)
+            internal override void AppendContentTo(PatternBuilder builder)
             {
-                _item.WriteContentTo(writer);
+                _item.AppendContentTo(builder);
             }
 
-            internal override void WriteTo(PatternWriter writer)
+            internal override void AppendTo(PatternBuilder builder)
             {
-                writer.WriteCharGroup(_item, Negative);
+                builder.AppendCharGroup(_item, Negative);
             }
 
             public override bool Negative
@@ -375,16 +375,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 _negative = negative;
             }
 
-            internal override void WriteContentTo(PatternWriter writer)
+            internal override void AppendContentTo(PatternBuilder builder)
             {
-                _group.WriteContentTo(writer);
+                _group.AppendContentTo(builder);
             }
 
-            internal override void WriteTo(PatternWriter writer)
+            internal override void AppendTo(PatternBuilder builder)
             {
-                writer.WriteCharGroupStart(Negative);
-                _group.WriteContentTo(writer);
-                writer.WriteCharGroupEnd();
+                builder.AppendCharGroupStart(Negative);
+                _group.AppendContentTo(builder);
+                builder.AppendCharGroupEnd();
             }
 
             public override bool Negative

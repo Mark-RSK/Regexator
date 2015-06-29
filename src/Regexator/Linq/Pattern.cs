@@ -139,48 +139,34 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public override string ToString()
         {
-            return ToString(CultureInfo.CurrentCulture);
+            return ToString(PatternOptions.None);
         }
 
         public string ToString(PatternOptions options)
         {
-            return ToString(new PatternSettings(options), CultureInfo.CurrentCulture);
+            return ToString(new PatternSettings(options));
         }
 
         public string ToString(PatternSettings settings)
         {
-            return ToString(settings, CultureInfo.CurrentCulture);
+            var builder = new PatternBuilder(settings);
+            builder.Append(this);
+            return builder.ToString();
         }
 
-        public string ToString(IFormatProvider formatProvider)
+        internal static string GetPattern(object content)
         {
-            return ToString(new PatternSettings(), formatProvider);
+            return GetPattern(content, new PatternSettings());
         }
 
-        public string ToString(PatternSettings settings, IFormatProvider formatProvider)
+        internal static string GetPattern(object content, PatternSettings settings)
         {
-            using (var writer = new PatternWriter(settings, formatProvider))
-            {
-                writer.Write(this);
-                return writer.ToString();
-            }
+            var builder = new PatternBuilder(settings);
+            builder.Append(content);
+            return builder.ToString();
         }
 
-        internal static string GetPattern(object content, IFormatProvider formatProvider)
-        {
-            return GetPattern(content, new PatternSettings(), formatProvider);
-        }
-
-        internal static string GetPattern(object content, PatternSettings settings, IFormatProvider formatProvider)
-        {
-            using (var writer = new PatternWriter(settings, formatProvider))
-            {
-                writer.Write(content);
-                return writer.ToString();
-            }
-        }
-
-        internal virtual void WriteTo(PatternWriter writer)
+        internal virtual void AppendTo(PatternBuilder builder)
         {
 
         }

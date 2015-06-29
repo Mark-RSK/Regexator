@@ -95,7 +95,7 @@
     <Compile Include="Core\AsciiChar.cs" />
     <Compile Include="Linq\LiteralPattern.cs" />
     <Compile Include="Linq\Group\BalancingGroup.cs" />
-    <Compile Include="Linq\PatternWriter.cs" />
+    <Compile Include="Linq\PatternBuilder.cs" />
     <Compile Include="Linq\Anchor\StartOfInput.cs" />
     <Compile Include="Linq\PatternSettings.cs" />
     <Compile Include="Core\CharClass.cs" />

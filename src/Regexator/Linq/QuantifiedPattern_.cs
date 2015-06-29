@@ -41,15 +41,15 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 _count2 = maxCount;
             }
 
-            internal override void WriteTo(PatternWriter writer)
+            internal override void AppendTo(PatternBuilder builder)
             {
                 if (_count2 == -1)
                 {
-                    writer.WriteCountInternal(_count1);
+                    builder.AppendCountInternal(_count1);
                 }
                 else
                 {
-                    writer.WriteCountInternal(_count1, _count2);
+                    builder.AppendCountInternal(_count1, _count2);
                 }
             }
         }
@@ -70,9 +70,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 _minCount = minCount;
             }
 
-            internal override void WriteTo(PatternWriter writer)
+            internal override void AppendTo(PatternBuilder builder)
             {
-                writer.WriteCountFromInternal(_minCount);
+                builder.AppendCountFromInternal(_minCount);
             }
         }
 
@@ -84,9 +84,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
             }
 
-            internal override void WriteTo(PatternWriter writer)
+            internal override void AppendTo(PatternBuilder builder)
             {
-                writer.WriteMaybe();
+                builder.AppendMaybe();
             }
         }
 
@@ -98,9 +98,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
             }
 
-            internal override void WriteTo(PatternWriter writer)
+            internal override void AppendTo(PatternBuilder builder)
             {
-                writer.WriteMaybeMany();
+                builder.AppendMaybeMany();
             }
         }
 
@@ -112,9 +112,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
             }
 
-            internal override void WriteTo(PatternWriter writer)
+            internal override void AppendTo(PatternBuilder builder)
             {
-                writer.WriteOneMany();
+                builder.AppendOneMany();
             }
         }
     }

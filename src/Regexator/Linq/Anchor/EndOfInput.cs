@@ -8,9 +8,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal sealed class EndOfInput
         : QuantifiablePattern
     {
-        internal override void WriteTo(PatternWriter writer)
+        internal override void AppendTo(PatternBuilder builder)
         {
-            writer.WriteEndOfInput();
+            builder.AppendEndOfInput();
         }
     }
 }

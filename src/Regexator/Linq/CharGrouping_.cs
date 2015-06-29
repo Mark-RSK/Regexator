@@ -16,14 +16,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 _value = value;
             }
 
-            protected override void WriteItemContentTo(PatternWriter writer)
+            protected override void AppendItemContentTo(PatternBuilder builder)
             {
-                if (writer == null)
+                if (builder == null)
                 {
-                    throw new ArgumentNullException("writer");
+                    throw new ArgumentNullException("builder");
                 }
 
-                writer.Write(_value, true);
+                builder.Append(_value, true);
             }
         }
 
@@ -42,14 +42,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 _charCode = charCode;
             }
 
-            protected override void WriteItemContentTo(PatternWriter writer)
+            protected override void AppendItemContentTo(PatternBuilder builder)
             {
-                if (writer == null)
+                if (builder == null)
                 {
-                    throw new ArgumentNullException("writer");
+                    throw new ArgumentNullException("builder");
                 }
 
-                writer.WriteInternal(_charCode, true);
+                builder.AppendInternal(_charCode, true);
             }
         }
 
@@ -63,14 +63,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 _value = value;
             }
 
-            protected override void WriteItemContentTo(PatternWriter writer)
+            protected override void AppendItemContentTo(PatternBuilder builder)
             {
-                if (writer == null)
+                if (builder == null)
                 {
-                    throw new ArgumentNullException("writer");
+                    throw new ArgumentNullException("builder");
                 }
 
-                writer.Write(_value, true);
+                builder.Append(_value, true);
             }
         }
 
@@ -94,14 +94,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 _characters = characters;
             }
 
-            protected override void WriteItemContentTo(PatternWriter writer)
+            protected override void AppendItemContentTo(PatternBuilder builder)
             {
-                if (writer == null)
+                if (builder == null)
                 {
-                    throw new ArgumentNullException("writer");
+                    throw new ArgumentNullException("builder");
                 }
 
-                writer.Write(_characters, true);
+                builder.Append(_characters, true);
             }
         }
 
@@ -122,14 +122,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 _lastChar = lastChar;
             }
 
-            protected override void WriteItemContentTo(PatternWriter writer)
+            protected override void AppendItemContentTo(PatternBuilder builder)
             {
-                if (writer == null)
+                if (builder == null)
                 {
-                    throw new ArgumentNullException("writer");
+                    throw new ArgumentNullException("builder");
                 }
 
-                writer.WriteCharRange(_firstChar, _lastChar);
+                builder.AppendCharRange(_firstChar, _lastChar);
             }
         }
 
@@ -155,14 +155,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 _last = lastCharCode;
             }
 
-            protected override void WriteItemContentTo(PatternWriter writer)
+            protected override void AppendItemContentTo(PatternBuilder builder)
             {
-                if (writer == null)
+                if (builder == null)
                 {
-                    throw new ArgumentNullException("writer");
+                    throw new ArgumentNullException("builder");
                 }
 
-                writer.WriteCharRange(_first, _last);
+                builder.AppendCharRange(_first, _last);
             }
         }
 
@@ -176,14 +176,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 _value = value;
             }
 
-            protected override void WriteItemContentTo(PatternWriter writer)
+            protected override void AppendItemContentTo(PatternBuilder builder)
             {
-                if (writer == null)
+                if (builder == null)
                 {
-                    throw new ArgumentNullException("writer");
+                    throw new ArgumentNullException("builder");
                 }
 
-                writer.WriteCharClass(_value);
+                builder.AppendCharClass(_value);
             }
         }
 
@@ -204,14 +204,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 get { return _negative; }
             }
 
-            protected override void WriteItemContentTo(PatternWriter writer)
+            protected override void AppendItemContentTo(PatternBuilder builder)
             {
-                if (writer == null)
+                if (builder == null)
                 {
-                    throw new ArgumentNullException("writer");
+                    throw new ArgumentNullException("builder");
                 }
 
-                writer.WriteGeneralCategory(_category, Negative);
+                builder.AppendGeneralCategory(_category, Negative);
             }
         }
 
@@ -232,14 +232,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 get { return _negative; }
             }
 
-            protected override void WriteItemContentTo(PatternWriter writer)
+            protected override void AppendItemContentTo(PatternBuilder builder)
             {
-                if (writer == null)
+                if (builder == null)
                 {
-                    throw new ArgumentNullException("writer");
+                    throw new ArgumentNullException("builder");
                 }
 
-                writer.WriteNamedBlock(_block, Negative);
+                builder.AppendNamedBlock(_block, Negative);
             }
         }
 
@@ -253,14 +253,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 _value = value;
             }
 
-            protected override void WriteItemContentTo(PatternWriter writer)
+            protected override void AppendItemContentTo(PatternBuilder builder)
             {
-                if (writer == null)
+                if (builder == null)
                 {
-                    throw new ArgumentNullException("writer");
+                    throw new ArgumentNullException("builder");
                 }
 
-                _value.WriteItemContentTo(writer);
+                _value.AppendItemContentTo(builder);
             }
         }
     }

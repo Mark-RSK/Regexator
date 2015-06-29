@@ -21,9 +21,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new NegativeWordBoundary();
         }
 
-        internal override void WriteTo(PatternWriter writer)
+        internal override void AppendTo(PatternBuilder builder)
         {
-            writer.WriteWordBoundary();
+            builder.AppendWordBoundary();
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]

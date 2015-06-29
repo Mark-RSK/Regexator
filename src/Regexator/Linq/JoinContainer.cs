@@ -22,23 +22,23 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _values = values;
         }
 
-        internal override void WriteTo(PatternWriter writer)
+        internal override void AppendTo(PatternBuilder builder)
         {
             var values = _values as object[];
             if (values != null)
             {
                 if (values.Length > 0)
                 {
-                    writer.Write(values[0]);
+                    builder.Append(values[0]);
 
                     if (values.Length > 1)
                     {
-                        string separator = GetPattern(_separator, writer.Settings, writer.FormatProvider);
+                        string separator = GetPattern(_separator, builder.Settings);
 
                         for (int i = 1; i < values.Length; i++)
                         {
-                            writer.WriteInternal(separator);
-                            writer.Write(values[i]);
+                            builder.AppendInternal(separator);
+                            builder.Append(values[i]);
                         }
                     }
                 }
@@ -50,19 +50,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 {
                     if (en.MoveNext())
                     {
-                        writer.Write(en.Current);
+                        builder.Append(en.Current);
 
                         if (en.MoveNext())
                         {
-                            string separator = GetPattern(_separator, writer.Settings, writer.FormatProvider);
+                            string separator = GetPattern(_separator, builder.Settings);
 
-                            writer.WriteInternal(separator);
-                            writer.Write(en.Current);
+                            builder.AppendInternal(separator);
+                            builder.Append(en.Current);
 
                             while (en.MoveNext())
                             {
-                                writer.WriteInternal(separator);
-                                writer.Write(en.Current);
+                                builder.AppendInternal(separator);
+                                builder.Append(en.Current);
                             }
                         }
                     }

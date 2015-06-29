@@ -20,9 +20,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _groupNumber = groupNumber;
         }
 
-        internal override void WriteTo(PatternWriter writer)
+        internal override void AppendTo(PatternBuilder builder)
         {
-            writer.WriteGroupReferenceInternal(GroupNumber);
+            builder.AppendGroupReferenceInternal(GroupNumber);
         }
 
         public int GroupNumber

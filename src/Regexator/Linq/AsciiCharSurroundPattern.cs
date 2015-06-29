@@ -23,13 +23,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _charAfter = charAfter;
         }
 
-        internal override void WriteTo(PatternWriter writer)
+        internal override void AppendTo(PatternBuilder builder)
         {
-            writer.Write(_charBefore);
+            builder.Append(_charBefore);
 
-            writer.Write(_content);
+            builder.Append(_content);
 
-            writer.Write(_charAfter);
+            builder.Append(_charAfter);
         }
     }
 }

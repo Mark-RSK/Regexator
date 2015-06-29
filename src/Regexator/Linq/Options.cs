@@ -32,9 +32,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _disableOptions = disableOptions;
         }
 
-        internal override void WriteTo(PatternWriter writer)
+        internal override void AppendTo(PatternBuilder builder)
         {
-            writer.WriteOptions(_applyOptions, _disableOptions);
+            builder.AppendOptions(_applyOptions, _disableOptions);
         }
     }
 }

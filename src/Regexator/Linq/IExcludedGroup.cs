@@ -8,9 +8,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     public interface IExcludedGroup
     {
         /// <summary>
-        /// Writes the excluded group to the output.
+        /// Appends the text representation of the excluded group to the specified <see cref="PatternBuilder"/>.
         /// </summary>
-        /// <param name="writer">The output to be written to.</param>
-        void WriteExcludedGroupTo(PatternWriter writer);
+        /// <param name="builder">The builder to use for appending the excluded group text.</param>
+        void AppendExcludedGroupTo(PatternBuilder builder);
     }
 }
