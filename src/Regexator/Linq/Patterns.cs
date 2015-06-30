@@ -2499,14 +2499,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return NotAssertBack(CarriageReturn()).Linefeed().AsNonbacktrackingGroup();
         }
 
-        public static Pattern LeadingWhiteSpace()
+        public static QuantifiablePattern LeadingWhiteSpace()
         {
-            return StartOfLine().WhiteSpaceExceptNewLine().OneMany();
+            return StartOfLine().WhiteSpaceExceptNewLine().OneMany().AsNonbacktrackingGroup();
         }
 
-        public static Pattern TrailingWhiteSpace()
+        public static QuantifiablePattern TrailingWhiteSpace()
         {
-            return WhiteSpaceExceptNewLine().OneMany().EndOfLineOrBeforeCarriageReturn();
+            return WhiteSpaceExceptNewLine().OneMany().EndOfLineOrBeforeCarriageReturn().AsNonbacktrackingGroup();
         }
 
         public static QuantifiablePattern LeadingTrailingWhiteSpace()
@@ -2526,9 +2526,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 NewLine().Assert(NewLine().MaybeMany().EndOfInput());
         }
 
-        public static Pattern FirstLine()
+        public static QuantifiablePattern FirstLine()
         {
-            return StartOfInput().NotNewLineChar().MaybeMany();
+            return StartOfInput().NotNewLineChar().MaybeMany().AsNonbacktrackingGroup();
         }
 
         internal static Pattern ValidGroupName()

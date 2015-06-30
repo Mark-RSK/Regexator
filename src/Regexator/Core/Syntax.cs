@@ -622,7 +622,12 @@ namespace Pihrtsoft.Text.RegularExpressions
                 throw new ArgumentNullException("comment");
             }
 
-            return InlineCommentStart + RegexUtilities.TrimInlineComment.Match(comment).Value + GroupEnd;
+            if (comment.IndexOf(')') != -1)
+            {
+                throw new ArgumentException("Comment cannot contain right parenthesis.", "comment");
+            }
+
+            return InlineCommentStart + comment + GroupEnd;
         }
 
         [SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
