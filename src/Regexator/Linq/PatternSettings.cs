@@ -24,7 +24,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         public PatternSettings(PatternOptions options)
-            : this(options, IdentifierBoundary.LessThanGreaterThan)
+            : this(options, IdentifierBoundary.AngleBrackets)
         {
         }
 

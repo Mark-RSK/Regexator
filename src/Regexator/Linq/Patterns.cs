@@ -2417,7 +2417,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Pattern.Surround(AsciiChar.StartSquareBracket, content, AsciiChar.EndSquareBracket);
         }
 
-        public static Pattern LessThanGreaterThan(object content)
+        public static Pattern AngleBrackets()
+        {
+            return LessThan().GreaterThan();
+        }
+
+        public static Pattern AngleBrackets(object content)
         {
             return Pattern.Surround(AsciiChar.LessThan, content, AsciiChar.GreaterThan);
         }

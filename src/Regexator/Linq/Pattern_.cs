@@ -418,9 +418,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Patterns.SquareBrackets(content));
         }
 
-        public Pattern LessThanGreaterThan(object content)
+        public Pattern AngleBrackets()
         {
-            return ConcatInternal(Patterns.LessThanGreaterThan(content));
+            return ConcatInternal(Patterns.AngleBrackets());
+        }
+
+        public Pattern AngleBrackets(object content)
+        {
+            return ConcatInternal(Patterns.AngleBrackets(content));
         }
 
 #if DEBUG

@@ -28,7 +28,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             Console.WriteLine("cdata value");
             Console.WriteLine(Patterns
-                .LessThanGreaterThan(
+                .AngleBrackets(
                     "!" + Patterns.SquareBrackets(
                         "CDATA" + Patterns.SquareBrackets(
                             Patterns.CrawlInvariant().AsGroup()

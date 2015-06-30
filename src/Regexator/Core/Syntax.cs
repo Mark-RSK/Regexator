@@ -145,7 +145,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         {
             switch (separator)
             {
-                case IdentifierBoundary.LessThanGreaterThan:
+                case IdentifierBoundary.AngleBrackets:
                     return @"\k<" + groupName + ">";
                 case IdentifierBoundary.Apostrophe:
                     return @"\k'" + groupName + "'";
@@ -170,7 +170,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         {
             switch (boundary)
             {
-                case IdentifierBoundary.LessThanGreaterThan:
+                case IdentifierBoundary.AngleBrackets:
                     return @"(?<" + groupName + @">";
                 case IdentifierBoundary.Apostrophe:
                     return @"(?'" + groupName + @"'";
@@ -195,7 +195,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         {
             switch (separator)
             {
-                case IdentifierBoundary.LessThanGreaterThan:
+                case IdentifierBoundary.AngleBrackets:
                     return @"(?<" + name1 + "-" + name2 + @">";
                 case IdentifierBoundary.Apostrophe:
                     return @"(?'" + name1 + "-" + name2 + @"'";

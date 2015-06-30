@@ -10,7 +10,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         /// <summary>
         /// Group name will be enclosed in less-than character on the left side and greater-than character on the right side.
         /// </summary>
-        LessThanGreaterThan,
+        AngleBrackets,
 
         /// <summary>
         /// Group name will be enclosed in apostrophes.
