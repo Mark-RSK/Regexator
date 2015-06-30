@@ -381,7 +381,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Returns a pattern that matches a period.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping Period()
+        public static CharGrouping Dot()
         {
             return CharGrouping.Create(AsciiChar.Period);
         }

@@ -1182,34 +1182,34 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Count(minCount, maxCount, NotHyphen());
         }
 
-        public static CharPattern Period()
+        public static CharPattern Dot()
         {
             return Character(AsciiChar.Period);
         }
 
-        public static QuantifiedGroup Period(int exactCount)
+        public static QuantifiedGroup Dot(int exactCount)
         {
-            return Count(exactCount, Period());
+            return Count(exactCount, Dot());
         }
 
-        public static QuantifiedGroup Period(int minCount, int maxCount)
+        public static QuantifiedGroup Dot(int minCount, int maxCount)
         {
-            return Count(minCount, maxCount, Period());
+            return Count(minCount, maxCount, Dot());
         }
 
-        public static QuantifiablePattern NotPeriod()
+        public static QuantifiablePattern NotDot()
         {
             return NotCharacter(AsciiChar.Period);
         }
 
-        public static QuantifiedGroup NotPeriod(int exactCount)
+        public static QuantifiedGroup NotDot(int exactCount)
         {
-            return Count(exactCount, NotPeriod());
+            return Count(exactCount, NotDot());
         }
 
-        public static QuantifiedGroup NotPeriod(int minCount, int maxCount)
+        public static QuantifiedGroup NotDot(int minCount, int maxCount)
         {
-            return Count(minCount, maxCount, NotPeriod());
+            return Count(minCount, maxCount, NotDot());
         }
 
         public static CharPattern Slash()

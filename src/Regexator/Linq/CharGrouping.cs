@@ -574,9 +574,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Appends a pattern that matches a period.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping Period()
+        public CharGrouping Dot()
         {
-            return Concat(CharGroupings.Period());
+            return Concat(CharGroupings.Dot());
         }
 
         /// <summary>

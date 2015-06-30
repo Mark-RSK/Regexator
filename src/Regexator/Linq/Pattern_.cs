@@ -1575,34 +1575,34 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Patterns.NotHyphen(minCount, maxCount));
         }
 
-        public QuantifiablePattern Period()
+        public QuantifiablePattern Dot()
         {
-            return ConcatInternal(Patterns.Period());
+            return ConcatInternal(Patterns.Dot());
         }
 
-        public QuantifiedGroup Period(int exactCount)
+        public QuantifiedGroup Dot(int exactCount)
         {
-            return ConcatInternal(Patterns.Period(exactCount));
+            return ConcatInternal(Patterns.Dot(exactCount));
         }
 
-        public QuantifiedGroup Period(int minCount, int maxCount)
+        public QuantifiedGroup Dot(int minCount, int maxCount)
         {
-            return ConcatInternal(Patterns.Period(minCount, maxCount));
+            return ConcatInternal(Patterns.Dot(minCount, maxCount));
         }
 
-        public QuantifiablePattern NotPeriod()
+        public QuantifiablePattern NotDot()
         {
-            return ConcatInternal(Patterns.NotPeriod());
+            return ConcatInternal(Patterns.NotDot());
         }
 
-        public QuantifiedGroup NotPeriod(int exactCount)
+        public QuantifiedGroup NotDot(int exactCount)
         {
-            return ConcatInternal(Patterns.NotPeriod(exactCount));
+            return ConcatInternal(Patterns.NotDot(exactCount));
         }
 
-        public QuantifiedGroup NotPeriod(int minCount, int maxCount)
+        public QuantifiedGroup NotDot(int minCount, int maxCount)
         {
-            return ConcatInternal(Patterns.NotPeriod(minCount, maxCount));
+            return ConcatInternal(Patterns.NotDot(minCount, maxCount));
         }
 
         public QuantifiablePattern Slash()
