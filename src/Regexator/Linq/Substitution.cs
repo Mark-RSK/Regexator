@@ -41,11 +41,20 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             if (Previous != null)
             {
                 var sb = new StringBuilder();
-                var items = new Stack<Substitution>(EnumerateSubstitutions());
-                while (items.Count > 0)
+                var stack = new Stack<Substitution>();
+
+                Substitution item = this;
+                do
                 {
-                    sb.Append(items.Pop().Value);
+                    stack.Push(item);
+                    item = item.Previous;
+                } while (item != null);
+                
+                while (stack.Count > 0)
+                {
+                    sb.Append(stack.Pop().Value);
                 }
+
                 return sb.ToString();
             }
             else
@@ -53,17 +62,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 return Value;
             }
         }
-
-        private IEnumerable<Substitution> EnumerateSubstitutions()
-        {
-            Substitution s = this;
-            do
-            {
-                yield return s;
-                s = s.Previous;
-            } while (s != null);
-        }
-
 
         /// <summary>
         /// Substitutes the last substring matched by the named group.
