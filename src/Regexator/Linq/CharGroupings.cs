@@ -324,21 +324,21 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches left parenthesis.
+        /// Returns a pattern that matches start parenthesis.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping LeftParenthesis()
+        public static CharGrouping StartParenthesis()
         {
-            return CharGrouping.Create(AsciiChar.LeftParenthesis);
+            return CharGrouping.Create(AsciiChar.StartParenthesis);
         }
 
         /// <summary>
-        /// Returns a pattern that matches right parenthesis.
+        /// Returns a pattern that matches end parenthesis.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping RightParenthesis()
+        public static CharGrouping EndParenthesis()
         {
-            return CharGrouping.Create(AsciiChar.RightParenthesis);
+            return CharGrouping.Create(AsciiChar.EndParenthesis);
         }
 
         /// <summary>
@@ -459,12 +459,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches left square bracket.
+        /// Returns a pattern that matches start square bracket.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping LeftSquareBracket()
+        public static CharGrouping StartSquareBracket()
         {
-            return CharGrouping.Create(AsciiChar.LeftSquareBracket);
+            return CharGrouping.Create(AsciiChar.StartSquareBracket);
         }
 
         /// <summary>
@@ -480,9 +480,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Returns a pattern that matches right square bracket.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping RightSquareBracket()
+        public static CharGrouping EndSquareBracket()
         {
-            return CharGrouping.Create(AsciiChar.RightSquareBracket);
+            return CharGrouping.Create(AsciiChar.EndSquareBracket);
         }
 
         /// <summary>
@@ -516,9 +516,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Returns a pattern that matches left curly bracket
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping LeftCurlyBracket()
+        public static CharGrouping StartCurlyBracket()
         {
-            return CharGrouping.Create(AsciiChar.LeftCurlyBracket);
+            return CharGrouping.Create(AsciiChar.StartCurlyBracket);
         }
 
         /// <summary>
@@ -534,9 +534,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Returns a pattern that matches right curly bracket.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping RightCurlyBracket()
+        public static CharGrouping EndCurlyBracket()
         {
-            return CharGrouping.Create(AsciiChar.RightCurlyBracket);
+            return CharGrouping.Create(AsciiChar.EndCurlyBracket);
         }
 
         /// <summary>
@@ -549,30 +549,30 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches left or right parenthesis.
+        /// Returns a pattern that matches start or end parenthesis.
         /// </summary>
         /// <returns></returns>
         public static CharGrouping Parenthesis()
         {
-            return LeftParenthesis().RightParenthesis();
+            return StartParenthesis().EndParenthesis();
         }
 
         /// <summary>
-        /// Returns a pattern that matches left or right square bracket.
+        /// Returns a pattern that matches start or end square bracket.
         /// </summary>
         /// <returns></returns>
         public static CharGrouping SquareBracket()
         {
-            return LeftSquareBracket().RightSquareBracket();
+            return StartSquareBracket().EndSquareBracket();
         }
 
         /// <summary>
-        /// Returns a pattern that matches left or right curly bracket.
+        /// Returns a pattern that matches start or end curly bracket.
         /// </summary>
         /// <returns></returns>
         public static CharGrouping CurlyBracket()
         {
-            return LeftCurlyBracket().RightCurlyBracket();
+            return StartCurlyBracket().EndCurlyBracket();
         }
     }
 }

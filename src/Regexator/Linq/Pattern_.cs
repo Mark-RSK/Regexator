@@ -1390,64 +1390,64 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Patterns.NotApostrophe(minCount, maxCount));
         }
 
-        public QuantifiablePattern LeftParenthesis()
+        public QuantifiablePattern StartParenthesis()
         {
-            return ConcatInternal(Patterns.LeftParenthesis());
+            return ConcatInternal(Patterns.StartParenthesis());
         }
 
-        public QuantifiedGroup LeftParenthesis(int exactCount)
+        public QuantifiedGroup StartParenthesis(int exactCount)
         {
-            return ConcatInternal(Patterns.LeftParenthesis(exactCount));
+            return ConcatInternal(Patterns.StartParenthesis(exactCount));
         }
 
-        public QuantifiedGroup LeftParenthesis(int minCount, int maxCount)
+        public QuantifiedGroup StartParenthesis(int minCount, int maxCount)
         {
-            return ConcatInternal(Patterns.LeftParenthesis(minCount, maxCount));
+            return ConcatInternal(Patterns.StartParenthesis(minCount, maxCount));
         }
 
-        public QuantifiablePattern NotLeftParenthesis()
+        public QuantifiablePattern NotStartParenthesis()
         {
-            return ConcatInternal(Patterns.NotLeftParenthesis());
+            return ConcatInternal(Patterns.NotStartParenthesis());
         }
 
-        public QuantifiedGroup NotLeftParenthesis(int exactCount)
+        public QuantifiedGroup NotStartParenthesis(int exactCount)
         {
-            return ConcatInternal(Patterns.NotLeftParenthesis(exactCount));
+            return ConcatInternal(Patterns.NotStartParenthesis(exactCount));
         }
 
-        public QuantifiedGroup NotLeftParenthesis(int minCount, int maxCount)
+        public QuantifiedGroup NotStartParenthesis(int minCount, int maxCount)
         {
-            return ConcatInternal(Patterns.NotLeftParenthesis(minCount, maxCount));
+            return ConcatInternal(Patterns.NotStartParenthesis(minCount, maxCount));
         }
 
-        public QuantifiablePattern RightParenthesis()
+        public QuantifiablePattern EndParenthesis()
         {
-            return ConcatInternal(Patterns.RightParenthesis());
+            return ConcatInternal(Patterns.EndParenthesis());
         }
 
-        public QuantifiedGroup RightParenthesis(int exactCount)
+        public QuantifiedGroup EndParenthesis(int exactCount)
         {
-            return ConcatInternal(Patterns.RightParenthesis(exactCount));
+            return ConcatInternal(Patterns.EndParenthesis(exactCount));
         }
 
-        public QuantifiedGroup RightParenthesis(int minCount, int maxCount)
+        public QuantifiedGroup EndParenthesis(int minCount, int maxCount)
         {
-            return ConcatInternal(Patterns.RightParenthesis(minCount, maxCount));
+            return ConcatInternal(Patterns.EndParenthesis(minCount, maxCount));
         }
 
-        public QuantifiablePattern NotRightParenthesis()
+        public QuantifiablePattern NotEndParenthesis()
         {
-            return ConcatInternal(Patterns.NotRightParenthesis());
+            return ConcatInternal(Patterns.NotEndParenthesis());
         }
 
-        public QuantifiedGroup NotRightParenthesis(int exactCount)
+        public QuantifiedGroup NotEndParenthesis(int exactCount)
         {
-            return ConcatInternal(Patterns.NotRightParenthesis(exactCount));
+            return ConcatInternal(Patterns.NotEndParenthesis(exactCount));
         }
 
-        public QuantifiedGroup NotRightParenthesis(int minCount, int maxCount)
+        public QuantifiedGroup NotEndParenthesis(int minCount, int maxCount)
         {
-            return ConcatInternal(Patterns.NotRightParenthesis(minCount, maxCount));
+            return ConcatInternal(Patterns.NotEndParenthesis(minCount, maxCount));
         }
 
         public QuantifiablePattern Asterisk()
@@ -1840,34 +1840,34 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Patterns.NotAtSign(minCount, maxCount));
         }
 
-        public QuantifiablePattern LeftSquareBracket()
+        public QuantifiablePattern StartSquareBracket()
         {
-            return ConcatInternal(Patterns.LeftSquareBracket());
+            return ConcatInternal(Patterns.StartSquareBracket());
         }
 
-        public QuantifiedGroup LeftSquareBracket(int exactCount)
+        public QuantifiedGroup StartSquareBracket(int exactCount)
         {
-            return ConcatInternal(Patterns.LeftSquareBracket(exactCount));
+            return ConcatInternal(Patterns.StartSquareBracket(exactCount));
         }
 
-        public QuantifiedGroup LeftSquareBracket(int minCount, int maxCount)
+        public QuantifiedGroup StartSquareBracket(int minCount, int maxCount)
         {
-            return ConcatInternal(Patterns.LeftSquareBracket(minCount, maxCount));
+            return ConcatInternal(Patterns.StartSquareBracket(minCount, maxCount));
         }
 
-        public QuantifiablePattern NotLeftSquareBracket()
+        public QuantifiablePattern NotStartSquareBracket()
         {
-            return ConcatInternal(Patterns.NotLeftSquareBracket());
+            return ConcatInternal(Patterns.NotStartSquareBracket());
         }
 
-        public QuantifiedGroup NotLeftSquareBracket(int exactCount)
+        public QuantifiedGroup NotStartSquareBracket(int exactCount)
         {
-            return ConcatInternal(Patterns.NotLeftSquareBracket(exactCount));
+            return ConcatInternal(Patterns.NotStartSquareBracket(exactCount));
         }
 
-        public QuantifiedGroup NotLeftSquareBracket(int minCount, int maxCount)
+        public QuantifiedGroup NotStartSquareBracket(int minCount, int maxCount)
         {
-            return ConcatInternal(Patterns.NotLeftSquareBracket(minCount, maxCount));
+            return ConcatInternal(Patterns.NotStartSquareBracket(minCount, maxCount));
         }
 
         public QuantifiablePattern Backslash()
@@ -1900,34 +1900,34 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Patterns.NotBackslash(minCount, maxCount));
         }
 
-        public QuantifiablePattern RightSquareBracket()
+        public QuantifiablePattern EndSquareBracket()
         {
-            return ConcatInternal(Patterns.RightSquareBracket());
+            return ConcatInternal(Patterns.EndSquareBracket());
         }
 
-        public QuantifiedGroup RightSquareBracket(int exactCount)
+        public QuantifiedGroup EndSquareBracket(int exactCount)
         {
-            return ConcatInternal(Patterns.RightSquareBracket(exactCount));
+            return ConcatInternal(Patterns.EndSquareBracket(exactCount));
         }
 
-        public QuantifiedGroup RightSquareBracket(int minCount, int maxCount)
+        public QuantifiedGroup EndSquareBracket(int minCount, int maxCount)
         {
-            return ConcatInternal(Patterns.RightSquareBracket(minCount, maxCount));
+            return ConcatInternal(Patterns.EndSquareBracket(minCount, maxCount));
         }
 
-        public QuantifiablePattern NotRightSquareBracket()
+        public QuantifiablePattern NotEndSquareBracket()
         {
-            return ConcatInternal(Patterns.NotRightSquareBracket());
+            return ConcatInternal(Patterns.NotEndSquareBracket());
         }
 
-        public QuantifiedGroup NotRightSquareBracket(int exactCount)
+        public QuantifiedGroup NotEndSquareBracket(int exactCount)
         {
-            return ConcatInternal(Patterns.NotRightSquareBracket(exactCount));
+            return ConcatInternal(Patterns.NotEndSquareBracket(exactCount));
         }
 
-        public QuantifiedGroup NotRightSquareBracket(int minCount, int maxCount)
+        public QuantifiedGroup NotEndSquareBracket(int minCount, int maxCount)
         {
-            return ConcatInternal(Patterns.NotRightSquareBracket(minCount, maxCount));
+            return ConcatInternal(Patterns.NotEndSquareBracket(minCount, maxCount));
         }
 
         public QuantifiablePattern CircumflexAccent()
@@ -2020,34 +2020,34 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Patterns.NotGraveAccent(minCount, maxCount));
         }
 
-        public QuantifiablePattern LeftCurlyBracket()
+        public QuantifiablePattern StartCurlyBracket()
         {
-            return ConcatInternal(Patterns.LeftCurlyBracket());
+            return ConcatInternal(Patterns.StartCurlyBracket());
         }
 
-        public QuantifiedGroup LeftCurlyBracket(int exactCount)
+        public QuantifiedGroup StartCurlyBracket(int exactCount)
         {
-            return ConcatInternal(Patterns.LeftCurlyBracket(exactCount));
+            return ConcatInternal(Patterns.StartCurlyBracket(exactCount));
         }
 
-        public QuantifiedGroup LeftCurlyBracket(int minCount, int maxCount)
+        public QuantifiedGroup StartCurlyBracket(int minCount, int maxCount)
         {
-            return ConcatInternal(Patterns.LeftCurlyBracket(minCount, maxCount));
+            return ConcatInternal(Patterns.StartCurlyBracket(minCount, maxCount));
         }
 
-        public QuantifiablePattern NotLeftCurlyBracket()
+        public QuantifiablePattern NotStartCurlyBracket()
         {
-            return ConcatInternal(Patterns.NotLeftCurlyBracket());
+            return ConcatInternal(Patterns.NotStartCurlyBracket());
         }
 
-        public QuantifiedGroup NotLeftCurlyBracket(int exactCount)
+        public QuantifiedGroup NotStartCurlyBracket(int exactCount)
         {
-            return ConcatInternal(Patterns.NotLeftCurlyBracket(exactCount));
+            return ConcatInternal(Patterns.NotStartCurlyBracket(exactCount));
         }
 
-        public QuantifiedGroup NotLeftCurlyBracket(int minCount, int maxCount)
+        public QuantifiedGroup NotStartCurlyBracket(int minCount, int maxCount)
         {
-            return ConcatInternal(Patterns.NotLeftCurlyBracket(minCount, maxCount));
+            return ConcatInternal(Patterns.NotStartCurlyBracket(minCount, maxCount));
         }
 
         public QuantifiablePattern VerticalLine()
@@ -2080,34 +2080,34 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Patterns.NotVerticalLine(minCount, maxCount));
         }
 
-        public QuantifiablePattern RightCurlyBracket()
+        public QuantifiablePattern EndCurlyBracket()
         {
-            return ConcatInternal(Patterns.RightCurlyBracket());
+            return ConcatInternal(Patterns.EndCurlyBracket());
         }
 
-        public QuantifiedGroup RightCurlyBracket(int exactCount)
+        public QuantifiedGroup EndCurlyBracket(int exactCount)
         {
-            return ConcatInternal(Patterns.RightCurlyBracket(exactCount));
+            return ConcatInternal(Patterns.EndCurlyBracket(exactCount));
         }
 
-        public QuantifiedGroup RightCurlyBracket(int minCount, int maxCount)
+        public QuantifiedGroup EndCurlyBracket(int minCount, int maxCount)
         {
-            return ConcatInternal(Patterns.RightCurlyBracket(minCount, maxCount));
+            return ConcatInternal(Patterns.EndCurlyBracket(minCount, maxCount));
         }
 
-        public QuantifiablePattern NotRightCurlyBracket()
+        public QuantifiablePattern NotEndCurlyBracket()
         {
-            return ConcatInternal(Patterns.NotRightCurlyBracket());
+            return ConcatInternal(Patterns.NotEndCurlyBracket());
         }
 
-        public QuantifiedGroup NotRightCurlyBracket(int exactCount)
+        public QuantifiedGroup NotEndCurlyBracket(int exactCount)
         {
-            return ConcatInternal(Patterns.NotRightCurlyBracket(exactCount));
+            return ConcatInternal(Patterns.NotEndCurlyBracket(exactCount));
         }
 
-        public QuantifiedGroup NotRightCurlyBracket(int minCount, int maxCount)
+        public QuantifiedGroup NotEndCurlyBracket(int minCount, int maxCount)
         {
-            return ConcatInternal(Patterns.NotRightCurlyBracket(minCount, maxCount));
+            return ConcatInternal(Patterns.NotEndCurlyBracket(minCount, maxCount));
         }
 
         public QuantifiablePattern Tilde()

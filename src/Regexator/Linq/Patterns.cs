@@ -1002,64 +1002,64 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Count(minCount, maxCount, NotApostrophe());
         }
 
-        public static CharPattern LeftParenthesis()
+        public static CharPattern StartParenthesis()
         {
-            return Character(AsciiChar.LeftParenthesis);
+            return Character(AsciiChar.StartParenthesis);
         }
 
-        public static QuantifiedGroup LeftParenthesis(int exactCount)
+        public static QuantifiedGroup StartParenthesis(int exactCount)
         {
-            return Count(exactCount, LeftParenthesis());
+            return Count(exactCount, StartParenthesis());
         }
 
-        public static QuantifiedGroup LeftParenthesis(int minCount, int maxCount)
+        public static QuantifiedGroup StartParenthesis(int minCount, int maxCount)
         {
-            return Count(minCount, maxCount, LeftParenthesis());
+            return Count(minCount, maxCount, StartParenthesis());
         }
 
-        public static QuantifiablePattern NotLeftParenthesis()
+        public static QuantifiablePattern NotStartParenthesis()
         {
-            return NotCharacter(AsciiChar.LeftParenthesis);
+            return NotCharacter(AsciiChar.StartParenthesis);
         }
 
-        public static QuantifiedGroup NotLeftParenthesis(int exactCount)
+        public static QuantifiedGroup NotStartParenthesis(int exactCount)
         {
-            return Count(exactCount, NotLeftParenthesis());
+            return Count(exactCount, NotStartParenthesis());
         }
 
-        public static QuantifiedGroup NotLeftParenthesis(int minCount, int maxCount)
+        public static QuantifiedGroup NotStartParenthesis(int minCount, int maxCount)
         {
-            return Count(minCount, maxCount, NotLeftParenthesis());
+            return Count(minCount, maxCount, NotStartParenthesis());
         }
 
-        public static CharPattern RightParenthesis()
+        public static CharPattern EndParenthesis()
         {
-            return Character(AsciiChar.RightParenthesis);
+            return Character(AsciiChar.EndParenthesis);
         }
 
-        public static QuantifiedGroup RightParenthesis(int exactCount)
+        public static QuantifiedGroup EndParenthesis(int exactCount)
         {
-            return Count(exactCount, RightParenthesis());
+            return Count(exactCount, EndParenthesis());
         }
 
-        public static QuantifiedGroup RightParenthesis(int minCount, int maxCount)
+        public static QuantifiedGroup EndParenthesis(int minCount, int maxCount)
         {
-            return Count(minCount, maxCount, RightParenthesis());
+            return Count(minCount, maxCount, EndParenthesis());
         }
 
-        public static QuantifiablePattern NotRightParenthesis()
+        public static QuantifiablePattern NotEndParenthesis()
         {
-            return NotCharacter(AsciiChar.RightParenthesis);
+            return NotCharacter(AsciiChar.EndParenthesis);
         }
 
-        public static QuantifiedGroup NotRightParenthesis(int exactCount)
+        public static QuantifiedGroup NotEndParenthesis(int exactCount)
         {
-            return Count(exactCount, NotRightParenthesis());
+            return Count(exactCount, NotEndParenthesis());
         }
 
-        public static QuantifiedGroup NotRightParenthesis(int minCount, int maxCount)
+        public static QuantifiedGroup NotEndParenthesis(int minCount, int maxCount)
         {
-            return Count(minCount, maxCount, NotRightParenthesis());
+            return Count(minCount, maxCount, NotEndParenthesis());
         }
 
         public static CharPattern Asterisk()
@@ -1452,34 +1452,34 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Count(minCount, maxCount, NotAtSign());
         }
 
-        public static CharPattern LeftSquareBracket()
+        public static CharPattern StartSquareBracket()
         {
-            return Character(AsciiChar.LeftSquareBracket);
+            return Character(AsciiChar.StartSquareBracket);
         }
 
-        public static QuantifiedGroup LeftSquareBracket(int exactCount)
+        public static QuantifiedGroup StartSquareBracket(int exactCount)
         {
-            return Count(exactCount, LeftSquareBracket());
+            return Count(exactCount, StartSquareBracket());
         }
 
-        public static QuantifiedGroup LeftSquareBracket(int minCount, int maxCount)
+        public static QuantifiedGroup StartSquareBracket(int minCount, int maxCount)
         {
-            return Count(minCount, maxCount, LeftSquareBracket());
+            return Count(minCount, maxCount, StartSquareBracket());
         }
 
-        public static QuantifiablePattern NotLeftSquareBracket()
+        public static QuantifiablePattern NotStartSquareBracket()
         {
-            return NotCharacter(AsciiChar.LeftSquareBracket);
+            return NotCharacter(AsciiChar.StartSquareBracket);
         }
 
-        public static QuantifiedGroup NotLeftSquareBracket(int exactCount)
+        public static QuantifiedGroup NotStartSquareBracket(int exactCount)
         {
-            return Count(exactCount, NotLeftSquareBracket());
+            return Count(exactCount, NotStartSquareBracket());
         }
 
-        public static QuantifiedGroup NotLeftSquareBracket(int minCount, int maxCount)
+        public static QuantifiedGroup NotStartSquareBracket(int minCount, int maxCount)
         {
-            return Count(minCount, maxCount, NotLeftSquareBracket());
+            return Count(minCount, maxCount, NotStartSquareBracket());
         }
 
         public static CharPattern Backslash()
@@ -1512,34 +1512,34 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Count(minCount, maxCount, NotBackslash());
         }
 
-        public static CharPattern RightSquareBracket()
+        public static CharPattern EndSquareBracket()
         {
-            return Character(AsciiChar.RightSquareBracket);
+            return Character(AsciiChar.EndSquareBracket);
         }
 
-        public static QuantifiedGroup RightSquareBracket(int exactCount)
+        public static QuantifiedGroup EndSquareBracket(int exactCount)
         {
-            return Count(exactCount, RightSquareBracket());
+            return Count(exactCount, EndSquareBracket());
         }
 
-        public static QuantifiedGroup RightSquareBracket(int minCount, int maxCount)
+        public static QuantifiedGroup EndSquareBracket(int minCount, int maxCount)
         {
-            return Count(minCount, maxCount, RightSquareBracket());
+            return Count(minCount, maxCount, EndSquareBracket());
         }
 
-        public static QuantifiablePattern NotRightSquareBracket()
+        public static QuantifiablePattern NotEndSquareBracket()
         {
-            return NotCharacter(AsciiChar.RightSquareBracket);
+            return NotCharacter(AsciiChar.EndSquareBracket);
         }
 
-        public static QuantifiedGroup NotRightSquareBracket(int exactCount)
+        public static QuantifiedGroup NotEndSquareBracket(int exactCount)
         {
-            return Count(exactCount, NotRightSquareBracket());
+            return Count(exactCount, NotEndSquareBracket());
         }
 
-        public static QuantifiedGroup NotRightSquareBracket(int minCount, int maxCount)
+        public static QuantifiedGroup NotEndSquareBracket(int minCount, int maxCount)
         {
-            return Count(minCount, maxCount, NotRightSquareBracket());
+            return Count(minCount, maxCount, NotEndSquareBracket());
         }
 
         public static CharPattern CircumflexAccent()
@@ -1632,34 +1632,34 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Count(minCount, maxCount, NotGraveAccent());
         }
 
-        public static CharPattern LeftCurlyBracket()
+        public static CharPattern StartCurlyBracket()
         {
-            return Character(AsciiChar.LeftCurlyBracket);
+            return Character(AsciiChar.StartCurlyBracket);
         }
 
-        public static QuantifiedGroup LeftCurlyBracket(int exactCount)
+        public static QuantifiedGroup StartCurlyBracket(int exactCount)
         {
-            return Count(exactCount, LeftCurlyBracket());
+            return Count(exactCount, StartCurlyBracket());
         }
 
-        public static QuantifiedGroup LeftCurlyBracket(int minCount, int maxCount)
+        public static QuantifiedGroup StartCurlyBracket(int minCount, int maxCount)
         {
-            return Count(minCount, maxCount, LeftCurlyBracket());
+            return Count(minCount, maxCount, StartCurlyBracket());
         }
 
-        public static QuantifiablePattern NotLeftCurlyBracket()
+        public static QuantifiablePattern NotStartCurlyBracket()
         {
-            return NotCharacter(AsciiChar.LeftCurlyBracket);
+            return NotCharacter(AsciiChar.StartCurlyBracket);
         }
 
-        public static QuantifiedGroup NotLeftCurlyBracket(int exactCount)
+        public static QuantifiedGroup NotStartCurlyBracket(int exactCount)
         {
-            return Count(exactCount, NotLeftCurlyBracket());
+            return Count(exactCount, NotStartCurlyBracket());
         }
 
-        public static QuantifiedGroup NotLeftCurlyBracket(int minCount, int maxCount)
+        public static QuantifiedGroup NotStartCurlyBracket(int minCount, int maxCount)
         {
-            return Count(minCount, maxCount, NotLeftCurlyBracket());
+            return Count(minCount, maxCount, NotStartCurlyBracket());
         }
 
         public static CharPattern VerticalLine()
@@ -1692,34 +1692,34 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Count(minCount, maxCount, NotVerticalLine());
         }
 
-        public static CharPattern RightCurlyBracket()
+        public static CharPattern EndCurlyBracket()
         {
-            return Character(AsciiChar.RightCurlyBracket);
+            return Character(AsciiChar.EndCurlyBracket);
         }
 
-        public static QuantifiedGroup RightCurlyBracket(int exactCount)
+        public static QuantifiedGroup EndCurlyBracket(int exactCount)
         {
-            return Count(exactCount, RightCurlyBracket());
+            return Count(exactCount, EndCurlyBracket());
         }
 
-        public static QuantifiedGroup RightCurlyBracket(int minCount, int maxCount)
+        public static QuantifiedGroup EndCurlyBracket(int minCount, int maxCount)
         {
-            return Count(minCount, maxCount, RightCurlyBracket());
+            return Count(minCount, maxCount, EndCurlyBracket());
         }
 
-        public static QuantifiablePattern NotRightCurlyBracket()
+        public static QuantifiablePattern NotEndCurlyBracket()
         {
-            return NotCharacter(AsciiChar.RightCurlyBracket);
+            return NotCharacter(AsciiChar.EndCurlyBracket);
         }
 
-        public static QuantifiedGroup NotRightCurlyBracket(int exactCount)
+        public static QuantifiedGroup NotEndCurlyBracket(int exactCount)
         {
-            return Count(exactCount, NotRightCurlyBracket());
+            return Count(exactCount, NotEndCurlyBracket());
         }
 
-        public static QuantifiedGroup NotRightCurlyBracket(int minCount, int maxCount)
+        public static QuantifiedGroup NotEndCurlyBracket(int minCount, int maxCount)
         {
-            return Count(minCount, maxCount, NotRightCurlyBracket());
+            return Count(minCount, maxCount, NotEndCurlyBracket());
         }
 
         public static CharPattern Tilde()
@@ -2389,32 +2389,32 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static Pattern Parentheses()
         {
-            return LeftParenthesis().RightParenthesis();
+            return StartParenthesis().EndParenthesis();
         }
 
         public static Pattern Parentheses(object content)
         {
-            return Pattern.Surround(AsciiChar.LeftParenthesis, content, AsciiChar.RightParenthesis);
+            return Pattern.Surround(AsciiChar.StartParenthesis, content, AsciiChar.EndParenthesis);
         }
 
         public static Pattern CurlyBrackets()
         {
-            return LeftCurlyBracket().RightCurlyBracket();
+            return StartCurlyBracket().EndCurlyBracket();
         }
 
         public static Pattern CurlyBrackets(object content)
         {
-            return Pattern.Surround(AsciiChar.LeftCurlyBracket, content, AsciiChar.RightCurlyBracket);
+            return Pattern.Surround(AsciiChar.StartCurlyBracket, content, AsciiChar.EndCurlyBracket);
         }
 
         public static Pattern SquareBrackets()
         {
-            return LeftSquareBracket().RightSquareBracket();
+            return StartSquareBracket().EndSquareBracket();
         }
 
         public static Pattern SquareBrackets(object content)
         {
-            return Pattern.Surround(AsciiChar.LeftSquareBracket, content, AsciiChar.RightSquareBracket);
+            return Pattern.Surround(AsciiChar.StartSquareBracket, content, AsciiChar.EndSquareBracket);
         }
 
         public static Pattern LessThanGreaterThan(object content)

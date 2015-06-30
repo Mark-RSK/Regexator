@@ -435,7 +435,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
             else
             {
-                AppendLeftParenthesis();
+                AppendStartParenthesis();
             }
 
             Append(testContent);
@@ -528,7 +528,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal void AppendIfGroupCondition(string groupName)
         {
-            AppendLeftParenthesis();
+            AppendStartParenthesis();
             _sb.Append(groupName);
             AppendGroupEnd();
         }
@@ -635,7 +635,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (mode == GroupMode.Group)
             {
-                AppendLeftParenthesis();
+                AppendStartParenthesis();
             }
             else if (mode == GroupMode.NoncapturingGroup)
             {
@@ -657,7 +657,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("content");
             }
 
-            AppendLeftParenthesis();
+            AppendStartParenthesis();
             AppendGroupContent(content);
             AppendGroupEnd();
         }
@@ -723,9 +723,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         internal void AppendNamedGroupStart(string groupName)
         {
             AppendGroupStart();
-            AppendLeftIdentifierBoundary();
+            AppendStartIdentifierBoundary();
             _sb.Append(groupName);
-            AppendRightIdentifierBoundary();
+            AppendEndIdentifierBoundary();
         }
 
         internal void AppendBalancingGroup(string name1, string name2, object content)
@@ -743,11 +743,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         internal void AppendBalancingGroupStart(string name1, string name2)
         {
             AppendGroupStart();
-            AppendLeftIdentifierBoundary();
+            AppendStartIdentifierBoundary();
             _sb.Append(name1);
             AppendHyphen();
             _sb.Append(name2);
-            AppendRightIdentifierBoundary();
+            AppendEndIdentifierBoundary();
         }
 
         public void AppendGroupEnd()
@@ -1101,18 +1101,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal void AppendCountInternal(int exactCount)
         {
-            AppendLeftCurlyBracket();
+            AppendStartCurlyBracket();
             _sb.Append(exactCount);
-            AppendRightCurlyBracket();
+            AppendEndCurlyBracket();
         }
 
         internal void AppendCountInternal(int minCount, int maxCount)
         {
-            AppendLeftCurlyBracket();
+            AppendStartCurlyBracket();
             _sb.Append(minCount);
             AppendComma();
             _sb.Append(maxCount);
-            AppendRightCurlyBracket();
+            AppendEndCurlyBracket();
         }
 
         public void AppendCountFrom(int minCount)
@@ -1127,10 +1127,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal void AppendCountFromInternal(int minCount)
         {
-            AppendLeftCurlyBracket();
+            AppendStartCurlyBracket();
             _sb.Append(minCount);
             AppendComma();
-            AppendRightCurlyBracket();
+            AppendEndCurlyBracket();
         }
 
         public void AppendCountTo(int maxCount)
@@ -1145,11 +1145,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal void AppendCountToInternal(int maxCount)
         {
-            AppendLeftCurlyBracket();
+            AppendStartCurlyBracket();
             _sb.Append(0);
             AppendComma();
             _sb.Append(maxCount);
-            AppendRightCurlyBracket();
+            AppendEndCurlyBracket();
         }
 
         public void AppendLazy()
@@ -1172,9 +1172,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         internal void AppendGroupReferenceInternal(string groupName)
         {
             _sb.Append(@"\k");
-            AppendLeftIdentifierBoundary();
+            AppendStartIdentifierBoundary();
             _sb.Append(groupName);
-            AppendRightIdentifierBoundary();
+            AppendEndIdentifierBoundary();
         }
 
         public void AppendOptions(RegexOptions applyOptions)
@@ -1314,31 +1314,31 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             AppendGroupEnd();
         }
 
-        public void AppendLeftIdentifierBoundary()
+        public void AppendStartIdentifierBoundary()
         {
             _sb.Append(Settings.IdentifierBoundary == IdentifierBoundary.Apostrophe
                 ? '\''
                 : '<');
         }
 
-        public void AppendRightIdentifierBoundary()
+        public void AppendEndIdentifierBoundary()
         {
             _sb.Append(Settings.IdentifierBoundary == IdentifierBoundary.Apostrophe
                 ? '\''
                 : '>');
         }
 
-        internal void AppendLeftParenthesis()
+        internal void AppendStartParenthesis()
         {
             _sb.Append('(');
         }
 
-        private void AppendLeftCurlyBracket()
+        private void AppendStartCurlyBracket()
         {
             _sb.Append('{');
         }
 
-        private void AppendRightCurlyBracket()
+        private void AppendEndCurlyBracket()
         {
             _sb.Append('}');
         }
