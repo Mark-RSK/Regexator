@@ -2537,10 +2537,5 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 Group(Range('1', '9').ArabicDigit().MaybeMany()) |
                 WordChar().Except(ArabicDigit()).WordChar().MaybeMany());
         }
-
-        internal static Pattern TrimInlineComment()
-        {
-            return StartOfInput().WhileNotChar(')');
-        }
     }
 }

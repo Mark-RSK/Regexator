@@ -20,7 +20,6 @@ namespace Pihrtsoft.Text.RegularExpressions
     {
         public static readonly RegexOptions InlineOptions = RegexOptions.IgnoreCase | RegexOptions.Multiline | RegexOptions.ExplicitCapture | RegexOptions.Singleline | RegexOptions.IgnorePatternWhitespace;
 
-        internal static readonly Pattern TrimInlineComment = Patterns.TrimInlineComment();
         internal static readonly Pattern ValidGroupName = Patterns.ValidGroupName();
 
         public static bool IsValidGroupName(string groupName)

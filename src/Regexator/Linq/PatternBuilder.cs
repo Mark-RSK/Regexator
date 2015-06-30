@@ -1299,8 +1299,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("comment");
             }
 
+            if (comment.IndexOf(')') != -1)
+            {
+                throw new ArgumentException("Comment cannot contain right parenthesis.", "comment");
+            }
+
+            AppendInlineCommentInternal(comment);
+        }
+
+        internal void AppendInlineCommentInternal(string comment)
+        {
             _sb.Append(Syntax.InlineCommentStart);
-            _sb.Append(RegexUtilities.TrimInlineComment.Match(comment).Value);
+            _sb.Append(comment);
             AppendGroupEnd();
         }
 
