@@ -7,13 +7,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     /// <summary>
     /// Represents a negative character subtraction pattern.
     /// </summary>
-    public class NegativeCharacterSubtraction
+    public class NegativeCharSubtraction
         : QuantifiablePattern, IExcludedGroup
     {
         private readonly IBaseGroup _baseGroup;
         private readonly IExcludedGroup _excludedGroup;
 
-        internal NegativeCharacterSubtraction(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
+        internal NegativeCharSubtraction(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
         {
             if (baseGroup == null)
             {

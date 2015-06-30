@@ -64,7 +64,7 @@
     <Compile Include="Linq\QuantifiedGroup_.cs" />
     <Compile Include="Linq\IInvertible.cs" />
     <Compile Include="Linq\NegativeSurroundAssertion.cs" />
-    <Compile Include="Linq\NegativeCharacterSubtraction.cs" />
+    <Compile Include="Linq\NegativeCharSubtraction.cs" />
     <Compile Include="Linq\OrContainer.cs" />
     <Compile Include="Linq\JoinContainer.cs" />
     <Compile Include="Linq\Substitution_.cs" />

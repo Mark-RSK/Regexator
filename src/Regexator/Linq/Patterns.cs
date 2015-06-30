@@ -667,9 +667,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new CharSubtraction(baseGroup, excludedGroup);
         }
 
-        public static NegativeCharacterSubtraction NotSubtract(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
+        public static NegativeCharSubtraction NotSubtract(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
         {
-            return new NegativeCharacterSubtraction(baseGroup, excludedGroup);
+            return new NegativeCharSubtraction(baseGroup, excludedGroup);
         }
 
         public static CharPattern Tab()
