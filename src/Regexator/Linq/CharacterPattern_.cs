@@ -5,10 +5,10 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public abstract partial class CharacterPattern
+    public abstract partial class CharPattern
     {
         internal sealed class CharCharacterPattern
-            : CharacterPattern
+            : CharPattern
         {
             private readonly char _value;
 
@@ -39,7 +39,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         internal sealed class CharCodeCharacterPattern
-            : CharacterPattern
+            : CharPattern
         {
             private readonly int _charCode;
 
@@ -75,7 +75,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         internal sealed class AsciiCharCharacterPattern
-            : CharacterPattern
+            : CharPattern
         {
             private readonly AsciiChar _value;
 
@@ -106,7 +106,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         internal class GeneralCategoryCharacterPattern
-            : CharacterPattern
+            : CharPattern
         {
             private readonly GeneralCategory _category;
             private readonly bool _negative;
@@ -129,7 +129,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         internal class NamedBlockCharacterPattern
-            : CharacterPattern
+            : CharPattern
         {
             private readonly NamedBlock _block;
             private readonly bool _negative;
@@ -152,7 +152,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         internal sealed class CharClassCharacterPattern
-            : CharacterPattern
+            : CharPattern
         {
             private readonly CharClass _value;
 

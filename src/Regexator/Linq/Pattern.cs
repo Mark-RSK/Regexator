@@ -479,7 +479,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static explicit operator Pattern(char value)
         {
-            return CharacterPattern.Create(value);
+            return CharPattern.Create(value);
         }
 
         internal string Value

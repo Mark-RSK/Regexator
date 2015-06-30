@@ -81,7 +81,7 @@
     <Compile Include="Linq\IfGroup.cs" />
     <Compile Include="Linq\GroupMode.cs" />
     <Compile Include="Linq\QuantifiedGroup.cs" />
-    <Compile Include="Linq\CharacterPattern.cs" />
+    <Compile Include="Linq\CharPattern.cs" />
     <Compile Include="Linq\AsciiCharSurroundPattern.cs" />
     <Compile Include="Linq\PatternOptions.cs" />
     <Compile Include="Linq\LazyQuantifier.cs" />

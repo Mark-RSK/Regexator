@@ -8,39 +8,39 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     /// <summary>
     /// Represents a single character pattern. This includes a character literal, Unicode general category or named block pattern, character class pattern ((non-)digit, (non-)white-space, (non-)word).
     /// </summary>
-    public abstract partial class CharacterPattern
+    public abstract partial class CharPattern
         : QuantifiablePattern, IBaseGroup, IExcludedGroup, IInvertible<CharGroup>
     {
-        internal CharacterPattern()
+        internal CharPattern()
         {
         }
 
-        internal static CharacterPattern Create(char value)
+        internal static CharPattern Create(char value)
         {
             return new CharCharacterPattern(value);
         }
 
-        internal static CharacterPattern Create(int charCode)
+        internal static CharPattern Create(int charCode)
         {
             return new CharCodeCharacterPattern(charCode);
         }
 
-        internal static CharacterPattern Create(AsciiChar value)
+        internal static CharPattern Create(AsciiChar value)
         {
             return new AsciiCharCharacterPattern(value);
         }
 
-        internal static CharacterPattern Create(CharClass value)
+        internal static CharPattern Create(CharClass value)
         {
             return new CharClassCharacterPattern(value);
         }
 
-        internal static CharacterPattern Create(GeneralCategory category, bool negative)
+        internal static CharPattern Create(GeneralCategory category, bool negative)
         {
             return new GeneralCategoryCharacterPattern(category, negative);
         }
 
-        internal static CharacterPattern Create(NamedBlock block, bool negative)
+        internal static CharPattern Create(NamedBlock block, bool negative)
         {
             return new NamedBlockCharacterPattern(block, negative);
         }
@@ -97,7 +97,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
-        public static CharGroup operator !(CharacterPattern value)
+        public static CharGroup operator !(CharPattern value)
         {
             if (value == null)
             {
