@@ -662,9 +662,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return CharGroup.Create(firstCharCode, lastCharCode, true);
         }
 
-        public static CharacterSubtraction Subtract(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
+        public static CharSubtraction Subtract(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
         {
-            return new CharacterSubtraction(baseGroup, excludedGroup);
+            return new CharSubtraction(baseGroup, excludedGroup);
         }
 
         public static NegativeCharacterSubtraction NotSubtract(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
@@ -2352,7 +2352,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Count(minCount, maxCount, NotSquareBracket());
         }
 
-        public static CharacterSubtraction WhiteSpaceExceptNewLine()
+        public static CharSubtraction WhiteSpaceExceptNewLine()
         {
             return WhiteSpace().Except(NewLineChar());
         }

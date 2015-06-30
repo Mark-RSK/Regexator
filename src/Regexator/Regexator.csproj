@@ -102,7 +102,7 @@
     <Compile Include="Linq\CharGroup.cs" />
     <Compile Include="Linq\CharGrouping.cs" />
     <Compile Include="Linq\CharGroupings.cs" />
-    <Compile Include="Linq\CharacterSubtraction.cs" />
+    <Compile Include="Linq\CharSubtraction.cs" />
     <Compile Include="Linq\Patterns.cs" />
     <Compile Include="Linq\Pattern.cs" />
     <Compile Include="Linq\Pattern_.cs" />

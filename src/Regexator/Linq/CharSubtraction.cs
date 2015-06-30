@@ -8,13 +8,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     /// <summary>
     /// Represents a character subtraction pattern.
     /// </summary>
-    public class CharacterSubtraction
+    public class CharSubtraction
         : QuantifiablePattern, IExcludedGroup, IInvertible<NegativeCharacterSubtraction>
     {
         private readonly IBaseGroup _baseGroup;
         private readonly IExcludedGroup _excludedGroup;
 
-        internal CharacterSubtraction(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
+        internal CharSubtraction(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
         {
             if (baseGroup == null)
             {
@@ -54,7 +54,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
-        public static NegativeCharacterSubtraction operator !(CharacterSubtraction value)
+        public static NegativeCharacterSubtraction operator !(CharSubtraction value)
         {
             if (value == null)
             {
