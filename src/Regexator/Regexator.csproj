@@ -99,7 +99,7 @@
     <Compile Include="Linq\Anchor\StartOfInput.cs" />
     <Compile Include="Linq\PatternSettings.cs" />
     <Compile Include="Core\CharClass.cs" />
-    <Compile Include="Linq\CharacterGroup.cs" />
+    <Compile Include="Linq\CharGroup.cs" />
     <Compile Include="Linq\CharGrouping.cs" />
     <Compile Include="Linq\CharGroupings.cs" />
     <Compile Include="Linq\CharacterSubtraction.cs" />

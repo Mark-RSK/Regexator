@@ -17,9 +17,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 _value = value;
             }
 
-            public override CharacterGroup Invert()
+            public override CharGroup Invert()
             {
-                return CharacterGroup.Create(_value, true);
+                return CharGroup.Create(_value, true);
             }
 
             internal override void AppendTo(PatternBuilder builder)
@@ -53,9 +53,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 _charCode = charCode;
             }
 
-            public override CharacterGroup Invert()
+            public override CharGroup Invert()
             {
-                return CharacterGroup.Create(_charCode, true);
+                return CharGroup.Create(_charCode, true);
             }
 
             internal override void AppendTo(PatternBuilder builder)
@@ -84,9 +84,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 _value = value;
             }
 
-            public override CharacterGroup Invert()
+            public override CharGroup Invert()
             {
-                return CharacterGroup.Create(_value, true);
+                return CharGroup.Create(_value, true);
             }
 
             internal override void AppendTo(PatternBuilder builder)
@@ -117,9 +117,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 _negative = negative;
             }
 
-            public override CharacterGroup Invert()
+            public override CharGroup Invert()
             {
-                return CharacterGroup.Create(_category, !_negative);
+                return CharGroup.Create(_category, !_negative);
             }
 
             internal override void AppendTo(PatternBuilder builder)
@@ -140,9 +140,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 _negative = negative;
             }
 
-            public override CharacterGroup Invert()
+            public override CharGroup Invert()
             {
-                return CharacterGroup.Create(_block, !_negative);
+                return CharGroup.Create(_block, !_negative);
             }
 
             internal override void AppendTo(PatternBuilder builder)
@@ -161,22 +161,22 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 _value = value;
             }
 
-            public override CharacterGroup Invert()
+            public override CharGroup Invert()
             {
                 switch (_value)
                 {
                     case CharClass.Digit:
-                        return CharacterGroup.Create(CharClass.NotDigit);
+                        return CharGroup.Create(CharClass.NotDigit);
                     case CharClass.WordChar:
-                        return CharacterGroup.Create(CharClass.NotWordChar);
+                        return CharGroup.Create(CharClass.NotWordChar);
                     case CharClass.WhiteSpace:
-                        return CharacterGroup.Create(CharClass.NotWhiteSpace);
+                        return CharGroup.Create(CharClass.NotWhiteSpace);
                     case CharClass.NotDigit:
-                        return CharacterGroup.Create(CharClass.Digit);
+                        return CharGroup.Create(CharClass.Digit);
                     case CharClass.NotWordChar:
-                        return CharacterGroup.Create(CharClass.WordChar);
+                        return CharGroup.Create(CharClass.WordChar);
                     case CharClass.NotWhiteSpace:
-                        return CharacterGroup.Create(CharClass.WhiteSpace);
+                        return CharGroup.Create(CharClass.WhiteSpace);
                 }
 
                 return null;

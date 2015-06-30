@@ -772,18 +772,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Converts the current instance of the <see cref="CharGrouping"/> to the positive character group.
         /// </summary>
         /// <returns></returns>
-        public CharacterGroup ToGroup()
+        public CharGroup ToGroup()
         {
-            return CharacterGroup.Create(this, false);
+            return CharGroup.Create(this, false);
         }
 
         /// <summary>
         /// Converts the current instance of the <see cref="CharGrouping"/> to the negative character group.
         /// </summary>
         /// <returns></returns>
-        public CharacterGroup ToNegativeGroup()
+        public CharGroup ToNegativeGroup()
         {
-            return CharacterGroup.Create(this, true);
+            return CharGroup.Create(this, true);
         }
 
         protected abstract void AppendItemContentTo(PatternBuilder builder);
@@ -911,7 +911,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
-        public static CharacterGroup operator !(CharGrouping value)
+        public static CharGroup operator !(CharGrouping value)
         {
             if (value == null)
             {

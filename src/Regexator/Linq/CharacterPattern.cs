@@ -9,7 +9,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     /// Represents a single character pattern. This includes a character literal, Unicode general category or named block pattern, character class pattern ((non-)digit, (non-)white-space, (non-)word).
     /// </summary>
     public abstract partial class CharacterPattern
-        : QuantifiablePattern, IBaseGroup, IExcludedGroup, IInvertible<CharacterGroup>
+        : QuantifiablePattern, IBaseGroup, IExcludedGroup, IInvertible<CharGroup>
     {
         internal CharacterPattern()
         {
@@ -49,7 +49,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Returns a patterns that matches what is not matched by the current instance./>
         /// </summary>
         /// <returns></returns>
-        public abstract CharacterGroup Invert();
+        public abstract CharGroup Invert();
 
         /// <summary>
         /// Specifies a pattern that matches a character matched by the current instance but not matched by the excluded character group.
@@ -97,7 +97,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
-        public static CharacterGroup operator !(CharacterPattern value)
+        public static CharGroup operator !(CharacterPattern value)
         {
             if (value == null)
             {

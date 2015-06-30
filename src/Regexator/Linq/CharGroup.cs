@@ -8,59 +8,59 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     /// <summary>
     /// Represents a positive or a negative character group pattern.
     /// </summary>
-    public abstract partial class CharacterGroup
-        : QuantifiablePattern, IExcludedGroup, IInvertible<CharacterGroup>
+    public abstract partial class CharGroup
+        : QuantifiablePattern, IExcludedGroup, IInvertible<CharGroup>
     {
-        protected CharacterGroup()
+        protected CharGroup()
         {
         }
 
-        internal static CharacterGroup Create(char value, bool negative)
+        internal static CharGroup Create(char value, bool negative)
         {
             return new CharCharacterGroup(value, negative);
         }
 
-        internal static CharacterGroup Create(int charCode, bool negative)
+        internal static CharGroup Create(int charCode, bool negative)
         {
             return new CharCodeCharacterGroup(charCode, negative);
         }
 
-        internal static CharacterGroup Create(AsciiChar value, bool negative)
+        internal static CharGroup Create(AsciiChar value, bool negative)
         {
             return new AsciiCharCharacterGroup(value, negative);
         }
 
-        internal static CharacterGroup Create(string characters, bool negative)
+        internal static CharGroup Create(string characters, bool negative)
         {
             return new CharsCharacterGroup(characters, negative);
         }
 
-        internal static CharacterGroup Create(char firstChar, char lastChar, bool negative)
+        internal static CharGroup Create(char firstChar, char lastChar, bool negative)
         {
             return new CharRangeCharacterGroup(firstChar, lastChar, negative);
         }
 
-        internal static CharacterGroup Create(int firstCharCode, int lastCharCode, bool negative)
+        internal static CharGroup Create(int firstCharCode, int lastCharCode, bool negative)
         {
             return new CharCodeRangeCharacterGroup(firstCharCode, lastCharCode, negative);
         }
 
-        internal static CharacterGroup Create(GeneralCategory category, bool negative)
+        internal static CharGroup Create(GeneralCategory category, bool negative)
         {
             return new GeneralCategoryCharacterGroup(category, negative);
         }
 
-        internal static CharacterGroup Create(NamedBlock block, bool negative)
+        internal static CharGroup Create(NamedBlock block, bool negative)
         {
             return new NamedBlockCharacterGroup(block, negative);
         }
 
-        internal static CharacterGroup Create(CharClass value)
+        internal static CharGroup Create(CharClass value)
         {
             return new CharClassCharacterGroup(value);
         }
 
-        internal static CharacterGroup Create(CharGrouping value, bool negative)
+        internal static CharGroup Create(CharGrouping value, bool negative)
         {
             return new CharGroupingCharacterGroup(value, negative);
         }
@@ -79,13 +79,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// If the current instance is a positive character group, it returns a negative character group. Otherwise, it returns a positive character group. Newly created group has the same content as the current instance.
         /// </summary>
-        public CharacterGroup Invert()
+        public CharGroup Invert()
         {
             return new CharacterGroupCharacterGroup(this, !Negative);
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
-        public static CharacterGroup operator !(CharacterGroup value)
+        public static CharGroup operator !(CharGroup value)
         {
             if (value == null)
             {
@@ -96,13 +96,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
-        public static explicit operator CharacterGroup(string characters)
+        public static explicit operator CharGroup(string characters)
         {
             return new CharsCharacterGroup(characters);
         }
 
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
-        public static explicit operator CharacterGroup(CharGrouping value)
+        public static explicit operator CharGroup(CharGrouping value)
         {
             return new CharGroupingCharacterGroup(value);
         }
