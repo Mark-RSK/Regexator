@@ -208,14 +208,14 @@ namespace Pihrtsoft.Text.RegularExpressions
         Apostrophe,
 
         /// <summary>
-        /// Start Parenthesis, decimal value: 40, hexadecimal value: 0x28
+        /// Left Parenthesis, decimal value: 40, hexadecimal value: 0x28
         /// </summary>
-        StartParenthesis,
+        LeftParenthesis,
 
         /// <summary>
-        /// End Parenthesis, decimal value: 41, hexadecimal value: 0x29
+        /// Right Parenthesis, decimal value: 41, hexadecimal value: 0x29
         /// </summary>
-        EndParenthesis,
+        RightParenthesis,
 
         /// <summary>
         /// Asterisk, decimal value: 42, hexadecimal value: 0x2A
@@ -463,9 +463,9 @@ namespace Pihrtsoft.Text.RegularExpressions
         CapitalLetterZ,
 
         /// <summary>
-        /// Start Square Bracket, decimal value: 91, hexadecimal value: 0x5B
+        /// Left Square Bracket, decimal value: 91, hexadecimal value: 0x5B
         /// </summary>
-        StartSquareBracket,
+        LeftSquareBracket,
 
         /// <summary>
         /// Backslash, decimal value: 92, hexadecimal value: 0x5C
@@ -473,9 +473,9 @@ namespace Pihrtsoft.Text.RegularExpressions
         Backslash,
 
         /// <summary>
-        /// End Square Bracket, decimal value: 93, hexadecimal value: 0x5D
+        /// Right Square Bracket, decimal value: 93, hexadecimal value: 0x5D
         /// </summary>
-        EndSquareBracket,
+        RightSquareBracket,
 
         /// <summary>
         /// Circumflex Accent, decimal value: 94, hexadecimal value: 0x5E
@@ -623,9 +623,9 @@ namespace Pihrtsoft.Text.RegularExpressions
         SmallLetterZ,
 
         /// <summary>
-        /// Start Curly Bracket, decimal value: 123, hexadecimal value: 0x7B
+        /// Left Curly Bracket, decimal value: 123, hexadecimal value: 0x7B
         /// </summary>
-        StartCurlyBracket,
+        LeftCurlyBracket,
 
         /// <summary>
         /// Vertical Line, decimal value: 124, hexadecimal value: 0x7C
@@ -633,9 +633,9 @@ namespace Pihrtsoft.Text.RegularExpressions
         VerticalLine,
 
         /// <summary>
-        /// End Curly Bracket, decimal value: 125, hexadecimal value: 0x7D
+        /// Right Curly Bracket, decimal value: 125, hexadecimal value: 0x7D
         /// </summary>
-        EndCurlyBracket,
+        RightCurlyBracket,
 
         /// <summary>
         /// Tilde, decimal value: 126, hexadecimal value: 0x7E

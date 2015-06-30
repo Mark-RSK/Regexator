@@ -329,7 +329,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static CharGrouping StartParenthesis()
         {
-            return CharGrouping.Create(AsciiChar.StartParenthesis);
+            return CharGrouping.Create(AsciiChar.LeftParenthesis);
         }
 
         /// <summary>
@@ -338,7 +338,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static CharGrouping EndParenthesis()
         {
-            return CharGrouping.Create(AsciiChar.EndParenthesis);
+            return CharGrouping.Create(AsciiChar.RightParenthesis);
         }
 
         /// <summary>
@@ -464,7 +464,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static CharGrouping StartSquareBracket()
         {
-            return CharGrouping.Create(AsciiChar.StartSquareBracket);
+            return CharGrouping.Create(AsciiChar.LeftSquareBracket);
         }
 
         /// <summary>
@@ -482,7 +482,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static CharGrouping EndSquareBracket()
         {
-            return CharGrouping.Create(AsciiChar.EndSquareBracket);
+            return CharGrouping.Create(AsciiChar.RightSquareBracket);
         }
 
         /// <summary>
@@ -518,7 +518,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static CharGrouping StartCurlyBracket()
         {
-            return CharGrouping.Create(AsciiChar.StartCurlyBracket);
+            return CharGrouping.Create(AsciiChar.LeftCurlyBracket);
         }
 
         /// <summary>
@@ -536,7 +536,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static CharGrouping EndCurlyBracket()
         {
-            return CharGrouping.Create(AsciiChar.EndCurlyBracket);
+            return CharGrouping.Create(AsciiChar.RightCurlyBracket);
         }
 
         /// <summary>
