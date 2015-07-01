@@ -6,13 +6,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public abstract partial class CharGroup
     {
-        internal sealed class CharCharacterGroup
+        internal sealed class CharCharGroup
             : CharGroup
         {
             private readonly char _value;
             private readonly bool _negative;
 
-            public CharCharacterGroup(char value, bool negative)
+            public CharCharGroup(char value, bool negative)
             {
                 _value = value;
                 _negative = negative;
@@ -39,13 +39,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        internal sealed class AsciiCharCharacterGroup
+        internal sealed class AsciiCharCharGroup
             : CharGroup
         {
             private readonly AsciiChar _value;
             private readonly bool _negative;
 
-            public AsciiCharCharacterGroup(AsciiChar value, bool negative)
+            public AsciiCharCharGroup(AsciiChar value, bool negative)
             {
                 _value = value;
                 _negative = negative;
@@ -72,13 +72,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        internal sealed class CharCodeCharacterGroup
+        internal sealed class CharCodeCharGroup
             : CharGroup
         {
             private readonly int _charCode;
             private readonly bool _negative;
 
-            public CharCodeCharacterGroup(int charCode, bool negative)
+            public CharCodeCharGroup(int charCode, bool negative)
             {
                 if (charCode < 0 || charCode > 0xFFFF)
                 {
@@ -110,18 +110,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        internal sealed class CharsCharacterGroup
+        internal sealed class CharsCharGroup
             : CharGroup
         {
             private readonly string _characters;
             private readonly bool _negative;
 
-            public CharsCharacterGroup(string characters)
+            public CharsCharGroup(string characters)
                 : this(characters, false)
             {
             }
 
-            public CharsCharacterGroup(string characters, bool negative)
+            public CharsCharGroup(string characters, bool negative)
             {
                 if (characters == null)
                 {
@@ -158,14 +158,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        internal sealed class CharRangeCharacterGroup
+        internal sealed class CharRangeCharGroup
             : CharGroup
         {
             private readonly char _firstChar;
             private readonly char _lastChar;
             private readonly bool _negative;
 
-            public CharRangeCharacterGroup(char firstChar, char lastChar, bool negative)
+            public CharRangeCharGroup(char firstChar, char lastChar, bool negative)
             {
                 if (lastChar < firstChar)
                 {
@@ -198,14 +198,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        internal sealed class CharCodeRangeCharacterGroup
+        internal sealed class CharCodeRangeCharGroup
             : CharGroup
         {
             private readonly int _first;
             private readonly int _last;
             private readonly bool _negative;
 
-            public CharCodeRangeCharacterGroup(int firstCharCode, int lastCharCode, bool negative)
+            public CharCodeRangeCharGroup(int firstCharCode, int lastCharCode, bool negative)
             {
                 if (firstCharCode < 0 || firstCharCode > 0xFFFF)
                 {
@@ -243,13 +243,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        internal sealed class GeneralCategoryCharacterGroup
+        internal sealed class GeneralCategoryCharGroup
             : CharGroup
         {
             private readonly GeneralCategory _category;
             private readonly bool _negative;
 
-            public GeneralCategoryCharacterGroup(GeneralCategory category, bool negative)
+            public GeneralCategoryCharGroup(GeneralCategory category, bool negative)
             {
                 _category = category;
                 _negative = negative;
@@ -271,13 +271,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        internal sealed class NamedBlockCharacterGroup
+        internal sealed class NamedBlockCharGroup
             : CharGroup
         {
             private readonly NamedBlock _block;
             private readonly bool _negative;
 
-            public NamedBlockCharacterGroup(NamedBlock block, bool negative)
+            public NamedBlockCharGroup(NamedBlock block, bool negative)
             {
                 _block = block;
                 _negative = negative;
@@ -299,12 +299,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        internal sealed class CharClassCharacterGroup
+        internal sealed class CharClassCharGroup
             : CharGroup
         {
             private readonly CharClass _value;
 
-            public CharClassCharacterGroup(CharClass value)
+            public CharClassCharGroup(CharClass value)
             {
                 _value = value;
             }
@@ -320,18 +320,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        internal sealed class CharGroupingCharacterGroup
+        internal sealed class CharGroupingCharGroup
             : CharGroup
         {
             private readonly CharGrouping _item;
             private readonly bool _negative;
 
-            public CharGroupingCharacterGroup(CharGrouping value)
+            public CharGroupingCharGroup(CharGrouping value)
                 : this(value, false)
             {
             }
 
-            public CharGroupingCharacterGroup(CharGrouping value, bool negative)
+            public CharGroupingCharGroup(CharGrouping value, bool negative)
             {
                 if (value == null)
                 {
@@ -358,13 +358,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        internal sealed class CharacterGroupCharacterGroup
+        internal sealed class CharGroupCharGroup
             : CharGroup
         {
             private readonly CharGroup _group;
             private readonly bool _negative;
 
-            internal CharacterGroupCharacterGroup(CharGroup group, bool negative)
+            internal CharGroupCharGroup(CharGroup group, bool negative)
             {
                 if (group == null)
                 {

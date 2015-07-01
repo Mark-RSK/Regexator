@@ -7,12 +7,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public abstract partial class CharPattern
     {
-        internal sealed class CharCharacterPattern
+        internal sealed class CharCharPattern
             : CharPattern
         {
             private readonly char _value;
 
-            internal CharCharacterPattern(char value)
+            internal CharCharPattern(char value)
             {
                 _value = value;
             }
@@ -38,12 +38,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        internal sealed class CharCodeCharacterPattern
+        internal sealed class CharCodeCharPattern
             : CharPattern
         {
             private readonly int _charCode;
 
-            internal CharCodeCharacterPattern(int charCode)
+            internal CharCodeCharPattern(int charCode)
             {
                 if (charCode < 0 || charCode > 0xFFFF)
                 {
@@ -74,12 +74,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        internal sealed class AsciiCharCharacterPattern
+        internal sealed class AsciiCharCharPattern
             : CharPattern
         {
             private readonly AsciiChar _value;
 
-            internal AsciiCharCharacterPattern(AsciiChar value)
+            internal AsciiCharCharPattern(AsciiChar value)
             {
                 _value = value;
             }
@@ -105,13 +105,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        internal class GeneralCategoryCharacterPattern
+        internal class GeneralCategoryCharPattern
             : CharPattern
         {
             private readonly GeneralCategory _category;
             private readonly bool _negative;
 
-            internal GeneralCategoryCharacterPattern(GeneralCategory category, bool negative)
+            internal GeneralCategoryCharPattern(GeneralCategory category, bool negative)
             {
                 _category = category;
                 _negative = negative;
@@ -128,13 +128,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        internal class NamedBlockCharacterPattern
+        internal class NamedBlockCharPattern
             : CharPattern
         {
             private readonly NamedBlock _block;
             private readonly bool _negative;
 
-            internal NamedBlockCharacterPattern(NamedBlock block, bool negative)
+            internal NamedBlockCharPattern(NamedBlock block, bool negative)
             {
                 _block = block;
                 _negative = negative;
@@ -151,12 +151,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        internal sealed class CharClassCharacterPattern
+        internal sealed class CharClassCharPattern
             : CharPattern
         {
             private readonly CharClass _value;
 
-            public CharClassCharacterPattern(CharClass value)
+            public CharClassCharPattern(CharClass value)
             {
                 _value = value;
             }

@@ -17,32 +17,32 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal static CharPattern Create(char value)
         {
-            return new CharCharacterPattern(value);
+            return new CharCharPattern(value);
         }
 
         internal static CharPattern Create(int charCode)
         {
-            return new CharCodeCharacterPattern(charCode);
+            return new CharCodeCharPattern(charCode);
         }
 
         internal static CharPattern Create(AsciiChar value)
         {
-            return new AsciiCharCharacterPattern(value);
+            return new AsciiCharCharPattern(value);
         }
 
         internal static CharPattern Create(CharClass value)
         {
-            return new CharClassCharacterPattern(value);
+            return new CharClassCharPattern(value);
         }
 
         internal static CharPattern Create(GeneralCategory category, bool negative)
         {
-            return new GeneralCategoryCharacterPattern(category, negative);
+            return new GeneralCategoryCharPattern(category, negative);
         }
 
         internal static CharPattern Create(NamedBlock block, bool negative)
         {
-            return new NamedBlockCharacterPattern(block, negative);
+            return new NamedBlockCharPattern(block, negative);
         }
 
         /// <summary>
