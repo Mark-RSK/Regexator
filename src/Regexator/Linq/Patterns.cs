@@ -250,12 +250,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Pattern.Surround(WordBoundary(), Any(values)).AsNoncapturingGroup();
         }
 
-        public static Pattern Line(object content)
+        public static QuantifiablePattern Line(object content)
         {
-            return Pattern.Surround(StartOfLine(), content, EndOfLine());
+            return Pattern.Surround(StartOfLine(), content, EndOfLine()).AsNoncapturingGroup();
         }
 
-        public static Pattern Line(params object[] content)
+        public static QuantifiablePattern Line(params object[] content)
         {
             return Line((object)content);
         }
@@ -265,12 +265,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Pattern.Surround(StartOfLineInvariant(), content, EndOfLineInvariant());
         }
 
-        public static Pattern EntireInput(object content)
+        public static QuantifiablePattern EntireInput(object content)
         {
-            return Pattern.Surround(StartOfInput(), content, EndOfInput());
+            return Pattern.Surround(StartOfInput(), content, EndOfInput()).AsNoncapturingGroup();
         }
 
-        public static Pattern EntireInput(params object[] content)
+        public static QuantifiablePattern EntireInput(params object[] content)
         {
             return EntireInput((object)content);
         }

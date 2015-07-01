@@ -173,7 +173,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Patterns.NotWordBoundary());
         }
 
-        public Pattern AsLine()
+        public QuantifiablePattern AsLine()
         {
             return Patterns.Line(this);
         }
@@ -183,7 +183,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Patterns.LineInvariant(this);
         }
 
-        public Pattern AsEntireInput()
+        public QuantifiablePattern AsEntireInput()
         {
             return Patterns.EntireInput(this);
         }
