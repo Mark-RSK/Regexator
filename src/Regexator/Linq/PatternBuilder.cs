@@ -1037,7 +1037,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public void AppendGeneralCategory(GeneralCategory category, bool negative)
         {
-            _sb.Append(negative ? Syntax.NotUnicodeStart : Syntax.UnicodeStart);
+            AppendUnicodeStart(negative);
             _sb.Append(Syntax.GetGeneralCategoryValue(category));
             _sb.Append(Syntax.UnicodeEnd);
         }
@@ -1054,9 +1054,21 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public void AppendNamedBlock(NamedBlock block, bool negative)
         {
-            _sb.Append(negative ? Syntax.NotUnicodeStart : Syntax.UnicodeStart);
+            AppendUnicodeStart(negative);
             _sb.Append(Syntax.GetNamedBlockValue(block));
             _sb.Append(Syntax.UnicodeEnd);
+        }
+
+        private void AppendUnicodeStart(bool negative)
+        {
+            if (negative)
+            {
+                _sb.Append(Syntax.NotUnicodeStart);
+            }
+            else
+            {
+                _sb.Append(Syntax.UnicodeStart);
+            }
         }
 
         public void AppendMaybe()
