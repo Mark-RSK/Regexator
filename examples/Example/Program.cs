@@ -10,8 +10,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
         internal static void Main(string[] args)
         {
-            Console.WriteLine(Patterns.Line("aaa"));
-
             Console.WriteLine("email");
 
             var left = Patterns.OneMany(CharGrouping.Create("!#$%&'*+/=?^_`{|}~-").Alphanumeric());
