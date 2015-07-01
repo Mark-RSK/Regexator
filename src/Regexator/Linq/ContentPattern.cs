@@ -2,12 +2,12 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal sealed class ContainerPattern
+    internal sealed class ContentPattern
         : Pattern
     {
         private readonly object _content;
 
-        public ContainerPattern(object content)
+        public ContentPattern(object content)
         {
             _content = content;
         }

@@ -30,7 +30,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static Pattern Create(object content)
         {
-            return new ContainerPattern(content);
+            return new ContentPattern(content);
         }
 
         public Pattern ConcatIf(bool condition, object content)
@@ -45,7 +45,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public Pattern Concat(object content)
         {
-            return ConcatInternal(new ContainerPattern(content));
+            return ConcatInternal(new ContentPattern(content));
         }
 
         public Pattern Concat(Pattern pattern)
@@ -55,7 +55,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("pattern");
             }
 
-            return ConcatInternal(new ContainerPattern(pattern));
+            return ConcatInternal(new ContentPattern(pattern));
         }
 
 #if DEBUG

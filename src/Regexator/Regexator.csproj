@@ -89,7 +89,7 @@
     <Compile Include="Linq\QuantifiedPattern.cs" />
     <Compile Include="Linq\Substitution.cs" />
     <Compile Include="Linq\SurroundPattern.cs" />
-    <Compile Include="Linq\ContainerPattern.cs" />
+    <Compile Include="Linq\ContentPattern.cs" />
     <Compile Include="Linq\InlineComment.cs" />
     <Compile Include="Linq\Options.cs" />
     <Compile Include="Core\AsciiChar.cs" />
