@@ -13,12 +13,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         private readonly object _content;
 
         protected GroupingPattern()
-            : base()
         {
         }
 
         protected GroupingPattern(object content)
-            : base()
         {
             if (content == null)
             {
@@ -29,7 +27,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         protected GroupingPattern(GroupingPattern group)
-            : base()
         {
             if (group == null)
             {

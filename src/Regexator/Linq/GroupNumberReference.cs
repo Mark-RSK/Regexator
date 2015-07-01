@@ -10,7 +10,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         private readonly int _groupNumber;
 
         public GroupNumberReference(int groupNumber)
-            : base()
         {
             if (groupNumber < 0)
             {

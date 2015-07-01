@@ -8,7 +8,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         private readonly string _groupName;
 
         public GroupNameReference(string groupName)
-            : base()
         {
             RegexUtilities.CheckGroupName(groupName);
 

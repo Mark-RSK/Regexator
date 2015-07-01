@@ -9,7 +9,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         : Pattern
     {
         protected QuantifiablePattern()
-            : base()
         {
         }
 

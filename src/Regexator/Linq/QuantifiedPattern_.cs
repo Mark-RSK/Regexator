@@ -13,7 +13,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             private readonly int _count2;
 
             internal CountQuantifiedPattern(int exactCount)
-                : base()
             {
                 if (exactCount < 0)
                 {
@@ -25,7 +24,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
 
             internal CountQuantifiedPattern(int minCount, int maxCount)
-                : base()
             {
                 if (minCount < 0)
                 {
@@ -60,7 +58,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             private readonly int _minCount;
 
             internal CountFromQuantifiedPattern(int minCount)
-                : base()
             {
                 if (minCount < 0)
                 {
@@ -80,7 +77,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             : QuantifiedPattern
         {
             public MaybeQuantifiedPattern()
-                : base()
             {
             }
 
@@ -94,7 +90,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             : QuantifiedPattern
         {
             public MaybeManyQuantifiedPattern()
-                : base()
             {
             }
 
@@ -108,7 +103,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             : QuantifiedPattern
         {
             public OneManyQuantifiedPattern()
-                : base()
             {
             }
 
