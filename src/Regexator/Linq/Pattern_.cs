@@ -679,7 +679,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             return ConcatInternal(Patterns.NotAlphanumericUnderscore(minCount, maxCount));
         }
-        
+
         public CharGroup LatinLetter()
         {
             return ConcatInternal(Patterns.LatinLetter());
@@ -844,7 +844,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             return ConcatInternal(Patterns.ArabicDigit(minCount, maxCount));
         }
-        
+
         public QuantifiablePattern NotArabicDigit()
         {
             return ConcatInternal(Patterns.NotArabicDigit());
@@ -859,7 +859,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             return ConcatInternal(Patterns.NotArabicDigit(minCount, maxCount));
         }
-        
+
         public QuantifiablePattern HexadecimalDigit()
         {
             return ConcatInternal(Patterns.HexadecimalDigit());

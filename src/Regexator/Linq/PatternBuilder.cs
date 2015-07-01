@@ -27,7 +27,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
         }
 
-
         /// <summary>
         /// Initializes a new instance of the <see cref="PatternBuilder"/> class with the specified settings.
         /// </summary>

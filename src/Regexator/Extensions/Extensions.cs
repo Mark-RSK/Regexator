@@ -132,8 +132,8 @@ namespace Pihrtsoft.Text.RegularExpressions
                 throw new ArgumentNullException("items");
             }
 
-            return successOnly 
-                ? items.ToGroupItems(f => f.Success) 
+            return successOnly
+                ? items.ToGroupItems(f => f.Success)
                 : items.ToGroupItems();
         }
 

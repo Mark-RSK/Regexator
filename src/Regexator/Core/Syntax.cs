@@ -267,7 +267,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         {
             return GroupOptions(applyOptions, disableOptions, (object)content);
         }
-        
+
         public static string GroupOptions(RegexOptions applyOptions, RegexOptions disableOptions, object content)
         {
             if (!RegexUtilities.IsValidInlineOptions(applyOptions))
