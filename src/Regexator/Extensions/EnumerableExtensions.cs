@@ -51,32 +51,38 @@ namespace Pihrtsoft.Text.RegularExpressions.Extensions
 
         public static IEnumerable<Group> EnumerateSuccessGroups(this IEnumerable<Match> matches)
         {
-            return EnumerateGroups(matches).Where(group => group.Success);
+            return EnumerateGroups(matches)
+                .Where(group => group.Success);
         }
 
         public static IEnumerable<Group> EnumerateSuccessGroups(this IEnumerable<Match> matches, string groupName)
         {
-            return EnumerateGroups(matches, groupName).Where(group => group.Success);
+            return EnumerateGroups(matches, groupName)
+                .Where(group => group.Success);
         }
 
         public static IEnumerable<Group> EnumerateSuccessGroups(this IEnumerable<Match> matches, int groupNumber)
         {
-            return EnumerateGroups(matches, groupNumber).Where(group => group.Success);
+            return EnumerateGroups(matches, groupNumber)
+                .Where(group => group.Success);
         }
 
         public static IEnumerable<Capture> EnumerateCaptures(this IEnumerable<Match> matches)
         {
-            return EnumerateSuccessGroups(matches).EnumerateCaptures();
+            return EnumerateSuccessGroups(matches)
+                .EnumerateCaptures();
         }
 
         public static IEnumerable<Capture> EnumerateCaptures(this IEnumerable<Match> matches, string groupName)
         {
-            return EnumerateSuccessGroups(matches, groupName).EnumerateCaptures();
+            return EnumerateSuccessGroups(matches, groupName)
+                .EnumerateCaptures();
         }
 
         public static IEnumerable<Capture> EnumerateCaptures(this IEnumerable<Match> matches, int groupNumber)
         {
-            return EnumerateSuccessGroups(matches, groupNumber).EnumerateCaptures();
+            return EnumerateSuccessGroups(matches, groupNumber)
+                .EnumerateCaptures();
         }
 
         public static IEnumerable<Capture> EnumerateCaptures(this IEnumerable<Group> groups)

@@ -36,7 +36,9 @@ namespace Pihrtsoft.Text.RegularExpressions
                 throw new ArgumentNullException("items");
             }
 
-            return items.ToGroupItems().ToGroups();
+            return items
+                .ToGroupItems()
+                .ToGroups();
         }
 
         public static IEnumerable<Group> ToGroups(this IEnumerable<GroupItem> items)
@@ -66,7 +68,9 @@ namespace Pihrtsoft.Text.RegularExpressions
                 throw new ArgumentNullException("items");
             }
 
-            return items.ToGroupItems().ToCaptures();
+            return items
+                .ToGroupItems()
+                .ToCaptures();
         }
 
         public static IEnumerable<Capture> ToCaptures(this IEnumerable<GroupItem> items)
@@ -76,7 +80,9 @@ namespace Pihrtsoft.Text.RegularExpressions
                 throw new ArgumentNullException("items");
             }
 
-            return items.ToCaptureItems().ToCaptures();
+            return items
+                .ToCaptureItems()
+                .ToCaptures();
         }
 
         public static IEnumerable<Capture> ToCaptures(this IEnumerable<CaptureItem> items)
@@ -126,7 +132,9 @@ namespace Pihrtsoft.Text.RegularExpressions
                 throw new ArgumentNullException("items");
             }
 
-            return successOnly ? items.ToGroupItems(f => f.Success) : items.ToGroupItems();
+            return successOnly 
+                ? items.ToGroupItems(f => f.Success) 
+                : items.ToGroupItems();
         }
 
         internal static IEnumerable<GroupItem> ToGroupItems(this IEnumerable<MatchItem> items, Func<GroupItem, bool> predicate)
@@ -136,7 +144,9 @@ namespace Pihrtsoft.Text.RegularExpressions
                 throw new ArgumentNullException("items");
             }
 
-            return items.ToGroupItems().Where(predicate);
+            return items
+                .ToGroupItems()
+                .Where(predicate);
         }
 
         public static IEnumerable<CaptureItem> ToCaptureItems(this IEnumerable<MatchItem> items)
@@ -146,7 +156,9 @@ namespace Pihrtsoft.Text.RegularExpressions
                 throw new ArgumentNullException("items");
             }
 
-            return items.ToGroupItems().ToCaptureItems();
+            return items
+                .ToGroupItems()
+                .ToCaptureItems();
         }
 
         public static IEnumerable<CaptureItem> ToCaptureItems(this IEnumerable<GroupItem> items)
