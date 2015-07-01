@@ -208,12 +208,12 @@ namespace Pihrtsoft.Text.RegularExpressions
         Apostrophe,
 
         /// <summary>
-        /// Start Parenthesis, decimal value: 40, hexadecimal value: 0x28
+        /// Start (Left) Parenthesis, decimal value: 40, hexadecimal value: 0x28
         /// </summary>
         StartParenthesis,
 
         /// <summary>
-        /// End Parenthesis, decimal value: 41, hexadecimal value: 0x29
+        /// End (Right) Parenthesis, decimal value: 41, hexadecimal value: 0x29
         /// </summary>
         EndParenthesis,
 
@@ -463,7 +463,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         CapitalLetterZ,
 
         /// <summary>
-        /// Start Square Bracket, decimal value: 91, hexadecimal value: 0x5B
+        /// Start (Left) Square Bracket, decimal value: 91, hexadecimal value: 0x5B
         /// </summary>
         StartSquareBracket,
 
@@ -473,7 +473,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         Backslash,
 
         /// <summary>
-        /// End Square Bracket, decimal value: 93, hexadecimal value: 0x5D
+        /// End (Right) Square Bracket, decimal value: 93, hexadecimal value: 0x5D
         /// </summary>
         EndSquareBracket,
 
@@ -623,7 +623,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         SmallLetterZ,
 
         /// <summary>
-        /// Start Curly Bracket, decimal value: 123, hexadecimal value: 0x7B
+        /// Start (Left) Curly Bracket, decimal value: 123, hexadecimal value: 0x7B
         /// </summary>
         StartCurlyBracket,
 
@@ -633,7 +633,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         VerticalLine,
 
         /// <summary>
-        /// End Curly Bracket, decimal value: 125, hexadecimal value: 0x7D
+        /// End (Right) Curly Bracket, decimal value: 125, hexadecimal value: 0x7D
         /// </summary>
         EndCurlyBracket,
 
