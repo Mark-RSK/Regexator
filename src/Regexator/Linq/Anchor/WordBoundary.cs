@@ -13,7 +13,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         : QuantifiablePattern, IInvertible<NegativeWordBoundary>
     {
         /// <summary>
-        /// Returns an instance of the <see cref="NotWordBoundary" class./>
+        /// Returns an instance of the <see cref="NegativeWordBoundary" class./>
         /// </summary>
         /// <returns></returns>
         public NegativeWordBoundary Invert()

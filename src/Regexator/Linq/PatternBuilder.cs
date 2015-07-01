@@ -273,8 +273,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Tries to append the text representation of an object this instance.
-        /// The object must be convertible to <see cref="Pattern"/>, <see cref="CharGrouping"/> or a <see cref="System.String"/>.
+        /// Tries to append the text representation of an object. The object must be convertible to <see cref="Pattern"/>, <see cref="CharGrouping"/> or a <see cref="System.String"/>.
         /// For a recursive call, the object must be convertible to an array of object or <see cref="System.Collections.IEnumerable"/>.
         /// </summary>
         /// <param name="value">The object to append.</param>
