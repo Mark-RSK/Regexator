@@ -12,7 +12,7 @@ using Pihrtsoft.Text.RegularExpressions.Extensions;
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
-    /// Represents a base class for regex pattern.
+    /// Represents a regular expression pattern. This class is abstract.
     /// </summary>
     public abstract partial class Pattern
     {
@@ -24,7 +24,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Creates and returns a new instance of the <see cref="Pattern"/> class using provided content.
+        /// Creates and returns a new instance of the <see cref="Pattern"/> class and adds specified content to it.
         /// </summary>
         /// <param name="content">The content of the pattern.</param>
         /// <returns></returns>
@@ -38,6 +38,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return condition ? Concat(content) : this;
         }
 
+        /// <summary>
+        /// Appends specified pattern the the current instance.
+        /// </summary>
+        /// <param name="content">The pattern to append.</param>
+        /// <returns></returns>
         public Pattern Concat(object content)
         {
             return ConcatInternal(new ContainerPattern(content));

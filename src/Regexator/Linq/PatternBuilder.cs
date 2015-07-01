@@ -1061,20 +1061,55 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public void AppendMaybe()
         {
+            AppendMaybe(false);
+        }
+
+        public void AppendMaybe(bool lazy)
+        {
             _sb.Append(Syntax.Maybe);
+
+            if (lazy)
+            {
+                AppendLazy();
+            }
         }
 
         public void AppendMaybeMany()
         {
+            AppendMaybeMany(false);
+        }
+
+        public void AppendMaybeMany(bool lazy)
+        {
             _sb.Append(Syntax.MaybeMany);
+
+            if (lazy)
+            {
+                AppendLazy();
+            }
         }
 
         public void AppendOneMany()
         {
+            AppendOneMany(false);
+        }
+
+        public void AppendOneMany(bool lazy)
+        {
             _sb.Append(Syntax.OneMany);
+
+            if (lazy)
+            {
+                AppendLazy();
+            }
         }
 
         public void AppendCount(int exactCount)
+        {
+            AppendCount(exactCount, false);
+        }
+
+        public void AppendCount(int exactCount, bool lazy)
         {
             if (exactCount < 0)
             {
@@ -1082,9 +1117,26 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
 
             AppendCountInternal(exactCount);
+
+            if (lazy)
+            {
+                AppendLazy();
+            }
+        }
+
+        internal void AppendCountInternal(int exactCount)
+        {
+            AppendStartCurlyBracket();
+            _sb.Append(exactCount);
+            AppendEndCurlyBracket();
         }
 
         public void AppendCount(int minCount, int maxCount)
+        {
+            AppendCount(minCount, maxCount, false);
+        }
+
+        public void AppendCount(int minCount, int maxCount, bool lazy)
         {
             if (minCount < 0)
             {
@@ -1097,13 +1149,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
 
             AppendCountInternal(minCount, maxCount);
-        }
 
-        internal void AppendCountInternal(int exactCount)
-        {
-            AppendStartCurlyBracket();
-            _sb.Append(exactCount);
-            AppendEndCurlyBracket();
+            if (lazy)
+            {
+                AppendLazy();
+            }
         }
 
         internal void AppendCountInternal(int minCount, int maxCount)
@@ -1117,12 +1167,22 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public void AppendCountFrom(int minCount)
         {
+            AppendCountFrom(minCount, false);
+        }
+
+        public void AppendCountFrom(int minCount, bool lazy)
+        {
             if (minCount < 0)
             {
                 throw new ArgumentOutOfRangeException("minCount");
             }
 
             AppendCountFromInternal(minCount);
+
+            if (lazy)
+            {
+                AppendLazy();
+            }
         }
 
         internal void AppendCountFromInternal(int minCount)
@@ -1135,12 +1195,22 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public void AppendCountTo(int maxCount)
         {
+            AppendCountTo(maxCount, false);
+        }
+
+        public void AppendCountTo(int maxCount, bool lazy)
+        {
             if (maxCount < 0)
             {
                 throw new ArgumentOutOfRangeException("maxCount");
             }
 
             AppendCountToInternal(maxCount);
+
+            if (lazy)
+            {
+                AppendLazy();
+            }
         }
 
         internal void AppendCountToInternal(int maxCount)
@@ -1152,7 +1222,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             AppendEndCurlyBracket();
         }
 
-        public void AppendLazy()
+        internal void AppendLazy()
         {
             _sb.Append(Syntax.Lazy);
         }
