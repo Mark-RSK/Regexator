@@ -590,9 +590,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _sb.Append(Syntax.WordBoundary);
         }
 
-        public void AppendNotWordBoundary()
+        public void AppendNegativeWordBoundary()
         {
-            _sb.Append(Syntax.NotWordBoundary);
+            _sb.Append(Syntax.NegativeWordBoundary);
         }
 
         public void AppendPreviousMatchEnd()

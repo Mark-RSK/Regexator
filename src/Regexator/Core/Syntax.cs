@@ -24,7 +24,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         public const string EndOfLine = "$";
         public const string EndOrBeforeEndingNewLine = @"\Z";
         public const string WordBoundary = @"\b";
-        public const string NotWordBoundary = @"\B";
+        public const string NegativeWordBoundary = @"\B";
         public const string PreviousMatchEnd = @"\G";
 
         internal const string AssertionStart = "(?=";
