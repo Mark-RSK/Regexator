@@ -329,7 +329,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static CharGrouping StartParenthesis()
         {
-            return CharGrouping.Create(AsciiChar.LeftParenthesis);
+            return CharGrouping.Create(AsciiChar.StartParenthesis);
         }
 
         /// <summary>
@@ -338,7 +338,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static CharGrouping EndParenthesis()
         {
-            return CharGrouping.Create(AsciiChar.RightParenthesis);
+            return CharGrouping.Create(AsciiChar.EndParenthesis);
         }
 
         /// <summary>
@@ -383,7 +383,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static CharGrouping Dot()
         {
-            return CharGrouping.Create(AsciiChar.Period);
+            return CharGrouping.Create(AsciiChar.Dot);
         }
 
         /// <summary>
@@ -464,7 +464,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static CharGrouping StartSquareBracket()
         {
-            return CharGrouping.Create(AsciiChar.LeftSquareBracket);
+            return CharGrouping.Create(AsciiChar.StartSquareBracket);
         }
 
         /// <summary>
@@ -482,7 +482,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static CharGrouping EndSquareBracket()
         {
-            return CharGrouping.Create(AsciiChar.RightSquareBracket);
+            return CharGrouping.Create(AsciiChar.EndSquareBracket);
         }
 
         /// <summary>
@@ -518,7 +518,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static CharGrouping StartCurlyBracket()
         {
-            return CharGrouping.Create(AsciiChar.LeftCurlyBracket);
+            return CharGrouping.Create(AsciiChar.StartCurlyBracket);
         }
 
         /// <summary>
@@ -536,7 +536,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static CharGrouping EndCurlyBracket()
         {
-            return CharGrouping.Create(AsciiChar.RightCurlyBracket);
+            return CharGrouping.Create(AsciiChar.EndCurlyBracket);
         }
 
         /// <summary>

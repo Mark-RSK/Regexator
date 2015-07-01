@@ -208,14 +208,14 @@ namespace Pihrtsoft.Text.RegularExpressions
         Apostrophe,
 
         /// <summary>
-        /// Left Parenthesis, decimal value: 40, hexadecimal value: 0x28
+        /// Start Parenthesis, decimal value: 40, hexadecimal value: 0x28
         /// </summary>
-        LeftParenthesis,
+        StartParenthesis,
 
         /// <summary>
-        /// Right Parenthesis, decimal value: 41, hexadecimal value: 0x29
+        /// End Parenthesis, decimal value: 41, hexadecimal value: 0x29
         /// </summary>
-        RightParenthesis,
+        EndParenthesis,
 
         /// <summary>
         /// Asterisk, decimal value: 42, hexadecimal value: 0x2A
@@ -238,9 +238,9 @@ namespace Pihrtsoft.Text.RegularExpressions
         Hyphen,
 
         /// <summary>
-        /// Period, decimal value: 46, hexadecimal value: 0x2E
+        /// Dot (Period), decimal value: 46, hexadecimal value: 0x2E
         /// </summary>
-        Period,
+        Dot,
 
         /// <summary>
         /// Slash, decimal value: 47, hexadecimal value: 0x2F
@@ -463,9 +463,9 @@ namespace Pihrtsoft.Text.RegularExpressions
         CapitalLetterZ,
 
         /// <summary>
-        /// Left Square Bracket, decimal value: 91, hexadecimal value: 0x5B
+        /// Start Square Bracket, decimal value: 91, hexadecimal value: 0x5B
         /// </summary>
-        LeftSquareBracket,
+        StartSquareBracket,
 
         /// <summary>
         /// Backslash, decimal value: 92, hexadecimal value: 0x5C
@@ -473,9 +473,9 @@ namespace Pihrtsoft.Text.RegularExpressions
         Backslash,
 
         /// <summary>
-        /// Right Square Bracket, decimal value: 93, hexadecimal value: 0x5D
+        /// End Square Bracket, decimal value: 93, hexadecimal value: 0x5D
         /// </summary>
-        RightSquareBracket,
+        EndSquareBracket,
 
         /// <summary>
         /// Circumflex Accent, decimal value: 94, hexadecimal value: 0x5E
@@ -623,9 +623,9 @@ namespace Pihrtsoft.Text.RegularExpressions
         SmallLetterZ,
 
         /// <summary>
-        /// Left Curly Bracket, decimal value: 123, hexadecimal value: 0x7B
+        /// Start Curly Bracket, decimal value: 123, hexadecimal value: 0x7B
         /// </summary>
-        LeftCurlyBracket,
+        StartCurlyBracket,
 
         /// <summary>
         /// Vertical Line, decimal value: 124, hexadecimal value: 0x7C
@@ -633,9 +633,9 @@ namespace Pihrtsoft.Text.RegularExpressions
         VerticalLine,
 
         /// <summary>
-        /// Right Curly Bracket, decimal value: 125, hexadecimal value: 0x7D
+        /// End Curly Bracket, decimal value: 125, hexadecimal value: 0x7D
         /// </summary>
-        RightCurlyBracket,
+        EndCurlyBracket,
 
         /// <summary>
         /// Tilde, decimal value: 126, hexadecimal value: 0x7E
