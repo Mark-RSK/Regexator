@@ -41,6 +41,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="testContent">The test pattern to match.</param>
         /// <param name="trueContent">The pattern to match if the test pattern is matched.</param>
         /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static QuantifiablePattern IfAssert(Pattern testContent, object trueContent)
         {
             return IfAssert(testContent, trueContent, null);
@@ -76,6 +77,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="content">The object to be added as assertion content.</param>
         /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static Assertion Assert(object content)
         {
             return new Assertion(content);
@@ -86,6 +88,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="content">An object array that contains zero or more objects to be added as assertion content.</param>
         /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static Assertion Assert(params object[] content)
         {
             return Assert((object)content);
@@ -96,6 +99,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="content">The object to be added as assertion content.</param>
         /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static QuantifiablePattern NotAssert(object content)
         {
             return new NegativeAssertion(content);
@@ -106,6 +110,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="content">An object array that contains zero or more objects to be added as assertion content.</param>
         /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static QuantifiablePattern NotAssert(params object[] content)
         {
             return NotAssert((object)content);
@@ -116,6 +121,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="content">The object to be added as assertion content.</param>
         /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static BackAssertion AssertBack(object content)
         {
             return new BackAssertion(content);
@@ -126,6 +132,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="content">An object array that contains zero or more objects to be added as assertion content.</param>
         /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static BackAssertion AssertBack(params object[] content)
         {
             return AssertBack((object)content);
@@ -136,6 +143,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="content">The object to be added as assertion content.</param>
         /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static QuantifiablePattern NotAssertBack(object content)
         {
             return new NegativeBackAssertion(content);
@@ -146,6 +154,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="content">An object array that contains zero or more objects to be added as assertion content.</param>
         /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static QuantifiablePattern NotAssertBack(params object[] content)
         {
             return NotAssertBack((object)content);

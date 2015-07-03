@@ -31,6 +31,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Initializes a new instance of the <see cref="PatternBuilder"/> class with the specified settings.
         /// </summary>
         /// <param name="settings">A settings that controls pattern formatting.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         internal PatternBuilder(PatternSettings settings)
             : this(settings, RegexOptions.None)
         {
@@ -228,6 +229,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Appends the text representation of the pattern to this instance.
         /// </summary>
         /// <param name="pattern">The pattern to append.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public void Append(Pattern pattern)
         {
             if (pattern == null)
@@ -266,6 +268,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Appends the text representation of the pattern to this instance.
         /// </summary>
         /// <param name="value">The pattern to append.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public void Append(CharGrouping value)
         {
             AppendCharGroup(value);
@@ -413,6 +416,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="testContent"></param>
         /// <param name="trueContent"></param>
         /// <param name="falseContent"></param>
+        /// <exception cref="ArgumentNullException"></exception>
         public void AppendIf(object testContent, object trueContent, object falseContent)
         {
             if (testContent == null)

@@ -84,6 +84,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="exactCount">A number of times the pattern must be matched.</param>
         /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedPattern Count(int exactCount)
         {
             return ConcatInternal(new QuantifiedPattern.CountQuantifiedPattern(exactCount));
@@ -95,6 +96,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="minCount">A minimal number of times the pattern must be matched.</param>
         /// <param name="maxCount">A maximum number of times the pattern can be matched.</param>
         /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedPattern Count(int minCount, int maxCount)
         {
             return ConcatInternal(new QuantifiedPattern.CountQuantifiedPattern(minCount, maxCount));
@@ -105,6 +107,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="minCount">A minimal number of times the pattern must be matched.</param>
         /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedPattern CountFrom(int minCount)
         {
             return ConcatInternal(new QuantifiedPattern.CountFromQuantifiedPattern(minCount));
@@ -115,6 +118,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="maxCount">A maximum number of times the pattern can be matched.</param>
         /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedPattern CountTo(int maxCount)
         {
             return ConcatInternal(new QuantifiedPattern.CountQuantifiedPattern(0, maxCount));

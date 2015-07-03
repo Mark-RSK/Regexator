@@ -2,6 +2,8 @@
 
 using System;
 
+//TODO add xml comments
+
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public abstract partial class QuantifiedGroup

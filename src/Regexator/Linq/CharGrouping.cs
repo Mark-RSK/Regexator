@@ -23,6 +23,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="characters">A set of characters.</param>
         /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
         public static CharGrouping Create(string characters)
         {
             return new CharactersCharGrouping(characters);
@@ -54,6 +56,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="charCode">The character code.</param>
         /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static CharGrouping Create(int charCode)
         {
             return new CharacterCodeCharGrouping(charCode);
@@ -65,6 +68,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="firstCharCode">The first character code of the range.</param>
         /// <param name="lastCharCode">The last character code of the range.</param>
         /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static CharGrouping Create(int firstCharCode, int lastCharCode)
         {
             return new CharacterCodeRangeCharGrouping(firstCharCode, lastCharCode);
@@ -137,6 +141,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return value;
         }
 
+        //TODO add xml comments
+
         public override string ToString()
         {
             var builder = new PatternBuilder();
@@ -159,6 +165,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="value">The character code.</param>
         /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public CharGrouping Concat(int value)
         {
             return Concat(Create(value));
@@ -179,6 +186,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="value">A set of characters.</param>
         /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public CharGrouping Concat(string characters)
         {
             return Concat(Create(characters));
@@ -201,6 +209,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="firstCharCode">The first character code of the range.</param>
         /// <param name="lastCharCode">The last character code of the range.</param>
         /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public CharGrouping Concat(int firstCharCode, int lastCharCode)
         {
             return Concat(Create(firstCharCode, lastCharCode));
@@ -792,8 +801,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Appends the text representation of the current instance of the character grouping to the specified <see cref="PatternBuilder"/>.
         /// </summary>
         /// <param name="builder">The builder to use for appending the character grouping text.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public void AppendBaseGroupTo(PatternBuilder builder)
         {
+            if (builder == null)
+            {
+                throw new ArgumentNullException("builder");
+            }
+
             AppendContentTo(builder);
         }
 
@@ -801,6 +816,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Appends the text representation of the character group containing the current instance to the specified <see cref="PatternBuilder"/>.
         /// </summary>
         /// <param name="builder">The builder to use for appending the character group text.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public void AppendExcludedGroupTo(PatternBuilder builder)
         {
             if (builder == null)

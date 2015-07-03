@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
+//TODO add xml comments
+
 namespace Pihrtsoft.Text.RegularExpressions.Extensions
 {
     public static class EnumerableExtensions

@@ -56,6 +56,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="excludedGroup">Excluded group pattern to be subtracted.</param>
         /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public CharSubtraction Except(IExcludedGroup excludedGroup)
         {
             return new CharSubtraction(this, excludedGroup);
@@ -70,6 +71,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Appends the text representation of the current instance of the character pattern to the specified <see cref="PatternBuilder"/>.
         /// </summary>
         /// <param name="builder">The builder to use for appending the character pattern text.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public void AppendBaseGroupTo(PatternBuilder builder)
         {
             if (builder == null)
@@ -84,6 +86,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Appends the text representation of the character group containing the current instance to the specified <see cref="PatternBuilder"/>.
         /// </summary>
         /// <param name="builder">The builder to use for appending the character group text.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public void AppendExcludedGroupTo(PatternBuilder builder)
         {
             if (builder == null)

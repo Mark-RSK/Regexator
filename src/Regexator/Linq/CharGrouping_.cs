@@ -250,6 +250,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             public CharGroupingCharGrouping(CharGrouping value)
             {
+                if (value == null)
+                {
+                    throw new ArgumentNullException("value");
+                }
+
                 _value = value;
             }
 

@@ -71,8 +71,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Appends the text representation of the current instance of the character group to the specified <see cref="PatternBuilder"/>.
         /// </summary>
         /// <param name="builder">The builder to use for appending the character group text.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public void AppendExcludedGroupTo(PatternBuilder builder)
         {
+            if (builder == null)
+            {
+                throw new ArgumentNullException("builder");
+            }
+
             AppendTo(builder);
         }
 

@@ -86,6 +86,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         /// </summary>
         /// <param name="charCode">The character interpreted as <see cref="System.Int32"/> object.</param>
         /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static string Escape(int charCode)
         {
             return Escape(charCode, false);

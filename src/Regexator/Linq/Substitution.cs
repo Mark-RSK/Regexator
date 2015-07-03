@@ -21,6 +21,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="text">The literal text.</param>
         /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static Substitution Create(string text)
         {
             return new LiteralSubstitution(text);
@@ -68,6 +69,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="groupName">Valid regex group name.</param>
         /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
         public Substitution NamedGroup(string groupName)
         {
             return Concat(Substitutions.NamedGroup(groupName));
@@ -123,9 +126,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="value">The literal text.</param>
         /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public Substitution Text(string value)
         {
-            return Concat(Substitution.Create(value));
+            return Concat(Create(value));
         }
 
         internal virtual string Value
