@@ -6,7 +6,7 @@ using System.Diagnostics.CodeAnalysis;
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
-    /// Represents a positive or a negative character group pattern.
+    /// Represents a positive or a negative character group pattern. This class is abstract.
     /// </summary>
     public abstract partial class CharGroup
         : QuantifiablePattern, IExcludedGroup, IInvertible<CharGroup>

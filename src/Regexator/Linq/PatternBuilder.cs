@@ -265,7 +265,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Appends the text representation of the pattern to this instance.
         /// </summary>
-        /// <param name="pattern">The pattern to append.</param>
+        /// <param name="value">The pattern to append.</param>
         public void Append(CharGrouping value)
         {
             AppendCharGroup(value);

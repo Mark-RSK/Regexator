@@ -5,7 +5,7 @@ using System;
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
-    /// Represents a base class for all kind of grouping constructs including assertions.
+    /// Represents a base class for all kind of grouping constructs including assertions. This class is abstract.
     /// </summary>
     public abstract class GroupingPattern
         : QuantifiablePattern

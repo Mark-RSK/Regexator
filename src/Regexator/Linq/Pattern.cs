@@ -12,7 +12,7 @@ using Pihrtsoft.Text.RegularExpressions.Extensions;
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
-    /// Represents a regular expression pattern. This class is abstract.
+    /// Represents an immutable regular expression pattern. This class is abstract.
     /// </summary>
     public abstract partial class Pattern
     {

@@ -3,7 +3,7 @@
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
-    /// Represents a pattern that can be quantified, i.e. quantifier can be applied on it.
+    /// Represents a pattern that can be quantified, i.e. quantifier can be applied on it. This class is abstract.
     /// </summary>
     public abstract class QuantifiablePattern
         : Pattern
@@ -18,7 +18,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiedPattern Maybe()
         {
-            return ConcatInternal(new QuantifiedGroup.MaybeQuantifiedPattern());
+            return ConcatInternal(new QuantifiedPattern.MaybeQuantifiedPattern());
         }
 
 #if DEBUG
@@ -40,7 +40,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiedPattern MaybeMany()
         {
-            return ConcatInternal(new QuantifiedGroup.MaybeManyQuantifiedPattern());
+            return ConcatInternal(new QuantifiedPattern.MaybeManyQuantifiedPattern());
         }
 
 #if DEBUG
@@ -63,7 +63,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiedPattern OneMany()
         {
-            return ConcatInternal(new QuantifiedGroup.OneManyQuantifiedPattern());
+            return ConcatInternal(new QuantifiedPattern.OneManyQuantifiedPattern());
         }
 
 #if DEBUG
@@ -86,7 +86,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiedPattern Count(int exactCount)
         {
-            return ConcatInternal(new QuantifiedGroup.CountQuantifiedPattern(exactCount));
+            return ConcatInternal(new QuantifiedPattern.CountQuantifiedPattern(exactCount));
         }
 
         /// <summary>
@@ -97,7 +97,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiedPattern Count(int minCount, int maxCount)
         {
-            return ConcatInternal(new QuantifiedGroup.CountQuantifiedPattern(minCount, maxCount));
+            return ConcatInternal(new QuantifiedPattern.CountQuantifiedPattern(minCount, maxCount));
         }
 
         /// <summary>
@@ -107,7 +107,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiedPattern CountFrom(int minCount)
         {
-            return ConcatInternal(new QuantifiedGroup.CountFromQuantifiedPattern(minCount));
+            return ConcatInternal(new QuantifiedPattern.CountFromQuantifiedPattern(minCount));
         }
 
         /// <summary>
@@ -117,7 +117,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiedPattern CountTo(int maxCount)
         {
-            return ConcatInternal(new QuantifiedGroup.CountQuantifiedPattern(0, maxCount));
+            return ConcatInternal(new QuantifiedPattern.CountQuantifiedPattern(0, maxCount));
         }
     }
 }

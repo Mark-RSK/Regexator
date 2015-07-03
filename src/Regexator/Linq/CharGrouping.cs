@@ -9,7 +9,7 @@ using System.Linq;
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
-    /// Represents the content of the character group. Content can be a base group or an excluded group.
+    /// Represents an immutable content of the character group. Content can be a base group or an excluded group. This class is abstract.
     /// </summary>
     public abstract partial class CharGrouping
         : IBaseGroup, IExcludedGroup
