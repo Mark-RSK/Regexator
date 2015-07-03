@@ -21,19 +21,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(new QuantifiedPattern.MaybeQuantifiedPattern());
         }
 
-#if DEBUG
-        public Pattern Maybe(bool lazy)
-        {
-            if (lazy)
-            {
-                return Maybe().Lazy();
-            }
-            else
-            {
-                return Maybe();
-            }
-        }
-#endif
         /// <summary>
         /// Specifies that a pattern must be matched zero or many times.
         /// </summary>
@@ -42,20 +29,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             return ConcatInternal(new QuantifiedPattern.MaybeManyQuantifiedPattern());
         }
-
-#if DEBUG
-        public Pattern MaybeMany(bool lazy)
-        {
-            if (lazy)
-            {
-                return MaybeMany().Lazy();
-            }
-            else
-            {
-                return MaybeMany();
-            }
-        }
-#endif
 
         /// <summary>
         /// Specifies that a pattern must be matched one or many times.
@@ -66,19 +39,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(new QuantifiedPattern.OneManyQuantifiedPattern());
         }
 
-#if DEBUG
-        public Pattern OneMany(bool lazy)
-        {
-            if (lazy)
-            {
-                return OneMany().Lazy();
-            }
-            else
-            {
-                return OneMany();
-            }
-        }
-#endif
         /// <summary>
         /// Specifies that a pattern must be matched exactly n times.
         /// </summary>
@@ -123,5 +83,43 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             return ConcatInternal(new QuantifiedPattern.CountQuantifiedPattern(0, maxCount));
         }
+
+#if DEBUG
+        public Pattern Maybe(bool lazy)
+        {
+            if (lazy)
+            {
+                return Maybe().Lazy();
+            }
+            else
+            {
+                return Maybe();
+            }
+        }
+
+        public Pattern MaybeMany(bool lazy)
+        {
+            if (lazy)
+            {
+                return MaybeMany().Lazy();
+            }
+            else
+            {
+                return MaybeMany();
+            }
+        }
+
+        public Pattern OneMany(bool lazy)
+        {
+            if (lazy)
+            {
+                return OneMany().Lazy();
+            }
+            else
+            {
+                return OneMany();
+            }
+        }
+#endif
     }
 }
