@@ -23,6 +23,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
         }
 
+        internal abstract void AppendTo(PatternBuilder builder);
+
         /// <summary>
         /// Creates and returns a new instance of the <see cref="Pattern"/> class and adds specified content to it.
         /// </summary>
@@ -169,11 +171,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             var builder = new PatternBuilder(settings);
             builder.Append(content);
             return builder.ToString();
-        }
-
-        internal virtual void AppendTo(PatternBuilder builder)
-        {
-
         }
 
         public MatchCollection Matches(string input)
