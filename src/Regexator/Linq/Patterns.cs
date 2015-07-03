@@ -42,12 +42,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="trueContent">The pattern to match if the test pattern is matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static QuantifiablePattern IfAssert(Pattern testContent, object trueContent)
+        public static QuantifiablePattern IfAssert(object testContent, object trueContent)
         {
             return IfAssert(testContent, trueContent, null);
         }
 
-        public static QuantifiablePattern IfAssert(Pattern testContent, object trueContent, object falseContent)
+        public static QuantifiablePattern IfAssert(object testContent, object trueContent, object falseContent)
         {
             return new IfAssert(testContent, trueContent, falseContent);
         }
