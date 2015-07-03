@@ -29,10 +29,10 @@ namespace Pihrtsoft.Text.RegularExpressions
         /// <returns></returns>
         public static bool IsValidGroupName(string groupName)
         {
-            return IsValidGroupName(groupName, "groupName");
+            return IsValidGroupNameInternal(groupName);
         }
 
-        internal static bool IsValidGroupName(string groupName, string paramName)
+        internal static bool IsValidGroupNameInternal(string groupName)
         {
             if (!string.IsNullOrWhiteSpace(groupName))
             {
@@ -65,7 +65,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                 throw new ArgumentNullException(paramName);
             }
 
-            if (!IsValidGroupName(groupName, paramName))
+            if (!IsValidGroupNameInternal(groupName))
             {
                 throw new ArgumentException("Invalid group name.", paramName);
             }
