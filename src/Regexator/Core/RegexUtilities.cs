@@ -3,7 +3,6 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Linq;
@@ -12,16 +11,22 @@ using System.Text;
 using System.Text.RegularExpressions;
 using Pihrtsoft.Text.RegularExpressions.Linq;
 
-//TODO add xml comments
-
 namespace Pihrtsoft.Text.RegularExpressions
 {
     public static class RegexUtilities
     {
+        /// <summary>
+        /// Represents the bitwise combination of all values from the <see cref="InlineOptions"/> enumeration. This field is read-only.
+        /// </summary>
         public static readonly RegexOptions InlineOptions = RegexOptions.IgnoreCase | RegexOptions.Multiline | RegexOptions.ExplicitCapture | RegexOptions.Singleline | RegexOptions.IgnorePatternWhitespace;
 
         internal static readonly Pattern ValidGroupName = Patterns.ValidGroupName();
 
+        /// <summary>
+        /// Gets a value indicating whether the specified group name is a valid regex group name.
+        /// </summary>
+        /// <param name="groupName">The group name.</param>
+        /// <returns></returns>
         public static bool IsValidGroupName(string groupName)
         {
             return IsValidGroupName(groupName, "groupName");
@@ -29,12 +34,7 @@ namespace Pihrtsoft.Text.RegularExpressions
 
         internal static bool IsValidGroupName(string groupName, string paramName)
         {
-            if (groupName == null)
-            {
-                throw new ArgumentNullException(paramName);
-            }
-
-            if (groupName.Length > 0)
+            if (!string.IsNullOrWhiteSpace(groupName))
             {
                 Match match = ValidGroupName.Match(groupName);
                 if (match.Success)
@@ -60,17 +60,32 @@ namespace Pihrtsoft.Text.RegularExpressions
 
         internal static void CheckGroupName(string groupName, string paramName)
         {
+            if (groupName == null)
+            {
+                throw new ArgumentNullException(paramName);
+            }
+
             if (!IsValidGroupName(groupName, paramName))
             {
                 throw new ArgumentException("Invalid group name.", paramName);
             }
         }
 
+        /// <summary>
+        /// Gets a value indicating whether the <paramref name="value"/> can be expressed as inline char(s).
+        /// </summary>
+        /// <param name="options">A bitwise combination of the enumeration values.</param>
+        /// <returns></returns>
         public static bool IsValidInlineOptions(RegexOptions options)
         {
             return (options & ~InlineOptions) == RegexOptions.None;
         }
 
+        /// <summary>
+        /// Converts the character to the <see cref="System.String"/> object that represents the character as a literal rather than a metacharacter. The character is not in the character group.
+        /// </summary>
+        /// <param name="charCode">The character interpreted as <see cref="System.Int32"/> object.</param>
+        /// <returns></returns>
         public static string Escape(int charCode)
         {
             return Escape(charCode, false);
@@ -82,6 +97,14 @@ namespace Pihrtsoft.Text.RegularExpressions
             return EscapeInternal(charCode, false);
         }
 
+        /// <summary>
+        /// Converts the character to the <see cref="System.String"/> object that represents the character as a literal rather than a metacharacter.
+        /// The character is converted as a character in or outside of the character group.
+        /// </summary>
+        /// <param name="charCode">The character interpreted as <see cref="System.Int32"/> object.</param>
+        /// <param name="inCharGroup">Indicates whether the character is in or outside of the character group.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static string Escape(int charCode, bool inCharGroup)
         {
             if (charCode < 0 || charCode > 0xFFFF)
@@ -133,11 +156,24 @@ namespace Pihrtsoft.Text.RegularExpressions
             return CharEscapeMode.None;
         }
 
+        /// <summary>
+        /// </summary>
+        /// <param name="input">The text to be converted.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static string Escape(string input)
         {
             return Escape(input, false);
         }
 
+        /// <summary>
+        /// Converts <paramref name="input"/> to the <see cref="System.String"/> object that represents each character as a literal rather than a metacharacter.
+        /// The each character is converted as a character in or outside of the character group.
+        /// </summary>
+        /// <param name="input">The text to be converted.</param>
+        /// <param name="inCharGroup">Indicates whether the <paramref name="input"/> is in or outside of the character group.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static string Escape(string input, bool inCharGroup)
         {
             if (input == null)
@@ -223,6 +259,12 @@ namespace Pihrtsoft.Text.RegularExpressions
             }
         }
 
+        /// <summary>
+        /// Escapes all dollar signs by doubling them.
+        /// </summary>
+        /// <param name="input">The substitution pattern to be escaped.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static string EscapeSubstitution(string input)
         {
             if (input == null)
@@ -265,6 +307,8 @@ namespace Pihrtsoft.Text.RegularExpressions
 
             return input;
         }
+
+        //todo xml comments
 
         public static IEnumerable<CharMatchInfo> GetMatchingPatterns(char value)
         {
