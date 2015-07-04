@@ -265,7 +265,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                     throw new ArgumentNullException("builder");
                 }
 
-                _value.AppendItemContentTo(builder);
+                _value.AppendContentTo(builder);
             }
         }
     }
