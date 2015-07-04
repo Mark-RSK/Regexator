@@ -212,22 +212,5 @@ namespace Pihrtsoft.Text.RegularExpressions
 
             return collection.Where(f => f.Index != 0);
         }
-
-        internal static IEnumerable<GroupItem> FilterAndSort(this GroupItemCollection items, GroupSettings settings)
-        {
-            if (items == null)
-            {
-                throw new ArgumentNullException("items");
-            }
-
-            if (settings == null)
-            {
-                throw new ArgumentNullException("settings");
-            }
-
-            return items
-                .Where(f => !settings.IsIgnored(f.Name))
-                .OrderBy(f => f.GroupInfo, settings.Sorter);
-        }
     }
 }

@@ -1,5 +1,6 @@
 // Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -48,7 +49,14 @@ namespace Pihrtsoft.Text.RegularExpressions
 
         public IEnumerable<GroupItem> EnumerateGroupItems(GroupSettings settings)
         {
-            return GroupItems.FilterAndSort(settings);
+            if (settings == null)
+            {
+                throw new ArgumentNullException("settings");
+            }
+
+            return GroupItems
+                .Where(f => !settings.IsIgnored(f.Name))
+                .OrderBy(f => f.GroupInfo, settings.Sorter);
         }
 
         public IEnumerable<CaptureItem> EnumerateCaptureItems
