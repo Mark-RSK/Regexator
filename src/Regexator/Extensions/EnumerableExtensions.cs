@@ -9,6 +9,9 @@ using System.Text.RegularExpressions;
 
 namespace Pihrtsoft.Text.RegularExpressions.Extensions
 {
+    /// <summary>
+    /// Provides a set of static methods that extends the <see cref="System.Collections.Generic.IEnumerable{T}"/> of the types from the <see cref="System.Text.RegularExpressions"/> namespace.
+    /// </summary>
     public static class EnumerableExtensions
     {
         public static IEnumerable<Group> EnumerateGroups(this IEnumerable<Match> matches)

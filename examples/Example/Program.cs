@@ -12,9 +12,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             Console.WriteLine("email");
 
-            var left = Patterns.OneMany(CharGrouping.Create("!#$%&'*+/=?^_`{|}~-").Alphanumeric());
+            var left = Patterns.OneMany(CharGroupings.Alphanumeric() + "!#$%&'*+/=?^_`{|}~-");
 
-            var right = Patterns.Maybe(Patterns.MaybeMany(CharGrouping.Create("-").Alphanumeric()).Alphanumeric());
+            var right = Patterns.Maybe(Patterns.MaybeMany(CharGroupings.Alphanumeric() + "-").Alphanumeric());
 
             var exp = left
                 .MaybeMany("." + left)

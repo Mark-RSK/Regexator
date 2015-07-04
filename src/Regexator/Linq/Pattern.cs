@@ -166,21 +166,51 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new JoinContainer(separator, (object)values);
         }
 
+        /// <summary>
+        /// Surrounds a specified pattern with another specified pattern.
+        /// </summary>
+        /// <param name="surroundContent">A pattern to be surrounding the base pattern.</param>
+        /// <param name="content">A base pattern to be surrounded.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static Pattern Surround(object surroundContent, object content)
         {
             return Surround(surroundContent, content, surroundContent);
         }
 
+        /// <summary>
+        /// Surrounds a specified pattern with a specified patterns.
+        /// </summary>
+        /// <param name="contentBefore">A pattern to be placed before the base pattern.</param>
+        /// <param name="content">A base pattern to be surrounded.</param>
+        /// <param name="contentAfter">A pattern to be placed after the base pattern.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         internal static Pattern Surround(object contentBefore, object content, object contentAfter)
         {
             return new SurroundPattern(contentBefore, content, contentAfter);
         }
 
+        /// <summary>
+        /// Surrounds a specified pattern with a specified character literal.
+        /// </summary>
+        /// <param name="surroundChar">A character literal to be surrounding the base pattern.</param>
+        /// <param name="content">A base pattern to be surrounded.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         internal static Pattern Surround(AsciiChar surroundChar, object value)
         {
             return Surround(surroundChar, value, surroundChar);
         }
 
+        /// <summary>
+        /// Surrounds a specified pattern with a specified character literal.
+        /// </summary>
+        /// <param name="charBefore">A character literal to be placed before the base pattern.</param>
+        /// <param name="content">A base pattern to be surrounded.</param>
+        /// <param name="charAfter">A character literal to be placed after the base pattern.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         internal static Pattern Surround(AsciiChar charBefore, object value, AsciiChar charAfter)
         {
             return new AsciiCharSurroundPattern(charBefore, value, charAfter);
