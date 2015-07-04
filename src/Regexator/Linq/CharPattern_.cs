@@ -3,8 +3,6 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
 
-//TODO add xml comments
-
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public abstract partial class CharPattern

@@ -3,12 +3,20 @@
 using System;
 using System.Text.RegularExpressions;
 
-//TODO add xml comments
-
 namespace Pihrtsoft.Text.RegularExpressions.Extensions
 {
+    /// <summary>
+    /// Provides a set of static methods that extends the <see cref="System.Text.RegularExpressions.Match"/> object.
+    /// </summary>
     public static class MatchExtensions
     {
+        /// <summary>
+        /// Returns a group that has a specified name and it is contained in a specified match.
+        /// </summary>
+        /// <param name="match">A regular expression match.</param>
+        /// <param name="groupName">A group name.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static Group Group(this Match match, string groupName)
         {
             if (match == null)

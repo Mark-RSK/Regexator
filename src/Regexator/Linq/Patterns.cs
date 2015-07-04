@@ -413,7 +413,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Returns a named group with a specified name and content.
         /// </summary>
-        /// <param name="name">A valid group name.</param>
+        /// <param name="name">A group name.</param>
         /// <param name="content">The content to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
@@ -426,7 +426,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Returns a named group with a specified name and content.
         /// </summary>
-        /// <param name="name">A valid group name.</param>
+        /// <param name="name">A group name.</param>
         /// <param name="content">An object array that contains zero or more patterns any one of which has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
