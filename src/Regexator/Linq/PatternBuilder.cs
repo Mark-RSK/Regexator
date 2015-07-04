@@ -19,19 +19,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         private Stack<CharGrouping> _charGroupings;
         private RegexOptions _currentOptions;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PatternBuilder"/> class.
-        /// </summary>
         internal PatternBuilder()
             : this(new PatternSettings())
         {
         }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PatternBuilder"/> class with the specified settings.
-        /// </summary>
-        /// <param name="settings">A settings that controls pattern formatting.</param>
-        /// <exception cref="ArgumentNullException"></exception>
         internal PatternBuilder(PatternSettings settings)
             : this(settings, RegexOptions.None)
         {
@@ -410,13 +402,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _currentOptions = currentOptions;
         }
 
-        /// <summary>
-        /// Appends an if construct to this instance.
-        /// </summary>
-        /// <param name="testContent"></param>
-        /// <param name="trueContent"></param>
-        /// <param name="falseContent"></param>
-        /// <exception cref="ArgumentNullException"></exception>
         public void AppendIf(object testContent, object trueContent, object falseContent)
         {
             if (testContent == null)

@@ -4,8 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-//TODO add xml comments
-
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
@@ -413,7 +411,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Returns a named group with a specified name and content.
         /// </summary>
-        /// <param name="name">A group name.</param>
+        /// <param name="name">A name of the group.</param>
         /// <param name="content">The content to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
@@ -426,7 +424,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Returns a named group with a specified name and content.
         /// </summary>
-        /// <param name="name">A group name.</param>
+        /// <param name="name">A name of the group.</param>
         /// <param name="content">An object array that contains zero or more patterns any one of which has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>

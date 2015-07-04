@@ -14,7 +14,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Extensions
         /// Returns a group that has a specified name and it is contained in a specified match.
         /// </summary>
         /// <param name="match">A regular expression match.</param>
-        /// <param name="groupName">A group name.</param>
+        /// <param name="groupName">A name of the group.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static Group Group(this Match match, string groupName)
