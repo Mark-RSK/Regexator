@@ -141,8 +141,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return value;
         }
 
-        //TODO add xml comments
-
+        /// <summary>
+        /// Returns the text representation of this instance.
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             var builder = new PatternBuilder();

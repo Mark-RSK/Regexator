@@ -9,10 +9,17 @@ using System.Text.RegularExpressions;
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
-    /// Exposes static class for creating patterns.
+    /// Exposes static methods for creating patterns.
     /// </summary>
     public static class Patterns
     {
+        /// <summary>
+        /// Returns a pattern that has opposite meaning than the current instance. For example a word boundary will be inverted into a non-word boundary.
+        /// </summary>
+        /// <typeparam name="TPattern"></typeparam>
+        /// <param name="value">A pattern to be inverted.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static TPattern Not<TPattern>(IInvertible<TPattern> value) where TPattern : Pattern
         {
             if (value == null)
@@ -50,35 +57,77 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return IfAssert(testContent, trueContent, null);
         }
 
+        /// <summary>
+        /// Returns an if construct with the specified pattern to test and a pattern to match if the test pattern is matched and a pattern to match if the test pattern is not matched.
+        /// </summary>
+        /// <param name="testContent">The test pattern to match.</param>
+        /// <param name="trueContent">The pattern to match if the test pattern is matched.</param>
+        /// <param name="falseContent">The pattern to match if the test pattern is not matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static QuantifiablePattern IfAssert(object testContent, object trueContent, object falseContent)
         {
             return new IfAssert(testContent, trueContent, falseContent);
         }
 
+        /// <summary>
+        /// Returns an if construct with a pattern to match if the named group is matched.
+        /// </summary>
+        /// <param name="groupName">A Valid name of a regex group.</param>
+        /// <param name="trueContent">The pattern to match if the named group is matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
         public static QuantifiablePattern IfGroup(string groupName, object trueContent)
         {
             return IfGroup(groupName, trueContent, null);
         }
 
+        /// <summary>
+        /// Returns an if construct with a pattern to match if the named group is matched and a pattern to match if the named group is not matched.
+        /// </summary>
+        /// <param name="groupName">A Valid name of a regex group.</param>
+        /// <param name="trueContent">The pattern to match if the named group is matched.</param>
+        /// <param name="falseContent">The pattern to match if the named group is not matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
         public static QuantifiablePattern IfGroup(string groupName, object trueContent, object falseContent)
         {
             return new IfGroup(groupName, trueContent, falseContent);
         }
 
+        /// <summary>
+        /// Returns an if construct with a pattern to match if the numbered group is matched.
+        /// </summary>
+        /// <param name="groupNumber">A Valid number of a regex group.</param>
+        /// <param name="trueContent">The pattern to match if the numbered group is matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiablePattern IfGroup(int groupNumber, object trueContent)
         {
             return IfGroup(groupNumber, trueContent, null);
         }
 
+        /// <summary>
+        /// Returns an if construct with a pattern to match if the numbered group is matched and a pattern to match if the numbered group is not matched.
+        /// </summary>
+        /// <param name="groupNumber">A Valid number of a regex group.</param>
+        /// <param name="trueContent">The pattern to match if the numbered group is matched.</param>
+        /// <param name="falseContent">The pattern to match if the numbered group is not matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiablePattern IfGroup(int groupNumber, object trueContent, object falseContent)
         {
             return new IfGroup(groupNumber, trueContent, falseContent);
         }
 
         /// <summary>
-        /// Returns a zero-width positive lookahead assertion with a specified content.
+        /// Returns a zero-width positive lookahead assertion with a specified content to be matched.
         /// </summary>
-        /// <param name="content">The object to be added as assertion content.</param>
+        /// <param name="content">A content to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static Assertion Assert(object content)
@@ -87,9 +136,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a zero-width positive lookahead assertion with a specified content.
+        /// Returns a zero-width positive lookahead assertion that matches any one pattern specified in the object array.
         /// </summary>
-        /// <param name="content">An object array that contains zero or more objects to be added as assertion content.</param>
+        /// <param name="content">An object array that contains zero or more patterns any one of which has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static Assertion Assert(params object[] content)
@@ -98,9 +147,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a zero-width negative lookahead assertion with a specified content.
+        /// Returns a zero-width negative lookahead assertion with a specified content not to be matched.
         /// </summary>
-        /// <param name="content">The object to be added as assertion content.</param>
+        /// <param name="content">A content not to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static QuantifiablePattern NotAssert(object content)
@@ -109,9 +158,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a zero-width negative lookahead assertion with a specified content.
+        /// Returns a zero-width negative lookahead assertion that has to match none of patterns specified in the object array.
         /// </summary>
-        /// <param name="content">An object array that contains zero or more objects to be added as assertion content.</param>
+        /// <param name="content">An object array that contains zero or more patterns none of which has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static QuantifiablePattern NotAssert(params object[] content)
@@ -120,9 +169,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a zero-width positive lookbehind assertion with a specified content.
+        /// Returns a zero-width positive lookbehind assertion with a specified content to be matched.
         /// </summary>
-        /// <param name="content">The object to be added as assertion content.</param>
+        /// <param name="content">A content to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static BackAssertion AssertBack(object content)
@@ -131,9 +180,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a zero-width positive lookbehind assertion with a specified content.
+        /// Returns a zero-width positive lookbehind assertion that matches any one pattern specified in the object array.
         /// </summary>
-        /// <param name="content">An object array that contains zero or more objects to be added as assertion content.</param>
+        /// <param name="content">An object array that contains zero or more patterns any one of which has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static BackAssertion AssertBack(params object[] content)
@@ -142,9 +191,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a zero-width negative lookbehind assertion with a specified content.
+        /// Returns a zero-width negative lookbehind assertion with a specified content not to be matched.
         /// </summary>
-        /// <param name="content">The object to be added as assertion content.</param>
+        /// <param name="content">A content not to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static QuantifiablePattern NotAssertBack(object content)
@@ -153,9 +202,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a zero-width negative lookbehind assertion with a specified content.
+        /// Returns a zero-width negative lookbehind assertion that has to match none of patterns specified in the object array.
         /// </summary>
-        /// <param name="content">An object array that contains zero or more objects to be added as assertion content.</param>
+        /// <param name="content">An object array that contains zero or more patterns none of which has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static QuantifiablePattern NotAssertBack(params object[] content)
@@ -222,26 +271,48 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 Assert(CarriageReturn().Maybe().EndOfLineInvariant()));
         }
 
+
+        /// <summary>
+        /// Returns a pattern that is matched at end of the string.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern EndOfInput()
         {
             return new EndOfInput();
         }
 
+        /// <summary>
+        /// Returns a pattern that is matched at the end of the string or before \n at the end of the string.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern EndOrBeforeEndingNewLine()
         {
             return new EndOrBeforeEndingNewLine();
         }
 
+        /// <summary>
+        /// Returns a pattern that is matched at the position where the previous match ended.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern PreviousMatchEnd()
         {
             return new PreviousMatchEnd();
         }
 
+        /// <summary>
+        /// Returns a pattern that is matched on a boundary between a word character (\w) and a non-word character (\W).
+        /// The match may also occur on a word boundary at the beginning or end of the string.
+        /// </summary>
+        /// <returns></returns>
         public static WordBoundary WordBoundary()
         {
             return new WordBoundary();
         }
 
+        /// <summary>
+        /// Returns a pattern that is not matched on a boundary between a word character (\w) and a non-word character (\W).
+        /// </summary>
+        /// <returns></returns>
         public static NegativeWordBoundary NotWordBoundary()
         {
             return new NegativeWordBoundary();
@@ -287,66 +358,151 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return EntireInput((object)content);
         }
 
+        /// <summary>
+        /// Returns a pattern that matches any one of the patterns specified in the collection.
+        /// </summary>
+        /// <param name="values">A collection that contains zero or more patterns any one of which has to be matched.</param>
+        /// <returns></returns>
         public static QuantifiablePattern Any(IEnumerable<object> values)
         {
             return new AnyGroup(values);
         }
 
+        /// <summary>
+        /// Returns a pattern that matches any one of the patterns specified in the object array.
+        /// </summary>
+        /// <param name="content">An object array that contains zero or more patterns any one of which has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static QuantifiablePattern Any(params object[] content)
         {
             return new AnyGroup(content);
         }
 
-        public static QuantifiablePattern NamedGroup(string name, object content)
-        {
-            return new NamedGroup(name, content);
-        }
-
-        public static QuantifiablePattern NamedGroup(string name, params object[] content)
-        {
-            return NamedGroup(name, (object)content);
-        }
-
+        /// <summary>
+        /// Returns an empty numbered group.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern Group()
         {
             return new NumberedGroup(string.Empty);
         }
 
+        /// <summary>
+        /// Returns a numbered group with a specified content.
+        /// </summary>
+        /// <param name="content">The content to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static QuantifiablePattern Group(object content)
         {
             return new NumberedGroup(content);
         }
 
+        /// <summary>
+        /// Returns a numbered group with a specified content.
+        /// </summary>
+        /// <param name="content">An object array that contains zero or more patterns any one of which has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static QuantifiablePattern Group(params object[] content)
         {
             return Group((object)content);
         }
 
+        /// <summary>
+        /// Returns a named group with a specified name and content.
+        /// </summary>
+        /// <param name="name">A valid group name.</param>
+        /// <param name="content">The content to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
+        public static QuantifiablePattern NamedGroup(string name, object content)
+        {
+            return new NamedGroup(name, content);
+        }
+
+        /// <summary>
+        /// Returns a named group with a specified name and content.
+        /// </summary>
+        /// <param name="name">A valid group name.</param>
+        /// <param name="content">An object array that contains zero or more patterns any one of which has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
+        public static QuantifiablePattern NamedGroup(string name, params object[] content)
+        {
+            return NamedGroup(name, (object)content);
+        }
+
+        /// <summary>
+        /// Returns a noncapturing group with a specified content.
+        /// </summary>
+        /// <param name="content">The content to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static QuantifiablePattern NoncapturingGroup(object content)
         {
             return new NoncapturingGroup(content);
         }
 
+        /// <summary>
+        /// Returns a noncapturing group with a specified content.
+        /// </summary>
+        /// <param name="content">An object array that contains zero or more patterns any one of which has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static QuantifiablePattern NoncapturingGroup(params object[] content)
         {
             return NoncapturingGroup((object)content);
         }
 
+        /// <summary>
+        /// Returns a balancing group with specified group names and a content.
+        /// </summary>
+        /// <param name="name1">Current group name.</param>
+        /// <param name="name2">Previously defined group name.</param>
+        /// <param name="content">The content to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
         public static QuantifiablePattern BalancingGroup(string name1, string name2, object content)
         {
             return new BalancingGroup(name1, name2, content);
         }
 
+        /// <summary>
+        /// Returns a balancing group with specified group names and a content.
+        /// </summary>
+        /// <param name="name1">Current group name.</param>
+        /// <param name="name2">Previously defined group name.</param>
+        /// <param name="content">An object array that contains zero or more patterns any one of which has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
         public static QuantifiablePattern BalancingGroup(string name1, string name2, params object[] content)
         {
             return BalancingGroup(name1, name2, (object)content);
         }
 
+        /// <summary>
+        /// Returns a nonbacktracking group with a specified content.
+        /// </summary>
+        /// <param name="content">The content to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static QuantifiablePattern NonbacktrackingGroup(object content)
         {
             return new NonbacktrackingGroup(content);
         }
 
+        /// <summary>
+        /// Returns a nonbacktracking group with a specified content.
+        /// </summary>
+        /// <param name="content">An object array that contains zero or more patterns any one of which has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static QuantifiablePattern NonbacktrackingGroup(params object[] content)
         {
             return NonbacktrackingGroup((object)content);

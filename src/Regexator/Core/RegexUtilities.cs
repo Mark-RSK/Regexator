@@ -23,9 +23,9 @@ namespace Pihrtsoft.Text.RegularExpressions
         internal static readonly Pattern ValidGroupName = Patterns.ValidGroupName();
 
         /// <summary>
-        /// Gets a value indicating whether the specified group name is a valid regex group name.
+        /// Gets a value indicating whether the specified group name is a valid name of a regex group.
         /// </summary>
-        /// <param name="groupName">The group name.</param>
+        /// <param name="groupName">A group name to test.</param>
         /// <returns></returns>
         public static bool IsValidGroupName(string groupName)
         {
@@ -308,8 +308,6 @@ namespace Pihrtsoft.Text.RegularExpressions
 
             return input;
         }
-
-        //todo xml comments
 
         public static IEnumerable<CharMatchInfo> GetMatchingPatterns(char value)
         {

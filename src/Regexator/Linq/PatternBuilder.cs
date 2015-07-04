@@ -49,6 +49,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _sb = new StringBuilder();
         }
 
+        /// <summary>
+        /// Converts the value of this instance to a <see cref="System.String"/>
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return _sb.ToString();
