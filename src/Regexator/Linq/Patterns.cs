@@ -8,6 +8,9 @@ using System.Text.RegularExpressions;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
+    /// <summary>
+    /// Exposes static class for creating patterns.
+    /// </summary>
     public static class Patterns
     {
         public static TPattern Not<TPattern>(IInvertible<TPattern> value) where TPattern : Pattern

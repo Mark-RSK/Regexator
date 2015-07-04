@@ -45,12 +45,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
 
             _settings = settings;
+            _currentOptions = options;
             _sb = new StringBuilder();
-
-            if (options != RegexOptions.None)
-            {
-                _currentOptions = options;
-            }
         }
 
         public override string ToString()
