@@ -1695,34 +1695,34 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Patterns.NotSemicolon(minCount, maxCount));
         }
 
-        public QuantifiablePattern LessThan()
+        public QuantifiablePattern StartAngleBracket()
         {
-            return ConcatInternal(Patterns.LessThan());
+            return ConcatInternal(Patterns.StartAngleBracket());
         }
 
-        public QuantifiedGroup LessThan(int exactCount)
+        public QuantifiedGroup StartAngleBracket(int exactCount)
         {
-            return ConcatInternal(Patterns.LessThan(exactCount));
+            return ConcatInternal(Patterns.StartAngleBracket(exactCount));
         }
 
-        public QuantifiedGroup LessThan(int minCount, int maxCount)
+        public QuantifiedGroup StartAngleBracket(int minCount, int maxCount)
         {
-            return ConcatInternal(Patterns.LessThan(minCount, maxCount));
+            return ConcatInternal(Patterns.StartAngleBracket(minCount, maxCount));
         }
 
-        public QuantifiablePattern NotLessThan()
+        public QuantifiablePattern NotStartAngleBracket()
         {
-            return ConcatInternal(Patterns.NotLessThan());
+            return ConcatInternal(Patterns.NotStartAngleBracket());
         }
 
-        public QuantifiedGroup NotLessThan(int exactCount)
+        public QuantifiedGroup NotStartAngleBracket(int exactCount)
         {
-            return ConcatInternal(Patterns.NotLessThan(exactCount));
+            return ConcatInternal(Patterns.NotStartAngleBracket(exactCount));
         }
 
-        public QuantifiedGroup NotLessThan(int minCount, int maxCount)
+        public QuantifiedGroup NotStartAngleBracket(int minCount, int maxCount)
         {
-            return ConcatInternal(Patterns.NotLessThan(minCount, maxCount));
+            return ConcatInternal(Patterns.NotStartAngleBracket(minCount, maxCount));
         }
 
         public QuantifiablePattern EqualsSign()
@@ -1755,34 +1755,34 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Patterns.NotEqualsSign(minCount, maxCount));
         }
 
-        public QuantifiablePattern GreaterThan()
+        public QuantifiablePattern EndAngleBracket()
         {
-            return ConcatInternal(Patterns.GreaterThan());
+            return ConcatInternal(Patterns.EndAngleBracket());
         }
 
-        public QuantifiedGroup GreaterThan(int exactCount)
+        public QuantifiedGroup EndAngleBracket(int exactCount)
         {
-            return ConcatInternal(Patterns.GreaterThan(exactCount));
+            return ConcatInternal(Patterns.EndAngleBracket(exactCount));
         }
 
-        public QuantifiedGroup GreaterThan(int minCount, int maxCount)
+        public QuantifiedGroup EndAngleBracket(int minCount, int maxCount)
         {
-            return ConcatInternal(Patterns.GreaterThan(minCount, maxCount));
+            return ConcatInternal(Patterns.EndAngleBracket(minCount, maxCount));
         }
 
-        public QuantifiablePattern NotGreaterThan()
+        public QuantifiablePattern NotEndAngleBracket()
         {
-            return ConcatInternal(Patterns.NotGreaterThan());
+            return ConcatInternal(Patterns.NotEndAngleBracket());
         }
 
-        public QuantifiedGroup NotGreaterThan(int exactCount)
+        public QuantifiedGroup NotEndAngleBracket(int exactCount)
         {
-            return ConcatInternal(Patterns.NotGreaterThan(exactCount));
+            return ConcatInternal(Patterns.NotEndAngleBracket(exactCount));
         }
 
-        public QuantifiedGroup NotGreaterThan(int minCount, int maxCount)
+        public QuantifiedGroup NotEndAngleBracket(int minCount, int maxCount)
         {
-            return ConcatInternal(Patterns.NotGreaterThan(minCount, maxCount));
+            return ConcatInternal(Patterns.NotEndAngleBracket(minCount, maxCount));
         }
 
         public QuantifiablePattern QuestionMark()

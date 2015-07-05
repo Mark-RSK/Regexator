@@ -308,9 +308,9 @@ namespace Pihrtsoft.Text.RegularExpressions
         Semicolon,
 
         /// <summary>
-        /// Less Than, decimal value: 60, hexadecimal value: 0x3C
+        /// Start Angle Bracket (Less-Than Sign), decimal value: 60, hexadecimal value: 0x3C
         /// </summary>
-        LessThan,
+        StartAngleBracket,
 
         /// <summary>
         /// Equals Sign, decimal value: 61, hexadecimal value: 0x3D
@@ -318,9 +318,9 @@ namespace Pihrtsoft.Text.RegularExpressions
         EqualsSign,
 
         /// <summary>
-        /// Greater Than, decimal value: 62, hexadecimal value: 0x3E
+        /// End Angle Bracket (Greater-Than Sign), decimal value: 62, hexadecimal value: 0x3E
         /// </summary>
-        GreaterThan,
+        EndAngleBracket,
 
         /// <summary>
         /// Question Mark, decimal value: 63, hexadecimal value: 0x3F

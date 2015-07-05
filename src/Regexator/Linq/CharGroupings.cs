@@ -417,12 +417,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a less-than sign.
+        /// Returns a pattern that matches a start angle bracket (less-than sign).
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping LessThan()
+        public static CharGrouping StartAngleBracket()
         {
-            return CharGrouping.Create(AsciiChar.LessThan);
+            return CharGrouping.Create(AsciiChar.StartAngleBracket);
         }
 
         /// <summary>
@@ -435,12 +435,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches greater-than sign.
+        /// Returns a pattern that matches an end angle bracket (greater-than sign).
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping GreaterThan()
+        public static CharGrouping EndAngleBracket()
         {
-            return CharGrouping.Create(AsciiChar.GreaterThan);
+            return CharGrouping.Create(AsciiChar.EndAngleBracket);
         }
 
         /// <summary>
