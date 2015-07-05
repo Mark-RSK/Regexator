@@ -230,48 +230,68 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new NegativeSurroundAssertion(contentBefore, content, contentAfter);
         }
 
+        /// <summary>
+        /// Returns a pattern that is matched at the beginning of the string.
+        /// </summary>
         public static QuantifiablePattern StartOfInput()
         {
             return new StartOfInput();
         }
 
+        /// <summary>
+        /// Returns a pattern that is matched at the beginning of the string (or line if the multiline option is applied).
+        /// </summary>
         public static QuantifiablePattern StartOfLine()
         {
             return new StartOfLine();
         }
 
+        /// <summary>
+        /// Returns a pattern that is matched at the beginning of the line.
+        /// </summary>
         public static QuantifiablePattern StartOfLineInvariant()
         {
             return Options(RegexOptions.Multiline, StartOfLine());
         }
 
+        /// <summary>
+        /// Returns a pattern that is matched at the end of the string (or line if the multiline option is applied).
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern EndOfLine()
         {
             return new EndOfLine();
         }
 
+        /// <summary>
+        /// Returns a pattern that is matched at the end of line.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern EndOfLineInvariant()
         {
             return Options(RegexOptions.Multiline, EndOfLine());
         }
 
+        /// <summary>
+        /// Returns a pattern that is matched before carriage return at the end of the string (or line if the multiline option is applied) or at the end of the string (or line if the multiline option is applied).
+        /// </summary>
+        /// <returns></returns>
         public static Pattern EndOfLineOrBeforeCarriageReturn()
         {
-            return NoncapturingGroup(
-                NotAssertBack(CarriageReturn()) +
-                Assert(CarriageReturn().Maybe().EndOfLine()));
+            return Assert(CarriageReturn().Maybe().EndOfLine());
         }
-
-        public static Pattern EndOfLineOrBeforeCarriageReturnInvariant()
-        {
-            return NoncapturingGroup(
-                NotAssertBack(CarriageReturn()) +
-                Assert(CarriageReturn().Maybe().EndOfLineInvariant()));
-        }
-
 
         /// <summary>
-        /// Returns a pattern that is matched at end of the string.
+        /// Returns a pattern that is matched before carriage return at the end of line or at the end of line.
+        /// </summary>
+        /// <returns></returns>
+        public static Pattern EndOfLineOrBeforeCarriageReturnInvariant()
+        {
+            return Assert(CarriageReturn().Maybe().EndOfLineInvariant());
+        }
+
+        /// <summary>
+        /// Returns a pattern that is matched at the end of the string.
         /// </summary>
         /// <returns></returns>
         public static QuantifiablePattern EndOfInput()
@@ -280,7 +300,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that is matched at the end of the string or before \n at the end of the string.
+        /// Returns a pattern that is matched at the end of the string or before linefeed at the end of the string.
         /// </summary>
         /// <returns></returns>
         public static QuantifiablePattern EndOrBeforeEndingNewLine()
@@ -316,41 +336,98 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new NegativeWordBoundary();
         }
 
+        /// <summary>
+        /// Returns a pattern that matches one or more word characters surrounded with a word boundary.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern Word()
         {
             return Pattern.Surround(WordBoundary(), WordChars()).AsNoncapturingGroup();
         }
 
+        /// <summary>
+        /// Returns a pattern that matches literal text surrounded with a word boundary.
+        /// </summary>
+        /// <param name="text">A literal text.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static QuantifiablePattern Word(string text)
         {
             return Pattern.Surround(WordBoundary(), text).AsNoncapturingGroup();
         }
 
+        /// <summary>
+        /// Returns a pattern that matches any one literal text surrounded with a word boundary.
+        /// </summary>
+        /// <param name="values">An object array that contains zero or more values any one of which has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static QuantifiablePattern Word(params string[] values)
         {
             return Pattern.Surround(WordBoundary(), Any(values)).AsNoncapturingGroup();
         }
 
+        /// <summary>
+        /// Returns a pattern that matches a specified content surrounded with the beginning and the end of the string (or line if the multiline option is applied).
+        /// </summary>
+        /// <param name="content">The content to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static QuantifiablePattern Line(object content)
         {
             return Pattern.Surround(StartOfLine(), content, EndOfLine()).AsNoncapturingGroup();
         }
 
+        /// <summary>
+        /// Returns a pattern that matches any one pattern surrounded with the beginning and the end of the string (or line if the multiline option is applied).
+        /// </summary>
+        /// <param name="content">An object array that contains zero or more values any one of which has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static QuantifiablePattern Line(params object[] content)
         {
             return Line((object)content);
         }
 
+        /// <summary>
+        /// Returns a pattern that matches a specified content surrounded with the beginning and the end of line.
+        /// </summary>
+        /// <param name="content">The content to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static Pattern LineInvariant(object content)
         {
             return Pattern.Surround(StartOfLineInvariant(), content, EndOfLineInvariant());
         }
 
+        /// <summary>
+        /// Returns a pattern that matches any one pattern surrounded with the beginning and the end of line.
+        /// </summary>
+        /// <param name="content">An object array that contains zero or more values any one of which has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static Pattern LineInvariant(params object[] content)
+        {
+            return LineInvariant((object)content);
+        }
+
+        /// <summary>
+        /// Returns a pattern that matches a specified content surrounded with the beginning and the end of the string.
+        /// </summary>
+        /// <param name="content">The content to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static QuantifiablePattern EntireInput(object content)
         {
             return Pattern.Surround(StartOfInput(), content, EndOfInput()).AsNoncapturingGroup();
         }
 
+        /// <summary>
+        /// Returns a pattern that matches any one pattern surrounded with the beginning and the end of the string.
+        /// </summary>
+        /// <param name="content">An object array that contains zero or more values any one of which has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static QuantifiablePattern EntireInput(params object[] content)
         {
             return EntireInput((object)content);
@@ -3418,121 +3495,257 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return OneMany(NotWordChar());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a newline character. Newline character is a carriage return or a linefeed.
+        /// </summary>
+        /// <returns></returns>
         public static CharGroup NewLineChar()
         {
             return Character(CharGroupings.CarriageReturn().Linefeed());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of newline characters. Newline character is a carriage return or a linefeed.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NewLineChar(int exactCount)
         {
             return Count(exactCount, NewLineChar());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a newline character from minimum times to maximum times. Newline character is a carriage return or a linefeed.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NewLineChar(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NewLineChar());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a newline character. Newline character is a carriage return or a linefeed.
+        /// </summary>
+        /// <returns></returns>
         public static CharGroup NotNewLineChar()
         {
             return NotCharacter(CharGroupings.CarriageReturn().Linefeed());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a newline character specified number of times. Newline character is a carriage return or a linefeed.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotNewLineChar(int exactCount)
         {
             return Count(exactCount, NotNewLineChar());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a newline character from minimum times to maximum times. Newline character is a carriage return or a linefeed.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotNewLineChar(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotNewLineChar());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches an alphanumeric character. Alphanumeric character is a latin alphabet letter or an arabic digit.
+        /// </summary>
+        /// <returns></returns>
         public static CharGroup Alphanumeric()
         {
             return Character(CharGroupings.Alphanumeric());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of alphanumeric characters. Alphanumeric character is a latin alphabet letter or an arabic digit.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup Alphanumeric(int exactCount)
         {
             return Count(exactCount, Alphanumeric());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches an alphanumeric character from minimum times to maximum times. Alphanumeric character is a latin alphabet letter or an arabic digit.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup Alphanumeric(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, Alphanumeric());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not an alphanumeric character. Alphanumeric character is a latin alphabet letter or an arabic digit.
+        /// </summary>
+        /// <returns></returns>
         public static CharGroup NotAlphanumeric()
         {
             return NotCharacter(CharGroupings.Alphanumeric());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not an alphanumeric character specified number of times. Alphanumeric character is a latin alphabet letter or an arabic digit.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotAlphanumeric(int exactCount)
         {
             return Count(exactCount, NotAlphanumeric());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not an alphanumeric character from minimum times to maximum times. Alphanumeric character is a latin alphabet letter or an arabic digit.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotAlphanumeric(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotAlphanumeric());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches an lower-case alphanumeric character. Alphanumeric character is a latin alphabet lower-case letter or an arabic digit.
+        /// </summary>
+        /// <returns></returns>
         public static CharGroup AlphanumericLower()
         {
             return Character(CharGroupings.AlphanumericLower());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of lower-case alphanumeric characters. Alphanumeric character is a latin alphabet lower-case letter or an arabic digit.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup AlphanumericLower(int exactCount)
         {
             return Count(exactCount, AlphanumericLower());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches an lower-case alphanumeric character from minimum times to maximum times. Alphanumeric character is a latin alphabet lower-case letter or an arabic digit.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup AlphanumericLower(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, AlphanumericLower());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not an lower-case alphanumeric character. Alphanumeric character is a latin alphabet lower-case letter or an arabic digit.
+        /// </summary>
+        /// <returns></returns>
         public static CharGroup NotAlphanumericLower()
         {
             return NotCharacter(CharGroupings.AlphanumericLower());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not an lower-case alphanumeric character specified number of times. Alphanumeric character is a latin alphabet lower-case letter or an arabic digit.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotAlphanumericLower(int exactCount)
         {
             return Count(exactCount, NotAlphanumericLower());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not an lower-case alphanumeric character from minimum times to maximum times. Alphanumeric character is a latin alphabet lower-case letter or an arabic digit.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotAlphanumericLower(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotAlphanumericLower());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches an upper-case alphanumeric character. Alphanumeric character is a latin alphabet upper-case letter or an arabic digit.
+        /// </summary>
+        /// <returns></returns>
         public static CharGroup AlphanumericUpper()
         {
             return Character(CharGroupings.AlphanumericUpper());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of upper-case alphanumeric characters. Alphanumeric character is a latin alphabet upper-case letter or an arabic digit.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup AlphanumericUpper(int exactCount)
         {
             return Count(exactCount, AlphanumericUpper());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches an upper-case alphanumeric character from minimum times to maximum times. Alphanumeric character is a latin alphabet upper-case letter or an arabic digit.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup AlphanumericUpper(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, AlphanumericUpper());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not an upper-case alphanumeric character. Alphanumeric character is a latin alphabet upper-case letter or an arabic digit.
+        /// </summary>
+        /// <returns></returns>
         public static CharGroup NotAlphanumericUpper()
         {
             return NotCharacter(CharGroupings.AlphanumericUpper());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not an upper-case alphanumeric character specified number of times. Alphanumeric character is a latin alphabet upper-case letter or an arabic digit.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotAlphanumericUpper(int exactCount)
         {
             return Count(exactCount, NotAlphanumericUpper());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not an upper-case alphanumeric character from minimum times to maximum times. Alphanumeric character is a latin alphabet upper-case letter or an arabic digit.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotAlphanumericUpper(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotAlphanumericUpper());
@@ -3568,211 +3781,449 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Count(minCount, maxCount, NotAlphanumericUnderscore());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a latin alphabet letter.
+        /// </summary>
+        /// <returns></returns>
         public static CharGroup LatinLetter()
         {
             return Character(CharGroupings.LatinLetter());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of latin alphabet letters.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup LatinLetter(int exactCount)
         {
             return Count(exactCount, LatinLetter());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a latin alphabet letter from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup LatinLetter(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, LatinLetter());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a latin alphabet letter.
+        /// </summary>
+        /// <returns></returns>
         public static CharGroup NotLatinLetter()
         {
             return NotCharacter(CharGroupings.LatinLetter());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a latin alphabet letter specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotLatinLetter(int exactCount)
         {
             return Count(exactCount, NotLatinLetter());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a latin alphabet letter from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotLatinLetter(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotLatinLetter());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a latin alphabet lower-case letter.
+        /// </summary>
+        /// <returns></returns>
         public static CharGroup LatinLetterLower()
         {
             return Character(CharGroupings.LatinLetterLower());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of latin alphabet lower-case letters.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup LatinLetterLower(int exactCount)
         {
             return Count(exactCount, LatinLetterLower());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a latin alphabet lower-case letter from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup LatinLetterLower(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, LatinLetterLower());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a latin alphabet lower-case letter.
+        /// </summary>
+        /// <returns></returns>
         public static CharGroup NotLatinLetterLower()
         {
             return NotCharacter(CharGroupings.LatinLetterLower());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a latin alphabet lower-case letter specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotLatinLetterLower(int exactCount)
         {
             return Count(exactCount, NotLatinLetterLower());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a latin alphabet lower-case letter from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotLatinLetterLower(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotLatinLetterLower());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a latin alphabet upper-case letter.
+        /// </summary>
+        /// <returns></returns>
         public static CharGroup LatinLetterUpper()
         {
             return Character(CharGroupings.LatinLetterUpper());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of latin alphabet upper-case letters.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup LatinLetterUpper(int exactCount)
         {
             return Count(exactCount, LatinLetterUpper());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a latin alphabet upper-case letter from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup LatinLetterUpper(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, LatinLetterUpper());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a latin alphabet upper-case letter.
+        /// </summary>
+        /// <returns></returns>
         public static CharGroup NotLatinLetterUpper()
         {
             return NotCharacter(CharGroupings.LatinLetterUpper());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a latin alphabet upper-case letter specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotLatinLetterUpper(int exactCount)
         {
             return Count(exactCount, NotLatinLetterUpper());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a latin alphabet upper-case letter from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotLatinLetterUpper(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotLatinLetterUpper());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a letter from Unicode general category LetterLowercase.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern LetterLower()
         {
             return Character(GeneralCategory.LetterLowercase);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of letters from Unicode general category LetterLowercase.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup LetterLower(int exactCount)
         {
             return Count(exactCount, LetterLower());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a letter from Unicode general category LetterLowercase from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup LetterLower(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, LetterLower());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a letter from Unicode general category LetterLowercase.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern NotLetterLower()
         {
             return NotCharacter(GeneralCategory.LetterLowercase);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a letter from Unicode general category LetterLowercase specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotLetterLower(int exactCount)
         {
             return Count(exactCount, NotLetterLower());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a letter from Unicode general category LetterLowercase from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotLetterLower(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotLetterLower());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a letter from Unicode general category LetterUppercase.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern LetterUpper()
         {
             return Character(GeneralCategory.LetterUppercase);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of letters from Unicode general category LetterUppercase.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup LetterUpper(int exactCount)
         {
             return Count(exactCount, LetterUpper());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a letter from Unicode general category LetterUppercase from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup LetterUpper(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, LetterUpper());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a letter from Unicode general category LetterUppercase.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern NotLetterUpper()
         {
             return NotCharacter(GeneralCategory.LetterUppercase);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a letter from Unicode general category LetterUppercase specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotLetterUpper(int exactCount)
         {
             return Count(exactCount, NotLetterUpper());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a letter from Unicode general category LetterUppercase from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotLetterUpper(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotLetterUpper());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches an arabic digit.
+        /// </summary>
+        /// <returns></returns>
         public static CharGroup ArabicDigit()
         {
             return Character(CharGroupings.ArabicDigit());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of arabic digits.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup ArabicDigit(int exactCount)
         {
             return Count(exactCount, ArabicDigit());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches an arabic digit from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup ArabicDigit(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, ArabicDigit());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not an arabic digit.
+        /// </summary>
+        /// <returns></returns>
         public static CharGroup NotArabicDigit()
         {
             return NotCharacter(CharGroupings.ArabicDigit());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not an arabic digit specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotArabicDigit(int exactCount)
         {
             return Count(exactCount, NotArabicDigit());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not an arabic digit from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotArabicDigit(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotArabicDigit());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a hexadecimal digit.
+        /// </summary>
+        /// <returns></returns>
         public static CharGroup HexadecimalDigit()
         {
             return Character(CharGroupings.HexadecimalDigit());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of hexadecimal digits.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup HexadecimalDigit(int exactCount)
         {
             return Count(exactCount, HexadecimalDigit());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a hexadecimal digit from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup HexadecimalDigit(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, HexadecimalDigit());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a hexadecimal digit.
+        /// </summary>
+        /// <returns></returns>
         public static CharGroup NotHexadecimalDigit()
         {
             return NotCharacter(CharGroupings.HexadecimalDigit());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a hexadecimal digit specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotHexadecimalDigit(int exactCount)
         {
             return Count(exactCount, NotHexadecimalDigit());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a hexadecimal digit from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotHexadecimalDigit(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotHexadecimalDigit());
