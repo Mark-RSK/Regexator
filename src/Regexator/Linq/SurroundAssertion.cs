@@ -53,6 +53,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             builder.AppendAssertion(_contentAfter);
         }
 
+        /// <summary>
+        /// Returns an instance of the <see cref="NegativeSurroundAssertion"/> class.
+        /// </summary>
+        /// <param name="value">A value to negate.</param>
+        /// <returns></returns>
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static NegativeSurroundAssertion operator !(SurroundAssertion value)
         {

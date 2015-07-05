@@ -68,7 +68,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Get a value indicating whether a group name will be enclosed in angle brackets or apostrophes.</param>
+        /// Get a value indicating whether a group name will be enclosed in angle brackets or apostrophes.
         /// </summary>
         public IdentifierBoundary IdentifierBoundary
         {

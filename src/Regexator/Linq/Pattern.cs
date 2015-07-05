@@ -220,7 +220,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Compiles a new instance of the <see cref="System.Text.RegularExpressions.Regex"/> class for the current instance.
+        /// Compiles a new instance of the <see cref="Regex"/> class for the current instance.
         /// </summary>
         /// <returns></returns>
         public Regex ToRegex()
@@ -229,7 +229,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Compiles a new instance of the <see cref="System.Text.RegularExpressions.Regex"/> class for the current instance, with options that modify the pattern.
+        /// Compiles a new instance of the <see cref="Regex"/> class for the current instance, with options that modify the pattern.
         /// </summary>
         /// <param name="options">A bitwise combination of the enumeration values that modify the regular expression.</param>
         /// <returns></returns>
@@ -615,7 +615,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Within a specified input string, replaces all strings that match the current instance with a string returned by a <see cref="System.Text.RegularExpressions.MatchEvaluator"/> delegate.
+        /// Within a specified input string, replaces all strings that match the current instance with a string returned by a <see cref="MatchEvaluator"/> delegate.
         /// </summary>
         /// <param name="input">The string to search for a match.</param>
         /// <param name="evaluator">A method that examines each match and returns a replacement string.</param>
@@ -627,7 +627,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Within a specified input string, replaces all strings that match the current instance with a string returned by a <see cref="System.Text.RegularExpressions.MatchEvaluator"/> delegate. Specified options modify the matching operation.
+        /// Within a specified input string, replaces all strings that match the current instance with a string returned by a <see cref="MatchEvaluator"/> delegate. Specified options modify the matching operation.
         /// </summary>
         /// <param name="input">The string to search for a match.</param>
         /// <param name="evaluator">A method that examines each match and returns a replacement string.</param>

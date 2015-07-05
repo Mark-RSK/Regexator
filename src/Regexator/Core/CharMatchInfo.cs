@@ -2,8 +2,6 @@
 
 using System;
 
-//TODO add xml comments
-
 namespace Pihrtsoft.Text.RegularExpressions
 {
     public class CharMatchInfo

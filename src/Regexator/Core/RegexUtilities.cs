@@ -82,9 +82,9 @@ namespace Pihrtsoft.Text.RegularExpressions
         }
 
         /// <summary>
-        /// Converts the character to the <see cref="System.String"/> object that represents the character as a literal rather than a metacharacter. The character is not in the character group.
+        /// Converts the character to the <see cref="String"/> object that represents the character as a literal rather than a metacharacter. The character is not in the character group.
         /// </summary>
-        /// <param name="charCode">The character interpreted as <see cref="System.Int32"/> object.</param>
+        /// <param name="charCode">The character interpreted as <see cref="Int32"/> object.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static string Escape(int charCode)
@@ -99,10 +99,10 @@ namespace Pihrtsoft.Text.RegularExpressions
         }
 
         /// <summary>
-        /// Converts the character to the <see cref="System.String"/> object that represents the character as a literal rather than a metacharacter.
+        /// Converts the character to the <see cref="String"/> object that represents the character as a literal rather than a metacharacter.
         /// The character is converted as a character in or outside of the character group.
         /// </summary>
-        /// <param name="charCode">The character interpreted as <see cref="System.Int32"/> object.</param>
+        /// <param name="charCode">The character interpreted as <see cref="Int32"/> object.</param>
         /// <param name="inCharGroup">Indicates whether the character is in or outside of the character group.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
@@ -168,7 +168,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         }
 
         /// <summary>
-        /// Converts <paramref name="input"/> to the <see cref="System.String"/> object that represents each character as a literal rather than a metacharacter.
+        /// Converts a specified input to the <see cref="String"/> object that represents each character as a literal rather than a metacharacter.
         /// The each character is converted as a character in or outside of the character group.
         /// </summary>
         /// <param name="input">The text to be converted.</param>

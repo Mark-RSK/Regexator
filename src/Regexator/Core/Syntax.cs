@@ -8,8 +8,6 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using Pihrtsoft.Text.RegularExpressions.Linq;
 
-//TODO add xml comments
-
 namespace Pihrtsoft.Text.RegularExpressions
 {
     public static partial class Syntax

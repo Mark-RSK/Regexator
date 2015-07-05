@@ -7,8 +7,6 @@ using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
 
-//TODO add xml comments
-
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public sealed class PatternBuilder
@@ -42,7 +40,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Converts the value of this instance to a <see cref="System.String"/>
+        /// Converts the value of this instance to a <see cref="String"/>
         /// </summary>
         /// <returns></returns>
         public override string ToString()
@@ -267,7 +265,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Tries to append the text representation of an object. The object must be convertible to <see cref="Pattern"/>, <see cref="CharGrouping"/> or a <see cref="System.String"/>.
+        /// Tries to append the text representation of an object. The object must be convertible to <see cref="Pattern"/>, <see cref="CharGrouping"/> or a <see cref="String"/>.
         /// For a recursive call, the object must be convertible to an array of object or <see cref="System.Collections.IEnumerable"/>.
         /// </summary>
         /// <param name="value">The object to append.</param>

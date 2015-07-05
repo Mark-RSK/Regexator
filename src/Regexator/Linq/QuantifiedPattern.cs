@@ -8,6 +8,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     public abstract partial class QuantifiedPattern
         : Pattern
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="QuantifiedPattern"/> class.
+        /// </summary>
         protected QuantifiedPattern()
         {
         }

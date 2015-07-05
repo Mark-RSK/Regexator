@@ -10,6 +10,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     public abstract class QuantifiablePattern
         : Pattern
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="QuantifiablePattern"/> class.
+        /// </summary>
         protected QuantifiablePattern()
         {
         }
@@ -87,6 +90,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
 #if DEBUG
+        /// <summary>
+        /// Specifies that a pattern must be matched zero or one time with greedy or lazy modifiers.
+        /// </summary>
+        /// <returns></returns>
+        /// <param name="lazy">Indicates whether the quantifier will be greedy or lazy.</param>
+        /// <returns></returns>
         public Pattern Maybe(bool lazy)
         {
             if (lazy)
@@ -99,6 +108,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
+        /// <summary>
+        /// Specifies that a pattern must be matched zero or many times.
+        /// </summary>
+        /// <param name="lazy">Indicates whether the quantifier will be greedy or lazy.</param>
+        /// <returns></returns>
         public Pattern MaybeMany(bool lazy)
         {
             if (lazy)
@@ -111,6 +125,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
+        /// <summary>
+        /// Specifies that a pattern must be matched one or many times.
+        /// </summary>
+        /// <param name="lazy">Indicates whether the quantifier will be greedy or lazy.</param>
+        /// <returns></returns>
         public Pattern OneMany(bool lazy)
         {
             if (lazy)

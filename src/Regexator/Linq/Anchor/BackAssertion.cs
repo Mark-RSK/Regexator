@@ -17,7 +17,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a new instance of the <see cref="NegativeBackAssertion" class./>
+        /// Returns a new instance of the <see cref="NegativeBackAssertion"/> class.
         /// </summary>
         /// <returns></returns>
         public NegativeBackAssertion Invert()
@@ -30,6 +30,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             builder.AppendBackAssertion(Content);
         }
 
+        /// <summary>
+        /// Returns a new instance of the <see cref="NegativeBackAssertion"/> class.
+        /// </summary>
+        /// <param name="value">A value to negate.</param>
+        /// <returns></returns>
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static NegativeBackAssertion operator !(BackAssertion value)
         {

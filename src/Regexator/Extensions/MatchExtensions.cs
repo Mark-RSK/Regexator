@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 namespace Pihrtsoft.Text.RegularExpressions.Extensions
 {
     /// <summary>
-    /// Provides a set of static methods that extends the <see cref="System.Text.RegularExpressions.Match"/> object.
+    /// Provides a set of static methods that extends the <see cref="Match"/> object.
     /// </summary>
     public static class MatchExtensions
     {

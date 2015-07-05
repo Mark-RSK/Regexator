@@ -4,8 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-//TODO add xml comments
-
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
@@ -840,1081 +838,2305 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new NegativeCharSubtraction(baseGroup, excludedGroup);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a tab.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern Tab()
         {
             return Character(AsciiChar.Tab);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of tab characters.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup Tab(int exactCount)
         {
             return Count(exactCount, Tab());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a tab character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup Tab(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, Tab());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a tab character.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern NotTab()
         {
             return NotCharacter(AsciiChar.Tab);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a tab character specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotTab(int exactCount)
         {
             return Count(exactCount, NotTab());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a tab character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotTab(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotTab());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a linefeed.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern Linefeed()
         {
             return Character(AsciiChar.Linefeed);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of linefeed characters.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup Linefeed(int exactCount)
         {
             return Count(exactCount, Linefeed());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a linefeed character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup Linefeed(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, Linefeed());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a linefeed character.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern NotLinefeed()
         {
             return NotCharacter(AsciiChar.Linefeed);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a linefeed character specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotLinefeed(int exactCount)
         {
             return Count(exactCount, NotLinefeed());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a linefeed character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotLinefeed(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotLinefeed());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a carriage return.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern CarriageReturn()
         {
             return Character(AsciiChar.CarriageReturn);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of carriage return characters.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup CarriageReturn(int exactCount)
         {
             return Count(exactCount, CarriageReturn());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a carriage return character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup CarriageReturn(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, CarriageReturn());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a carriage return character.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern NotCarriageReturn()
         {
             return NotCharacter(AsciiChar.CarriageReturn);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a carriage return character specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotCarriageReturn(int exactCount)
         {
             return Count(exactCount, NotCarriageReturn());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a carriage return character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotCarriageReturn(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotCarriageReturn());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a space.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern Space()
         {
             return Character(AsciiChar.Space);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of space characters.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup Space(int exactCount)
         {
             return Count(exactCount, Space());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a space character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup Space(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, Space());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a space character.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern NotSpace()
         {
             return NotCharacter(AsciiChar.Space);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a space character specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotSpace(int exactCount)
         {
             return Count(exactCount, NotSpace());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a space character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotSpace(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotSpace());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a exclamation mark.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern ExclamationMark()
         {
             return Character(AsciiChar.ExclamationMark);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of exclamation mark characters.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup ExclamationMark(int exactCount)
         {
             return Count(exactCount, ExclamationMark());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a exclamation mark character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup ExclamationMark(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, ExclamationMark());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a exclamation mark character.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern NotExclamationMark()
         {
             return NotCharacter(AsciiChar.ExclamationMark);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a exclamation mark character specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotExclamationMark(int exactCount)
         {
             return Count(exactCount, NotExclamationMark());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a exclamation mark character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotExclamationMark(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotExclamationMark());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a quote mark.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern QuoteMark()
         {
             return Character(AsciiChar.QuoteMark);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of quote mark characters.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup QuoteMark(int exactCount)
         {
             return Count(exactCount, QuoteMark());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a quote mark character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup QuoteMark(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, QuoteMark());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a quote mark character.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern NotQuoteMark()
         {
             return NotCharacter(AsciiChar.QuoteMark);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a quote mark character specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotQuoteMark(int exactCount)
         {
             return Count(exactCount, NotQuoteMark());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a quote mark character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotQuoteMark(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotQuoteMark());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a number sign.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern NumberSign()
         {
             return Character(AsciiChar.NumberSign);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of number sign characters.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NumberSign(int exactCount)
         {
             return Count(exactCount, NumberSign());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a number sign character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NumberSign(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NumberSign());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a number sign character.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern NotNumberSign()
         {
             return NotCharacter(AsciiChar.NumberSign);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a number sign character specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotNumberSign(int exactCount)
         {
             return Count(exactCount, NotNumberSign());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a number sign character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotNumberSign(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotNumberSign());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a dollar.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern Dollar()
         {
             return Character(AsciiChar.Dollar);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of dollar characters.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup Dollar(int exactCount)
         {
             return Count(exactCount, Dollar());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a dollar character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup Dollar(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, Dollar());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a dollar character.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern NotDollar()
         {
             return NotCharacter(AsciiChar.Dollar);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a dollar character specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotDollar(int exactCount)
         {
             return Count(exactCount, NotDollar());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a dollar character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotDollar(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotDollar());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a percent.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern Percent()
         {
             return Character(AsciiChar.Percent);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of percent characters.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup Percent(int exactCount)
         {
             return Count(exactCount, Percent());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a percent character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup Percent(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, Percent());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a percent character.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern NotPercent()
         {
             return NotCharacter(AsciiChar.Percent);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a percent character specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotPercent(int exactCount)
         {
             return Count(exactCount, NotPercent());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a percent character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotPercent(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotPercent());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a ampersand.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern Ampersand()
         {
             return Character(AsciiChar.Ampersand);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of ampersand characters.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup Ampersand(int exactCount)
         {
             return Count(exactCount, Ampersand());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a ampersand character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup Ampersand(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, Ampersand());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a ampersand character.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern NotAmpersand()
         {
             return NotCharacter(AsciiChar.Ampersand);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a ampersand character specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotAmpersand(int exactCount)
         {
             return Count(exactCount, NotAmpersand());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a ampersand character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotAmpersand(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotAmpersand());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a apostrophe.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern Apostrophe()
         {
             return Character(AsciiChar.Apostrophe);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of apostrophe characters.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup Apostrophe(int exactCount)
         {
             return Count(exactCount, Apostrophe());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a apostrophe character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup Apostrophe(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, Apostrophe());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a apostrophe character.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern NotApostrophe()
         {
             return NotCharacter(AsciiChar.Apostrophe);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a apostrophe character specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotApostrophe(int exactCount)
         {
             return Count(exactCount, NotApostrophe());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a apostrophe character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotApostrophe(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotApostrophe());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a start parenthesis.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern StartParenthesis()
         {
             return Character(AsciiChar.StartParenthesis);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of start parenthesis characters.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup StartParenthesis(int exactCount)
         {
             return Count(exactCount, StartParenthesis());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a start parenthesis character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup StartParenthesis(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, StartParenthesis());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a start parenthesis character.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern NotStartParenthesis()
         {
             return NotCharacter(AsciiChar.StartParenthesis);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a start parenthesis character specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotStartParenthesis(int exactCount)
         {
             return Count(exactCount, NotStartParenthesis());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a start parenthesis character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotStartParenthesis(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotStartParenthesis());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a end parenthesis.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern EndParenthesis()
         {
             return Character(AsciiChar.EndParenthesis);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of end parenthesis characters.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup EndParenthesis(int exactCount)
         {
             return Count(exactCount, EndParenthesis());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a end parenthesis character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup EndParenthesis(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, EndParenthesis());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a end parenthesis character.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern NotEndParenthesis()
         {
             return NotCharacter(AsciiChar.EndParenthesis);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a end parenthesis character specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotEndParenthesis(int exactCount)
         {
             return Count(exactCount, NotEndParenthesis());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a end parenthesis character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotEndParenthesis(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotEndParenthesis());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a asterisk.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern Asterisk()
         {
             return Character(AsciiChar.Asterisk);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of asterisk characters.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup Asterisk(int exactCount)
         {
             return Count(exactCount, Asterisk());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a asterisk character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup Asterisk(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, Asterisk());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a asterisk character.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern NotAsterisk()
         {
             return NotCharacter(AsciiChar.Asterisk);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a asterisk character specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotAsterisk(int exactCount)
         {
             return Count(exactCount, NotAsterisk());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a asterisk character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotAsterisk(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotAsterisk());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a plus.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern Plus()
         {
             return Character(AsciiChar.Plus);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of plus characters.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup Plus(int exactCount)
         {
             return Count(exactCount, Plus());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a plus character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup Plus(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, Plus());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a plus character.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern NotPlus()
         {
             return NotCharacter(AsciiChar.Plus);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a plus character specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotPlus(int exactCount)
         {
             return Count(exactCount, NotPlus());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a plus character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotPlus(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotPlus());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a comma.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern Comma()
         {
             return Character(AsciiChar.Comma);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of comma characters.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup Comma(int exactCount)
         {
             return Count(exactCount, Comma());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a comma character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup Comma(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, Comma());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a comma character.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern NotComma()
         {
             return NotCharacter(AsciiChar.Comma);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a comma character specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotComma(int exactCount)
         {
             return Count(exactCount, NotComma());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a comma character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotComma(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotComma());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a hyphen.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern Hyphen()
         {
             return Character(AsciiChar.Hyphen);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of hyphen characters.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup Hyphen(int exactCount)
         {
             return Count(exactCount, Hyphen());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a hyphen character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup Hyphen(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, Hyphen());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a hyphen character.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern NotHyphen()
         {
             return NotCharacter(AsciiChar.Hyphen);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a hyphen character specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotHyphen(int exactCount)
         {
             return Count(exactCount, NotHyphen());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a hyphen character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotHyphen(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotHyphen());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a dot.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern Dot()
         {
             return Character(AsciiChar.Dot);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of dot characters.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup Dot(int exactCount)
         {
             return Count(exactCount, Dot());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a dot character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup Dot(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, Dot());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a dot character.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern NotDot()
         {
             return NotCharacter(AsciiChar.Dot);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a dot character specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotDot(int exactCount)
         {
             return Count(exactCount, NotDot());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a dot character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotDot(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotDot());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a slash.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern Slash()
         {
             return Character(AsciiChar.Slash);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of slash characters.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup Slash(int exactCount)
         {
             return Count(exactCount, Slash());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a slash character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup Slash(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, Slash());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a slash character.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern NotSlash()
         {
             return NotCharacter(AsciiChar.Slash);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a slash character specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotSlash(int exactCount)
         {
             return Count(exactCount, NotSlash());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a slash character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotSlash(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotSlash());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a colon.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern Colon()
         {
             return Character(AsciiChar.Colon);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of colon characters.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup Colon(int exactCount)
         {
             return Count(exactCount, Colon());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a colon character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup Colon(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, Colon());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a colon character.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern NotColon()
         {
             return NotCharacter(AsciiChar.Colon);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a colon character specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotColon(int exactCount)
         {
             return Count(exactCount, NotColon());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a colon character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotColon(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotColon());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a semicolon.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern Semicolon()
         {
             return Character(AsciiChar.Semicolon);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of semicolon characters.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup Semicolon(int exactCount)
         {
             return Count(exactCount, Semicolon());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a semicolon character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup Semicolon(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, Semicolon());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a semicolon character.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern NotSemicolon()
         {
             return NotCharacter(AsciiChar.Semicolon);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a semicolon character specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotSemicolon(int exactCount)
         {
             return Count(exactCount, NotSemicolon());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a semicolon character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotSemicolon(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotSemicolon());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a less than.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern LessThan()
         {
             return Character(AsciiChar.LessThan);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of less than characters.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup LessThan(int exactCount)
         {
             return Count(exactCount, LessThan());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a less than character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup LessThan(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, LessThan());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a less than character.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern NotLessThan()
         {
             return NotCharacter(AsciiChar.LessThan);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a less than character specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotLessThan(int exactCount)
         {
             return Count(exactCount, NotLessThan());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a less than character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotLessThan(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotLessThan());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a equals sign.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern EqualsSign()
         {
             return Character(AsciiChar.EqualsSign);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of equals sign characters.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup EqualsSign(int exactCount)
         {
             return Count(exactCount, EqualsSign());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a equals sign character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup EqualsSign(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, EqualsSign());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a equals sign character.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern NotEqualsSign()
         {
             return NotCharacter(AsciiChar.EqualsSign);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a equals sign character specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotEqualsSign(int exactCount)
         {
             return Count(exactCount, NotEqualsSign());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a equals sign character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotEqualsSign(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotEqualsSign());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a greater than.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern GreaterThan()
         {
             return Character(AsciiChar.GreaterThan);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of greater than characters.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup GreaterThan(int exactCount)
         {
             return Count(exactCount, GreaterThan());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a greater than character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup GreaterThan(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, GreaterThan());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a greater than character.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern NotGreaterThan()
         {
             return NotCharacter(AsciiChar.GreaterThan);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a greater than character specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotGreaterThan(int exactCount)
         {
             return Count(exactCount, NotGreaterThan());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a greater than character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotGreaterThan(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotGreaterThan());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a question mark.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern QuestionMark()
         {
             return Character(AsciiChar.QuestionMark);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of question mark characters.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup QuestionMark(int exactCount)
         {
             return Count(exactCount, QuestionMark());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a question mark character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup QuestionMark(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, QuestionMark());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a question mark character.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern NotQuestionMark()
         {
             return NotCharacter(AsciiChar.QuestionMark);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a question mark character specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotQuestionMark(int exactCount)
         {
             return Count(exactCount, NotQuestionMark());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a question mark character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotQuestionMark(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotQuestionMark());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a at sign.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern AtSign()
         {
             return Character(AsciiChar.AtSign);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of at sign characters.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup AtSign(int exactCount)
         {
             return Count(exactCount, AtSign());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a at sign character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup AtSign(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, AtSign());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a at sign character.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern NotAtSign()
         {
             return NotCharacter(AsciiChar.AtSign);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a at sign character specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotAtSign(int exactCount)
         {
             return Count(exactCount, NotAtSign());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a at sign character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotAtSign(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotAtSign());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a start square bracket.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern StartSquareBracket()
         {
             return Character(AsciiChar.StartSquareBracket);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of start square bracket characters.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup StartSquareBracket(int exactCount)
         {
             return Count(exactCount, StartSquareBracket());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a start square bracket character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup StartSquareBracket(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, StartSquareBracket());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a start square bracket character.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern NotStartSquareBracket()
         {
             return NotCharacter(AsciiChar.StartSquareBracket);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a start square bracket character specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotStartSquareBracket(int exactCount)
         {
             return Count(exactCount, NotStartSquareBracket());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a start square bracket character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotStartSquareBracket(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotStartSquareBracket());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a backslash.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern Backslash()
         {
             return Character(AsciiChar.Backslash);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of backslash characters.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup Backslash(int exactCount)
         {
             return Count(exactCount, Backslash());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a backslash character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup Backslash(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, Backslash());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a backslash character.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern NotBackslash()
         {
             return NotCharacter(AsciiChar.Backslash);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a backslash character specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotBackslash(int exactCount)
         {
             return Count(exactCount, NotBackslash());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a backslash character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotBackslash(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotBackslash());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a end square bracket.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern EndSquareBracket()
         {
             return Character(AsciiChar.EndSquareBracket);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of end square bracket characters.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup EndSquareBracket(int exactCount)
         {
             return Count(exactCount, EndSquareBracket());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a end square bracket character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup EndSquareBracket(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, EndSquareBracket());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a end square bracket character.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern NotEndSquareBracket()
         {
             return NotCharacter(AsciiChar.EndSquareBracket);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a end square bracket character specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotEndSquareBracket(int exactCount)
         {
             return Count(exactCount, NotEndSquareBracket());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a end square bracket character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotEndSquareBracket(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotEndSquareBracket());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a circumflex accent.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern CircumflexAccent()
         {
             return Character(AsciiChar.CircumflexAccent);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of circumflex accent characters.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup CircumflexAccent(int exactCount)
         {
             return Count(exactCount, CircumflexAccent());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a circumflex accent character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup CircumflexAccent(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, CircumflexAccent());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a circumflex accent character.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern NotCircumflexAccent()
         {
             return NotCharacter(AsciiChar.CircumflexAccent);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a circumflex accent character specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotCircumflexAccent(int exactCount)
         {
             return Count(exactCount, NotCircumflexAccent());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a circumflex accent character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotCircumflexAccent(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotCircumflexAccent());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a underscore.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern Underscore()
         {
             return Character(AsciiChar.Underscore);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of underscore characters.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup Underscore(int exactCount)
         {
             return Count(exactCount, Underscore());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a underscore character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup Underscore(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, Underscore());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a underscore character.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern NotUnderscore()
         {
             return NotCharacter(AsciiChar.Underscore);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a underscore character specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotUnderscore(int exactCount)
         {
             return Count(exactCount, NotUnderscore());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a underscore character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotUnderscore(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotUnderscore());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a grave accent.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern GraveAccent()
         {
             return Character(AsciiChar.GraveAccent);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of grave accent characters.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup GraveAccent(int exactCount)
         {
             return Count(exactCount, GraveAccent());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a grave accent character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup GraveAccent(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, GraveAccent());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a grave accent character.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern NotGraveAccent()
         {
             return NotCharacter(AsciiChar.GraveAccent);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a grave accent character specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotGraveAccent(int exactCount)
         {
             return Count(exactCount, NotGraveAccent());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a grave accent character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotGraveAccent(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotGraveAccent());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a start curly bracket.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern StartCurlyBracket()
         {
             return Character(AsciiChar.StartCurlyBracket);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of start curly bracket characters.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup StartCurlyBracket(int exactCount)
         {
             return Count(exactCount, StartCurlyBracket());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a start curly bracket character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup StartCurlyBracket(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, StartCurlyBracket());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a start curly bracket character.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern NotStartCurlyBracket()
         {
             return NotCharacter(AsciiChar.StartCurlyBracket);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a start curly bracket character specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotStartCurlyBracket(int exactCount)
         {
             return Count(exactCount, NotStartCurlyBracket());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a start curly bracket character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotStartCurlyBracket(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotStartCurlyBracket());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a vertical line.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern VerticalLine()
         {
             return Character(AsciiChar.VerticalLine);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of vertical line characters.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup VerticalLine(int exactCount)
         {
             return Count(exactCount, VerticalLine());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a vertical line character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup VerticalLine(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, VerticalLine());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a vertical line character.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern NotVerticalLine()
         {
             return NotCharacter(AsciiChar.VerticalLine);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a vertical line character specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotVerticalLine(int exactCount)
         {
             return Count(exactCount, NotVerticalLine());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a vertical line character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotVerticalLine(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotVerticalLine());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a end curly bracket.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern EndCurlyBracket()
         {
             return Character(AsciiChar.EndCurlyBracket);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of end curly bracket characters.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup EndCurlyBracket(int exactCount)
         {
             return Count(exactCount, EndCurlyBracket());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a end curly bracket character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup EndCurlyBracket(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, EndCurlyBracket());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a end curly bracket character.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern NotEndCurlyBracket()
         {
             return NotCharacter(AsciiChar.EndCurlyBracket);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a end curly bracket character specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotEndCurlyBracket(int exactCount)
         {
             return Count(exactCount, NotEndCurlyBracket());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a end curly bracket character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotEndCurlyBracket(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotEndCurlyBracket());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a tilde.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern Tilde()
         {
             return Character(AsciiChar.Tilde);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified number of tilde characters.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup Tilde(int exactCount)
         {
             return Count(exactCount, Tilde());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a tilde character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup Tilde(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, Tilde());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a tilde character.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern NotTilde()
         {
             return NotCharacter(AsciiChar.Tilde);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a tilde character specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotTilde(int exactCount)
         {
             return Count(exactCount, NotTilde());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a tilde character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotTilde(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotTilde());
@@ -1950,121 +3172,247 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Count(minCount, maxCount, AnyInvariant());
         }
 
+        /// <summary>
+        /// Returns a pattern that matches a digit character.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern Digit()
         {
             return CharPattern.Create(CharClass.Digit);
         }
 
-        public static QuantifiedGroup Digit(int count)
+        /// <summary>
+        /// Returns a pattern that matches a specified number of digit characters.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public static QuantifiedGroup Digit(int exactCount)
         {
-            return Count(count, Digit());
+            return Count(exactCount, Digit());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a digit character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup Digit(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, Digit());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a digit character one or many times.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiedGroup Digits()
         {
             return OneMany(Digit());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a digit character.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern NotDigit()
         {
             return CharPattern.Create(CharClass.NotDigit);
         }
 
-        public static QuantifiedGroup NotDigit(int count)
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a digit character specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public static QuantifiedGroup NotDigit(int exactCount)
         {
-            return Count(count, NotDigit());
+            return Count(exactCount, NotDigit());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a digit character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotDigit(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotDigit());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a digit character one or many times.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiedGroup NotDigits()
         {
             return OneMany(NotDigit());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a white-space character.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern WhiteSpace()
         {
             return CharPattern.Create(CharClass.WhiteSpace);
         }
 
-        public static QuantifiedGroup WhiteSpace(int count)
+        /// <summary>
+        /// Appends a pattern that matches a specified number of white-space characters.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public static QuantifiedGroup WhiteSpace(int exactCount)
         {
-            return Count(count, WhiteSpace());
+            return Count(exactCount, WhiteSpace());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a white-space character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup WhiteSpace(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, WhiteSpace());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a white-space character one or many times.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiedGroup WhiteSpaces()
         {
             return OneMany(WhiteSpace());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a white-space character.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern NotWhiteSpace()
         {
             return CharPattern.Create(CharClass.NotWhiteSpace);
         }
 
-        public static QuantifiedGroup NotWhiteSpace(int count)
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a white-space character specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public static QuantifiedGroup NotWhiteSpace(int exactCount)
         {
-            return Count(count, NotWhiteSpace());
+            return Count(exactCount, NotWhiteSpace());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a white-space character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotWhiteSpace(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotWhiteSpace());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a white-space character one or many times.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiedGroup NotWhiteSpaces()
         {
             return OneMany(NotWhiteSpace());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a word character.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern WordChar()
         {
             return CharPattern.Create(CharClass.WordChar);
         }
 
-        public static QuantifiedGroup WordChar(int count)
+        /// <summary>
+        /// Appends a pattern that matches a specified number of word characters.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public static QuantifiedGroup WordChar(int exactCount)
         {
-            return Count(count, WordChar());
+            return Count(exactCount, WordChar());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a word character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup WordChar(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, WordChar());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a word character one or many times.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiedGroup WordChars()
         {
             return OneMany(WordChar());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a word character.
+        /// </summary>
+        /// <returns></returns>
         public static CharPattern NotWordChar()
         {
             return CharPattern.Create(CharClass.NotWordChar);
         }
 
-        public static QuantifiedGroup NotWordChar(int count)
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a word character specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public static QuantifiedGroup NotWordChar(int exactCount)
         {
-            return Count(count, NotWordChar());
+            return Count(exactCount, NotWordChar());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a word character from minimum times to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimum number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static QuantifiedGroup NotWordChar(int minCount, int maxCount)
         {
             return Count(minCount, maxCount, NotWordChar());
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a word character one or many times.
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiedGroup NotWordChars()
         {
             return OneMany(NotWordChar());
@@ -2075,9 +3423,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Character(CharGroupings.CarriageReturn().Linefeed());
         }
 
-        public static QuantifiedGroup NewLineChar(int count)
+        public static QuantifiedGroup NewLineChar(int exactCount)
         {
-            return Count(count, NewLineChar());
+            return Count(exactCount, NewLineChar());
         }
 
         public static QuantifiedGroup NewLineChar(int minCount, int maxCount)
@@ -2090,9 +3438,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return NotCharacter(CharGroupings.CarriageReturn().Linefeed());
         }
 
-        public static QuantifiedGroup NotNewLineChar(int count)
+        public static QuantifiedGroup NotNewLineChar(int exactCount)
         {
-            return Count(count, NotNewLineChar());
+            return Count(exactCount, NotNewLineChar());
         }
 
         public static QuantifiedGroup NotNewLineChar(int minCount, int maxCount)
@@ -2105,9 +3453,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Character(CharGroupings.Alphanumeric());
         }
 
-        public static QuantifiedGroup Alphanumeric(int count)
+        public static QuantifiedGroup Alphanumeric(int exactCount)
         {
-            return Count(count, Alphanumeric());
+            return Count(exactCount, Alphanumeric());
         }
 
         public static QuantifiedGroup Alphanumeric(int minCount, int maxCount)
@@ -2120,9 +3468,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return NotCharacter(CharGroupings.Alphanumeric());
         }
 
-        public static QuantifiedGroup NotAlphanumeric(int count)
+        public static QuantifiedGroup NotAlphanumeric(int exactCount)
         {
-            return Count(count, NotAlphanumeric());
+            return Count(exactCount, NotAlphanumeric());
         }
 
         public static QuantifiedGroup NotAlphanumeric(int minCount, int maxCount)
@@ -2135,9 +3483,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Character(CharGroupings.AlphanumericLower());
         }
 
-        public static QuantifiedGroup AlphanumericLower(int count)
+        public static QuantifiedGroup AlphanumericLower(int exactCount)
         {
-            return Count(count, AlphanumericLower());
+            return Count(exactCount, AlphanumericLower());
         }
 
         public static QuantifiedGroup AlphanumericLower(int minCount, int maxCount)
@@ -2150,9 +3498,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return NotCharacter(CharGroupings.AlphanumericLower());
         }
 
-        public static QuantifiedGroup NotAlphanumericLower(int count)
+        public static QuantifiedGroup NotAlphanumericLower(int exactCount)
         {
-            return Count(count, NotAlphanumericLower());
+            return Count(exactCount, NotAlphanumericLower());
         }
 
         public static QuantifiedGroup NotAlphanumericLower(int minCount, int maxCount)
@@ -2165,9 +3513,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Character(CharGroupings.AlphanumericUpper());
         }
 
-        public static QuantifiedGroup AlphanumericUpper(int count)
+        public static QuantifiedGroup AlphanumericUpper(int exactCount)
         {
-            return Count(count, AlphanumericUpper());
+            return Count(exactCount, AlphanumericUpper());
         }
 
         public static QuantifiedGroup AlphanumericUpper(int minCount, int maxCount)
@@ -2180,9 +3528,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return NotCharacter(CharGroupings.AlphanumericUpper());
         }
 
-        public static QuantifiedGroup NotAlphanumericUpper(int count)
+        public static QuantifiedGroup NotAlphanumericUpper(int exactCount)
         {
-            return Count(count, NotAlphanumericUpper());
+            return Count(exactCount, NotAlphanumericUpper());
         }
 
         public static QuantifiedGroup NotAlphanumericUpper(int minCount, int maxCount)
@@ -2195,9 +3543,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Character(CharGroupings.AlphanumericUnderscore());
         }
 
-        public static QuantifiedGroup AlphanumericUnderscore(int count)
+        public static QuantifiedGroup AlphanumericUnderscore(int exactCount)
         {
-            return Count(count, AlphanumericUnderscore());
+            return Count(exactCount, AlphanumericUnderscore());
         }
 
         public static QuantifiedGroup AlphanumericUnderscore(int minCount, int maxCount)
@@ -2210,9 +3558,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return NotCharacter(CharGroupings.AlphanumericUnderscore());
         }
 
-        public static QuantifiedGroup NotAlphanumericUnderscore(int count)
+        public static QuantifiedGroup NotAlphanumericUnderscore(int exactCount)
         {
-            return Count(count, NotAlphanumericUnderscore());
+            return Count(exactCount, NotAlphanumericUnderscore());
         }
 
         public static QuantifiedGroup NotAlphanumericUnderscore(int minCount, int maxCount)
@@ -2225,9 +3573,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Character(CharGroupings.LatinLetter());
         }
 
-        public static QuantifiedGroup LatinLetter(int count)
+        public static QuantifiedGroup LatinLetter(int exactCount)
         {
-            return Count(count, LatinLetter());
+            return Count(exactCount, LatinLetter());
         }
 
         public static QuantifiedGroup LatinLetter(int minCount, int maxCount)
@@ -2240,9 +3588,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return NotCharacter(CharGroupings.LatinLetter());
         }
 
-        public static QuantifiedGroup NotLatinLetter(int count)
+        public static QuantifiedGroup NotLatinLetter(int exactCount)
         {
-            return Count(count, NotLatinLetter());
+            return Count(exactCount, NotLatinLetter());
         }
 
         public static QuantifiedGroup NotLatinLetter(int minCount, int maxCount)
@@ -2255,9 +3603,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Character(CharGroupings.LatinLetterLower());
         }
 
-        public static QuantifiedGroup LatinLetterLower(int count)
+        public static QuantifiedGroup LatinLetterLower(int exactCount)
         {
-            return Count(count, LatinLetterLower());
+            return Count(exactCount, LatinLetterLower());
         }
 
         public static QuantifiedGroup LatinLetterLower(int minCount, int maxCount)
@@ -2270,9 +3618,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return NotCharacter(CharGroupings.LatinLetterLower());
         }
 
-        public static QuantifiedGroup NotLatinLetterLower(int count)
+        public static QuantifiedGroup NotLatinLetterLower(int exactCount)
         {
-            return Count(count, NotLatinLetterLower());
+            return Count(exactCount, NotLatinLetterLower());
         }
 
         public static QuantifiedGroup NotLatinLetterLower(int minCount, int maxCount)
@@ -2285,9 +3633,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Character(CharGroupings.LatinLetterUpper());
         }
 
-        public static QuantifiedGroup LatinLetterUpper(int count)
+        public static QuantifiedGroup LatinLetterUpper(int exactCount)
         {
-            return Count(count, LatinLetterUpper());
+            return Count(exactCount, LatinLetterUpper());
         }
 
         public static QuantifiedGroup LatinLetterUpper(int minCount, int maxCount)
@@ -2300,9 +3648,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return NotCharacter(CharGroupings.LatinLetterUpper());
         }
 
-        public static QuantifiedGroup NotLatinLetterUpper(int count)
+        public static QuantifiedGroup NotLatinLetterUpper(int exactCount)
         {
-            return Count(count, NotLatinLetterUpper());
+            return Count(exactCount, NotLatinLetterUpper());
         }
 
         public static QuantifiedGroup NotLatinLetterUpper(int minCount, int maxCount)
@@ -2315,9 +3663,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Character(GeneralCategory.LetterLowercase);
         }
 
-        public static QuantifiedGroup LetterLower(int count)
+        public static QuantifiedGroup LetterLower(int exactCount)
         {
-            return Count(count, LetterLower());
+            return Count(exactCount, LetterLower());
         }
 
         public static QuantifiedGroup LetterLower(int minCount, int maxCount)
@@ -2330,9 +3678,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return NotCharacter(GeneralCategory.LetterLowercase);
         }
 
-        public static QuantifiedGroup NotLetterLower(int count)
+        public static QuantifiedGroup NotLetterLower(int exactCount)
         {
-            return Count(count, NotLetterLower());
+            return Count(exactCount, NotLetterLower());
         }
 
         public static QuantifiedGroup NotLetterLower(int minCount, int maxCount)
@@ -2345,9 +3693,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Character(GeneralCategory.LetterUppercase);
         }
 
-        public static QuantifiedGroup LetterUpper(int count)
+        public static QuantifiedGroup LetterUpper(int exactCount)
         {
-            return Count(count, LetterUpper());
+            return Count(exactCount, LetterUpper());
         }
 
         public static QuantifiedGroup LetterUpper(int minCount, int maxCount)
@@ -2360,9 +3708,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return NotCharacter(GeneralCategory.LetterUppercase);
         }
 
-        public static QuantifiedGroup NotLetterUpper(int count)
+        public static QuantifiedGroup NotLetterUpper(int exactCount)
         {
-            return Count(count, NotLetterUpper());
+            return Count(exactCount, NotLetterUpper());
         }
 
         public static QuantifiedGroup NotLetterUpper(int minCount, int maxCount)
@@ -2375,9 +3723,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Character(CharGroupings.ArabicDigit());
         }
 
-        public static QuantifiedGroup ArabicDigit(int count)
+        public static QuantifiedGroup ArabicDigit(int exactCount)
         {
-            return Count(count, ArabicDigit());
+            return Count(exactCount, ArabicDigit());
         }
 
         public static QuantifiedGroup ArabicDigit(int minCount, int maxCount)
@@ -2390,9 +3738,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return NotCharacter(CharGroupings.ArabicDigit());
         }
 
-        public static QuantifiedGroup NotArabicDigit(int count)
+        public static QuantifiedGroup NotArabicDigit(int exactCount)
         {
-            return Count(count, NotArabicDigit());
+            return Count(exactCount, NotArabicDigit());
         }
 
         public static QuantifiedGroup NotArabicDigit(int minCount, int maxCount)
@@ -2405,9 +3753,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Character(CharGroupings.HexadecimalDigit());
         }
 
-        public static QuantifiedGroup HexadecimalDigit(int count)
+        public static QuantifiedGroup HexadecimalDigit(int exactCount)
         {
-            return Count(count, HexadecimalDigit());
+            return Count(exactCount, HexadecimalDigit());
         }
 
         public static QuantifiedGroup HexadecimalDigit(int minCount, int maxCount)
@@ -2420,9 +3768,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return NotCharacter(CharGroupings.HexadecimalDigit());
         }
 
-        public static QuantifiedGroup NotHexadecimalDigit(int count)
+        public static QuantifiedGroup NotHexadecimalDigit(int exactCount)
         {
-            return Count(count, NotHexadecimalDigit());
+            return Count(exactCount, NotHexadecimalDigit());
         }
 
         public static QuantifiedGroup NotHexadecimalDigit(int minCount, int maxCount)
@@ -2435,9 +3783,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Character(CharGroupings.Parenthesis());
         }
 
-        public static QuantifiedGroup Parenthesis(int count)
+        public static QuantifiedGroup Parenthesis(int exactCount)
         {
-            return Count(count, Parenthesis());
+            return Count(exactCount, Parenthesis());
         }
 
         public static QuantifiedGroup Parenthesis(int minCount, int maxCount)
@@ -2450,9 +3798,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return NotCharacter(CharGroupings.Parenthesis());
         }
 
-        public static QuantifiedGroup NotParenthesis(int count)
+        public static QuantifiedGroup NotParenthesis(int exactCount)
         {
-            return Count(count, NotParenthesis());
+            return Count(exactCount, NotParenthesis());
         }
 
         public static QuantifiedGroup NotParenthesis(int minCount, int maxCount)
@@ -2465,9 +3813,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Character(CharGroupings.CurlyBracket());
         }
 
-        public static QuantifiedGroup CurlyBracket(int count)
+        public static QuantifiedGroup CurlyBracket(int exactCount)
         {
-            return Count(count, CurlyBracket());
+            return Count(exactCount, CurlyBracket());
         }
 
         public static QuantifiedGroup CurlyBracket(int minCount, int maxCount)
@@ -2480,9 +3828,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return NotCharacter(CharGroupings.CurlyBracket());
         }
 
-        public static QuantifiedGroup NotCurlyBracket(int count)
+        public static QuantifiedGroup NotCurlyBracket(int exactCount)
         {
-            return Count(count, NotCurlyBracket());
+            return Count(exactCount, NotCurlyBracket());
         }
 
         public static QuantifiedGroup NotCurlyBracket(int minCount, int maxCount)
@@ -2495,9 +3843,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Character(CharGroupings.SquareBracket());
         }
 
-        public static QuantifiedGroup SquareBracket(int count)
+        public static QuantifiedGroup SquareBracket(int exactCount)
         {
-            return Count(count, SquareBracket());
+            return Count(exactCount, SquareBracket());
         }
 
         public static QuantifiedGroup SquareBracket(int minCount, int maxCount)
@@ -2510,9 +3858,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return NotCharacter(CharGroupings.SquareBracket());
         }
 
-        public static QuantifiedGroup NotSquareBracket(int count)
+        public static QuantifiedGroup NotSquareBracket(int exactCount)
         {
-            return Count(count, NotSquareBracket());
+            return Count(exactCount, NotSquareBracket());
         }
 
         public static QuantifiedGroup NotSquareBracket(int minCount, int maxCount)
@@ -2525,9 +3873,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return WhiteSpace().Except(NewLineChar());
         }
 
-        public static QuantifiedGroup WhiteSpaceExceptNewLine(int count)
+        public static QuantifiedGroup WhiteSpaceExceptNewLine(int exactCount)
         {
-            return Count(count, WhiteSpaceExceptNewLine());
+            return Count(exactCount, WhiteSpaceExceptNewLine());
         }
 
         public static QuantifiedGroup WhiteSpaceExceptNewLine(int minCount, int maxCount)

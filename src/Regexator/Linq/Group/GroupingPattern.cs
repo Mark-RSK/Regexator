@@ -12,10 +12,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
         private readonly object _content;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GroupingPattern"/> class.
+        /// </summary>
         protected GroupingPattern()
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GroupingPattern"/> class with a specified content.
+        /// </summary>
+        /// <param name="content">A content of the grouping.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         protected GroupingPattern(object content)
         {
             if (content == null)
@@ -26,14 +34,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _content = content;
         }
 
-        protected GroupingPattern(GroupingPattern group)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GroupingPattern"/> class with a specified content.
+        /// </summary>
+        /// <param name="content">A content of the grouping.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        protected GroupingPattern(GroupingPattern content)
         {
-            if (group == null)
+            if (content == null)
             {
-                throw new ArgumentNullException("group");
+                throw new ArgumentNullException("content");
             }
 
-            _content = group.Content;
+            _content = content.Content;
         }
 
         internal object Content

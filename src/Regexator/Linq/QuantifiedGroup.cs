@@ -12,6 +12,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
         private readonly object _content;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="QuantifiedGroup"/> class with a specified content.
+        /// </summary>
+        /// <param name="content">The content of the group.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         protected QuantifiedGroup(object content)
         {
             if (content == null)
@@ -22,6 +27,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _content = content;
         }
 
+        /// <summary>
+        /// Appends a quantifier to a specified <see cref="PatternBuilder"/>.
+        /// </summary>
+        /// <param name="builder">The builder to use for appending a quantifier.</param>
         protected abstract void AppendQuantifierTo(PatternBuilder builder);
 
         internal override void AppendTo(PatternBuilder builder)

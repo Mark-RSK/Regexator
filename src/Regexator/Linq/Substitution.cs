@@ -38,7 +38,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Converts the value of this instance to a <see cref="System.String"/>.
+        /// Converts the value of this instance to a <see cref="String"/>.
         /// </summary>
         /// <returns></returns>
         public override string ToString()
