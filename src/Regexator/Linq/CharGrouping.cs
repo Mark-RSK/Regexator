@@ -36,7 +36,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Creates and returns a new instance of the <see cref="CharGrouping"/> class containing a specified character.
         /// </summary>
-        /// <param name="value">The character.</param>
+        /// <param name="value">The Unicode character.</param>
         /// <returns></returns>
         public static CharGrouping Create(char value)
         {
@@ -57,7 +57,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Creates and returns a new instance of the <see cref="CharGrouping"/> class containing a specified character.
         /// </summary>
-        /// <param name="charCode">The character interpreted as <see cref="System.Int32"/> object.</param>
+        /// <param name="charCode">The Unicode character interpreted as <see cref="Int32"/> object.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static CharGrouping Create(int charCode)
@@ -158,7 +158,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Appends a pattern that matches specified Unicode character.
         /// </summary>
-        /// <param name="value">The character.</param>
+        /// <param name="value">The Unicode character.</param>
         /// <returns></returns>
         public CharGrouping Concat(char value)
         {
@@ -1000,7 +1000,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Converts specified character to an instance of the <see cref="CharGrouping"/> class.
         /// </summary>
-        /// <param name="value">The character.</param>
+        /// <param name="value">The Unicode character.</param>
         /// <returns></returns>
         public static explicit operator CharGrouping(char value)
         {

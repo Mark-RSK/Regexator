@@ -84,7 +84,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         /// <summary>
         /// Converts the character to the <see cref="String"/> object that represents the character as a literal rather than a metacharacter. The character is not in the character group.
         /// </summary>
-        /// <param name="charCode">The character interpreted as <see cref="Int32"/> object.</param>
+        /// <param name="charCode">The Unicode character interpreted as <see cref="Int32"/> object.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static string Escape(int charCode)
@@ -102,7 +102,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         /// Converts the character to the <see cref="String"/> object that represents the character as a literal rather than a metacharacter.
         /// The character is converted as a character in or outside of the character group.
         /// </summary>
-        /// <param name="charCode">The character interpreted as <see cref="Int32"/> object.</param>
+        /// <param name="charCode">The Unicode character interpreted as <see cref="Int32"/> object.</param>
         /// <param name="inCharGroup">Indicates whether the character is in or outside of the character group.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
