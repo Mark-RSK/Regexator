@@ -6,12 +6,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     /// Supports inverting a pattern to a pattern that has an opposite meaning.
     /// </summary>
     /// <typeparam name="TPattern">A pattern to be inverted.</typeparam>
-    public interface IInvertible<TPattern> where TPattern : Pattern
+    public interface INegate<TPattern> where TPattern : Pattern
     {
         /// <summary>
         /// Returns a pattern that has opposite meaning than the current instance. For example a word boundary is inverted into a non-word boundary.
         /// </summary>
         /// <returns></returns>
-        TPattern Invert();
+        TPattern Negate();
     }
 }

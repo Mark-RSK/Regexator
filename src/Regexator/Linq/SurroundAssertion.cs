@@ -9,7 +9,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     /// A pattern consisting of a base pattern that is surrounded with patterns interpreted as lookbehind and lookahead assertion, respectively. This class cannot be inherited.
     /// </summary>
     public sealed class SurroundAssertion
-        : Pattern, IInvertible<NegativeSurroundAssertion>
+        : Pattern, INegate<NegativeSurroundAssertion>
     {
         private readonly object _content;
         private readonly object _contentBefore;
@@ -41,7 +41,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Returns an instance of the <see cref="NegativeSurroundAssertion"/> class.
         /// </summary>
         /// <returns></returns>
-        public NegativeSurroundAssertion Invert()
+        public NegativeSurroundAssertion Negate()
         {
             return new NegativeSurroundAssertion(_contentBefore, _content, _contentAfter);
         }
@@ -66,7 +66,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("value");
             }
 
-            return value.Invert();
+            return value.Negate();
         }
     }
 }

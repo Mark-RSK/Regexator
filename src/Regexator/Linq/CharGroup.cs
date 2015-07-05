@@ -9,7 +9,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     /// Represents a positive or a negative character group pattern. This class is abstract.
     /// </summary>
     public abstract partial class CharGroup
-        : QuantifiablePattern, IExcludedGroup, IInvertible<CharGroup>
+        : QuantifiablePattern, IExcludedGroup, INegate<CharGroup>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CharGroup"/> class.
@@ -93,7 +93,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// If the current instance is a positive character group, it returns a negative character group. Otherwise, it returns a positive character group. Newly created group has the same content as the current instance.
         /// </summary>
-        public CharGroup Invert()
+        public CharGroup Negate()
         {
             return Create(this, !Negative);
         }
@@ -112,7 +112,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("value");
             }
 
-            return value.Invert();
+            return value.Negate();
         }
 
         /// <summary>

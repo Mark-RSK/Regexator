@@ -9,7 +9,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     /// Represents a zero-width positive lookahead assertion. This class cannot be inherited.
     /// </summary>
     public sealed class Assertion
-        : GroupingPattern, IInvertible<NegativeAssertion>
+        : GroupingPattern, INegate<NegativeAssertion>
     {
         internal Assertion(object content)
             : base(content)
@@ -20,7 +20,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Returns an instance of the <see cref="NegativeAssertion"/> class.
         /// </summary>
         /// <returns></returns>
-        public NegativeAssertion Invert()
+        public NegativeAssertion Negate()
         {
             return new NegativeAssertion(this);
         }
@@ -44,7 +44,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("value");
             }
 
-            return value.Invert();
+            return value.Negate();
         }
     }
 }

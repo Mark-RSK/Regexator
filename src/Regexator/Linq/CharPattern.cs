@@ -9,7 +9,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     /// Represents a pattern that matches a single character. This includes a character literal, Unicode general category or named block pattern, character class pattern ((non-)digit, (non-)white-space, (non-)word). This class is abstract.
     /// </summary>
     public abstract partial class CharPattern
-        : QuantifiablePattern, IBaseGroup, IExcludedGroup, IInvertible<CharGroup>
+        : QuantifiablePattern, IBaseGroup, IExcludedGroup, INegate<CharGroup>
     {
         internal CharPattern()
         {
@@ -49,7 +49,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Returns a patterns that matches what is not matched by the current instance.
         /// </summary>
         /// <returns></returns>
-        public abstract CharGroup Invert();
+        public abstract CharGroup Negate();
 
         /// <summary>
         /// Specifies a pattern that matches a character matched by the current instance but not matched by the excluded character group.
@@ -122,7 +122,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("value");
             }
 
-            return value.Invert();
+            return value.Negate();
         }
     }
 }

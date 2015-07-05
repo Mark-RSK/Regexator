@@ -17,7 +17,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 _value = value;
             }
 
-            public override CharGroup Invert()
+            public override CharGroup Negate()
             {
                 return CharGroup.Create(_value, true);
             }
@@ -53,7 +53,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 _charCode = charCode;
             }
 
-            public override CharGroup Invert()
+            public override CharGroup Negate()
             {
                 return CharGroup.Create(_charCode, true);
             }
@@ -84,7 +84,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 _value = value;
             }
 
-            public override CharGroup Invert()
+            public override CharGroup Negate()
             {
                 return CharGroup.Create(_value, true);
             }
@@ -117,7 +117,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 _negative = negative;
             }
 
-            public override CharGroup Invert()
+            public override CharGroup Negate()
             {
                 return CharGroup.Create(_category, !_negative);
             }
@@ -140,7 +140,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 _negative = negative;
             }
 
-            public override CharGroup Invert()
+            public override CharGroup Negate()
             {
                 return CharGroup.Create(_block, !_negative);
             }
@@ -161,7 +161,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 _value = value;
             }
 
-            public override CharGroup Invert()
+            public override CharGroup Negate()
             {
                 switch (_value)
                 {

@@ -10,13 +10,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     /// The match may also occur on a word boundary at the beginning or end of the string. This class cannot be inherited.
     /// </summary>
     public sealed class WordBoundary
-        : QuantifiablePattern, IInvertible<NegativeWordBoundary>
+        : QuantifiablePattern, INegate<NegativeWordBoundary>
     {
         /// <summary>
         /// Returns an instance of the <see cref="NegativeWordBoundary"/> class.
         /// </summary>
         /// <returns></returns>
-        public NegativeWordBoundary Invert()
+        public NegativeWordBoundary Negate()
         {
             return new NegativeWordBoundary();
         }
@@ -40,7 +40,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("value");
             }
 
-            return value.Invert();
+            return value.Negate();
         }
     }
 }

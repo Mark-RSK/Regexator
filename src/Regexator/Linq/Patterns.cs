@@ -18,14 +18,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="value">A pattern to be inverted.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static TPattern Not<TPattern>(IInvertible<TPattern> value) where TPattern : Pattern
+        public static TPattern Not<TPattern>(INegate<TPattern> value) where TPattern : Pattern
         {
             if (value == null)
             {
                 throw new ArgumentNullException("value");
             }
 
-            return value.Invert();
+            return value.Negate();
         }
 
         internal static QuantifiablePattern Or(object left, object right)
