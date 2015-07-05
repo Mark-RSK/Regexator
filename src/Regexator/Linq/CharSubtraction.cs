@@ -59,6 +59,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             builder.AppendSubtraction(_baseGroup, _excludedGroup);
         }
 
+        /// <summary>
+        /// Returns a negative character subtraction that has the same content as the current instance./>
+        /// </summary>
+        /// <param name="value">A value to negate.</param>
+        /// <returns></returns>
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static NegativeCharSubtraction operator !(CharSubtraction value)
         {

@@ -116,11 +116,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             private readonly string _characters;
             private readonly bool _negative;
 
-            public CharsCharGroup(string characters)
-                : this(characters, false)
-            {
-            }
-
             public CharsCharGroup(string characters, bool negative)
             {
                 if (characters == null)
@@ -325,11 +320,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             private readonly CharGrouping _item;
             private readonly bool _negative;
-
-            public CharGroupingCharGroup(CharGrouping value)
-                : this(value, false)
-            {
-            }
 
             public CharGroupingCharGroup(CharGrouping value, bool negative)
             {

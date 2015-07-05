@@ -72,7 +72,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         }
 
         /// <summary>
-        /// Gets a value indicating whether the <paramref name="value"/> can be expressed as inline char(s).
+        /// Gets a value indicating whether the <paramref name="options"/> can be expressed as inline char(s).
         /// </summary>
         /// <param name="options">A bitwise combination of the enumeration values.</param>
         /// <returns></returns>

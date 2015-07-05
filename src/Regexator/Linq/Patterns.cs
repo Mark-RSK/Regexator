@@ -4,10 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
+//TODO add xml comments
+
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
-    /// Exposes static methods for creating patterns.
+    /// Exposes static methods that returns instance of the pattern class.
     /// </summary>
     public static class Patterns
     {

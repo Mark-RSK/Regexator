@@ -13,7 +13,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         : QuantifiablePattern, IInvertible<NegativeWordBoundary>
     {
         /// <summary>
-        /// Returns an instance of the <see cref="NegativeWordBoundary" class./>
+        /// Returns an instance of the <see cref="NegativeWordBoundary"/> class.
         /// </summary>
         /// <returns></returns>
         public NegativeWordBoundary Invert()
@@ -26,6 +26,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             builder.AppendWordBoundary();
         }
 
+        /// <summary>
+        /// Returns an instance of the <see cref="NegativeWordBoundary"/> class.
+        /// </summary>
+        /// <param name="value">A value to negate.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static NegativeWordBoundary operator !(WordBoundary value)
         {

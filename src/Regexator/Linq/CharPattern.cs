@@ -46,7 +46,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a patterns that matches what is not matched by the current instance./>
+        /// Returns a patterns that matches what is not matched by the current instance.
         /// </summary>
         /// <returns></returns>
         public abstract CharGroup Invert();
@@ -62,8 +62,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new CharSubtraction(this, excludedGroup);
         }
 
+        /// <summary>
+        /// Appends the current instance to a specified <see cref="PatternBuilder"/>. The current instance is interpreted as a part of the character group.
+        /// </summary>
+        /// <param name="builder">The builder to use for appending the current instance.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         protected virtual void AppendGroupContentTo(PatternBuilder builder)
         {
+            if (builder == null)
+	        {
+		        throw new ArgumentNullException("builder");
+	        }
+
             AppendTo(builder);
         }
 
@@ -99,6 +109,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             builder.AppendCharGroupEnd();
         }
 
+        /// <summary>
+        /// Returns a patterns that matches what is not matched by the current instance.
+        /// </summary>
+        /// <param name="value">A value to negate.</param>
+        /// <returns></returns>
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static CharGroup operator !(CharPattern value)
         {

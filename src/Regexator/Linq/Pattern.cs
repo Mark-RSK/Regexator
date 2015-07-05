@@ -17,6 +17,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         private string _value;
         internal static readonly Pattern Empty = new LiteralPattern();
 
+        /// <summary>
+        /// Creates and returns a new instance of the <see cref="Pattern"/> class.
+        /// </summary>
         protected Pattern()
         {
         }
@@ -41,8 +44,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public Pattern ConcatIf(bool condition, object content)
         {
-            return condition 
-                ? Concat(content) 
+            return condition
+                ? Concat(content)
                 : this;
         }
 
@@ -133,9 +136,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Concatenates the elements of a <see cref="System.Collections.Generic.IEnumerable{T}"/> collection of type <see cref="System.Object"/>.
+        /// Concatenates the elements of a <see cref="System.Collections.Generic.IEnumerable&lt;T&gt;"/> collection of type <see cref="System.Object"/>.
         /// </summary>
-        /// <param name="content">A collection object that implements <see cref="System.Collections.Generic.IEnumerable{T}"/> and whose generic type argument is <see cref="System.Object"/>.</param>
+        /// <param name="content">A collection object that implements <see cref="System.Collections.Generic.IEnumerable&lt;T&gt;"/> and whose generic type argument is <see cref="System.Object"/>.</param>
         /// <returns></returns>
         public static Pattern Concat(IEnumerable<object> content)
         {
@@ -155,10 +158,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Concatenates the elements of a <see cref="System.Collections.Generic.IEnumerable{T}"/> collection of type <see cref="System.Object"/>, using the specified separator between each element.
+        /// Concatenates the elements of a <see cref="System.Collections.Generic.IEnumerable&lt;T&gt;"/> collection of type <see cref="System.Object"/>, using the specified separator between each element.
         /// </summary>
         /// <param name="separator">The pattern to use as a separator.</param>
-        /// <param name="values">A collection object that implements <see cref="System.Collections.Generic.IEnumerable{T}"/> and whose generic type argument is <see cref="System.Object"/>.</param>
+        /// <param name="values">A collection object that implements <see cref="System.Collections.Generic.IEnumerable&lt;T&gt;"/> and whose generic type argument is <see cref="System.Object"/>.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static Pattern Join(object separator, IEnumerable<object> values)
@@ -195,7 +198,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Surrounds a specified pattern with a specified character literal.
         /// </summary>
         /// <param name="surroundChar">A character literal to be surrounding the base pattern.</param>
-        /// <param name="content">A base pattern to be surrounded.</param>
+        /// <param name="value">A base pattern to be surrounded.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         internal static Pattern Surround(AsciiChar surroundChar, object value)
@@ -207,7 +210,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Surrounds a specified pattern with a specified character literal.
         /// </summary>
         /// <param name="charBefore">A character literal to be placed before the base pattern.</param>
-        /// <param name="content">A base pattern to be surrounded.</param>
+        /// <param name="value">A base pattern to be surrounded.</param>
         /// <param name="charAfter">A character literal to be placed after the base pattern.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
@@ -601,7 +604,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Within a specified input string, replaces strings that match the current instance with a an empty string. 
+        /// Within a specified input string, replaces strings that match the current instance with a an empty string.
         /// </summary>
         /// <param name="input">The string to search for a match.</param>
         /// <returns></returns>
@@ -612,7 +615,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Within a specified input string, replaces all strings that match the current instance with a string returned by a <see cref="System.Text.RegularExpressions.MatchEvaluator"/> delegate. 
+        /// Within a specified input string, replaces all strings that match the current instance with a string returned by a <see cref="System.Text.RegularExpressions.MatchEvaluator"/> delegate.
         /// </summary>
         /// <param name="input">The string to search for a match.</param>
         /// <param name="evaluator">A method that examines each match and returns a replacement string.</param>
@@ -680,8 +683,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Regex.Split(input, Value, options);
         }
 
-        #region + and | operators
-
+        /// <summary>
+        /// Concatenate two elements into a new <see cref="Pattern"/>.
+        /// </summary>
+        /// <param name="left">The first element to concatenate.</param>
+        /// <param name="right">The second element to concatenate.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static Pattern operator +(Pattern left, Pattern right)
@@ -699,6 +707,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return left.Concat(right);
         }
 
+        /// <summary>
+        /// Concatenate two elements into a new <see cref="Pattern"/>.
+        /// </summary>
+        /// <param name="left">The first element to concatenate.</param>
+        /// <param name="right">The second element to concatenate.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static Pattern operator +(Pattern left, string right)
@@ -716,6 +731,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return left.Concat(right);
         }
 
+        /// <summary>
+        /// Concatenate two elements into a new <see cref="Pattern"/>.
+        /// </summary>
+        /// <param name="left">The first element to concatenate.</param>
+        /// <param name="right">The second element to concatenate.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static Pattern operator +(string left, Pattern right)
@@ -733,6 +755,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Pattern.Create(left).Concat(right);
         }
 
+        /// <summary>
+        /// Concatenate two elements into a new <see cref="Pattern"/>.
+        /// </summary>
+        /// <param name="left">The first element to concatenate.</param>
+        /// <param name="right">The second element to concatenate.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static Pattern operator +(Pattern left, char right)
@@ -745,6 +774,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return left.Concat(Patterns.Character(right));
         }
 
+        /// <summary>
+        /// Concatenate two elements into a new <see cref="Pattern"/>.
+        /// </summary>
+        /// <param name="left">The first element to concatenate.</param>
+        /// <param name="right">The second element to concatenate.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static Pattern operator +(char left, Pattern right)
@@ -757,55 +793,112 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Patterns.Character(left).Concat(right);
         }
 
+        /// <summary>
+        /// Creates a pattern that matches any one of the specified elements.
+        /// </summary>
+        /// <param name="left">The first element to match.</param>
+        /// <param name="right">The second element to match.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static QuantifiablePattern operator |(Pattern left, Pattern right)
         {
             return Patterns.Or(left, right);
         }
 
+        /// <summary>
+        /// Creates a pattern that matches any one of the specified elements.
+        /// </summary>
+        /// <param name="left">The first element to match.</param>
+        /// <param name="right">The second element to match.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static QuantifiablePattern operator |(Pattern left, string right)
         {
             return Patterns.Or(left, right);
         }
 
+        /// <summary>
+        /// Creates a pattern that matches any one of the specified elements.
+        /// </summary>
+        /// <param name="left">The first element to match.</param>
+        /// <param name="right">The second element to match.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static QuantifiablePattern operator |(string left, Pattern right)
         {
             return Patterns.Or(left, right);
         }
 
+        /// <summary>
+        /// Creates a pattern that matches any one of the specified elements.
+        /// </summary>
+        /// <param name="left">The first element to match.</param>
+        /// <param name="right">The second element to match.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static QuantifiablePattern operator |(Pattern left, CharGrouping right)
         {
             return Patterns.Or(left, right);
         }
 
+        /// <summary>
+        /// Creates a pattern that matches any one of the specified elements.
+        /// </summary>
+        /// <param name="left">The first element to match.</param>
+        /// <param name="right">The second element to match.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static QuantifiablePattern operator |(CharGrouping left, Pattern right)
         {
             return Patterns.Or(left, right);
         }
 
+        /// <summary>
+        /// Creates a pattern that matches any one of the specified elements.
+        /// </summary>
+        /// <param name="left">The first element to match.</param>
+        /// <param name="right">The second element to match.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static QuantifiablePattern operator |(Pattern left, char right)
         {
             return Patterns.Or(left, right.ToString());
         }
 
+        /// <summary>
+        /// Creates a pattern that matches any one of the specified elements.
+        /// </summary>
+        /// <param name="left">The first element to match.</param>
+        /// <param name="right">The second element to match.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static QuantifiablePattern operator |(char left, Pattern right)
         {
             return Patterns.Or(left.ToString(), right);
         }
 
-        #endregion
-
+        /// <summary>
+        /// Converts specified text to a literal text pattern.
+        /// </summary>
+        /// <param name="text">A text to convert.</param>
+        /// <returns></returns>
         public static explicit operator Pattern(string text)
         {
             return new LiteralPattern(text);
         }
 
+        /// <summary>
+        /// Converts specified character to a character literal pattern.
+        /// </summary>
+        /// <param name="value">The character to convert.</param>
+        /// <returns></returns>
         public static explicit operator Pattern(char value)
         {
             return CharPattern.Create(value);

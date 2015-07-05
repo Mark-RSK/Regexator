@@ -10,7 +10,7 @@ using System.Text.RegularExpressions;
 namespace Pihrtsoft.Text.RegularExpressions.Extensions
 {
     /// <summary>
-    /// Provides a set of static methods that extends the <see cref="System.Collections.Generic.IEnumerable{T}"/> of the types from the <see cref="System.Text.RegularExpressions"/> namespace.
+    /// Provides a set of static methods that extends the <see cref="IEnumerable&lt;T&gt;"/> whose generic type argument is <see cref="Match"/> or <see cref="Group"/>.
     /// </summary>
     public static class EnumerableExtensions
     {

@@ -11,6 +11,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     public abstract partial class CharGroup
         : QuantifiablePattern, IExcludedGroup, IInvertible<CharGroup>
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CharGroup"/> class.
+        /// </summary>
         protected CharGroup()
         {
         }
@@ -65,6 +68,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new CharGroupingCharGroup(value, negative);
         }
 
+        internal static CharGroup Create(CharGroup value, bool negative)
+        {
+            return new CharGroupCharGroup(value, negative);
+        }
+
         internal abstract void AppendContentTo(PatternBuilder builder);
 
         /// <summary>
@@ -87,9 +95,15 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         public CharGroup Invert()
         {
-            return new CharGroupCharGroup(this, !Negative);
+            return Create(this, !Negative);
         }
 
+        /// <summary>
+        /// If the current instance is a positive character group, it returns a negative character group. Otherwise, it returns a positive character group. Newly created group has the same content as the current instance.
+        /// </summary>
+        /// <param name="value">A value to negate.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static CharGroup operator !(CharGroup value)
         {
@@ -101,16 +115,29 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return value.Invert();
         }
 
+        /// <summary>
+        /// Converts specified characters to an instance of the <see cref="CharGroup"/> class.
+        /// </summary>
+        /// <param name="characters">A set of characters.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static explicit operator CharGroup(string characters)
         {
-            return new CharsCharGroup(characters);
+            return Create(characters, false);
         }
 
+        /// <summary>
+        /// Converts specified <see cref="CharGrouping"/> to an instance of the <see cref="CharGroup"/> class.
+        /// </summary>
+        /// <param name="value">An instance of the <see cref="CharGrouping"/> class.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static explicit operator CharGroup(CharGrouping value)
         {
-            return new CharGroupingCharGroup(value);
+            return Create(value, false);
         }
 
         /// <summary>

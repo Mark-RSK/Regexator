@@ -14,12 +14,15 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     public abstract partial class CharGrouping
         : IBaseGroup, IExcludedGroup
     {
+        /// <summary>
+        /// Creates and returns a new instance of the <see cref="CharGrouping"/> class.
+        /// </summary>
         protected CharGrouping()
         {
         }
 
         /// <summary>
-        /// Creates and returns a new instance of the <see cref="CharGrouping"/> and adds a set of characters to it.
+        /// Creates and returns a new instance of the <see cref="CharGrouping"/> class containing specified characters.
         /// </summary>
         /// <param name="characters">A set of characters.</param>
         /// <returns></returns>
@@ -31,7 +34,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Creates and returns a new instance of the <see cref="CharGrouping"/> and adds a character literal to it.
+        /// Creates and returns a new instance of the <see cref="CharGrouping"/> class containing a specified character.
         /// </summary>
         /// <param name="value">The character.</param>
         /// <returns></returns>
@@ -41,7 +44,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Creates and returns a new instance of the <see cref="CharGrouping"/> and adds a character range to it.
+        /// Creates and returns a new instance of the <see cref="CharGrouping"/> class containing a specified character range.
         /// </summary>
         /// <param name="first">The first character of the range.</param>
         /// <param name="last">The last character of the range.</param>
@@ -52,9 +55,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Creates and returns a new instance of the <see cref="CharGrouping"/> and adds a character to it.
+        /// Creates and returns a new instance of the <see cref="CharGrouping"/> class containing a specified character.
         /// </summary>
-        /// <param name="charCode">The character code.</param>
+        /// <param name="charCode">The character interpreted as <see cref="System.Int32"/> object.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static CharGrouping Create(int charCode)
@@ -63,7 +66,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Creates and returns a new instance of the <see cref="CharGrouping"/> and adds a character range to it.
+        /// Creates and returns a new instance of the <see cref="CharGrouping"/> class containing a specified character range.
         /// </summary>
         /// <param name="firstCharCode">The first character code of the range.</param>
         /// <param name="lastCharCode">The last character code of the range.</param>
@@ -75,7 +78,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Creates and returns a new instance of the <see cref="CharGrouping"/> and adds a character to it.
+        /// Creates and returns a new instance of the <see cref="CharGrouping"/> class containing a specified character.
         /// </summary>
         /// <param name="value">An enumerated constant that identifies ASCII character.</param>
         /// <returns></returns>
@@ -85,7 +88,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Creates and returns a new instance of the <see cref="CharGrouping"/> and adds Unicode named block to it.
+        /// Creates and returns a new instance of the <see cref="CharGrouping"/> class containing a specified Unicode named block.
         /// </summary>
         /// <param name="block">An enumerated constant that identifies Unicode named block.</param>
         /// <returns></returns>
@@ -100,7 +103,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Creates and returns a new instance of the <see cref="CharGrouping"/> and adds Unicode general category to it.
+        /// Creates and returns a new instance of the <see cref="CharGrouping"/> class containing a specified Unicode general category.
         /// </summary>
         /// <param name="category">An enumerated constant that identifies Unicode general category.</param>
         /// <returns></returns>
@@ -124,6 +127,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new CharGroupingCharGrouping(value);
         }
 
+        /// <summary>
+        /// Returns the text representation of this instance.
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            var builder = new PatternBuilder();
+            AppendContentTo(builder);
+            return builder.ToString();
+        }
+
         private CharGrouping Concat(CharGrouping value)
         {
             if (value == null)
@@ -139,17 +153,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             first.Previous = this;
             return value;
-        }
-
-        /// <summary>
-        /// Returns the text representation of this instance.
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString()
-        {
-            var builder = new PatternBuilder();
-            AppendContentTo(builder);
-            return builder.ToString();
         }
 
         /// <summary>
@@ -186,7 +189,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Appends a pattern that matches any one of the specified characters.
         /// </summary>
-        /// <param name="value">A set of characters.</param>
+        /// <param name="characters">A set of characters.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public CharGrouping Concat(string characters)
@@ -797,6 +800,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return CharGroup.Create(this, true);
         }
 
+        /// <summary>
+        /// Appends a core content of the current instance to a specified <see cref="PatternBuilder"/>.
+        /// </summary>
+        /// <param name="builder">The builder to use for appending the core content.</param>
         protected abstract void AppendItemContentTo(PatternBuilder builder);
 
         /// <summary>
@@ -833,8 +840,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (Previous != null)
             {
-                CharGrouping item = this;
                 Stack<CharGrouping> stack = builder.CharGroupings;
+                int cnt = stack.Count;
+                CharGrouping item = this;
 
                 do
                 {
@@ -842,7 +850,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                     item = item.Previous;
                 } while (item != null);
 
-                while (stack.Count > 0)
+                while (stack.Count > cnt)
                 {
                     stack.Pop().AppendItemContentTo(builder);
                 }
@@ -853,6 +861,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
+        /// <summary>
+        /// Concatenate two elements into a new <see cref="CharGrouping"/>.
+        /// </summary>
+        /// <param name="left">The first element to concatenate.</param>
+        /// <param name="right">The second element to concatenate.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static CharGrouping operator +(CharGrouping left, CharGrouping right)
@@ -870,6 +885,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return left.Concat(Create(right));
         }
 
+        /// <summary>
+        /// Concatenate two elements into a new <see cref="CharGrouping"/>.
+        /// </summary>
+        /// <param name="left">The first element to concatenate.</param>
+        /// <param name="right">The second element to concatenate.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static CharGrouping operator +(CharGrouping left, string right)
@@ -887,6 +909,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return left.Concat(right);
         }
 
+        /// <summary>
+        /// Concatenate two elements into a new <see cref="CharGrouping"/>.
+        /// </summary>
+        /// <param name="left">The first element to concatenate.</param>
+        /// <param name="right">The second element to concatenate.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static CharGrouping operator +(string left, CharGrouping right)
@@ -904,6 +933,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return CharGrouping.Create(left).Concat(Create(right));
         }
 
+        /// <summary>
+        /// Concatenate two elements into a new <see cref="CharGrouping"/>.
+        /// </summary>
+        /// <param name="left">The first element to concatenate.</param>
+        /// <param name="right">The second element to concatenate.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static CharGrouping operator +(CharGrouping left, char right)
@@ -916,6 +952,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return left.Concat(right);
         }
 
+        /// <summary>
+        /// Concatenate two elements into a new <see cref="CharGrouping"/>.
+        /// </summary>
+        /// <param name="left">The first element to concatenate.</param>
+        /// <param name="right">The second element to concatenate.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static CharGrouping operator +(char left, CharGrouping right)
@@ -928,6 +971,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return CharGrouping.Create(left).Concat(Create(right));
         }
 
+        /// <summary>
+        /// Converts the current instance to the negative character group.
+        /// </summary>
+        /// <param name="value">A value</param>
+        /// <returns></returns>
         [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static CharGroup operator !(CharGrouping value)
         {
@@ -939,11 +987,21 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Patterns.NotCharacter(value);
         }
 
+        /// <summary>
+        /// Converts specified characters to an instance of the <see cref="CharGrouping"/> class.
+        /// </summary>
+        /// <param name="characters">A set of characters.</param>
+        /// <returns></returns>
         public static explicit operator CharGrouping(string characters)
         {
             return Create(characters);
         }
 
+        /// <summary>
+        /// Converts specified character to an instance of the <see cref="CharGrouping"/> class.
+        /// </summary>
+        /// <param name="value">The character.</param>
+        /// <returns></returns>
         public static explicit operator CharGrouping(char value)
         {
             return Create(value);
