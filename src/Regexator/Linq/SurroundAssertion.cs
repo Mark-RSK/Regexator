@@ -9,7 +9,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     /// A pattern consisting of a base pattern that is surrounded with patterns interpreted as lookbehind and lookahead assertion, respectively. This class cannot be inherited.
     /// </summary>
     public sealed class SurroundAssertion
-        : Pattern, INegateable<NegativeSurroundAssertion>
+        : Pattern
     {
         private readonly object _content;
         private readonly object _contentBefore;
@@ -37,36 +37,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _contentAfter = contentAfter;
         }
 
-        /// <summary>
-        /// Returns an instance of the <see cref="NegativeSurroundAssertion"/> class.
-        /// </summary>
-        /// <returns></returns>
-        public NegativeSurroundAssertion Negate()
-        {
-            return new NegativeSurroundAssertion(_contentBefore, _content, _contentAfter);
-        }
-
         internal override void AppendTo(PatternBuilder builder)
         {
             builder.AppendBackAssertion(_contentBefore);
             builder.Append(_content);
             builder.AppendAssertion(_contentAfter);
-        }
-
-        /// <summary>
-        /// Returns an instance of the <see cref="NegativeSurroundAssertion"/> class.
-        /// </summary>
-        /// <param name="value">A value to negate.</param>
-        /// <returns></returns>
-        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
-        public static NegativeSurroundAssertion operator !(SurroundAssertion value)
-        {
-            if (value == null)
-            {
-                throw new ArgumentNullException("value");
-            }
-
-            return value.Negate();
         }
     }
 }
