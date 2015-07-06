@@ -82,7 +82,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         public const string SubstituteEntireMatch = SubstitutionChar + "&";
         public const string SubstituteAfterMatch = SubstitutionChar + "'";
         public const string SubstituteBeforeMatch = SubstitutionChar + "`";
-        
+
         public static string CharClass(CharClass value)
         {
             switch (value)

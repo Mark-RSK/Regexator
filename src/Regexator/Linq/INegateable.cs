@@ -3,13 +3,13 @@
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
-    /// Supports inverting a pattern to a pattern that has an opposite meaning.
+    /// Supports negation of a pattern.
     /// </summary>
-    /// <typeparam name="TPattern">A pattern to be inverted.</typeparam>
+    /// <typeparam name="TPattern">A pattern to be negated.</typeparam>
     public interface INegateable<TPattern> where TPattern : Pattern
     {
         /// <summary>
-        /// Returns a pattern that has opposite meaning than the current instance. For example a word boundary is inverted into a non-word boundary.
+        /// Returns a pattern that is a negation of the current instance.
         /// </summary>
         /// <returns></returns>
         TPattern Negate();
