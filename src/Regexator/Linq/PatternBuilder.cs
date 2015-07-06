@@ -9,6 +9,9 @@ using System.Text.RegularExpressions;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
+    /// <summary>
+    /// Represents a class that converts an instance of the <see cref="Pattern"/> class to its text representation.
+    /// </summary>
     public sealed class PatternBuilder
     {
         private StringBuilder _sb;
@@ -40,7 +43,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Converts the value of this instance to a <see cref="String"/>
+        /// Converts the value of this instance to a <see cref="String"/>.
         /// </summary>
         /// <returns></returns>
         public override string ToString()
@@ -400,7 +403,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _currentOptions = currentOptions;
         }
 
-        public void AppendIf(object testContent, object trueContent, object falseContent)
+        /// <summary>
+        /// Appends an if construct.
+        /// </summary>
+        /// <param name="testContent">The pattern to assert.</param>
+        /// <param name="trueContent">The pattern to match if the test pattern is matched.</param>
+        /// <param name="falseContent">The pattern to match if the test pattern is not matched.</param>
+        public void AppendIfAssert(object testContent, object trueContent, object falseContent)
         {
             if (testContent == null)
             {
@@ -441,6 +450,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _currentOptions = currentOptions;
         }
 
+        /// <summary>
+        /// Appends an if construct.
+        /// </summary>
+        /// <param name="groupName">A name of the group.</param>
+        /// <param name="trueContent">The pattern to match if the named group is matched.</param>
+        /// <param name="falseContent">The pattern to match if the named group is not matched.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
         public void AppendIfGroup(string groupName, object trueContent, object falseContent)
         {
             AppendIfGroupInternal(groupName, trueContent, falseContent, true);
@@ -476,6 +493,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _currentOptions = currentOptions;
         }
 
+        /// <summary>
+        /// Appends an if construct.
+        /// </summary>
+        /// <param name="groupNumber">A number of the group.</param>
+        /// <param name="trueContent">The pattern to match if the named group is matched.</param>
+        /// <param name="falseContent">The pattern to match if the named group is not matched.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public void AppendIfGroup(int groupNumber, object trueContent, object falseContent)
         {
             if (groupNumber < 0)
@@ -518,6 +543,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             AppendGroupEnd();
         }
 
+        /// <summary>
+        /// Appends a positive lookahead assertion with a specified content.
+        /// </summary>
+        /// <param name="content">An assertion content.</param>
         public void AppendAssertion(object content)
         {
             AppendAssertionStart();
@@ -525,6 +554,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             AppendGroupEnd();
         }
 
+        /// <summary>
+        /// Appends a negative lookahead assertion with a specified content.
+        /// </summary>
+        /// <param name="content">An assertion content.</param>
         public void AppendNegativeAssertion(object content)
         {
             AppendNegativeAssertionStart();
@@ -532,6 +565,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             AppendGroupEnd();
         }
 
+        /// <summary>
+        /// Appends a positive lookbehind assertion with a specified content.
+        /// </summary>
+        /// <param name="content">An assertion content.</param>
         public void AppendBackAssertion(object content)
         {
             AppendBackAssertionStart();
@@ -539,6 +576,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             AppendGroupEnd();
         }
 
+        /// <summary>
+        /// Appends a negative lookbehind assertion with a specified content.
+        /// </summary>
+        /// <param name="content">An assertion content.</param>
         public void AppendNegativeBackAssertion(object content)
         {
             AppendNegativeBackAssertionStart();
@@ -546,41 +587,65 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             AppendGroupEnd();
         }
 
+        /// <summary>
+        /// Appends a pattern that matches the beginning of the string.
+        /// </summary>
         public void AppendStartOfInput()
         {
             _sb.Append(Syntax.StartOfInput);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches the beginning of the string (or line if the multiline option is applied).
+        /// </summary>
         public void AppendStartOfLine()
         {
             _sb.Append(Syntax.StartOfLine);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches the end of the string.
+        /// </summary>
         public void AppendEndOfInput()
         {
             _sb.Append(Syntax.EndOfInput);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches the end of the string (or line if the multiline option is applied).
+        /// </summary>
         public void AppendEndOfLine()
         {
             _sb.Append(Syntax.EndOfLine);
         }
 
+        /// <summary>
+        /// Appends a pattern that is matched at the end of the string or before linefeed at the end of the string.
+        /// </summary>
         public void AppendEndOrBeforeEndingNewLine()
         {
             _sb.Append(Syntax.EndOrBeforeEndingNewLine);
         }
 
+        /// <summary>
+        /// Appends a pattern that is matched on a boundary between a word character (\w) and a non-word character (\W). The match may also occur on a word boundary at the beginning or end of the string.
+        /// </summary>
         public void AppendWordBoundary()
         {
             _sb.Append(Syntax.WordBoundary);
         }
 
+        /// <summary>
+        /// Appends a pattern that is not matched on a boundary between a word character (\w) and a non-word character (\W).
+        /// </summary>
         public void AppendNegativeWordBoundary()
         {
             _sb.Append(Syntax.NegativeWordBoundary);
         }
 
+        /// <summary>
+        /// Appends a pattern that is matched at the position where the previous match ended.
+        /// </summary>
         public void AppendPreviousMatchEnd()
         {
             _sb.Append(Syntax.PreviousMatchEnd);
@@ -606,7 +671,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _sb.Append(Syntax.NegativeBackAssertionStart);
         }
 
-        public void AppendOr()
+        internal void AppendOr()
         {
             _sb.Append(Syntax.Or);
         }

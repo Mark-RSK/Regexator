@@ -24,7 +24,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Creates and returns a new instance of the <see cref="CharGrouping"/> class containing specified characters.
         /// </summary>
-        /// <param name="characters">A set of characters.</param>
+        /// <param name="characters">A set of Unicode characters.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentException"></exception>
@@ -189,7 +189,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Appends a pattern that matches any one of the specified characters.
         /// </summary>
-        /// <param name="characters">A set of characters.</param>
+        /// <param name="characters">A set of Unicode characters.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public CharGrouping Concat(string characters)
@@ -990,7 +990,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Converts specified characters to an instance of the <see cref="CharGrouping"/> class.
         /// </summary>
-        /// <param name="characters">A set of characters.</param>
+        /// <param name="characters">A set of Unicode characters.</param>
         /// <returns></returns>
         public static explicit operator CharGrouping(string characters)
         {

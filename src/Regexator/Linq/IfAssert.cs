@@ -30,7 +30,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal override void AppendTo(PatternBuilder builder)
         {
-            builder.AppendIf(_testContent, _trueContent, _falseContent);
+            builder.AppendIfAssert(_testContent, _trueContent, _falseContent);
         }
     }
 }

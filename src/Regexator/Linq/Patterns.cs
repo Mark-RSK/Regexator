@@ -46,7 +46,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Returns an if construct with the specified pattern to test and a pattern to match if the test pattern is matched.
         /// </summary>
-        /// <param name="testContent">The test pattern to match.</param>
+        /// <param name="testContent">The pattern to assert.</param>
         /// <param name="trueContent">The pattern to match if the test pattern is matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
@@ -58,7 +58,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Returns an if construct with the specified pattern to test and a pattern to match if the test pattern is matched and a pattern to match if the test pattern is not matched.
         /// </summary>
-        /// <param name="testContent">The test pattern to match.</param>
+        /// <param name="testContent">The pattern to assert.</param>
         /// <param name="trueContent">The pattern to match if the test pattern is matched.</param>
         /// <param name="falseContent">The pattern to match if the test pattern is not matched.</param>
         /// <returns></returns>
@@ -285,6 +285,15 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
+        /// Returns a pattern that is matched at the end of the string.
+        /// </summary>
+        /// <returns></returns>
+        public static QuantifiablePattern EndOfInput()
+        {
+            return new EndOfInput();
+        }
+
+        /// <summary>
         /// Returns a pattern that is matched at the end of the string (or line if the multiline option is applied).
         /// </summary>
         /// <returns></returns>
@@ -321,15 +330,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that is matched at the end of the string.
-        /// </summary>
-        /// <returns></returns>
-        public static QuantifiablePattern EndOfInput()
-        {
-            return new EndOfInput();
-        }
-
-        /// <summary>
         /// Returns a pattern that is matched at the end of the string or before linefeed at the end of the string.
         /// </summary>
         /// <returns></returns>
@@ -348,8 +348,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that is matched on a boundary between a word character (\w) and a non-word character (\W).
-        /// The match may also occur on a word boundary at the beginning or end of the string.
+        /// Returns a pattern that is matched on a boundary between a word character (\w) and a non-word character (\W). The match may also occur on a word boundary at the beginning or end of the string.
         /// </summary>
         /// <returns></returns>
         public static WordBoundary WordBoundary()
@@ -975,7 +974,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches any one of the specified characters.
+        /// Returns a character group created from specified characters.
         /// </summary>
         /// <param name="characters">A set of characters any one of which has to be matched.</param>
         /// <returns></returns>
@@ -986,6 +985,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return CharGroup.Create(characters, false);
         }
 
+        /// <summary>
+        /// Returns a character group created from a specified <see cref="CharGrouping"/>.
+        /// </summary>
+        /// <param name="value">A content of a character group.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static CharGroup Character(CharGrouping value)
         {
             return CharGroup.Create(value, false);
@@ -1041,11 +1046,24 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return CharPattern.Create(category, true);
         }
 
+        /// <summary>
+        /// Returns a negative character group created from specified characters.
+        /// </summary>
+        /// <param name="characters">A set of Unicode characters none of which can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
         public static CharGroup NotCharacter(string characters)
         {
             return CharGroup.Create(characters, true);
         }
 
+        /// <summary>
+        /// Returns a negative character group created from a specified <see cref="CharGrouping"/>.
+        /// </summary>
+        /// <param name="value">A content of a character group.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static CharGroup NotCharacter(CharGrouping value)
         {
             return CharGroup.Create(value, true);
@@ -4860,7 +4878,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Returns a pattern that matches a specified character zero or many times.
         /// </summary>
-        /// <param name="value">A set of characters.</param>
+        /// <param name="value">A set of Unicode characters.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static QuantifiedPattern WhileChar(CharGrouping value)
@@ -4900,7 +4918,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Returns a pattern that matches a character that is not a specified character zero or many times.
         /// </summary>
-        /// <param name="value">A set of characters.</param>
+        /// <param name="value">A set of Unicode characters.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static QuantifiedPattern WhileNotChar(CharGrouping value)
@@ -4984,33 +5002,57 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return NotAssertBack(CarriageReturn()).Linefeed().AsNonbacktrackingGroup();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern LeadingWhiteSpace()
         {
             return StartOfLine().WhiteSpaceExceptNewLine().OneMany().AsNonbacktrackingGroup();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern TrailingWhiteSpace()
         {
             return WhiteSpaceExceptNewLine().OneMany().EndOfLineOrBeforeCarriageReturn().AsNonbacktrackingGroup();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern LeadingTrailingWhiteSpace()
         {
             return Any(LeadingWhiteSpace(), TrailingWhiteSpace());
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern WhiteSpaceLine()
         {
             return StartOfLineInvariant().WhiteSpaceExceptNewLine().MaybeMany().NewLine() |
                 NewLine().Assert(WhiteSpace().MaybeMany().EndOfInput());
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern EmptyLine()
         {
             return StartOfLineInvariant().NewLine() |
                 NewLine().Assert(NewLine().MaybeMany().EndOfInput());
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static QuantifiablePattern FirstLine()
         {
             return StartOfInput().NotNewLineChar().MaybeMany().AsNonbacktrackingGroup();

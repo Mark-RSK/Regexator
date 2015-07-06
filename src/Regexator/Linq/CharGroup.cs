@@ -138,7 +138,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Converts specified characters to an instance of the <see cref="CharGroup"/> class.
         /// </summary>
-        /// <param name="characters">A set of characters.</param>
+        /// <param name="characters">A set of Unicode characters.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentException"></exception>
