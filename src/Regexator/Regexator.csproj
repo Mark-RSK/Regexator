@@ -124,7 +124,7 @@
     <Compile Include="Core\NamedBlock.cs" />
     <Compile Include="Core\GeneralCategory.cs" />
     <Compile Include="Core\CharMatchInfo.cs" />
-    <Compile Include="Core\RegexUtilities.cs" />
+    <Compile Include="Core\RegexUtility.cs" />
     <Compile Include="Linq\AnyChar.cs" />
     <Compile Include="Core\CaptureItemEqualityComparer.cs" />
     <Compile Include="Core\SplitItemKind.cs" />

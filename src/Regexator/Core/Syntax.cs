@@ -134,7 +134,7 @@ namespace Pihrtsoft.Text.RegularExpressions
 
         public static string GroupReference(string groupName, IdentifierBoundary separator)
         {
-            RegexUtilities.CheckGroupName(groupName);
+            RegexUtility.CheckGroupName(groupName);
 
             return GroupReferenceInternal(groupName, separator);
         }
@@ -154,7 +154,7 @@ namespace Pihrtsoft.Text.RegularExpressions
 
         public static string NamedGroup(string groupName, IdentifierBoundary boundary, object content)
         {
-            RegexUtilities.CheckGroupName(groupName);
+            RegexUtility.CheckGroupName(groupName);
 
             return NamedGroupStart(groupName, boundary) + Pattern.GetPattern(content) + GroupEnd;
         }
@@ -178,8 +178,8 @@ namespace Pihrtsoft.Text.RegularExpressions
 
         public static string BalancingGroup(string name1, string name2, IdentifierBoundary separator, object content)
         {
-            RegexUtilities.CheckGroupName(name1, "name1");
-            RegexUtilities.CheckGroupName(name2, "name2");
+            RegexUtility.CheckGroupName(name1, "name1");
+            RegexUtility.CheckGroupName(name2, "name2");
 
             return BalancingGroupStart(name1, name2, separator) + Pattern.GetPattern(content) + GroupEnd;
         }
@@ -268,12 +268,12 @@ namespace Pihrtsoft.Text.RegularExpressions
 
         public static string GroupOptions(RegexOptions applyOptions, RegexOptions disableOptions, object content)
         {
-            if (!RegexUtilities.IsValidInlineOptions(applyOptions))
+            if (!RegexUtility.IsValidInlineOptions(applyOptions))
             {
                 throw new ArgumentNullException("applyOptions");
             }
 
-            if (!RegexUtilities.IsValidInlineOptions(disableOptions))
+            if (!RegexUtility.IsValidInlineOptions(disableOptions))
             {
                 throw new ArgumentNullException("disableOptions");
             }
@@ -304,7 +304,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                 throw new ArgumentNullException("characters");
             }
 
-            return CharGroupInternal(RegexUtilities.Escape(characters, true), negative);
+            return CharGroupInternal(RegexUtility.Escape(characters, true), negative);
         }
 
         internal static string CharGroupInternal(string characters, bool negative)
@@ -360,7 +360,7 @@ namespace Pihrtsoft.Text.RegularExpressions
 
         public static string Character(char value, bool inCharGroup)
         {
-            return RegexUtilities.EscapeInternal((int)value, inCharGroup);
+            return RegexUtility.EscapeInternal((int)value, inCharGroup);
         }
 
         public static string Character(int charCode)
@@ -370,7 +370,7 @@ namespace Pihrtsoft.Text.RegularExpressions
 
         public static string Character(int charCode, bool inCharGroup)
         {
-            return RegexUtilities.Escape(charCode, inCharGroup);
+            return RegexUtility.Escape(charCode, inCharGroup);
         }
 
         public static string Character(AsciiChar value)
@@ -380,7 +380,7 @@ namespace Pihrtsoft.Text.RegularExpressions
 
         public static string Character(AsciiChar value, bool inCharGroup)
         {
-            return RegexUtilities.EscapeInternal((int)value, inCharGroup);
+            return RegexUtility.EscapeInternal((int)value, inCharGroup);
         }
 
         public static string Character(char value)
@@ -540,12 +540,12 @@ namespace Pihrtsoft.Text.RegularExpressions
 
         public static string Options(RegexOptions applyOptions, RegexOptions disableOptions)
         {
-            if (!RegexUtilities.IsValidInlineOptions(applyOptions))
+            if (!RegexUtility.IsValidInlineOptions(applyOptions))
             {
                 throw new ArgumentNullException("applyOptions");
             }
 
-            if (!RegexUtilities.IsValidInlineOptions(disableOptions))
+            if (!RegexUtility.IsValidInlineOptions(disableOptions))
             {
                 throw new ArgumentNullException("disableOptions");
             }
@@ -940,7 +940,7 @@ namespace Pihrtsoft.Text.RegularExpressions
 
         public static string SubstituteNamedGroup(string groupName)
         {
-            RegexUtilities.CheckGroupName(groupName);
+            RegexUtility.CheckGroupName(groupName);
 
             return SubstituteNamedGroupInternal(groupName);
         }

@@ -19,12 +19,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public GroupOptions(RegexOptions applyOptions, RegexOptions disableOptions, object content)
             : base(content)
         {
-            if (!RegexUtilities.IsValidInlineOptions(applyOptions))
+            if (!RegexUtility.IsValidInlineOptions(applyOptions))
             {
                 throw new ArgumentNullException("applyOptions");
             }
 
-            if (!RegexUtilities.IsValidInlineOptions(disableOptions))
+            if (!RegexUtility.IsValidInlineOptions(disableOptions))
             {
                 throw new ArgumentNullException("disableOptions");
             }

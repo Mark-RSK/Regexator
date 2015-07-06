@@ -13,7 +13,7 @@ using Pihrtsoft.Text.RegularExpressions.Linq;
 
 namespace Pihrtsoft.Text.RegularExpressions
 {
-    public static class RegexUtilities
+    public static class RegexUtility
     {
         /// <summary>
         /// Represents the bitwise combination of all values from the <see cref="InlineOptions"/> enumeration. This field is read-only.

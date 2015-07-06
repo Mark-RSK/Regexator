@@ -65,7 +65,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
                 for (int i = 0; i < value.Length; i++)
                 {
-                    mode = RegexUtilities.GetEscapeMode((int)value[i], inCharGroup);
+                    mode = RegexUtility.GetEscapeMode((int)value[i], inCharGroup);
                     if (mode != CharEscapeMode.None)
                     {
                         char ch = value[i];
@@ -74,14 +74,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
                         do
                         {
-                            RegexUtilities.AppendEscape(ch, mode, _sb);
+                            RegexUtility.AppendEscape(ch, mode, _sb);
                             i++;
                             lastPos = i;
 
                             while (i < value.Length)
                             {
                                 ch = value[i];
-                                mode = RegexUtilities.GetEscapeMode((int)ch, inCharGroup);
+                                mode = RegexUtility.GetEscapeMode((int)ch, inCharGroup);
 
                                 if (mode != CharEscapeMode.None)
                                 {
@@ -165,7 +165,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal void AppendInternal(int value, bool inCharGroup)
         {
-            switch (RegexUtilities.GetEscapeMode(value, inCharGroup))
+            switch (RegexUtility.GetEscapeMode(value, inCharGroup))
             {
                 case CharEscapeMode.None:
                     _sb.Append((char)value);
@@ -450,7 +450,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (checkGroupName)
             {
-                RegexUtilities.CheckGroupName(groupName);
+                RegexUtility.CheckGroupName(groupName);
             }
 
             if (trueContent == null)
@@ -688,7 +688,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("content");
             }
 
-            RegexUtilities.CheckGroupName(groupName);
+            RegexUtility.CheckGroupName(groupName);
 
             AppendNamedGroupInternal(groupName, content);
         }
@@ -1253,12 +1253,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (applyOptions != RegexOptions.None || disableOptions != RegexOptions.None)
             {
-                if (!RegexUtilities.IsValidInlineOptions(applyOptions))
+                if (!RegexUtility.IsValidInlineOptions(applyOptions))
                 {
                     throw new ArgumentNullException("applyOptions");
                 }
 
-                if (!RegexUtilities.IsValidInlineOptions(disableOptions))
+                if (!RegexUtility.IsValidInlineOptions(disableOptions))
                 {
                     throw new ArgumentNullException("disableOptions");
                 }
@@ -1279,12 +1279,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal void AppendOptions(RegexOptions applyOptions, RegexOptions disableOptions, object content)
         {
-            if (!RegexUtilities.IsValidInlineOptions(applyOptions))
+            if (!RegexUtility.IsValidInlineOptions(applyOptions))
             {
                 throw new ArgumentNullException("applyOptions");
             }
 
-            if (!RegexUtilities.IsValidInlineOptions(disableOptions))
+            if (!RegexUtility.IsValidInlineOptions(disableOptions))
             {
                 throw new ArgumentNullException("disableOptions");
             }

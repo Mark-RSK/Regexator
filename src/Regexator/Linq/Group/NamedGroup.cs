@@ -17,7 +17,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (checkGroupName)
             {
-                RegexUtilities.CheckGroupName(name);
+                RegexUtility.CheckGroupName(name);
             }
 
             _name = name;

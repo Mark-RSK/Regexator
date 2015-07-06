@@ -18,12 +18,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public Options(RegexOptions applyOptions, RegexOptions disableOptions)
         {
-            if (!RegexUtilities.IsValidInlineOptions(applyOptions))
+            if (!RegexUtility.IsValidInlineOptions(applyOptions))
             {
                 throw new ArgumentNullException("applyOptions");
             }
 
-            if (!RegexUtilities.IsValidInlineOptions(disableOptions))
+            if (!RegexUtility.IsValidInlineOptions(disableOptions))
             {
                 throw new ArgumentNullException("disableOptions");
             }

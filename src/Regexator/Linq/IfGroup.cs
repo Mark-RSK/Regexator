@@ -14,7 +14,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public IfGroup(string groupName, object trueContent, object falseContent)
         {
-            RegexUtilities.CheckGroupName(groupName);
+            RegexUtility.CheckGroupName(groupName);
 
             if (trueContent == null)
             {

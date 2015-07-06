@@ -9,7 +9,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public GroupNameReference(string groupName)
         {
-            RegexUtilities.CheckGroupName(groupName);
+            RegexUtility.CheckGroupName(groupName);
 
             _groupName = groupName;
         }

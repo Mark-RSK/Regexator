@@ -13,7 +13,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             internal NamedGroupSubstitution(string groupName)
             {
-                RegexUtilities.CheckGroupName(groupName);
+                RegexUtility.CheckGroupName(groupName);
 
                 _groupName = groupName;
             }
@@ -111,7 +111,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             internal override string Value
             {
-                get { return RegexUtilities.EscapeSubstitution(_text); }
+                get { return RegexUtility.EscapeSubstitution(_text); }
             }
         }
     }
