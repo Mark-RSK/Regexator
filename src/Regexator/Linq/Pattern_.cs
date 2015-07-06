@@ -8,7 +8,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public abstract partial class Pattern
     {
-        public TPattern Not<TPattern>(INegate<TPattern> value) where TPattern : Pattern
+        public TPattern Not<TPattern>(INegateable<TPattern> value) where TPattern : Pattern
         {
             return ConcatInternal(Patterns.Not(value));
         }

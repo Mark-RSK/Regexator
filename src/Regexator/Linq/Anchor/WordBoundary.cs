@@ -10,7 +10,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     /// The match may also occur on a word boundary at the beginning or end of the string. This class cannot be inherited.
     /// </summary>
     public sealed class WordBoundary
-        : QuantifiablePattern, INegate<NegativeWordBoundary>
+        : QuantifiablePattern, INegateable<NegativeWordBoundary>
     {
         /// <summary>
         /// Returns an instance of the <see cref="NegativeWordBoundary"/> class.

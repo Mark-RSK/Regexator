@@ -63,7 +63,7 @@
     <Compile Include="Core\CharEscapeMode.cs" />
     <Compile Include="Linq\CharGrouping_.cs" />
     <Compile Include="Linq\QuantifiedGroup_.cs" />
-    <Compile Include="Linq\INegate.cs" />
+    <Compile Include="Linq\INegateable.cs" />
     <Compile Include="Linq\NegativeSurroundAssertion.cs" />
     <Compile Include="Linq\OrContainer.cs" />
     <Compile Include="Linq\JoinContainer.cs" />
