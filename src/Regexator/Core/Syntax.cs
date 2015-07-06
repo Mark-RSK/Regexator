@@ -270,12 +270,12 @@ namespace Pihrtsoft.Text.RegularExpressions
         {
             if (!RegexUtility.IsValidInlineOptions(applyOptions))
             {
-                throw new ArgumentNullException("applyOptions");
+                throw new ArgumentException("RegexOptions value cannot be expressed as a combination of inline characters.", "applyOptions");
             }
 
             if (!RegexUtility.IsValidInlineOptions(disableOptions))
             {
-                throw new ArgumentNullException("disableOptions");
+                throw new ArgumentException("RegexOptions value cannot be expressed as a combination of inline characters.", "disableOptions");
             }
 
             if (content == null)
@@ -537,12 +537,12 @@ namespace Pihrtsoft.Text.RegularExpressions
         {
             if (!RegexUtility.IsValidInlineOptions(applyOptions))
             {
-                throw new ArgumentNullException("applyOptions");
+                throw new ArgumentException("RegexOptions value cannot be expressed as a combination of inline characters.", "applyOptions");
             }
 
             if (!RegexUtility.IsValidInlineOptions(disableOptions))
             {
-                throw new ArgumentNullException("disableOptions");
+                throw new ArgumentException("RegexOptions value cannot be expressed as a combination of inline characters.", "disableOptions");
             }
 
             string options = GetInlineChars(applyOptions, disableOptions);
