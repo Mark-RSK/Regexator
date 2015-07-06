@@ -676,11 +676,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _sb.Append(Syntax.Or);
         }
 
-        internal void AppendAny(object content)
-        {
-            AppendAny(content, GroupMode.NoncapturingGroup);
-        }
-
         internal void AppendAny(object content, GroupMode mode)
         {
             if (mode == GroupMode.Group)
@@ -904,11 +899,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _sb.Append(negative
                 ? Syntax.NegativeCharGroupStart
                 : Syntax.CharGroupStart);
-        }
-
-        internal void AppendNegativeCharGroupStart()
-        {
-            AppendCharGroupStart(true);
         }
 
         internal void AppendCharGroupEnd()
