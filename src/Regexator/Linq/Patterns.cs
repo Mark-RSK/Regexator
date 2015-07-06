@@ -294,7 +294,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that is matched at the end of the string (or line if the multiline option is applied).
+        /// Returns a pattern that is matched at the end of the string (or line if the multiline option is applied). End of line is defined as the position before a linefeed.
         /// </summary>
         /// <returns></returns>
         public static QuantifiablePattern EndOfLine()
@@ -303,7 +303,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that is matched at the end of line.
+        /// Returns a pattern that is matched at the end of the string or line. End of line is defined as the position before a linefeed.
         /// </summary>
         /// <returns></returns>
         public static QuantifiablePattern EndOfLineInvariant()
@@ -312,7 +312,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that is matched before carriage return at the end of the string (or line if the multiline option is applied) or at the end of the string (or line if the multiline option is applied).
+        /// Returns a pattern that is matched (before carriage return) at the end of the string (or (before carriage return) at the end of line if the multiline option is applied). End of line is defined as the position before a linefeed.
         /// </summary>
         /// <returns></returns>
         public static Pattern EndOfLineOrBeforeCarriageReturn()
@@ -321,7 +321,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that is matched before carriage return at the end of line or at the end of line.
+        /// Returns a pattern that is matched (before carriage return) at the end of the string or line. End of line is defined as the position before a linefeed.
         /// </summary>
         /// <returns></returns>
         public static Pattern EndOfLineOrBeforeCarriageReturnInvariant()
@@ -408,7 +408,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches any one pattern surrounded with the beginning and the end of the string (or line if the multiline option is applied).
+        /// Returns a pattern that matches any one pattern surrounded with the beginning and the end of the string (or line if the multiline option is applied). End of line is defined as the position before a linefeed.
         /// </summary>
         /// <param name="content">An object array that contains zero or more values any one of which has to be matched.</param>
         /// <returns></returns>
@@ -419,7 +419,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a specified content surrounded with the beginning and the end of line.
+        /// Returns a pattern that matches a specified content surrounded with the beginning and the end of string or line. End of line is defined as the position before a linefeed.
         /// </summary>
         /// <param name="content">The content to be matched.</param>
         /// <returns></returns>
