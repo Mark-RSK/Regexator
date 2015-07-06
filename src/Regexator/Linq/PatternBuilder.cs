@@ -1400,34 +1400,39 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _sb.Append('(');
         }
 
-        private void AppendStartCurlyBracket()
+        internal void AppendStartCurlyBracket()
         {
             _sb.Append('{');
         }
 
-        private void AppendEndCurlyBracket()
+        internal void AppendEndCurlyBracket()
         {
             _sb.Append('}');
         }
 
-        private void AppendComma()
+        internal void AppendComma()
         {
             _sb.Append(',');
         }
 
-        private void AppendColon()
+        internal void AppendColon()
         {
             _sb.Append(':');
         }
 
-        private void AppendHyphen()
+        internal void AppendHyphen()
         {
             _sb.Append('-');
         }
 
-        private void AppendBackslash()
+        internal void AppendBackslash()
         {
             _sb.Append('\\');
+        }
+
+        internal void AppendCircumflexAccent()
+        {
+            _sb.Append('^');
         }
 
         public void AppendAsciiHexadecimal(int charCode)

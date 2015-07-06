@@ -39,15 +39,15 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             var values = new string[] { "one", "two", "three" };
 
-            Console.WriteLine("multiple words");
-            Console.WriteLine(
-                Patterns.WordBoundary()
-                .Count(3,
-                    Patterns.Any(values.Select(f => Patterns.Group(f)))
-                    .WordBoundary()
-                    .NotWordChar().MaybeMany().Lazy())
-                .RequireGroups(1, 2, 3));
-            Console.WriteLine("");
+            //Console.WriteLine("multiple words");
+            //Console.WriteLine(
+            //    Patterns.WordBoundary()
+            //    .Count(3,
+            //        Patterns.Any(values.Select(f => Patterns.Group(f)))
+            //        .WordBoundary()
+            //        .NotWordChar().MaybeMany().Lazy())
+            //    .RequireGroups(1, 2, 3));
+            //Console.WriteLine("");
 
             Console.WriteLine("multiple words 2");
             Console.WriteLine(

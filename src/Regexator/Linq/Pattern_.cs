@@ -13,46 +13,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Patterns.Not(value));
         }
 
-        public QuantifiablePattern DisallowGroup(string groupName)
-        {
-            return ConcatInternal(Patterns.DisallowGroup(groupName));
-        }
-
-        public Pattern DisallowGroups(params string[] groupNames)
-        {
-            return ConcatInternal(Patterns.DisallowGroups(groupNames));
-        }
-
-        public QuantifiablePattern DisallowGroup(int groupNumber)
-        {
-            return ConcatInternal(Patterns.DisallowGroup(groupNumber));
-        }
-
-        public Pattern DisallowGroups(params int[] groupNumbers)
-        {
-            return ConcatInternal(Patterns.DisallowGroups(groupNumbers));
-        }
-
-        public QuantifiablePattern RequireGroup(string groupName)
-        {
-            return ConcatInternal(Patterns.RequireGroup(groupName));
-        }
-
-        public Pattern RequireGroups(params string[] groupNames)
-        {
-            return ConcatInternal(Patterns.RequireGroups(groupNames));
-        }
-
-        public QuantifiablePattern RequireGroup(int groupNumber)
-        {
-            return ConcatInternal(Patterns.RequireGroup(groupNumber));
-        }
-
-        public Pattern RequireGroups(params int[] groupNumbers)
-        {
-            return ConcatInternal(Patterns.RequireGroups(groupNumbers));
-        }
-
         public QuantifiablePattern Any(IEnumerable<object> content)
         {
             return ConcatInternal(Patterns.Any(content));
@@ -483,11 +443,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public QuantifiablePattern Subtract(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
         {
             return ConcatInternal(Patterns.Subtract(baseGroup, excludedGroup));
-        }
-
-        public QuantifiablePattern NotSubtract(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
-        {
-            return ConcatInternal(Patterns.NotSubtract(baseGroup, excludedGroup));
         }
 
         public QuantifiablePattern WhiteSpaceExceptNewLine()

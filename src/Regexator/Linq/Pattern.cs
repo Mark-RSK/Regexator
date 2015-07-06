@@ -15,7 +15,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     public abstract partial class Pattern
     {
         private string _value;
-        internal static readonly Pattern Empty = new LiteralPattern();
 
         /// <summary>
         /// Creates and returns a new instance of the <see cref="Pattern"/> class.

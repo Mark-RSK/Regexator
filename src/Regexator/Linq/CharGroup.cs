@@ -9,7 +9,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     /// Represents a positive or a negative character group pattern. This class is abstract.
     /// </summary>
     public abstract partial class CharGroup
-        : QuantifiablePattern, IExcludedGroup, INegate<CharGroup>
+        : QuantifiablePattern, IBaseGroup, IExcludedGroup, INegate<CharGroup>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CharGroup"/> class.
@@ -76,7 +76,27 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         internal abstract void AppendContentTo(PatternBuilder builder);
 
         /// <summary>
-        /// Appends the text representation of the current instance of the character group to the specified <see cref="PatternBuilder"/>.
+        /// Appends the text representation of the content of the current instance to the specified <see cref="PatternBuilder"/>.
+        /// </summary>
+        /// <param name="builder">The builder to use for appending the character group text.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public void AppendBaseGroupTo(PatternBuilder builder)
+        {
+            if (builder == null)
+            {
+                throw new ArgumentNullException("builder");
+            }
+
+            if (Negative)
+            {
+                builder.AppendCircumflexAccent();
+            }
+
+            AppendContentTo(builder);
+        }
+
+        /// <summary>
+        /// Appends the text representation of the current instance to the specified <see cref="PatternBuilder"/>.
         /// </summary>
         /// <param name="builder">The builder to use for appending the character group text.</param>
         /// <exception cref="ArgumentNullException"></exception>

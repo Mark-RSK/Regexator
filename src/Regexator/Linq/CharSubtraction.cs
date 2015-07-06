@@ -9,7 +9,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     /// Represents a character subtraction pattern.
     /// </summary>
     public class CharSubtraction
-        : QuantifiablePattern, IExcludedGroup, INegate<NegativeCharSubtraction>
+        : QuantifiablePattern, IExcludedGroup
     {
         private readonly IBaseGroup _baseGroup;
         private readonly IExcludedGroup _excludedGroup;
@@ -31,15 +31,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a negative character subtraction that has the same content as the current instance./>
-        /// </summary>
-        /// <returns></returns>
-        public NegativeCharSubtraction Negate()
-        {
-            return new NegativeCharSubtraction(_baseGroup, _excludedGroup);
-        }
-
-        /// <summary>
         /// Appends the text representation of the current instance of the character subtraction to the specified <see cref="PatternBuilder"/>.
         /// </summary>
         /// <param name="builder">The builder to use for appending the character subtraction text.</param>
@@ -57,22 +48,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         internal override void AppendTo(PatternBuilder builder)
         {
             builder.AppendSubtraction(_baseGroup, _excludedGroup);
-        }
-
-        /// <summary>
-        /// Returns a negative character subtraction that has the same content as the current instance./>
-        /// </summary>
-        /// <param name="value">A value to negate.</param>
-        /// <returns></returns>
-        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
-        public static NegativeCharSubtraction operator !(CharSubtraction value)
-        {
-            if (value == null)
-            {
-                throw new ArgumentNullException("value");
-            }
-
-            return value.Negate();
         }
     }
 }
