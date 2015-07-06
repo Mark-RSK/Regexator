@@ -51,8 +51,9 @@ namespace Pihrtsoft.Text.RegularExpressions
         public const string CarriageReturn = @"\r";
         public const string Escape = @"\e";
 
+        internal const string CharGroupNegation = "^";
         internal const string CharGroupStart = "[";
-        internal const string NegativeCharGroupStart = "[^";
+        internal const string NegativeCharGroupStart = CharGroupStart + CharGroupNegation;
         internal const string CharGroupEnd = "]";
 
         internal const string AsciiStart = @"\x";
@@ -64,10 +65,10 @@ namespace Pihrtsoft.Text.RegularExpressions
         internal const string HexUnicodeStart = @"\u";
         internal const string UnicodeEnd = "}";
 
-        public const string Maybe = "?";
-        public const string MaybeMany = "*";
-        public const string OneMany = "+";
-        public const string Lazy = "?";
+        public const string MaybeQuantifier = "?";
+        public const string MaybeManyQuantifier = "*";
+        public const string OneManyQuantifier = "+";
+        public const string LazyQuantifier = "?";
 
         public const char IgnoreCaseChar = 'i';
         public const char MultilineChar = 'm';

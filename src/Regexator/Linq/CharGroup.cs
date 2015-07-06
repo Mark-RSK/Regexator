@@ -78,7 +78,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Appends the text representation of the content of the current instance to the specified <see cref="PatternBuilder"/>.
         /// </summary>
-        /// <param name="builder">The builder to use for appending the character group text.</param>
+        /// <param name="builder">The builder to use for appending the text.</param>
         /// <exception cref="ArgumentNullException"></exception>
         public void AppendBaseGroupTo(PatternBuilder builder)
         {
@@ -89,7 +89,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (Negative)
             {
-                builder.AppendCircumflexAccent();
+                builder.AppendCharGroupNegation();
             }
 
             AppendContentTo(builder);
@@ -98,7 +98,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Appends the text representation of the current instance to the specified <see cref="PatternBuilder"/>.
         /// </summary>
-        /// <param name="builder">The builder to use for appending the character group text.</param>
+        /// <param name="builder">The builder to use for appending the text.</param>
         /// <exception cref="ArgumentNullException"></exception>
         public void AppendExcludedGroupTo(PatternBuilder builder)
         {

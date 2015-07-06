@@ -65,14 +65,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Appends the current instance to a specified <see cref="PatternBuilder"/>. The current instance is interpreted as a part of the character group.
         /// </summary>
-        /// <param name="builder">The builder to use for appending the current instance.</param>
+        /// <param name="builder">The builder to use for appending the text.</param>
         /// <exception cref="ArgumentNullException"></exception>
         protected virtual void AppendGroupContentTo(PatternBuilder builder)
         {
             if (builder == null)
-	        {
-		        throw new ArgumentNullException("builder");
-	        }
+            {
+                throw new ArgumentNullException("builder");
+            }
 
             AppendTo(builder);
         }
@@ -80,7 +80,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Appends the text representation of the current instance of the character pattern to the specified <see cref="PatternBuilder"/>.
         /// </summary>
-        /// <param name="builder">The builder to use for appending the character pattern text.</param>
+        /// <param name="builder">The builder to use for appending the text.</param>
         /// <exception cref="ArgumentNullException"></exception>
         public void AppendBaseGroupTo(PatternBuilder builder)
         {
@@ -95,7 +95,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Appends the text representation of the character group containing the current instance to the specified <see cref="PatternBuilder"/>.
         /// </summary>
-        /// <param name="builder">The builder to use for appending the character group text.</param>
+        /// <param name="builder">The builder to use for appending the text.</param>
         /// <exception cref="ArgumentNullException"></exception>
         public void AppendExcludedGroupTo(PatternBuilder builder)
         {

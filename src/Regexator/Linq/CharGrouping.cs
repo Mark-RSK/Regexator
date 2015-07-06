@@ -803,13 +803,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Appends a core content of the current instance to a specified <see cref="PatternBuilder"/>.
         /// </summary>
-        /// <param name="builder">The builder to use for appending the core content.</param>
+        /// <param name="builder">The builder to use for appending the text.</param>
         protected abstract void AppendItemContentTo(PatternBuilder builder);
 
         /// <summary>
         /// Appends the text representation of the current instance of the character grouping to the specified <see cref="PatternBuilder"/>.
         /// </summary>
-        /// <param name="builder">The builder to use for appending the character grouping text.</param>
+        /// <param name="builder">The builder to use for appending the text.</param>
         /// <exception cref="ArgumentNullException"></exception>
         public void AppendBaseGroupTo(PatternBuilder builder)
         {
@@ -824,7 +824,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Appends the text representation of the character group containing the current instance to the specified <see cref="PatternBuilder"/>.
         /// </summary>
-        /// <param name="builder">The builder to use for appending the character group text.</param>
+        /// <param name="builder">The builder to use for appending the text.</param>
         /// <exception cref="ArgumentNullException"></exception>
         public void AppendExcludedGroupTo(PatternBuilder builder)
         {

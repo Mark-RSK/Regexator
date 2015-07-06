@@ -30,7 +30,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Appends a quantifier to a specified <see cref="PatternBuilder"/>.
         /// </summary>
-        /// <param name="builder">The builder to use for appending a quantifier.</param>
+        /// <param name="builder">The builder to use for appending the text.</param>
         protected abstract void AppendQuantifierTo(PatternBuilder builder);
 
         internal override void AppendTo(PatternBuilder builder)

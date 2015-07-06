@@ -268,11 +268,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return builder.ToString();
         }
 
-        internal static string GetPattern(object content)
-        {
-            return GetPattern(content, new PatternSettings());
-        }
-
         internal static string GetPattern(object content, PatternSettings settings)
         {
             var builder = new PatternBuilder(settings);

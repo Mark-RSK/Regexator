@@ -10,7 +10,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Appends the text representation of the base group to the specified <see cref="PatternBuilder"/>.
         /// </summary>
-        /// <param name="builder">The builder to use for appending the base group text.</param>
+        /// <param name="builder">The builder to use for appending the text.</param>
         void AppendBaseGroupTo(PatternBuilder builder);
     }
 }

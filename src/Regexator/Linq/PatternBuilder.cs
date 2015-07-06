@@ -1242,7 +1242,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="lazy">Indicates whether the quantifier will be greedy or lazy.</param>
         public void AppendMaybe(bool lazy)
         {
-            _sb.Append(Syntax.Maybe);
+            _sb.Append(Syntax.MaybeQuantifier);
 
             if (lazy)
             {
@@ -1264,7 +1264,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="lazy">Indicates whether the quantifier will be greedy or lazy.</param>
         public void AppendMaybeMany(bool lazy)
         {
-            _sb.Append(Syntax.MaybeMany);
+            _sb.Append(Syntax.MaybeManyQuantifier);
 
             if (lazy)
             {
@@ -1286,7 +1286,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="lazy">Indicates whether the quantifier will be greedy or lazy.</param>
         public void AppendOneMany(bool lazy)
         {
-            _sb.Append(Syntax.OneMany);
+            _sb.Append(Syntax.OneManyQuantifier);
 
             if (lazy)
             {
@@ -1455,7 +1455,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal void AppendLazy()
         {
-            _sb.Append(Syntax.Lazy);
+            _sb.Append(Syntax.LazyQuantifier);
         }
 
         internal void AppendGroupReferenceInternal(int groupNumber)
@@ -1697,7 +1697,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _sb.Append('\\');
         }
 
-        internal void AppendCircumflexAccent()
+        internal void AppendCharGroupNegation()
         {
             _sb.Append('^');
         }
