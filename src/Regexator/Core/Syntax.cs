@@ -500,14 +500,9 @@ namespace Pihrtsoft.Text.RegularExpressions
 
         public static string Count(int minCount, int maxCount)
         {
-            if (minCount < 0)
+            if (minCount < 0 || maxCount < minCount)
             {
                 throw new ArgumentOutOfRangeException("minCount");
-            }
-
-            if (maxCount < minCount)
-            {
-                throw new ArgumentOutOfRangeException("maxCount");
             }
 
             return "{" + minCount + "," + maxCount + "}";

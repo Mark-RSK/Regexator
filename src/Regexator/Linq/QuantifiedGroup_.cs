@@ -27,14 +27,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             public CountQuantifiedGroup(int minCount, int maxCount, object content)
                 : base(content)
             {
-                if (minCount < 0)
+                if (minCount < 0 || maxCount < minCount)
                 {
                     throw new ArgumentOutOfRangeException("minCount");
-                }
-
-                if (maxCount < minCount)
-                {
-                    throw new ArgumentOutOfRangeException("maxCount");
                 }
 
                 _count1 = minCount;

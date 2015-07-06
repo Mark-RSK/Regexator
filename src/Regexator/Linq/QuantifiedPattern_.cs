@@ -25,14 +25,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             internal CountQuantifiedPattern(int minCount, int maxCount)
             {
-                if (minCount < 0)
+                if (minCount < 0 || maxCount < minCount)
                 {
                     throw new ArgumentOutOfRangeException("minCount");
-                }
-
-                if (maxCount < minCount)
-                {
-                    throw new ArgumentOutOfRangeException("maxCount");
                 }
 
                 _count1 = minCount;

@@ -676,7 +676,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _sb.Append(Syntax.Or);
         }
 
-        public void AppendAny(object content)
+        internal void AppendAny(object content)
         {
             AppendAny(content, GroupMode.NoncapturingGroup);
         }
@@ -700,6 +700,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
+        /// <summary>
+        /// Appends a numbered group with a specified content.
+        /// </summary>
+        /// <param name="content">The content to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public void AppendNumberedGroup(object content)
         {
             if (content == null)
@@ -712,53 +718,27 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             AppendGroupEnd();
         }
 
-        public void AppendNoncapturingGroup(object content)
+        /// <summary>
+        /// Appends a named group with a specified name and content.
+        /// </summary>
+        /// <param name="name">A name of the group.</param>
+        /// <param name="content">The content to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
+        public void AppendNamedGroup(string name, object content)
         {
+            RegexUtility.CheckGroupName(name, "name");
+
             if (content == null)
             {
                 throw new ArgumentNullException("content");
             }
 
-            AppendNoncapturingGroupStart();
-            AppendGroupContent(content);
-            AppendGroupEnd();
+            AppendNamedGroupInternal(name, content);
         }
 
-        internal void AppendNoncapturingGroupStart()
-        {
-            _sb.Append(Syntax.NoncapturingGroupStart);
-        }
-
-        public void AppendNonbacktrackingGroup(object content)
-        {
-            if (content == null)
-            {
-                throw new ArgumentNullException("content");
-            }
-
-            AppendNonbacktrackingGroupStart();
-            AppendGroupContent(content);
-            AppendGroupEnd();
-        }
-
-        internal void AppendNonbacktrackingGroupStart()
-        {
-            _sb.Append(Syntax.NonbacktrackingGroupStart);
-        }
-
-        public void AppendNamedGroup(string groupName, object content)
-        {
-            if (content == null)
-            {
-                throw new ArgumentNullException("content");
-            }
-
-            RegexUtility.CheckGroupName(groupName);
-
-            AppendNamedGroupInternal(groupName, content);
-        }
-
-        public void AppendNamedGroupInternal(string groupName, object content)
+        internal void AppendNamedGroupInternal(string groupName, object content)
         {
             if (content == null)
             {
@@ -776,6 +756,50 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             AppendStartIdentifierBoundary();
             _sb.Append(groupName);
             AppendEndIdentifierBoundary();
+        }
+
+        /// <summary>
+        /// Appends a noncapturing group with a specified content.
+        /// </summary>
+        /// <param name="content">The content to be matched.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public void AppendNoncapturingGroup(object content)
+        {
+            if (content == null)
+            {
+                throw new ArgumentNullException("content");
+            }
+
+            AppendNoncapturingGroupStart();
+            AppendGroupContent(content);
+            AppendGroupEnd();
+        }
+
+        internal void AppendNoncapturingGroupStart()
+        {
+            _sb.Append(Syntax.NoncapturingGroupStart);
+        }
+
+        /// <summary>
+        /// Appends a nonbacktracking group with a specified content.
+        /// </summary>
+        /// <param name="content">The content to be matched.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public void AppendNonbacktrackingGroup(object content)
+        {
+            if (content == null)
+            {
+                throw new ArgumentNullException("content");
+            }
+
+            AppendNonbacktrackingGroupStart();
+            AppendGroupContent(content);
+            AppendGroupEnd();
+        }
+
+        internal void AppendNonbacktrackingGroupStart()
+        {
+            _sb.Append(Syntax.NonbacktrackingGroupStart);
         }
 
         internal void AppendBalancingGroup(string name1, string name2, object content)
@@ -800,107 +824,152 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             AppendEndIdentifierBoundary();
         }
 
-        public void AppendGroupEnd()
+        internal void AppendGroupEnd()
         {
             _sb.Append(Syntax.GroupEnd);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches any character except linefeed (or any character if the Singleline option is applied).
+        /// </summary>
         public void AppendAnyChar()
         {
             _sb.Append(Syntax.AnyChar);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character from a specified character class.
+        /// </summary>
+        /// <param name="value">An enumerated constant that identifies character class.</param>
         public void AppendCharClass(CharClass value)
         {
             _sb.Append(Syntax.CharClass(value));
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a digit character.
+        /// </summary>
         public void AppendDigit()
         {
             _sb.Append(Syntax.Digit);
         }
 
-        public void AppendWhiteSpace()
-        {
-            _sb.Append(Syntax.WhiteSpace);
-        }
-
-        public void AppendWordChar()
-        {
-            _sb.Append(Syntax.WordChar);
-        }
-
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a digit character.
+        /// </summary>
         public void AppendNotDigit()
         {
             _sb.Append(Syntax.NotDigit);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a white-space character.
+        /// </summary>
+        public void AppendWhiteSpace()
+        {
+            _sb.Append(Syntax.WhiteSpace);
+        }
+
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a white-space character.
+        /// </summary>
         public void AppendNotWhiteSpace()
         {
             _sb.Append(Syntax.NotWhiteSpace);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a word character.
+        /// </summary>
+        public void AppendWordChar()
+        {
+            _sb.Append(Syntax.WordChar);
+        }
+
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a word character.
+        /// </summary>
         public void AppendNotWordChar()
         {
             _sb.Append(Syntax.NotWordChar);
         }
 
-        public void AppendCharGroupStart()
+        internal void AppendCharGroupStart()
         {
             AppendCharGroupStart(false);
         }
 
-        public void AppendCharGroupStart(bool negative)
+        internal void AppendCharGroupStart(bool negative)
         {
             _sb.Append(negative
                 ? Syntax.NegativeCharGroupStart
                 : Syntax.CharGroupStart);
         }
 
-        public void AppendNegativeCharGroupStart()
+        internal void AppendNegativeCharGroupStart()
         {
             AppendCharGroupStart(true);
         }
 
-        public void AppendCharGroupEnd()
+        internal void AppendCharGroupEnd()
         {
             _sb.Append(Syntax.CharGroupEnd);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character from a specified Unicode named block.
+        /// </summary>
+        /// <param name="block">An enumerated constant that identifies Unicode named block.</param>
         public void AppendCharGroup(NamedBlock block)
         {
             AppendCharGroup(block, false);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not from a specified Unicode named block.
+        /// </summary>
+        /// <param name="block">An enumerated constant that identifies Unicode named block.</param>
         public void AppendNegativeCharGroup(NamedBlock block)
         {
             AppendCharGroup(block, true);
         }
 
-        public void AppendCharGroup(NamedBlock block, bool negative)
+        internal void AppendCharGroup(NamedBlock block, bool negative)
         {
             AppendCharGroupStart();
             AppendNamedBlock(block, negative);
             AppendCharGroupEnd();
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character from a specified Unicode general category.
+        /// </summary>
+        /// <param name="category">An enumerated constant that identifies Unicode general category.</param>
         public void AppendCharGroup(GeneralCategory category)
         {
             AppendCharGroup(category, false);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not from a specified Unicode general category.
+        /// </summary>
+        /// <param name="category">An enumerated constant that identifies Unicode general category.</param>
         public void AppendNegativeCharGroup(GeneralCategory category)
         {
             AppendCharGroup(category, true);
         }
 
-        public void AppendCharGroup(GeneralCategory category, bool negative)
+        internal void AppendCharGroup(GeneralCategory category, bool negative)
         {
             AppendCharGroupStart();
             AppendGeneralCategory(category, negative);
             AppendCharGroupEnd();
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character from a specified character class.
+        /// </summary>
+        /// <param name="value">An enumerated constant that identifies character class.</param>
         public void AppendCharGroup(CharClass value)
         {
             AppendCharGroupStart();
@@ -908,34 +977,54 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             AppendCharGroupEnd();
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a specified character.
+        /// </summary>
+        /// <param name="value">An enumerated constant that identifies ASCII character.</param>
         public void AppendCharGroup(AsciiChar value)
         {
             AppendCharGroup(value, false);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not a specified character..
+        /// </summary>
+        /// <param name="value">An enumerated constant that identifies ASCII character.</param>
         public void AppendNegativeCharGroup(AsciiChar value)
         {
             AppendCharGroup(value, true);
         }
 
-        public void AppendCharGroup(AsciiChar value, bool negative)
+        internal void AppendCharGroup(AsciiChar value, bool negative)
         {
             AppendCharGroupStart(negative);
             Append(value, true);
             AppendCharGroupEnd();
         }
 
+        /// <summary>
+        /// Returns a character group containing specified characters.
+        /// </summary>
+        /// <param name="characters">A set of characters any one of which has to be matched.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
         public void AppendCharGroup(string characters)
         {
             AppendCharGroup(characters, false);
         }
 
+        /// <summary>
+        /// Returns a negative character group containing specified characters.
+        /// </summary>
+        /// <param name="characters">A set of Unicode characters none of which can be matched.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
         public void AppendNegativeCharGroup(string characters)
         {
             AppendCharGroup(characters, true);
         }
 
-        public void AppendCharGroup(string characters, bool negative)
+        internal void AppendCharGroup(string characters, bool negative)
         {
             if (characters == null)
             {
@@ -952,85 +1041,99 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             AppendCharGroupEnd();
         }
 
-        public void AppendCharGroup(char value)
-        {
-            AppendCharGroup(value, false);
-        }
-
-        public void AppendNegativeCharGroup(char value)
-        {
-            AppendCharGroup(value, true);
-        }
-
-        public void AppendCharGroup(char value, bool negative)
+        internal void AppendCharGroup(char value, bool negative)
         {
             AppendCharGroupStart(negative);
             Append(value, true);
             AppendCharGroupEnd();
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character in the specified range.
+        /// </summary>
+        /// <param name="first">The first character of the range.</param>
+        /// <param name="last">The last character of the range.</param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public void AppendCharGroup(char first, char last)
         {
             AppendCharGroup(first, last, false);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not in the specified range.
+        /// </summary>
+        /// <param name="first">The first character of the range.</param>
+        /// <param name="last">The last character of the range.</param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public void AppendNegativeCharGroup(char first, char last)
         {
             AppendCharGroup(first, last, true);
         }
 
-        public void AppendCharGroup(char first, char last, bool negative)
+        internal void AppendCharGroup(char first, char last, bool negative)
         {
             AppendCharGroupStart(negative);
             AppendCharRange(first, last);
             AppendCharGroupEnd();
         }
 
-        public void AppendCharGroup(int charCode)
-        {
-            AppendCharGroup(charCode, false);
-        }
-
-        public void AppendNegativeCharGroup(int charCode)
-        {
-            AppendCharGroup(charCode, true);
-        }
-
-        public void AppendCharGroup(int charCode, bool negative)
+        internal void AppendCharGroup(int charCode, bool negative)
         {
             AppendCharGroupStart(negative);
             Append(charCode, true);
             AppendCharGroupEnd();
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character in the specified range.
+        /// </summary>
+        /// <param name="firstCharCode">The first character of the range interpreted as <see cref="Int32"/> object.</param>
+        /// <param name="lastCharCode">The last character of the range interpreted as <see cref="Int32"/> object.</param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public void AppendCharGroup(int firstCharCode, int lastCharCode)
         {
             AppendCharGroup(firstCharCode, lastCharCode, false);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not in the specified range.
+        /// </summary>
+        /// <param name="firstCharCode">The first character of the range interpreted as <see cref="Int32"/> object.</param>
+        /// <param name="lastCharCode">The last character of the range interpreted as <see cref="Int32"/> object.</param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public void AppendNegativeCharGroup(int firstCharCode, int lastCharCode)
         {
             AppendCharGroup(firstCharCode, lastCharCode, true);
         }
 
-        public void AppendCharGroup(int firstCharCode, int lastCharCode, bool negative)
+        internal void AppendCharGroup(int firstCharCode, int lastCharCode, bool negative)
         {
             AppendCharGroupStart(negative);
             AppendCharRange(firstCharCode, lastCharCode);
             AppendCharGroupEnd();
         }
 
+        /// <summary>
+        /// Appends a character group containing specified <see cref="CharGrouping"/>.
+        /// </summary>
+        /// <param name="value">A content of a character group.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public void AppendCharGroup(CharGrouping value)
         {
             AppendCharGroup(value, false);
         }
 
+        /// <summary>
+        /// Appends a negative character group containing specified <see cref="CharGrouping"/>.
+        /// </summary>
+        /// <param name="value">A content of a character group.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public void AppendNegativeCharGroup(CharGrouping value)
         {
             AppendCharGroup(value, true);
         }
 
-        public void AppendCharGroup(CharGrouping value, bool negative)
+        internal void AppendCharGroup(CharGrouping value, bool negative)
         {
             if (value == null)
             {
@@ -1042,17 +1145,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             AppendCharGroupEnd();
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character from a base group except characters from an excluded group.
+        /// </summary>
+        /// <param name="baseGroup">A base group.</param>
+        /// <param name="excludedGroup">An excluded group.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public void AppendSubtraction(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
-        {
-            AppendSubtraction(baseGroup, excludedGroup, false);
-        }
-
-        public void AppendNegativeSubtraction(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
-        {
-            AppendSubtraction(baseGroup, excludedGroup, true);
-        }
-
-        public void AppendSubtraction(IBaseGroup baseGroup, IExcludedGroup excludedGroup, bool negative)
         {
             if (baseGroup == null)
             {
@@ -1064,7 +1163,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("excludedGroup");
             }
 
-            AppendCharGroupStart(negative);
+            AppendCharGroupStart();
 
             baseGroup.AppendBaseGroupTo(this);
 
@@ -1075,34 +1174,52 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             AppendCharGroupEnd();
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character from a specified Unicode general category.
+        /// </summary>
+        /// <param name="category">An enumerated constant that identifies Unicode general category.</param>
         public void AppendGeneralCategory(GeneralCategory category)
         {
             AppendGeneralCategory(category, false);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not from a specified Unicode general category.
+        /// </summary>
+        /// <param name="category">An enumerated constant that identifies Unicode general category.</param>
         public void AppendNotGeneralCategory(GeneralCategory category)
         {
             AppendGeneralCategory(category, true);
         }
 
-        public void AppendGeneralCategory(GeneralCategory category, bool negative)
+        internal void AppendGeneralCategory(GeneralCategory category, bool negative)
         {
             AppendUnicodeStart(negative);
             _sb.Append(Syntax.GetGeneralCategoryValue(category));
             _sb.Append(Syntax.UnicodeEnd);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character from a specified Unicode named block.
+        /// </summary>
+        /// <param name="block">An enumerated constant that identifies Unicode named block.</param>
+        /// <returns></returns>
         public void AppendNamedBlock(NamedBlock block)
         {
             AppendNamedBlock(block, false);
         }
 
+        /// <summary>
+        /// Appends a pattern that matches a character that is not from a specified Unicode named block.
+        /// </summary>
+        /// <param name="block">An enumerated constant that identifies Unicode named block.</param>
+        /// <returns></returns>
         public void AppendNotNamedBlock(NamedBlock block)
         {
             AppendNamedBlock(block, true);
         }
 
-        public void AppendNamedBlock(NamedBlock block, bool negative)
+        internal void AppendNamedBlock(NamedBlock block, bool negative)
         {
             AppendUnicodeStart(negative);
             _sb.Append(Syntax.GetNamedBlockValue(block));
@@ -1121,11 +1238,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
+        /// <summary>
+        /// Appends a quantifier that matches previous element zero or one time.
+        /// </summary>
         public void AppendMaybe()
         {
             AppendMaybe(false);
         }
 
+        /// <summary>
+        /// Appends a quantifier that matches previous element zero or one time.
+        /// </summary>
+        /// <param name="lazy">Indicates whether the quantifier will be greedy or lazy.</param>
         public void AppendMaybe(bool lazy)
         {
             _sb.Append(Syntax.Maybe);
@@ -1136,11 +1260,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
+        /// <summary>
+        /// Appends a quantifier that matches previous element zero or many times.
+        /// </summary>
         public void AppendMaybeMany()
         {
             AppendMaybeMany(false);
         }
 
+        /// <summary>
+        /// Appends a quantifier that matches previous element zero or many times.
+        /// </summary>
+        /// <param name="lazy">Indicates whether the quantifier will be greedy or lazy.</param>
         public void AppendMaybeMany(bool lazy)
         {
             _sb.Append(Syntax.MaybeMany);
@@ -1151,11 +1282,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
+        /// <summary>
+        /// Appends a quantifier that matches previous element one or many times.
+        /// </summary>
         public void AppendOneMany()
         {
             AppendOneMany(false);
         }
 
+        /// <summary>
+        /// Appends a quantifier that matches previous element one or many times.
+        /// </summary>
+        /// <param name="lazy">Indicates whether the quantifier will be greedy or lazy.</param>
         public void AppendOneMany(bool lazy)
         {
             _sb.Append(Syntax.OneMany);
@@ -1166,11 +1304,22 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
+        /// <summary>
+        /// Appends a quantifier that matches previous element specific number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times the pattern must be matched.</param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public void AppendCount(int exactCount)
         {
             AppendCount(exactCount, false);
         }
 
+        /// <summary>
+        /// Appends a quantifier that matches previous element specific number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times the pattern must be matched.</param>
+        /// <param name="lazy">Indicates whether the quantifier will be greedy or lazy.</param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public void AppendCount(int exactCount, bool lazy)
         {
             if (exactCount < 0)
@@ -1193,21 +1342,29 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             AppendEndCurlyBracket();
         }
 
+        /// <summary>
+        /// Appends a quantifier that matches previous element from minimal to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimal number of times the pattern must be matched.</param>
+        /// <param name="maxCount">A maximum number of times the pattern can be matched.</param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public void AppendCount(int minCount, int maxCount)
         {
             AppendCount(minCount, maxCount, false);
         }
 
+        /// <summary>
+        /// Appends a quantifier that matches previous element from minimal to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimal number of times the pattern must be matched.</param>
+        /// <param name="maxCount">A maximum number of times the pattern can be matched.</param>
+        /// <param name="lazy">Indicates whether the quantifier will be greedy or lazy.</param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public void AppendCount(int minCount, int maxCount, bool lazy)
         {
-            if (minCount < 0)
+            if (minCount < 0 || maxCount < minCount)
             {
                 throw new ArgumentOutOfRangeException("minCount");
-            }
-
-            if (maxCount < minCount)
-            {
-                throw new ArgumentOutOfRangeException("maxCount");
             }
 
             AppendCountInternal(minCount, maxCount);
@@ -1227,11 +1384,22 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             AppendEndCurlyBracket();
         }
 
+        /// <summary>
+        /// Appends a quantifier that matches previous element at least specified number of times.
+        /// </summary>
+        /// <param name="minCount">A minimal number of times the pattern must be matched.</param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public void AppendCountFrom(int minCount)
         {
             AppendCountFrom(minCount, false);
         }
 
+        /// <summary>
+        /// Appends a quantifier that matches previous element at least specified number of times.
+        /// </summary>
+        /// <param name="minCount">A minimal number of times the pattern must be matched.</param>
+        /// <param name="lazy">Indicates whether the quantifier will be greedy or lazy.</param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public void AppendCountFrom(int minCount, bool lazy)
         {
             if (minCount < 0)
@@ -1255,11 +1423,22 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             AppendEndCurlyBracket();
         }
 
+        /// <summary>
+        /// Appends a quantifier that matches previous element at most specified number of times.
+        /// </summary>
+        /// <param name="maxCount">A maximum number of times the pattern can be matched.</param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public void AppendCountTo(int maxCount)
         {
             AppendCountTo(maxCount, false);
         }
 
+        /// <summary>
+        /// Appends a quantifier that matches previous element at most specified number of times.
+        /// </summary>
+        /// <param name="maxCount">A maximum number of times the pattern can be matched.</param>
+        /// <param name="lazy">Indicates whether the quantifier will be greedy or lazy.</param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public void AppendCountTo(int maxCount, bool lazy)
         {
             if (maxCount < 0)
@@ -1309,11 +1488,22 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             AppendEndIdentifierBoundary();
         }
 
+        /// <summary>
+        /// Appends a pattern that applies specified options.
+        /// </summary>
+        /// <param name="applyOptions">A bitwise combination of the enumeration values that are applied.</param>
+        /// <exception cref="ArgumentException"></exception>
         public void AppendOptions(RegexOptions applyOptions)
         {
             AppendOptions(applyOptions, RegexOptions.None);
         }
 
+        /// <summary>
+        /// Appends a pattern that applies and disables specified options to a specified pattern.
+        /// </summary>
+        /// <param name="applyOptions">A bitwise combination of the enumeration values that are applied.</param>
+        /// <param name="disableOptions">A bitwise combination of the enumeration values that are disabled.</param>
+        /// <exception cref="ArgumentException"></exception>
         public void AppendOptions(RegexOptions applyOptions, RegexOptions disableOptions)
         {
             if (applyOptions != RegexOptions.None || disableOptions != RegexOptions.None)
@@ -1337,11 +1527,26 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
+        /// <summary>
+        /// Appends a pattern that applies specified options to a specified pattern.
+        /// </summary>
+        /// <param name="applyOptions">A bitwise combination of the enumeration values that are applied.</param>
+        /// <param name="content">The pattern to match.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
         public void AppendOptions(RegexOptions applyOptions, object content)
         {
             AppendOptions(applyOptions, RegexOptions.None, content);
         }
 
+        /// <summary>
+        /// Appends a pattern that applies and disables specified options to a specified pattern.
+        /// </summary>
+        /// <param name="applyOptions">A bitwise combination of the enumeration values that are applied.</param>
+        /// <param name="disableOptions">A bitwise combination of the enumeration values that are disabled.</param>
+        /// <param name="content">The pattern to match.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
         internal void AppendOptions(RegexOptions applyOptions, RegexOptions disableOptions, object content)
         {
             if (!RegexUtility.IsValidInlineOptions(applyOptions))
@@ -1424,19 +1629,26 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        public void AppendInlineComment(string comment)
+        /// <summary>
+        /// Appends an inline comment.
+        /// </summary>
+        /// <param name="value">A comment text.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
+        public void AppendInlineComment(string value)
         {
-            if (comment == null)
+            if (value == null)
             {
-                throw new ArgumentNullException("comment");
+                throw new ArgumentNullException("value");
             }
 
-            if (comment.IndexOf(')') != -1)
+            if (value.IndexOf(')') != -1)
             {
-                throw new ArgumentException("Comment cannot contain right parenthesis.", "comment");
+                throw new ArgumentException("Comment cannot contain right parenthesis.", "value");
             }
 
-            AppendInlineCommentInternal(comment);
+            AppendInlineCommentInternal(value);
         }
 
         internal void AppendInlineCommentInternal(string comment)
@@ -1446,14 +1658,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             AppendGroupEnd();
         }
 
-        public void AppendStartIdentifierBoundary()
+        internal void AppendStartIdentifierBoundary()
         {
             _sb.Append(Settings.IdentifierBoundary == IdentifierBoundary.Apostrophe
                 ? '\''
                 : '<');
         }
 
-        public void AppendEndIdentifierBoundary()
+        internal void AppendEndIdentifierBoundary()
         {
             _sb.Append(Settings.IdentifierBoundary == IdentifierBoundary.Apostrophe
                 ? '\''
@@ -1500,7 +1712,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _sb.Append('^');
         }
 
-        public void AppendAsciiHexadecimal(int charCode)
+        internal void AppendAsciiHexadecimal(int charCode)
         {
             if (charCode < 0 || charCode > 0xFF)
             {
@@ -1546,14 +1758,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _sb.Append(Syntax.Tab);
         }
 
+        /// <summary>
+        /// Gets the <see cref="PatternSettings"/> object that modifies the pattern.
+        /// </summary>
         public PatternSettings Settings
         {
             get { return _settings; }
-        }
-
-        public RegexOptions CurrentOptions
-        {
-            get { return _currentOptions; }
         }
 
         internal Stack<CharGrouping> CharGroupings

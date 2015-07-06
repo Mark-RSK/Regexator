@@ -45,7 +45,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Specifies that a pattern must be matched exactly n times.
+        /// Specifies that a pattern must be matched a specified number of times.
         /// </summary>
         /// <param name="exactCount">A number of times the pattern must be matched.</param>
         /// <returns></returns>
@@ -56,7 +56,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Specifies that a pattern must be matched from n to m times.
+        /// Specifies that a pattern must be matched from minimal to maximum times.
         /// </summary>
         /// <param name="minCount">A minimal number of times the pattern must be matched.</param>
         /// <param name="maxCount">A maximum number of times the pattern can be matched.</param>
@@ -68,7 +68,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Specifies that a pattern must be matched at least n times.
+        /// Specifies that a pattern must be matched at least specified number of times.
         /// </summary>
         /// <param name="minCount">A minimal number of times the pattern must be matched.</param>
         /// <returns></returns>
@@ -79,7 +79,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Specifies that a pattern must be matched at most n times.
+        /// Specifies that a pattern must be matched at most specified number of times.
         /// </summary>
         /// <param name="maxCount">A maximum number of times the pattern can be matched.</param>
         /// <returns></returns>
@@ -91,7 +91,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
 #if DEBUG
         /// <summary>
-        /// Specifies that a pattern must be matched zero or one time with greedy or lazy modifiers.
+        /// Specifies that a pattern must be matched zero or one time.
         /// </summary>
         /// <returns></returns>
         /// <param name="lazy">Indicates whether the quantifier will be greedy or lazy.</param>

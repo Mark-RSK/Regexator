@@ -974,7 +974,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a character group created from specified characters.
+        /// Returns a character group containing specified characters.
         /// </summary>
         /// <param name="characters">A set of characters any one of which has to be matched.</param>
         /// <returns></returns>
@@ -986,7 +986,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a character group created from a specified <see cref="CharGrouping"/>.
+        /// Returns a character group containing specified <see cref="CharGrouping"/>.
         /// </summary>
         /// <param name="value">A content of a character group.</param>
         /// <returns></returns>
@@ -1047,7 +1047,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a negative character group created from specified characters.
+        /// Returns a negative character group containing specified characters.
         /// </summary>
         /// <param name="characters">A set of Unicode characters none of which can be matched.</param>
         /// <returns></returns>
@@ -1059,7 +1059,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a negative character group created from a specified <see cref="CharGrouping"/>.
+        /// Returns a negative character group containing specified <see cref="CharGrouping"/>.
         /// </summary>
         /// <param name="value">A content of a character group.</param>
         /// <returns></returns>
