@@ -6,53 +6,152 @@ using System.Text.RegularExpressions;
 
 namespace Pihrtsoft.Text.RegularExpressions.Extensions
 {
+    /// <summary>
+    /// Provides a set of static methods that extends the <see cref="Regex"/> class.
+    /// </summary>
     public static class RegexExtensions
     {
+        /// <summary>
+        /// Searches the specified input string and returns enumerable collection of regular expression matches.
+        /// </summary>
+        /// <param name="regex">The regular expression to be matched.</param>
+        /// <param name="input">The string to search for a match.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static IEnumerable<Match> EnumerateMatches(this Regex regex, string input)
         {
+            if (regex == null)
+            {
+                throw new ArgumentNullException("regex");
+            }
+
             return EnumerateMatches(input, (f) => regex.Match(f));
         }
 
+        /// <summary>
+        /// Searches the specified input string beginning at the specified position and returns enumerable collection of regular expression matches.
+        /// </summary>
+        /// <param name="regex">The regular expression to be matched.</param>
+        /// <param name="input">The string to search for a match.</param>
+        /// <param name="startAt">The position at which to start the search.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static IEnumerable<Match> EnumerateMatches(this Regex regex, string input, int startAt)
         {
+            if (regex == null)
+            {
+                throw new ArgumentNullException("regex");
+            }
+
             return EnumerateMatches(input, (f) => regex.Match(f, startAt));
         }
 
+        /// <summary>
+        /// Searches the specified input string beginning at the specified position and searching only the specified number of characters and returns enumerable collection of regular expression matches.
+        /// </summary>
+        /// <param name="regex">The regular expression to be matched.</param>
+        /// <param name="input">The string to search for a match.</param>
+        /// <param name="beginning">The position at which to start the search.</param>
+        /// <param name="length">A number of characters to be searched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static IEnumerable<Match> EnumerateMatches(this Regex regex, string input, int beginning, int length)
         {
+            if (regex == null)
+            {
+                throw new ArgumentNullException("regex");
+            }
+
             return EnumerateMatches(input, (f) => regex.Match(f, beginning, length));
         }
 
+        /// <summary>
+        /// Searches the specified input string and returns enumerable collection of groups.
+        /// </summary>
+        /// <param name="regex">The regular expression to be matched.</param>
+        /// <param name="input">The string to search for a match.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static IEnumerable<Group> EnumerateGroups(this Regex regex, string input)
         {
             return EnumerateMatches(regex, input)
                 .EnumerateGroups();
         }
 
+        /// <summary>
+        /// Searches the specified input string beginning at the specified position and returns enumerable collection of groups.
+        /// </summary>
+        /// <param name="regex">The regular expression to be matched.</param>
+        /// <param name="input">The string to search for a match.</param>
+        /// <param name="startAt">The position at which to start the search.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static IEnumerable<Group> EnumerateGroups(this Regex regex, string input, int startAt)
         {
             return EnumerateMatches(regex, input, startAt)
                 .EnumerateGroups();
         }
 
+        /// <summary>
+        /// Searches the specified input string beginning at the specified position and searching only the specified number of characters and returns enumerable collection of groups.
+        /// </summary>
+        /// <param name="regex">The regular expression to be matched.</param>
+        /// <param name="input">The string to search for a match.</param>
+        /// <param name="beginning">The position at which to start the search.</param>
+        /// <param name="length">A number of characters to be searched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static IEnumerable<Group> EnumerateGroups(this Regex regex, string input, int beginning, int length)
         {
             return EnumerateMatches(regex, input, beginning, length)
                 .EnumerateGroups();
         }
 
+        /// <summary>
+        /// Searches the specified input string and returns enumerable collection of groups with a specified name.
+        /// </summary>
+        /// <param name="regex">The regular expression to be matched.</param>
+        /// <param name="groupName">A name of the group.</param>
+        /// <param name="input">The string to search for a match.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static IEnumerable<Group> EnumerateGroups(this Regex regex, string groupName, string input)
         {
             return EnumerateMatches(regex, input)
                 .EnumerateGroups(groupName);
         }
 
+        /// <summary>
+        /// Searches the specified input string beginning at the specified position and returns enumerable collection of groups with a specified name.
+        /// </summary>
+        /// <param name="regex">The regular expression to be matched.</param>
+        /// <param name="groupName">A name of the group.</param>
+        /// <param name="input">The string to search for a match.</param>
+        /// <param name="startAt">The position at which to start the search.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static IEnumerable<Group> EnumerateGroups(this Regex regex, string groupName, string input, int startAt)
         {
             return EnumerateMatches(regex, input, startAt)
                 .EnumerateGroups(groupName);
         }
 
+        /// <summary>
+        /// Searches the specified input string beginning at the specified position and searching only the specified number of characters and returns enumerable collection of groups with a specified name.
+        /// </summary>
+        /// <param name="regex">The regular expression to be matched.</param>
+        /// <param name="groupName">A name of the group.</param>
+        /// <param name="input">The string to search for a match.</param>
+        /// <param name="beginning">The position at which to start the search.</param>
+        /// <param name="length">A number of characters to be searched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static IEnumerable<Group> EnumerateGroups(this Regex regex, string groupName, string input, int beginning, int length)
         {
             return EnumerateMatches(regex, input, beginning, length)
