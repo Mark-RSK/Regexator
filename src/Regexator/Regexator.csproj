@@ -60,7 +60,7 @@
     <Compile Include="Linq\Anchor\NegativeWordBoundary.cs" />
     <Compile Include="Linq\CharGroup_.cs" />
     <Compile Include="Linq\CharPattern_.cs" />
-    <Compile Include="Core\CharEscapeMode.cs" />
+    <Compile Include="Linq\CharEscapeMode.cs" />
     <Compile Include="Linq\CharGrouping_.cs" />
     <Compile Include="Linq\QuantifiedGroup_.cs" />
     <Compile Include="Linq\INegateable.cs" />
@@ -92,13 +92,13 @@
     <Compile Include="Linq\ContentPattern.cs" />
     <Compile Include="Linq\InlineComment.cs" />
     <Compile Include="Linq\Options.cs" />
-    <Compile Include="Core\AsciiChar.cs" />
+    <Compile Include="Linq\AsciiChar.cs" />
     <Compile Include="Linq\LiteralPattern.cs" />
     <Compile Include="Linq\Group\BalancingGroup.cs" />
     <Compile Include="Linq\PatternBuilder.cs" />
     <Compile Include="Linq\Anchor\StartOfInput.cs" />
     <Compile Include="Linq\PatternSettings.cs" />
-    <Compile Include="Core\CharClass.cs" />
+    <Compile Include="Linq\CharClass.cs" />
     <Compile Include="Linq\CharGroup.cs" />
     <Compile Include="Linq\CharGrouping.cs" />
     <Compile Include="Linq\CharGroupings.cs" />
@@ -108,7 +108,7 @@
     <Compile Include="Linq\Pattern_.cs" />
     <Compile Include="Linq\Group\GroupingPattern.cs" />
     <Compile Include="Linq\IBaseGroup.cs" />
-    <Compile Include="Core\IdentifierBoundary.cs" />
+    <Compile Include="Linq\IdentifierBoundary.cs" />
     <Compile Include="Linq\IExcludedGroup.cs" />
     <Compile Include="Linq\GroupNameReference.cs" />
     <Compile Include="Linq\Group\NamedGroup.cs" />
@@ -120,9 +120,9 @@
     <Compile Include="Linq\QuantifiablePattern.cs" />
     <Compile Include="Linq\Group\NumberedGroup.cs" />
     <Compile Include="Linq\Substitutions.cs" />
-    <Compile Include="Core\Syntax.cs" />
-    <Compile Include="Core\NamedBlock.cs" />
-    <Compile Include="Core\GeneralCategory.cs" />
+    <Compile Include="Linq\Syntax.cs" />
+    <Compile Include="Linq\NamedBlock.cs" />
+    <Compile Include="Linq\GeneralCategory.cs" />
     <Compile Include="Core\CharMatchInfo.cs" />
     <Compile Include="Core\RegexUtility.cs" />
     <Compile Include="Linq\AnyChar.cs" />

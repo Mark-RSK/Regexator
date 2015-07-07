@@ -1,6 +1,6 @@
 ﻿// Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-namespace Pihrtsoft.Text.RegularExpressions
+namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
     /// Specifies the Unicode character from first two blocks, i.e. from first 256 Unicode characters.

@@ -2,7 +2,7 @@
 
 using System.ComponentModel;
 
-namespace Pihrtsoft.Text.RegularExpressions
+namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
     /// Specifies the Unicode named block. The set of supported named blocks is based on Unicode 4.0.

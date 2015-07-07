@@ -1,6 +1,6 @@
 ﻿// Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-namespace Pihrtsoft.Text.RegularExpressions
+namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
     /// Specifies which characters will be used to enclose group name in the named group, balancing group and named group backreference.

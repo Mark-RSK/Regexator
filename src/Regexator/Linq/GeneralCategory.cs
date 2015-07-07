@@ -2,7 +2,7 @@
 
 using System.ComponentModel;
 
-namespace Pihrtsoft.Text.RegularExpressions
+namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
     /// Specifies Unicode general category.
