@@ -306,6 +306,23 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
+        /// Returns a pattern that is matched (before carriage return) at the end of the string (or (before carriage return) at the end of line if the multiline option is applied). End of line is defined as the position before a linefeed.
+        /// </summary>
+        /// <param name="matchCarriageReturnIfPresent">Indicates whether a carriage return should be matched if present and not already consumed by regex engine.</param>
+        /// <returns></returns>
+        public static Pattern EndOfLine(bool matchCarriageReturnIfPresent)
+        {
+            if (matchCarriageReturnIfPresent)
+            {
+                return Assert(CarriageReturn().Maybe().EndOfLine());
+            }
+            else
+            {
+                return EndOfLine();
+            }
+        }
+
+        /// <summary>
         /// Returns a pattern that is matched at the end of the string or line. End of line is defined as the position before a linefeed.
         /// </summary>
         /// <returns></returns>
@@ -315,21 +332,20 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that is matched (before carriage return) at the end of the string (or (before carriage return) at the end of line if the multiline option is applied). End of line is defined as the position before a linefeed.
-        /// </summary>
-        /// <returns></returns>
-        public static Pattern EndOfLineOrBeforeCarriageReturn()
-        {
-            return Assert(CarriageReturn().Maybe().EndOfLine());
-        }
-
-        /// <summary>
         /// Returns a pattern that is matched (before carriage return) at the end of the string or line. End of line is defined as the position before a linefeed.
         /// </summary>
+        /// <param name="matchCarriageReturnIfPresent">Indicates whether a carriage return should be matched if present and not already consumed by regex engine.</param>
         /// <returns></returns>
-        public static Pattern EndOfLineOrBeforeCarriageReturnInvariant()
+        public static QuantifiablePattern EndOfLineInvariant(bool matchCarriageReturnIfPresent)
         {
-            return Assert(CarriageReturn().Maybe().EndOfLineInvariant());
+            if (matchCarriageReturnIfPresent)
+            {
+                return Assert(CarriageReturn().Maybe().EndOfLineInvariant());
+            }
+            else
+            {
+                return EndOfLineInvariant();
+            }
         }
 
         /// <summary>

@@ -90,13 +90,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("");
 
             Console.WriteLine("trailing whitespace:");
-            Console.WriteLine(Patterns.WhiteSpaceExceptNewLine().OneMany().EndOfLineOrBeforeCarriageReturn());
+            Console.WriteLine(Patterns.WhiteSpaceExceptNewLine().OneMany().EndOfLine(true));
             Console.WriteLine("");
 
             Console.WriteLine("leading trailing whitespace:");
             Console.WriteLine(Patterns.Any(
                 Patterns.StartOfLine().WhiteSpaceExceptNewLine().OneMany(),
-                Patterns.WhiteSpaceExceptNewLine().OneMany().EndOfLineOrBeforeCarriageReturn()));
+                Patterns.WhiteSpaceExceptNewLine().OneMany().EndOfLine(true)));
             Console.WriteLine("");
 
             Console.WriteLine("whitespace lines:");

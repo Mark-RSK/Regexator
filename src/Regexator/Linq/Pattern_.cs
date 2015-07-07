@@ -169,6 +169,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
+        /// Appends a pattern that is matched (before carriage return) at the end of the string (or (before carriage return) at the end of line if the multiline option is applied). End of line is defined as the position before a linefeed.
+        /// </summary>
+        /// <param name="matchCarriageReturnIfPresent">Indicates whether a carriage return should be matched if present and not already consumed by regex engine.</param>
+        /// <returns></returns>
+        public Pattern EndOfLine(bool matchCarriageReturnIfPresent)
+        {
+            return ConcatInternal(Patterns.EndOfLine(matchCarriageReturnIfPresent));
+        }
+
+        /// <summary>
         /// Appends a pattern that is matched at the end of the string or line. End of line is defined as the position before a linefeed.
         /// </summary>
         /// <returns></returns>
@@ -178,21 +188,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that is matched (before carriage return) at the end of the string (or (before carriage return) at the end of line if the multiline option is applied). End of line is defined as the position before a linefeed.
-        /// </summary>
-        /// <returns></returns>
-        public Pattern EndOfLineOrBeforeCarriageReturn()
-        {
-            return ConcatInternal(Patterns.EndOfLineOrBeforeCarriageReturn());
-        }
-
-        /// <summary>
         /// Appends a pattern that is matched (before carriage return) at the end of the string or line. End of line is defined as the position before a linefeed.
         /// </summary>
+        /// <param name="matchCarriageReturnIfPresent">Indicates whether a carriage return should be matched if present and not already consumed by regex engine.</param>
         /// <returns></returns>
-        public Pattern EndOfLineOrBeforeCarriageReturnInvariant()
+        public QuantifiablePattern EndOfLineInvariant(bool matchCarriageReturnIfPresent)
         {
-            return ConcatInternal(Patterns.EndOfLineOrBeforeCarriageReturnInvariant());
+            return ConcatInternal(Patterns.EndOfLineInvariant(matchCarriageReturnIfPresent));
         }
 
         /// <summary>

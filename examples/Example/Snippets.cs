@@ -16,7 +16,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern TrailingWhiteSpace()
         {
-            return Patterns.WhiteSpaceExceptNewLine().OneMany().EndOfLineOrBeforeCarriageReturn().AsNoncapturingGroup();
+            return Patterns.WhiteSpaceExceptNewLine().OneMany().EndOfLine(true).AsNoncapturingGroup();
         }
 
         public static QuantifiablePattern LeadingTrailingWhiteSpace()
