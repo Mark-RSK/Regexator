@@ -211,53 +211,53 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a specified content with a specified assertion on both sides.
+        /// Returns a pattern that matches a specified content with lookbehind assertion on the left side and lookahead assertion on the right side.
         /// </summary>
-        /// <param name="surroundContent">A content of the assertions.</param>
+        /// <param name="assertion">A content of the assertions.</param>
         /// <param name="content">The content to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static SurroundAssertion AssertSurround(object surroundContent, object content)
+        public static SurroundAssertion AssertSurround(object assertion, object content)
         {
-            return AssertSurround(surroundContent, content, surroundContent);
+            return AssertSurround(assertion, content, assertion);
         }
 
         /// <summary>
-        /// Returns a pattern that matches a specified content with a specified assertion on both sides.
+        /// Returns a pattern that matches a specified content with lookbehind assertion on the left side and lookahead assertion on the right side.
         /// </summary>
-        /// <param name="contentBefore">A content of the lookbehind assertion.</param>
+        /// <param name="backAssertion">A content of the lookbehind assertion.</param>
         /// <param name="content">The content to be matched.</param>
-        /// <param name="contentAfter">A content of the lookahead assertion.</param>
+        /// <param name="assertion">A content of the lookahead assertion.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static SurroundAssertion AssertSurround(object contentBefore, object content, object contentAfter)
+        public static SurroundAssertion AssertSurround(object backAssertion, object content, object assertion)
         {
-            return new SurroundAssertion(contentBefore, content, contentAfter);
+            return new SurroundAssertion(backAssertion, content, assertion);
         }
 
         /// <summary>
-        /// Returns a pattern that matches a specified content with a specified negative assertion on both sides.
+        /// Returns a pattern that matches a specified content with negative lookbehind assertion on the left side and negative lookahead assertion on the right side.
         /// </summary>
-        /// <param name="surroundContent">A content of the assertions.</param>
+        /// <param name="assertion">A content of the negative assertions.</param>
         /// <param name="content">The content to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static NegativeSurroundAssertion NotAssertSurround(object surroundContent, object content)
+        public static NegativeSurroundAssertion NotAssertSurround(object assertion, object content)
         {
-            return NotAssertSurround(surroundContent, content, surroundContent);
+            return NotAssertSurround(assertion, content, assertion);
         }
 
         /// <summary>
-        /// Returns a pattern that matches a specified content with a specified negative assertion on both sides.
+        /// Returns a pattern that matches a specified content with negative lookbehind assertion on the left side and negative lookahead assertion on the right side.
         /// </summary>
-        /// <param name="contentBefore">A content of the lookbehind assertion.</param>
+        /// <param name="backAssertion">A content of the negative lookbehind assertion.</param>
         /// <param name="content">The content to be matched.</param>
-        /// <param name="contentAfter">A content of the lookahead assertion.</param>
+        /// <param name="assertion">A content of the negative lookahead assertion.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static NegativeSurroundAssertion NotAssertSurround(object contentBefore, object content, object contentAfter)
+        public static NegativeSurroundAssertion NotAssertSurround(object backAssertion, object content, object assertion)
         {
-            return new NegativeSurroundAssertion(contentBefore, content, contentAfter);
+            return new NegativeSurroundAssertion(backAssertion, content, assertion);
         }
 
         /// <summary>
@@ -4723,7 +4723,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a character that is a white-space character and it is neither carriage return nor linefeed.
+        /// Returns a pattern that matches a white-space character except carriage return and linefeed.
         /// </summary>
         /// <returns></returns>
         public static CharSubtraction WhiteSpaceExceptNewLine()
@@ -4732,7 +4732,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a character that is a white-space character and it is neither carriage return nor linefeed. The character has to be matched specified number of times.
+        /// Returns a pattern that matches a white-space character except carriage return and linefeed. The character has to be matched specified number of times.
         /// </summary>
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
@@ -4743,7 +4743,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a character that is a white-space character and it is neither carriage return nor linefeed. The character has to be matched from minimal to maximum times.
+        /// Returns a pattern that matches a white-space character except carriage return and linefeed. The character has to be matched from minimal to maximum times.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
@@ -4995,7 +4995,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a carriage return and a linefeed where a carriage return is optional.
+        /// Returns a pattern that matches a linefeed and an optional carriage return before it. Carriage return will be matched if present and not already consumed by regex engine..
         /// </summary>
         /// <returns></returns>
         public static QuantifiablePattern NewLine()

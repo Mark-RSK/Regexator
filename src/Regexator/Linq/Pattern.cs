@@ -26,9 +26,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         internal abstract void AppendTo(PatternBuilder builder);
 
         /// <summary>
-        /// Creates and returns a new instance of the <see cref="Pattern"/> class with the specified content.
+        /// Creates a new pattern from a specified content.
         /// </summary>
-        /// <param name="content">The pattern content.</param>
+        /// <param name="content">The object to represent a pattern.</param>
         /// <returns></returns>
         public static Pattern Create(object content)
         {

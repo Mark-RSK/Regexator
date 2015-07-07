@@ -5,20 +5,20 @@ using System;
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
-    /// A pattern consisting of a base pattern that is surrounded with patterns interpreted as negative lookbehind and negative lookahead assertion, respectively.
+    /// Represents a pattern that matches a specified content with negative lookbehind assertion on the left side and negative lookahead assertion on the right side. This class cannot be inherited.
     /// </summary>
-    public class NegativeSurroundAssertion
+    public sealed class NegativeSurroundAssertion
         : Pattern
     {
         private readonly object _content;
-        private readonly object _contentBefore;
-        private readonly object _contentAfter;
+        private readonly object _backAssertion;
+        private readonly object _assertion;
 
-        internal NegativeSurroundAssertion(object contentBefore, object content, object contentAfter)
+        internal NegativeSurroundAssertion(object backAssertion, object content, object assertion)
         {
-            if (contentBefore == null)
+            if (backAssertion == null)
             {
-                throw new ArgumentNullException("contentBefore");
+                throw new ArgumentNullException("backAssertion");
             }
 
             if (content == null)
@@ -26,21 +26,21 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("content");
             }
 
-            if (contentAfter == null)
+            if (assertion == null)
             {
-                throw new ArgumentNullException("contentAfter");
+                throw new ArgumentNullException("assertion");
             }
 
-            _contentBefore = contentBefore;
+            _backAssertion = backAssertion;
             _content = content;
-            _contentAfter = contentAfter;
+            _assertion = assertion;
         }
 
         internal override void AppendTo(PatternBuilder builder)
         {
-            builder.AppendNegativeBackAssertion(_contentBefore);
+            builder.AppendNegativeBackAssertion(_backAssertion);
             builder.Append(_content);
-            builder.AppendNegativeAssertion(_contentAfter);
+            builder.AppendNegativeAssertion(_assertion);
         }
     }
 }

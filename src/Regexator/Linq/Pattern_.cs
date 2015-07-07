@@ -823,7 +823,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is a white-space character and it is neither carriage return nor linefeed.
+        /// Appends a pattern that matches a white-space character except carriage return and linefeed.
         /// </summary>
         /// <returns></returns>
         public QuantifiablePattern WhiteSpaceExceptNewLine()
@@ -832,7 +832,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is a white-space character and it is neither carriage return nor linefeed. The character has to be matched specified number of times.
+        /// Appends a pattern that matches a white-space character except carriage return and linefeed. The character has to be matched specified number of times.
         /// </summary>
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
@@ -843,7 +843,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is a white-space character and it is neither carriage return nor linefeed. The character has to be matched from minimal to maximum times.
+        /// Appends a pattern that matches a white-space character except carriage return and linefeed. The character has to be matched from minimal to maximum times.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
@@ -4816,7 +4816,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a carriage return and a linefeed where a carriage return is optional.
+        /// Appends a pattern that matches a linefeed and an optional carriage return before it. Carriage return will be matched if present and not already consumed by regex engine..
         /// </summary>
         /// <returns></returns>
         public QuantifiablePattern NewLine()
