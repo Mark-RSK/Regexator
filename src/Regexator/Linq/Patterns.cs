@@ -416,7 +416,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a specified content surrounded with the beginning and the end of the string (or line if the multiline option is applied).
+        /// Returns a pattern that matches a specified content surrounded with the beginning and the end of the string (or line if the multiline option is applied). End of line is defined as the position before a linefeed.
         /// </summary>
         /// <param name="content">The content to be matched.</param>
         /// <returns></returns>
