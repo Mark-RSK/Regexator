@@ -896,9 +896,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal void AppendCharGroupStart(bool negative)
         {
-            _sb.Append(negative
-                ? Syntax.NegativeCharGroupStart
-                : Syntax.CharGroupStart);
+            _sb.Append(Syntax.CharGroupStart);
+
+            if (negative)
+            {
+                _sb.Append(Syntax.CharGroupNegation);
+            }
         }
 
         internal void AppendCharGroupEnd()
@@ -1242,7 +1245,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="lazy">Indicates whether the quantifier will be greedy or lazy.</param>
         public void AppendMaybe(bool lazy)
         {
-            _sb.Append(Syntax.MaybeQuantifier);
+            _sb.Append(Syntax.Maybe);
 
             if (lazy)
             {
@@ -1264,7 +1267,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="lazy">Indicates whether the quantifier will be greedy or lazy.</param>
         public void AppendMaybeMany(bool lazy)
         {
-            _sb.Append(Syntax.MaybeManyQuantifier);
+            _sb.Append(Syntax.MaybeMany);
 
             if (lazy)
             {
@@ -1286,7 +1289,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="lazy">Indicates whether the quantifier will be greedy or lazy.</param>
         public void AppendOneMany(bool lazy)
         {
-            _sb.Append(Syntax.OneManyQuantifier);
+            _sb.Append(Syntax.OneMany);
 
             if (lazy)
             {
@@ -1455,7 +1458,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal void AppendLazy()
         {
-            _sb.Append(Syntax.LazyQuantifier);
+            _sb.Append(Syntax.Lazy);
         }
 
         internal void AppendGroupReferenceInternal(int groupNumber)
@@ -1709,7 +1712,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentOutOfRangeException("charCode");
             }
 
-            _sb.Append(Syntax.AsciiStart);
+            _sb.Append(Syntax.AsciiHexadecimalStart);
             _sb.Append(charCode.ToString("X2", CultureInfo.InvariantCulture));
         }
 

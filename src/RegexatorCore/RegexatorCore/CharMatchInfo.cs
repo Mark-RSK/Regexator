@@ -6,8 +6,9 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Reflection;
 using System.ComponentModel;
+using System.Globalization;
 
-namespace Pihrtsoft.Text.RegularExpressions.Linq
+namespace Pihrtsoft.Text.RegularExpressions
 {
     public class CharMatchInfo
     {
@@ -108,7 +109,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             foreach (var category in Enum.GetValues(typeof(GeneralCategory)).Cast<GeneralCategory>())
             {
-                string pattern = Syntax.GeneralCategory(category);
+                string pattern = Syntax.UnicodeStart + Syntax.GetGeneralCategoryValue(category) + Syntax.UnicodeEnd;
                 if (Regex.IsMatch(s, pattern, options))
                 {
                     MemberInfo[] info = typeof(GeneralCategory).GetMember(category.ToString());
@@ -119,7 +120,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             foreach (var block in Enum.GetValues(typeof(NamedBlock)).Cast<NamedBlock>())
             {
-                string pattern = Syntax.NamedBlock(block);
+                string pattern = Syntax.UnicodeStart + Syntax.GetNamedBlockValue(block) + Syntax.UnicodeEnd;
                 if (Regex.IsMatch(s, pattern, options))
                 {
                     MemberInfo[] info = typeof(NamedBlock).GetMember(block.ToString());
@@ -167,11 +168,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                     yield return new CharMatchInfo(Syntax.Backspace, "Escaped character");
                 }
 
-                yield return new CharMatchInfo(Syntax.Unicode(charCode), "Unicode character (four hexadecimal digits)");
+                yield return new CharMatchInfo(Syntax.UnicodeHexadecimalStart + charCode.ToString("X4", CultureInfo.InvariantCulture), "Unicode character (four hexadecimal digits)");
 
-                yield return new CharMatchInfo(Syntax.AsciiHexadecimal(charCode), "ASCII character (two hexadecimal digits)");
+                yield return new CharMatchInfo(Syntax.AsciiHexadecimalStart + charCode.ToString("X2", CultureInfo.InvariantCulture), "ASCII character (two hexadecimal digits)");
 
-                yield return new CharMatchInfo(Syntax.AsciiOctal(charCode), "ASCII character (two or three octal digits)");
+                yield return new CharMatchInfo(@"\" + Convert.ToString(charCode, 8).PadLeft(2, '0'), "ASCII character (two or three octal digits)");
 
                 if (charCode > 0 && charCode <= 0x1A)
                 {

@@ -122,7 +122,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 case CharEscapeMode.None:
                     return ((char)charCode).ToString();
                 case CharEscapeMode.AsciiHexadecimal:
-                    return Syntax.AsciiHexadecimal(charCode);
+                    return Syntax.AsciiHexadecimalStart + charCode.ToString("X2", CultureInfo.InvariantCulture);
                 case CharEscapeMode.Backslash:
                     return @"\" + ((char)charCode).ToString();
                 case CharEscapeMode.Bell:
@@ -245,7 +245,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             switch (mode)
             {
                 case CharEscapeMode.AsciiHexadecimal:
-                    sb.Append(Syntax.AsciiStart);
+                    sb.Append(Syntax.AsciiHexadecimalStart);
                     sb.Append(((int)ch).ToString("X2", CultureInfo.InvariantCulture));
                     break;
                 case CharEscapeMode.Backslash:

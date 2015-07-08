@@ -25,7 +25,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             internal override string Value
             {
-                get { return Syntax.SubstituteNamedGroupInternal(GroupName); }
+                get { return Syntax.SubstituteNamedGroupStart + GroupName + Syntax.SubstituteNamedGroupEnd; }
             }
         }
 

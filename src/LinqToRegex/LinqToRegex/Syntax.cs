@@ -11,7 +11,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public static partial class Syntax
     {
-        internal const string InlineCommentStart = "(?#";
+        public const string InlineCommentStart = "(?#";
 
         public const string Or = "|";
 
@@ -24,15 +24,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public const string NegativeWordBoundary = @"\B";
         public const string PreviousMatchEnd = @"\G";
 
-        internal const string AssertionStart = "(?=";
-        internal const string NegativeAssertionStart = "(?!";
-        internal const string BackAssertionStart = "(?<=";
-        internal const string NegativeBackAssertionStart = "(?<!";
+        public const string AssertionStart = "(?=";
+        public const string NegativeAssertionStart = "(?!";
+        public const string BackAssertionStart = "(?<=";
+        public const string NegativeBackAssertionStart = "(?<!";
 
-        internal const string GroupStart = "(?";
-        internal const string NoncapturingGroupStart = "(?:";
-        internal const string NonbacktrackingGroupStart = "(?>";
-        internal const string GroupEnd = ")";
+        public const string NoncapturingGroupStart = "(?:";
+        public const string NonbacktrackingGroupStart = "(?>";
+        public const string GroupEnd = ")";
 
         public const string AnyChar = ".";
         public const string Digit = @"\d";
@@ -50,24 +49,22 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public const string CarriageReturn = @"\r";
         public const string Escape = @"\e";
 
-        internal const string CharGroupNegation = "^";
-        internal const string CharGroupStart = "[";
-        internal const string NegativeCharGroupStart = CharGroupStart + CharGroupNegation;
-        internal const string CharGroupEnd = "]";
+        public const string CharGroupNegation = "^";
+        public const string CharGroupStart = "[";
+        public const string CharGroupEnd = "]";
 
-        internal const string AsciiStart = @"\x";
-        internal const string AsciiOctalStart = @"\";
+        public const string AsciiHexadecimalStart = @"\x";
         public const string AsciiControlStart = @"\c";
+        public const string UnicodeHexadecimalStart = @"\u";
 
-        internal const string UnicodeStart = @"\p{";
-        internal const string NotUnicodeStart = @"\P{";
-        internal const string HexUnicodeStart = @"\u";
-        internal const string UnicodeEnd = "}";
+        public const string UnicodeStart = @"\p{";
+        public const string NotUnicodeStart = @"\P{";
+        public const string UnicodeEnd = "}";
 
-        public const string MaybeQuantifier = "?";
-        public const string MaybeManyQuantifier = "*";
-        public const string OneManyQuantifier = "+";
-        public const string LazyQuantifier = "?";
+        public const string Maybe = "?";
+        public const string MaybeMany = "*";
+        public const string OneMany = "+";
+        public const string Lazy = "?";
 
         public const char IgnoreCaseChar = 'i';
         public const char MultilineChar = 'm';
@@ -81,8 +78,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public const string SubstituteEntireMatch = SubstitutionChar + "&";
         public const string SubstituteAfterMatch = SubstitutionChar + "'";
         public const string SubstituteBeforeMatch = SubstitutionChar + "`";
+        public const string SubstituteNamedGroupStart = "${";
+        public const string SubstituteNamedGroupEnd = "}";
 
-        public static string CharClass(CharClass value)
+        internal static string CharClass(CharClass value)
         {
             switch (value)
             {
@@ -101,61 +100,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
 
             return string.Empty;
-        }
-
-        public static string Unicode(int charCode)
-        {
-            if (charCode < 0 || charCode > 0xFFFF)
-            {
-                throw new ArgumentOutOfRangeException("charCode");
-            }
-
-            return UnicodeInternal(charCode);
-        }
-
-        internal static string UnicodeInternal(int charCode)
-        {
-            return HexUnicodeStart + charCode.ToString("X4", CultureInfo.InvariantCulture);
-        }
-
-        public static string AsciiHexadecimal(int charCode)
-        {
-            if (charCode < 0 || charCode > 0xFF)
-            {
-                throw new ArgumentOutOfRangeException("charCode");
-            }
-
-            return AsciiStart + charCode.ToString("X2", CultureInfo.InvariantCulture);
-        }
-
-        public static string AsciiOctal(int charCode)
-        {
-            if (charCode < 0 || charCode > 0xFF)
-            {
-                throw new ArgumentOutOfRangeException("charCode");
-            }
-
-            return @"\" + Convert.ToString(charCode, 8).PadLeft(2, '0');
-        }
-
-        public static string NamedBlock(NamedBlock block)
-        {
-            return NamedBlock(block, false);
-        }
-
-        public static string NamedBlock(NamedBlock block, bool negative)
-        {
-            return (negative ? NotUnicodeStart : UnicodeStart) + GetNamedBlockValue(block) + UnicodeEnd;
-        }
-
-        public static string GeneralCategory(GeneralCategory category)
-        {
-            return GeneralCategory(category, false);
-        }
-
-        public static string GeneralCategory(GeneralCategory category, bool negative)
-        {
-            return (negative ? NotUnicodeStart : UnicodeStart) + GetGeneralCategoryValue(category) + UnicodeEnd;
         }
 
         [SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
@@ -466,11 +410,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 default:
                     return string.Empty;
             }
-        }
-
-        internal static string SubstituteNamedGroupInternal(string groupName)
-        {
-            return "${" + groupName + "}";
         }
     }
 }
