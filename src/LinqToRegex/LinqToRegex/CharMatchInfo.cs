@@ -2,7 +2,7 @@
 
 using System;
 
-namespace Pihrtsoft.Text.RegularExpressions
+namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public class CharMatchInfo
     {
