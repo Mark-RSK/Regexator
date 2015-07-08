@@ -7,6 +7,7 @@ using System.Text.RegularExpressions;
 using System.Reflection;
 using System.ComponentModel;
 using System.Globalization;
+using Pihrtsoft.Text.RegularExpressions.Linq;
 
 namespace Pihrtsoft.Text.RegularExpressions
 {

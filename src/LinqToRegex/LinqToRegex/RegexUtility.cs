@@ -144,6 +144,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
+        public static CharEscapeMode GetEscapeMode(int charCode)
+        {
+            return GetEscapeMode(charCode, false);
+        }
+
         public static CharEscapeMode GetEscapeMode(int charCode, bool inCharGroup)
         {
             if (charCode < 0 || charCode > 0xFFFF)
