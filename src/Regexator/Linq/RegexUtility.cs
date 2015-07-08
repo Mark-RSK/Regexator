@@ -11,7 +11,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using Pihrtsoft.Text.RegularExpressions.Linq;
 
-namespace Pihrtsoft.Text.RegularExpressions
+namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     public static class RegexUtility
     {

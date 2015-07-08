@@ -67,10 +67,11 @@
     <Compile Include="Linq\NegativeSurroundAssertion.cs" />
     <Compile Include="Linq\OrContainer.cs" />
     <Compile Include="Linq\JoinContainer.cs" />
+    <Compile Include="Linq\Extensions\RegexExtensions.cs" />
     <Compile Include="Linq\Substitution_.cs" />
     <Compile Include="Linq\SurroundAssertion.cs" />
-    <Compile Include="Extensions\EnumerableExtensions.cs" />
-    <Compile Include="Extensions\MatchExtensions.cs" />
+    <Compile Include="Linq\Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Linq\Extensions\MatchExtensions.cs" />
     <Compile Include="Linq\Anchor\EndOrBeforeEndingNewLine.cs" />
     <Compile Include="Linq\Anchor\WordBoundary.cs" />
     <Compile Include="Linq\Anchor\PreviousMatchEnd.cs" />
@@ -124,7 +125,7 @@
     <Compile Include="Linq\NamedBlock.cs" />
     <Compile Include="Linq\GeneralCategory.cs" />
     <Compile Include="Core\CharMatchInfo.cs" />
-    <Compile Include="Core\RegexUtility.cs" />
+    <Compile Include="Linq\RegexUtility.cs" />
     <Compile Include="Linq\AnyChar.cs" />
     <Compile Include="Core\CaptureItemEqualityComparer.cs" />
     <Compile Include="Core\SplitItemKind.cs" />
@@ -140,7 +141,7 @@
     <Compile Include="Core\SplitContext.cs" />
     <Compile Include="Core\SplitItem.cs" />
     <Compile Include="Core\GroupInfoIndexEqualityComparer.cs" />
-    <Compile Include="Extensions\Extensions.cs" />
+    <Compile Include="Core\EnumerableExtensions.cs" />
     <Compile Include="Core\ReplaceResult.cs" />
     <Compile Include="Core\SplitItemCollection.cs" />
     <Compile Include="Core\ReplaceItemCollection.cs" />

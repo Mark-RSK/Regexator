@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace Pihrtsoft.Text.RegularExpressions.Extensions
+namespace Pihrtsoft.Text.RegularExpressions.Linq.Extensions
 {
     /// <summary>
     /// Provides a set of static methods that extends the <see cref="IEnumerable&lt;T&gt;"/> whose generic type argument is <see cref="Match"/> or <see cref="Group"/>.

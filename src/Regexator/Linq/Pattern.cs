@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Text.RegularExpressions;
-using Pihrtsoft.Text.RegularExpressions.Extensions;
+using Pihrtsoft.Text.RegularExpressions.Linq.Extensions;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {

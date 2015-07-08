@@ -3,6 +3,8 @@
 using System;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
+using Pihrtsoft.Text.RegularExpressions.Linq.Extensions;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
