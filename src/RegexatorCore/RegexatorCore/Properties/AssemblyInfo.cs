@@ -8,11 +8,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Pihrtsoft.Text.RegularExpressions Core Library")]
+[assembly: AssemblyTitle("Regexator Core Library")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Pihrtsoft")]
-[assembly: AssemblyProduct("Pihrtsoft.Text.RegularExpressions Core Library")]
+[assembly: AssemblyProduct("Regexator Core Library")]
 [assembly: AssemblyCopyright("Copyright (c) Josef Pihrt")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -23,7 +23,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("504ccac6-89a1-43b5-82c8-a5a30e3c2dc7")]
+[assembly: Guid("d3cfaa21-1744-4485-a335-9f9e9d6c2db2")]
 
 // Version information for an assembly consists of the following four values:
 //

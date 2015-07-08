@@ -468,13 +468,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        public static string SubstituteNamedGroup(string groupName)
-        {
-            RegexUtility.CheckGroupName(groupName);
-
-            return SubstituteNamedGroupInternal(groupName);
-        }
-
         internal static string SubstituteNamedGroupInternal(string groupName)
         {
             return "${" + groupName + "}";

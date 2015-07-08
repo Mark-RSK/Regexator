@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AB830DA1-8246-4067-B706-A714C87D8906}</ProjectGuid>
+    <ProjectGuid>{C1F3DA6C-5F01-4F65-8001-1FF40596EF53}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Pihrtsoft.Text.RegularExpressions</RootNamespace>
@@ -46,6 +46,7 @@
     <Compile Include="CaptureItemEqualityComparer.cs" />
     <Compile Include="EnumerableExtensions.cs" />
     <Compile Include="Extensions\RegexExtensions.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="GroupInfo.cs" />
     <Compile Include="GroupInfoCollection.cs" />
     <Compile Include="GroupInfoIndexEqualityComparer.cs" />
