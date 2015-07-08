@@ -22,6 +22,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\Debug\Pihrtsoft.Text.RegularExpressions.Linq.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -111,6 +112,7 @@
     <Compile Include="QuantifiedPattern.cs" />
     <Compile Include="QuantifiedPattern_.cs" />
     <Compile Include="RegexUtility.cs" />
+    <Compile Include="Snippets.cs" />
     <Compile Include="Substitution.cs" />
     <Compile Include="Substitutions.cs" />
     <Compile Include="Substitution_.cs" />
