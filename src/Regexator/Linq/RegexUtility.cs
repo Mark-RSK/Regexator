@@ -9,7 +9,6 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
-using Pihrtsoft.Text.RegularExpressions.Linq;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
