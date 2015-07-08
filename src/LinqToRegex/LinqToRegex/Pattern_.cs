@@ -923,6 +923,33 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
+        /// Appends a pattern that matches a digit character zero or more times.
+        /// </summary>
+        /// <returns></returns>
+        public QuantifiedPattern WhileDigit()
+        {
+            return ConcatInternal(Patterns.WhileDigit());
+        }
+
+        /// <summary>
+        /// Appends a pattern that matches a word character zero or more times.
+        /// </summary>
+        /// <returns></returns>
+        public QuantifiedPattern WhileWordChar()
+        {
+            return ConcatInternal(Patterns.WhileWordChar());
+        }
+
+        /// <summary>
+        /// Appends a pattern that matches a white-space character zero or more times.
+        /// </summary>
+        /// <returns></returns>
+        public QuantifiedPattern WhileWhiteSpace()
+        {
+            return ConcatInternal(Patterns.WhileWhiteSpace());
+        }
+
+        /// <summary>
         /// Appends a pattern that matches a character that is not a specified character zero or more times.
         /// </summary>
         /// <param name="value">The Unicode character.</param>
@@ -1896,15 +1923,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public QuantifiedGroup WhiteSpaces()
         {
             return ConcatInternal(Patterns.WhiteSpaces());
-        }
-
-        /// <summary>
-        /// Appends a pattern that matches a white-space character zero or more times.
-        /// </summary>
-        /// <returns></returns>
-        public QuantifiedPattern WhileWhiteSpace()
-        {
-            return ConcatInternal(Patterns.WhileWhiteSpace());
         }
 
         /// <summary>

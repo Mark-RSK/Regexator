@@ -4936,6 +4936,24 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
+        /// Returns a pattern that matches a digit character zero or more times.
+        /// </summary>
+        /// <returns></returns>
+        public static QuantifiedPattern WhileDigit()
+        {
+            return Digit().MaybeMany();
+        }
+
+        /// <summary>
+        /// Returns a pattern that matches a word character zero or more times.
+        /// </summary>
+        /// <returns></returns>
+        public static QuantifiedPattern WhileWordChar()
+        {
+            return WordChar().MaybeMany();
+        }
+
+        /// <summary>
         /// Returns a pattern that matches a white-space character zero or more times.
         /// </summary>
         /// <returns></returns>
