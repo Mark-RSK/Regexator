@@ -51,7 +51,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\src\LinqToRegex\LinqToRegex\LinqToRegex.csproj">
+    <ProjectReference Include="..\src\LinqToRegex\LinqToRegex.csproj">
       <Project>{a5c864f0-d0a3-4a3c-8854-ce4ee631901b}</Project>
       <Name>LinqToRegex</Name>
     </ProjectReference>

@@ -5,9 +5,9 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samples", "Samples\Samples.csproj", "{3B7F4B7E-A1FB-4E0E-B670-DC6F9123941D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqToRegex", "src\LinqToRegex\LinqToRegex\LinqToRegex.csproj", "{A5C864F0-D0A3-4A3C-8854-CE4EE631901B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqToRegex", "src\LinqToRegex\LinqToRegex.csproj", "{A5C864F0-D0A3-4A3C-8854-CE4EE631901B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegexatorCore", "src\RegexatorCore\RegexatorCore\RegexatorCore.csproj", "{C1F3DA6C-5F01-4F65-8001-1FF40596EF53}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegexatorCore", "src\RegexatorCore\RegexatorCore.csproj", "{C1F3DA6C-5F01-4F65-8001-1FF40596EF53}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
