@@ -88,9 +88,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Creates and returns a new instance of the <see cref="CharGrouping"/> class containing a specified Unicode named block.
+        /// Creates and returns a new instance of the <see cref="CharGrouping"/> class containing a specified Unicode block.
         /// </summary>
-        /// <param name="block">An enumerated constant that identifies Unicode named block.</param>
+        /// <param name="block">An enumerated constant that identifies Unicode block.</param>
         /// <returns></returns>
         public static CharGrouping Create(NamedBlock block)
         {
@@ -103,9 +103,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Creates and returns a new instance of the <see cref="CharGrouping"/> class containing a specified Unicode general category.
+        /// Creates and returns a new instance of the <see cref="CharGrouping"/> class containing a specified Unicode category.
         /// </summary>
-        /// <param name="category">An enumerated constant that identifies Unicode general category.</param>
+        /// <param name="category">An enumerated constant that identifies Unicode category.</param>
         /// <returns></returns>
         public static CharGrouping Create(GeneralCategory category)
         {
@@ -221,9 +221,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character from the specified Unicode named block.
+        /// Appends a pattern that matches a character from the specified Unicode block.
         /// </summary>
-        /// <param name="block">An enumerated constant that identifies Unicode named block.</param>
+        /// <param name="block">An enumerated constant that identifies Unicode block.</param>
         /// <returns></returns>
         public CharGrouping Concat(NamedBlock block)
         {
@@ -231,9 +231,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character from the specified Unicode general category.
+        /// Appends a pattern that matches a character from the specified Unicode category.
         /// </summary>
-        /// <param name="category">An enumerated constant that identifies Unicode general category.</param>
+        /// <param name="category">An enumerated constant that identifies Unicode category.</param>
         /// <returns></returns>
         public CharGrouping Concat(GeneralCategory category)
         {
@@ -241,9 +241,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not from the specified Unicode named block.
+        /// Appends a pattern that matches a character that is not from the specified Unicode block.
         /// </summary>
-        /// <param name="block">An enumerated constant that identifies Unicode named block.</param>
+        /// <param name="block">An enumerated constant that identifies Unicode block.</param>
         /// <returns></returns>
         public CharGrouping Not(NamedBlock block)
         {
@@ -251,9 +251,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not from the specified Unicode general category.
+        /// Appends a pattern that matches a character that is not from the specified Unicode category.
         /// </summary>
-        /// <param name="category">An enumerated constant that identifies Unicode general category.</param>
+        /// <param name="category">An enumerated constant that identifies Unicode category.</param>
         /// <returns></returns>
         public CharGrouping Not(GeneralCategory category)
         {
@@ -378,7 +378,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a lower-case letter, i.e. a letter from Unicode general category LetterLowercase.
+        /// Appends a pattern that matches a lower-case letter, i.e. a character from Unicode category LetterLowercase.
         /// </summary>
         /// <returns></returns>
         public CharGrouping LetterLower()
@@ -387,7 +387,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not a lower-case letter. i.e. a character that is not from Unicode general category LetterLowercase.
+        /// Appends a pattern that matches a character that is not a lower-case letter. i.e. a character that is not from Unicode category LetterLowercase.
         /// </summary>
         /// <returns></returns>
         public CharGrouping NotLetterLower()
@@ -396,7 +396,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a upper-case letter. i.e. a letter from Unicode general category LetterUppercase.
+        /// Appends a pattern that matches a upper-case letter. i.e. a character from Unicode category LetterUppercase.
         /// </summary>
         /// <returns></returns>
         public CharGrouping LetterUpper()
@@ -405,7 +405,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not a upper-case letter. i.e. a character that is not from Unicode general category LetterUppercase.
+        /// Appends a pattern that matches a character that is not a upper-case letter. i.e. a character that is not from Unicode category LetterUppercase.
         /// </summary>
         /// <returns></returns>
         public CharGrouping NotLetterUpper()

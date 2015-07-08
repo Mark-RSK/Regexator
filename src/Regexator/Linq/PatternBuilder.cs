@@ -907,18 +907,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character from a specified Unicode named block.
+        /// Appends a pattern that matches a character from a specified Unicode block.
         /// </summary>
-        /// <param name="block">An enumerated constant that identifies Unicode named block.</param>
+        /// <param name="block">An enumerated constant that identifies Unicode block.</param>
         public void AppendCharGroup(NamedBlock block)
         {
             AppendCharGroup(block, false);
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not from a specified Unicode named block.
+        /// Appends a pattern that matches a character that is not from a specified Unicode block.
         /// </summary>
-        /// <param name="block">An enumerated constant that identifies Unicode named block.</param>
+        /// <param name="block">An enumerated constant that identifies Unicode block.</param>
         public void AppendNegativeCharGroup(NamedBlock block)
         {
             AppendCharGroup(block, true);
@@ -932,18 +932,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character from a specified Unicode general category.
+        /// Appends a pattern that matches a character from a specified Unicode category.
         /// </summary>
-        /// <param name="category">An enumerated constant that identifies Unicode general category.</param>
+        /// <param name="category">An enumerated constant that identifies Unicode category.</param>
         public void AppendCharGroup(GeneralCategory category)
         {
             AppendCharGroup(category, false);
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not from a specified Unicode general category.
+        /// Appends a pattern that matches a character that is not from a specified Unicode category.
         /// </summary>
-        /// <param name="category">An enumerated constant that identifies Unicode general category.</param>
+        /// <param name="category">An enumerated constant that identifies Unicode category.</param>
         public void AppendNegativeCharGroup(GeneralCategory category)
         {
             AppendCharGroup(category, true);
@@ -1165,18 +1165,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character from a specified Unicode general category.
+        /// Appends a pattern that matches a character from a specified Unicode category.
         /// </summary>
-        /// <param name="category">An enumerated constant that identifies Unicode general category.</param>
+        /// <param name="category">An enumerated constant that identifies Unicode category.</param>
         public void AppendGeneralCategory(GeneralCategory category)
         {
             AppendGeneralCategory(category, false);
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not from a specified Unicode general category.
+        /// Appends a pattern that matches a character that is not from a specified Unicode category.
         /// </summary>
-        /// <param name="category">An enumerated constant that identifies Unicode general category.</param>
+        /// <param name="category">An enumerated constant that identifies Unicode category.</param>
         public void AppendNotGeneralCategory(GeneralCategory category)
         {
             AppendGeneralCategory(category, true);
@@ -1190,9 +1190,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character from a specified Unicode named block.
+        /// Appends a pattern that matches a character from a specified Unicode block.
         /// </summary>
-        /// <param name="block">An enumerated constant that identifies Unicode named block.</param>
+        /// <param name="block">An enumerated constant that identifies Unicode block.</param>
         /// <returns></returns>
         public void AppendNamedBlock(NamedBlock block)
         {
@@ -1200,9 +1200,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not from a specified Unicode named block.
+        /// Appends a pattern that matches a character that is not from a specified Unicode block.
         /// </summary>
-        /// <param name="block">An enumerated constant that identifies Unicode named block.</param>
+        /// <param name="block">An enumerated constant that identifies Unicode block.</param>
         /// <returns></returns>
         public void AppendNotNamedBlock(NamedBlock block)
         {
@@ -1251,7 +1251,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a quantifier that matches previous element zero or many times.
+        /// Appends a quantifier that matches previous element zero or more times.
         /// </summary>
         public void AppendMaybeMany()
         {
@@ -1259,7 +1259,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a quantifier that matches previous element zero or many times.
+        /// Appends a quantifier that matches previous element zero or more times.
         /// </summary>
         /// <param name="lazy">Indicates whether the quantifier will be greedy or lazy.</param>
         public void AppendMaybeMany(bool lazy)
@@ -1273,7 +1273,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a quantifier that matches previous element one or many times.
+        /// Appends a quantifier that matches previous element one or more times.
         /// </summary>
         public void AppendOneMany()
         {
@@ -1281,7 +1281,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a quantifier that matches previous element one or many times.
+        /// Appends a quantifier that matches previous element one or more times.
         /// </summary>
         /// <param name="lazy">Indicates whether the quantifier will be greedy or lazy.</param>
         public void AppendOneMany(bool lazy)

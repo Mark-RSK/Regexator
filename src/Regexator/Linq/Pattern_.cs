@@ -779,7 +779,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
 #if DEBUG
         /// <summary>
-        /// Appends a pattern that matches a character that is not a specified character zero or many times followed with a specified character.
+        /// Appends a pattern that matches a character that is not a specified character zero or more times followed with a specified character.
         /// </summary>
         /// <param name="value">The Unicode character.</param>
         /// <returns></returns>
@@ -789,7 +789,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not a specified character zero or many times followed with a specified character.
+        /// Appends a pattern that matches a character that is not a specified character zero or more times followed with a specified character.
         /// </summary>
         /// <param name="value">An enumerated constant that identifies ASCII character.</param>
         /// <returns></returns>
@@ -892,7 +892,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a specified character zero or many times.
+        /// Appends a pattern that matches a specified character zero or more times.
         /// </summary>
         /// <param name="value">The Unicode character.</param>
         /// <returns></returns>
@@ -902,7 +902,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a specified character zero or many times.
+        /// Appends a pattern that matches a specified character zero or more times.
         /// </summary>
         /// <param name="value">An enumerated constant that identifies ASCII character.</param>
         /// <returns></returns>
@@ -912,7 +912,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a specified character zero or many times.
+        /// Appends a pattern that matches a specified character zero or more times.
         /// </summary>
         /// <param name="value">A set of Unicode characters.</param>
         /// <returns></returns>
@@ -923,7 +923,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not a specified character zero or many times.
+        /// Appends a pattern that matches a character that is not a specified character zero or more times.
         /// </summary>
         /// <param name="value">The Unicode character.</param>
         /// <returns></returns>
@@ -933,7 +933,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not a specified character zero or many times.
+        /// Appends a pattern that matches a character that is not a specified character zero or more times.
         /// </summary>
         /// <param name="value">An enumerated constant that identifies ASCII character.</param>
         /// <returns></returns>
@@ -943,7 +943,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not a specified character zero or many times.
+        /// Appends a pattern that matches a character that is not a specified character zero or more times.
         /// </summary>
         /// <param name="value">A set of Unicode characters.</param>
         /// <returns></returns>
@@ -954,7 +954,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is neither a carriage return not a linefeed zero or many times.
+        /// Appends a pattern that matches a zero or more characters that are neither a carriage return nor a linefeed.
         /// </summary>
         /// <returns></returns>
         public Pattern WhileNotNewLine()
@@ -1027,7 +1027,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches any character except linefeed (or any character if the Singleline option is applied) zero or many times but as few times as possible.
+        /// Appends a pattern that matches any character except linefeed (or any character if the Singleline option is applied) zero or more times but as few times as possible.
         /// </summary>
         /// <returns></returns>
         public Pattern Crawl()
@@ -1036,7 +1036,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches any character zero or many times but as few times as possible.
+        /// Appends a pattern that matches any character zero or more times but as few times as possible.
         /// </summary>
         /// <returns></returns>
         public Pattern CrawlInvariant()
@@ -1110,6 +1110,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         /// <summary>
         /// Appends a pattern that matches an lower-case alphanumeric character. Alphanumeric character is a latin alphabet lower-case letter or an arabic digit.
+        /// If the "ignore case" option is applied the pattern will also match upper-case latin letter.
         /// </summary>
         /// <returns></returns>
         public CharGroup AlphanumericLower()
@@ -1119,6 +1120,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         /// <summary>
         /// Appends a pattern that matches a specified number of lower-case alphanumeric characters. Alphanumeric character is a latin alphabet lower-case letter or an arabic digit.
+        /// If the "ignore case" option is applied the pattern will also match upper-case latin letter.
         /// </summary>
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
@@ -1130,6 +1132,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         /// <summary>
         /// Appends a pattern that matches an lower-case alphanumeric character from minimal to maximum times. Alphanumeric character is a latin alphabet lower-case letter or an arabic digit.
+        /// If the "ignore case" option is applied the pattern will also match upper-case latin letter.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
@@ -1142,6 +1145,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         /// <summary>
         /// Appends a pattern that matches a character that is not an lower-case alphanumeric character. Alphanumeric character is a latin alphabet lower-case letter or an arabic digit.
+        /// If the "ignore case" option is applied the pattern will also not match upper-case latin letter.
         /// </summary>
         /// <returns></returns>
         public CharGroup NotAlphanumericLower()
@@ -1151,6 +1155,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         /// <summary>
         /// Appends a pattern that matches a character that is not an lower-case alphanumeric character specified number of times. Alphanumeric character is a latin alphabet lower-case letter or an arabic digit.
+        /// If the "ignore case" option is applied the pattern will also not match upper-case latin letter.
         /// </summary>
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
@@ -1162,6 +1167,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         /// <summary>
         /// Appends a pattern that matches a character that is not an lower-case alphanumeric character from minimal to maximum times. Alphanumeric character is a latin alphabet lower-case letter or an arabic digit.
+        /// If the "ignore case" option is applied the pattern will also not match upper-case latin letter.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
@@ -1174,6 +1180,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         /// <summary>
         /// Appends a pattern that matches an upper-case alphanumeric character. Alphanumeric character is a latin alphabet upper-case letter or an arabic digit.
+        /// If the "ignore case" option is applied the pattern will also match lower-case latin letter.
         /// </summary>
         /// <returns></returns>
         public CharGroup AlphanumericUpper()
@@ -1183,6 +1190,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         /// <summary>
         /// Appends a pattern that matches a specified number of upper-case alphanumeric characters. Alphanumeric character is a latin alphabet upper-case letter or an arabic digit.
+        /// If the "ignore case" option is applied the pattern will also match lower-case latin letter.
         /// </summary>
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
@@ -1194,6 +1202,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         /// <summary>
         /// Appends a pattern that matches an upper-case alphanumeric character from minimal to maximum times. Alphanumeric character is a latin alphabet upper-case letter or an arabic digit.
+        /// If the "ignore case" option is applied the pattern will also match lower-case latin letter.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
@@ -1206,6 +1215,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         /// <summary>
         /// Appends a pattern that matches a character that is not an upper-case alphanumeric character. Alphanumeric character is a latin alphabet upper-case letter or an arabic digit.
+        /// If the "ignore case" option is applied the pattern will also not match lower-case latin letter.
         /// </summary>
         /// <returns></returns>
         public CharGroup NotAlphanumericUpper()
@@ -1215,6 +1225,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         /// <summary>
         /// Appends a pattern that matches a character that is not an upper-case alphanumeric character specified number of times. Alphanumeric character is a latin alphabet upper-case letter or an arabic digit.
+        /// If the "ignore case" option is applied the pattern will also not match lower-case latin letter.
         /// </summary>
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
@@ -1226,6 +1237,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         /// <summary>
         /// Appends a pattern that matches a character that is not an upper-case alphanumeric character from minimal to maximum times. Alphanumeric character is a latin alphabet upper-case letter or an arabic digit.
+        /// If the "ignore case" option is applied the pattern will also not match lower-case latin letter.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
@@ -1333,7 +1345,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a latin alphabet lower-case letter.
+        /// Appends a pattern that matches a latin alphabet lower-case letter. If the "ignore case" option is applied the pattern will also match upper-case latin letter.
         /// </summary>
         /// <returns></returns>
         public CharGroup LatinLetterLower()
@@ -1342,7 +1354,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a specified number of latin alphabet lower-case letters.
+        /// Appends a pattern that matches a specified number of latin alphabet lower-case letters. If the "ignore case" option is applied the pattern will also match upper-case latin letter.
         /// </summary>
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
@@ -1353,7 +1365,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a latin alphabet lower-case letter from minimal to maximum times.
+        /// Appends a pattern that matches a latin alphabet lower-case letter from minimal to maximum times. If the "ignore case" option is applied the pattern will also match upper-case latin letter.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
@@ -1365,7 +1377,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a latin alphabet upper-case letter.
+        /// Appends a pattern that matches a latin alphabet upper-case letter. If the "ignore case" option is applied the pattern will also match lower-case latin letter.
         /// </summary>
         /// <returns></returns>
         public CharGroup LatinLetterUpper()
@@ -1374,7 +1386,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a specified number of latin alphabet upper-case letters.
+        /// Appends a pattern that matches a specified number of latin alphabet upper-case letters. If the "ignore case" option is applied the pattern will also match lower-case latin letter.
         /// </summary>
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
@@ -1385,7 +1397,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a latin alphabet upper-case letter from minimal to maximum times.
+        /// Appends a pattern that matches a latin alphabet upper-case letter from minimal to maximum times. If the "ignore case" option is applied the pattern will also match lower-case latin letter.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
@@ -1462,6 +1474,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         /// <summary>
         /// Appends a pattern that matches a character that is not a latin alphabet upper-case letter.
+        /// If the "ignore case" option is applied the pattern will also not match lower-case latin letter.
         /// </summary>
         /// <returns></returns>
         public CharGroup NotLatinLetterUpper()
@@ -1471,6 +1484,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         /// <summary>
         /// Appends a pattern that matches a character that is not a latin alphabet upper-case letter specified number of times.
+        /// If the "ignore case" option is applied the pattern will also not match lower-case latin letter.
         /// </summary>
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
@@ -1482,6 +1496,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         /// <summary>
         /// Appends a pattern that matches a character that is not a latin alphabet upper-case letter from minimal to maximum times.
+        /// If the "ignore case" option is applied the pattern will also not match lower-case latin letter.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
@@ -1493,7 +1508,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a letter from Unicode general category LetterLowercase.
+        /// Appends a pattern that matches a character from Unicode category LetterLowercase.
+        /// If the "ignore case" option is applied the pattern will also match a character from Unicode category LetterUppercase.
         /// </summary>
         /// <returns></returns>
         public CharPattern LetterLower()
@@ -1502,7 +1518,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a specified number of letters from Unicode general category LetterLowercase.
+        /// Appends a pattern that matches a specified number of letters from Unicode category LetterLowercase.
+        /// If the "ignore case" option is applied the pattern will also match a character from Unicode category LetterUppercase.
         /// </summary>
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
@@ -1513,7 +1530,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a letter from Unicode general category LetterLowercase from minimal to maximum times.
+        /// Appends a pattern that matches a character from Unicode category LetterLowercase from minimal to maximum times.
+        /// If the "ignore case" option is applied the pattern will also match a character from Unicode category LetterUppercase.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
@@ -1525,7 +1543,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not a letter from Unicode general category LetterLowercase.
+        /// Appends a pattern that matches a character that is not a character from Unicode category LetterLowercase.
+        /// If the "ignore case" option is applied the pattern will also not match a character from Unicode category LetterUppercase.
         /// </summary>
         /// <returns></returns>
         public CharPattern NotLetterLower()
@@ -1534,7 +1553,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not a letter from Unicode general category LetterLowercase specified number of times.
+        /// Appends a pattern that matches a character that is not a character from Unicode category LetterLowercase specified number of times.
+        /// If the "ignore case" option is applied the pattern will also not match a character from Unicode category LetterUppercase.
         /// </summary>
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
@@ -1545,7 +1565,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not a letter from Unicode general category LetterLowercase from minimal to maximum times.
+        /// Appends a pattern that matches a character that is not a character from Unicode category LetterLowercase from minimal to maximum times.
+        /// If the "ignore case" option is applied the pattern will also not match a character from Unicode category LetterUppercase.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
@@ -1557,7 +1578,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a letter from Unicode general category LetterUppercase.
+        /// Appends a pattern that matches a character from Unicode category LetterUppercase.
+        /// If the "ignore case" option is applied the pattern will also match a character from Unicode category LetterLowercase.
         /// </summary>
         /// <returns></returns>
         public CharPattern LetterUpper()
@@ -1566,7 +1588,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a specified number of letters from Unicode general category LetterUppercase.
+        /// Appends a pattern that matches a specified number of letters from Unicode category LetterUppercase.
+        /// If the "ignore case" option is applied the pattern will also match a character from Unicode category LetterLowercase.
         /// </summary>
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
@@ -1577,7 +1600,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a letter from Unicode general category LetterUppercase from minimal to maximum times.
+        /// Appends a pattern that matches a character from Unicode category LetterUppercase from minimal to maximum times. 
+        /// If the "ignore case" option is applied the pattern will also match a character from Unicode category LetterLowercase.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
@@ -1589,7 +1613,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not a letter from Unicode general category LetterUppercase.
+        /// Appends a pattern that matches a character that is not a character from Unicode category LetterUppercase.
+        /// If the "ignore case" option is applied the pattern will also not match a character from Unicode category LetterLowercase.
         /// </summary>
         /// <returns></returns>
         public CharPattern NotLetterUpper()
@@ -1598,7 +1623,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not a letter from Unicode general category LetterUppercase specified number of times.
+        /// Appends a pattern that matches a character that is not a character from Unicode category LetterUppercase specified number of times.
+        /// If the "ignore case" option is applied the pattern will also not match a character from Unicode category LetterLowercase.
         /// </summary>
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
@@ -1609,7 +1635,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not a letter from Unicode general category LetterUppercase from minimal to maximum times.
+        /// Appends a pattern that matches a character that is not a character from Unicode category LetterUppercase from minimal to maximum times.
+        /// If the "ignore case" option is applied the pattern will also not match a character from Unicode category LetterLowercase.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
@@ -1781,7 +1808,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a digit character one or many times.
+        /// Appends a pattern that matches one or more digit characters.
         /// </summary>
         /// <returns></returns>
         public QuantifiedGroup Digits()
@@ -1822,7 +1849,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not a digit character one or many times.
+        /// Appends a pattern that matches one or more characters that are not a digit character.
         /// </summary>
         /// <returns></returns>
         public QuantifiedGroup NotDigits()
@@ -1863,7 +1890,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a white-space character one or many times.
+        /// Appends a pattern that matches one or more white-space characters.
         /// </summary>
         /// <returns></returns>
         public QuantifiedGroup WhiteSpaces()
@@ -1872,7 +1899,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a white-space character zero or many times.
+        /// Appends a pattern that matches a white-space character zero or more times.
         /// </summary>
         /// <returns></returns>
         public QuantifiedPattern WhileWhiteSpace()
@@ -1913,7 +1940,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not a white-space character one or many times.
+        /// Appends a pattern that matches one or more characters that are not a white-space character.
         /// </summary>
         /// <returns></returns>
         public QuantifiedGroup NotWhiteSpaces()
@@ -1954,7 +1981,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a word character one or many times.
+        /// Appends a pattern that matches one or more word characters.
         /// </summary>
         /// <returns></returns>
         public QuantifiedGroup WordChars()
@@ -1995,7 +2022,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not a word character one or many times.
+        /// Appends a pattern that matches one or more characters that are not a word character.
         /// </summary>
         /// <returns></returns>
         public QuantifiedGroup NotWordChars()
@@ -2034,9 +2061,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character from a specified Unicode named block.
+        /// Appends a pattern that matches a character from a specified Unicode block.
         /// </summary>
-        /// <param name="block">An enumerated constant that identifies Unicode named block.</param>
+        /// <param name="block">An enumerated constant that identifies Unicode block.</param>
         /// <returns></returns>
         public QuantifiablePattern Character(NamedBlock block)
         {
@@ -2044,9 +2071,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character from a specified Unicode general category.
+        /// Appends a pattern that matches a character from a specified Unicode category.
         /// </summary>
-        /// <param name="category">An enumerated constant that identifies Unicode general category.</param>
+        /// <param name="category">An enumerated constant that identifies Unicode category.</param>
         /// <returns></returns>
         public QuantifiablePattern Character(GeneralCategory category)
         {
@@ -2107,9 +2134,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not from a specified Unicode named block.
+        /// Appends a pattern that matches a character that is not from a specified Unicode block.
         /// </summary>
-        /// <param name="block">An enumerated constant that identifies Unicode named block.</param>
+        /// <param name="block">An enumerated constant that identifies Unicode block.</param>
         /// <returns></returns>
         public QuantifiablePattern NotCharacter(NamedBlock block)
         {
@@ -2117,9 +2144,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not from a specified Unicode general category.
+        /// Appends a pattern that matches a character that is not from a specified Unicode category.
         /// </summary>
-        /// <param name="category">An enumerated constant that identifies Unicode general category.</param>
+        /// <param name="category">An enumerated constant that identifies Unicode category.</param>
         /// <returns></returns>
         public QuantifiablePattern NotCharacter(GeneralCategory category)
         {
@@ -2918,7 +2945,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a end parenthesis.
+        /// Appends a pattern that matches an end parenthesis.
         /// </summary>
         /// <returns></returns>
         public QuantifiablePattern EndParenthesis()
@@ -2938,7 +2965,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a end parenthesis from minimum to maximum times.
+        /// Appends a pattern that matches an end parenthesis from minimum to maximum times.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
@@ -2950,7 +2977,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not a end parenthesis.
+        /// Appends a pattern that matches a character that is not an end parenthesis.
         /// </summary>
         /// <returns></returns>
         public QuantifiablePattern NotEndParenthesis()
@@ -2959,7 +2986,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a specified number of characters that are not a end parenthesis.
+        /// Appends a pattern that matches a specified number of characters that are not an end parenthesis.
         /// </summary>
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
@@ -2970,7 +2997,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not a end parenthesis from minimum to maximum times.
+        /// Appends a pattern that matches a character that is not an end parenthesis from minimum to maximum times.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
@@ -3494,7 +3521,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a start angle bracket.
+        /// Appends a pattern that matches a start angle bracket (less-than sign).
         /// </summary>
         /// <returns></returns>
         public QuantifiablePattern StartAngleBracket()
@@ -3503,7 +3530,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a specified number of start angle brackets.
+        /// Appends a pattern that matches a specified number of start angle brackets (less-than signs).
         /// </summary>
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
@@ -3514,7 +3541,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a start angle bracket from minimum to maximum times.
+        /// Appends a pattern that matches a start angle bracket (less-than sign) from minimum to maximum times.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
@@ -3526,7 +3553,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not a start angle bracket.
+        /// Appends a pattern that matches a character that is not a start angle bracket (less-than sign).
         /// </summary>
         /// <returns></returns>
         public QuantifiablePattern NotStartAngleBracket()
@@ -3535,7 +3562,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a specified number of characters that are not a start angle bracket.
+        /// Appends a pattern that matches a specified number of characters that are not a start angle bracket (less-than sign).
         /// </summary>
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
@@ -3546,7 +3573,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not a start angle bracket from minimum to maximum times.
+        /// Appends a pattern that matches a character that is not a start angle bracket (less-than sign) from minimum to maximum times.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
@@ -3622,7 +3649,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a end angle bracket.
+        /// Appends a pattern that matches an end angle bracket (greater-than sign).
         /// </summary>
         /// <returns></returns>
         public QuantifiablePattern EndAngleBracket()
@@ -3631,7 +3658,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a specified number of end angle brackets.
+        /// Appends a pattern that matches a specified number of end angle brackets (greater-than signs).
         /// </summary>
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
@@ -3642,7 +3669,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a end angle bracket from minimum to maximum times.
+        /// Appends a pattern that matches an end angle bracket (greater-than sign) from minimum to maximum times.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
@@ -3654,7 +3681,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not a end angle bracket.
+        /// Appends a pattern that matches a character that is not an end angle bracket (greater-than sign).
         /// </summary>
         /// <returns></returns>
         public QuantifiablePattern NotEndAngleBracket()
@@ -3663,7 +3690,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a specified number of characters that are not a end angle bracket.
+        /// Appends a pattern that matches a specified number of characters that are not an end angle bracket (greater-than sign).
         /// </summary>
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
@@ -3674,7 +3701,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not a end angle bracket from minimum to maximum times.
+        /// Appends a pattern that matches a character that is not an end angle bracket (greater-than sign) from minimum to maximum times.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
@@ -3942,7 +3969,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a end square bracket.
+        /// Appends a pattern that matches an end square bracket.
         /// </summary>
         /// <returns></returns>
         public QuantifiablePattern EndSquareBracket()
@@ -3962,7 +3989,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a end square bracket from minimum to maximum times.
+        /// Appends a pattern that matches an end square bracket from minimum to maximum times.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
@@ -3974,7 +4001,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not a end square bracket.
+        /// Appends a pattern that matches a character that is not an end square bracket.
         /// </summary>
         /// <returns></returns>
         public QuantifiablePattern NotEndSquareBracket()
@@ -3983,7 +4010,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a specified number of characters that are not a end square bracket.
+        /// Appends a pattern that matches a specified number of characters that are not an end square bracket.
         /// </summary>
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
@@ -3994,7 +4021,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not a end square bracket from minimum to maximum times.
+        /// Appends a pattern that matches a character that is not an end square bracket from minimum to maximum times.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
@@ -4326,7 +4353,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a end curly bracket.
+        /// Appends a pattern that matches an end curly bracket.
         /// </summary>
         /// <returns></returns>
         public QuantifiablePattern EndCurlyBracket()
@@ -4346,7 +4373,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a end curly bracket from minimum to maximum times.
+        /// Appends a pattern that matches an end curly bracket from minimum to maximum times.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
@@ -4358,7 +4385,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not a end curly bracket.
+        /// Appends a pattern that matches a character that is not an end curly bracket.
         /// </summary>
         /// <returns></returns>
         public QuantifiablePattern NotEndCurlyBracket()
@@ -4367,7 +4394,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a specified number of characters that are not a end curly bracket.
+        /// Appends a pattern that matches a specified number of characters that are not an end curly bracket.
         /// </summary>
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
@@ -4378,7 +4405,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not a end curly bracket from minimum to maximum times.
+        /// Appends a pattern that matches a character that is not an end curly bracket from minimum to maximum times.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
@@ -4668,7 +4695,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches specified content zero or many times.
+        /// Appends a pattern that matches specified content zero or more times.
         /// </summary>
         /// <param name="content">The content to be matched.</param>
         /// <returns></returns>
@@ -4679,7 +4706,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches any one element of the specified content zero or many times.
+        /// Appends a pattern that matches any one element of the specified content zero or more times.
         /// </summary>
         /// <param name="content">An object array that contains zero or more patterns any one of which has to be matched.</param>
         /// <returns></returns>
@@ -4690,7 +4717,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches specified content one or many times.
+        /// Appends a pattern that matches specified content one or more times.
         /// </summary>
         /// <param name="content">The content to be matched.</param>
         /// <returns></returns>
@@ -4701,7 +4728,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches any one element of the specified content one or many times.
+        /// Appends a pattern that matches any one element of the specified content one or more times.
         /// </summary>
         /// <param name="content">An object array that contains zero or more patterns any one of which has to be matched.</param>
         /// <returns></returns>

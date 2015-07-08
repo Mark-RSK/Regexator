@@ -6,7 +6,7 @@ using System.Diagnostics.CodeAnalysis;
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
-    /// Represents a pattern that matches a single character. This includes a character literal, Unicode general category or named block pattern, character class pattern ((non-)digit, (non-)white-space, (non-)word). This class is abstract.
+    /// Represents a pattern that matches a single character. This includes a character literal, Unicode category, Unicode block or character class ((non-)digit, (non-)white-space, (non-)word). This class is abstract.
     /// </summary>
     public abstract partial class CharPattern
         : QuantifiablePattern, IBaseGroup, IExcludedGroup, INegateable<CharGroup>

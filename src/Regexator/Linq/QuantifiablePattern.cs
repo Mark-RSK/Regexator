@@ -27,7 +27,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Specifies that previous element must be matched zero or many times.
+        /// Specifies that previous element must be matched zero or more times.
         /// </summary>
         /// <returns></returns>
         public QuantifiedPattern MaybeMany()
@@ -36,7 +36,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Specifies that previous element must be matched one or many times.
+        /// Specifies that previous element must be matched one or more times.
         /// </summary>
         /// <returns></returns>
         public QuantifiedPattern OneMany()
@@ -109,7 +109,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Specifies that previous element must be matched zero or many times.
+        /// Specifies that previous element must be matched zero or more times.
         /// </summary>
         /// <param name="lazy">Indicates whether the quantifier will be greedy or lazy.</param>
         /// <returns></returns>
@@ -126,7 +126,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Specifies that previous element must be matched one or many times.
+        /// Specifies that previous element must be matched one or more times.
         /// </summary>
         /// <param name="lazy">Indicates whether the quantifier will be greedy or lazy.</param>
         /// <returns></returns>

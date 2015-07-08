@@ -8,9 +8,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     public static class CharGroupings
     {
         /// <summary>
-        /// Returns a pattern that matches a character from the specified Unicode named block.
+        /// Returns a pattern that matches a character from the specified Unicode block.
         /// </summary>
-        /// <param name="block">An enumerated constant that identifies Unicode named block.</param>
+        /// <param name="block">An enumerated constant that identifies Unicode block.</param>
         /// <returns></returns>
         public static CharGrouping NamedBlock(NamedBlock block)
         {
@@ -18,9 +18,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a character that is not from the specified Unicode named block.
+        /// Returns a pattern that matches a character that is not from the specified Unicode block.
         /// </summary>
-        /// <param name="block">An enumerated constant that identifies Unicode named block.</param>
+        /// <param name="block">An enumerated constant that identifies Unicode block.</param>
         /// <returns></returns>
         public static CharGrouping NotNamedBlock(NamedBlock block)
         {
@@ -28,9 +28,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a character from the specified Unicode general category.
+        /// Returns a pattern that matches a character from the specified Unicode category.
         /// </summary>
-        /// <param name="category">An enumerated constant that identifies Unicode general category.</param>
+        /// <param name="category">An enumerated constant that identifies Unicode category.</param>
         /// <returns></returns>
         public static CharGrouping GeneralCategory(GeneralCategory category)
         {
@@ -38,9 +38,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a character that is not from the specified Unicode general category.
+        /// Returns a pattern that matches a character that is not from the specified Unicode category.
         /// </summary>
-        /// <param name="category">An enumerated constant that identifies Unicode general category.</param>
+        /// <param name="category">An enumerated constant that identifies Unicode category.</param>
         /// <returns></returns>
         public static CharGrouping NotGeneralCategory(GeneralCategory category)
         {
@@ -165,39 +165,39 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a lower-case letter, i.e. a letter from Unicode general category LetterLowercase.
+        /// Returns a pattern that matches a lower-case letter, i.e. a character from Unicode category LetterLowercase.
         /// </summary>
         /// <returns></returns>
         public static CharGrouping LetterLower()
         {
-            return CharGrouping.Create(RegularExpressions.GeneralCategory.LetterLowercase);
+            return CharGrouping.Create(Linq.GeneralCategory.LetterLowercase);
         }
 
         /// <summary>
-        /// Returns a pattern that matches a character that is not a lower-case letter, i.e. a letter that is not from Unicode general category LetterLowercase.
+        /// Returns a pattern that matches a character that is not a lower-case letter, i.e. a letter that is not from Unicode category LetterLowercase.
         /// </summary>
         /// <returns></returns>
         public static CharGrouping NotLetterLower()
         {
-            return CharGrouping.Create(RegularExpressions.GeneralCategory.LetterLowercase, true);
+            return CharGrouping.Create(Linq.GeneralCategory.LetterLowercase, true);
         }
 
         /// <summary>
-        /// Returns a pattern that matches a upper-case letter, i.e. a letter from Unicode general category LetterUppercase.
+        /// Returns a pattern that matches a upper-case letter, i.e. a character from Unicode category LetterUppercase.
         /// </summary>
         /// <returns></returns>
         public static CharGrouping LetterUpper()
         {
-            return CharGrouping.Create(RegularExpressions.GeneralCategory.LetterUppercase);
+            return CharGrouping.Create(Linq.GeneralCategory.LetterUppercase);
         }
 
         /// <summary>
-        /// Returns a pattern that matches a character that is not a upper-case letter, i.e. a letter that is not from Unicode general category LetterUppercase.
+        /// Returns a pattern that matches a character that is not a upper-case letter, i.e. a letter that is not from Unicode category LetterUppercase.
         /// </summary>
         /// <returns></returns>
         public static CharGrouping NotLetterUpper()
         {
-            return CharGrouping.Create(RegularExpressions.GeneralCategory.LetterUppercase, true);
+            return CharGrouping.Create(Linq.GeneralCategory.LetterUppercase, true);
         }
 
         /// <summary>
