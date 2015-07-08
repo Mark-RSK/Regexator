@@ -9,7 +9,7 @@ using System.Text.RegularExpressions;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal static partial class Syntax
+    public static partial class Syntax
     {
         internal const string InlineCommentStart = "(?#";
 
@@ -57,7 +57,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal const string AsciiStart = @"\x";
         internal const string AsciiOctalStart = @"\";
-        internal const string AsciiControlStart = @"\c";
+        public const string AsciiControlStart = @"\c";
 
         internal const string UnicodeStart = @"\p{";
         internal const string NotUnicodeStart = @"\P{";

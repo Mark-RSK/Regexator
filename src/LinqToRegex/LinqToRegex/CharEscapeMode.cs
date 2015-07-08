@@ -2,7 +2,7 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal enum CharEscapeMode
+    public enum CharEscapeMode
     {
         None,
         AsciiHexadecimal,

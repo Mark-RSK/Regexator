@@ -44,6 +44,7 @@
     <Compile Include="CaptureItem.cs" />
     <Compile Include="CaptureItemCollection.cs" />
     <Compile Include="CaptureItemEqualityComparer.cs" />
+    <Compile Include="CharMatchInfo.cs" />
     <Compile Include="EnumerableExtensions.cs" />
     <Compile Include="Extensions\RegexExtensions.cs" />
     <Compile Include="GlobalSuppressions.cs" />
@@ -83,6 +84,12 @@
     <CodeAnalysisDictionary Include="AppDictionary.xml">
       <SubType>Designer</SubType>
     </CodeAnalysisDictionary>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\LinqToRegex\LinqToRegex\LinqToRegex.csproj">
+      <Project>{a5c864f0-d0a3-4a3c-8854-ce4ee631901b}</Project>
+      <Name>LinqToRegex</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -68,7 +68,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
                 for (int i = 0; i < value.Length; i++)
                 {
-                    mode = RegexUtility.GetEscapeMode((int)value[i], inCharGroup);
+                    mode = RegexUtility.GetEscapeModeInternal((int)value[i], inCharGroup);
                     if (mode != CharEscapeMode.None)
                     {
                         char ch = value[i];
@@ -84,7 +84,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                             while (i < value.Length)
                             {
                                 ch = value[i];
-                                mode = RegexUtility.GetEscapeMode((int)ch, inCharGroup);
+                                mode = RegexUtility.GetEscapeModeInternal((int)ch, inCharGroup);
 
                                 if (mode != CharEscapeMode.None)
                                 {
@@ -168,7 +168,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal void AppendInternal(int value, bool inCharGroup)
         {
-            switch (RegexUtility.GetEscapeMode(value, inCharGroup))
+            switch (RegexUtility.GetEscapeModeInternal(value, inCharGroup))
             {
                 case CharEscapeMode.None:
                     _sb.Append((char)value);
