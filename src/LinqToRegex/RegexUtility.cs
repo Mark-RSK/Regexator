@@ -99,10 +99,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         /// <summary>
         /// Converts the character to the <see cref="String"/> object that represents the character as a literal rather than a metacharacter.
-        /// The character is converted as a character in or outside of the character group.
+        /// The character is converted as a character inside or outside of the character group.
         /// </summary>
         /// <param name="charCode">The Unicode character interpreted as <see cref="Int32"/> object.</param>
-        /// <param name="inCharGroup">Indicates whether the character is in or outside of the character group.</param>
+        /// <param name="inCharGroup">Indicates whether the character is inside or outside of the character group.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static string Escape(int charCode, bool inCharGroup)
@@ -144,11 +144,22 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
+        /// <summary>
+        /// Get a value indicating how a specified character is represented in the regular expression pattern.
+        /// </summary>
+        /// <param name="charCode">The Unicode character interpreted as <see cref="Int32"/> object.</param>
+        /// <returns></returns>
         public static CharEscapeMode GetEscapeMode(int charCode)
         {
             return GetEscapeMode(charCode, false);
         }
 
+        /// <summary>
+        /// Get a value indicating how a specified character is represented in the regular expression pattern, specifying whether the character is inside or outside of the character group.
+        /// </summary>
+        /// <param name="charCode">The Unicode character interpreted as <see cref="Int32"/> object.</param>
+        /// <param name="inCharGroup">Indicates whether the character is inside or outside of the character group.</param>
+        /// <returns></returns>
         public static CharEscapeMode GetEscapeMode(int charCode, bool inCharGroup)
         {
             if (charCode < 0 || charCode > 0xFFFF)
@@ -190,10 +201,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         /// <summary>
         /// Converts a specified input to the <see cref="String"/> object that represents each character as a literal rather than a metacharacter.
-        /// The each character is converted as a character in or outside of the character group.
+        /// The each character is converted as a character inside or outside of the character group.
         /// </summary>
         /// <param name="input">The text to be converted.</param>
-        /// <param name="inCharGroup">Indicates whether the <paramref name="input"/> is in or outside of the character group.</param>
+        /// <param name="inCharGroup">Indicates whether the <paramref name="input"/> is inside or outside of the character group.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static string Escape(string input, bool inCharGroup)

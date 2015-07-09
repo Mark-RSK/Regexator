@@ -1,11 +1,8 @@
 ﻿    // Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text.RegularExpressions;
-using Pihrtsoft.Text.RegularExpressions.Linq.Extensions;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
@@ -13,17 +10,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
         internal static void Main(string[] args)
         {
-            foreach (var item in Enum.GetValues(typeof(NamedBlock)).Cast<NamedBlock>())
-            {
-                Debug.Assert(Syntax.GetNamedBlockValue(item) == Syntax._blocks[(int)item]);
-                Console.WriteLine(Syntax._blocks[(int)item]);
-            }
-            foreach (var item in Enum.GetValues(typeof(GeneralCategory)).Cast<GeneralCategory>())
-            {
-                Debug.Assert(Syntax.GetGeneralCategoryValue(item) == Syntax._categories[(int)item]);
-                Console.WriteLine(Syntax._categories[(int)item]);
-            }
-
             Console.WriteLine("email");
 
             var left = Patterns.OneMany(CharGroupings.Alphanumeric() + "!#$%&'*+/=?^_`{|}~-");

@@ -166,7 +166,7 @@ namespace Pihrtsoft.Text.RegularExpressions
 
                 if (inCharGroup && charCode == 8)
                 {
-                    yield return new CharMatchInfo(Syntax.Backspace, "Escaped character");
+                    yield return new CharMatchInfo(Syntax.WordBoundary, "Escaped character");
                 }
 
                 yield return new CharMatchInfo(Syntax.UnicodeHexadecimalStart + charCode.ToString("X4", CultureInfo.InvariantCulture), "Unicode character (four hexadecimal digits)");
