@@ -779,7 +779,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
 #if DEBUG
         /// <summary>
-        /// Appends a pattern that matches a character that is not a specified character zero or more times followed with a specified character.
+        /// Appends a pattern that matches zero or more characters that are not a specified character followed with a specified character.
         /// </summary>
         /// <param name="value">The Unicode character.</param>
         /// <returns></returns>
@@ -789,7 +789,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not a specified character zero or more times followed with a specified character.
+        /// Appends a pattern that matches zero or more characters that are not a specified character followed with a specified character.
         /// </summary>
         /// <param name="value">An enumerated constant that identifies ASCII character.</param>
         /// <returns></returns>
