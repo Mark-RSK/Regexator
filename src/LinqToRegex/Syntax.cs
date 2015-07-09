@@ -81,27 +81,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public const string SubstituteNamedGroupStart = "${";
         public const string SubstituteNamedGroupEnd = "}";
 
-        internal static string CharClass(CharClass value)
-        {
-            switch (value)
-            {
-                case Linq.CharClass.Digit:
-                    return Digit;
-                case Linq.CharClass.WordChar:
-                    return WordChar;
-                case Linq.CharClass.WhiteSpace:
-                    return WhiteSpace;
-                case Linq.CharClass.NotDigit:
-                    return NotDigit;
-                case Linq.CharClass.NotWordChar:
-                    return NotWordChar;
-                case Linq.CharClass.NotWhiteSpace:
-                    return NotWhiteSpace;
-            }
-
-            return string.Empty;
-        }
-
         public static string GetGeneralCategoryValue(GeneralCategory category)
         {
             return _categories[(int)category];

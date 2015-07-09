@@ -838,7 +838,27 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="value">An enumerated constant that identifies character class.</param>
         public void AppendCharClass(CharClass value)
         {
-            _sb.Append(Syntax.CharClass(value));
+            switch (value)
+            {
+                case CharClass.Digit:
+                    AppendDigit();
+                    break;
+                case CharClass.WordChar:
+                    AppendWordChar();
+                    break;
+                case CharClass.WhiteSpace:
+                    AppendWhiteSpace();
+                    break;
+                case CharClass.NotDigit:
+                    AppendNotDigit();
+                    break;
+                case CharClass.NotWordChar:
+                    AppendNotWordChar();
+                    break;
+                case CharClass.NotWhiteSpace:
+                    AppendNotWhiteSpace();
+                    break;
+            }
         }
 
         /// <summary>
