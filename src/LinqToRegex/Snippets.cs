@@ -2,7 +2,7 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    public static class Snippets
+    internal static class Snippets
     {
         public static QuantifiablePattern LinefeedWithoutCarriageReturn()
         {

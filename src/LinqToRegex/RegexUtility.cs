@@ -1,23 +1,19 @@
 // Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
-using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
+    /// <summary>
+    /// Provides static methods for escaping and validating regular expressions elements.
+    /// </summary>
     public static class RegexUtility
     {
-        /// <summary>
-        /// Represents the bitwise combination of all values from the <see cref="InlineOptions"/> enumeration. This field is read-only.
-        /// </summary>
-        public static readonly RegexOptions InlineOptions = RegexOptions.IgnoreCase | RegexOptions.Multiline | RegexOptions.ExplicitCapture | RegexOptions.Singleline | RegexOptions.IgnorePatternWhitespace;
+        internal static readonly RegexOptions InlineOptions = RegexOptions.IgnoreCase | RegexOptions.Multiline | RegexOptions.ExplicitCapture | RegexOptions.Singleline | RegexOptions.IgnorePatternWhitespace;
 
         internal static readonly Pattern ValidGroupName = Patterns.ValidGroupName();
 
@@ -149,6 +145,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="charCode">The Unicode character interpreted as <see cref="Int32"/> object.</param>
         /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static CharEscapeMode GetEscapeMode(int charCode)
         {
             return GetEscapeMode(charCode, false);
@@ -160,6 +157,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="charCode">The Unicode character interpreted as <see cref="Int32"/> object.</param>
         /// <param name="inCharGroup">Indicates whether the character is inside or outside of the character group.</param>
         /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static CharEscapeMode GetEscapeMode(int charCode, bool inCharGroup)
         {
             if (charCode < 0 || charCode > 0xFFFF)
