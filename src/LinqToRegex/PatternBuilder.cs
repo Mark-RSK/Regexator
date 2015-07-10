@@ -589,17 +589,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Appends a pattern that matches the beginning of the string.
         /// </summary>
-        public void AppendStartOfInput()
+        public void AppendBeginningOfInput()
         {
-            _sb.Append(Syntax.StartOfInput);
+            _sb.Append(Syntax.BeginningOfInput);
         }
 
         /// <summary>
         /// Appends a pattern that matches the beginning of the string (or line if the multiline option is applied).
         /// </summary>
-        public void AppendStartOfLine()
+        public void AppendBeginningOfLine()
         {
-            _sb.Append(Syntax.StartOfLine);
+            _sb.Append(Syntax.BeginningOfLine);
         }
 
         /// <summary>

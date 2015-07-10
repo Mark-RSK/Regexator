@@ -10,7 +10,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
         internal override void AppendTo(PatternBuilder builder)
         {
-            builder.AppendStartOfLine();
+            builder.AppendBeginningOfLine();
         }
     }
 }

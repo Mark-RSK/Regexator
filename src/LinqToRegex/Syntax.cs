@@ -22,12 +22,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Specifies a pattern that is matched at the beginning of the string.
         /// </summary>
-        public const string StartOfInput = @"\A";
+        public const string BeginningOfInput = @"\A";
 
         /// <summary>
         /// Specifies a pattern that is matched at the beginning of the string (or line if the multiline option is applied).
         /// </summary>
-        public const string StartOfLine = "^";
+        public const string BeginningOfLine = "^";
         
         /// <summary>
         /// Specifies a pattern that is matched at the end of the string.
