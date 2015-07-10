@@ -53,10 +53,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends an if construct with the specified content to test and a content to match if the test content is matched.
+        /// Appends an if construct with the specified content to assert and a content to match if the assertion succeeds.
         /// </summary>
         /// <param name="testContent">The content to assert.</param>
-        /// <param name="trueContent">The content to be matched if the test content is matched.</param>
+        /// <param name="trueContent">The content to be matched if the assertion succeeds.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public QuantifiablePattern IfAssert(Pattern testContent, object trueContent)
@@ -65,11 +65,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends an if construct with the specified content to test and a content to match if the test content is matched and a content to match if the test content is not matched.
+        /// Appends an if construct with the specified content to assert and a content to match if the assertion succeeds and a content to match if the assertion fails.
         /// </summary>
         /// <param name="testContent">The content to assert.</param>
-        /// <param name="trueContent">The content to be matched if the test content is matched.</param>
-        /// <param name="falseContent">The content to be matched if the test content is not matched.</param>
+        /// <param name="trueContent">The content to be matched if the assertion succeeds.</param>
+        /// <param name="falseContent">The content to be matched if the assertion fails.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public QuantifiablePattern IfAssert(Pattern testContent, object trueContent, object falseContent)

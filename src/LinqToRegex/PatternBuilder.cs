@@ -406,8 +406,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Appends an if construct.
         /// </summary>
         /// <param name="testContent">The pattern to assert.</param>
-        /// <param name="trueContent">The pattern to match if the test pattern is matched.</param>
-        /// <param name="falseContent">The pattern to match if the test pattern is not matched.</param>
+        /// <param name="trueContent">The pattern to match if the assertion succeeds.</param>
+        /// <param name="falseContent">The pattern to match if the assertion fails.</param>
         public void AppendIfAssert(object testContent, object trueContent, object falseContent)
         {
             if (testContent == null)

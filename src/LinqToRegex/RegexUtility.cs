@@ -20,7 +20,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Gets a value indicating whether the specified group name is a valid name of a regex group.
         /// </summary>
-        /// <param name="groupName">A group name to test.</param>
+        /// <param name="groupName">A group name to examine.</param>
         /// <returns></returns>
         public static bool IsValidGroupName(string groupName)
         {
