@@ -40,5 +40,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             return Patterns.BeginInput().NotNewLineChar().MaybeMany().AsNoncapturingGroup();
         }
+
+        public static Pattern QuotedContentWithEscapes()
+        {
+            var quotedChars = Patterns.MaybeMany(!CharGroupings.QuoteMark().Backslash());
+
+            return Patterns.QuoteMarks(quotedChars + Patterns.MaybeMany(@"\" + Patterns.AnyInvariant() + quotedChars)).AsNoncapturingGroup();
+        }
     }
 }
