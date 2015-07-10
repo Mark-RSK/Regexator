@@ -110,13 +110,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        internal sealed class CharsCharGroup
+        internal sealed class CharactersCharGroup
             : CharGroup
         {
             private readonly string _characters;
             private readonly bool _negative;
 
-            public CharsCharGroup(string characters, bool negative)
+            public CharactersCharGroup(string characters, bool negative)
             {
                 if (characters == null)
                 {

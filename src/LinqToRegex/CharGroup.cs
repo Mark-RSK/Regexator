@@ -35,7 +35,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal static CharGroup Create(string characters, bool negative)
         {
-            return new CharsCharGroup(characters, negative);
+            return new CharactersCharGroup(characters, negative);
         }
 
         internal static CharGroup Create(char firstChar, char lastChar, bool negative)
