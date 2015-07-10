@@ -79,41 +79,41 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("");
 
             Console.WriteLine("words in any order:");
-            Console.WriteLine(Patterns.StartOfLine()
+            Console.WriteLine(Patterns.BeginLine()
                 .Assert(Patterns.CrawlInvariant().Word("word1"))
                 .Assert(Patterns.CrawlInvariant().Word("word2"))
                 .AnyInvariant().MaybeMany());
             Console.WriteLine("");
 
             Console.WriteLine("leading whitespace:");
-            Console.WriteLine(Patterns.StartOfLine().WhiteSpaceExceptNewLine().OneMany());
+            Console.WriteLine(Patterns.BeginLine().WhiteSpaceExceptNewLine().OneMany());
             Console.WriteLine("");
 
             Console.WriteLine("trailing whitespace:");
-            Console.WriteLine(Patterns.WhiteSpaceExceptNewLine().OneMany().EndOfLine(true));
+            Console.WriteLine(Patterns.WhiteSpaceExceptNewLine().OneMany().EndLine(true));
             Console.WriteLine("");
 
             Console.WriteLine("leading trailing whitespace:");
             Console.WriteLine(Patterns.Any(
-                Patterns.StartOfLine().WhiteSpaceExceptNewLine().OneMany(),
-                Patterns.WhiteSpaceExceptNewLine().OneMany().EndOfLine(true)));
+                Patterns.BeginLine().WhiteSpaceExceptNewLine().OneMany(),
+                Patterns.WhiteSpaceExceptNewLine().OneMany().EndLine(true)));
             Console.WriteLine("");
 
             Console.WriteLine("whitespace lines:");
             Console.WriteLine(
-                Patterns.StartOfLineInvariant().WhiteSpace().MaybeMany().NewLine() |
-                Patterns.NewLine().WhiteSpace().MaybeMany().EndOfInput());
+                Patterns.BeginLineInvariant().WhiteSpace().MaybeMany().NewLine() |
+                Patterns.NewLine().WhiteSpace().MaybeMany().EndInput());
             Console.WriteLine("");
 
             Console.WriteLine("empty lines:");
             Console.WriteLine(
-                Patterns.StartOfLineInvariant().NewLine() |
-                Patterns.NewLine().Assert(Patterns.NewLine().MaybeMany().EndOfInput()));
+                Patterns.BeginLineInvariant().NewLine() |
+                Patterns.NewLine().Assert(Patterns.NewLine().MaybeMany().EndInput()));
             Console.WriteLine("");
 
             Console.WriteLine("first line:");
             Console.WriteLine(
-                Patterns.StartOfInput()
+                Patterns.BeginInput()
                 .NotNewLineChar().MaybeMany());
             Console.WriteLine("");
 

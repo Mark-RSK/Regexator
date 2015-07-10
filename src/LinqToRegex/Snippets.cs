@@ -11,12 +11,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern LeadingWhiteSpace()
         {
-            return Patterns.StartOfLine().WhiteSpaceExceptNewLine().OneMany().AsNoncapturingGroup();
+            return Patterns.BeginLine().WhiteSpaceExceptNewLine().OneMany().AsNoncapturingGroup();
         }
 
         public static QuantifiablePattern TrailingWhiteSpace()
         {
-            return Patterns.WhiteSpaceExceptNewLine().OneMany().EndOfLine(true).AsNoncapturingGroup();
+            return Patterns.WhiteSpaceExceptNewLine().OneMany().EndLine(true).AsNoncapturingGroup();
         }
 
         public static QuantifiablePattern LeadingTrailingWhiteSpace()
@@ -26,19 +26,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static QuantifiablePattern WhiteSpaceLine()
         {
-            return Patterns.StartOfLineInvariant().WhiteSpaceExceptNewLine().MaybeMany().NewLine() |
-                Patterns.NewLine().Assert(Patterns.WhiteSpace().MaybeMany().EndOfInput());
+            return Patterns.BeginLineInvariant().WhiteSpaceExceptNewLine().MaybeMany().NewLine() |
+                Patterns.NewLine().Assert(Patterns.WhiteSpace().MaybeMany().EndInput());
         }
 
         public static QuantifiablePattern EmptyLine()
         {
-            return Patterns.StartOfLineInvariant().NewLine() |
-                Patterns.NewLine().Assert(Patterns.NewLine().MaybeMany().EndOfInput());
+            return Patterns.BeginLineInvariant().NewLine() |
+                Patterns.NewLine().Assert(Patterns.NewLine().MaybeMany().EndInput());
         }
 
         public static QuantifiablePattern FirstLine()
         {
-            return Patterns.StartOfInput().NotNewLineChar().MaybeMany().AsNoncapturingGroup();
+            return Patterns.BeginInput().NotNewLineChar().MaybeMany().AsNoncapturingGroup();
         }
     }
 }

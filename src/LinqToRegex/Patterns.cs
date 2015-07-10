@@ -264,7 +264,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Returns a pattern that is matched at the beginning of the string.
         /// </summary>
         /// <returns></returns>
-        public static QuantifiablePattern StartOfInput()
+        public static QuantifiablePattern BeginInput()
         {
             return new StartOfInput();
         }
@@ -273,7 +273,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Returns a pattern that is matched at the beginning of the string (or line if the multiline option is applied).
         /// </summary>
         /// <returns></returns>
-        public static QuantifiablePattern StartOfLine()
+        public static QuantifiablePattern BeginLine()
         {
             return new StartOfLine();
         }
@@ -282,16 +282,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Returns a pattern that is matched at the beginning of the line.
         /// </summary>
         /// <returns></returns>
-        public static QuantifiablePattern StartOfLineInvariant()
+        public static QuantifiablePattern BeginLineInvariant()
         {
-            return Options(RegexOptions.Multiline, StartOfLine());
+            return Options(RegexOptions.Multiline, BeginLine());
         }
 
         /// <summary>
         /// Returns a pattern that is matched at the end of the string.
         /// </summary>
         /// <returns></returns>
-        public static QuantifiablePattern EndOfInput()
+        public static QuantifiablePattern EndInput()
         {
             return new EndOfInput();
         }
@@ -300,7 +300,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Returns a pattern that is matched at the end of the string (or line if the multiline option is applied). End of line is defined as the position before a linefeed.
         /// </summary>
         /// <returns></returns>
-        public static QuantifiablePattern EndOfLine()
+        public static QuantifiablePattern EndLine()
         {
             return new EndOfLine();
         }
@@ -310,15 +310,15 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="matchCarriageReturnIfPresent">Indicates whether a carriage return should be matched if present and not already consumed by regex engine.</param>
         /// <returns></returns>
-        public static Pattern EndOfLine(bool matchCarriageReturnIfPresent)
+        public static Pattern EndLine(bool matchCarriageReturnIfPresent)
         {
             if (matchCarriageReturnIfPresent)
             {
-                return Assert(CarriageReturn().Maybe().EndOfLine());
+                return Assert(CarriageReturn().Maybe().EndLine());
             }
             else
             {
-                return EndOfLine();
+                return EndLine();
             }
         }
 
@@ -326,9 +326,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Returns a pattern that is matched at the end of the string or line. End of line is defined as the position before a linefeed.
         /// </summary>
         /// <returns></returns>
-        public static QuantifiablePattern EndOfLineInvariant()
+        public static QuantifiablePattern EndLineInvariant()
         {
-            return Options(RegexOptions.Multiline, EndOfLine());
+            return Options(RegexOptions.Multiline, EndLine());
         }
 
         /// <summary>
@@ -336,15 +336,15 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="matchCarriageReturnIfPresent">Indicates whether a carriage return should be matched if present and not already consumed by regex engine.</param>
         /// <returns></returns>
-        public static QuantifiablePattern EndOfLineInvariant(bool matchCarriageReturnIfPresent)
+        public static QuantifiablePattern EndLineInvariant(bool matchCarriageReturnIfPresent)
         {
             if (matchCarriageReturnIfPresent)
             {
-                return Assert(CarriageReturn().Maybe().EndOfLineInvariant());
+                return Assert(CarriageReturn().Maybe().EndLineInvariant());
             }
             else
             {
-                return EndOfLineInvariant();
+                return EndLineInvariant();
             }
         }
 
@@ -423,7 +423,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public static QuantifiablePattern Line(object content)
         {
-            return Pattern.Surround(StartOfLine(), content, EndOfLine()).AsNoncapturingGroup();
+            return Pattern.Surround(BeginLine(), content, EndLine()).AsNoncapturingGroup();
         }
 
         /// <summary>
@@ -445,7 +445,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public static Pattern LineInvariant(object content)
         {
-            return Pattern.Surround(StartOfLineInvariant(), content, EndOfLineInvariant());
+            return Pattern.Surround(BeginLineInvariant(), content, EndLineInvariant());
         }
 
         /// <summary>
@@ -467,7 +467,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public static QuantifiablePattern EntireInput(object content)
         {
-            return Pattern.Surround(StartOfInput(), content, EndOfInput()).AsNoncapturingGroup();
+            return Pattern.Surround(BeginInput(), content, EndInput()).AsNoncapturingGroup();
         }
 
         /// <summary>
