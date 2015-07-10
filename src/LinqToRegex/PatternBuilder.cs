@@ -268,7 +268,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Tries to append the pattern representation of an object. The object must be convertible to <see cref="Pattern"/>, <see cref="CharGrouping"/>, <see cref="String"/>, <see cref="Object[]"/> or <see cref="System.Collections.IEnumerable"/>.
+        /// Tries to append the pattern representation of an object. The object must be convertible to <see cref="Pattern"/>, <see cref="CharGrouping"/>, <see cref="String"/>, object array or <see cref="System.Collections.IEnumerable"/>.
         /// </summary>
         /// <param name="value">The object to append.</param>
         public void Append(object value)
@@ -1045,7 +1045,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (characters.Length == 0)
             {
-                throw new ArgumentException("Character group cannot be empty.", "characters");
+                throw new ArgumentException(ExceptionHelper.CharGroupCannotBeEmpty, "characters");
             }
 
             AppendCharGroupStart(negative);
@@ -1522,12 +1522,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 if (!RegexUtility.IsValidInlineOptions(applyOptions))
                 {
-                    throw new ArgumentException("RegexOptions value cannot be expressed as a combination of inline characters.", "applyOptions");
+                    throw new ArgumentException(ExceptionHelper.RegexOptionsNotConvertibleToInlineChars, "applyOptions");
                 }
 
                 if (!RegexUtility.IsValidInlineOptions(disableOptions))
                 {
-                    throw new ArgumentException("RegexOptions value cannot be expressed as a combination of inline characters.", "disableOptions");
+                    throw new ArgumentException(ExceptionHelper.RegexOptionsNotConvertibleToInlineChars, "disableOptions");
                 }
 
                 AppendGroupStart();
@@ -1563,12 +1563,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (!RegexUtility.IsValidInlineOptions(applyOptions))
             {
-                throw new ArgumentException("RegexOptions value cannot be expressed as a combination of inline characters.", "applyOptions");
+                throw new ArgumentException(ExceptionHelper.RegexOptionsNotConvertibleToInlineChars, "applyOptions");
             }
 
             if (!RegexUtility.IsValidInlineOptions(disableOptions))
             {
-                throw new ArgumentException("RegexOptions value cannot be expressed as a combination of inline characters.", "disableOptions");
+                throw new ArgumentException(ExceptionHelper.RegexOptionsNotConvertibleToInlineChars, "disableOptions");
             }
 
             if (content == null)
@@ -1657,7 +1657,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (value.IndexOf(')') != -1)
             {
-                throw new ArgumentException("Comment cannot contain right parenthesis.", "value");
+                throw new ArgumentException(ExceptionHelper.CommentCannotContainsEndParenthesis, "value");
             }
 
             AppendInlineCommentInternal(value);

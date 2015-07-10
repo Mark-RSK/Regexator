@@ -21,12 +21,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (!RegexUtility.IsValidInlineOptions(applyOptions))
             {
-                throw new ArgumentException("RegexOptions value cannot be expressed as a combination of inline characters.", "applyOptions");
+                throw new ArgumentException(ExceptionHelper.RegexOptionsNotConvertibleToInlineChars, "applyOptions");
             }
 
             if (!RegexUtility.IsValidInlineOptions(disableOptions))
             {
-                throw new ArgumentException("RegexOptions value cannot be expressed as a combination of inline characters.", "disableOptions");
+                throw new ArgumentException(ExceptionHelper.RegexOptionsNotConvertibleToInlineChars, "disableOptions");
             }
 
             _applyOptions = applyOptions;
