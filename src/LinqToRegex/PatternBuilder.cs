@@ -268,8 +268,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Tries to append the text representation of an object. The object must be convertible to <see cref="Pattern"/>, <see cref="CharGrouping"/> or a <see cref="String"/>.
-        /// For a recursive call, the object must be convertible to an array of object or <see cref="System.Collections.IEnumerable"/>.
+        /// Tries to append the pattern representation of an object. The object must be convertible to <see cref="Pattern"/>, <see cref="CharGrouping"/>, <see cref="String"/>, <see cref="Object[]"/> or <see cref="System.Collections.IEnumerable"/>.
         /// </summary>
         /// <param name="value">The object to append.</param>
         public void Append(object value)
@@ -628,7 +627,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that is matched on a boundary between a word character (\w) and a non-word character (\W). The match may also occur on a word boundary at the beginning or end of the string.
+        /// Appends a pattern that is matched on a boundary between a word character (\w) and a non-word character (\W). The pattern may be also matched on a word boundary at the beginning or end of the string.
         /// </summary>
         public void AppendWordBoundary()
         {

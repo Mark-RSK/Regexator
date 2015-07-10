@@ -3,7 +3,7 @@
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
-    /// Specifies that a match must occur at the end of the string, or before linefeed at the end of the string. This class cannot be inherited.
+    /// Represents a pattern that is matched at the end of the string, or before linefeed at the end of the string. This class cannot be inherited.
     /// </summary>
     internal sealed class EndOrBeforeEndingNewLine
         : QuantifiablePattern

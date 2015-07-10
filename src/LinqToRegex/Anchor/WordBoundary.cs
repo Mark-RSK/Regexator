@@ -6,8 +6,8 @@ using System.Diagnostics.CodeAnalysis;
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
-    /// Specifies that the match must occur on a boundary between a word character (\w) and a non-word character (\W).
-    /// The match may also occur on a word boundary at the beginning or end of the string. This class cannot be inherited.
+    /// Represents a pattern that is matched on a boundary between a word character (\w) and a non-word character (\W).
+    /// The pattern may be also matched on a word boundary at the beginning or end of the string. This class cannot be inherited.
     /// </summary>
     public sealed class WordBoundary
         : QuantifiablePattern, INegateable<NegativeWordBoundary>
