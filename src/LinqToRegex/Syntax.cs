@@ -28,7 +28,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Specifies a pattern that is matched at the beginning of the string (or line if the multiline option is applied).
         /// </summary>
         public const string BeginningOfLine = "^";
-        
+
         /// <summary>
         /// Specifies a pattern that is matched at the end of the string.
         /// </summary>
@@ -236,7 +236,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Specifies an inline character of the <see cref="RegexOptions.Multiline"/> options.
         /// </summary>
         public const char MultilineChar = 'm';
-        
+
         /// <summary>
         /// Specifies an inline character of the <see cref="RegexOptions.ExplicitCapture"/> options.
         /// </summary>
@@ -271,7 +271,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Specifies a substitution pattern that substitutes entire match.
         /// </summary>
         public const string SubstituteEntireMatch = SubstitutionChar + "&";
-        
+
         /// <summary>
         /// Specifies a substitution pattern that substitutes all the text of the input string after the match.
         /// </summary>
@@ -312,7 +312,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return _blocks[(int)block];
         }
 
-        private static readonly string[] _categories = new string[] 
+        private static readonly string[] _categories = new string[]
         {
             "C",
             "M",
@@ -353,7 +353,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             "So"
         };
 
-        private static readonly string[] _blocks = new string[] 
+        private static readonly string[] _blocks = new string[]
         {
             "IsAlphabeticPresentationForms",
             "IsArabic",

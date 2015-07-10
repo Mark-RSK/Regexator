@@ -23,7 +23,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         Backslash,
 
         /// <summary>
-        /// A bell character. 
+        /// A bell character.
         /// </summary>
         Bell,
 

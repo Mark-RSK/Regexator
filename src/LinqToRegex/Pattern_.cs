@@ -1627,7 +1627,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character from Unicode category LetterUppercase from minimal to maximum times. 
+        /// Appends a pattern that matches a character from Unicode category LetterUppercase from minimal to maximum times.
         /// If the "ignore case" option is applied the pattern will also match a character from Unicode category LetterLowercase.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
