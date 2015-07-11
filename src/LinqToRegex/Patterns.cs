@@ -5002,39 +5002,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return WhileNotChar(CharGroupings.NewLineChar());
         }
 
-#if DEBUG
-        /// <summary>
-        /// Returns a pattern that matches zero or more characters that are not a specified character followed with a specified character.
-        /// </summary>
-        /// <param name="value">The Unicode character.</param>
-        /// <returns></returns>
-        public static QuantifiablePattern GoToChar(char value)
-        {
-            return NotCharacter(value).MaybeMany().Character(value).AsNoncapturingGroup();
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches zero or more characters that are not a specified character followed with a specified character.
-        /// </summary>
-        /// <param name="value">An enumerated constant that identifies ASCII character.</param>
-        /// <returns></returns>
-        public static QuantifiablePattern GoToChar(AsciiChar value)
-        {
-            return NotCharacter(value).MaybeMany().Character(value).AsNoncapturingGroup();
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches zero or more characters that are not matched by a specified <see cref="CharGrouping"/> followed with a character that is matched by a specified <see cref="CharGrouping"/>.
-        /// </summary>
-        /// <param name="value">A content of a character group.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        public static QuantifiablePattern GoToChar(CharGrouping value)
-        {
-            return NotCharacter(value).MaybeMany().Character(value).AsNoncapturingGroup();
-        }
-#endif
-
         /// <summary>
         /// Returns a pattern that matches any character except linefeed (or any character if the Singleline option is applied) zero or more times but as few times as possible.
         /// </summary>
@@ -5070,5 +5037,92 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             return NotAssert(string.Empty);
         }
+
+#if DEBUG
+        /// <summary>
+        /// Returns a pattern that matches zero or more characters that are not a specified character followed with a specified character.
+        /// </summary>
+        /// <param name="value">The Unicode character.</param>
+        /// <returns></returns>
+        public static QuantifiablePattern GoToChar(char value)
+        {
+            return NotCharacter(value).MaybeMany().Character(value).AsNoncapturingGroup();
+        }
+
+        /// <summary>
+        /// Returns a pattern that matches zero or more characters that are not a specified character followed with a specified character.
+        /// </summary>
+        /// <param name="value">An enumerated constant that identifies ASCII character.</param>
+        /// <returns></returns>
+        public static QuantifiablePattern GoToChar(AsciiChar value)
+        {
+            return NotCharacter(value).MaybeMany().Character(value).AsNoncapturingGroup();
+        }
+
+        /// <summary>
+        /// Returns a pattern that matches zero or more characters that are not matched by a specified <see cref="CharGrouping"/> followed with a character that is matched by a specified <see cref="CharGrouping"/>.
+        /// </summary>
+        /// <param name="value">A content of a character group.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static QuantifiablePattern GoToChar(CharGrouping value)
+        {
+            return NotCharacter(value).MaybeMany().Character(value).AsNoncapturingGroup();
+        }
+
+        /// <summary>
+        /// Returns a pattern that matches a latin alphabet lower-case vowel. If the "ignore case" option is applied the pattern will also match upper-case vowel.
+        /// </summary>
+        /// <returns></returns>
+        public static CharGroup LatinVowelLower()
+        {
+            return Character(CharGroupings.LatinVowelLower());
+        }
+
+        /// <summary>
+        /// Returns a pattern that matches a latin alphabet upper-case vowel. If the "ignore case" option is applied the pattern will also match lower-case vowel.
+        /// </summary>
+        /// <returns></returns>
+        public static CharGroup LatinVowelUpper()
+        {
+            return Character(CharGroupings.LatinVowelUpper());
+        }
+
+        /// <summary>
+        /// Returns a pattern that matches a latin alphabet vowel.
+        /// </summary>
+        /// <returns></returns>
+        public static CharGroup LatinVowel()
+        {
+            return Character(CharGroupings.LatinVowel());
+        }
+
+        /// <summary>
+        /// Returns a pattern that matches a latin alphabet lower-case consonant. If the "ignore case" option is applied the pattern will also match upper-case consonant.
+        /// </summary>
+        /// <returns></returns>
+        public static CharSubtraction LatinConsonantLower()
+        {
+            return CharGroupings.LatinLetterLower() - CharGroupings.LatinVowelLower();
+        }
+
+        /// <summary>
+        /// Returns a pattern that matches a latin alphabet upper-case consonant. If the "ignore case" option is applied the pattern will also match lower-case consonant.
+        /// </summary>
+        /// <returns></returns>
+        public static CharSubtraction LatinConsonantUpper()
+        {
+            return CharGroupings.LatinLetterUpper() - CharGroupings.LatinVowelUpper();
+        }
+
+        /// <summary>
+        /// Returns a pattern that matches a latin alphabet consonant.
+        /// </summary>
+        /// <returns></returns>
+        public static CharSubtraction LatinConsonant()
+        {
+            return CharGroupings.LatinLetter() - CharGroupings.LatinVowel();
+        }
+#endif
     }
 }
