@@ -276,7 +276,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern AsLine()
         {
-            return Patterns.Line(this);
+            return Patterns.EntireLine(this);
         }
 
         /// <summary>
@@ -285,7 +285,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public Pattern AsLineInvariant()
         {
-            return Patterns.LineInvariant(this);
+            return Patterns.EntireLineInvariant(this);
         }
 
         /// <summary>

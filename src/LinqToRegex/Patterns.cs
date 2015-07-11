@@ -421,7 +421,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="content">The content to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static QuantifiablePattern Line(object content)
+        public static QuantifiablePattern EntireLine(object content)
         {
             return Pattern.Surround(BeginLine(), content, EndLine()).AsNoncapturingGroup();
         }
@@ -432,9 +432,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="content">An object array that contains zero or more values any one of which has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static QuantifiablePattern Line(params object[] content)
+        public static QuantifiablePattern EntireLine(params object[] content)
         {
-            return Line((object)content);
+            return EntireLine((object)content);
         }
 
         /// <summary>
@@ -443,7 +443,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="content">The content to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Pattern LineInvariant(object content)
+        public static Pattern EntireLineInvariant(object content)
         {
             return Pattern.Surround(BeginLineInvariant(), content, EndLineInvariant());
         }
@@ -454,9 +454,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="content">An object array that contains zero or more values any one of which has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Pattern LineInvariant(params object[] content)
+        public static Pattern EntireLineInvariant(params object[] content)
         {
-            return LineInvariant((object)content);
+            return EntireLineInvariant((object)content);
         }
 
         /// <summary>
