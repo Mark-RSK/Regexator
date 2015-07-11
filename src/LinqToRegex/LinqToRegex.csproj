@@ -69,6 +69,7 @@
     <Compile Include="CharSubtraction.cs" />
     <Compile Include="ContentPattern.cs" />
     <Compile Include="ExceptionHelper.cs" />
+    <Compile Include="Extensions\BaseGroupExtensions.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Extensions\MatchExtensions.cs" />
     <Compile Include="Extensions\RegexExtensions.cs" />

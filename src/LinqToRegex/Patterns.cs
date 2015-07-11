@@ -1137,7 +1137,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a character from a base group except characters from an excluded group.
+        /// Returns a pattern that matches a character from a specified base group except characters from a specified excluded group.
         /// </summary>
         /// <param name="baseGroup">A base group.</param>
         /// <param name="excludedGroup">An excluded group.</param>

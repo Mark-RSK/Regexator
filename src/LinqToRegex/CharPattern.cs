@@ -52,17 +52,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public abstract CharGroup Negate();
 
         /// <summary>
-        /// Specifies a pattern that matches a character matched by the current instance but not matched by the excluded character group.
-        /// </summary>
-        /// <param name="excludedGroup">Excluded group pattern to be subtracted.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        public CharSubtraction Except(IExcludedGroup excludedGroup)
-        {
-            return new CharSubtraction(this, excludedGroup);
-        }
-
-        /// <summary>
         /// Appends the current instance to a specified <see cref="PatternBuilder"/>. The current instance is interpreted as a part of the character group.
         /// </summary>
         /// <param name="builder">The builder to use for appending the text.</param>
