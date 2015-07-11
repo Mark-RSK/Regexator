@@ -2,7 +2,7 @@
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal static class Snippets
+    public static class Snippets
     {
         public static QuantifiablePattern LinefeedWithoutCarriageReturn()
         {
@@ -41,6 +41,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Patterns.BeginInput().NotNewLineChar().MaybeMany().AsNoncapturingGroup();
         }
 
+#if DEBUG
         public static Pattern QuotedContentWithEscapes(string contentGroupName)
         {
             var quotedChars = Patterns.MaybeMany(!CharGroupings.QuoteMark().Backslash());
@@ -49,6 +50,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 Patterns.NamedGroup(contentGroupName,
                     quotedChars + Patterns.MaybeMany(Patterns.Backslash().AnyInvariant() + quotedChars))).AsNoncapturingGroup();
         }
+#endif
 
         internal static Pattern ValidGroupName()
         {

@@ -29,7 +29,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal static bool IsValidGroupNameInternal(string groupName)
         {
-            if (!string.IsNullOrWhiteSpace(groupName))
+            if (!string.IsNullOrEmpty(groupName))
             {
                 Match match = ValidGroupName.Match(groupName);
                 if (match.Success)
