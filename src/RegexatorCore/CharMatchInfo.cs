@@ -110,7 +110,7 @@ namespace Pihrtsoft.Text.RegularExpressions
 
             foreach (var category in Enum.GetValues(typeof(GeneralCategory)).Cast<GeneralCategory>())
             {
-                string pattern = Syntax.UnicodeStart + Syntax.GetGeneralCategoryValue(category) + Syntax.UnicodeEnd;
+                string pattern = Syntax.UnicodeStart + Syntax.GetCategoryDesignation(category) + Syntax.UnicodeEnd;
                 if (Regex.IsMatch(s, pattern, options))
                 {
                     MemberInfo[] info = typeof(GeneralCategory).GetMember(category.ToString());
@@ -121,7 +121,7 @@ namespace Pihrtsoft.Text.RegularExpressions
 
             foreach (var block in Enum.GetValues(typeof(NamedBlock)).Cast<NamedBlock>())
             {
-                string pattern = Syntax.UnicodeStart + Syntax.GetNamedBlockValue(block) + Syntax.UnicodeEnd;
+                string pattern = Syntax.UnicodeStart + Syntax.GetBlockDesignation(block) + Syntax.UnicodeEnd;
                 if (Regex.IsMatch(s, pattern, options))
                 {
                     MemberInfo[] info = typeof(NamedBlock).GetMember(block.ToString());

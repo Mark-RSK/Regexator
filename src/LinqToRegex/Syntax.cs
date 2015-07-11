@@ -297,7 +297,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="category">An enumerated constant that identifies Unicode category.</param>
         /// <returns></returns>
-        public static string GetGeneralCategoryValue(GeneralCategory category)
+        public static string GetCategoryDesignation(GeneralCategory category)
         {
             return _categories[(int)category];
         }
@@ -307,7 +307,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="block">An enumerated constant that identifies Unicode block.</param>
         /// <returns></returns>
-        public static string GetNamedBlockValue(NamedBlock block)
+        public static string GetBlockDesignation(NamedBlock block)
         {
             return _blocks[(int)block];
         }
