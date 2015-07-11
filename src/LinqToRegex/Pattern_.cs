@@ -848,18 +848,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character from a specified base group except characters from a specified excluded group.
-        /// </summary>
-        /// <param name="baseGroup">A base group.</param>
-        /// <param name="excludedGroup">An excluded group.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        public QuantifiablePattern Subtract(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
-        {
-            return ConcatInternal(Patterns.Subtract(baseGroup, excludedGroup));
-        }
-
-        /// <summary>
         /// Appends a pattern that matches a white-space character except carriage return and linefeed.
         /// </summary>
         /// <returns></returns>

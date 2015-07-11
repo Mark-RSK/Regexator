@@ -49,5 +49,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 Patterns.NamedGroup(contentGroupName,
                     quotedChars + Patterns.MaybeMany(Patterns.Backslash().AnyInvariant() + quotedChars))).AsNoncapturingGroup();
         }
+
+        internal static Pattern ValidGroupName()
+        {
+            return Patterns.EntireInput(
+                Patterns.Group(Patterns.Range('1', '9').ArabicDigit().MaybeMany()) |
+                Patterns.WordChar().Except(Patterns.ArabicDigit()).WordChar().MaybeMany());
+        }
     }
 }

@@ -1143,7 +1143,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="excludedGroup">An excluded group.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static CharSubtraction Subtract(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
+        public static CharSubtraction Except(IBaseGroup baseGroup, IExcludedGroup excludedGroup)
         {
             return new CharSubtraction(baseGroup, excludedGroup);
         }
@@ -5058,13 +5058,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiablePattern Never()
         {
             return NotAssert(string.Empty);
-        }
-
-        internal static Pattern ValidGroupName()
-        {
-            return EntireInput(
-                Group(Range('1', '9').ArabicDigit().MaybeMany()) |
-                WordChar().Except(ArabicDigit()).WordChar().MaybeMany());
         }
     }
 }

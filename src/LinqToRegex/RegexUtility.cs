@@ -15,7 +15,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
         internal static readonly RegexOptions InlineOptions = RegexOptions.IgnoreCase | RegexOptions.Multiline | RegexOptions.ExplicitCapture | RegexOptions.Singleline | RegexOptions.IgnorePatternWhitespace;
 
-        internal static readonly Pattern ValidGroupName = Patterns.ValidGroupName();
+        internal static readonly Pattern ValidGroupName = Snippets.ValidGroupName();
 
         /// <summary>
         /// Gets a value indicating whether the specified group name is a valid name of a regex group.
