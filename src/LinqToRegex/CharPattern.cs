@@ -113,5 +113,41 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             return value.Negate();
         }
+
+        /// <summary>
+        /// Returns a pattern that matches a character from a specified base group except characters from a specified excluded group.
+        /// </summary>
+        /// <param name="baseGroup">A base group.</param>
+        /// <param name="excludedGroup">An excluded group.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static CharSubtraction operator -(CharPattern baseGroup, CharPattern excludedGroup)
+        {
+            return new CharSubtraction(baseGroup, excludedGroup);
+        }
+
+        /// <summary>
+        /// Returns a pattern that matches a character from a specified base group except characters from a specified excluded group.
+        /// </summary>
+        /// <param name="baseGroup">A base group.</param>
+        /// <param name="excludedGroup">An excluded group.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static CharSubtraction operator -(CharPattern baseGroup, CharGroup excludedGroup)
+        {
+            return new CharSubtraction(baseGroup, excludedGroup);
+        }
+
+        /// <summary>
+        /// Returns a pattern that matches a character from a specified base group except characters from a specified excluded group.
+        /// </summary>
+        /// <param name="baseGroup">A base group.</param>
+        /// <param name="excludedGroup">An excluded group.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static CharSubtraction operator -(CharPattern baseGroup, CharGrouping excludedGroup)
+        {
+            return new CharSubtraction(baseGroup, excludedGroup);
+        }
     }
 }

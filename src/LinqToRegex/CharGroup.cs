@@ -161,6 +161,42 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
+        /// Returns a pattern that matches a character from a specified base group except characters from a specified excluded group.
+        /// </summary>
+        /// <param name="baseGroup">A base group.</param>
+        /// <param name="excludedGroup">An excluded group.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static CharSubtraction operator -(CharGroup baseGroup, CharGroup excludedGroup)
+        {
+            return new CharSubtraction(baseGroup, excludedGroup);
+        }
+
+        /// <summary>
+        /// Returns a pattern that matches a character from a specified base group except characters from a specified excluded group.
+        /// </summary>
+        /// <param name="baseGroup">A base group.</param>
+        /// <param name="excludedGroup">An excluded group.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static CharSubtraction operator -(CharGroup baseGroup, CharGrouping excludedGroup)
+        {
+            return new CharSubtraction(baseGroup, excludedGroup);
+        }
+
+        /// <summary>
+        /// Returns a pattern that matches a character from a specified base group except characters from a specified excluded group.
+        /// </summary>
+        /// <param name="baseGroup">A base group.</param>
+        /// <param name="excludedGroup">An excluded group.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static CharSubtraction operator -(CharGroup baseGroup, CharPattern excludedGroup)
+        {
+            return new CharSubtraction(baseGroup, excludedGroup);
+        }
+
+        /// <summary>
         /// Gets a value that indicates whether the current instance is a positive or a negative character group.
         /// </summary>
         public virtual bool Negative
