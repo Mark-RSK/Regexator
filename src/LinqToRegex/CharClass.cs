@@ -5,7 +5,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     /// <summary>
     /// Specifies a character class.
     /// </summary>
-    public enum CharClass
+    internal enum CharClass
     {
         /// <summary>
         /// Digit character class.

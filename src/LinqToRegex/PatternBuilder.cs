@@ -835,7 +835,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Appends a pattern that matches a character from a specified character class.
         /// </summary>
         /// <param name="value">An enumerated constant that identifies character class.</param>
-        public void AppendCharClass(CharClass value)
+        internal void AppendCharClass(CharClass value)
         {
             switch (value)
             {
@@ -982,7 +982,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Appends a pattern that matches a character from a specified character class.
         /// </summary>
         /// <param name="value">An enumerated constant that identifies character class.</param>
-        public void AppendCharGroup(CharClass value)
+        internal void AppendCharGroup(CharClass value)
         {
             AppendCharGroupStart();
             AppendCharClass(value);
