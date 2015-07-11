@@ -797,6 +797,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             return ConcatInternal(Patterns.GoToChar(value));
         }
+
+        /// <summary>
+        /// Appends a pattern that matches zero or more characters that are not matched by a specified <see cref="CharGrouping"/> followed with a character that is matched by a specified <see cref="CharGrouping"/>.
+        /// </summary>
+        /// <param name="value">A content of a character group.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public QuantifiablePattern GoToChar(CharGrouping value)
+        {
+            return ConcatInternal(Patterns.GoToChar(value));
+        }
 #endif
 
         /// <summary>

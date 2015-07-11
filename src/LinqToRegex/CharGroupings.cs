@@ -111,7 +111,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a lower-case alphanumeric character. Alphanumeric character is a latin alphabet lower-case letter or an arabic digit.
+        /// Returns a pattern that matches a lower-case alphanumeric character. Alphanumeric character is a latin alphabet lower-case letter or an arabic digit.
         /// If the "ignore case" option is applied the pattern will also match upper-case latin letter.
         /// </summary>
         /// <returns></returns>
@@ -121,7 +121,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches an upper-case alphanumeric character. Alphanumeric character is a latin alphabet upper-case letter or an arabic digit.
+        /// Returns a pattern that matches an upper-case alphanumeric character. Alphanumeric character is a latin alphabet upper-case letter or an arabic digit.
         /// If the "ignore case" option is applied the pattern will also match lower-case latin letter.
         /// </summary>
         /// <returns></returns>
@@ -149,7 +149,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a latin alphabet lower-case letter. If the "ignore case" option is applied the pattern will also match upper-case latin letter.
+        /// Returns a pattern that matches a latin alphabet lower-case letter. If the "ignore case" option is applied the pattern will also match upper-case latin letter.
         /// </summary>
         /// <returns></returns>
         public static CharGrouping LatinLetterLower()
@@ -158,7 +158,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a latin alphabet upper-case letter. If the "ignore case" option is applied the pattern will also match lower-case latin letter.
+        /// Returns a pattern that matches a latin alphabet upper-case letter. If the "ignore case" option is applied the pattern will also match lower-case latin letter.
         /// </summary>
         /// <returns></returns>
         public static CharGrouping LatinLetterUpper()
@@ -167,7 +167,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character from <see cref="Linq.GeneralCategory.LetterLowercase"/>.
+        /// Returns a pattern that matches a character from <see cref="Linq.GeneralCategory.LetterLowercase"/>.
         /// If the "ignore case" option is applied the pattern will also match a character from <see cref="Linq.GeneralCategory.LetterUppercase"/>.
         /// </summary>
         /// <returns></returns>
@@ -177,7 +177,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not a character from <see cref="Linq.GeneralCategory.LetterLowercase"/>.
+        /// Returns a pattern that matches a character that is not a character from <see cref="Linq.GeneralCategory.LetterLowercase"/>.
         /// If the "ignore case" option is applied the pattern will also not match a character from <see cref="Linq.GeneralCategory.LetterUppercase"/>.
         /// </summary>
         /// <returns></returns>
@@ -187,7 +187,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character from <see cref="Linq.GeneralCategory.LetterUppercase"/>.
+        /// Returns a pattern that matches a character from <see cref="Linq.GeneralCategory.LetterUppercase"/>.
         /// If the "ignore case" option is applied the pattern will also match a character from <see cref="Linq.GeneralCategory.LetterLowercase"/>.
         /// </summary>
         /// <returns></returns>
@@ -197,7 +197,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not a character from <see cref="Linq.GeneralCategory.LetterUppercase"/>.
+        /// Returns a pattern that matches a character that is not a character from <see cref="Linq.GeneralCategory.LetterUppercase"/>.
         /// If the "ignore case" option is applied the pattern will also not match a character from <see cref="Linq.GeneralCategory.LetterLowercase"/>.
         /// </summary>
         /// <returns></returns>

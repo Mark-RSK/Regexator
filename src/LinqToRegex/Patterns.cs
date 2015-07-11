@@ -5022,6 +5022,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             return NotCharacter(value).MaybeMany().Character(value).AsNoncapturingGroup();
         }
+
+        /// <summary>
+        /// Returns a pattern that matches zero or more characters that are not matched by a specified <see cref="CharGrouping"/> followed with a character that is matched by a specified <see cref="CharGrouping"/>.
+        /// </summary>
+        /// <param name="value">A content of a character group.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static QuantifiablePattern GoToChar(CharGrouping value)
+        {
+            return NotCharacter(value).MaybeMany().Character(value).AsNoncapturingGroup();
+        }
 #endif
 
         /// <summary>
