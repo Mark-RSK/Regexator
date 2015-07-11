@@ -598,7 +598,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Within a specified input string, replaces strings that match the current instance with a an empty string.
+        /// Within a specified input string, replaces strings that match the current instance with an empty string.
         /// </summary>
         /// <param name="input">The string to search for a match.</param>
         /// <returns></returns>

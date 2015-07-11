@@ -111,7 +111,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a latin alphabet lower-case letter or an arabic digit.
+        /// Appends a pattern that matches a lower-case alphanumeric character. Alphanumeric character is a latin alphabet lower-case letter or an arabic digit.
+        /// If the "ignore case" option is applied the pattern will also match upper-case latin letter.
         /// </summary>
         /// <returns></returns>
         public static CharGrouping AlphanumericLower()
@@ -120,7 +121,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a latin alphabet upper-case letter or an arabic digit.
+        /// Appends a pattern that matches an upper-case alphanumeric character. Alphanumeric character is a latin alphabet upper-case letter or an arabic digit.
+        /// If the "ignore case" option is applied the pattern will also match lower-case latin letter.
         /// </summary>
         /// <returns></returns>
         public static CharGrouping AlphanumericUpper()
@@ -147,7 +149,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a latin alphabet lower-case letter.
+        /// Appends a pattern that matches a latin alphabet lower-case letter. If the "ignore case" option is applied the pattern will also match upper-case latin letter.
         /// </summary>
         /// <returns></returns>
         public static CharGrouping LatinLetterLower()
@@ -156,7 +158,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a latin alphabet upper-case letter.
+        /// Appends a pattern that matches a latin alphabet upper-case letter. If the "ignore case" option is applied the pattern will also match lower-case latin letter.
         /// </summary>
         /// <returns></returns>
         public static CharGrouping LatinLetterUpper()
@@ -165,7 +167,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a lower-case letter, i.e. a character from Unicode category LetterLowercase.
+        /// Appends a pattern that matches a character from <see cref="GeneralCategory.LetterLowercase"/>.
+        /// If the "ignore case" option is applied the pattern will also match a character from <see cref="GeneralCategory.LetterUppercase"/>.
         /// </summary>
         /// <returns></returns>
         public static CharGrouping LetterLower()
@@ -174,7 +177,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a character that is not a lower-case letter, i.e. a letter that is not from Unicode category LetterLowercase.
+        /// Appends a pattern that matches a character that is not a character from <see cref="GeneralCategory.LetterLowercase"/>.
+        /// If the "ignore case" option is applied the pattern will also not match a character from <see cref="GeneralCategory.LetterUppercase"/>.
         /// </summary>
         /// <returns></returns>
         public static CharGrouping NotLetterLower()
@@ -183,7 +187,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a upper-case letter, i.e. a character from Unicode category LetterUppercase.
+        /// Appends a pattern that matches a character from <see cref="GeneralCategory.LetterUppercase"/>.
+        /// If the "ignore case" option is applied the pattern will also match a character from <see cref="GeneralCategory.LetterLowercase"/>.
         /// </summary>
         /// <returns></returns>
         public static CharGrouping LetterUpper()
@@ -192,7 +197,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a character that is not a upper-case letter, i.e. a letter that is not from Unicode category LetterUppercase.
+        /// Appends a pattern that matches a character that is not a character from <see cref="GeneralCategory.LetterUppercase"/>.
+        /// If the "ignore case" option is applied the pattern will also not match a character from <see cref="GeneralCategory.LetterLowercase"/>.
         /// </summary>
         /// <returns></returns>
         public static CharGrouping NotLetterUpper()
