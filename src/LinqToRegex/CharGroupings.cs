@@ -167,8 +167,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character from <see cref="GeneralCategory.LetterLowercase"/>.
-        /// If the "ignore case" option is applied the pattern will also match a character from <see cref="GeneralCategory.LetterUppercase"/>.
+        /// Appends a pattern that matches a character from <see cref="Linq.GeneralCategory.LetterLowercase"/>.
+        /// If the "ignore case" option is applied the pattern will also match a character from <see cref="Linq.GeneralCategory.LetterUppercase"/>.
         /// </summary>
         /// <returns></returns>
         public static CharGrouping LetterLower()
@@ -177,8 +177,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not a character from <see cref="GeneralCategory.LetterLowercase"/>.
-        /// If the "ignore case" option is applied the pattern will also not match a character from <see cref="GeneralCategory.LetterUppercase"/>.
+        /// Appends a pattern that matches a character that is not a character from <see cref="Linq.GeneralCategory.LetterLowercase"/>.
+        /// If the "ignore case" option is applied the pattern will also not match a character from <see cref="Linq.GeneralCategory.LetterUppercase"/>.
         /// </summary>
         /// <returns></returns>
         public static CharGrouping NotLetterLower()
@@ -187,8 +187,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character from <see cref="GeneralCategory.LetterUppercase"/>.
-        /// If the "ignore case" option is applied the pattern will also match a character from <see cref="GeneralCategory.LetterLowercase"/>.
+        /// Appends a pattern that matches a character from <see cref="Linq.GeneralCategory.LetterUppercase"/>.
+        /// If the "ignore case" option is applied the pattern will also match a character from <see cref="Linq.GeneralCategory.LetterLowercase"/>.
         /// </summary>
         /// <returns></returns>
         public static CharGrouping LetterUpper()
@@ -197,8 +197,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not a character from <see cref="GeneralCategory.LetterUppercase"/>.
-        /// If the "ignore case" option is applied the pattern will also not match a character from <see cref="GeneralCategory.LetterLowercase"/>.
+        /// Appends a pattern that matches a character that is not a character from <see cref="Linq.GeneralCategory.LetterUppercase"/>.
+        /// If the "ignore case" option is applied the pattern will also not match a character from <see cref="Linq.GeneralCategory.LetterLowercase"/>.
         /// </summary>
         /// <returns></returns>
         public static CharGrouping NotLetterUpper()
