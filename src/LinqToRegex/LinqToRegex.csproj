@@ -46,7 +46,7 @@
     <Compile Include="Anchor\BackAssertion.cs" />
     <Compile Include="Anchor\EndOfInput.cs" />
     <Compile Include="Anchor\EndOfLine.cs" />
-    <Compile Include="Anchor\EndOrBeforeEndingNewLine.cs" />
+    <Compile Include="Anchor\EndOfInputOrBeforeEndingLinefeed.cs" />
     <Compile Include="Anchor\NegativeAssertion.cs" />
     <Compile Include="Anchor\NegativeBackAssertion.cs" />
     <Compile Include="Anchor\NegativeWordBoundary.cs" />

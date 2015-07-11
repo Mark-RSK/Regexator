@@ -621,9 +621,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Appends a pattern that is matched at the end of the string or before linefeed at the end of the string.
         /// </summary>
-        public void AppendEndOrBeforeEndingNewLine()
+        public void AppendEndOfInputOrBeforeEndingLinefeed()
         {
-            _sb.Append(Syntax.EndOrBeforeEndingNewLine);
+            _sb.Append(Syntax.EndOfInputOrBeforeEndingLinefeed);
         }
 
         /// <summary>

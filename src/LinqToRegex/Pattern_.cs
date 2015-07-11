@@ -207,9 +207,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Appends a pattern that is matched at the end of the string or before linefeed at the end of the string.
         /// </summary>
         /// <returns></returns>
-        public QuantifiablePattern EndOrBeforeEndingNewLine()
+        public QuantifiablePattern EndInputOrBeforeEndingLinefeed()
         {
-            return ConcatInternal(Patterns.EndOrBeforeEndingNewLine());
+            return ConcatInternal(Patterns.EndInputOrBeforeEndingLinefeed());
         }
 
         /// <summary>

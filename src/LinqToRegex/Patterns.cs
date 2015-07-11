@@ -352,9 +352,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Returns a pattern that is matched at the end of the string or before linefeed at the end of the string.
         /// </summary>
         /// <returns></returns>
-        public static QuantifiablePattern EndOrBeforeEndingNewLine()
+        public static QuantifiablePattern EndInputOrBeforeEndingLinefeed()
         {
-            return new EndOrBeforeEndingNewLine();
+            return new EndOfInputOrBeforeEndingLinefeed();
         }
 
         /// <summary>

@@ -42,7 +42,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Specifies a pattern that is matched at the end of the string or before linefeed at the end of the string.
         /// </summary>
-        public const string EndOrBeforeEndingNewLine = @"\Z";
+        public const string EndOfInputOrBeforeEndingLinefeed = @"\Z";
 
         /// <summary>
         /// Specifies a pattern that is matched on a boundary between a word character (\w) and a non-word character (\W). The pattern may be also matched on a word boundary at the beginning or end of the string.
