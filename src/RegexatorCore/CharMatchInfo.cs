@@ -57,22 +57,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             return Create((int)value, inCharGroup, options);
         }
 
-        public static IEnumerable<CharMatchInfo> Create(int charCode)
-        {
-            return Create(charCode, RegexOptions.None);
-        }
-
-        public static IEnumerable<CharMatchInfo> Create(int charCode, bool inCharGroup)
-        {
-            return Create(charCode, inCharGroup, RegexOptions.None);
-        }
-
-        public static IEnumerable<CharMatchInfo> Create(int charCode, RegexOptions options)
-        {
-            return Create(charCode, false, options);
-        }
-
-        public static IEnumerable<CharMatchInfo> Create(int charCode, bool inCharGroup, RegexOptions options)
+        internal static IEnumerable<CharMatchInfo> Create(int charCode, bool inCharGroup, RegexOptions options)
         {
             if (charCode < 0 || charCode > 0xFFFF)
             {
@@ -133,7 +118,7 @@ namespace Pihrtsoft.Text.RegularExpressions
 
             if (charCode <= 0xFF)
             {
-                switch (RegexUtility.GetEscapeMode(charCode, inCharGroup))
+                switch (RegexUtility.GetEscapeMode((char)charCode, inCharGroup))
                 {
                     case CharEscapeMode.Backslash:
                         yield return new CharMatchInfo(@"\" + ((char)charCode).ToString(), "Escaped character");

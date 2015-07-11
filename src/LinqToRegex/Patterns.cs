@@ -955,16 +955,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Returns a pattern that matches a specified character.
         /// </summary>
-        /// <param name="charCode">The Unicode character interpreted as <see cref="Int32"/> object.</param>
-        /// <returns></returns>
-        public static CharPattern Character(int charCode)
-        {
-            return CharPattern.Create(charCode);
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a specified character.
-        /// </summary>
         /// <param name="value">An enumerated constant that identifies ASCII character.</param>
         /// <returns></returns>
         public static CharPattern Character(AsciiChar value)
@@ -1023,16 +1013,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static CharGroup NotCharacter(char value)
         {
             return CharGroup.Create(value, true);
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not a specified character..
-        /// </summary>
-        /// <param name="charCode">The Unicode character interpreted as <see cref="Int32"/> object.</param>
-        /// <returns></returns>
-        public static CharGroup NotCharacter(int charCode)
-        {
-            return CharGroup.Create(charCode, true);
         }
 
         /// <summary>
@@ -1101,18 +1081,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a character in the specified range.
-        /// </summary>
-        /// <param name="firstCharCode">The first character of the range interpreted as <see cref="Int32"/> object.</param>
-        /// <param name="lastCharCode">The last character of the range interpreted as <see cref="Int32"/> object.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static CharGroup Range(int firstCharCode, int lastCharCode)
-        {
-            return CharGroup.Create(firstCharCode, lastCharCode, false);
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not in the specified range.
         /// </summary>
         /// <param name="first">The first character of the range.</param>
@@ -1122,18 +1090,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static CharGroup NotRange(char first, char last)
         {
             return CharGroup.Create(first, last, true);
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not in the specified range.
-        /// </summary>
-        /// <param name="firstCharCode">The first character of the range interpreted as <see cref="Int32"/> object.</param>
-        /// <param name="lastCharCode">The last character of the range interpreted as <see cref="Int32"/> object.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static CharGroup NotRange(int firstCharCode, int lastCharCode)
-        {
-            return CharGroup.Create(firstCharCode, lastCharCode, true);
         }
 
         /// <summary>

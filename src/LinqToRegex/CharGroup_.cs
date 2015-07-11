@@ -72,44 +72,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        internal sealed class CharCodeCharGroup
-            : CharGroup
-        {
-            private readonly int _charCode;
-            private readonly bool _negative;
-
-            public CharCodeCharGroup(int charCode, bool negative)
-            {
-                if (charCode < 0 || charCode > 0xFFFF)
-                {
-                    throw new ArgumentOutOfRangeException("charCode");
-                }
-
-                _charCode = charCode;
-                _negative = negative;
-            }
-
-            public override bool Negative
-            {
-                get { return _negative; }
-            }
-
-            internal override void AppendContentTo(PatternBuilder builder)
-            {
-                if (builder == null)
-                {
-                    throw new ArgumentNullException("builder");
-                }
-
-                builder.AppendInternal(_charCode, true);
-            }
-
-            internal override void AppendTo(PatternBuilder builder)
-            {
-                builder.AppendCharGroup(_charCode, Negative);
-            }
-        }
-
         internal sealed class CharactersCharGroup
             : CharGroup
         {
@@ -190,51 +152,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             internal override void AppendTo(PatternBuilder builder)
             {
                 builder.AppendCharGroup(_firstChar, _lastChar, Negative);
-            }
-        }
-
-        internal sealed class CharCodeRangeCharGroup
-            : CharGroup
-        {
-            private readonly int _first;
-            private readonly int _last;
-            private readonly bool _negative;
-
-            public CharCodeRangeCharGroup(int firstCharCode, int lastCharCode, bool negative)
-            {
-                if (firstCharCode < 0 || firstCharCode > 0xFFFF)
-                {
-                    throw new ArgumentOutOfRangeException("firstCharCode");
-                }
-
-                if (lastCharCode > 0xFFFF || lastCharCode < firstCharCode)
-                {
-                    throw new ArgumentOutOfRangeException("lastCharCode");
-                }
-
-                _first = firstCharCode;
-                _last = lastCharCode;
-                _negative = negative;
-            }
-
-            public override bool Negative
-            {
-                get { return _negative; }
-            }
-
-            internal override void AppendContentTo(PatternBuilder builder)
-            {
-                if (builder == null)
-                {
-                    throw new ArgumentNullException("builder");
-                }
-
-                builder.AppendCharRange(_first, _last);
-            }
-
-            internal override void AppendTo(PatternBuilder builder)
-            {
-                builder.AppendCharGroup(_first, _last, Negative);
             }
         }
 

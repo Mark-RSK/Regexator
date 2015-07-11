@@ -20,11 +20,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new CharCharPattern(value);
         }
 
-        internal static CharPattern Create(int charCode)
-        {
-            return new CharCodeCharPattern(charCode);
-        }
-
         internal static CharPattern Create(AsciiChar value)
         {
             return new AsciiCharCharPattern(value);

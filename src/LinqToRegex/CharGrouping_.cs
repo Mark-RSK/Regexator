@@ -27,32 +27,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        internal sealed class CharacterCodeCharGrouping
-            : CharGrouping
-        {
-            private readonly int _charCode;
-
-            public CharacterCodeCharGrouping(int charCode)
-            {
-                if (charCode < 0 || charCode > 0xFFFF)
-                {
-                    throw new ArgumentOutOfRangeException("charCode");
-                }
-
-                _charCode = charCode;
-            }
-
-            protected override void AppendItemContentTo(PatternBuilder builder)
-            {
-                if (builder == null)
-                {
-                    throw new ArgumentNullException("builder");
-                }
-
-                builder.AppendInternal(_charCode, true);
-            }
-        }
-
         internal sealed class AsciiCharacterCharGrouping
             : CharGrouping
         {
@@ -130,39 +104,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 }
 
                 builder.AppendCharRange(_firstChar, _lastChar);
-            }
-        }
-
-        internal sealed class CharacterCodeRangeCharGrouping
-            : CharGrouping
-        {
-            private readonly int _first;
-            private readonly int _last;
-
-            public CharacterCodeRangeCharGrouping(int firstCharCode, int lastCharCode)
-            {
-                if (firstCharCode < 0 || firstCharCode > 0xFFFF)
-                {
-                    throw new ArgumentOutOfRangeException("firstCharCode");
-                }
-
-                if (lastCharCode > 0xFFFF || lastCharCode < firstCharCode)
-                {
-                    throw new ArgumentOutOfRangeException("lastCharCode");
-                }
-
-                _first = firstCharCode;
-                _last = lastCharCode;
-            }
-
-            protected override void AppendItemContentTo(PatternBuilder builder)
-            {
-                if (builder == null)
-                {
-                    throw new ArgumentNullException("builder");
-                }
-
-                builder.AppendCharRange(_first, _last);
             }
         }
 

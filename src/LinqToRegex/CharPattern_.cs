@@ -38,42 +38,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        internal sealed class CharCodeCharPattern
-            : CharPattern
-        {
-            private readonly int _charCode;
-
-            internal CharCodeCharPattern(int charCode)
-            {
-                if (charCode < 0 || charCode > 0xFFFF)
-                {
-                    throw new ArgumentOutOfRangeException("charCode");
-                }
-
-                _charCode = charCode;
-            }
-
-            public override CharGroup Negate()
-            {
-                return CharGroup.Create(_charCode, true);
-            }
-
-            internal override void AppendTo(PatternBuilder builder)
-            {
-                builder.AppendInternal(_charCode);
-            }
-
-            protected override void AppendGroupContentTo(PatternBuilder builder)
-            {
-                if (builder == null)
-                {
-                    throw new ArgumentNullException("builder");
-                }
-
-                builder.AppendInternal(_charCode, true);
-            }
-        }
-
         internal sealed class AsciiCharCharPattern
             : CharPattern
         {

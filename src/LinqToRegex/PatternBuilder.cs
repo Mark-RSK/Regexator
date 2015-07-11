@@ -161,11 +161,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             AppendInternal(value, inCharGroup);
         }
 
-        internal void AppendInternal(int value)
-        {
-            AppendInternal(value, false);
-        }
-
         internal void AppendInternal(int value, bool inCharGroup)
         {
             switch (RegexUtility.GetEscapeModeInternal(value, inCharGroup))
@@ -209,13 +204,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Append(firstChar, true);
             AppendHyphen();
             Append(lastChar, true);
-        }
-
-        internal void AppendCharRange(int firstCharCode, int lastCharCode)
-        {
-            Append(firstCharCode, true);
-            AppendHyphen();
-            Append(lastCharCode, true);
         }
 
         /// <summary>
@@ -1086,42 +1074,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             AppendCharGroupStart(negative);
             AppendCharRange(first, last);
-            AppendCharGroupEnd();
-        }
-
-        internal void AppendCharGroup(int charCode, bool negative)
-        {
-            AppendCharGroupStart(negative);
-            Append(charCode, true);
-            AppendCharGroupEnd();
-        }
-
-        /// <summary>
-        /// Appends a pattern that matches a character in the specified range.
-        /// </summary>
-        /// <param name="firstCharCode">The first character of the range interpreted as <see cref="Int32"/> object.</param>
-        /// <param name="lastCharCode">The last character of the range interpreted as <see cref="Int32"/> object.</param>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public void AppendCharGroup(int firstCharCode, int lastCharCode)
-        {
-            AppendCharGroup(firstCharCode, lastCharCode, false);
-        }
-
-        /// <summary>
-        /// Appends a pattern that matches a character that is not in the specified range.
-        /// </summary>
-        /// <param name="firstCharCode">The first character of the range interpreted as <see cref="Int32"/> object.</param>
-        /// <param name="lastCharCode">The last character of the range interpreted as <see cref="Int32"/> object.</param>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public void AppendNegativeCharGroup(int firstCharCode, int lastCharCode)
-        {
-            AppendCharGroup(firstCharCode, lastCharCode, true);
-        }
-
-        internal void AppendCharGroup(int firstCharCode, int lastCharCode, bool negative)
-        {
-            AppendCharGroupStart(negative);
-            AppendCharRange(firstCharCode, lastCharCode);
             AppendCharGroupEnd();
         }
 

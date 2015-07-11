@@ -23,11 +23,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new CharCharGroup(value, negative);
         }
 
-        internal static CharGroup Create(int charCode, bool negative)
-        {
-            return new CharCodeCharGroup(charCode, negative);
-        }
-
         internal static CharGroup Create(AsciiChar value, bool negative)
         {
             return new AsciiCharCharGroup(value, negative);
@@ -41,11 +36,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         internal static CharGroup Create(char firstChar, char lastChar, bool negative)
         {
             return new CharRangeCharGroup(firstChar, lastChar, negative);
-        }
-
-        internal static CharGroup Create(int firstCharCode, int lastCharCode, bool negative)
-        {
-            return new CharCodeRangeCharGroup(firstCharCode, lastCharCode, negative);
         }
 
         internal static CharGroup Create(GeneralCategory category, bool negative)

@@ -57,29 +57,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Creates and returns a new instance of the <see cref="CharGrouping"/> class containing a specified character.
         /// </summary>
-        /// <param name="charCode">The Unicode character interpreted as <see cref="Int32"/> object.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static CharGrouping Create(int charCode)
-        {
-            return new CharacterCodeCharGrouping(charCode);
-        }
-
-        /// <summary>
-        /// Creates and returns a new instance of the <see cref="CharGrouping"/> class containing a specified character range.
-        /// </summary>
-        /// <param name="firstCharCode">The first character code of the range.</param>
-        /// <param name="lastCharCode">The last character code of the range.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static CharGrouping Create(int firstCharCode, int lastCharCode)
-        {
-            return new CharacterCodeRangeCharGrouping(firstCharCode, lastCharCode);
-        }
-
-        /// <summary>
-        /// Creates and returns a new instance of the <see cref="CharGrouping"/> class containing a specified character.
-        /// </summary>
         /// <param name="value">An enumerated constant that identifies ASCII character.</param>
         /// <returns></returns>
         public static CharGrouping Create(AsciiChar value)
@@ -168,17 +145,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Appends a pattern that matches specified Unicode character.
         /// </summary>
-        /// <param name="value">The character code.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public CharGrouping Concat(int value)
-        {
-            return Concat(Create(value));
-        }
-
-        /// <summary>
-        /// Appends a pattern that matches specified Unicode character.
-        /// </summary>
         /// <param name="value">An enumerated constant that identifies a character literal.</param>
         /// <returns></returns>
         public CharGrouping Concat(AsciiChar value)
@@ -206,18 +172,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public CharGrouping Concat(char first, char last)
         {
             return Concat(Create(first, last));
-        }
-
-        /// <summary>
-        /// Appends a pattern that matches any one character from the specified range.
-        /// </summary>
-        /// <param name="firstCharCode">The first character code of the range.</param>
-        /// <param name="lastCharCode">The last character code of the range.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public CharGrouping Concat(int firstCharCode, int lastCharCode)
-        {
-            return Concat(Create(firstCharCode, lastCharCode));
         }
 
         /// <summary>

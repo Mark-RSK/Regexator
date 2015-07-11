@@ -790,18 +790,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character in the specified range.
-        /// </summary>
-        /// <param name="firstCharCode">The first character of the range interpreted as <see cref="Int32"/> object.</param>
-        /// <param name="lastCharCode">The last character of the range interpreted as <see cref="Int32"/> object.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public QuantifiablePattern Range(int firstCharCode, int lastCharCode)
-        {
-            return ConcatInternal(Patterns.Range(firstCharCode, lastCharCode));
-        }
-
-        /// <summary>
         /// Appends a pattern that matches a character that is not in the specified range.
         /// </summary>
         /// <param name="first">The first character of the range.</param>
@@ -811,18 +799,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public QuantifiablePattern NotRange(char first, char last)
         {
             return ConcatInternal(Patterns.NotRange(first, last));
-        }
-
-        /// <summary>
-        /// Appends a pattern that matches a character that is not in the specified range.
-        /// </summary>
-        /// <param name="firstCharCode">The first character of the range interpreted as <see cref="Int32"/> object.</param>
-        /// <param name="lastCharCode">The last character of the range interpreted as <see cref="Int32"/> object.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public QuantifiablePattern NotRange(int firstCharCode, int lastCharCode)
-        {
-            return ConcatInternal(Patterns.NotRange(firstCharCode, lastCharCode));
         }
 
         /// <summary>
@@ -2027,16 +2003,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Appends a pattern that matches a specified character.
         /// </summary>
-        /// <param name="charCode">The Unicode character interpreted as <see cref="Int32"/> object.</param>
-        /// <returns></returns>
-        public QuantifiablePattern Character(int charCode)
-        {
-            return ConcatInternal(Patterns.Character(charCode));
-        }
-
-        /// <summary>
-        /// Appends a pattern that matches a specified character.
-        /// </summary>
         /// <param name="value">An enumerated constant that identifies ASCII character.</param>
         /// <returns></returns>
         public QuantifiablePattern Character(AsciiChar value)
@@ -2095,16 +2061,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public QuantifiablePattern NotCharacter(char value)
         {
             return ConcatInternal(Patterns.NotCharacter(value));
-        }
-
-        /// <summary>
-        /// Appends a pattern that matches a character that is not a specified character..
-        /// </summary>
-        /// <param name="charCode">The Unicode character interpreted as <see cref="Int32"/> object.</param>
-        /// <returns></returns>
-        public QuantifiablePattern NotCharacter(int charCode)
-        {
-            return ConcatInternal(Patterns.NotCharacter(charCode));
         }
 
         /// <summary>

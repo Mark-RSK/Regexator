@@ -79,36 +79,23 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Converts the character to the <see cref="String"/> object that represents the character as a literal rather than a metacharacter. The character is not in the character group.
         /// </summary>
-        /// <param name="charCode">The Unicode character interpreted as <see cref="Int32"/> object.</param>
+        /// <param name="value">The Unicode character.</param>
         /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static string Escape(int charCode)
+        public static string Escape(char value)
         {
-            return Escape(charCode, false);
-        }
-
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal static string EscapeInternal(int charCode)
-        {
-            return EscapeInternal(charCode, false);
+            return Escape(value, false);
         }
 
         /// <summary>
         /// Converts the character to the <see cref="String"/> object that represents the character as a literal rather than a metacharacter.
         /// The character is converted as a character inside or outside of the character group.
         /// </summary>
-        /// <param name="charCode">The Unicode character interpreted as <see cref="Int32"/> object.</param>
+        /// <param name="value">The Unicode character.</param>
         /// <param name="inCharGroup">Indicates whether the character is inside or outside of the character group.</param>
         /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static string Escape(int charCode, bool inCharGroup)
+        public static string Escape(char value, bool inCharGroup)
         {
-            if (charCode < 0 || charCode > 0xFFFF)
-            {
-                throw new ArgumentOutOfRangeException("charCode");
-            }
-
-            return EscapeInternal(charCode, inCharGroup);
+            return EscapeInternal((int)value, inCharGroup);
         }
 
         internal static string EscapeInternal(int charCode, bool inCharGroup)
@@ -143,28 +130,26 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Get a value indicating how a specified character is represented in the regular expression pattern.
         /// </summary>
-        /// <param name="charCode">The Unicode character interpreted as <see cref="Int32"/> object.</param>
+        /// <param name="value">The Unicode character.</param>
         /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static CharEscapeMode GetEscapeMode(int charCode)
+        public static CharEscapeMode GetEscapeMode(char value)
         {
-            return GetEscapeMode(charCode, false);
+            return GetEscapeMode(value, false);
         }
 
         /// <summary>
         /// Get a value indicating how a specified character is represented in the regular expression pattern, specifying whether the character is inside or outside of the character group.
         /// </summary>
-        /// <param name="charCode">The Unicode character interpreted as <see cref="Int32"/> object.</param>
+        /// <param name="value">The Unicode character.</param>
         /// <param name="inCharGroup">Indicates whether the character is inside or outside of the character group.</param>
         /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static CharEscapeMode GetEscapeMode(int charCode, bool inCharGroup)
+        public static CharEscapeMode GetEscapeMode(char value, bool inCharGroup)
         {
-            if (charCode < 0 || charCode > 0xFFFF)
-            {
-                throw new ArgumentOutOfRangeException("charCode");
-            }
+            return GetEscapeMode((int)value, inCharGroup);
+        }
 
+        internal static CharEscapeMode GetEscapeMode(int charCode, bool inCharGroup)
+        {
             if (charCode <= 0xFF)
             {
                 return inCharGroup
