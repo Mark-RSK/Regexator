@@ -4957,14 +4957,5 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             return ConcatInternal(Patterns.NotNewLineChar(minCount, maxCount));
         }
-
-        /// <summary>
-        /// Appends a pattern that is never matched. The pattern is an empty negative lookahead assertion.
-        /// </summary>
-        /// <returns></returns>
-        public QuantifiablePattern Never()
-        {
-            return ConcatInternal(Patterns.Never());
-        }
     }
 }
