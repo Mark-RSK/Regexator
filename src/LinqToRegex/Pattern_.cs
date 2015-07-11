@@ -777,39 +777,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(Patterns.AngleBrackets(content));
         }
 
-#if DEBUG
-        /// <summary>
-        /// Appends a pattern that matches zero or more characters that are not a specified character followed with a specified character.
-        /// </summary>
-        /// <param name="value">The Unicode character.</param>
-        /// <returns></returns>
-        public QuantifiablePattern GoToChar(char value)
-        {
-            return ConcatInternal(Patterns.GoToChar(value));
-        }
-
-        /// <summary>
-        /// Appends a pattern that matches zero or more characters that are not a specified character followed with a specified character.
-        /// </summary>
-        /// <param name="value">An enumerated constant that identifies ASCII character.</param>
-        /// <returns></returns>
-        public QuantifiablePattern GoToChar(AsciiChar value)
-        {
-            return ConcatInternal(Patterns.GoToChar(value));
-        }
-
-        /// <summary>
-        /// Appends a pattern that matches zero or more characters that are not matched by a specified <see cref="CharGrouping"/> followed with a character that is matched by a specified <see cref="CharGrouping"/>.
-        /// </summary>
-        /// <param name="value">A content of a character group.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        public QuantifiablePattern GoToChar(CharGrouping value)
-        {
-            return ConcatInternal(Patterns.GoToChar(value));
-        }
-#endif
-
         /// <summary>
         /// Appends a pattern that matches a character in the specified range.
         /// </summary>
@@ -4970,6 +4937,37 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
 #if DEBUG
+        /// <summary>
+        /// Appends a pattern that matches zero or more characters that are not a specified character followed with a specified character.
+        /// </summary>
+        /// <param name="value">The Unicode character.</param>
+        /// <returns></returns>
+        public QuantifiablePattern GoToChar(char value)
+        {
+            return ConcatInternal(Patterns.GoToChar(value));
+        }
+
+        /// <summary>
+        /// Appends a pattern that matches zero or more characters that are not a specified character followed with a specified character.
+        /// </summary>
+        /// <param name="value">An enumerated constant that identifies ASCII character.</param>
+        /// <returns></returns>
+        public QuantifiablePattern GoToChar(AsciiChar value)
+        {
+            return ConcatInternal(Patterns.GoToChar(value));
+        }
+
+        /// <summary>
+        /// Appends a pattern that matches zero or more characters that are not matched by a specified <see cref="CharGrouping"/> followed with a character that is matched by a specified <see cref="CharGrouping"/>.
+        /// </summary>
+        /// <param name="value">A content of a character group.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public QuantifiablePattern GoToChar(CharGrouping value)
+        {
+            return ConcatInternal(Patterns.GoToChar(value));
+        }
+
         /// <summary>
         /// Appends a pattern that matches a latin alphabet lower-case vowel. If the "ignore case" option is applied the pattern will also match upper-case vowel.
         /// </summary>

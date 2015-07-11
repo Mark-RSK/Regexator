@@ -6,7 +6,7 @@ using System.Diagnostics.CodeAnalysis;
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
-    /// Represents a character subtraction pattern.
+    /// Represents a character subtraction pattern. This pattern matches a character from a base group except characters from a excluded group.
     /// </summary>
     public class CharSubtraction
         : QuantifiablePattern, IExcludedGroup
