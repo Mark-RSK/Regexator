@@ -41,11 +41,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Patterns.BeginInput().NotNewLineChar().MaybeMany().AsNoncapturingGroup();
         }
 
-        public static Pattern QuotedContentWithEscapes()
+        public static Pattern QuotedContentWithEscapes(string contentGroupName)
         {
             var quotedChars = Patterns.MaybeMany(!CharGroupings.QuoteMark().Backslash());
 
-            return Patterns.QuoteMarks(quotedChars + Patterns.MaybeMany(@"\" + Patterns.AnyInvariant() + quotedChars)).AsNoncapturingGroup();
+            return Patterns.QuoteMarks(
+                Patterns.NamedGroup(contentGroupName,
+                    quotedChars + Patterns.MaybeMany(Patterns.Backslash().AnyInvariant() + quotedChars))).AsNoncapturingGroup();
         }
     }
 }

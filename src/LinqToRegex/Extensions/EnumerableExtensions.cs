@@ -168,5 +168,23 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq.Extensions
 
             return groups.SelectMany(group => group.Captures.Cast<Capture>());
         }
+
+#if DEBUG
+        /// <summary>
+        /// Returns enumerable collection of matches values.
+        /// </summary>
+        /// <param name="matches">The sequence to enumerate.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static IEnumerable<string> ToValues(this IEnumerable<Match> matches)
+        {
+            if (matches == null)
+            {
+                throw new ArgumentNullException("matches");
+            }
+
+            return matches.Select(match => match.Value);
+        }
+#endif
     }
 }
