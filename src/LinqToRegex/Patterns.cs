@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
-    /// Exposes static methods that returns instance of the pattern class.
+    /// Provides static methods that returns various kinds of patterns.
     /// </summary>
     public static class Patterns
     {
