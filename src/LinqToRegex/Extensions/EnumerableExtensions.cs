@@ -171,19 +171,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq.Extensions
 
 #if DEBUG
         /// <summary>
-        /// Returns enumerable collection of matches values.
+        /// Returns enumerable collection of captures values.
         /// </summary>
-        /// <param name="matches">The sequence to enumerate.</param>
+        /// <param name="collection">The sequence to enumerate.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static IEnumerable<string> ToValues(this IEnumerable<Match> matches)
+        public static IEnumerable<string> ToValues(this IEnumerable<Capture> collection)
         {
-            if (matches == null)
+            if (collection == null)
             {
-                throw new ArgumentNullException("matches");
+                throw new ArgumentNullException("collection");
             }
 
-            return matches.Select(match => match.Value);
+            return collection.Select(capture => capture.Value);
         }
 #endif
     }
