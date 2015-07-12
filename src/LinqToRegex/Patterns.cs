@@ -12,6 +12,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     public static class Patterns
     {
         /// <summary>
+        /// Returns a pattern that matches a specified literal text.
+        /// </summary>
+        /// <param name="value">Literal text to append.</param>
+        /// <returns></returns>
+        public static Pattern Text(string value)
+        {
+            return new LiteralPattern(value);
+        }
+
+        /// <summary>
         /// Returns a pattern that is a negation of the specified pattern.
         /// </summary>
         /// <typeparam name="TPattern">The type of the pattern.</typeparam>

@@ -30,7 +30,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="content">The object to represent a pattern.</param>
         /// <returns></returns>
-        public static Pattern Create(object content)
+        internal static Pattern Create(object content)
         {
             return new ContentPattern(content);
         }

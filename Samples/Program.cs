@@ -44,7 +44,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine(
                 Patterns.WordBoundary()
                 .CountFrom(3,
-                    Patterns.Any(values.Select(f => Pattern.Create(f).AsGroup()))
+                    Patterns.Any(values.Select(f => Patterns.Text(f).AsGroup()))
                     .WordBoundary()
                     .NotWordChar().MaybeMany().Lazy())
                 .GroupReference(1)
