@@ -1,5 +1,7 @@
 ﻿// Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System.Diagnostics.CodeAnalysis;
+
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
@@ -44,23 +46,107 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a line that is empty or contains only whitespace(s).
+        /// Returns a pattern that matches a line that is empty or contains only whitespace(s). Neither carriage return nor linefeed is included in the match.
         /// </summary>
         /// <returns></returns>
-        public static QuantifiablePattern WhiteSpaceLine()
+        public static QuantifiablePattern EmptyOrWhiteSpaceLine()
         {
-            return Patterns.BeginLineInvariant().WhiteSpaceExceptNewLine().MaybeMany().NewLine() |
-                Patterns.NewLine().Assert(Patterns.WhiteSpace().MaybeMany().EndInput());
+            return EmptyOrWhiteSpaceLine(false);
         }
 
         /// <summary>
-        /// Returns a pattern that matches an empty line. Empty line is a line that has zero width.
+        /// Returns a pattern that matches a line that is empty or contains only whitespace(s), optionally including new line characters.
+        /// </summary>
+        /// <param name="includeNewLine">Indicates whether new line characters should be included in the match.</param>
+        /// <returns></returns>
+        public static QuantifiablePattern EmptyOrWhiteSpaceLine(bool includeNewLine)
+        {
+            if (includeNewLine)
+            {
+                return Patterns.BeginLineInvariant().WhiteSpaceExceptNewLine().MaybeMany().NewLine();
+            }
+            else
+            {
+                return Patterns.BeginLineInvariant().WhiteSpaceExceptNewLine().MaybeMany().Assert(Patterns.NewLine());
+            }
+        }
+
+        /// <summary>
+        /// Returns a pattern that matches an empty line. Neither carriage return nor linefeed is included in the match.
         /// </summary>
         /// <returns></returns>
         public static QuantifiablePattern EmptyLine()
         {
-            return Patterns.BeginLineInvariant().NewLine() |
-                Patterns.NewLine().Assert(Patterns.NewLine().MaybeMany().EndInput());
+            return EmptyLine(false);
+        }
+
+        /// <summary>
+        /// Returns a pattern that matches an empty line. Neither carriage return nor linefeed is included in the match, optionally including new line characters.
+        /// </summary>
+        /// <param name="includeNewLine">Indicates whether new line characters should be included in the match.</param>
+        /// <returns></returns>
+        public static QuantifiablePattern EmptyLine(bool includeNewLine)
+        {
+            if (includeNewLine)
+            {
+                return Patterns.BeginLineInvariant().NewLine();
+            }
+            else
+            {
+                return Patterns.BeginLineInvariant().Assert(Patterns.NewLine());
+            }
+        }
+
+        /// <summary>
+        /// Returns a pattern that matches a line that contains at least one non-whitespace character. New line characters are not included in the match.
+        /// </summary>
+        /// <returns></returns>
+        [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "NonWhite")]
+        public static QuantifiablePattern NonWhiteSpaceLine()
+        {
+            return NonWhiteSpaceLine(false);
+        }
+
+        /// <summary>
+        /// Returns a pattern that matches a line that contains at least one non-whitespace character, optionally including new line characters.
+        /// </summary>
+        /// <param name="includeNewLine">Indicates whether new line characters should be included in the match.</param>
+        /// <returns></returns>
+        [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "NonWhite")]
+        public static QuantifiablePattern NonWhiteSpaceLine(bool includeNewLine)
+        {
+            return Patterns
+                .BeginLineInvariant()
+                .NotNewLineChar().MaybeMany().Lazy()
+                .NotWhiteSpace()
+                .NotNewLineChar().MaybeMany()
+                .ConcatIf(includeNewLine, Patterns.NewLine().Maybe())
+                .AsNoncapturingGroup();
+        }
+
+        /// <summary>
+        /// Returns a pattern that matches a line that contains at least one character.  New line characters are not included in the match.
+        /// </summary>
+        /// <returns></returns>
+        [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "NonEmpty")]
+        public static QuantifiablePattern NonEmptyLine()
+        {
+            return NonEmptyLine(false);
+        }
+
+        /// <summary>
+        /// Returns a pattern that matches a line that contains at least one character, optionally including new line characters.
+        /// </summary>
+        /// <param name="includeNewLine">Indicates whether new line characters should be included in the match.</param>
+        /// <returns></returns>
+        [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "NonEmpty")]
+        public static QuantifiablePattern NonEmptyLine(bool includeNewLine)
+        {
+            return Patterns
+                .BeginLineInvariant()
+                .NotNewLineChar().OneMany()
+                .ConcatIf(includeNewLine, Patterns.NewLine().Maybe())
+                .AsNoncapturingGroup();
         }
 
         /// <summary>
@@ -85,6 +171,32 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Patterns.QuoteMarks(
                 Patterns.NamedGroup(contentGroupName,
                     quotedChars + Patterns.MaybeMany(Patterns.Backslash().AnyInvariant() + quotedChars))).AsNoncapturingGroup();
+        }
+
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal static QuantifiablePattern EmptyOrWhiteSpaceLineOrEndingNewLine()
+        {
+            return Patterns.Any(
+                Patterns
+                    .BeginLineInvariant()
+                    .WhiteSpaceExceptNewLine().MaybeMany()
+                    .NewLine(),
+                Patterns
+                    .NewLine()
+                    .Assert(Patterns.WhiteSpace().MaybeMany().EndInput())
+                );
+        }
+
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal static QuantifiablePattern EmptyLineOrEndingNewLine()
+        {
+            return Patterns.Any(
+                Patterns
+                    .BeginLineInvariant()
+                    .NewLine(),
+                Patterns
+                    .NewLine()
+                    .Assert(Patterns.NewLine().MaybeMany().EndInput()));
         }
 #endif
 

@@ -33,7 +33,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         NotWordChar,
 
         /// <summary>
-        /// Non-white-space character class.
+        /// Non-whitespace character class.
         /// </summary>
         NotWhiteSpace
     }
