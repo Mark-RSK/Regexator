@@ -923,15 +923,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a zero or more characters that are neither a carriage return nor a linefeed.
-        /// </summary>
-        /// <returns></returns>
-        public Pattern WhileNotNewLine()
-        {
-            return ConcatInternal(Patterns.WhileNotNewLine());
-        }
-
-        /// <summary>
         /// Appends a pattern that matches any character except linefeed (or any character if the Singleline option is applied).
         /// </summary>
         /// <returns></returns>

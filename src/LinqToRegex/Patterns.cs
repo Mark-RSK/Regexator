@@ -4959,15 +4959,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a zero or more characters that are neither a carriage return nor a linefeed.
-        /// </summary>
-        /// <returns></returns>
-        public static QuantifiedPattern WhileNotNewLine()
-        {
-            return WhileNotChar(CharGroupings.NewLineChar());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches any character except linefeed (or any character if the Singleline option is applied) zero or more times but as few times as possible.
         /// </summary>
         /// <returns></returns>
