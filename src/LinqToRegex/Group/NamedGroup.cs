@@ -8,17 +8,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         private readonly string _name;
 
         public NamedGroup(string name, object content)
-            : this(name, content, true)
-        {
-        }
-
-        public NamedGroup(string name, object content, bool checkGroupName)
             : base(content)
         {
-            if (checkGroupName)
-            {
-                RegexUtility.CheckGroupName(name);
-            }
+            RegexUtility.CheckGroupName(name, "name");
 
             _name = name;
         }
