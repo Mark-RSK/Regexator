@@ -318,11 +318,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Returns a pattern that is matched (before carriage return) at the end of the string (or (before carriage return) at the end of line if the multiline option is applied). End of line is defined as the position before a linefeed.
         /// </summary>
-        /// <param name="matchCarriageReturnIfPresent">Indicates whether a carriage return should be matched if present and not already consumed by regex engine.</param>
+        /// <param name="beforeCarriageReturn">Indicates whether a position of the match should be before a carriage return if present and not already consumed by regex engine</param>
         /// <returns></returns>
-        public static Pattern EndLine(bool matchCarriageReturnIfPresent)
+        public static Pattern EndLine(bool beforeCarriageReturn)
         {
-            if (matchCarriageReturnIfPresent)
+            if (beforeCarriageReturn)
             {
                 return Assert(CarriageReturn().Maybe().EndLine());
             }
@@ -344,11 +344,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Returns a pattern that is matched (before carriage return) at the end of the string or line. End of line is defined as the position before a linefeed.
         /// </summary>
-        /// <param name="matchCarriageReturnIfPresent">Indicates whether a carriage return should be matched if present and not already consumed by regex engine.</param>
+        /// <param name="beforeCarriageReturn">Indicates whether a position of the match should be before a carriage return if present and not already consumed by regex engine</param>
         /// <returns></returns>
-        public static QuantifiablePattern EndLineInvariant(bool matchCarriageReturnIfPresent)
+        public static QuantifiablePattern EndLineInvariant(bool beforeCarriageReturn)
         {
-            if (matchCarriageReturnIfPresent)
+            if (beforeCarriageReturn)
             {
                 return Assert(CarriageReturn().Maybe().EndLineInvariant());
             }

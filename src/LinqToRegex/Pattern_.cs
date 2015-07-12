@@ -177,11 +177,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Appends a pattern that is matched (before carriage return) at the end of the string (or (before carriage return) at the end of line if the multiline option is applied). End of line is defined as the position before a linefeed.
         /// </summary>
-        /// <param name="matchCarriageReturnIfPresent">Indicates whether a carriage return should be matched if present and not already consumed by regex engine.</param>
+        /// <param name="beforeCarriageReturn">Indicates whether a position of the match should be before a carriage return if present and not already consumed by regex engine.</param>
         /// <returns></returns>
-        public Pattern EndLine(bool matchCarriageReturnIfPresent)
+        public Pattern EndLine(bool beforeCarriageReturn)
         {
-            return ConcatInternal(Patterns.EndLine(matchCarriageReturnIfPresent));
+            return ConcatInternal(Patterns.EndLine(beforeCarriageReturn));
         }
 
         /// <summary>
@@ -196,11 +196,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Appends a pattern that is matched (before carriage return) at the end of the string or line. End of line is defined as the position before a linefeed.
         /// </summary>
-        /// <param name="matchCarriageReturnIfPresent">Indicates whether a carriage return should be matched if present and not already consumed by regex engine.</param>
+        /// <param name="beforeCarriageReturn">Indicates whether a position of the match should be before a carriage return if present and not already consumed by regex engine</param>
         /// <returns></returns>
-        public QuantifiablePattern EndLineInvariant(bool matchCarriageReturnIfPresent)
+        public QuantifiablePattern EndLineInvariant(bool beforeCarriageReturn)
         {
-            return ConcatInternal(Patterns.EndLineInvariant(matchCarriageReturnIfPresent));
+            return ConcatInternal(Patterns.EndLineInvariant(beforeCarriageReturn));
         }
 
         /// <summary>
