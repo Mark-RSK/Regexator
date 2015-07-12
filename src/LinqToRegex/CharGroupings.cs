@@ -221,7 +221,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static CharGrouping HexadecimalDigit()
         {
-            return ArabicDigit().Concat('a', 'f').Concat('A', 'F');
+            return ArabicDigit().Range('a', 'f').Range('A', 'F');
         }
 
         /// <summary>

@@ -169,7 +169,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="first">The first character of the range.</param>
         /// <param name="last">The last character of the range.</param>
         /// <returns></returns>
-        public CharGrouping Concat(char first, char last)
+        public CharGrouping Range(char first, char last)
         {
             return Concat(Create(first, last));
         }
