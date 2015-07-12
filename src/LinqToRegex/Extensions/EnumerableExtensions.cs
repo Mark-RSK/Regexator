@@ -176,7 +176,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq.Extensions
         /// <param name="collection">The sequence to enumerate.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static IEnumerable<string> ToValues(this IEnumerable<Capture> collection)
+        public static IEnumerable<string> EnumerateValues(this IEnumerable<Capture> collection)
         {
             if (collection == null)
             {
