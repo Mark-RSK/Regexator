@@ -22,89 +22,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Creates and returns a new instance of the <see cref="CharGrouping"/> class containing specified characters.
-        /// </summary>
-        /// <param name="characters">A set of Unicode characters.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        /// <exception cref="ArgumentException"></exception>
-        public static CharGrouping Create(string characters)
-        {
-            return new CharactersCharGrouping(characters);
-        }
-
-        /// <summary>
-        /// Creates and returns a new instance of the <see cref="CharGrouping"/> class containing a specified character.
-        /// </summary>
-        /// <param name="value">The Unicode character.</param>
-        /// <returns></returns>
-        public static CharGrouping Create(char value)
-        {
-            return new CharacterCharGrouping(value);
-        }
-
-        /// <summary>
-        /// Creates and returns a new instance of the <see cref="CharGrouping"/> class containing a specified character range.
-        /// </summary>
-        /// <param name="first">The first character of the range.</param>
-        /// <param name="last">The last character of the range.</param>
-        /// <returns></returns>
-        public static CharGrouping Create(char first, char last)
-        {
-            return new CharacterRangeCharGrouping(first, last);
-        }
-
-        /// <summary>
-        /// Creates and returns a new instance of the <see cref="CharGrouping"/> class containing a specified character.
-        /// </summary>
-        /// <param name="value">An enumerated constant that identifies ASCII character.</param>
-        /// <returns></returns>
-        public static CharGrouping Create(AsciiChar value)
-        {
-            return new AsciiCharacterCharGrouping(value);
-        }
-
-        /// <summary>
-        /// Creates and returns a new instance of the <see cref="CharGrouping"/> class containing a specified Unicode block.
-        /// </summary>
-        /// <param name="block">An enumerated constant that identifies Unicode block.</param>
-        /// <returns></returns>
-        public static CharGrouping Create(NamedBlock block)
-        {
-            return Create(block, false);
-        }
-
-        internal static CharGrouping Create(NamedBlock block, bool negative)
-        {
-            return new NamedBlockCharGrouping(block, negative);
-        }
-
-        /// <summary>
-        /// Creates and returns a new instance of the <see cref="CharGrouping"/> class containing a specified Unicode category.
-        /// </summary>
-        /// <param name="category">An enumerated constant that identifies Unicode category.</param>
-        /// <returns></returns>
-        public static CharGrouping Create(GeneralCategory category)
-        {
-            return Create(category, false);
-        }
-
-        internal static CharGrouping Create(GeneralCategory category, bool negative)
-        {
-            return new GeneralCategoryCharGrouping(category, negative);
-        }
-
-        internal static CharGrouping Create(CharClass value)
-        {
-            return new CharacterClassCharGrouping(value);
-        }
-
-        internal static CharGrouping Create(CharGrouping value)
-        {
-            return new CharGroupingCharGrouping(value);
-        }
-
-        /// <summary>
         /// Returns the text representation of this instance.
         /// </summary>
         /// <returns></returns>
@@ -139,7 +56,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping Concat(char value)
         {
-            return Concat(Create(value));
+            return Concat(CharGroupings.Character(value));
         }
 
         /// <summary>
@@ -149,7 +66,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping Concat(AsciiChar value)
         {
-            return Concat(Create(value));
+            return Concat(CharGroupings.Character(value));
         }
 
         /// <summary>
@@ -158,9 +75,30 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="characters">A set of Unicode characters.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
         public CharGrouping Concat(string characters)
         {
-            return Concat(Create(characters));
+            return Concat(CharGroupings.Character(characters));
+        }
+
+        /// <summary>
+        /// Appends a pattern that matches a character from the specified Unicode block.
+        /// </summary>
+        /// <param name="block">An enumerated constant that identifies Unicode block.</param>
+        /// <returns></returns>
+        public CharGrouping Concat(NamedBlock block)
+        {
+            return Concat(CharGroupings.Character(block));
+        }
+
+        /// <summary>
+        /// Appends a pattern that matches a character from the specified Unicode category.
+        /// </summary>
+        /// <param name="category">An enumerated constant that identifies Unicode category.</param>
+        /// <returns></returns>
+        public CharGrouping Concat(GeneralCategory category)
+        {
+            return Concat(CharGroupings.Character(category));
         }
 
         /// <summary>
@@ -171,27 +109,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping Range(char first, char last)
         {
-            return Concat(Create(first, last));
-        }
-
-        /// <summary>
-        /// Appends a pattern that matches a character from the specified Unicode block.
-        /// </summary>
-        /// <param name="block">An enumerated constant that identifies Unicode block.</param>
-        /// <returns></returns>
-        public CharGrouping Concat(NamedBlock block)
-        {
-            return Concat(Create(block));
-        }
-
-        /// <summary>
-        /// Appends a pattern that matches a character from the specified Unicode category.
-        /// </summary>
-        /// <param name="category">An enumerated constant that identifies Unicode category.</param>
-        /// <returns></returns>
-        public CharGrouping Concat(GeneralCategory category)
-        {
-            return Concat(Create(category));
+            return Concat(CharGroupings.Range(first, last));
         }
 
         /// <summary>
@@ -842,7 +760,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("right");
             }
 
-            return left.Concat(Create(right));
+            return left.Concat(CharGroupings.Character(right));
         }
 
         /// <summary>
@@ -890,7 +808,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("right");
             }
 
-            return CharGrouping.Create(left).Concat(Create(right));
+            return CharGroupings.Character(left).Concat(CharGroupings.Character(right));
         }
 
         /// <summary>
@@ -928,7 +846,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("right");
             }
 
-            return CharGrouping.Create(left).Concat(Create(right));
+            return CharGroupings.Character(left).Concat(CharGroupings.Character(right));
         }
 
         /// <summary>
@@ -954,7 +872,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static explicit operator CharGrouping(string characters)
         {
-            return Create(characters);
+            return CharGroupings.Character(characters);
         }
 
         /// <summary>
@@ -964,7 +882,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static explicit operator CharGrouping(char value)
         {
-            return Create(value);
+            return CharGroupings.Character(value);
         }
 
         /// <summary>
