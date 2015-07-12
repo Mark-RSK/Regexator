@@ -453,7 +453,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public static QuantifiablePattern EntireLine(params object[] content)
         {
-            return EntireLine((object)content);
+            return EntireLine(Any(content));
         }
 
         /// <summary>
@@ -475,7 +475,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public static Pattern EntireLineInvariant(params object[] content)
         {
-            return EntireLineInvariant((object)content);
+            return EntireLineInvariant(Any(content));
         }
 
         /// <summary>
@@ -497,7 +497,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public static QuantifiablePattern EntireInput(params object[] content)
         {
-            return EntireInput((object)content);
+            return EntireInput(Any(content));
         }
 
         /// <summary>
