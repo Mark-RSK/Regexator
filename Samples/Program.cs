@@ -52,7 +52,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 .GroupReference(3));
             Console.WriteLine("");
 
-            var quotedChar = Patterns.NotCharacter(CharGroupings.QuoteMark().NewLineChar()).MaybeMany();
+            var quotedChar = (!CharGroupings.QuoteMark().NewLineChar()).MaybeMany();
 
             Console.WriteLine("quoted text");
             Console.WriteLine(Patterns.QuoteMarks(

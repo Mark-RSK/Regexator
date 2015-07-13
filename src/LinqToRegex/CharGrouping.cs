@@ -860,7 +860,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("value");
             }
 
-            return Patterns.NotCharacter(value);
+            return Patterns.Not(value);
         }
 
         /// <summary>

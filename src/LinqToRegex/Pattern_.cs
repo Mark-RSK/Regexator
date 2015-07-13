@@ -2049,9 +2049,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="value">The Unicode character.</param>
         /// <returns></returns>
-        public QuantifiablePattern NotCharacter(char value)
+        public QuantifiablePattern Not(char value)
         {
-            return ConcatInternal(Patterns.NotCharacter(value));
+            return ConcatInternal(Patterns.Not(value));
         }
 
         /// <summary>
@@ -2059,9 +2059,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="value">An enumerated constant that identifies ASCII character.</param>
         /// <returns></returns>
-        public QuantifiablePattern NotCharacter(AsciiChar value)
+        public QuantifiablePattern Not(AsciiChar value)
         {
-            return ConcatInternal(Patterns.NotCharacter(value));
+            return ConcatInternal(Patterns.Not(value));
         }
 
         /// <summary>
@@ -2069,9 +2069,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="block">An enumerated constant that identifies Unicode block.</param>
         /// <returns></returns>
-        public QuantifiablePattern NotCharacter(NamedBlock block)
+        public QuantifiablePattern Not(NamedBlock block)
         {
-            return ConcatInternal(Patterns.NotCharacter(block));
+            return ConcatInternal(Patterns.Not(block));
         }
 
         /// <summary>
@@ -2079,9 +2079,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="category">An enumerated constant that identifies Unicode category.</param>
         /// <returns></returns>
-        public QuantifiablePattern NotCharacter(GeneralCategory category)
+        public QuantifiablePattern Not(GeneralCategory category)
         {
-            return ConcatInternal(Patterns.NotCharacter(category));
+            return ConcatInternal(Patterns.Not(category));
         }
 
         /// <summary>
@@ -2091,9 +2091,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentException"></exception>
-        public QuantifiablePattern NotCharacter(string characters)
+        public QuantifiablePattern Not(string characters)
         {
-            return ConcatInternal(Patterns.NotCharacter(characters));
+            return ConcatInternal(Patterns.Not(characters));
         }
 
         /// <summary>
@@ -2102,9 +2102,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="value">A content of a character group.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public QuantifiablePattern NotCharacter(CharGrouping value)
+        public QuantifiablePattern Not(CharGrouping value)
         {
-            return ConcatInternal(Patterns.NotCharacter(value));
+            return ConcatInternal(Patterns.Not(value));
         }
 
         /// <summary>
