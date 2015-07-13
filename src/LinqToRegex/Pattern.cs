@@ -92,7 +92,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public Pattern Concat(string text, bool ignoreCase)
         {
-            return ConcatInternal(new LiteralPattern(text, ignoreCase));
+            return ConcatInternal(new TextPattern(text, ignoreCase));
         }
 #else
         /// <summary>
@@ -884,7 +884,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static explicit operator Pattern(string text)
         {
-            return new LiteralPattern(text);
+            return new TextPattern(text);
         }
 
         /// <summary>

@@ -18,7 +18,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static Pattern Text(string value)
         {
-            return new LiteralPattern(value);
+            return new TextPattern(value);
         }
 
         /// <summary>

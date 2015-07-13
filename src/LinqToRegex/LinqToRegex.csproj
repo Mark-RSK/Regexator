@@ -103,7 +103,7 @@
     <Compile Include="InlineComment.cs" />
     <Compile Include="JoinContainer.cs" />
     <Compile Include="LazyQuantifier.cs" />
-    <Compile Include="LiteralPattern.cs" />
+    <Compile Include="TextPattern.cs" />
     <Compile Include="NamedBlock.cs" />
     <Compile Include="NegativeSurroundAssertion.cs" />
     <Compile Include="Options.cs" />

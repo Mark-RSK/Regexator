@@ -4,23 +4,23 @@ using System.Text.RegularExpressions;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal sealed class LiteralPattern
+    internal sealed class TextPattern
         : Pattern
     {
         private readonly string _text;
         private readonly bool _ignoreCase;
 
-        internal LiteralPattern()
+        internal TextPattern()
             : this(null)
         {
         }
 
-        internal LiteralPattern(string text)
+        internal TextPattern(string text)
             : this(text, false)
         {
         }
 
-        internal LiteralPattern(string text, bool ignoreCase)
+        internal TextPattern(string text, bool ignoreCase)
         {
             _text = text;
             _ignoreCase = ignoreCase;
