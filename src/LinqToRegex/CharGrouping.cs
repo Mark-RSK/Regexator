@@ -410,18 +410,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Appends a pattern that matches left parenthesis.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping StartParenthesis()
+        public CharGrouping LeftParenthesis()
         {
-            return Concat(CharGroupings.StartParenthesis());
+            return Concat(CharGroupings.LeftParenthesis());
         }
 
         /// <summary>
         /// Appends a pattern that matches right parenthesis.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping EndParenthesis()
+        public CharGrouping RightParenthesis()
         {
-            return Concat(CharGroupings.EndParenthesis());
+            return Concat(CharGroupings.RightParenthesis());
         }
 
         /// <summary>
@@ -500,9 +500,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Appends a pattern that matches a left angle bracket (less-than sign).
         /// </summary>
         /// <returns></returns>
-        public CharGrouping StartAngleBracket()
+        public CharGrouping LeftAngleBracket()
         {
-            return Concat(CharGroupings.StartAngleBracket());
+            return Concat(CharGroupings.LeftAngleBracket());
         }
 
         /// <summary>
@@ -518,9 +518,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Appends a pattern that matches a right angle bracket (greater-than sign).
         /// </summary>
         /// <returns></returns>
-        public CharGrouping EndAngleBracket()
+        public CharGrouping RightAngleBracket()
         {
-            return Concat(CharGroupings.EndAngleBracket());
+            return Concat(CharGroupings.RightAngleBracket());
         }
 
         /// <summary>
@@ -545,9 +545,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Appends a pattern that matches left square bracket.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping StartSquareBracket()
+        public CharGrouping LeftSquareBracket()
         {
-            return Concat(CharGroupings.StartSquareBracket());
+            return Concat(CharGroupings.LeftSquareBracket());
         }
 
         /// <summary>
@@ -563,9 +563,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Appends a pattern that matches right square bracket.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping EndSquareBracket()
+        public CharGrouping RightSquareBracket()
         {
-            return Concat(CharGroupings.EndSquareBracket());
+            return Concat(CharGroupings.RightSquareBracket());
         }
 
         /// <summary>
@@ -599,9 +599,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Appends a pattern that matches left curly bracket.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping StartCurlyBracket()
+        public CharGrouping LeftCurlyBracket()
         {
-            return Concat(CharGroupings.StartCurlyBracket());
+            return Concat(CharGroupings.LeftCurlyBracket());
         }
 
         /// <summary>
@@ -617,9 +617,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Appends a pattern that matches right curly bracket.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping EndCurlyBracket()
+        public CharGrouping RightCurlyBracket()
         {
-            return Concat(CharGroupings.EndCurlyBracket());
+            return Concat(CharGroupings.RightCurlyBracket());
         }
 
         /// <summary>

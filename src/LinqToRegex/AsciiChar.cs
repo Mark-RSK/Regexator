@@ -210,12 +210,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Left Parenthesis. The value is 40. The hexadecimal value is 0x28.
         /// </summary>
-        StartParenthesis,
+        LeftParenthesis,
 
         /// <summary>
         /// Right Parenthesis. The value is 41. The hexadecimal value is 0x29.
         /// </summary>
-        EndParenthesis,
+        RightParenthesis,
 
         /// <summary>
         /// Asterisk. The value is 42. The hexadecimal value is 0x2A.
@@ -310,7 +310,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Left Angle Bracket (Less-Than Sign). The value is 60. The hexadecimal value is 0x3C.
         /// </summary>
-        StartAngleBracket,
+        LeftAngleBracket,
 
         /// <summary>
         /// Equals Sign. The value is 61. The hexadecimal value is 0x3D.
@@ -320,7 +320,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Right Angle Bracket (Greater-Than Sign). The value is 62. The hexadecimal value is 0x3E.
         /// </summary>
-        EndAngleBracket,
+        RightAngleBracket,
 
         /// <summary>
         /// Question Mark. The value is 63. The hexadecimal value is 0x3F.
@@ -465,7 +465,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Left Square Bracket. The value is 91. The hexadecimal value is 0x5B.
         /// </summary>
-        StartSquareBracket,
+        LeftSquareBracket,
 
         /// <summary>
         /// Backslash. The value is 92. The hexadecimal value is 0x5C.
@@ -475,7 +475,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Right Square Bracket. The value is 93. The hexadecimal value is 0x5D.
         /// </summary>
-        EndSquareBracket,
+        RightSquareBracket,
 
         /// <summary>
         /// Circumflex Accent. The value is 94. The hexadecimal value is 0x5E.
@@ -625,7 +625,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Left Curly Bracket. The value is 123. The hexadecimal value is 0x7B.
         /// </summary>
-        StartCurlyBracket,
+        LeftCurlyBracket,
 
         /// <summary>
         /// Vertical Line. The value is 124. The hexadecimal value is 0x7C.
@@ -635,7 +635,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Right Curly Bracket. The value is 125. The hexadecimal value is 0x7D.
         /// </summary>
-        EndCurlyBracket,
+        RightCurlyBracket,
 
         /// <summary>
         /// Tilde. The value is 126. The hexadecimal value is 0x7E.

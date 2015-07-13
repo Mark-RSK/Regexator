@@ -1831,9 +1831,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Returns a pattern that matches a left parenthesis.
         /// </summary>
         /// <returns></returns>
-        public static CharPattern StartParenthesis()
+        public static CharPattern LeftParenthesis()
         {
-            return Character(AsciiChar.StartParenthesis);
+            return Character(AsciiChar.LeftParenthesis);
         }
 
         /// <summary>
@@ -1842,9 +1842,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup StartParenthesis(int exactCount)
+        public static QuantifiedGroup LeftParenthesis(int exactCount)
         {
-            return Count(exactCount, StartParenthesis());
+            return Count(exactCount, LeftParenthesis());
         }
 
         /// <summary>
@@ -1854,18 +1854,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup StartParenthesis(int minCount, int maxCount)
+        public static QuantifiedGroup LeftParenthesis(int minCount, int maxCount)
         {
-            return Count(minCount, maxCount, StartParenthesis());
+            return Count(minCount, maxCount, LeftParenthesis());
         }
 
         /// <summary>
         /// Returns a pattern that matches a character that is not a left parenthesis.
         /// </summary>
         /// <returns></returns>
-        public static QuantifiablePattern NotStartParenthesis()
+        public static QuantifiablePattern NotLeftParenthesis()
         {
-            return Not(AsciiChar.StartParenthesis);
+            return Not(AsciiChar.LeftParenthesis);
         }
 
         /// <summary>
@@ -1874,9 +1874,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotStartParenthesis(int exactCount)
+        public static QuantifiedGroup NotLeftParenthesis(int exactCount)
         {
-            return Count(exactCount, NotStartParenthesis());
+            return Count(exactCount, NotLeftParenthesis());
         }
 
         /// <summary>
@@ -1886,18 +1886,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotStartParenthesis(int minCount, int maxCount)
+        public static QuantifiedGroup NotLeftParenthesis(int minCount, int maxCount)
         {
-            return Count(minCount, maxCount, NotStartParenthesis());
+            return Count(minCount, maxCount, NotLeftParenthesis());
         }
 
         /// <summary>
         /// Returns a pattern that matches a right parenthesis.
         /// </summary>
         /// <returns></returns>
-        public static CharPattern EndParenthesis()
+        public static CharPattern RightParenthesis()
         {
-            return Character(AsciiChar.EndParenthesis);
+            return Character(AsciiChar.RightParenthesis);
         }
 
         /// <summary>
@@ -1906,9 +1906,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup EndParenthesis(int exactCount)
+        public static QuantifiedGroup RightParenthesis(int exactCount)
         {
-            return Count(exactCount, EndParenthesis());
+            return Count(exactCount, RightParenthesis());
         }
 
         /// <summary>
@@ -1918,18 +1918,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup EndParenthesis(int minCount, int maxCount)
+        public static QuantifiedGroup RightParenthesis(int minCount, int maxCount)
         {
-            return Count(minCount, maxCount, EndParenthesis());
+            return Count(minCount, maxCount, RightParenthesis());
         }
 
         /// <summary>
         /// Returns a pattern that matches a character that is not a right parenthesis.
         /// </summary>
         /// <returns></returns>
-        public static QuantifiablePattern NotEndParenthesis()
+        public static QuantifiablePattern NotRightParenthesis()
         {
-            return Not(AsciiChar.EndParenthesis);
+            return Not(AsciiChar.RightParenthesis);
         }
 
         /// <summary>
@@ -1938,9 +1938,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotEndParenthesis(int exactCount)
+        public static QuantifiedGroup NotRightParenthesis(int exactCount)
         {
-            return Count(exactCount, NotEndParenthesis());
+            return Count(exactCount, NotRightParenthesis());
         }
 
         /// <summary>
@@ -1950,9 +1950,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotEndParenthesis(int minCount, int maxCount)
+        public static QuantifiedGroup NotRightParenthesis(int minCount, int maxCount)
         {
-            return Count(minCount, maxCount, NotEndParenthesis());
+            return Count(minCount, maxCount, NotRightParenthesis());
         }
 
         /// <summary>
@@ -2471,9 +2471,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Returns a pattern that matches a left angle bracket (less-than sign).
         /// </summary>
         /// <returns></returns>
-        public static CharPattern StartAngleBracket()
+        public static CharPattern LeftAngleBracket()
         {
-            return Character(AsciiChar.StartAngleBracket);
+            return Character(AsciiChar.LeftAngleBracket);
         }
 
         /// <summary>
@@ -2482,9 +2482,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup StartAngleBracket(int exactCount)
+        public static QuantifiedGroup LeftAngleBracket(int exactCount)
         {
-            return Count(exactCount, StartAngleBracket());
+            return Count(exactCount, LeftAngleBracket());
         }
 
         /// <summary>
@@ -2494,18 +2494,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup StartAngleBracket(int minCount, int maxCount)
+        public static QuantifiedGroup LeftAngleBracket(int minCount, int maxCount)
         {
-            return Count(minCount, maxCount, StartAngleBracket());
+            return Count(minCount, maxCount, LeftAngleBracket());
         }
 
         /// <summary>
         /// Returns a pattern that matches a character that is not a left angle bracket (less-than sign).
         /// </summary>
         /// <returns></returns>
-        public static QuantifiablePattern NotStartAngleBracket()
+        public static QuantifiablePattern NotLeftAngleBracket()
         {
-            return Not(AsciiChar.StartAngleBracket);
+            return Not(AsciiChar.LeftAngleBracket);
         }
 
         /// <summary>
@@ -2514,9 +2514,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotStartAngleBracket(int exactCount)
+        public static QuantifiedGroup NotLeftAngleBracket(int exactCount)
         {
-            return Count(exactCount, NotStartAngleBracket());
+            return Count(exactCount, NotLeftAngleBracket());
         }
 
         /// <summary>
@@ -2526,9 +2526,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotStartAngleBracket(int minCount, int maxCount)
+        public static QuantifiedGroup NotLeftAngleBracket(int minCount, int maxCount)
         {
-            return Count(minCount, maxCount, NotStartAngleBracket());
+            return Count(minCount, maxCount, NotLeftAngleBracket());
         }
 
         /// <summary>
@@ -2599,9 +2599,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Returns a pattern that matches a right angle bracket (greater-than sign).
         /// </summary>
         /// <returns></returns>
-        public static CharPattern EndAngleBracket()
+        public static CharPattern RightAngleBracket()
         {
-            return Character(AsciiChar.EndAngleBracket);
+            return Character(AsciiChar.RightAngleBracket);
         }
 
         /// <summary>
@@ -2610,9 +2610,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup EndAngleBracket(int exactCount)
+        public static QuantifiedGroup RightAngleBracket(int exactCount)
         {
-            return Count(exactCount, EndAngleBracket());
+            return Count(exactCount, RightAngleBracket());
         }
 
         /// <summary>
@@ -2622,18 +2622,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup EndAngleBracket(int minCount, int maxCount)
+        public static QuantifiedGroup RightAngleBracket(int minCount, int maxCount)
         {
-            return Count(minCount, maxCount, EndAngleBracket());
+            return Count(minCount, maxCount, RightAngleBracket());
         }
 
         /// <summary>
         /// Returns a pattern that matches a character that is not a right angle bracket (greater-than sign).
         /// </summary>
         /// <returns></returns>
-        public static QuantifiablePattern NotEndAngleBracket()
+        public static QuantifiablePattern NotRightAngleBracket()
         {
-            return Not(AsciiChar.EndAngleBracket);
+            return Not(AsciiChar.RightAngleBracket);
         }
 
         /// <summary>
@@ -2642,9 +2642,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotEndAngleBracket(int exactCount)
+        public static QuantifiedGroup NotRightAngleBracket(int exactCount)
         {
-            return Count(exactCount, NotEndAngleBracket());
+            return Count(exactCount, NotRightAngleBracket());
         }
 
         /// <summary>
@@ -2654,9 +2654,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotEndAngleBracket(int minCount, int maxCount)
+        public static QuantifiedGroup NotRightAngleBracket(int minCount, int maxCount)
         {
-            return Count(minCount, maxCount, NotEndAngleBracket());
+            return Count(minCount, maxCount, NotRightAngleBracket());
         }
 
         /// <summary>
@@ -2791,9 +2791,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Returns a pattern that matches a left square bracket.
         /// </summary>
         /// <returns></returns>
-        public static CharPattern StartSquareBracket()
+        public static CharPattern LeftSquareBracket()
         {
-            return Character(AsciiChar.StartSquareBracket);
+            return Character(AsciiChar.LeftSquareBracket);
         }
 
         /// <summary>
@@ -2802,9 +2802,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup StartSquareBracket(int exactCount)
+        public static QuantifiedGroup LeftSquareBracket(int exactCount)
         {
-            return Count(exactCount, StartSquareBracket());
+            return Count(exactCount, LeftSquareBracket());
         }
 
         /// <summary>
@@ -2814,18 +2814,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup StartSquareBracket(int minCount, int maxCount)
+        public static QuantifiedGroup LeftSquareBracket(int minCount, int maxCount)
         {
-            return Count(minCount, maxCount, StartSquareBracket());
+            return Count(minCount, maxCount, LeftSquareBracket());
         }
 
         /// <summary>
         /// Returns a pattern that matches a character that is not a left square bracket.
         /// </summary>
         /// <returns></returns>
-        public static QuantifiablePattern NotStartSquareBracket()
+        public static QuantifiablePattern NotLeftSquareBracket()
         {
-            return Not(AsciiChar.StartSquareBracket);
+            return Not(AsciiChar.LeftSquareBracket);
         }
 
         /// <summary>
@@ -2834,9 +2834,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotStartSquareBracket(int exactCount)
+        public static QuantifiedGroup NotLeftSquareBracket(int exactCount)
         {
-            return Count(exactCount, NotStartSquareBracket());
+            return Count(exactCount, NotLeftSquareBracket());
         }
 
         /// <summary>
@@ -2846,9 +2846,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotStartSquareBracket(int minCount, int maxCount)
+        public static QuantifiedGroup NotLeftSquareBracket(int minCount, int maxCount)
         {
-            return Count(minCount, maxCount, NotStartSquareBracket());
+            return Count(minCount, maxCount, NotLeftSquareBracket());
         }
 
         /// <summary>
@@ -2919,9 +2919,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Returns a pattern that matches a right square bracket.
         /// </summary>
         /// <returns></returns>
-        public static CharPattern EndSquareBracket()
+        public static CharPattern RightSquareBracket()
         {
-            return Character(AsciiChar.EndSquareBracket);
+            return Character(AsciiChar.RightSquareBracket);
         }
 
         /// <summary>
@@ -2930,9 +2930,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup EndSquareBracket(int exactCount)
+        public static QuantifiedGroup RightSquareBracket(int exactCount)
         {
-            return Count(exactCount, EndSquareBracket());
+            return Count(exactCount, RightSquareBracket());
         }
 
         /// <summary>
@@ -2942,18 +2942,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup EndSquareBracket(int minCount, int maxCount)
+        public static QuantifiedGroup RightSquareBracket(int minCount, int maxCount)
         {
-            return Count(minCount, maxCount, EndSquareBracket());
+            return Count(minCount, maxCount, RightSquareBracket());
         }
 
         /// <summary>
         /// Returns a pattern that matches a character that is not a right square bracket.
         /// </summary>
         /// <returns></returns>
-        public static QuantifiablePattern NotEndSquareBracket()
+        public static QuantifiablePattern NotRightSquareBracket()
         {
-            return Not(AsciiChar.EndSquareBracket);
+            return Not(AsciiChar.RightSquareBracket);
         }
 
         /// <summary>
@@ -2962,9 +2962,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotEndSquareBracket(int exactCount)
+        public static QuantifiedGroup NotRightSquareBracket(int exactCount)
         {
-            return Count(exactCount, NotEndSquareBracket());
+            return Count(exactCount, NotRightSquareBracket());
         }
 
         /// <summary>
@@ -2974,9 +2974,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotEndSquareBracket(int minCount, int maxCount)
+        public static QuantifiedGroup NotRightSquareBracket(int minCount, int maxCount)
         {
-            return Count(minCount, maxCount, NotEndSquareBracket());
+            return Count(minCount, maxCount, NotRightSquareBracket());
         }
 
         /// <summary>
@@ -3175,9 +3175,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Returns a pattern that matches a left curly bracket.
         /// </summary>
         /// <returns></returns>
-        public static CharPattern StartCurlyBracket()
+        public static CharPattern LeftCurlyBracket()
         {
-            return Character(AsciiChar.StartCurlyBracket);
+            return Character(AsciiChar.LeftCurlyBracket);
         }
 
         /// <summary>
@@ -3186,9 +3186,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup StartCurlyBracket(int exactCount)
+        public static QuantifiedGroup LeftCurlyBracket(int exactCount)
         {
-            return Count(exactCount, StartCurlyBracket());
+            return Count(exactCount, LeftCurlyBracket());
         }
 
         /// <summary>
@@ -3198,18 +3198,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup StartCurlyBracket(int minCount, int maxCount)
+        public static QuantifiedGroup LeftCurlyBracket(int minCount, int maxCount)
         {
-            return Count(minCount, maxCount, StartCurlyBracket());
+            return Count(minCount, maxCount, LeftCurlyBracket());
         }
 
         /// <summary>
         /// Returns a pattern that matches a character that is not a left curly bracket.
         /// </summary>
         /// <returns></returns>
-        public static QuantifiablePattern NotStartCurlyBracket()
+        public static QuantifiablePattern NotLeftCurlyBracket()
         {
-            return Not(AsciiChar.StartCurlyBracket);
+            return Not(AsciiChar.LeftCurlyBracket);
         }
 
         /// <summary>
@@ -3218,9 +3218,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotStartCurlyBracket(int exactCount)
+        public static QuantifiedGroup NotLeftCurlyBracket(int exactCount)
         {
-            return Count(exactCount, NotStartCurlyBracket());
+            return Count(exactCount, NotLeftCurlyBracket());
         }
 
         /// <summary>
@@ -3230,9 +3230,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotStartCurlyBracket(int minCount, int maxCount)
+        public static QuantifiedGroup NotLeftCurlyBracket(int minCount, int maxCount)
         {
-            return Count(minCount, maxCount, NotStartCurlyBracket());
+            return Count(minCount, maxCount, NotLeftCurlyBracket());
         }
 
         /// <summary>
@@ -3303,9 +3303,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Returns a pattern that matches a right curly bracket.
         /// </summary>
         /// <returns></returns>
-        public static CharPattern EndCurlyBracket()
+        public static CharPattern RightCurlyBracket()
         {
-            return Character(AsciiChar.EndCurlyBracket);
+            return Character(AsciiChar.RightCurlyBracket);
         }
 
         /// <summary>
@@ -3314,9 +3314,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup EndCurlyBracket(int exactCount)
+        public static QuantifiedGroup RightCurlyBracket(int exactCount)
         {
-            return Count(exactCount, EndCurlyBracket());
+            return Count(exactCount, RightCurlyBracket());
         }
 
         /// <summary>
@@ -3326,18 +3326,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup EndCurlyBracket(int minCount, int maxCount)
+        public static QuantifiedGroup RightCurlyBracket(int minCount, int maxCount)
         {
-            return Count(minCount, maxCount, EndCurlyBracket());
+            return Count(minCount, maxCount, RightCurlyBracket());
         }
 
         /// <summary>
         /// Returns a pattern that matches a character that is not a right curly bracket.
         /// </summary>
         /// <returns></returns>
-        public static QuantifiablePattern NotEndCurlyBracket()
+        public static QuantifiablePattern NotRightCurlyBracket()
         {
-            return Not(AsciiChar.EndCurlyBracket);
+            return Not(AsciiChar.RightCurlyBracket);
         }
 
         /// <summary>
@@ -3346,9 +3346,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotEndCurlyBracket(int exactCount)
+        public static QuantifiedGroup NotRightCurlyBracket(int exactCount)
         {
-            return Count(exactCount, NotEndCurlyBracket());
+            return Count(exactCount, NotRightCurlyBracket());
         }
 
         /// <summary>
@@ -3358,9 +3358,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotEndCurlyBracket(int minCount, int maxCount)
+        public static QuantifiedGroup NotRightCurlyBracket(int minCount, int maxCount)
         {
-            return Count(minCount, maxCount, NotEndCurlyBracket());
+            return Count(minCount, maxCount, NotRightCurlyBracket());
         }
 
         /// <summary>
@@ -4805,7 +4805,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static Pattern Parentheses()
         {
-            return StartParenthesis().EndParenthesis();
+            return LeftParenthesis().RightParenthesis();
         }
 
         /// <summary>
@@ -4816,7 +4816,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public static Pattern Parentheses(object content)
         {
-            return Pattern.Surround(AsciiChar.StartParenthesis, content, AsciiChar.EndParenthesis);
+            return Pattern.Surround(AsciiChar.LeftParenthesis, content, AsciiChar.RightParenthesis);
         }
 
         /// <summary>
@@ -4825,7 +4825,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static Pattern CurlyBrackets()
         {
-            return StartCurlyBracket().EndCurlyBracket();
+            return LeftCurlyBracket().RightCurlyBracket();
         }
 
         /// <summary>
@@ -4836,7 +4836,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public static Pattern CurlyBrackets(object content)
         {
-            return Pattern.Surround(AsciiChar.StartCurlyBracket, content, AsciiChar.EndCurlyBracket);
+            return Pattern.Surround(AsciiChar.LeftCurlyBracket, content, AsciiChar.RightCurlyBracket);
         }
 
         /// <summary>
@@ -4845,7 +4845,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static Pattern SquareBrackets()
         {
-            return StartSquareBracket().EndSquareBracket();
+            return LeftSquareBracket().RightSquareBracket();
         }
 
         /// <summary>
@@ -4856,7 +4856,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public static Pattern SquareBrackets(object content)
         {
-            return Pattern.Surround(AsciiChar.StartSquareBracket, content, AsciiChar.EndSquareBracket);
+            return Pattern.Surround(AsciiChar.LeftSquareBracket, content, AsciiChar.RightSquareBracket);
         }
 
         /// <summary>
@@ -4865,7 +4865,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static Pattern AngleBrackets()
         {
-            return StartAngleBracket().EndAngleBracket();
+            return LeftAngleBracket().RightAngleBracket();
         }
 
         /// <summary>
@@ -4876,7 +4876,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public static Pattern AngleBrackets(object content)
         {
-            return Pattern.Surround(AsciiChar.StartAngleBracket, content, AsciiChar.EndAngleBracket);
+            return Pattern.Surround(AsciiChar.LeftAngleBracket, content, AsciiChar.RightAngleBracket);
         }
 
         /// <summary>

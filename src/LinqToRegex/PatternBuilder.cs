@@ -416,7 +416,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
             else
             {
-                AppendStartParenthesis();
+                AppendLeftParenthesis();
             }
 
             Append(testContent);
@@ -525,7 +525,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal void AppendIfGroupCondition(string groupName)
         {
-            AppendStartParenthesis();
+            AppendLeftParenthesis();
             _sb.Append(groupName);
             AppendGroupEnd();
         }
@@ -667,7 +667,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (mode == GroupMode.Group)
             {
-                AppendStartParenthesis();
+                AppendLeftParenthesis();
             }
             else if (mode == GroupMode.NoncapturingGroup)
             {
@@ -695,7 +695,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("content");
             }
 
-            AppendStartParenthesis();
+            AppendLeftParenthesis();
             AppendGroupContent(content);
             AppendGroupEnd();
         }
@@ -1301,9 +1301,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal void AppendCountInternal(int exactCount)
         {
-            AppendStartCurlyBracket();
+            AppendLeftCurlyBracket();
             _sb.Append(exactCount);
-            AppendEndCurlyBracket();
+            AppendRightCurlyBracket();
         }
 
         /// <summary>
@@ -1341,11 +1341,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal void AppendCountInternal(int minCount, int maxCount)
         {
-            AppendStartCurlyBracket();
+            AppendLeftCurlyBracket();
             _sb.Append(minCount);
             AppendComma();
             _sb.Append(maxCount);
-            AppendEndCurlyBracket();
+            AppendRightCurlyBracket();
         }
 
         /// <summary>
@@ -1381,10 +1381,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal void AppendCountFromInternal(int minCount)
         {
-            AppendStartCurlyBracket();
+            AppendLeftCurlyBracket();
             _sb.Append(minCount);
             AppendComma();
-            AppendEndCurlyBracket();
+            AppendRightCurlyBracket();
         }
 
         /// <summary>
@@ -1420,11 +1420,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal void AppendCountToInternal(int maxCount)
         {
-            AppendStartCurlyBracket();
+            AppendLeftCurlyBracket();
             _sb.Append(0);
             AppendComma();
             _sb.Append(maxCount);
-            AppendEndCurlyBracket();
+            AppendRightCurlyBracket();
         }
 
         internal void AppendLazy()
@@ -1636,17 +1636,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 : '>');
         }
 
-        internal void AppendStartParenthesis()
+        internal void AppendLeftParenthesis()
         {
             _sb.Append('(');
         }
 
-        internal void AppendStartCurlyBracket()
+        internal void AppendLeftCurlyBracket()
         {
             _sb.Append('{');
         }
 
-        internal void AppendEndCurlyBracket()
+        internal void AppendRightCurlyBracket()
         {
             _sb.Append('}');
         }
