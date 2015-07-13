@@ -1609,7 +1609,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (value.IndexOf(')') != -1)
             {
-                throw new ArgumentException(ExceptionHelper.CommentCannotContainsEndParenthesis, "value");
+                throw new ArgumentException(ExceptionHelper.CommentCannotContainsRightParenthesis, "value");
             }
 
             AppendInlineCommentInternal(value);

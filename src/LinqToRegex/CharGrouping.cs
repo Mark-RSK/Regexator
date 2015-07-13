@@ -407,7 +407,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches start parenthesis.
+        /// Appends a pattern that matches left parenthesis.
         /// </summary>
         /// <returns></returns>
         public CharGrouping StartParenthesis()
@@ -416,7 +416,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches end parenthesis.
+        /// Appends a pattern that matches right parenthesis.
         /// </summary>
         /// <returns></returns>
         public CharGrouping EndParenthesis()
@@ -497,7 +497,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a start angle bracket (less-than sign).
+        /// Appends a pattern that matches a left angle bracket (less-than sign).
         /// </summary>
         /// <returns></returns>
         public CharGrouping StartAngleBracket()
@@ -515,7 +515,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches an end angle bracket (greater-than sign).
+        /// Appends a pattern that matches a right angle bracket (greater-than sign).
         /// </summary>
         /// <returns></returns>
         public CharGrouping EndAngleBracket()
@@ -542,7 +542,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches start square bracket.
+        /// Appends a pattern that matches left square bracket.
         /// </summary>
         /// <returns></returns>
         public CharGrouping StartSquareBracket()
@@ -560,7 +560,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches end square bracket.
+        /// Appends a pattern that matches right square bracket.
         /// </summary>
         /// <returns></returns>
         public CharGrouping EndSquareBracket()
@@ -596,7 +596,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches start curly bracket.
+        /// Appends a pattern that matches left curly bracket.
         /// </summary>
         /// <returns></returns>
         public CharGrouping StartCurlyBracket()
@@ -614,7 +614,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches end curly bracket.
+        /// Appends a pattern that matches right curly bracket.
         /// </summary>
         /// <returns></returns>
         public CharGrouping EndCurlyBracket()
@@ -623,7 +623,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches start or end parenthesis.
+        /// Appends a pattern that matches left or right parenthesis.
         /// </summary>
         /// <returns></returns>
         public CharGrouping Parenthesis()
@@ -632,7 +632,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches start or end square bracket.
+        /// Appends a pattern that matches left or right square bracket.
         /// </summary>
         /// <returns></returns>
         public CharGrouping SquareBracket()
@@ -641,7 +641,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches start or end curly bracket.
+        /// Appends a pattern that matches left or right curly bracket.
         /// </summary>
         /// <returns></returns>
         public CharGrouping CurlyBracket()

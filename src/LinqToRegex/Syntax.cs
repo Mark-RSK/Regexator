@@ -90,7 +90,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public const string NonbacktrackingGroupStart = "(?>";
 
         /// <summary>
-        /// Specifies end token of a group (end parenthesis).
+        /// Specifies end token of a group (right parenthesis).
         /// </summary>
         public const string GroupEnd = ")";
 

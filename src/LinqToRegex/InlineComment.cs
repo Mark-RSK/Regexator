@@ -18,7 +18,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (comment.IndexOf(')') != -1)
             {
-                throw new ArgumentException(ExceptionHelper.CommentCannotContainsEndParenthesis, "comment");
+                throw new ArgumentException(ExceptionHelper.CommentCannotContainsRightParenthesis, "comment");
             }
 
             _comment = comment;
