@@ -208,12 +208,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         Apostrophe,
 
         /// <summary>
-        /// Start (Left) Parenthesis. The value is 40. The hexadecimal value is 0x28.
+        /// Left Parenthesis. The value is 40. The hexadecimal value is 0x28.
         /// </summary>
         StartParenthesis,
 
         /// <summary>
-        /// End (Right) Parenthesis. The value is 41. The hexadecimal value is 0x29.
+        /// Right Parenthesis. The value is 41. The hexadecimal value is 0x29.
         /// </summary>
         EndParenthesis,
 
@@ -308,7 +308,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         Semicolon,
 
         /// <summary>
-        /// Start Angle Bracket (Less-Than Sign). The value is 60. The hexadecimal value is 0x3C.
+        /// Left Angle Bracket (Less-Than Sign). The value is 60. The hexadecimal value is 0x3C.
         /// </summary>
         StartAngleBracket,
 
@@ -318,7 +318,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         EqualsSign,
 
         /// <summary>
-        /// End Angle Bracket (Greater-Than Sign). The value is 62. The hexadecimal value is 0x3E.
+        /// Right Angle Bracket (Greater-Than Sign). The value is 62. The hexadecimal value is 0x3E.
         /// </summary>
         EndAngleBracket,
 
@@ -463,7 +463,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         CapitalLetterZ,
 
         /// <summary>
-        /// Start (Left) Square Bracket. The value is 91. The hexadecimal value is 0x5B.
+        /// Left Square Bracket. The value is 91. The hexadecimal value is 0x5B.
         /// </summary>
         StartSquareBracket,
 
@@ -473,7 +473,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         Backslash,
 
         /// <summary>
-        /// End (Right) Square Bracket. The value is 93. The hexadecimal value is 0x5D.
+        /// Right Square Bracket. The value is 93. The hexadecimal value is 0x5D.
         /// </summary>
         EndSquareBracket,
 
@@ -623,7 +623,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         SmallLetterZ,
 
         /// <summary>
-        /// Start (Left) Curly Bracket. The value is 123. The hexadecimal value is 0x7B.
+        /// Left Curly Bracket. The value is 123. The hexadecimal value is 0x7B.
         /// </summary>
         StartCurlyBracket,
 
@@ -633,7 +633,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         VerticalLine,
 
         /// <summary>
-        /// End (Right) Curly Bracket. The value is 125. The hexadecimal value is 0x7D.
+        /// Right Curly Bracket. The value is 125. The hexadecimal value is 0x7D.
         /// </summary>
         EndCurlyBracket,
 
