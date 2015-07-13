@@ -77,7 +77,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Appends specified text to the current instance.
         /// </summary>
-        /// <param name="text">Text to append.</param>
+        /// <param name="text">A text to append.</param>
         /// <returns></returns>
         public Pattern Concat(string text)
         {
@@ -193,7 +193,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Surrounds a specified pattern with a specified character.
+        /// Surrounds specified pattern with a specified character.
         /// </summary>
         /// <param name="surroundChar">A character to be surrounding the base pattern.</param>
         /// <param name="value">A base pattern to be surrounded.</param>
@@ -205,7 +205,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Surrounds a specified pattern with a specified character.
+        /// Surrounds specified pattern with a specified character.
         /// </summary>
         /// <param name="charBefore">A character to be placed before the base pattern.</param>
         /// <param name="value">A base pattern to be surrounded.</param>
