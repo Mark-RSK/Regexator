@@ -26,7 +26,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="text">The literal text.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Substitution Create(string text)
+        internal static Substitution Create(string text)
         {
             return new LiteralSubstitution(text);
         }

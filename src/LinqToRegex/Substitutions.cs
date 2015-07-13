@@ -10,7 +10,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     public static class Substitutions
     {
         /// <summary>
-        /// Substitutes the last substring matched by the named group.
+        /// Returns a substitution pattern with a specified text.
+        /// </summary>
+        /// <param name="value">A content of the substitution pattern.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static Substitution Text(string value)
+        {
+            return Substitution.Create(value);
+        }
+
+        /// <summary>
+        /// Returns a substitution pattern that substitutes the last substring matched by the named group.
         /// </summary>
         /// <param name="groupName">Valid regex group name.</param>
         /// <returns></returns>
@@ -22,7 +33,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Substitutes the last captured group.
+        /// Returns a substitution pattern that substitutes the last captured group.
         /// </summary>
         /// <returns></returns>
         public static Substitution LastCapturedGroup()
@@ -31,7 +42,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Substitutes the entire input string.
+        /// Returns a substitution pattern that substitutes the entire input string.
         /// </summary>
         /// <returns></returns>
         public static Substitution EntireInput()
@@ -40,7 +51,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Substitutes the entire match.
+        /// Returns a substitution pattern that substitutes the entire match.
         /// </summary>
         /// <returns></returns>
         public static Substitution EntireMatch()
@@ -49,7 +60,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Substitutes all the text of the input string after the match.
+        /// Returns a substitution pattern that substitutes all the text of the input string after the match.
         /// </summary>
         /// <returns></returns>
         public static Substitution AfterMatch()
@@ -58,7 +69,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Substitutes all the text of the input string before the match.
+        /// Returns a substitution pattern that substitutes all the text of the input string before the match.
         /// </summary>
         /// <returns></returns>
         public static Substitution BeforeMatch()
