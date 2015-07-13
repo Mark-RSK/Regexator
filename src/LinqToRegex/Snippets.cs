@@ -184,15 +184,29 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Returns a pattern that matches a content that is enclosed in quotation marks. The content can contains escaped characters.
         /// </summary>
-        /// <param name="contentGroupName">A name of the group that contain quoted content.</param>
         /// <returns></returns>
+        public static Pattern QuotedContentWithEscapes()
+        {
+            return QuotedContentWithEscapes(null);
+        }
+
+        /// <summary>
+        /// Returns a pattern that matches a content that is enclosed in quotation marks. The content can contains escaped characters.
+        /// </summary>
+        /// <param name="contentGroupName">A name of the group that contain quoted content. Specify <c>null</c> to omit group.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
         public static Pattern QuotedContentWithEscapes(string contentGroupName)
         {
-            var quotedChars = Patterns.MaybeMany(!CharGroupings.QuoteMark().Backslash());
+            var chars = Patterns.MaybeMany(!CharGroupings.QuoteMark().Backslash());
 
-            return Patterns.QuoteMarks(
-                Patterns.NamedGroup(contentGroupName,
-                    quotedChars + Patterns.MaybeMany(Patterns.Backslash().AnyInvariant() + quotedChars))).AsNoncapturingGroup();
+            var content = chars + Patterns.MaybeMany(Patterns.Backslash().AnyInvariant() + chars);
+
+            var pattern = (contentGroupName != null)
+                ? Patterns.NamedGroup(contentGroupName, content)
+                : content;
+
+            return Patterns.QuoteMarks(pattern).AsNoncapturingGroup();
         }
 
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
