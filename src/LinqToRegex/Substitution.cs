@@ -23,12 +23,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Creates and returns a new instance of the <see cref="Substitution"/> class.
         /// </summary>
-        /// <param name="text">The literal text.</param>
+        /// <param name="value">A content of the substitution pattern.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        internal static Substitution Create(string text)
+        internal static Substitution Create(string value)
         {
-            return new LiteralSubstitution(text);
+            return new TextSubstitution(value);
         }
 
         internal Substitution Concat(Substitution substitution)

@@ -102,7 +102,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public Pattern Concat(string text)
         {
-            return ConcatInternal(new LiteralPattern(text));
+            return ConcatInternal(new TextPattern(text));
         }
 #endif
 

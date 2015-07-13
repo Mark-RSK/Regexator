@@ -94,12 +94,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        internal sealed class LiteralSubstitution
+        internal sealed class TextSubstitution
             : Substitution
         {
             private readonly string _text;
 
-            internal LiteralSubstitution(string text)
+            internal TextSubstitution(string text)
             {
                 if (text == null)
                 {
