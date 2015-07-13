@@ -249,9 +249,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches literal text surrounded with a word boundary.
+        /// Appends a pattern that matches specified text surrounded with a word boundary.
         /// </summary>
-        /// <param name="text">A literal text.</param>
+        /// <param name="text">A text to surround.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public QuantifiablePattern Word(string text)
@@ -260,7 +260,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches any one literal text surrounded with a word boundary.
+        /// Appends a pattern that matches any one of the specified values surrounded with a word boundary.
         /// </summary>
         /// <param name="values">An object array that contains zero or more values any one of which has to be matched.</param>
         /// <returns></returns>

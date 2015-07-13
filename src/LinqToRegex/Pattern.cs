@@ -75,9 +75,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
 #if DEBUG
         /// <summary>
-        /// Appends specified literal text to the current instance.
+        /// Appends specified text to the current instance.
         /// </summary>
-        /// <param name="text">Literal text to append.</param>
+        /// <param name="text">Text to append.</param>
         /// <returns></returns>
         public Pattern Concat(string text)
         {
@@ -85,9 +85,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Append specified literal text to the current instance, ignoring or honoring its case.
+        /// Append specified text to the current instance, ignoring or honoring its case.
         /// </summary>
-        /// <param name="text">Literal text to append.</param>
+        /// <param name="text">Text to append.</param>
         /// <param name="ignoreCase">true to ignore case during the matching; otherwise, false.</param>
         /// <returns></returns>
         public Pattern Concat(string text, bool ignoreCase)
@@ -96,9 +96,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 #else
         /// <summary>
-        /// Appends specified literal text to the current instance.
+        /// Appends specified text to the current instance.
         /// </summary>
-        /// <param name="text">Literal text to append.</param>
+        /// <param name="text">Text to append.</param>
         /// <returns></returns>
         public Pattern Concat(string text)
         {
@@ -193,9 +193,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Surrounds a specified pattern with a specified character literal.
+        /// Surrounds a specified pattern with a specified character.
         /// </summary>
-        /// <param name="surroundChar">A character literal to be surrounding the base pattern.</param>
+        /// <param name="surroundChar">A character to be surrounding the base pattern.</param>
         /// <param name="value">A base pattern to be surrounded.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
@@ -205,11 +205,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Surrounds a specified pattern with a specified character literal.
+        /// Surrounds a specified pattern with a specified character.
         /// </summary>
-        /// <param name="charBefore">A character literal to be placed before the base pattern.</param>
+        /// <param name="charBefore">A character to be placed before the base pattern.</param>
         /// <param name="value">A base pattern to be surrounded.</param>
-        /// <param name="charAfter">A character literal to be placed after the base pattern.</param>
+        /// <param name="charAfter">A character to be placed after the base pattern.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         internal static Pattern Surround(AsciiChar charBefore, object value, AsciiChar charAfter)
@@ -878,7 +878,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Converts specified text to a literal text pattern.
+        /// Converts specified text to a pattern.
         /// </summary>
         /// <param name="text">A text to convert.</param>
         /// <returns></returns>
@@ -888,9 +888,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Converts specified character to a character literal pattern.
+        /// Converts specified character to a pattern.
         /// </summary>
-        /// <param name="value">The character to convert.</param>
+        /// <param name="value">The Unicode character to convert.</param>
         /// <returns></returns>
         public static explicit operator Pattern(char value)
         {

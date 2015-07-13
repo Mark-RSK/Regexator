@@ -60,7 +60,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Appends a pattern that matches specified Unicode character.
         /// </summary>
-        /// <param name="value">An enumerated constant that identifies a character literal.</param>
+        /// <param name="value">An enumerated constant that identifies ASCII character.</param>
         /// <returns></returns>
         public CharGrouping Concat(AsciiChar value)
         {

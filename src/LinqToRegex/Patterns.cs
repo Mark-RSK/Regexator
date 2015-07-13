@@ -12,9 +12,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     public static class Patterns
     {
         /// <summary>
-        /// Returns a pattern that matches a specified literal text.
+        /// Returns a pattern that matches a specified text.
         /// </summary>
-        /// <param name="value">Literal text to append.</param>
+        /// <param name="value">A text to append.</param>
         /// <returns></returns>
         public static Pattern Text(string value)
         {
@@ -404,9 +404,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches literal text surrounded with a word boundary.
+        /// Returns a pattern that matches spefified text surrounded with a word boundary.
         /// </summary>
-        /// <param name="text">A literal text.</param>
+        /// <param name="text">A text to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static QuantifiablePattern Word(string text)
@@ -415,7 +415,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches any one literal text surrounded with a word boundary.
+        /// Returns a pattern that matches any one of the specified values surrounded with a word boundary.
         /// </summary>
         /// <param name="values">An object array that contains zero or more values any one of which has to be matched.</param>
         /// <returns></returns>

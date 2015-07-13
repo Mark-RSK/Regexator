@@ -52,9 +52,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a string literal to this instance.
+        /// Appends a specified text to this instance.
         /// </summary>
-        /// <param name="value">The string literal to append.</param>
+        /// <param name="value">The text to append.</param>
         public void Append(string value)
         {
             Append(value, false);
@@ -115,9 +115,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a character literal to this instance.
+        /// Appends a character to this instance.
         /// </summary>
-        /// <param name="value">The character literal to append.</param>
+        /// <param name="value">The character to append.</param>
         public void Append(char value)
         {
             Append(value, false);
@@ -129,7 +129,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a character literal to this instance.
+        /// Appends a character to this instance.
         /// </summary>
         /// <param name="value">An enumerated constant that identifies an ASCII character to append.</param>
         public void Append(AsciiChar value)
@@ -143,7 +143,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a character literal to this instance.
+        /// Appends a character to this instance.
         /// </summary>
         /// <param name="value">A code of the character to append.</param>
         public void Append(int value)
