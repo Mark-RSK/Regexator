@@ -1026,7 +1026,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a character group containing specified characters.
+        /// Appends a character group containing specified characters.
         /// </summary>
         /// <param name="characters">A set of characters any one of which has to be matched.</param>
         /// <exception cref="ArgumentNullException"></exception>
@@ -1037,7 +1037,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a negative character group containing specified characters.
+        /// Appends a negative character group containing specified characters.
         /// </summary>
         /// <param name="characters">Unicode characters.</param>
         /// <exception cref="ArgumentNullException"></exception>
