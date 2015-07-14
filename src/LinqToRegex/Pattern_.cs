@@ -417,6 +417,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
+        /// Appends a numbered group containing a specified character.
+        /// </summary>
+        /// <param name="value">The Unicode character.</param>
+        /// <returns></returns>
+        public QuantifiablePattern Group(char value)
+        {
+            return ConcatInternal(Patterns.Group(value));
+        }
+
+        /// <summary>
         /// Appends a named group with a specified name and content.
         /// </summary>
         /// <param name="name">A name of the group.</param>
@@ -440,6 +450,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public QuantifiablePattern NamedGroup(string name, params object[] content)
         {
             return ConcatInternal(Patterns.NamedGroup(name, content));
+        }
+
+        /// <summary>
+        /// Appends a named group with a specified name containing a specified Unicode character..
+        /// </summary>
+        /// <param name="name">A name of the group.</param>
+        /// <param name="value">The Unicode character.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
+        public QuantifiablePattern NamedGroup(string name, char value)
+        {
+            return ConcatInternal(Patterns.NamedGroup(name, value));
         }
 
         /// <summary>

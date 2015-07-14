@@ -51,7 +51,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static QuantifiablePattern LeadingTrailingWhiteSpace()
         {
-            return Patterns.Any(LeadingWhiteSpace(), TrailingWhiteSpace());
+            return LeadingWhiteSpace() | TrailingWhiteSpace();
         }
 
         /// <summary>
