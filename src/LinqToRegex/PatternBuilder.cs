@@ -60,6 +60,29 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Append(value, false);
         }
 
+        /// <summary>
+        /// Appends specified characters to this instance.
+        /// </summary>
+        /// <param name="characters">Unicode characters.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public void Append(char[] characters)
+        {
+            Append(characters, false);
+        }
+
+        internal void Append(char[] characters, bool inCharGroup)
+        {
+            if (characters == null)
+            {
+                throw new ArgumentNullException("characters");
+            }
+
+            foreach (var value in characters)
+            {
+                Append(value, inCharGroup);
+            }
+        }
+
         internal void Append(string value, bool inCharGroup)
         {
             if (!string.IsNullOrEmpty(value))
@@ -1025,6 +1048,23 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         internal void AppendCharGroup(string characters, bool negative)
+        {
+            if (characters == null)
+            {
+                throw new ArgumentNullException("characters");
+            }
+
+            if (characters.Length == 0)
+            {
+                throw new ArgumentException(ExceptionHelper.CharGroupCannotBeEmpty, "characters");
+            }
+
+            AppendCharGroupStart(negative);
+            Append(characters, true);
+            AppendCharGroupEnd();
+        }
+
+        internal void AppendCharGroup(char[] characters, bool negative)
         {
             if (characters == null)
             {

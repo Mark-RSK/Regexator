@@ -72,13 +72,56 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        internal sealed class CharactersCharGroup
+        internal sealed class TextCharGroup
             : CharGroup
         {
             private readonly string _characters;
             private readonly bool _negative;
 
-            public CharactersCharGroup(string characters, bool negative)
+            public TextCharGroup(string characters, bool negative)
+            {
+                if (characters == null)
+                {
+                    throw new ArgumentNullException("characters");
+                }
+
+                if (characters.Length == 0)
+                {
+                    throw new ArgumentException(ExceptionHelper.CharGroupCannotBeEmpty, "characters");
+                }
+
+                _characters = characters;
+                _negative = negative;
+            }
+
+            internal override void AppendContentTo(PatternBuilder builder)
+            {
+                if (builder == null)
+                {
+                    throw new ArgumentNullException("builder");
+                }
+
+                builder.Append(_characters, true);
+            }
+
+            internal override void AppendTo(PatternBuilder builder)
+            {
+                builder.AppendCharGroup(_characters, Negative);
+            }
+
+            public override bool Negative
+            {
+                get { return _negative; }
+            }
+        }
+
+        internal sealed class CharactersCharGroup
+            : CharGroup
+        {
+            private readonly char[] _characters;
+            private readonly bool _negative;
+
+            public CharactersCharGroup(char[] characters, bool negative)
             {
                 if (characters == null)
                 {

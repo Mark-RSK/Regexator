@@ -1100,6 +1100,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
+        /// Returns a pattern that matches any character that is not contained in the specified characters.
+        /// </summary>
+        /// <param name="characters">Unicode characters.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
+        public static CharGroup Not(params char[] characters)
+        {
+            return CharGroup.Create(characters, true);
+        }
+
+        /// <summary>
         /// Returns a negative character group containing specified <see cref="CharGrouping"/>.
         /// </summary>
         /// <param name="value">A content of a character group.</param>
