@@ -79,7 +79,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Converts a specified character to the <see cref="String"/> object that represents the character as a literal rather than a metacharacter.
         /// The character is considered not to be in the character group.
         /// </summary>
-        /// <param name="value">The Unicode character.</param>
+        /// <param name="value">A Unicode character.</param>
         /// <returns></returns>
         public static string Escape(char value)
         {
@@ -89,7 +89,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Converts a specified character to the <see cref="String"/> object that represents the character as a literal rather than a metacharacter.
         /// </summary>
-        /// <param name="value">The Unicode character.</param>
+        /// <param name="value">A Unicode character.</param>
         /// <param name="inCharGroup">Indicates whether the character is considered to be inside or outside of the character group.</param>
         /// <returns></returns>
         public static string Escape(char value, bool inCharGroup)
@@ -129,7 +129,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Get a value indicating how a specified character is represented in the regular expression pattern.
         /// </summary>
-        /// <param name="value">The Unicode character.</param>
+        /// <param name="value">A Unicode character.</param>
         /// <returns></returns>
         public static CharEscapeMode GetEscapeMode(char value)
         {
@@ -139,7 +139,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Get a value indicating how a specified character is represented in the regular expression pattern, specifying whether the character is inside or outside of the character group.
         /// </summary>
-        /// <param name="value">The Unicode character.</param>
+        /// <param name="value">A Unicode character.</param>
         /// <param name="inCharGroup">Indicates whether the character is inside or outside of the character group.</param>
         /// <returns></returns>
         public static CharEscapeMode GetEscapeMode(char value, bool inCharGroup)

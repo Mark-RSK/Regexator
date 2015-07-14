@@ -50,7 +50,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Appends a pattern that matches specified Unicode character.
         /// </summary>
-        /// <param name="value">The Unicode character.</param>
+        /// <param name="value">A Unicode character.</param>
         /// <returns></returns>
         public CharGrouping Concat(char value)
         {
@@ -876,7 +876,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Converts specified character to an instance of the <see cref="CharGrouping"/> class.
         /// </summary>
-        /// <param name="value">The Unicode character.</param>
+        /// <param name="value">A Unicode character.</param>
         /// <returns></returns>
         public static explicit operator CharGrouping(char value)
         {

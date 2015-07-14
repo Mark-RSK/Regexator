@@ -555,7 +555,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Returns a numbered group containing a specified character.
         /// </summary>
-        /// <param name="value">The Unicode character.</param>
+        /// <param name="value">A Unicode character.</param>
         /// <returns></returns>
         public static QuantifiablePattern Group(char value)
         {
@@ -592,7 +592,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Returns a named group with a specified name containing a specified Unicode character..
         /// </summary>
         /// <param name="name">A name of the group.</param>
-        /// <param name="value">The Unicode character.</param>
+        /// <param name="value">A Unicode character.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentException"></exception>
@@ -987,7 +987,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Returns a pattern that matches a specified character.
         /// </summary>
-        /// <param name="value">The Unicode character.</param>
+        /// <param name="value">A Unicode character.</param>
         /// <returns></returns>
         public static CharPattern Character(char value)
         {
@@ -1050,7 +1050,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Returns a pattern that matches a character that is not a specified character..
         /// </summary>
-        /// <param name="value">The Unicode character.</param>
+        /// <param name="value">A Unicode character.</param>
         /// <returns></returns>
         public static CharGroup Not(char value)
         {
@@ -4905,7 +4905,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Returns a pattern that matches a specified character zero or more times.
         /// </summary>
-        /// <param name="value">The Unicode character.</param>
+        /// <param name="value">A Unicode character.</param>
         /// <returns></returns>
         public static QuantifiedPattern WhileChar(char value)
         {
@@ -4963,7 +4963,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Returns a pattern that matches a character that is not a specified character zero or more times.
         /// </summary>
-        /// <param name="value">The Unicode character.</param>
+        /// <param name="value">A Unicode character.</param>
         /// <returns></returns>
         public static QuantifiedPattern WhileNotChar(char value)
         {
@@ -5031,7 +5031,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Returns a pattern that matches zero or more characters that are not a specified character followed with a specified character.
         /// </summary>
-        /// <param name="value">The Unicode character.</param>
+        /// <param name="value">A Unicode character.</param>
         /// <returns></returns>
         public static QuantifiablePattern GoToChar(char value)
         {

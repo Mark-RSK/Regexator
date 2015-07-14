@@ -24,7 +24,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Returns a pattern that matches specified Unicode character.
         /// </summary>
-        /// <param name="value">The Unicode character.</param>
+        /// <param name="value">A Unicode character.</param>
         /// <returns></returns>
         public static CharGrouping Character(char value)
         {
