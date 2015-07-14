@@ -1,6 +1,7 @@
 ﻿// Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Collections;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
@@ -27,7 +28,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             builder.Append(_charBefore);
 
-            builder.Append(_content);
+            if (_content is IEnumerable)
+            {
+                builder.AppendAny(_content, GroupMode.NoncapturingGroup);
+            }
+            else
+            {
+                builder.Append(_content);
+            }
 
             builder.Append(_charAfter);
         }
