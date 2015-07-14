@@ -1039,7 +1039,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Returns a negative character group containing specified characters.
         /// </summary>
-        /// <param name="characters">A set of Unicode characters none of which can be matched.</param>
+        /// <param name="characters">Unicode characters.</param>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentException"></exception>
         public void AppendNegativeCharGroup(string characters)

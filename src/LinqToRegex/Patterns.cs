@@ -1088,9 +1088,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a negative character group containing specified characters.
+        /// Returns a pattern that matches any character that is not contained in the specified <see cref="String"/>.
         /// </summary>
-        /// <param name="characters">A set of Unicode characters none of which can be matched.</param>
+        /// <param name="characters">Unicode characters.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentException"></exception>
@@ -4973,13 +4973,25 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a character that is not a specified character zero or more times.
+        /// Returns a pattern that matches zero or more characters that are not a specified character.
         /// </summary>
         /// <param name="value">A Unicode character.</param>
         /// <returns></returns>
         public static QuantifiedPattern WhileNotChar(char value)
         {
             return Not(value).MaybeMany();
+        }
+
+        /// <summary>
+        /// Returns a pattern that matches zero or more characters that are not contained in the specified characters 
+        /// </summary>
+        /// <param name="characters">Unicode characters.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
+        public static QuantifiedPattern WhileNotChar(params char[] characters)
+        {
+            return Not(characters).MaybeMany();
         }
 
         /// <summary>

@@ -915,13 +915,25 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not a specified character zero or more times.
+        /// Appends a pattern that matches zero or more characters that are not a specified character.
         /// </summary>
         /// <param name="value">A Unicode character.</param>
         /// <returns></returns>
         public Pattern WhileNotChar(char value)
         {
             return ConcatInternal(Patterns.WhileNotChar(value));
+        }
+
+        /// <summary>
+        /// Appends a pattern that matches zero or more characters that are not contained in the specified characters 
+        /// </summary>
+        /// <param name="characters">Unicode characters.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
+        public QuantifiedPattern WhileNotChar(params char[] characters)
+        {
+            return ConcatInternal(Patterns.WhileNotChar(characters));
         }
 
         /// <summary>
@@ -2108,13 +2120,25 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a negative character group containing specified characters.
+        /// Appends a pattern that matches any character that is not contained in the specified <see cref="String"/>.
         /// </summary>
-        /// <param name="characters">A set of Unicode characters none of which can be matched.</param>
+        /// <param name="characters">Unicode characters.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentException"></exception>
         public QuantifiablePattern Not(string characters)
+        {
+            return ConcatInternal(Patterns.Not(characters));
+        }
+
+        /// <summary>
+        /// Appends a pattern that matches any character that is not contained in the specified characters.
+        /// </summary>
+        /// <param name="characters">Unicode characters.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
+        public CharGroup Not(params char[] characters)
         {
             return ConcatInternal(Patterns.Not(characters));
         }
