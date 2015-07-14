@@ -5304,6 +5304,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 return AngleBrackets();
             }
         }
+
+        internal static Pattern Balance(char openChar, char closeChar, string openGroupName, string closeGroupName)
+        {
+            return OneMany(NamedGroup(openGroupName, openChar).WhileNotChar(openChar, closeChar))
+                .OneMany(BalancingGroup(closeGroupName, openGroupName, Character(closeChar)).WhileNotChar(openChar, closeChar));
+        }
 #endif
     }
 }
