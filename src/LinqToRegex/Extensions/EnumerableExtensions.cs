@@ -169,7 +169,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq.Extensions
             return groups.SelectMany(group => group.Captures.Cast<Capture>());
         }
 
-#if DEBUG
         /// <summary>
         /// Returns enumerable collection of captures values.
         /// </summary>
@@ -185,6 +184,5 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq.Extensions
 
             return collection.Select(capture => capture.Value);
         }
-#endif
     }
 }
