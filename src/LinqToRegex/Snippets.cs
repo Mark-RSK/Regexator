@@ -214,7 +214,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             return Patterns
                 .OneMany(Patterns
-                    .NamedGroup(openGroupName, openChar)
+                    .NamedGroup(openGroupName, Patterns.Character(openChar))
                     .WhileNotChar(openChar, closeChar))
                 .OneMany(Patterns
                     .BalancingGroup(closeGroupName, openGroupName, Patterns.Character(closeChar))

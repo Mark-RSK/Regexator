@@ -564,16 +564,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a numbered group containing a specified character.
-        /// </summary>
-        /// <param name="value">A Unicode character.</param>
-        /// <returns></returns>
-        public static QuantifiablePattern Group(char value)
-        {
-            return Group(Character(value));
-        }
-
-        /// <summary>
         /// Returns a named group with a specified name and content.
         /// </summary>
         /// <param name="name">A name of the group.</param>
@@ -597,19 +587,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiablePattern NamedGroup(string name, params object[] content)
         {
             return NamedGroup(name, (object)content);
-        }
-
-        /// <summary>
-        /// Returns a named group with a specified name containing a specified Unicode character..
-        /// </summary>
-        /// <param name="name">A name of the group.</param>
-        /// <param name="value">A Unicode character.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        /// <exception cref="ArgumentException"></exception>
-        public static QuantifiablePattern NamedGroup(string name, char value)
-        {
-            return NamedGroup(name, Character(value));
         }
 
         /// <summary>
