@@ -4806,12 +4806,21 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
+        /// Returns a pattern that matches two apostrophes, allowing zero or more characters that are not an apostrophe between the apostrophes.
+        /// </summary>
+        /// <returns></returns>
+        public static Pattern SurroundApostrophes()
+        {
+            return SurroundApostrophes(WhileNotChar('\''));
+        }
+
+        /// <summary>
         /// Returns a pattern that matches specified pattern surrounded with apostrophes.
         /// </summary>
         /// <param name="content">The content to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Pattern Apostrophes(object content)
+        public static Pattern SurroundApostrophes(object content)
         {
             return Pattern.Surround(AsciiChar.Apostrophe, content);
         }
@@ -4822,9 +4831,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="content">An object array that contains zero or more patterns any one of which has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Pattern Apostrophes(params object[] content)
+        public static Pattern SurroundApostrophes(params object[] content)
         {
             return Pattern.Surround(AsciiChar.Apostrophe, (object)content);
+        }
+
+        /// <summary>
+        /// Returns a pattern that matches two quotation marks, allowing zero or more characters that are not a quotation mark between the quotation marks.
+        /// </summary>
+        /// <returns></returns>
+        public static Pattern SurroundQuoteMarks()
+        {
+            return SurroundQuoteMarks(WhileNotChar('"'));
         }
 
         /// <summary>
@@ -4833,7 +4851,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="content"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Pattern QuoteMarks(object content)
+        public static Pattern SurroundQuoteMarks(object content)
         {
             return Pattern.Surround(AsciiChar.QuoteMark, content);
         }
@@ -4844,9 +4862,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="content">An object array that contains zero or more patterns any one of which has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Pattern QuoteMarks(params object[] content)
+        public static Pattern SurroundQuoteMarks(params object[] content)
         {
             return Pattern.Surround(AsciiChar.QuoteMark, (object)content);
+        }
+
+        /// <summary>
+        /// Returns a pattern that matches a text consisting of a left parenthesis and a right parenthesis, allowing zero or more characters that are not a right parenthesis between the parentheses.
+        /// </summary>
+        /// <returns></returns>
+        public static Pattern SurroundParentheses()
+        {
+            return SurroundParentheses(WhileNotChar(')'));
         }
 
         /// <summary>
@@ -4855,7 +4882,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="content"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Pattern Parentheses(object content)
+        public static Pattern SurroundParentheses(object content)
         {
             return Pattern.Surround(AsciiChar.LeftParenthesis, content, AsciiChar.RightParenthesis);
         }
@@ -4866,9 +4893,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="content">An object array that contains zero or more patterns any one of which has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Pattern Parentheses(params object[] content)
+        public static Pattern SurroundParentheses(params object[] content)
         {
             return Pattern.Surround(AsciiChar.LeftParenthesis, (object)content, AsciiChar.RightParenthesis);
+        }
+
+        /// <summary>
+        /// Returns a pattern that matches a text consisting of left and right curly bracket, allowing zero or more characters that are not a right curly bracket between the brackets.
+        /// </summary>
+        /// <returns></returns>
+        public static Pattern SurroundCurlyBrackets()
+        {
+            return SurroundCurlyBrackets(WhileNotChar('}'));
         }
 
         /// <summary>
@@ -4877,7 +4913,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="content"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Pattern CurlyBrackets(object content)
+        public static Pattern SurroundCurlyBrackets(object content)
         {
             return Pattern.Surround(AsciiChar.LeftCurlyBracket, content, AsciiChar.RightCurlyBracket);
         }
@@ -4888,9 +4924,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="content">An object array that contains zero or more patterns any one of which has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Pattern CurlyBrackets(params object[] content)
+        public static Pattern SurroundCurlyBrackets(params object[] content)
         {
             return Pattern.Surround(AsciiChar.LeftCurlyBracket, (object)content, AsciiChar.RightCurlyBracket);
+        }
+
+        /// <summary>
+        /// Returns a pattern that matches a text consisting of left and right square bracket, allowing zero or more characters that are not a right square bracket between the brackets.
+        /// </summary>
+        /// <returns></returns>
+        public static Pattern SurroundSquareBrackets()
+        {
+            return SurroundSquareBrackets(WhileNotChar(']'));
         }
 
         /// <summary>
@@ -4899,7 +4944,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="content"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Pattern SquareBrackets(object content)
+        public static Pattern SurroundSquareBrackets(object content)
         {
             return Pattern.Surround(AsciiChar.LeftSquareBracket, content, AsciiChar.RightSquareBracket);
         }
@@ -4910,9 +4955,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="content">An object array that contains zero or more patterns any one of which has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Pattern SquareBrackets(params object[] content)
+        public static Pattern SurroundSquareBrackets(params object[] content)
         {
             return Pattern.Surround(AsciiChar.LeftSquareBracket, (object)content, AsciiChar.RightSquareBracket);
+        }
+
+        /// <summary>
+        /// Returns a pattern that matches a text consisting of left and right angle bracket, allowing zero or more characters that are not a right angle bracket between the brackets.
+        /// </summary>
+        /// <returns></returns>
+        public static Pattern SurroundAngleBrackets()
+        {
+            return SurroundAngleBrackets(WhileNotChar('>'));
         }
 
         /// <summary>
@@ -4921,7 +4975,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="content"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Pattern AngleBrackets(object content)
+        public static Pattern SurroundAngleBrackets(object content)
         {
             return Pattern.Surround(AsciiChar.LeftAngleBracket, content, AsciiChar.RightAngleBracket);
         }
@@ -4932,63 +4986,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="content">An object array that contains zero or more patterns any one of which has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Pattern AngleBrackets(params object[] content)
+        public static Pattern SurroundAngleBrackets(params object[] content)
         {
             return Pattern.Surround(AsciiChar.LeftAngleBracket, (object)content, AsciiChar.RightAngleBracket);
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches two apostrophes, allowing zero or more characters that are not an apostrophe between the apostrophes.
-        /// </summary>
-        /// <returns></returns>
-        public static Pattern SurroundApostrophes()
-        {
-            return Apostrophes(WhileNotChar('\''));
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches two quotation marks, allowing zero or more characters that are not a quotation mark between the quotation marks.
-        /// </summary>
-        /// <returns></returns>
-        public static Pattern SurroundQuoteMarks()
-        {
-            return QuoteMarks(WhileNotChar('"'));
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a text consisting of a left parenthesis and a right parenthesis, allowing zero or more characters that are not a right parenthesis between the parentheses.
-        /// </summary>
-        /// <returns></returns>
-        public static Pattern SurroundParentheses()
-        {
-            return Parentheses(WhileNotChar(')'));
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a text consisting of left and right curly bracket, allowing zero or more characters that are not a right curly bracket between the brackets.
-        /// </summary>
-        /// <returns></returns>
-        public static Pattern SurroundCurlyBrackets()
-        {
-            return CurlyBrackets(WhileNotChar('}'));
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a text consisting of left and right square bracket, allowing zero or more characters that are not a right square bracket between the brackets.
-        /// </summary>
-        /// <returns></returns>
-        public static Pattern SurroundSquareBrackets()
-        {
-            return SquareBrackets(WhileNotChar(']'));
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a text consisting of left and right angle bracket, allowing zero or more characters that are not a right angle bracket between the brackets.
-        /// </summary>
-        /// <returns></returns>
-        public static Pattern SurroundAngleBrackets()
-        {
-            return AngleBrackets(WhileNotChar('>'));
         }
 
         /// <summary>

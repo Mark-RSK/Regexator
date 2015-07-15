@@ -207,7 +207,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 ? Patterns.NamedGroup(contentGroupName, content)
                 : content;
 
-            return Patterns.QuoteMarks(pattern).AsNoncapturingGroup();
+            return Patterns.SurroundQuoteMarks(pattern).AsNoncapturingGroup();
         }
 #endif
 
