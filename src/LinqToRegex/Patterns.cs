@@ -4806,15 +4806,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches two apostrophes.
-        /// </summary>
-        /// <returns></returns>
-        public static Pattern Apostrophes()
-        {
-            return Apostrophe().Apostrophe();
-        }
-
-        /// <summary>
         /// Returns a pattern that matches specified pattern surrounded with apostrophes.
         /// </summary>
         /// <param name="content">The content to be matched.</param>
@@ -4834,15 +4825,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static Pattern Apostrophes(params object[] content)
         {
             return Pattern.Surround(AsciiChar.Apostrophe, (object)content);
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches two quotation marks.
-        /// </summary>
-        /// <returns></returns>
-        public static Pattern QuoteMarks()
-        {
-            return QuoteMark().QuoteMark();
         }
 
         /// <summary>
@@ -4868,15 +4850,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a text consisting of left and right parenthesis.
-        /// </summary>
-        /// <returns></returns>
-        public static Pattern Parentheses()
-        {
-            return LeftParenthesis().RightParenthesis();
-        }
-
-        /// <summary>
         /// Returns a pattern that matches specified pattern surrounded with left and right parenthesis.
         /// </summary>
         /// <param name="content"></param>
@@ -4896,15 +4869,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static Pattern Parentheses(params object[] content)
         {
             return Pattern.Surround(AsciiChar.LeftParenthesis, (object)content, AsciiChar.RightParenthesis);
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a text consisting of left and right curly bracket.
-        /// </summary>
-        /// <returns></returns>
-        public static Pattern CurlyBrackets()
-        {
-            return LeftCurlyBracket().RightCurlyBracket();
         }
 
         /// <summary>
@@ -4930,15 +4894,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a text consisting of left and right square bracket.
-        /// </summary>
-        /// <returns></returns>
-        public static Pattern SquareBrackets()
-        {
-            return LeftSquareBracket().RightSquareBracket();
-        }
-
-        /// <summary>
         /// Returns a pattern that matches specified pattern surrounded with left and right square bracket.
         /// </summary>
         /// <param name="content"></param>
@@ -4961,15 +4916,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a text consisting of left and right angle bracket.
-        /// </summary>
-        /// <returns></returns>
-        public static Pattern AngleBrackets()
-        {
-            return LeftAngleBracket().RightAngleBracket();
-        }
-
-        /// <summary>
         /// Returns a pattern that matches specified pattern surrounded with left and right angle bracket.
         /// </summary>
         /// <param name="content"></param>
@@ -4989,6 +4935,60 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static Pattern AngleBrackets(params object[] content)
         {
             return Pattern.Surround(AsciiChar.LeftAngleBracket, (object)content, AsciiChar.RightAngleBracket);
+        }
+
+        /// <summary>
+        /// Returns a pattern that matches two apostrophes, allowing zero or more characters that are not an apostrophe between the apostrophes.
+        /// </summary>
+        /// <returns></returns>
+        public static Pattern SurroundApostrophes()
+        {
+            return Apostrophes(WhileNotChar('\''));
+        }
+
+        /// <summary>
+        /// Returns a pattern that matches two quotation marks, allowing zero or more characters that are not a quotation mark between the quotation marks.
+        /// </summary>
+        /// <returns></returns>
+        public static Pattern SurroundQuoteMarks()
+        {
+            return QuoteMarks(WhileNotChar('"'));
+        }
+
+        /// <summary>
+        /// Returns a pattern that matches a text consisting of a left parenthesis and a right parenthesis, allowing zero or more characters that are not a right parenthesis between the parentheses.
+        /// </summary>
+        /// <returns></returns>
+        public static Pattern SurroundParentheses()
+        {
+            return Parentheses(WhileNotChar(')'));
+        }
+
+        /// <summary>
+        /// Returns a pattern that matches a text consisting of left and right curly bracket, allowing zero or more characters that are not a right curly bracket between the brackets.
+        /// </summary>
+        /// <returns></returns>
+        public static Pattern SurroundCurlyBrackets()
+        {
+            return CurlyBrackets(WhileNotChar('}'));
+        }
+
+        /// <summary>
+        /// Returns a pattern that matches a text consisting of left and right square bracket, allowing zero or more characters that are not a right square bracket between the brackets.
+        /// </summary>
+        /// <returns></returns>
+        public static Pattern SurroundSquareBrackets()
+        {
+            return SquareBrackets(WhileNotChar(']'));
+        }
+
+        /// <summary>
+        /// Returns a pattern that matches a text consisting of left and right angle bracket, allowing zero or more characters that are not a right angle bracket between the brackets.
+        /// </summary>
+        /// <returns></returns>
+        public static Pattern SurroundAngleBrackets()
+        {
+            return AngleBrackets(WhileNotChar('>'));
         }
 
         /// <summary>
@@ -5160,108 +5160,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
 #if DEBUG
-        /// <summary>
-        /// Returns a pattern that matches two apostrophes, optionally allowing zero or more characters that are not an apostrophe between the apostrophes.
-        /// </summary>
-        /// <param name="allowContent">Indicates whether a content is allowed between the apostrophes.</param>
-        /// <returns></returns>
-        public static Pattern Apostrophes(bool allowContent)
-        {
-            if (allowContent)
-            {
-                return Apostrophes(WhileNotChar('\''));
-            }
-            else
-            {
-                return Apostrophes();
-            }
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches two quotation marks, optionally allowing zero or more characters that are not a quotation mark between the quotation marks.
-        /// </summary>
-        /// <param name="allowContent">Indicates whether a content is allowed between the quotation marks.</param>
-        /// <returns></returns>
-        public static Pattern QuoteMarks(bool allowContent)
-        {
-            if (allowContent)
-            {
-                return QuoteMarks(WhileNotChar('"'));
-            }
-            else
-            {
-                return QuoteMarks();
-            }
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a text consisting of a left parenthesis and a right parenthesis, optionally allowing zero or more characters that are not a right parenthesis between the parentheses.
-        /// </summary>
-        /// <param name="allowContent">Indicates whether a content is allowed between the parentheses.</param>
-        /// <returns></returns>
-        public static Pattern Parentheses(bool allowContent)
-        {
-            if (allowContent)
-            {
-                return Parentheses(WhileNotChar(')'));
-            }
-            else
-            {
-                return Parentheses();
-            }
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a text consisting of left and right curly bracket, optionally allowing zero or more characters that are not a right curly bracket between the brackets.
-        /// </summary>
-        /// <param name="allowContent">Indicates whether a content is allowed between the brackets.</param>
-        /// <returns></returns>
-        public static Pattern CurlyBrackets(bool allowContent)
-        {
-            if (allowContent)
-            {
-                return CurlyBrackets(WhileNotChar('}'));
-            }
-            else
-            {
-                return CurlyBrackets();
-            }
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a text consisting of left and right square bracket, optionally allowing zero or more characters that are not a right square bracket between the brackets.
-        /// </summary>
-        /// <param name="allowContent">Indicates whether a content is allowed between the brackets.</param>
-        /// <returns></returns>
-        public static Pattern SquareBrackets(bool allowContent)
-        {
-            if (allowContent)
-            {
-                return SquareBrackets(WhileNotChar(']'));
-            }
-            else
-            {
-                return SquareBrackets();
-            }
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a text consisting of left and right angle bracket, optionally allowing zero or more characters that are not a right angle bracket between the brackets.
-        /// </summary>
-        /// <param name="allowContent">Indicates whether a content is allowed between the brackets.</param>
-        /// <returns></returns>
-        public static Pattern AngleBrackets(bool allowContent)
-        {
-            if (allowContent)
-            {
-                return AngleBrackets(WhileNotChar('>'));
-            }
-            else
-            {
-                return AngleBrackets();
-            }
-        }
-
         internal static Pattern Balance(char openChar, char closeChar, string openGroupName, string closeGroupName)
         {
             return OneMany(

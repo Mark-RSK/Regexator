@@ -681,15 +681,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches two apostrophes.
-        /// </summary>
-        /// <returns></returns>
-        public Pattern Apostrophes()
-        {
-            return ConcatInternal(Patterns.Apostrophes());
-        }
-
-        /// <summary>
         /// Appends a pattern that matches specified pattern surrounded with apostrophes.
         /// </summary>
         /// <param name="content">The content to be matched.</param>
@@ -709,15 +700,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public Pattern Apostrophes(params object[] content)
         {
             return ConcatInternal(Patterns.Apostrophes(content));
-        }
-
-        /// <summary>
-        /// Appends a pattern that matches two quotation marks.
-        /// </summary>
-        /// <returns></returns>
-        public Pattern QuoteMarks()
-        {
-            return ConcatInternal(Patterns.QuoteMarks());
         }
 
         /// <summary>
@@ -743,15 +725,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a text consisting of left and right parenthesis.
-        /// </summary>
-        /// <returns></returns>
-        public Pattern Parentheses()
-        {
-            return ConcatInternal(Patterns.Parentheses());
-        }
-
-        /// <summary>
         /// Appends a pattern that matches specified pattern surrounded with left and right parenthesis.
         /// </summary>
         /// <param name="content"></param>
@@ -771,15 +744,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public Pattern Parentheses(params object[] content)
         {
             return ConcatInternal(Patterns.Parentheses(content));
-        }
-
-        /// <summary>
-        /// Appends a pattern that matches a text consisting of left and right curly bracket.
-        /// </summary>
-        /// <returns></returns>
-        public Pattern CurlyBrackets()
-        {
-            return ConcatInternal(Patterns.CurlyBrackets());
         }
 
         /// <summary>
@@ -805,15 +769,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a text consisting of left and right square bracket.
-        /// </summary>
-        /// <returns></returns>
-        public Pattern SquareBrackets()
-        {
-            return ConcatInternal(Patterns.SquareBrackets());
-        }
-
-        /// <summary>
         /// Appends a pattern that matches specified pattern surrounded with left and right square bracket.
         /// </summary>
         /// <param name="content"></param>
@@ -836,15 +791,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a text consisting of left and right angle bracket.
-        /// </summary>
-        /// <returns></returns>
-        public Pattern AngleBrackets()
-        {
-            return ConcatInternal(Patterns.AngleBrackets());
-        }
-
-        /// <summary>
         /// Appends a pattern that matches specified pattern surrounded with left and right angle bracket.
         /// </summary>
         /// <param name="content"></param>
@@ -864,6 +810,60 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public Pattern AngleBrackets(params object[] content)
         {
             return ConcatInternal(Patterns.AngleBrackets(content));
+        }
+
+        /// <summary>
+        /// Appends a pattern that matches two apostrophes, allowing zero or more characters that are not an apostrophe between the apostrophes.
+        /// </summary>
+        /// <returns></returns>
+        public Pattern SurroundApostrophes()
+        {
+            return ConcatInternal(Patterns.SurroundApostrophes());
+        }
+
+        /// <summary>
+        /// Appends a pattern that matches two quotation marks, allowing zero or more characters that are not a quotation mark between the quotation marks.
+        /// </summary>
+        /// <returns></returns>
+        public Pattern SurroundQuoteMarks()
+        {
+            return ConcatInternal(Patterns.SurroundQuoteMarks());
+        }
+
+        /// <summary>
+        /// Appends a pattern that matches a text consisting of a left parenthesis and a right parenthesis, allowing zero or more characters that are not a right parenthesis between the parentheses.
+        /// </summary>
+        /// <returns></returns>
+        public Pattern SurroundParentheses()
+        {
+            return ConcatInternal(Patterns.SurroundParentheses());
+        }
+
+        /// <summary>
+        /// Appends a pattern that matches a text consisting of left and right curly bracket, allowing zero or more characters that are not a right curly bracket between the brackets.
+        /// </summary>
+        /// <returns></returns>
+        public Pattern SurroundCurlyBrackets()
+        {
+            return ConcatInternal(Patterns.SurroundCurlyBrackets());
+        }
+
+        /// <summary>
+        /// Appends a pattern that matches a text consisting of left and right square bracket, allowing zero or more characters that are not a right square bracket between the brackets.
+        /// </summary>
+        /// <returns></returns>
+        public Pattern SurroundSquareBrackets()
+        {
+            return ConcatInternal(Patterns.SurroundSquareBrackets());
+        }
+
+        /// <summary>
+        /// Appends a pattern that matches a text consisting of left and right angle bracket, allowing zero or more characters that are not a right angle bracket between the brackets.
+        /// </summary>
+        /// <returns></returns>
+        public Pattern SurroundAngleBrackets()
+        {
+            return ConcatInternal(Patterns.SurroundAngleBrackets());
         }
 
         /// <summary>
@@ -5026,67 +5026,5 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             return ConcatInternal(Patterns.NotNewLineChar(minCount, maxCount));
         }
-
-#if DEBUG
-        /// <summary>
-        /// Appends a pattern that matches two apostrophes, optionally allowing zero or more characters that are not an apostrophe between the apostrophes.
-        /// </summary>
-        /// <param name="allowContent">Indicates whether a content is allowed between the apostrophes.</param>
-        /// <returns></returns>
-        public Pattern Apostrophes(bool allowContent)
-        {
-            return ConcatInternal(Patterns.Apostrophes(allowContent));
-        }
-
-        /// <summary>
-        /// Appends a pattern that matches two quotation marks, optionally allowing zero or more characters that are not a quotation mark between the quotation marks.
-        /// </summary>
-        /// <param name="allowContent">Indicates whether a content is allowed between the quotation marks.</param>
-        /// <returns></returns>
-        public Pattern QuoteMarks(bool allowContent)
-        {
-            return ConcatInternal(Patterns.QuoteMarks(allowContent));
-        }
-
-        /// <summary>
-        /// Appends a pattern that matches a text consisting of a left parenthesis and a right parenthesis, optionally allowing zero or more characters that are not a right parenthesis between the parentheses.
-        /// </summary>
-        /// <param name="allowContent">Indicates whether a content is allowed between the parentheses.</param>
-        /// <returns></returns>
-        public Pattern Parentheses(bool allowContent)
-        {
-            return ConcatInternal(Patterns.Parentheses(allowContent));
-        }
-
-        /// <summary>
-        /// Appends a pattern that matches a text consisting of left and right curly bracket, optionally allowing zero or more characters that are not a right curly bracket between the brackets.
-        /// </summary>
-        /// <param name="allowContent">Indicates whether a content is allowed between the brackets.</param>
-        /// <returns></returns>
-        public Pattern CurlyBrackets(bool allowContent)
-        {
-            return ConcatInternal(Patterns.CurlyBrackets(allowContent));
-        }
-
-        /// <summary>
-        /// Appends a pattern that matches a text consisting of left and right square bracket, optionally allowing zero or more characters that are not a right square bracket between the brackets.
-        /// </summary>
-        /// <param name="allowContent">Indicates whether a content is allowed between the brackets.</param>
-        /// <returns></returns>
-        public Pattern SquareBrackets(bool allowContent)
-        {
-            return ConcatInternal(Patterns.SquareBrackets(allowContent));
-        }
-
-        /// <summary>
-        /// Appends a pattern that matches a text consisting of left and right angle bracket, optionally allowing zero or more characters that are not a right angle bracket between the brackets.
-        /// </summary>
-        /// <param name="allowContent">Indicates whether a content is allowed between the brackets.</param>
-        /// <returns></returns>
-        public Pattern AngleBrackets(bool allowContent)
-        {
-            return ConcatInternal(Patterns.AngleBrackets(allowContent));
-        }
-#endif
     }
 }

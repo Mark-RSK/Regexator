@@ -10,17 +10,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         private readonly string _text;
         private readonly bool _ignoreCase;
 
-        internal CaseAwareTextPattern()
-            : this(null)
-        {
-        }
-
-        internal CaseAwareTextPattern(string text)
-            : this(text, false)
-        {
-        }
-
-        internal CaseAwareTextPattern(string text, bool ignoreCase)
+        public CaseAwareTextPattern(string text, bool ignoreCase)
         {
             _text = text;
             _ignoreCase = ignoreCase;
