@@ -18,7 +18,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static Pattern Text(string value)
         {
-            return Text(value, false);
+            return new TextPattern(value);
         }
 
         /// <summary>
@@ -27,9 +27,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="value">A text to append.</param>
         /// <param name="ignoreCase">true to ignore case during the matching; otherwise, false.</param>
         /// <returns></returns>
-        public static Pattern Text(string value, bool ignoreCase)
+        public static QuantifiablePattern Text(string value, bool ignoreCase)
         {
-            return new TextPattern(value, ignoreCase);
+            return new CaseAwareTextPattern(value, ignoreCase);
         }
 
         /// <summary>

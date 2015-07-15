@@ -80,7 +80,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public Pattern Text(string value)
         {
-            return Text(value, false);
+            return ConcatInternal(Patterns.Text(value));
         }
 
         /// <summary>
@@ -89,9 +89,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="value">A text to append.</param>
         /// <param name="ignoreCase">true to ignore case during the matching; otherwise, false.</param>
         /// <returns></returns>
-        public Pattern Text(string value, bool ignoreCase)
+        public QuantifiablePattern Text(string value, bool ignoreCase)
         {
-            return ConcatInternal(new TextPattern(value, ignoreCase));
+            return ConcatInternal(Patterns.Text(value, ignoreCase));
         }
 
         internal TPattern ConcatInternal<TPattern>(TPattern pattern) where TPattern : Pattern
