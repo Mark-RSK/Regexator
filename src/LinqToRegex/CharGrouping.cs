@@ -926,34 +926,5 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         internal CharGrouping Previous { get; set; }
-
-#if DEBUG
-        /// <summary>
-        /// Appends a pattern that matches a latin alphabet lower-case vowel. If the "ignore case" option is applied the pattern will also match upper-case vowel.
-        /// </summary>
-        /// <returns></returns>
-        public CharGrouping LatinVowelLower()
-        {
-            return Concat(CharGroupings.LatinVowelLower());
-        }
-
-        /// <summary>
-        /// Appends a pattern that matches a latin alphabet upper-case vowel. If the "ignore case" option is applied the pattern will also match lower-case vowel.
-        /// </summary>
-        /// <returns></returns>
-        public CharGrouping LatinVowelUpper()
-        {
-            return Concat(CharGroupings.LatinVowelUpper());
-        }
-
-        /// <summary>
-        /// Appends a pattern that matches a latin alphabet vowel.
-        /// </summary>
-        /// <returns></returns>
-        public CharGrouping LatinVowel()
-        {
-            return Concat(CharGroupings.LatinVowel());
-        }
-#endif
     }
 }

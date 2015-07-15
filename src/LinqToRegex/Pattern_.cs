@@ -5029,60 +5029,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a latin alphabet lower-case vowel. If the "ignore case" option is applied the pattern will also match upper-case vowel.
-        /// </summary>
-        /// <returns></returns>
-        public CharGroup LatinVowelLower()
-        {
-            return ConcatInternal(Patterns.LatinVowelLower());
-        }
-
-        /// <summary>
-        /// Appends a pattern that matches a latin alphabet upper-case vowel. If the "ignore case" option is applied the pattern will also match lower-case vowel.
-        /// </summary>
-        /// <returns></returns>
-        public CharGroup LatinVowelUpper()
-        {
-            return ConcatInternal(Patterns.LatinVowelUpper());
-        }
-
-        /// <summary>
-        /// Appends a pattern that matches a latin alphabet vowel.
-        /// </summary>
-        /// <returns></returns>
-        public CharGroup LatinVowel()
-        {
-            return ConcatInternal(Patterns.LatinVowel());
-        }
-
-        /// <summary>
-        /// Appends a pattern that matches a latin alphabet lower-case consonant. If the "ignore case" option is applied the pattern will also match upper-case consonant.
-        /// </summary>
-        /// <returns></returns>
-        public QuantifiablePattern LatinConsonantLower()
-        {
-            return ConcatInternal(Patterns.LatinConsonantLower());
-        }
-
-        /// <summary>
-        /// Appends a pattern that matches a latin alphabet upper-case consonant. If the "ignore case" option is applied the pattern will also match lower-case consonant.
-        /// </summary>
-        /// <returns></returns>
-        public QuantifiablePattern LatinConsonantUpper()
-        {
-            return ConcatInternal(Patterns.LatinConsonantUpper());
-        }
-
-        /// <summary>
-        /// Appends a pattern that matches a latin alphabet consonant.
-        /// </summary>
-        /// <returns></returns>
-        public QuantifiablePattern LatinConsonant()
-        {
-            return ConcatInternal(Patterns.LatinConsonant());
-        }
-
-        /// <summary>
         /// Appends a pattern that matches two apostrophes, optionally allowing zero or more characters that are not an apostrophe between the apostrophes.
         /// </summary>
         /// <param name="allowContent">Indicates whether a content is allowed between the apostrophes.</param>

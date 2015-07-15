@@ -5150,60 +5150,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a latin alphabet lower-case vowel. If the "ignore case" option is applied the pattern will also match upper-case vowel.
-        /// </summary>
-        /// <returns></returns>
-        public static CharGroup LatinVowelLower()
-        {
-            return Character(CharGroupings.LatinVowelLower());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a latin alphabet upper-case vowel. If the "ignore case" option is applied the pattern will also match lower-case vowel.
-        /// </summary>
-        /// <returns></returns>
-        public static CharGroup LatinVowelUpper()
-        {
-            return Character(CharGroupings.LatinVowelUpper());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a latin alphabet vowel.
-        /// </summary>
-        /// <returns></returns>
-        public static CharGroup LatinVowel()
-        {
-            return Character(CharGroupings.LatinVowel());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a latin alphabet lower-case consonant. If the "ignore case" option is applied the pattern will also match upper-case consonant.
-        /// </summary>
-        /// <returns></returns>
-        public static CharSubtraction LatinConsonantLower()
-        {
-            return CharGroupings.LatinLetterLower() - CharGroupings.LatinVowelLower();
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a latin alphabet upper-case consonant. If the "ignore case" option is applied the pattern will also match lower-case consonant.
-        /// </summary>
-        /// <returns></returns>
-        public static CharSubtraction LatinConsonantUpper()
-        {
-            return CharGroupings.LatinLetterUpper() - CharGroupings.LatinVowelUpper();
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a latin alphabet consonant.
-        /// </summary>
-        /// <returns></returns>
-        public static CharSubtraction LatinConsonant()
-        {
-            return CharGroupings.LatinLetter() - CharGroupings.LatinVowel();
-        }
-
-        /// <summary>
         /// Returns a pattern that matches two apostrophes, optionally allowing zero or more characters that are not an apostrophe between the apostrophes.
         /// </summary>
         /// <param name="allowContent">Indicates whether a content is allowed between the apostrophes.</param>

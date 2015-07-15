@@ -668,34 +668,5 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             return LeftCurlyBracket().RightCurlyBracket();
         }
-
-#if DEBUG
-        /// <summary>
-        /// Returns a pattern that matches a latin alphabet lower-case vowel. If the "ignore case" option is applied the pattern will also match upper-case vowel.
-        /// </summary>
-        /// <returns></returns>
-        public static CharGrouping LatinVowelLower()
-        {
-            return Character("aeiou");
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a latin alphabet upper-case vowel. If the "ignore case" option is applied the pattern will also match lower-case vowel.
-        /// </summary>
-        /// <returns></returns>
-        public static CharGrouping LatinVowelUpper()
-        {
-            return Character("AEIOU");
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a latin alphabet vowel.
-        /// </summary>
-        /// <returns></returns>
-        public static CharGrouping LatinVowel()
-        {
-            return LatinVowelLower().LatinVowelUpper();
-        }
-#endif
     }
 }
