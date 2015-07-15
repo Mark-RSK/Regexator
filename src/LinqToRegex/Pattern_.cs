@@ -968,7 +968,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches zero or more characters that are not contained in the specified characters 
+        /// Appends a pattern that matches zero or more characters that are not contained in the specified characters
         /// </summary>
         /// <param name="characters">Unicode characters.</param>
         /// <returns></returns>

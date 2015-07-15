@@ -5037,7 +5037,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches zero or more characters that are not contained in the specified characters 
+        /// Returns a pattern that matches zero or more characters that are not contained in the specified characters
         /// </summary>
         /// <param name="characters">Unicode characters.</param>
         /// <returns></returns>
