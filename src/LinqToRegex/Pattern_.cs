@@ -1024,6 +1024,37 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
+        /// Appends a pattern that matches zero or more characters that are not a specified character followed with a specified character.
+        /// </summary>
+        /// <param name="value">A Unicode character.</param>
+        /// <returns></returns>
+        public QuantifiablePattern GoToChar(char value)
+        {
+            return ConcatInternal(Patterns.GoToChar(value));
+        }
+
+        /// <summary>
+        /// Appends a pattern that matches zero or more characters that are not a specified character followed with a specified character.
+        /// </summary>
+        /// <param name="value">An enumerated constant that identifies ASCII character.</param>
+        /// <returns></returns>
+        public QuantifiablePattern GoToChar(AsciiChar value)
+        {
+            return ConcatInternal(Patterns.GoToChar(value));
+        }
+
+        /// <summary>
+        /// Appends a pattern that matches zero or more characters that are not matched by a specified <see cref="CharGrouping"/> followed with a character that is matched by a specified <see cref="CharGrouping"/>.
+        /// </summary>
+        /// <param name="value">A content of a character group.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public QuantifiablePattern GoToChar(CharGrouping value)
+        {
+            return ConcatInternal(Patterns.GoToChar(value));
+        }
+
+        /// <summary>
         /// Appends a pattern that matches any character except linefeed (or any character if the Singleline option is applied).
         /// </summary>
         /// <returns></returns>
@@ -4997,37 +5028,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
 #if DEBUG
-        /// <summary>
-        /// Appends a pattern that matches zero or more characters that are not a specified character followed with a specified character.
-        /// </summary>
-        /// <param name="value">A Unicode character.</param>
-        /// <returns></returns>
-        public QuantifiablePattern GoToChar(char value)
-        {
-            return ConcatInternal(Patterns.GoToChar(value));
-        }
-
-        /// <summary>
-        /// Appends a pattern that matches zero or more characters that are not a specified character followed with a specified character.
-        /// </summary>
-        /// <param name="value">An enumerated constant that identifies ASCII character.</param>
-        /// <returns></returns>
-        public QuantifiablePattern GoToChar(AsciiChar value)
-        {
-            return ConcatInternal(Patterns.GoToChar(value));
-        }
-
-        /// <summary>
-        /// Appends a pattern that matches zero or more characters that are not matched by a specified <see cref="CharGrouping"/> followed with a character that is matched by a specified <see cref="CharGrouping"/>.
-        /// </summary>
-        /// <param name="value">A content of a character group.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        public QuantifiablePattern GoToChar(CharGrouping value)
-        {
-            return ConcatInternal(Patterns.GoToChar(value));
-        }
-
         /// <summary>
         /// Appends a pattern that matches two apostrophes, optionally allowing zero or more characters that are not an apostrophe between the apostrophes.
         /// </summary>
