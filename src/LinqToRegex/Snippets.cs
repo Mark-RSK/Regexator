@@ -209,32 +209,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             return Patterns.QuoteMarks(pattern).AsNoncapturingGroup();
         }
-
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal static QuantifiablePattern EmptyOrWhiteSpaceLineOrEndingNewLine()
-        {
-            return Patterns.Any(
-                Patterns
-                    .BeginLineInvariant()
-                    .WhiteSpaceExceptNewLine().MaybeMany()
-                    .NewLine(),
-                Patterns
-                    .NewLine()
-                    .Assert(Patterns.WhiteSpace().MaybeMany().EndInput())
-                );
-        }
-
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal static QuantifiablePattern EmptyLineOrEndingNewLine()
-        {
-            return Patterns.Any(
-                Patterns
-                    .BeginLineInvariant()
-                    .NewLine(),
-                Patterns
-                    .NewLine()
-                    .Assert(Patterns.NewLine().MaybeMany().EndInput()));
-        }
 #endif
 
         internal static Pattern ValidGroupName()
