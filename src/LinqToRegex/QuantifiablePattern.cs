@@ -88,59 +88,5 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             return ConcatInternal(new QuantifiedPattern.CountQuantifiedPattern(0, maxCount));
         }
-
-#if DEBUG
-        /// <summary>
-        /// Specifies that previous element must be matched zero or one time.
-        /// </summary>
-        /// <returns></returns>
-        /// <param name="lazy">Indicates whether the quantifier will be greedy or lazy.</param>
-        /// <returns></returns>
-        public Pattern Maybe(bool lazy)
-        {
-            if (lazy)
-            {
-                return Maybe().Lazy();
-            }
-            else
-            {
-                return Maybe();
-            }
-        }
-
-        /// <summary>
-        /// Specifies that previous element must be matched zero or more times.
-        /// </summary>
-        /// <param name="lazy">Indicates whether the quantifier will be greedy or lazy.</param>
-        /// <returns></returns>
-        public Pattern MaybeMany(bool lazy)
-        {
-            if (lazy)
-            {
-                return MaybeMany().Lazy();
-            }
-            else
-            {
-                return MaybeMany();
-            }
-        }
-
-        /// <summary>
-        /// Specifies that previous element must be matched one or more times.
-        /// </summary>
-        /// <param name="lazy">Indicates whether the quantifier will be greedy or lazy.</param>
-        /// <returns></returns>
-        public Pattern OneMany(bool lazy)
-        {
-            if (lazy)
-            {
-                return OneMany().Lazy();
-            }
-            else
-            {
-                return OneMany();
-            }
-        }
-#endif
     }
 }
