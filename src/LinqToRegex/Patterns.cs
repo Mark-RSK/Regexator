@@ -18,7 +18,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static Pattern Text(string value)
         {
-            return new TextPattern(value);
+            return Text(value, false);
+        }
+
+        /// <summary>
+        /// Returns a pattern that matches a specified text, ignoring or honoring its case.
+        /// </summary>
+        /// <param name="value">A text to append.</param>
+        /// <param name="ignoreCase">true to ignore case during the matching; otherwise, false.</param>
+        /// <returns></returns>
+        public static Pattern Text(string value, bool ignoreCase)
+        {
+            return new TextPattern(value, ignoreCase);
         }
 
         /// <summary>

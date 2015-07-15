@@ -73,38 +73,26 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ConcatInternal(new ContentPattern(pattern));
         }
 
-#if DEBUG
         /// <summary>
-        /// Appends specified text to the current instance.
+        /// Appends a pattern that matches a specified text.
         /// </summary>
-        /// <param name="text">A text to append.</param>
+        /// <param name="value">A text to append.</param>
         /// <returns></returns>
-        public Pattern Concat(string text)
+        public Pattern Text(string value)
         {
-            return Concat(text, false);
+            return Text(value, false);
         }
 
         /// <summary>
-        /// Append specified text to the current instance, ignoring or honoring its case.
+        /// Appends a pattern that matches a specified text, ignoring or honoring its case.
         /// </summary>
-        /// <param name="text">Text to append.</param>
+        /// <param name="value">A text to append.</param>
         /// <param name="ignoreCase">true to ignore case during the matching; otherwise, false.</param>
         /// <returns></returns>
-        public Pattern Concat(string text, bool ignoreCase)
+        public Pattern Text(string value, bool ignoreCase)
         {
-            return ConcatInternal(new TextPattern(text, ignoreCase));
+            return ConcatInternal(new TextPattern(value, ignoreCase));
         }
-#else
-        /// <summary>
-        /// Appends specified text to the current instance.
-        /// </summary>
-        /// <param name="text">Text to append.</param>
-        /// <returns></returns>
-        public Pattern Concat(string text)
-        {
-            return ConcatInternal(new TextPattern(text));
-        }
-#endif
 
         internal TPattern ConcatInternal<TPattern>(TPattern pattern) where TPattern : Pattern
         {
@@ -721,7 +709,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("right");
             }
 
-            return left.Concat(right);
+            return left.Text(right);
         }
 
         /// <summary>

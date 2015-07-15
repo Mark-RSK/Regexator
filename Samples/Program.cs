@@ -65,7 +65,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 .Digits()
                 .Assert(
                     Patterns.MaybeMany(Patterns.NotAssert("<b>").Any())
-                    .Concat("</b>")));
+                    .Text("</b>")));
             Console.WriteLine("");
 
             Console.WriteLine("repeated word");
