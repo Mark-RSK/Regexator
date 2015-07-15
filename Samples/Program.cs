@@ -40,7 +40,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             var values = new string[] { "one", "two", "three" };
 
-            Console.WriteLine("multiple words 2");
+            Console.WriteLine("multiple words");
             Console.WriteLine(
                 Patterns.WordBoundary()
                 .CountFrom(3,
@@ -87,40 +87,44 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("");
 
             Console.WriteLine("leading whitespace:");
-            Console.WriteLine(Patterns.BeginLine().WhiteSpaceExceptNewLine().OneMany());
+            Console.WriteLine(Patterns
+                .BeginLine()
+                .WhiteSpaceExceptNewLine().OneMany()
+                .AsNoncapturingGroup());
             Console.WriteLine("");
 
             Console.WriteLine("trailing whitespace:");
-            Console.WriteLine(Patterns.WhiteSpaceExceptNewLine().OneMany().EndLine(true));
+            Console.WriteLine(Patterns
+                .WhiteSpaceExceptNewLine().OneMany()
+                .EndLine(true)
+                .AsNoncapturingGroup());
             Console.WriteLine("");
 
-            Console.WriteLine("leading trailing whitespace:");
-            Console.WriteLine(Patterns.Any(
-                Patterns.BeginLine().WhiteSpaceExceptNewLine().OneMany(),
-                Patterns.WhiteSpaceExceptNewLine().OneMany().EndLine(true)));
+            Console.WriteLine("empty or whitespace line:");
+            Console.WriteLine(Patterns
+                    .BeginLineInvariant()
+                    .WhiteSpaceExceptNewLine().MaybeMany()
+                    .Assert(Patterns.NewLine()));
             Console.WriteLine("");
 
-            Console.WriteLine("whitespace lines:");
-            Console.WriteLine(
-                Patterns.BeginLineInvariant().WhiteSpace().MaybeMany().NewLine() |
-                Patterns.NewLine().WhiteSpace().MaybeMany().EndInput());
-            Console.WriteLine("");
-
-            Console.WriteLine("empty lines:");
-            Console.WriteLine(
-                Patterns.BeginLineInvariant().NewLine() |
-                Patterns.NewLine().Assert(Patterns.NewLine().MaybeMany().EndInput()));
+            Console.WriteLine("empty line:");
+            Console.WriteLine(Patterns
+                .BeginLineInvariant()
+                .Assert(Patterns.NewLine()));
             Console.WriteLine("");
 
             Console.WriteLine("first line:");
-            Console.WriteLine(
-                Patterns.BeginInput()
-                .NotNewLineChar().MaybeMany());
+            Console.WriteLine(Patterns
+                .BeginInput()
+                .NotNewLineChar().MaybeMany()
+                .AsNoncapturingGroup());
             Console.WriteLine("");
 
-            Console.WriteLine("lf without cr:");
-            Console.WriteLine(Patterns.NotAssertBack(Patterns.CarriageReturn()).Linefeed().AsNonbacktrackingGroup());
-            Console.WriteLine((Patterns.NotAssertBack("\r") + "\n").AsNonbacktrackingGroup());
+            Console.WriteLine("linefeed without carriage return:");
+            Console.WriteLine(Patterns
+                .NotAssertBack(Patterns.CarriageReturn())
+                .Linefeed()
+                .AsNoncapturingGroup());
             Console.WriteLine("");
 
             Console.WriteLine("invalid file name chars:");

@@ -209,6 +209,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             return Patterns.SurroundQuoteMarks(pattern).AsNoncapturingGroup();
         }
+
+        internal static Pattern Balance(char openChar, char closeChar, string openGroupName, string closeGroupName)
+        {
+            return Patterns
+                .OneMany(Patterns
+                    .NamedGroup(openGroupName, openChar)
+                    .WhileNotChar(openChar, closeChar))
+                .OneMany(Patterns
+                    .BalancingGroup(closeGroupName, openGroupName, Patterns.Character(closeChar))
+                    .WhileNotChar(openChar, closeChar));
+        }
 #endif
 
         internal static Pattern ValidGroupName()
