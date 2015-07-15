@@ -197,7 +197,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("input");
             }
 
-            CharEscapeMode mode;
+            CharEscapeMode mode = CharEscapeMode.None;
 
             for (int i = 0; i < input.Length; i++)
             {
@@ -211,7 +211,39 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
                     do
                     {
-                        AppendEscape(ch, mode, sb);
+                        switch (mode)
+                        {
+                            case CharEscapeMode.AsciiHexadecimal:
+                                sb.Append(Syntax.AsciiHexadecimalStart);
+                                sb.Append(((int)ch).ToString("X2", CultureInfo.InvariantCulture));
+                                break;
+                            case CharEscapeMode.Backslash:
+                                sb.Append('\\');
+                                sb.Append(ch);
+                                break;
+                            case CharEscapeMode.Bell:
+                                sb.Append(Syntax.Bell);
+                                break;
+                            case CharEscapeMode.CarriageReturn:
+                                sb.Append(Syntax.CarriageReturn);
+                                break;
+                            case CharEscapeMode.Escape:
+                                sb.Append(Syntax.Escape);
+                                break;
+                            case CharEscapeMode.FormFeed:
+                                sb.Append(Syntax.FormFeed);
+                                break;
+                            case CharEscapeMode.Linefeed:
+                                sb.Append(Syntax.Linefeed);
+                                break;
+                            case CharEscapeMode.VerticalTab:
+                                sb.Append(Syntax.VerticalTab);
+                                break;
+                            case CharEscapeMode.Tab:
+                                sb.Append(Syntax.Tab);
+                                break;
+                        }
+
                         i++;
                         lastPos = i;
 
@@ -237,42 +269,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
 
             return input;
-        }
-
-        internal static void AppendEscape(char ch, CharEscapeMode mode, StringBuilder sb)
-        {
-            switch (mode)
-            {
-                case CharEscapeMode.AsciiHexadecimal:
-                    sb.Append(Syntax.AsciiHexadecimalStart);
-                    sb.Append(((int)ch).ToString("X2", CultureInfo.InvariantCulture));
-                    break;
-                case CharEscapeMode.Backslash:
-                    sb.Append('\\');
-                    sb.Append(ch);
-                    break;
-                case CharEscapeMode.Bell:
-                    sb.Append(Syntax.Bell);
-                    break;
-                case CharEscapeMode.CarriageReturn:
-                    sb.Append(Syntax.CarriageReturn);
-                    break;
-                case CharEscapeMode.Escape:
-                    sb.Append(Syntax.Escape);
-                    break;
-                case CharEscapeMode.FormFeed:
-                    sb.Append(Syntax.FormFeed);
-                    break;
-                case CharEscapeMode.Linefeed:
-                    sb.Append(Syntax.Linefeed);
-                    break;
-                case CharEscapeMode.VerticalTab:
-                    sb.Append(Syntax.VerticalTab);
-                    break;
-                case CharEscapeMode.Tab:
-                    sb.Append(Syntax.Tab);
-                    break;
-            }
         }
 
         /// <summary>

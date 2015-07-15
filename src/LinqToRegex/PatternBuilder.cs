@@ -87,7 +87,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (!string.IsNullOrEmpty(value))
             {
-                CharEscapeMode mode;
+                CharEscapeMode mode = CharEscapeMode.None;
 
                 for (int i = 0; i < value.Length; i++)
                 {
@@ -100,7 +100,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
                         do
                         {
-                            RegexUtility.AppendEscape(ch, mode, _sb);
+                            Append(ch, mode);
                             i++;
                             lastPos = i;
 
@@ -126,6 +126,42 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 }
 
                 _sb.Append(value);
+            }
+        }
+
+        private void Append(char ch, CharEscapeMode mode)
+        {
+            switch (mode)
+            {
+                case CharEscapeMode.AsciiHexadecimal:
+                    _sb.Append(Syntax.AsciiHexadecimalStart);
+                    _sb.Append(((int)ch).ToString("X2", CultureInfo.InvariantCulture));
+                    break;
+                case CharEscapeMode.Backslash:
+                    _sb.Append('\\');
+                    _sb.Append(ch);
+                    break;
+                case CharEscapeMode.Bell:
+                    _sb.Append(Syntax.Bell);
+                    break;
+                case CharEscapeMode.CarriageReturn:
+                    _sb.Append(Syntax.CarriageReturn);
+                    break;
+                case CharEscapeMode.Escape:
+                    _sb.Append(Syntax.Escape);
+                    break;
+                case CharEscapeMode.FormFeed:
+                    _sb.Append(Syntax.FormFeed);
+                    break;
+                case CharEscapeMode.Linefeed:
+                    _sb.Append(Syntax.Linefeed);
+                    break;
+                case CharEscapeMode.VerticalTab:
+                    _sb.Append(Syntax.VerticalTab);
+                    break;
+                case CharEscapeMode.Tab:
+                    _sb.Append(Syntax.Tab);
+                    break;
             }
         }
 
