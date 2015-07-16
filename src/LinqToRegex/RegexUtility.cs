@@ -320,6 +320,40 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return input;
         }
 
+        /// <summary>
+        /// Returns randomly generated group name.
+        /// </summary>
+        /// <returns></returns>
+        public static string GetRandomGroupName()
+        {
+            return GetRandomGroupName(8);
+        }
+
+        /// <summary>
+        /// Returns randomly generated group name with a specified length.
+        /// </summary>
+        /// <param name="length">Length of a group name.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public static string GetRandomGroupName(int length)
+        {
+            if (length < 1)
+            {
+                throw new ArgumentOutOfRangeException("length");
+            }
+
+            var sb = new StringBuilder();
+
+            for (int i = 0; i < length; i++)
+            {
+                sb.Append((char)_random.Next(97, 122));
+            }
+
+            return sb.ToString();
+        }
+
+        private static readonly Random _random = new Random();
+
         private static readonly CharEscapeMode[] EscapeModes = new CharEscapeMode[] {
             // 0 0x00
             CharEscapeMode.AsciiHexadecimal,
