@@ -52,12 +52,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 .GroupReference(3));
             Console.WriteLine("");
 
-            var quotedChar = (!CharGroupings.QuoteMark().NewLineChar()).MaybeMany();
-
-            Console.WriteLine("quoted text");
-            Console.WriteLine(Patterns.SurroundQuoteMarks(
-                quotedChar
-                .MaybeMany(Patterns.QuoteMark(2) + quotedChar)));
+            Console.WriteLine("verbatim quoted text");
+            Console.WriteLine(Patterns.AtSign().SurroundQuoteMarks(
+                Patterns.WhileNotChar('"')
+                .MaybeMany(Patterns.QuoteMark(2).WhileNotChar('"'))));
             Console.WriteLine("");
 
             Console.WriteLine("digits inside b element value");
@@ -128,8 +126,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("");
 
             Console.WriteLine("invalid file name chars:");
-            var chars = Path.GetInvalidFileNameChars().OrderBy(f => (int)f).Select(f => Patterns.Character(f));
-            Console.WriteLine(Patterns.Any(chars).AsNonbacktrackingGroup());
+            Console.WriteLine(Patterns.NonbacktrackingGroup(Path.GetInvalidFileNameChars().OrderBy(f => (int)f).Select(f => Patterns.Character(f))));
             Console.WriteLine("");
 
             Console.ReadKey();
