@@ -214,12 +214,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             return Patterns
                 .OneMany(Patterns
-                    .NamedGroup(openGroupName, Patterns.Character(openChar))
+                    .NamedGroup(openGroupName, openChar)
                     .WhileNotChar(openChar, closeChar))
                 .OneMany(Patterns
-                    .BalancingGroup(closeGroupName, openGroupName, Patterns.Character(closeChar))
+                    .BalancingGroup(closeGroupName, openGroupName, closeChar)
                     .WhileNotChar(openChar, closeChar));
         }
+
 #endif
 
         internal static Pattern ValidGroupName()
