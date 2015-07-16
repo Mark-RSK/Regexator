@@ -186,9 +186,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Returns a pattern that matches a content that is enclosed in quotation marks. The content can contains escaped characters.
         /// </summary>
         /// <returns></returns>
-        public static Pattern SurroundQuotesWithEscapes()
+        public static Pattern SurroundQuoteMarksWithEscapes()
         {
-            return SurroundQuotesWithEscapes(null);
+            return SurroundQuoteMarksWithEscapes(null);
         }
 
         /// <summary>
@@ -197,7 +197,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="contentGroupName">A name of the group that contain quoted content. Specify <c>null</c> to omit group.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentException"></exception>
-        public static Pattern SurroundQuotesWithEscapes(string contentGroupName)
+        public static Pattern SurroundQuoteMarksWithEscapes(string contentGroupName)
         {
             var chars = Patterns.MaybeMany(!CharGroupings.QuoteMark().Backslash());
 
@@ -220,7 +220,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                     .BalancingGroup(closeGroupName, openGroupName, closeChar)
                     .WhileNotChar(openChar, closeChar));
         }
-
 #endif
 
         internal static Pattern ValidGroupName()
