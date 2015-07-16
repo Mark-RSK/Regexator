@@ -4982,15 +4982,15 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Between the characters can be zero or many characters that are neither opening nor closing character.
         /// A name for the group containing opening character is randomly generated and if the characters are balanced, the group has no captures.
         /// </summary>
-        /// <param name="openChar">Opening Unicode character to balance.</param>
-        /// <param name="closeChar">Closing Unicode character to balance.</param>
+        /// <param name="openingCharacter">Opening Unicode character to balance.</param>
+        /// <param name="closingCharacter">Closing Unicode character to balance.</param>
         /// <param name="groupName">A name of the group that contains balanced content of the opening and closing character.</param>
         /// <returns></returns> 
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentException"></exception>
-        public Pattern Balance(char openChar, char closeChar, string groupName)
+        public Pattern Balance(char openingCharacter, char closingCharacter, string groupName)
         {
-            return ConcatInternal(Patterns.Balance(openChar, closeChar, groupName));
+            return ConcatInternal(Patterns.Balance(openingCharacter, closingCharacter, groupName));
         }
 
         /// <summary>
@@ -4998,16 +4998,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Between the characters can be zero or many characters that are neither opening nor closing character.
         /// If the characters are balanced, group containing opening character has no captures.
         /// </summary>
-        /// <param name="openChar">Opening Unicode character to balance.</param>
-        /// <param name="closeChar">Closing Unicode character to balance.</param>
+        /// <param name="openingCharacter">Opening Unicode character to balance.</param>
+        /// <param name="closingCharacter">Closing Unicode character to balance.</param>
         /// <param name="groupName">A name of the group that contains balanced content of the opening and closing character.</param>
         /// <param name="openGroupName">A name of the group that contains opening character.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentException"></exception>
-        public Pattern Balance(char openChar, char closeChar, string groupName, string openGroupName)
+        public Pattern Balance(char openingCharacter, char closingCharacter, string groupName, string openGroupName)
         {
-            return ConcatInternal(Patterns.Balance(openChar, closeChar, groupName, openGroupName));
+            return ConcatInternal(Patterns.Balance(openingCharacter, closingCharacter, groupName, openGroupName));
         }
     }
 }
