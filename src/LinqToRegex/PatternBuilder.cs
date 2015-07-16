@@ -456,8 +456,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                         Append(en.Current);
                     }
                 }
-
-                return;
             }
         }
 

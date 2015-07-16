@@ -194,26 +194,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a lower-case alphanumeric character. Alphanumeric character is a latin alphabet lower-case letter or an arabic digit.
-        /// If the "ignore case" option is applied the pattern will also match upper-case latin letter.
-        /// </summary>
-        /// <returns></returns>
-        public CharGrouping AlphanumericLower()
-        {
-            return Concat(CharGroupings.AlphanumericLower());
-        }
-
-        /// <summary>
-        /// Appends a pattern that matches an upper-case alphanumeric character. Alphanumeric character is a latin alphabet upper-case letter or an arabic digit.
-        /// If the "ignore case" option is applied the pattern will also match lower-case latin letter.
-        /// </summary>
-        /// <returns></returns>
-        public CharGrouping AlphanumericUpper()
-        {
-            return Concat(CharGroupings.AlphanumericUpper());
-        }
-
-        /// <summary>
         /// Appends a pattern that matches a latin alphabet letter, an arabic digit or an underscore.
         /// </summary>
         /// <returns></returns>
@@ -229,64 +209,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public CharGrouping LatinLetter()
         {
             return Concat(CharGroupings.LatinLetter());
-        }
-
-        /// <summary>
-        /// Appends a pattern that matches a latin alphabet lower-case letter. If the "ignore case" option is applied the pattern will also match upper-case latin letter.
-        /// </summary>
-        /// <returns></returns>
-        public CharGrouping LatinLetterLower()
-        {
-            return Concat(CharGroupings.LatinLetterLower());
-        }
-
-        /// <summary>
-        /// Appends a pattern that matches a latin alphabet upper-case letter. If the "ignore case" option is applied the pattern will also match lower-case latin letter.
-        /// </summary>
-        /// <returns></returns>
-        public CharGrouping LatinLetterUpper()
-        {
-            return Concat(CharGroupings.LatinLetterUpper());
-        }
-
-        /// <summary>
-        /// Appends a pattern that matches a character from <see cref="GeneralCategory.LetterLowercase"/>.
-        /// If the "ignore case" option is applied the pattern will also match a character from <see cref="GeneralCategory.LetterUppercase"/>.
-        /// </summary>
-        /// <returns></returns>
-        public CharGrouping LetterLower()
-        {
-            return Concat(CharGroupings.LetterLower());
-        }
-
-        /// <summary>
-        /// Appends a pattern that matches a character that is not a character from <see cref="GeneralCategory.LetterLowercase"/>.
-        /// If the "ignore case" option is applied the pattern will also not match a character from <see cref="GeneralCategory.LetterUppercase"/>.
-        /// </summary>
-        /// <returns></returns>
-        public CharGrouping NotLetterLower()
-        {
-            return Concat(CharGroupings.NotLetterLower());
-        }
-
-        /// <summary>
-        /// Appends a pattern that matches a character from <see cref="GeneralCategory.LetterUppercase"/>.
-        /// If the "ignore case" option is applied the pattern will also match a character from <see cref="GeneralCategory.LetterLowercase"/>.
-        /// </summary>
-        /// <returns></returns>
-        public CharGrouping LetterUpper()
-        {
-            return Concat(CharGroupings.LetterUpper());
-        }
-
-        /// <summary>
-        /// Appends a pattern that matches a character that is not a character from <see cref="GeneralCategory.LetterUppercase"/>.
-        /// If the "ignore case" option is applied the pattern will also not match a character from <see cref="GeneralCategory.LetterLowercase"/>.
-        /// </summary>
-        /// <returns></returns>
-        public CharGrouping NotLetterUpper()
-        {
-            return Concat(CharGroupings.NotLetterUpper());
         }
 
         /// <summary>

@@ -3890,17 +3890,15 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         /// <summary>
         /// Returns a pattern that matches a lower-case alphanumeric character. Alphanumeric character is a latin alphabet lower-case letter or an arabic digit.
-        /// If the "ignore case" option is applied the pattern will also match upper-case latin letter.
         /// </summary>
         /// <returns></returns>
-        public static CharGroup AlphanumericLower()
+        public static QuantifiablePattern AlphanumericLower()
         {
-            return Character(CharGroupings.AlphanumericLower());
+            return DisableOptions(RegexOptions.IgnoreCase, CharGroupings.Range('a', 'z').ArabicDigit());
         }
 
         /// <summary>
         /// Returns a pattern that matches a specified number of lower-case alphanumeric characters. Alphanumeric character is a latin alphabet lower-case letter or an arabic digit.
-        /// If the "ignore case" option is applied the pattern will also match upper-case latin letter.
         /// </summary>
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
@@ -3912,7 +3910,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         /// <summary>
         /// Returns a pattern that matches a lower-case alphanumeric character from minimal to maximum times. Alphanumeric character is a latin alphabet lower-case letter or an arabic digit.
-        /// If the "ignore case" option is applied the pattern will also match upper-case latin letter.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
@@ -3925,17 +3922,15 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         /// <summary>
         /// Returns a pattern that matches a character that is not a lower-case alphanumeric character. Alphanumeric character is a latin alphabet lower-case letter or an arabic digit.
-        /// If the "ignore case" option is applied the pattern will also not match upper-case latin letter.
         /// </summary>
         /// <returns></returns>
-        public static CharGroup NotAlphanumericLower()
+        public static QuantifiablePattern NotAlphanumericLower()
         {
-            return Not(CharGroupings.AlphanumericLower());
+            return DisableOptions(RegexOptions.IgnoreCase, !CharGroupings.Range('a', 'z').ArabicDigit());
         }
 
         /// <summary>
         /// Returns a pattern that matches a character that is not a lower-case alphanumeric character specified number of times. Alphanumeric character is a latin alphabet lower-case letter or an arabic digit.
-        /// If the "ignore case" option is applied the pattern will also not match upper-case latin letter.
         /// </summary>
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
@@ -3947,7 +3942,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         /// <summary>
         /// Returns a pattern that matches a character that is not a lower-case alphanumeric character from minimal to maximum times. Alphanumeric character is a latin alphabet lower-case letter or an arabic digit.
-        /// If the "ignore case" option is applied the pattern will also not match upper-case latin letter.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
@@ -3960,17 +3954,15 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         /// <summary>
         /// Returns a pattern that matches an upper-case alphanumeric character. Alphanumeric character is a latin alphabet upper-case letter or an arabic digit.
-        /// If the "ignore case" option is applied the pattern will also match lower-case latin letter.
         /// </summary>
         /// <returns></returns>
-        public static CharGroup AlphanumericUpper()
+        public static QuantifiablePattern AlphanumericUpper()
         {
-            return Character(CharGroupings.AlphanumericUpper());
+            return DisableOptions(RegexOptions.IgnoreCase, CharGroupings.Range('A', 'Z').ArabicDigit());
         }
 
         /// <summary>
         /// Returns a pattern that matches a specified number of upper-case alphanumeric characters. Alphanumeric character is a latin alphabet upper-case letter or an arabic digit.
-        /// If the "ignore case" option is applied the pattern will also match lower-case latin letter.
         /// </summary>
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
@@ -3982,7 +3974,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         /// <summary>
         /// Returns a pattern that matches an upper-case alphanumeric character from minimal to maximum times. Alphanumeric character is a latin alphabet upper-case letter or an arabic digit.
-        /// If the "ignore case" option is applied the pattern will also match lower-case latin letter.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
@@ -3995,17 +3986,15 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         /// <summary>
         /// Returns a pattern that matches a character that is not an upper-case alphanumeric character. Alphanumeric character is a latin alphabet upper-case letter or an arabic digit.
-        /// If the "ignore case" option is applied the pattern will also not match lower-case latin letter.
         /// </summary>
         /// <returns></returns>
-        public static CharGroup NotAlphanumericUpper()
+        public static QuantifiablePattern NotAlphanumericUpper()
         {
-            return Not(CharGroupings.AlphanumericUpper());
+            return DisableOptions(RegexOptions.IgnoreCase, !CharGroupings.Range('A', 'Z').ArabicDigit());
         }
 
         /// <summary>
         /// Returns a pattern that matches a character that is not an upper-case alphanumeric character specified number of times. Alphanumeric character is a latin alphabet upper-case letter or an arabic digit.
-        /// If the "ignore case" option is applied the pattern will also not match lower-case latin letter.
         /// </summary>
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
@@ -4017,7 +4006,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         /// <summary>
         /// Returns a pattern that matches a character that is not an upper-case alphanumeric character from minimal to maximum times. Alphanumeric character is a latin alphabet upper-case letter or an arabic digit.
-        /// If the "ignore case" option is applied the pattern will also not match lower-case latin letter.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
@@ -4157,16 +4145,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a latin alphabet lower-case letter. If the "ignore case" option is applied the pattern will also match upper-case latin letter.
+        /// Returns a pattern that matches a latin alphabet lower-case letter.
         /// </summary>
         /// <returns></returns>
-        public static CharGroup LatinLetterLower()
+        public static QuantifiablePattern LatinLetterLower()
         {
-            return Character(CharGroupings.LatinLetterLower());
+            return DisableOptions(RegexOptions.IgnoreCase, Range('a', 'z'));
         }
 
         /// <summary>
-        /// Returns a pattern that matches a specified number of latin alphabet lower-case letters. If the "ignore case" option is applied the pattern will also match upper-case latin letter.
+        /// Returns a pattern that matches a specified number of latin alphabet lower-case letters.
         /// </summary>
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
@@ -4177,7 +4165,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a latin alphabet lower-case letter from minimal to maximum times. If the "ignore case" option is applied the pattern will also match upper-case latin letter.
+        /// Returns a pattern that matches a latin alphabet lower-case letter from minimal to maximum times.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
@@ -4190,17 +4178,15 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         /// <summary>
         /// Returns a pattern that matches a character that is not a latin alphabet lower-case letter.
-        /// If the "ignore case" option is applied the pattern will also not match upper-case latin letter.
         /// </summary>
         /// <returns></returns>
-        public static CharGroup NotLatinLetterLower()
+        public static QuantifiablePattern NotLatinLetterLower()
         {
-            return Not(CharGroupings.LatinLetterLower());
+            return DisableOptions(RegexOptions.IgnoreCase, NotRange('a', 'z'));
         }
 
         /// <summary>
         /// Returns a pattern that matches a character that is not a latin alphabet lower-case letter specified number of times.
-        /// If the "ignore case" option is applied the pattern will also not match upper-case latin letter.
         /// </summary>
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
@@ -4212,7 +4198,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         /// <summary>
         /// Returns a pattern that matches a character that is not a latin alphabet lower-case letter from minimal to maximum times.
-        /// If the "ignore case" option is applied the pattern will also not match upper-case latin letter.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
@@ -4224,16 +4209,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a latin alphabet upper-case letter. If the "ignore case" option is applied the pattern will also match lower-case latin letter.
+        /// Returns a pattern that matches a latin alphabet upper-case letter.
         /// </summary>
         /// <returns></returns>
-        public static CharGroup LatinLetterUpper()
+        public static QuantifiablePattern LatinLetterUpper()
         {
-            return Character(CharGroupings.LatinLetterUpper());
+            return DisableOptions(RegexOptions.IgnoreCase, Range('A', 'Z'));
         }
 
         /// <summary>
-        /// Returns a pattern that matches a specified number of latin alphabet upper-case letters. If the "ignore case" option is applied the pattern will also match lower-case latin letter.
+        /// Returns a pattern that matches a specified number of latin alphabet upper-case letters.
         /// </summary>
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
@@ -4244,7 +4229,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a latin alphabet upper-case letter from minimal to maximum times. If the "ignore case" option is applied the pattern will also match lower-case latin letter.
+        /// Returns a pattern that matches a latin alphabet upper-case letter from minimal to maximum times.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
@@ -4257,17 +4242,15 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         /// <summary>
         /// Returns a pattern that matches a character that is not a latin alphabet upper-case letter.
-        /// If the "ignore case" option is applied the pattern will also not match lower-case latin letter.
         /// </summary>
         /// <returns></returns>
-        public static CharGroup NotLatinLetterUpper()
+        public static QuantifiablePattern NotLatinLetterUpper()
         {
-            return Not(CharGroupings.LatinLetterUpper());
+            return DisableOptions(RegexOptions.IgnoreCase, NotRange('A', 'Z'));
         }
 
         /// <summary>
         /// Returns a pattern that matches a character that is not a latin alphabet upper-case letter specified number of times.
-        /// If the "ignore case" option is applied the pattern will also not match lower-case latin letter.
         /// </summary>
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
@@ -4279,7 +4262,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         /// <summary>
         /// Returns a pattern that matches a character that is not a latin alphabet upper-case letter from minimal to maximum times.
-        /// If the "ignore case" option is applied the pattern will also not match lower-case latin letter.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
@@ -4292,17 +4274,15 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         /// <summary>
         /// Returns a pattern that matches a character from <see cref="GeneralCategory.LetterLowercase"/>.
-        /// If the "ignore case" option is applied the pattern will also match a character from <see cref="GeneralCategory.LetterUppercase"/>.
         /// </summary>
         /// <returns></returns>
-        public static CharPattern LetterLower()
+        public static QuantifiablePattern LetterLower()
         {
-            return Character(GeneralCategory.LetterLowercase);
+            return DisableOptions(RegexOptions.IgnoreCase, Character(GeneralCategory.LetterLowercase));
         }
 
         /// <summary>
         /// Returns a pattern that matches a specified number of letters from <see cref="GeneralCategory.LetterLowercase"/>.
-        /// If the "ignore case" option is applied the pattern will also match a character from <see cref="GeneralCategory.LetterUppercase"/>.
         /// </summary>
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
@@ -4314,7 +4294,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         /// <summary>
         /// Returns a pattern that matches a character from <see cref="GeneralCategory.LetterLowercase"/> from minimal to maximum times.
-        /// If the "ignore case" option is applied the pattern will also match a character from <see cref="GeneralCategory.LetterUppercase"/>.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
@@ -4327,17 +4306,15 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         /// <summary>
         /// Returns a pattern that matches a character that is not a character from <see cref="GeneralCategory.LetterLowercase"/>.
-        /// If the "ignore case" option is applied the pattern will also not match a character from <see cref="GeneralCategory.LetterUppercase"/>.
         /// </summary>
         /// <returns></returns>
-        public static CharPattern NotLetterLower()
+        public static QuantifiablePattern NotLetterLower()
         {
-            return Not(GeneralCategory.LetterLowercase);
+            return DisableOptions(RegexOptions.IgnoreCase, Not(GeneralCategory.LetterLowercase));
         }
 
         /// <summary>
         /// Returns a pattern that matches a character that is not a character from <see cref="GeneralCategory.LetterLowercase"/> specified number of times.
-        /// If the "ignore case" option is applied the pattern will also not match a character from <see cref="GeneralCategory.LetterUppercase"/>.
         /// </summary>
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
@@ -4349,7 +4326,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         /// <summary>
         /// Returns a pattern that matches a character that is not a character from <see cref="GeneralCategory.LetterLowercase"/> from minimal to maximum times.
-        /// If the "ignore case" option is applied the pattern will also not match a character from <see cref="GeneralCategory.LetterUppercase"/>.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
@@ -4362,17 +4338,15 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         /// <summary>
         /// Returns a pattern that matches a character from <see cref="GeneralCategory.LetterUppercase"/>.
-        /// If the "ignore case" option is applied the pattern will also match a character from <see cref="GeneralCategory.LetterLowercase"/>.
         /// </summary>
         /// <returns></returns>
-        public static CharPattern LetterUpper()
+        public static QuantifiablePattern LetterUpper()
         {
-            return Character(GeneralCategory.LetterUppercase);
+            return DisableOptions(RegexOptions.IgnoreCase, Character(GeneralCategory.LetterUppercase));
         }
 
         /// <summary>
         /// Returns a pattern that matches a specified number of letters from <see cref="GeneralCategory.LetterUppercase"/>.
-        /// If the "ignore case" option is applied the pattern will also match a character from <see cref="GeneralCategory.LetterLowercase"/>.
         /// </summary>
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
@@ -4384,7 +4358,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         /// <summary>
         /// Returns a pattern that matches a character from <see cref="GeneralCategory.LetterUppercase"/> from minimal to maximum times.
-        /// If the "ignore case" option is applied the pattern will also match a character from <see cref="GeneralCategory.LetterLowercase"/>.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
@@ -4397,17 +4370,15 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         /// <summary>
         /// Returns a pattern that matches a character that is not a character from <see cref="GeneralCategory.LetterUppercase"/>.
-        /// If the "ignore case" option is applied the pattern will also not match a character from <see cref="GeneralCategory.LetterLowercase"/>.
         /// </summary>
         /// <returns></returns>
-        public static CharPattern NotLetterUpper()
+        public static QuantifiablePattern NotLetterUpper()
         {
-            return Not(GeneralCategory.LetterUppercase);
+            return DisableOptions(RegexOptions.IgnoreCase, Not(GeneralCategory.LetterUppercase));
         }
 
         /// <summary>
         /// Returns a pattern that matches a character that is not a character from <see cref="GeneralCategory.LetterUppercase"/> specified number of times.
-        /// If the "ignore case" option is applied the pattern will also not match a character from <see cref="GeneralCategory.LetterLowercase"/>.
         /// </summary>
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
@@ -4419,7 +4390,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         /// <summary>
         /// Returns a pattern that matches a character that is not a character from <see cref="GeneralCategory.LetterUppercase"/> from minimal to maximum times.
-        /// If the "ignore case" option is applied the pattern will also not match a character from <see cref="GeneralCategory.LetterLowercase"/>.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
