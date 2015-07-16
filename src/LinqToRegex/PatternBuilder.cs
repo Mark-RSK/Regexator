@@ -315,7 +315,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Tries to append the pattern representation of an object. The object must be convertible to <see cref="Pattern"/>, <see cref="CharGrouping"/>, <see cref="String"/>, object array or <see cref="System.Collections.IEnumerable"/>.
+        /// Tries to append the pattern representation of an object. The object must be convertible to <see cref="Pattern"/>, <see cref="CharGrouping"/>, <see cref="String"/>, <see cref="Char"/>, object array or <see cref="System.Collections.IEnumerable"/>.
         /// </summary>
         /// <param name="value">The object to append.</param>
         public void Append(object value)
@@ -336,6 +336,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             if (text != null)
             {
                 Append(text);
+                return;
+            }
+
+            if (value is char)
+            {
+                Append((char)value);
                 return;
             }
 
@@ -384,69 +390,75 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _currentOptions &= applyOptions;
             _currentOptions &= ~disableOptions;
 
+            AppendGroupContentInternal(content);
+
+            _currentOptions = currentOptions;
+        }
+
+        private void AppendGroupContentInternal(object content)
+        {
             Pattern pattern = content as Pattern;
             if (pattern != null)
             {
                 Append(pattern);
+                return;
             }
-            else
+
+            string text = content as string;
+            if (text != null)
             {
-                string text = content as string;
-                if (text != null)
-                {
-                    Append(text);
-                }
-                else
-                {
-                    CharGrouping charGrouping = content as CharGrouping;
-                    if (charGrouping != null)
-                    {
-                        Append(charGrouping);
-                    }
-                    else
-                    {
-                        object[] values = content as object[];
-                        if (values != null)
-                        {
-                            if (values.Length > 0)
-                            {
-                                Append(values[0]);
-
-                                for (int i = 1; i < values.Length; i++)
-                                {
-                                    AppendOr();
-                                    Append(values[i]);
-                                }
-                            }
-                        }
-                        else
-                        {
-                            IEnumerable items = content as IEnumerable;
-                            if (items != null)
-                            {
-                                IEnumerator en = items.GetEnumerator();
-
-                                if (en.MoveNext())
-                                {
-                                    Append(en.Current);
-
-                                    while (en.MoveNext())
-                                    {
-                                        AppendOr();
-                                        Append(en.Current);
-                                    }
-                                }
-                            }
-                            else
-                            {
-                                Append(content);
-                            }
-                        }
-                    }
-                }
+                Append(text);
+                return;
             }
 
-            _currentOptions = currentOptions;
+            if (content is char)
+            {
+                Append((char)content);
+                return;
+            }
+
+            CharGrouping charGrouping = content as CharGrouping;
+            if (charGrouping != null)
+            {
+                Append(charGrouping);
+                return;
+            }
+            
+            object[] values = content as object[];
+            if (values != null)
+            {
+                if (values.Length > 0)
+                {
+                    Append(values[0]);
+
+                    for (int i = 1; i < values.Length; i++)
+                    {
+                        AppendOr();
+                        Append(values[i]);
+                    }
+                }
+
+                return;
+            }
+
+            IEnumerable items = content as IEnumerable;
+            if (items != null)
+            {
+                IEnumerator en = items.GetEnumerator();
+
+                if (en.MoveNext())
+                {
+                    Append(en.Current);
+
+                    while (en.MoveNext())
+                    {
+                        AppendOr();
+                        Append(en.Current);
+                    }
+                }
+
+                return;
+            }
         }
 
         /// <summary>
