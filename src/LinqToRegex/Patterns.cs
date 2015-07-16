@@ -5105,5 +5105,54 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             return NotAssert(string.Empty);
         }
+
+        /// <summary>
+        /// Returns a pattern that matches one or many opening characters balanced with one or many closing characters.
+        /// Between the characters can be zero or many characters that are neither opening nor closing character.
+        /// A name for the group containing opening character is randomly generated and if the characters are balanced, the group has no captures.
+        /// </summary>
+        /// <param name="openChar">Opening Unicode character to balance.</param>
+        /// <param name="closeChar">Closing Unicode character to balance.</param>
+        /// <param name="groupName">A name of the group that contains balanced content of the opening and closing character.</param>
+        /// <returns></returns> 
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
+        public static Pattern Balance(char openChar, char closeChar, string groupName)
+        {
+            RegexUtility.CheckGroupName(groupName);
+
+            return BalanceInternal(openChar, closeChar, groupName, groupName + "_" + RegexUtility.GetRandomGroupName());
+        }
+
+        /// <summary>
+        /// Returns a pattern that matches one or many opening characters balanced with one or many closing characters.
+        /// Between the characters can be zero or many characters that are neither opening nor closing character.
+        /// If the characters are balanced, group containing opening character has no captures.
+        /// </summary>
+        /// <param name="openChar">Opening Unicode character to balance.</param>
+        /// <param name="closeChar">Closing Unicode character to balance.</param>
+        /// <param name="groupName">A name of the group that contains balanced content of the opening and closing character.</param>
+        /// <param name="openGroupName">A name of the group that contains opening character.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
+        public static Pattern Balance(char openChar, char closeChar, string groupName, string openGroupName)
+        {
+            RegexUtility.CheckGroupName(groupName);
+            RegexUtility.CheckGroupName(openGroupName, "openGroupName");
+
+            return BalanceInternal(openChar, closeChar, groupName, openGroupName);
+        }
+
+        internal static Pattern BalanceInternal(char openChar, char closeChar, string groupName, string openGroupName)
+        {
+            return Patterns
+                .OneMany(Patterns
+                    .NamedGroup(openGroupName, openChar)
+                    .WhileNotChar(openChar, closeChar))
+                .OneMany(Patterns
+                    .BalancingGroup(groupName, openGroupName, closeChar)
+                    .WhileNotChar(openChar, closeChar));
+        }
     }
 }
