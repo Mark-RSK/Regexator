@@ -881,7 +881,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches any character except linefeed (or any character if the Singleline option is applied).
+        /// Appends a pattern that matches any character except linefeed (or any character if the <see cref="RegexOptions.Singleline"/> option is applied).
         /// </summary>
         public void AppendAnyChar()
         {

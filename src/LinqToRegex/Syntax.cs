@@ -95,7 +95,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public const string GroupEnd = ")";
 
         /// <summary>
-        /// Specifies a pattern that matches any character except linefeed (or any character if the Singleline option is applied).
+        /// Specifies a pattern that matches any character except linefeed (or any character if the <see cref="RegexOptions.Singleline"/> option is applied).
         /// </summary>
         public const string AnyChar = ".";
 
