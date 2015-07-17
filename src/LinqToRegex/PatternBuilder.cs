@@ -652,7 +652,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches the beginning of the string (or line if the multiline option is applied).
+        /// Appends a pattern that matches the beginning of the string (or line if the <see cref="RegexOptions.Multiline"/> option is applied).
         /// </summary>
         public void AppendBeginningOfLine()
         {
@@ -668,7 +668,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that is matched at the end of the string (or line if the multiline option is applied). End of line is defined as the position before a linefeed.
+        /// Appends a pattern that is matched at the end of the string (or line if the <see cref="RegexOptions.Multiline"/> option is applied). End of line is defined as the position before a linefeed.
         /// </summary>
         public void AppendEndOfLine()
         {

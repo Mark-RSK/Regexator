@@ -23,7 +23,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches leading whitespace of the string (or line if the multiline option is applied).
+        /// Returns a pattern that matches leading whitespace of the string (or line if the <see cref="RegexOptions.Multiline"/> option is applied).
         /// </summary>
         /// <returns></returns>
         public static QuantifiablePattern LeadingWhiteSpace()
@@ -35,7 +35,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches trailing whitespace of the string (or line if the multiline option is applied). A carriage return is not included in the match.
+        /// Returns a pattern that matches trailing whitespace of the string (or line if the <see cref="RegexOptions.Multiline"/> option is applied). A carriage return is not included in the match.
         /// </summary>
         /// <returns></returns>
         public static QuantifiablePattern TrailingWhiteSpace()
@@ -47,7 +47,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches leading and trailing whitespace of the string (or line if the multiline option is applied). A carriage return is not included in the match.
+        /// Returns a pattern that matches leading and trailing whitespace of the string (or line if the <see cref="RegexOptions.Multiline"/> option is applied). A carriage return is not included in the match.
         /// </summary>
         /// <returns></returns>
         public static QuantifiablePattern LeadingTrailingWhiteSpace()

@@ -309,7 +309,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that is matched at the beginning of the string (or line if the multiline option is applied).
+        /// Returns a pattern that is matched at the beginning of the string (or line if the <see cref="RegexOptions.Multiline"/> option is applied).
         /// </summary>
         /// <returns></returns>
         public static QuantifiablePattern BeginInputOrLine()
@@ -344,7 +344,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that is matched at the end of the string (or line if the multiline option is applied). End of line is defined as the position before a linefeed.
+        /// Returns a pattern that is matched at the end of the string (or line if the <see cref="RegexOptions.Multiline"/> option is applied). End of line is defined as the position before a linefeed.
         /// </summary>
         /// <returns></returns>
         public static QuantifiablePattern EndInputOrLine()
@@ -353,7 +353,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that is matched (before carriage return) at the end of the string (or (before carriage return) at the end of line if the multiline option is applied). End of line is defined as the position before a linefeed.
+        /// Returns a pattern that is matched (before carriage return) at the end of the string (or (before carriage return) at the end of line if the <see cref="RegexOptions.Multiline"/> option is applied). End of line is defined as the position before a linefeed.
         /// </summary>
         /// <param name="beforeCarriageReturn">Indicates whether a position of the match should be before a carriage return if present and not already consumed by regex engine</param>
         /// <returns></returns>
@@ -490,7 +490,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that is matched from the beginning of the string (or line if the multiline option is applied) to the position (before carriage return) at the end of string (or line if the multiline option is applied). End of line is defined as the position before a linefeed.
+        /// Returns a pattern that is matched from the beginning of the string (or line if the <see cref="RegexOptions.Multiline"/> option is applied) to the position (before carriage return) at the end of string (or line if the <see cref="RegexOptions.Multiline"/> option is applied). End of line is defined as the position before a linefeed.
         /// </summary>
         /// <returns></returns>
         public static Pattern EntireInputOrLine()
@@ -499,7 +499,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that is matched from the beginning of the string (or line if the multiline option is applied) to the position (before carriage return) at the end of string (or line if the multiline option is applied). End of line is defined as the position before a linefeed.
+        /// Returns a pattern that is matched from the beginning of the string (or line if the <see cref="RegexOptions.Multiline"/> option is applied) to the position (before carriage return) at the end of string (or line if the <see cref="RegexOptions.Multiline"/> option is applied). End of line is defined as the position before a linefeed.
         /// </summary>
         /// <param name="content">The content to be matched.</param>
         /// <returns></returns>
@@ -510,7 +510,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that is matched from the beginning of the string (or line if the multiline option is applied) to the position (before carriage return) at the end of string (or line if the multiline option is applied). End of line is defined as the position before a linefeed.
+        /// Returns a pattern that is matched from the beginning of the string (or line if the <see cref="RegexOptions.Multiline"/> option is applied) to the position (before carriage return) at the end of string (or line if the <see cref="RegexOptions.Multiline"/> option is applied). End of line is defined as the position before a linefeed.
         /// </summary>
         /// <param name="content">An object array that contains zero or more values any one of which has to be matched.</param>
         /// <returns></returns>
