@@ -30,7 +30,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiablePattern LeadingWhiteSpace()
         {
             return Patterns
-                .BeginLine()
+                .BeginInputOrLine()
                 .WhiteSpaceExceptNewLine().OneMany()
                 .AsNoncapturingGroup();
         }
@@ -43,7 +43,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             return Patterns
                 .WhiteSpaceExceptNewLine().OneMany()
-                .EndLine(true)
+                .EndInputOrLine(true)
                 .AsNoncapturingGroup();
         }
 

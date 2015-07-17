@@ -77,7 +77,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("");
 
             Console.WriteLine("words in any order:");
-            Console.WriteLine(Patterns.BeginLine()
+            Console.WriteLine(Patterns.BeginInput()
                 .Assert(Patterns.Crawl().Word("word1"))
                 .Assert(Patterns.Crawl().Word("word2"))
                 .Any().MaybeMany());
@@ -85,7 +85,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             Console.WriteLine("leading whitespace:");
             Console.WriteLine(Patterns
-                .BeginLine()
+                .BeginInputOrLine()
                 .WhiteSpaceExceptNewLine().OneMany()
                 .AsNoncapturingGroup());
             Console.WriteLine("");
