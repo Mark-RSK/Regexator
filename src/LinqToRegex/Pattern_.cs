@@ -140,23 +140,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that is matched at the beginning of the string (or line if the multiline option is applied).
-        /// </summary>
-        public QuantifiablePattern BeginLine()
-        {
-            return ConcatInternal(Patterns.BeginLine());
-        }
-
-        /// <summary>
-        /// Appends a pattern that is matched at the beginning of the line.
-        /// </summary>
-        /// <returns></returns>
-        public QuantifiablePattern BeginLineInvariant()
-        {
-            return ConcatInternal(Patterns.BeginLineInvariant());
-        }
-
-        /// <summary>
         /// Appends a pattern that is matched at the end of the string.
         /// </summary>
         /// <returns></returns>
@@ -166,7 +149,24 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that is matched at the end of the string (or line if the multiline option is applied). End of line is defined as the position before a linefeed.
+        /// Appends a pattern that is matched at the beginning of the line.
+        /// </summary>
+        public QuantifiablePattern BeginLine()
+        {
+            return ConcatInternal(Patterns.BeginLine());
+        }
+
+        /// <summary>
+        /// Appends a pattern that is matched at the beginning of the string (or line if the multiline option is applied).
+        /// </summary>
+        /// <returns></returns>
+        public QuantifiablePattern BeginInputOrLine()
+        {
+            return ConcatInternal(Patterns.BeginInputOrLine());
+        }
+
+        /// <summary>
+        /// Appends a pattern that is matched at the end of the string or line. End of line is defined as the position before a linefeed.
         /// </summary>
         /// <returns></returns>
         public QuantifiablePattern EndLine()
@@ -175,7 +175,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that is matched (before carriage return) at the end of the string (or (before carriage return) at the end of line if the multiline option is applied). End of line is defined as the position before a linefeed.
+        /// Appends a pattern that is matched (before carriage return) at the end of the string or line. End of line is defined as the position before a linefeed.
         /// </summary>
         /// <param name="beforeCarriageReturn">Indicates whether a position of the match should be before a carriage return if present and not already consumed by regex engine.</param>
         /// <returns></returns>
@@ -185,22 +185,22 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that is matched at the end of the string or line. End of line is defined as the position before a linefeed.
+        /// Appends a pattern that is matched at the end of the string (or line if the multiline option is applied). End of line is defined as the position before a linefeed.
         /// </summary>
         /// <returns></returns>
-        public QuantifiablePattern EndLineInvariant()
+        public QuantifiablePattern EndInputOrLine()
         {
-            return ConcatInternal(Patterns.EndLineInvariant());
+            return ConcatInternal(Patterns.EndInputOrLine());
         }
 
         /// <summary>
-        /// Appends a pattern that is matched (before carriage return) at the end of the string or line. End of line is defined as the position before a linefeed.
+        /// Appends a pattern that is matched (before carriage return) at the end of the string (or (before carriage return) at the end of line if the multiline option is applied). End of line is defined as the position before a linefeed.
         /// </summary>
         /// <param name="beforeCarriageReturn">Indicates whether a position of the match should be before a carriage return if present and not already consumed by regex engine</param>
         /// <returns></returns>
-        public QuantifiablePattern EndLineInvariant(bool beforeCarriageReturn)
+        public QuantifiablePattern EndInputOrLine(bool beforeCarriageReturn)
         {
-            return ConcatInternal(Patterns.EndLineInvariant(beforeCarriageReturn));
+            return ConcatInternal(Patterns.EndInputOrLine(beforeCarriageReturn));
         }
 
         /// <summary>
@@ -271,21 +271,21 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches current instance surrounded with the beginning and the end of the string (or line if the multiline option is applied). End of line is defined as the position before a linefeed.
+        /// Returns a pattern that matches current instance surrounded with the beginning and the end of line. End of line is defined as the position before a linefeed.
         /// </summary>
         /// <returns></returns>
-        public QuantifiablePattern AsLine()
+        public QuantifiablePattern AsEntireLine()
         {
             return Patterns.EntireLine(this);
         }
 
         /// <summary>
-        /// Returns a pattern that matches current instance surrounded with the beginning and the end of string or line. End of line is defined as the position before a linefeed.
+        /// Returns a pattern that matches current instance surrounded with the beginning and the end of the string (or line if the multiline option is applied). End of line is defined as the position before a linefeed.
         /// </summary>
         /// <returns></returns>
-        public Pattern AsLineInvariant()
+        public Pattern AsEntireInputOrLine()
         {
-            return Patterns.EntireLineInvariant(this);
+            return Patterns.EntireInputOrLine(this);
         }
 
         /// <summary>

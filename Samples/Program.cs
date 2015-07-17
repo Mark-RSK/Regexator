@@ -99,14 +99,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             Console.WriteLine("empty or whitespace line:");
             Console.WriteLine(Patterns
-                    .BeginLineInvariant()
+                    .BeginLine()
                     .WhiteSpaceExceptNewLine().MaybeMany()
                     .Assert(Patterns.NewLine()));
             Console.WriteLine("");
 
             Console.WriteLine("empty line:");
             Console.WriteLine(Patterns
-                .BeginLineInvariant()
+                .BeginLine()
                 .Assert(Patterns.NewLine()));
             Console.WriteLine("");
 

@@ -74,14 +74,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             if (includeNewLine)
             {
                 return Patterns
-                    .BeginLineInvariant()
+                    .BeginLine()
                     .WhiteSpaceExceptNewLine().MaybeMany()
                     .NewLine();
             }
             else
             {
                 return Patterns
-                    .BeginLineInvariant()
+                    .BeginLine()
                     .WhiteSpaceExceptNewLine().MaybeMany()
                     .Assert(Patterns.NewLine());
             }
@@ -106,13 +106,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             if (includeNewLine)
             {
                 return Patterns
-                    .BeginLineInvariant()
+                    .BeginLine()
                     .NewLine();
             }
             else
             {
                 return Patterns
-                    .BeginLineInvariant()
+                    .BeginLine()
                     .Assert(Patterns.NewLine());
             }
         }
@@ -136,7 +136,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiablePattern NonWhiteSpaceLine(bool includeNewLine)
         {
             return Patterns
-                .BeginLineInvariant()
+                .BeginLine()
                 .NotNewLineChar().MaybeMany().Lazy()
                 .NotWhiteSpace()
                 .NotNewLineChar().MaybeMany()
@@ -163,7 +163,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiablePattern NonEmptyLine(bool includeNewLine)
         {
             return Patterns
-                .BeginLineInvariant()
+                .BeginLine()
                 .NotNewLineChar().OneMany()
                 .ConcatIf(includeNewLine, Patterns.NewLine().Maybe())
                 .AsNoncapturingGroup();

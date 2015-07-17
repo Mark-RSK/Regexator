@@ -291,24 +291,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that is matched at the beginning of the string (or line if the multiline option is applied).
-        /// </summary>
-        /// <returns></returns>
-        public static QuantifiablePattern BeginLine()
-        {
-            return new StartOfLine();
-        }
-
-        /// <summary>
-        /// Returns a pattern that is matched at the beginning of the line.
-        /// </summary>
-        /// <returns></returns>
-        public static QuantifiablePattern BeginLineInvariant()
-        {
-            return Options(RegexOptions.Multiline, BeginLine());
-        }
-
-        /// <summary>
         /// Returns a pattern that is matched at the end of the string.
         /// </summary>
         /// <returns></returns>
@@ -318,16 +300,34 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that is matched at the end of the string (or line if the multiline option is applied). End of line is defined as the position before a linefeed.
+        /// Returns a pattern that is matched at the beginning of the line.
+        /// </summary>
+        /// <returns></returns>
+        public static QuantifiablePattern BeginLine()
+        {
+            return Options(RegexOptions.Multiline, BeginInputOrLine());
+        }
+
+        /// <summary>
+        /// Returns a pattern that is matched at the beginning of the string (or line if the multiline option is applied).
+        /// </summary>
+        /// <returns></returns>
+        public static QuantifiablePattern BeginInputOrLine()
+        {
+            return new StartOfLine();
+        }
+
+        /// <summary>
+        /// Returns a pattern that is matched at the end of the string or line. End of line is defined as the position before a linefeed.
         /// </summary>
         /// <returns></returns>
         public static QuantifiablePattern EndLine()
         {
-            return new EndOfLine();
+            return Options(RegexOptions.Multiline, EndInputOrLine());
         }
 
         /// <summary>
-        /// Returns a pattern that is matched (before carriage return) at the end of the string (or (before carriage return) at the end of line if the multiline option is applied). End of line is defined as the position before a linefeed.
+        /// Returns a pattern that is matched (before carriage return) at the end of the string or line. End of line is defined as the position before a linefeed.
         /// </summary>
         /// <param name="beforeCarriageReturn">Indicates whether a position of the match should be before a carriage return if present and not already consumed by regex engine</param>
         /// <returns></returns>
@@ -344,28 +344,28 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that is matched at the end of the string or line. End of line is defined as the position before a linefeed.
+        /// Returns a pattern that is matched at the end of the string (or line if the multiline option is applied). End of line is defined as the position before a linefeed.
         /// </summary>
         /// <returns></returns>
-        public static QuantifiablePattern EndLineInvariant()
+        public static QuantifiablePattern EndInputOrLine()
         {
-            return Options(RegexOptions.Multiline, EndLine());
+            return new EndOfLine();
         }
 
         /// <summary>
-        /// Returns a pattern that is matched (before carriage return) at the end of the string or line. End of line is defined as the position before a linefeed.
+        /// Returns a pattern that is matched (before carriage return) at the end of the string (or (before carriage return) at the end of line if the multiline option is applied). End of line is defined as the position before a linefeed.
         /// </summary>
         /// <param name="beforeCarriageReturn">Indicates whether a position of the match should be before a carriage return if present and not already consumed by regex engine</param>
         /// <returns></returns>
-        public static QuantifiablePattern EndLineInvariant(bool beforeCarriageReturn)
+        public static QuantifiablePattern EndInputOrLine(bool beforeCarriageReturn)
         {
             if (beforeCarriageReturn)
             {
-                return Assert(CarriageReturn().Maybe().EndLineInvariant());
+                return Assert(CarriageReturn().Maybe().EndInputOrLine());
             }
             else
             {
-                return EndLineInvariant();
+                return EndInputOrLine();
             }
         }
 
@@ -437,59 +437,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that is matched from the beginning of the string (or line if the multiline option is applied) to the position (before carriage return) at the end of string (or line if the multiline option is applied). End of line is defined as the position before a linefeed.
-        /// </summary>
-        /// <returns></returns>
-        public static QuantifiablePattern EntireLine()
-        {
-            return EntireLine(NotNewLineChar().MaybeMany());
-        }
-
-        /// <summary>
-        /// Returns a pattern that is matched from the beginning of the string (or line if the multiline option is applied) to the position (before carriage return) at the end of string (or line if the multiline option is applied). End of line is defined as the position before a linefeed.
-        /// </summary>
-        /// <param name="content">The content to be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        public static QuantifiablePattern EntireLine(object content)
-        {
-            return Pattern.Surround(BeginLine(), content, EndLine(true)).AsNoncapturingGroup();
-        }
-
-        /// <summary>
-        /// Returns a pattern that is matched from the beginning of the string (or line if the multiline option is applied) to the position (before carriage return) at the end of string (or line if the multiline option is applied). End of line is defined as the position before a linefeed.
-        /// </summary>
-        /// <param name="content">An object array that contains zero or more values any one of which has to be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        public static QuantifiablePattern EntireLine(params object[] content)
-        {
-            return EntireLine((object)content);
-        }
-
-        /// <summary>
-        /// Returns a pattern that is matched from the beginning of the string or line to the position (before carriage return) at the end of string or line. End of line is defined as the position before a linefeed.
-        /// </summary>
-        /// <param name="content">The content to be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        public static Pattern EntireLineInvariant(object content)
-        {
-            return Pattern.Surround(BeginLineInvariant(), content, EndLineInvariant(true));
-        }
-
-        /// <summary>
-        /// Returns a pattern that is matched from the beginning of the string or line to the position (before carriage return) at the end of string or line. End of line is defined as the position before a linefeed.
-        /// </summary>
-        /// <param name="content">An object array that contains zero or more values any one of which has to be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        public static Pattern EntireLineInvariant(params object[] content)
-        {
-            return EntireLineInvariant((object)content);
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a specified content surrounded with the beginning and the end of the string.
         /// </summary>
         /// <param name="content">The content to be matched.</param>
@@ -509,6 +456,68 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiablePattern EntireInput(params object[] content)
         {
             return EntireInput((object)content);
+        }
+
+        /// <summary>
+        /// Returns a pattern that is matched from the beginning of the line to the position (before carriage return) at the end of line. End of line is defined as the position before a linefeed.
+        /// </summary>
+        /// <returns></returns>
+        public static QuantifiablePattern EntireLine()
+        {
+            return EntireLine(NotNewLineChar().MaybeMany());
+        }
+
+        /// <summary>
+        /// Returns a pattern that is matched from the beginning of the line to the position (before carriage return) at the end of line. End of line is defined as the position before a linefeed.
+        /// </summary>
+        /// <param name="content">The content to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static QuantifiablePattern EntireLine(object content)
+        {
+            return Pattern.Surround(BeginLine(), content, EndLine(true)).AsNoncapturingGroup();
+        }
+
+        /// <summary>
+        /// Returns a pattern that is matched from the beginning of the line to the position (before carriage return) at the end of line. End of line is defined as the position before a linefeed.
+        /// </summary>
+        /// <param name="content">An object array that contains zero or more values any one of which has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static QuantifiablePattern EntireLine(params object[] content)
+        {
+            return EntireLine((object)content);
+        }
+
+        /// <summary>
+        /// Returns a pattern that is matched from the beginning of the string (or line if the multiline option is applied) to the position (before carriage return) at the end of string (or line if the multiline option is applied). End of line is defined as the position before a linefeed.
+        /// </summary>
+        /// <returns></returns>
+        public static Pattern EntireInputOrLine()
+        {
+            return EntireInputOrLine(NotNewLineChar().MaybeMany());
+        }
+
+        /// <summary>
+        /// Returns a pattern that is matched from the beginning of the string (or line if the multiline option is applied) to the position (before carriage return) at the end of string (or line if the multiline option is applied). End of line is defined as the position before a linefeed.
+        /// </summary>
+        /// <param name="content">The content to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static Pattern EntireInputOrLine(object content)
+        {
+            return Pattern.Surround(BeginInputOrLine(), content, EndInputOrLine(true));
+        }
+
+        /// <summary>
+        /// Returns a pattern that is matched from the beginning of the string (or line if the multiline option is applied) to the position (before carriage return) at the end of string (or line if the multiline option is applied). End of line is defined as the position before a linefeed.
+        /// </summary>
+        /// <param name="content">An object array that contains zero or more values any one of which has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static Pattern EntireInputOrLine(params object[] content)
+        {
+            return EntireInputOrLine((object)content);
         }
 
         /// <summary>
