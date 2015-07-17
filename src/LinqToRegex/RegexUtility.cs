@@ -342,17 +342,26 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentOutOfRangeException("length");
             }
 
-            var sb = new StringBuilder();
+            var sb = new StringBuilder(length);
 
-            for (int i = 0; i < length; i++)
+            lock (_randomLock)
             {
-                sb.Append((char)_random.Next(97, 122));
+                if (_random == null)
+                {
+                    _random = new Random();
+                }
+
+                for (int i = 0; i < length; i++)
+                {
+                    sb.Append((char)_random.Next(97, 122));
+                }
             }
 
             return sb.ToString();
         }
 
-        private static readonly Random _random = new Random();
+        private static readonly object _randomLock = new object();
+        private static Random _random;
 
         private static readonly CharEscapeMode[] EscapeModes = new CharEscapeMode[] {
             // 0 0x00

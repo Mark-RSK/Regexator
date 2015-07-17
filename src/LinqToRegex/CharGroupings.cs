@@ -107,7 +107,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="block">An enumerated constant that identifies Unicode block.</param>
         /// <returns></returns>
-        public static CharGrouping NotNamedBlock(NamedBlock block)
+        public static CharGrouping Not(NamedBlock block)
         {
             return Character(block, true);
         }
@@ -127,7 +127,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="category">An enumerated constant that identifies Unicode category.</param>
         /// <returns></returns>
-        public static CharGrouping NotGeneralCategory(GeneralCategory category)
+        public static CharGrouping Not(GeneralCategory category)
         {
             return Character(category, true);
         }

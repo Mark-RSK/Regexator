@@ -117,7 +117,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping Not(NamedBlock block)
         {
-            return Concat(CharGroupings.NotNamedBlock(block));
+            return Concat(CharGroupings.Not(block));
         }
 
         /// <summary>
@@ -127,7 +127,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping Not(GeneralCategory category)
         {
-            return Concat(CharGroupings.NotGeneralCategory(category));
+            return Concat(CharGroupings.Not(category));
         }
 
         /// <summary>
