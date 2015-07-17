@@ -1475,7 +1475,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a specified number of latin alphabet upper-case letters. 
+        /// Appends a pattern that matches a specified number of latin alphabet upper-case letters.
         /// </summary>
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
@@ -1486,7 +1486,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a latin alphabet upper-case letter from minimal to maximum times. 
+        /// Appends a pattern that matches a latin alphabet upper-case letter from minimal to maximum times.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
@@ -5017,7 +5017,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="openingCharacter">Opening Unicode character to balance.</param>
         /// <param name="closingCharacter">Closing Unicode character to balance.</param>
         /// <param name="groupName">A name of the group that contains balanced content of the opening and closing character.</param>
-        /// <returns></returns> 
+        /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentException"></exception>
         public Pattern Balance(char openingCharacter, char closingCharacter, string groupName)

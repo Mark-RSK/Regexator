@@ -423,7 +423,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 Append(charGrouping);
                 return;
             }
-            
+
             object[] values = content as object[];
             if (values != null)
             {

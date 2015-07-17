@@ -5155,7 +5155,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="openingCharacter">Opening Unicode character to balance.</param>
         /// <param name="closingCharacter">Closing Unicode character to balance.</param>
         /// <param name="groupName">A name of the group that contains balanced content of the opening and closing character.</param>
-        /// <returns></returns> 
+        /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentException"></exception>
         public static Pattern Balance(char openingCharacter, char closingCharacter, string groupName)
