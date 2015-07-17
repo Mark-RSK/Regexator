@@ -27,7 +27,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Specifies a pattern that is matched at the beginning of the string (or line if the <see cref="RegexOptions.Multiline"/> option is applied).
         /// </summary>
-        public const string BeginningOfLine = "^";
+        public const string BeginningOfInputOrLine = "^";
 
         /// <summary>
         /// Specifies a pattern that is matched at the end of the string.
@@ -37,7 +37,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Specifies a pattern that is matched at the end of the string (or line if the <see cref="RegexOptions.Multiline"/> option is applied). End of line is defined as the position before a linefeed.
         /// </summary>
-        public const string EndOfLine = "$";
+        public const string EndOfInputOrLine = "$";
 
         /// <summary>
         /// Specifies a pattern that is matched at the end of the string or before linefeed at the end of the string.

@@ -656,7 +656,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         public void AppendBeginningOfLine()
         {
-            _sb.Append(Syntax.BeginningOfLine);
+            _sb.Append(Syntax.BeginningOfInputOrLine);
         }
 
         /// <summary>
@@ -672,7 +672,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         public void AppendEndOfLine()
         {
-            _sb.Append(Syntax.EndOfLine);
+            _sb.Append(Syntax.EndOfInputOrLine);
         }
 
         /// <summary>
