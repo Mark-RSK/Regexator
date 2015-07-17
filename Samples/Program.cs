@@ -31,7 +31,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 .SurroundAngleBrackets(
                     "!" + Patterns.SurroundSquareBrackets(
                         "CDATA" + Patterns.SurroundSquareBrackets(
-                            Patterns.CrawlInvariant().AsGroup()
+                            Patterns.Crawl().AsGroup()
                         )
                     )
                 ));
@@ -78,9 +78,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             Console.WriteLine("words in any order:");
             Console.WriteLine(Patterns.BeginLine()
-                .Assert(Patterns.CrawlInvariant().Word("word1"))
-                .Assert(Patterns.CrawlInvariant().Word("word2"))
-                .AnyInvariant().MaybeMany());
+                .Assert(Patterns.Crawl().Word("word1"))
+                .Assert(Patterns.Crawl().Word("word2"))
+                .Any().MaybeMany());
             Console.WriteLine("");
 
             Console.WriteLine("leading whitespace:");

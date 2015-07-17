@@ -201,7 +201,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             var chars = Patterns.MaybeMany(!CharGroupings.QuoteMark().Backslash());
 
-            var content = chars + Patterns.MaybeMany(Patterns.Backslash().AnyInvariant() + chars);
+            var content = chars + Patterns.MaybeMany(Patterns.Backslash().Any() + chars);
 
             var pattern = (contentGroupName != null)
                 ? Patterns.NamedGroup(contentGroupName, content)

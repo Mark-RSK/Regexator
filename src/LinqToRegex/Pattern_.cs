@@ -1032,7 +1032,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches any character except linefeed (or any character if the Singleline option is applied).
+        /// Appends a pattern that matches any character.
         /// </summary>
         /// <returns></returns>
         public QuantifiablePattern Any()
@@ -1041,7 +1041,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches any character except linefeed (or any character if the Singleline option is applied) specified number of times.
+        /// Appends a pattern that matches any character specified number of times.
         /// </summary>
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
@@ -1052,7 +1052,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches any character except linefeed (or any character if the Singleline option is applied) from minimal to maximum times.
+        /// Appends a pattern that matches any character from minimal to maximum times.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
@@ -1064,39 +1064,71 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches any character.
+        /// Appends a pattern that matches any character except linefeed.
         /// </summary>
         /// <returns></returns>
-        public QuantifiablePattern AnyInvariant()
+        public QuantifiablePattern AnyExceptLinefeed()
         {
-            return ConcatInternal(Patterns.AnyInvariant());
+            return ConcatInternal(Patterns.AnyExceptLinefeed());
         }
 
         /// <summary>
-        /// Appends a pattern that matches any character specified number of times.
+        /// Appends a pattern that matches any character except linefeed specified number of times.
         /// </summary>
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public QuantifiedGroup AnyInvariant(int exactCount)
+        public QuantifiedGroup AnyExceptLinefeed(int exactCount)
         {
-            return ConcatInternal(Patterns.AnyInvariant(exactCount));
+            return ConcatInternal(Patterns.AnyExceptLinefeed(exactCount));
         }
 
         /// <summary>
-        /// Appends a pattern that matches any character from minimal to maximum times.
+        /// Appends a pattern that matches any character except linefeed from minimal to maximum times.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public QuantifiedGroup AnyInvariant(int minCount, int maxCount)
+        public QuantifiedGroup AnyExceptLinefeed(int minCount, int maxCount)
         {
-            return ConcatInternal(Patterns.AnyInvariant(minCount, maxCount));
+            return ConcatInternal(Patterns.AnyExceptLinefeed(minCount, maxCount));
         }
 
         /// <summary>
-        /// Appends a pattern that matches any character except linefeed (or any character if the Singleline option is applied) zero or more times but as few times as possible.
+        /// Appends a pattern that matches any character except linefeed (or any character if the Singleline option is applied).
+        /// </summary>
+        /// <returns></returns>
+        public QuantifiablePattern AnyNative()
+        {
+            return ConcatInternal(Patterns.AnyNative());
+        }
+
+        /// <summary>
+        /// Appends a pattern that matches any character except linefeed (or any character if the Singleline option is applied) specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public QuantifiedGroup AnyNative(int exactCount)
+        {
+            return ConcatInternal(Patterns.AnyNative(exactCount));
+        }
+
+        /// <summary>
+        /// Appends a pattern that matches any character except linefeed (or any character if the Singleline option is applied) from minimal to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public QuantifiedGroup AnyNative(int minCount, int maxCount)
+        {
+            return ConcatInternal(Patterns.AnyNative(minCount, maxCount));
+        }
+
+        /// <summary>
+        /// Appends a pattern that matches any character zero or more times but as few times as possible.
         /// </summary>
         /// <returns></returns>
         public Pattern Crawl()
@@ -1105,12 +1137,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches any character zero or more times but as few times as possible.
+        /// Appends a pattern that matches any character except linefeed (or any character if the Singleline option is applied) zero or more times but as few times as possible.
         /// </summary>
         /// <returns></returns>
-        public Pattern CrawlInvariant()
+        public Pattern CrawlNative()
         {
-            return ConcatInternal(Patterns.CrawlInvariant());
+            return ConcatInternal(Patterns.CrawlNative());
         }
 
         /// <summary>

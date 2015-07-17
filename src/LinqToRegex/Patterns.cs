@@ -3451,16 +3451,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches any character except linefeed (or any character if the Singleline option is applied).
+        /// Returns a pattern that matches any character.
         /// </summary>
         /// <returns></returns>
         public static QuantifiablePattern Any()
         {
-            return new AnyChar();
+            return Character(CharGroupings.WhiteSpace().NotWhiteSpace());
         }
 
         /// <summary>
-        /// Returns a pattern that matches any character except linefeed (or any character if the Singleline option is applied) specified number of times.
+        /// Returns a pattern that matches any character specified number of times.
         /// </summary>
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
@@ -3471,7 +3471,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches any character except linefeed (or any character if the Singleline option is applied) from minimal to maximum times.
+        /// Returns a pattern that matches any character from minimal to maximum times.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
@@ -3483,35 +3483,67 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches any character.
+        /// Returns a pattern that matches any character except linefeed.
         /// </summary>
         /// <returns></returns>
-        public static CharGroup AnyInvariant()
+        public static QuantifiablePattern AnyExceptLinefeed()
         {
-            return Character(CharGroupings.WhiteSpace().NotWhiteSpace());
+            return DisableOptions(RegexOptions.Singleline, new AnyChar());
         }
 
         /// <summary>
-        /// Returns a pattern that matches any character specified number of times.
+        /// Returns a pattern that matches any character except linefeed specified number of times.
         /// </summary>
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup AnyInvariant(int exactCount)
+        public static QuantifiedGroup AnyExceptLinefeed(int exactCount)
         {
-            return Count(exactCount, AnyInvariant());
+            return Count(exactCount, AnyExceptLinefeed());
         }
 
         /// <summary>
-        /// Returns a pattern that matches any character from minimal to maximum times.
+        /// Returns a pattern that matches any character except linefeed from minimal to maximum times.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup AnyInvariant(int minCount, int maxCount)
+        public static QuantifiedGroup AnyExceptLinefeed(int minCount, int maxCount)
         {
-            return Count(minCount, maxCount, AnyInvariant());
+            return Count(minCount, maxCount, AnyExceptLinefeed());
+        }
+
+        /// <summary>
+        /// Returns a pattern that matches any character except linefeed (or any character if the Singleline option is applied).
+        /// </summary>
+        /// <returns></returns>
+        public static QuantifiablePattern AnyNative()
+        {
+            return new AnyChar();
+        }
+
+        /// <summary>
+        /// Returns a pattern that matches any character except linefeed (or any character if the Singleline option is applied) specified number of times.
+        /// </summary>
+        /// <param name="exactCount">A number of times a character has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public static QuantifiedGroup AnyNative(int exactCount)
+        {
+            return Count(exactCount, AnyNative());
+        }
+
+        /// <summary>
+        /// Returns a pattern that matches any character except linefeed (or any character if the Singleline option is applied) from minimal to maximum times.
+        /// </summary>
+        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
+        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public static QuantifiedGroup AnyNative(int minCount, int maxCount)
+        {
+            return Count(minCount, maxCount, AnyNative());
         }
 
         /// <summary>
@@ -5071,7 +5103,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches any character except linefeed (or any character if the Singleline option is applied) zero or more times but as few times as possible.
+        /// Returns a pattern that matches any character zero or more times but as few times as possible.
         /// </summary>
         /// <returns></returns>
         public static Pattern Crawl()
@@ -5080,12 +5112,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches any character zero or more times but as few times as possible.
+        /// Returns a pattern that matches any character except linefeed (or any character if the Singleline option is applied) zero or more times but as few times as possible.
         /// </summary>
         /// <returns></returns>
-        public static Pattern CrawlInvariant()
+        public static Pattern CrawlNative()
         {
-            return AnyInvariant().MaybeMany().Lazy();
+            return AnyNative().MaybeMany().Lazy();
         }
 
         /// <summary>
