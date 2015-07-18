@@ -249,25 +249,25 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches specified text surrounded with a word boundary.
+        /// Appends a pattern that matches spefified pattern surrounded with a word boundary.
         /// </summary>
-        /// <param name="text">A text to surround.</param>
+        /// <param name="content">A text to surround.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public QuantifiablePattern Word(string text)
+        public QuantifiablePattern SurroundWordBoundary(object content)
         {
-            return ConcatInternal(Patterns.Word(text));
+            return ConcatInternal(Patterns.SurroundWordBoundary(content));
         }
 
         /// <summary>
-        /// Appends a pattern that matches any one of the specified values surrounded with a word boundary.
+        /// Appends a pattern that matches specified content surrounded with a word boundary.
         /// </summary>
-        /// <param name="values">An object array that contains zero or more values any one of which has to be matched.</param>
+        /// <param name="content">An object array that contains zero or more values any one of which has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public QuantifiablePattern Word(params string[] values)
+        public QuantifiablePattern SurroundWordBoundary(params object[] content)
         {
-            return ConcatInternal(Patterns.Word(values));
+            return ConcatInternal(Patterns.SurroundWordBoundary(content));
         }
 
         /// <summary>

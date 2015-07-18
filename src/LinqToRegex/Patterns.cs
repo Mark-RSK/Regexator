@@ -415,25 +415,25 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches spefified text surrounded with a word boundary.
+        /// Returns a pattern that matches spefified pattern surrounded with a word boundary.
         /// </summary>
-        /// <param name="text">A text to be matched.</param>
+        /// <param name="content">A text to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static QuantifiablePattern Word(string text)
+        public static QuantifiablePattern SurroundWordBoundary(object content)
         {
-            return Pattern.Surround(WordBoundary(), text).AsNoncapturingGroup();
+            return Pattern.Surround(WordBoundary(), content).AsNoncapturingGroup();
         }
 
         /// <summary>
-        /// Returns a pattern that matches any one of the specified values surrounded with a word boundary.
+        /// Returns a pattern that matches specified content surrounded with a word boundary.
         /// </summary>
-        /// <param name="values">An object array that contains zero or more values any one of which has to be matched.</param>
+        /// <param name="content">An object array that contains zero or more values any one of which has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static QuantifiablePattern Word(params string[] values)
+        public static QuantifiablePattern SurroundWordBoundary(params object[] content)
         {
-            return Pattern.Surround(WordBoundary(), (object)values).AsNoncapturingGroup();
+            return SurroundWordBoundary((object)content);
         }
 
         /// <summary>

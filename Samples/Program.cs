@@ -73,13 +73,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.WriteLine("");
 
             Console.WriteLine("any word");
-            Console.WriteLine(Patterns.Word("word1", "word2", "word3"));
+            Console.WriteLine(Patterns.SurroundWordBoundary("word1", "word2", "word3"));
             Console.WriteLine("");
 
             Console.WriteLine("words in any order:");
             Console.WriteLine(Patterns.BeginInput()
-                .Assert(Patterns.Crawl().Word("word1"))
-                .Assert(Patterns.Crawl().Word("word2"))
+                .Assert(Patterns.Crawl().SurroundWordBoundary("word1"))
+                .Assert(Patterns.Crawl().SurroundWordBoundary("word2"))
                 .Any().MaybeMany());
             Console.WriteLine("");
 
