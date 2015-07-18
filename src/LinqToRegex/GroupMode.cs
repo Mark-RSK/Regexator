@@ -8,17 +8,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     internal enum GroupMode
     {
         /// <summary>
-        /// <see cref="AnyGroup"/> will not be enclosed in the group.
+        /// Specifies that <see cref="AnyGroup"/> will not be enclosed in the group.
         /// </summary>
         None,
 
         /// <summary>
-        /// <see cref="AnyGroup"/> will be enclosed in the group.
+        /// Specifies that <see cref="AnyGroup"/> will be enclosed in the group.
         /// </summary>
         Group,
 
         /// <summary>
-        /// <see cref="AnyGroup"/> will be enclosed in the noncapturing group.
+        /// Specifies that <see cref="AnyGroup"/> will be enclosed in the noncapturing group.
         /// </summary>
         NoncapturingGroup
     }
