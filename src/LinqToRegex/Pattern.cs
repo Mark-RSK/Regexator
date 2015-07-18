@@ -233,6 +233,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return ToString(PatternOptions.None);
         }
 
+        internal string ToString(RegexOptions options)
+        {
+            return ToString(new PatternSettings(), options);
+        }
+
         /// <summary>
         /// Constructs a pattern text that represents the current instance. with options that modify the pattern.
         /// </summary>
@@ -250,7 +255,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public string ToString(PatternSettings settings)
         {
-            var builder = new PatternBuilder(settings);
+            return ToString(settings, RegexOptions.None);
+        }
+
+        internal string ToString(PatternSettings settings, RegexOptions options)
+        {
+            var builder = new PatternBuilder(settings, options);
             builder.Append(this);
             return builder.ToString();
         }
@@ -282,7 +292,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public MatchCollection Matches(string input, RegexOptions options)
         {
-            return Regex.Matches(input, Value, options);
+            return Regex.Matches(input, ToString(options), options);
         }
 
         /// <summary>
@@ -305,7 +315,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public IEnumerable<Match> EnumerateMatches(string input, RegexOptions options)
         {
-            Match match = Regex.Match(input, Value, options);
+            Match match = Regex.Match(input, ToString(options), options);
             while (match.Success)
             {
                 yield return match;
@@ -558,7 +568,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public bool IsMatch(string input, RegexOptions options)
         {
-            return Regex.IsMatch(input, Value, options);
+            return Regex.IsMatch(input, ToString(options), options);
         }
 
         /// <summary>
@@ -581,7 +591,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public Match Match(string input, RegexOptions options)
         {
-            return Regex.Match(input, Value, options);
+            return Regex.Match(input, ToString(options), options);
         }
 
         /// <summary>
@@ -617,7 +627,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public string Replace(string input, MatchEvaluator evaluator, RegexOptions options)
         {
-            return Regex.Replace(input, Value, evaluator, options);
+            return Regex.Replace(input, ToString(options), evaluator, options);
         }
 
         /// <summary>
@@ -640,7 +650,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public string Replace(string input, string replacement, RegexOptions options)
         {
-            return Regex.Replace(input, Value, replacement, options);
+            return Regex.Replace(input, ToString(options), replacement, options);
         }
 
         /// <summary>
@@ -661,7 +671,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public string[] Split(string input, RegexOptions options)
         {
-            return Regex.Split(input, Value, options);
+            return Regex.Split(input, ToString(options), options);
         }
 
         /// <summary>
