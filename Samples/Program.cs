@@ -59,7 +59,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                     Patterns.MaybeMany(Patterns.NotAssert("<b>").Any())
                     .Text("</b>"));
 
-            Console.WriteLine("digits inside b element value", exp);
+            Dump("digits inside b element value", exp);
 
             exp = Patterns.Word().AsGroup()
                 .WhiteSpaces()
