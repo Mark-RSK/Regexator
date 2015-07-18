@@ -265,13 +265,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return builder.ToString();
         }
 
-        internal static string GetPattern(object content, PatternSettings settings)
-        {
-            var builder = new PatternBuilder(settings);
-            builder.Append(content);
-            return builder.ToString();
-        }
-
         /// <summary>
         /// Searches the specified input string for all matches.
         /// </summary>

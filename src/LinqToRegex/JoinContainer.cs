@@ -33,11 +33,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
                     if (values.Length > 1)
                     {
-                        string separator = GetPattern(_separator, builder.Settings);
-
                         for (int i = 1; i < values.Length; i++)
                         {
-                            builder.AppendInternal(separator);
+                            builder.Append(_separator);
                             builder.Append(values[i]);
                         }
                     }
@@ -54,14 +52,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
                         if (en.MoveNext())
                         {
-                            string separator = GetPattern(_separator, builder.Settings);
-
-                            builder.AppendInternal(separator);
+                            builder.Append(_separator);
                             builder.Append(en.Current);
 
                             while (en.MoveNext())
                             {
-                                builder.AppendInternal(separator);
+                                builder.Append(_separator);
                                 builder.Append(en.Current);
                             }
                         }

@@ -165,14 +165,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        internal void AppendInternal(string value)
-        {
-            if (!string.IsNullOrEmpty(value))
-            {
-                _sb.Append(value);
-            }
-        }
-
         /// <summary>
         /// Appends specified character to this instance.
         /// </summary>
