@@ -3,17 +3,17 @@
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
-    /// Specifies which characters will be used to enclose group name in the named group, balancing group and named group backreference.
+    /// Specifies which characters will be used to surround group name in the named group, balancing group and named group backreference.
     /// </summary>
     public enum IdentifierBoundary
     {
         /// <summary>
-        /// Group name will be enclosed in less-than character on the left side and greater-than character on the right side.
+        /// Group name will be surrounded with less-than character on the left side and greater-than character on the right side.
         /// </summary>
         AngleBrackets,
 
         /// <summary>
-        /// Group name will be enclosed in apostrophes.
+        /// Group name will be surrounded with apostrophes.
         /// </summary>
         Apostrophe
     }
