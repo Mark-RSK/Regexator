@@ -119,7 +119,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="value">A value to negate.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static CharGroup operator !(CharGroup value)
         {
             if (value == null)
@@ -137,7 +136,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentException"></exception>
-        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static explicit operator CharGroup(string characters)
         {
             return Create(characters, false);
@@ -149,7 +147,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="value">An instance of the <see cref="CharGrouping"/> class.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static explicit operator CharGroup(CharGrouping value)
         {
             return Create(value, false);
@@ -162,8 +159,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="excludedGroup">An excluded group.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
-        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static CharSubtraction operator -(CharGroup baseGroup, CharGroup excludedGroup)
         {
             return new CharSubtraction(baseGroup, excludedGroup);
@@ -176,8 +171,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="excludedGroup">An excluded group.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
-        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static CharSubtraction operator -(CharGroup baseGroup, CharGrouping excludedGroup)
         {
             return new CharSubtraction(baseGroup, excludedGroup);
@@ -190,8 +183,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="excludedGroup">An excluded group.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
-        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static CharSubtraction operator -(CharGroup baseGroup, CharPattern excludedGroup)
         {
             return new CharSubtraction(baseGroup, excludedGroup);

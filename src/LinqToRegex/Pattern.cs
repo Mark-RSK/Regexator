@@ -671,8 +671,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="right">The second element to concatenate.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
-        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static Pattern operator +(Pattern left, Pattern right)
         {
             if (left == null)
@@ -695,8 +693,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="right">The second element to concatenate.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
-        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static Pattern operator +(Pattern left, string right)
         {
             if (left == null)
@@ -719,8 +715,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="right">The second element to concatenate.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
-        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static Pattern operator +(string left, Pattern right)
         {
             if (left == null)
@@ -743,8 +737,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="right">The second element to concatenate.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
-        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static Pattern operator +(Pattern left, char right)
         {
             if (left == null)
@@ -762,8 +754,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="right">The second element to concatenate.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        [SuppressMessage("Microsoft.Design", "CA1013:OverloadOperatorEqualsOnOverloadingAddAndSubtract")]
-        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static Pattern operator +(char left, Pattern right)
         {
             if (right == null)
@@ -781,7 +771,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="right">The second element to match.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static QuantifiablePattern operator |(Pattern left, Pattern right)
         {
             return Patterns.Or(left, right);
@@ -794,7 +783,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="right">The second element to match.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static QuantifiablePattern operator |(Pattern left, string right)
         {
             return Patterns.Or(left, right);
@@ -807,7 +795,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="right">The second element to match.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static QuantifiablePattern operator |(string left, Pattern right)
         {
             return Patterns.Or(left, right);
@@ -820,7 +807,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="right">The second element to match.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static QuantifiablePattern operator |(Pattern left, CharGrouping right)
         {
             return Patterns.Or(left, right);
@@ -833,7 +819,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="right">The second element to match.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static QuantifiablePattern operator |(CharGrouping left, Pattern right)
         {
             return Patterns.Or(left, right);
@@ -846,7 +831,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="right">The second element to match.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static QuantifiablePattern operator |(Pattern left, char right)
         {
             return Patterns.Or(left, right.ToString());
@@ -859,7 +843,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="right">The second element to match.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static QuantifiablePattern operator |(char left, Pattern right)
         {
             return Patterns.Or(left.ToString(), right);

@@ -32,7 +32,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="value">A value to negate.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static NegativeWordBoundary operator !(WordBoundary value)
         {
             if (value == null)

@@ -35,7 +35,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="value">A value to negate.</param>
         /// <returns></returns>
-        [SuppressMessage("Microsoft.Usage", "CA2225:OperatorOverloadsHaveNamedAlternates")]
         public static NegativeBackAssertion operator !(BackAssertion value)
         {
             if (value == null)
