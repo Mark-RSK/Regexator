@@ -10,8 +10,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
         internal static void Main(string[] args)
         {
-            Console.WriteLine("email");
-
             var left = Patterns.OneMany(CharGroupings.Alphanumeric() + "!#$%&'*+/=?^_`{|}~-");
 
             var right = Patterns.Maybe(Patterns.MaybeMany(CharGroupings.Alphanumeric() + "-").Alphanumeric());
@@ -23,112 +21,118 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 .Alphanumeric()
                 .Concat(right);
 
-            Console.WriteLine(exp);
-            Console.WriteLine("");
+            Dump("email", exp);
 
-            Console.WriteLine("cdata value");
-            Console.WriteLine(Patterns
+            exp = Patterns
                 .SurroundAngleBrackets(
                     "!" + Patterns.SurroundSquareBrackets(
                         "CDATA" + Patterns.SurroundSquareBrackets(
                             Patterns.Crawl().AsGroup()
                         )
                     )
-                ));
-            Console.WriteLine("");
+                );
+
+            Dump("cdata value", exp);
 
             var values = new string[] { "one", "two", "three" };
 
-            Console.WriteLine("multiple words");
-            Console.WriteLine(
-                Patterns.WordBoundary()
+            exp = Patterns.WordBoundary()
                 .CountFrom(3,
                     Patterns.Any(values.Select(f => Patterns.Text(f).AsGroup()))
                     .WordBoundary()
                     .NotWordChar().MaybeMany().Lazy())
                 .GroupReference(1)
                 .GroupReference(2)
-                .GroupReference(3));
-            Console.WriteLine("");
+                .GroupReference(3);
 
-            Console.WriteLine("verbatim quoted text");
-            Console.WriteLine(Patterns.AtSign().SurroundQuoteMarks(
+            Dump("multiple words", exp);
+
+            exp = Patterns.AtSign().SurroundQuoteMarks(
                 Patterns.WhileNotChar('"')
-                .MaybeMany(Patterns.QuoteMark(2).WhileNotChar('"'))));
-            Console.WriteLine("");
+                .MaybeMany(Patterns.QuoteMark(2).WhileNotChar('"')));
 
-            Console.WriteLine("digits inside b element value");
-            Console.WriteLine(Patterns
+            Dump("verbatim quoted text", exp);
+
+            exp = Patterns
                 .Digits()
                 .Assert(
                     Patterns.MaybeMany(Patterns.NotAssert("<b>").Any())
-                    .Text("</b>")));
-            Console.WriteLine("");
+                    .Text("</b>"));
 
-            Console.WriteLine("repeated word");
-            Console.WriteLine(Patterns.Word().AsGroup()
+            Console.WriteLine("digits inside b element value", exp);
+
+            exp = Patterns.Word().AsGroup()
                 .WhiteSpaces()
                 .GroupReference(1)
-                .WordBoundary());
-            Console.WriteLine("");
+                .WordBoundary();
 
-            Console.WriteLine("any word");
-            Console.WriteLine(Patterns.SurroundWordBoundary("word1", "word2", "word3"));
-            Console.WriteLine("");
+            Dump("repeated word", exp);
 
-            Console.WriteLine("words in any order:");
-            Console.WriteLine(Patterns.BeginInput()
+            exp = Patterns.SurroundWordBoundary("word1", "word2", "word3");
+
+            Dump("any word", exp);
+
+            exp = Patterns.BeginInput()
                 .Assert(Patterns.Crawl().SurroundWordBoundary("word1"))
                 .Assert(Patterns.Crawl().SurroundWordBoundary("word2"))
-                .Any().MaybeMany());
-            Console.WriteLine("");
+                .Any().MaybeMany();
 
-            Console.WriteLine("leading whitespace:");
-            Console.WriteLine(Patterns
+            Dump("words in any order", exp);
+
+            exp = Patterns
                 .BeginInputOrLine()
                 .WhiteSpaceExceptNewLine().OneMany()
-                .AsNoncapturingGroup());
-            Console.WriteLine("");
+                .AsNoncapturingGroup();
+            
+            Dump("leading whitespace", exp);
 
-            Console.WriteLine("trailing whitespace:");
-            Console.WriteLine(Patterns
+            exp = Patterns
                 .WhiteSpaceExceptNewLine().OneMany()
                 .EndLine(true)
-                .AsNoncapturingGroup());
-            Console.WriteLine("");
+                .AsNoncapturingGroup();
+            
+            Dump("trailing whitespace", exp);
 
-            Console.WriteLine("empty or whitespace line:");
-            Console.WriteLine(Patterns
-                    .BeginLine()
-                    .WhiteSpaceExceptNewLine().MaybeMany()
-                    .Assert(Patterns.NewLine()));
-            Console.WriteLine("");
-
-            Console.WriteLine("empty line:");
-            Console.WriteLine(Patterns
+            exp = Patterns
                 .BeginLine()
-                .Assert(Patterns.NewLine()));
-            Console.WriteLine("");
+                .WhiteSpaceExceptNewLine().MaybeMany()
+                .Assert(Patterns.NewLine());
 
-            Console.WriteLine("first line:");
-            Console.WriteLine(Patterns
+            Dump("empty or whitespace line", exp);
+
+            exp = Patterns
+                .BeginLine()
+                .Assert(Patterns.NewLine());
+
+            Dump("empty line", exp);
+
+            exp = Patterns
                 .BeginInput()
                 .NotNewLineChar().MaybeMany()
-                .AsNoncapturingGroup());
-            Console.WriteLine("");
+                .AsNoncapturingGroup();
 
-            Console.WriteLine("linefeed without carriage return:");
-            Console.WriteLine(Patterns
+            Dump("first line", exp);
+
+            exp = Patterns
                 .NotAssertBack(Patterns.CarriageReturn())
                 .Linefeed()
-                .AsNoncapturingGroup());
-            Console.WriteLine("");
+                .AsNoncapturingGroup();
 
-            Console.WriteLine("invalid file name chars:");
-            Console.WriteLine(Patterns.NonbacktrackingGroup(Path.GetInvalidFileNameChars().OrderBy(f => (int)f).Select(f => Patterns.Character(f))));
-            Console.WriteLine("");
+            Dump("linefeed without carriage return", exp);
+
+            exp = Patterns.NonbacktrackingGroup(Path.GetInvalidFileNameChars().OrderBy(f => (int)f).Select(f => Patterns.Character(f)));
+
+            Dump("invalid file name chars", exp);
 
             Console.ReadKey();
+        }
+
+        private static void Dump(string title, Pattern pattern)
+        {
+            Console.Write(title);
+            Console.WriteLine(":");
+            Console.WriteLine(pattern);
+            Console.WriteLine(string.Empty);
         }
     }
 }
