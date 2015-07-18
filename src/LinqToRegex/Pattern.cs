@@ -871,7 +871,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return CharPattern.Create(value);
         }
 
-        internal string Value
+        private string Value
         {
             get
             {
