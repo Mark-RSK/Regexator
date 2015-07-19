@@ -4280,67 +4280,67 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a vertical line.
+        /// Appends a pattern that matches a vertical bar.
         /// </summary>
         /// <returns></returns>
-        public QuantifiablePattern VerticalLine()
+        public QuantifiablePattern VerticalBar()
         {
-            return ConcatInternal(Patterns.VerticalLine());
+            return ConcatInternal(Patterns.VerticalBar());
         }
 
         /// <summary>
-        /// Appends a pattern that matches a specified number of vertical lines.
+        /// Appends a pattern that matches a specified number of vertical bars.
         /// </summary>
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public QuantifiedGroup VerticalLine(int exactCount)
+        public QuantifiedGroup VerticalBar(int exactCount)
         {
-            return ConcatInternal(Patterns.VerticalLine(exactCount));
+            return ConcatInternal(Patterns.VerticalBar(exactCount));
         }
 
         /// <summary>
-        /// Appends a pattern that matches a vertical line from minimum to maximum times.
+        /// Appends a pattern that matches a vertical bar from minimum to maximum times.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public QuantifiedGroup VerticalLine(int minCount, int maxCount)
+        public QuantifiedGroup VerticalBar(int minCount, int maxCount)
         {
-            return ConcatInternal(Patterns.VerticalLine(minCount, maxCount));
+            return ConcatInternal(Patterns.VerticalBar(minCount, maxCount));
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not a vertical line.
+        /// Appends a pattern that matches a character that is not a vertical bar.
         /// </summary>
         /// <returns></returns>
-        public QuantifiablePattern NotVerticalLine()
+        public QuantifiablePattern NotVerticalBar()
         {
-            return ConcatInternal(Patterns.NotVerticalLine());
+            return ConcatInternal(Patterns.NotVerticalBar());
         }
 
         /// <summary>
-        /// Appends a pattern that matches a specified number of characters that are not a vertical line.
+        /// Appends a pattern that matches a specified number of characters that are not a vertical bar.
         /// </summary>
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public QuantifiedGroup NotVerticalLine(int exactCount)
+        public QuantifiedGroup NotVerticalBar(int exactCount)
         {
-            return ConcatInternal(Patterns.NotVerticalLine(exactCount));
+            return ConcatInternal(Patterns.NotVerticalBar(exactCount));
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not a vertical line from minimum to maximum times.
+        /// Appends a pattern that matches a character that is not a vertical bar from minimum to maximum times.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public QuantifiedGroup NotVerticalLine(int minCount, int maxCount)
+        public QuantifiedGroup NotVerticalBar(int minCount, int maxCount)
         {
-            return ConcatInternal(Patterns.NotVerticalLine(minCount, maxCount));
+            return ConcatInternal(Patterns.NotVerticalBar(minCount, maxCount));
         }
 
         /// <summary>

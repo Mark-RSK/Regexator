@@ -527,12 +527,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a vertical line.
+        /// Appends a pattern that matches a vertical bar.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping VerticalLine()
+        public CharGrouping VerticalBar()
         {
-            return Concat(CharGroupings.VerticalLine());
+            return Concat(CharGroupings.VerticalBar());
         }
 
         /// <summary>

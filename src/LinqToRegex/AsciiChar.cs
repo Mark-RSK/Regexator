@@ -628,9 +628,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         LeftCurlyBracket,
 
         /// <summary>
-        /// Vertical Line. The value is 124. The hexadecimal value is 0x7C.
+        /// Vertical Bar. The value is 124. The hexadecimal value is 0x7C.
         /// </summary>
-        VerticalLine,
+        VerticalBar,
 
         /// <summary>
         /// Right Curly Bracket. The value is 125. The hexadecimal value is 0x7D.

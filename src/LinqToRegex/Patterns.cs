@@ -3268,67 +3268,67 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a vertical line.
+        /// Returns a pattern that matches a vertical bar.
         /// </summary>
         /// <returns></returns>
-        public static CharPattern VerticalLine()
+        public static CharPattern VerticalBar()
         {
-            return Character(AsciiChar.VerticalLine);
+            return Character(AsciiChar.VerticalBar);
         }
 
         /// <summary>
-        /// Returns a pattern that matches a specified number of vertical lines.
+        /// Returns a pattern that matches a specified number of vertical bars.
         /// </summary>
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup VerticalLine(int exactCount)
+        public static QuantifiedGroup VerticalBar(int exactCount)
         {
-            return Count(exactCount, VerticalLine());
+            return Count(exactCount, VerticalBar());
         }
 
         /// <summary>
-        /// Returns a pattern that matches a vertical line from minimum to maximum times.
+        /// Returns a pattern that matches a vertical bar from minimum to maximum times.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup VerticalLine(int minCount, int maxCount)
+        public static QuantifiedGroup VerticalBar(int minCount, int maxCount)
         {
-            return Count(minCount, maxCount, VerticalLine());
+            return Count(minCount, maxCount, VerticalBar());
         }
 
         /// <summary>
-        /// Returns a pattern that matches a character that is not a vertical line.
+        /// Returns a pattern that matches a character that is not a vertical bar.
         /// </summary>
         /// <returns></returns>
-        public static QuantifiablePattern NotVerticalLine()
+        public static QuantifiablePattern NotVerticalBar()
         {
-            return Not(AsciiChar.VerticalLine);
+            return Not(AsciiChar.VerticalBar);
         }
 
         /// <summary>
-        /// Returns a pattern that matches a specified number of characters that are not a vertical line.
+        /// Returns a pattern that matches a specified number of characters that are not a vertical bar.
         /// </summary>
         /// <param name="exactCount">A number of times a character has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotVerticalLine(int exactCount)
+        public static QuantifiedGroup NotVerticalBar(int exactCount)
         {
-            return Count(exactCount, NotVerticalLine());
+            return Count(exactCount, NotVerticalBar());
         }
 
         /// <summary>
-        /// Returns a pattern that matches a character that is not a vertical line from minimum to maximum times.
+        /// Returns a pattern that matches a character that is not a vertical bar from minimum to maximum times.
         /// </summary>
         /// <param name="minCount">A minimal number of times a character has to be matched.</param>
         /// <param name="maxCount">A maximum number of times a character can be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotVerticalLine(int minCount, int maxCount)
+        public static QuantifiedGroup NotVerticalBar(int minCount, int maxCount)
         {
-            return Count(minCount, maxCount, NotVerticalLine());
+            return Count(minCount, maxCount, NotVerticalBar());
         }
 
         /// <summary>

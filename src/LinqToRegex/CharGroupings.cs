@@ -538,12 +538,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a vertical line.
+        /// Returns a pattern that matches a vertical bar.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping VerticalLine()
+        public static CharGrouping VerticalBar()
         {
-            return Character(AsciiChar.VerticalLine);
+            return Character(AsciiChar.VerticalBar);
         }
 
         /// <summary>
