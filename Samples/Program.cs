@@ -125,8 +125,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         private static void Dump(string title, Pattern pattern)
         {
-            Console.Write(title);
-            Console.WriteLine(":");
+            Console.WriteLine("{0}:", title);
             Console.WriteLine(pattern);
             Console.WriteLine(string.Empty);
         }
