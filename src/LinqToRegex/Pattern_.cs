@@ -4977,69 +4977,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a numbered group with current instance as a content.
-        /// </summary>
-        /// <returns></returns>
-        public QuantifiablePattern AsGroup()
-        {
-            return Patterns.Group(this);
-        }
-
-        /// <summary>
-        /// Returns a named group with a specified name and current instance as a content.
-        /// </summary>
-        /// <param name="groupName">A name of the group.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        /// <exception cref="ArgumentException"></exception>
-        public QuantifiablePattern AsNamedGroup(string groupName)
-        {
-            return Patterns.NamedGroup(groupName, this);
-        }
-
-        /// <summary>
         /// Returns a noncapturing group with current instance as a content.
         /// </summary>
         /// <returns></returns>
-        public QuantifiablePattern AsNoncapturingGroup()
+        internal QuantifiablePattern AsNoncapturingGroup()
         {
             return Patterns.NoncapturingGroup(this);
-        }
-
-        /// <summary>
-        /// Returns a nonbacktracking group with a current instance as a content.
-        /// </summary>
-        /// <returns></returns>
-        public QuantifiablePattern AsNonbacktrackingGroup()
-        {
-            return Patterns.NonbacktrackingGroup(this);
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches current instance surrounded with the beginning and the end of line. End of line is defined as the position before a linefeed.
-        /// </summary>
-        /// <returns></returns>
-        public QuantifiablePattern AsEntireLine()
-        {
-            return Patterns.EntireLine(this);
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches current instance surrounded with the beginning and the end of the string (or line if the <see cref="RegexOptions.Multiline"/> option is applied). End of line is defined as the position before a linefeed.
-        /// </summary>
-        /// <returns></returns>
-        public Pattern AsEntireInputOrLine()
-        {
-            return Patterns.EntireInputOrLine(this);
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches current instance surrounded with the beginning and the end of the string.
-        /// </summary>
-        /// <returns></returns>
-        public QuantifiablePattern AsEntireInput()
-        {
-            return Patterns.EntireInput(this);
         }
     }
 }

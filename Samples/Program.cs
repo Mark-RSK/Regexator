@@ -27,7 +27,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 .SurroundAngleBrackets(
                     "!" + Patterns.SurroundSquareBrackets(
                         "CDATA" + Patterns.SurroundSquareBrackets(
-                            Patterns.Crawl().AsGroup()
+                            Patterns.Group(Patterns.Crawl())
                         )
                     )
                 );
@@ -38,7 +38,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             exp = Patterns.WordBoundary()
                 .CountFrom(3,
-                    Patterns.Any(values.Select(f => Patterns.Text(f).AsGroup()))
+                    Patterns.Any(values.Select(f => Patterns.Group(Patterns.Text(f))))
                     .WordBoundary()
                     .NotWordChar().MaybeMany().Lazy())
                 .GroupReference(1)
@@ -61,7 +61,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             Dump("digits inside b element value", exp);
 
-            exp = Patterns.Word().AsGroup()
+            exp = Patterns.Group(Patterns.Word())
                 .WhiteSpaces()
                 .GroupReference(1)
                 .WordBoundary();
@@ -81,15 +81,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             exp = Patterns
                 .BeginInputOrLine()
-                .WhiteSpaceExceptNewLine().OneMany()
-                .AsNoncapturingGroup();
+                .WhiteSpaceExceptNewLine().OneMany();
             
             Dump("leading whitespace", exp);
 
             exp = Patterns
                 .WhiteSpaceExceptNewLine().OneMany()
-                .EndLine(true)
-                .AsNoncapturingGroup();
+                .EndLine(true);
             
             Dump("trailing whitespace", exp);
 
@@ -108,15 +106,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             exp = Patterns
                 .BeginInput()
-                .NotNewLineChar().MaybeMany()
-                .AsNoncapturingGroup();
+                .NotNewLineChar().MaybeMany();
 
             Dump("first line", exp);
 
             exp = Patterns
                 .NotAssertBack(Patterns.CarriageReturn())
-                .Linefeed()
-                .AsNoncapturingGroup();
+                .Linefeed();
 
             Dump("linefeed without carriage return", exp);
 
