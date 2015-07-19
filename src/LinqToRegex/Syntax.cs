@@ -228,27 +228,27 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public const string Lazy = "?";
 
         /// <summary>
-        /// Specifies an inline character of the <see cref="RegexOptions.IgnoreCase"/> options.
+        /// Specifies an inline character of the <see cref="RegexOptions.IgnoreCase"/> option.
         /// </summary>
         public const char IgnoreCaseChar = 'i';
 
         /// <summary>
-        /// Specifies an inline character of the <see cref="RegexOptions.Multiline"/> options.
+        /// Specifies an inline character of the <see cref="RegexOptions.Multiline"/> option.
         /// </summary>
         public const char MultilineChar = 'm';
 
         /// <summary>
-        /// Specifies an inline character of the <see cref="RegexOptions.ExplicitCapture"/> options.
+        /// Specifies an inline character of the <see cref="RegexOptions.ExplicitCapture"/> option.
         /// </summary>
         public const char ExplicitCaptureChar = 'n';
 
         /// <summary>
-        /// Specifies an inline character of the <see cref="RegexOptions.Singleline"/> options.
+        /// Specifies an inline character of the <see cref="RegexOptions.Singleline"/> option.
         /// </summary>
         public const char SinglelineChar = 's';
 
         /// <summary>
-        /// Specifies an inline character of the <see cref="RegexOptions.IgnorePatternWhitespace"/> options.
+        /// Specifies an inline character of the <see cref="RegexOptions.IgnorePatternWhitespace"/> option.
         /// </summary>
         public const char IgnorePatternWhiteSpaceChar = 'x';
 

@@ -4871,7 +4871,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a linefeed and an optional carriage return before it. Carriage return will be matched if present and not already consumed by regex engine..
+        /// Appends a pattern that matches a combination of an optional carriage return and a linefeed.
         /// </summary>
         /// <returns></returns>
         public QuantifiablePattern NewLine()

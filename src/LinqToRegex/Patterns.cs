@@ -5130,7 +5130,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a linefeed and an optional carriage return before it. Carriage return will be matched if present and not already consumed by regex engine..
+        /// Returns a pattern that matches a combination of an optional carriage return and a linefeed.
         /// </summary>
         /// <returns></returns>
         public static QuantifiablePattern NewLine()
@@ -5139,7 +5139,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that is never matched. The pattern is an empty negative lookahead assertion.
+        /// Returns an empty negative lookahead assertion. This pattern is never matched.
         /// </summary>
         /// <returns></returns>
         public static QuantifiablePattern Never()
