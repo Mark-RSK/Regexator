@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("LINQ to Regex Library")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("LINQ to Regex library provides language integrated access to the .NET regular expressions.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Pihrtsoft")]
 [assembly: AssemblyProduct("LINQ to Regex Library")]
