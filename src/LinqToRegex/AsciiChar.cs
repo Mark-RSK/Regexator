@@ -3,7 +3,7 @@
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
-    /// Specifies the Unicode character from first two blocks, i.e. from first 256 Unicode characters.
+    /// Specifies Unicode character from the first block.
     /// </summary>
     public enum AsciiChar
     {
