@@ -62,10 +62,9 @@ CharSubtraction subtraction2 = Patterns.WhiteSpace().Except(CharGroupings.Carria
 ```
 
 #### | Operator
-**|** Operator combines two patterns into an alternation construct in which any of two patterns has to be matched.
+**|** Operator combines two patterns into a group in which any of two patterns has to be matched.
 
 ```c#
-//pattern: (first|second);
 Pattern pattern = Pattern.Group("first" | "second");
 
 //Or you can use another method overload to achieve the same goal.
