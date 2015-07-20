@@ -4855,6 +4855,39 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Pattern.Surround(AsciiChar.QuoteMark, (object)content);
         }
 
+#if DEBUG
+        /// <summary>
+        /// Returns a pattern that matches two quotation marks (apostrophes), allowing zero or more characters that are not a quotation mark (apostrophe) between the quotation marks (apostrophes).
+        /// </summary>
+        /// <returns></returns>
+        public static QuantifiablePattern SurroundQuoteMarksOrApostrophes()
+        {
+            return SurroundQuoteMarks() | SurroundApostrophes();
+        }
+
+        /// <summary>
+        /// Returns a pattern that matches specified pattern surrounded with quotation marks or apostrophes.
+        /// </summary>
+        /// <param name="content"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static QuantifiablePattern SurroundQuoteMarksOrApostrophes(object content)
+        {
+            return SurroundQuoteMarks(content) | SurroundApostrophes(content);
+        }
+
+        /// <summary>
+        /// Returns a pattern that matches specified content surrounded with quotation marks or apostrophes.
+        /// </summary>
+        /// <param name="content">An object array that contains zero or more patterns any one of which has to be matched.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static QuantifiablePattern SurroundQuoteMarksOrApostrophes(params object[] content)
+        {
+            return SurroundQuoteMarks(content) | SurroundApostrophes(content);
+        }
+#endif
+
         /// <summary>
         /// Returns a pattern that matches a text consisting of a left parenthesis and a right parenthesis, allowing zero or more characters that are not a right parenthesis between the parentheses.
         /// </summary>
