@@ -1,13 +1,9 @@
-# Regexator
-Regexator contains libraries that extends .NET regular expressions.
-
-## LINQ to Regex library
+## LINQ to Regex
 * LINQ to Regex library provides language integrated access to the .NET regular expressions.
 * It allows you to create and use regular expressions directly in your code and develop complex expressions while keeping its readability and maintainability.
-* Knowledge of the regular expression syntax is not required (but you still should be familiar with basics).
+* Knowledge of the regular expression syntax is not required (but you should be familiar with basics).
 * Escaping of metacharacters that should be interpreted as literals is entirely handled by the library.
 
-### Namespaces
 The library contains two namespaces:
 ```c#
 Pihrtsoft.Text.RegularExpressions.Linq;
@@ -24,17 +20,15 @@ Following pattern will match a digit character. Regex syntax is **\d** .
 var pattern = Patterns.Digit();
 ```
 
-It is recommended to reference **Patterns** class with **using static** (C# 6.0 or higher) or **Imports** (VB)
-
+It is recommended to reference **Patterns** class with **using static** (C# 6.0 or higher)
 ```c#
 using static Pihrtsoft.Text.RegularExpressions.Linq.Patterns;
 ```
-If you are coding in Visual Basic, use following statement:
+or **Imports** (VB)
 ```vb
 Imports Pihrtsoft.Text.RegularExpressions.Linq.Patterns
 ```
-
-Previous pattern will then be more concise.
+If you will reference **Patterns** class, previous pattern can be written in a more concise way:
 ```c#
 var pattern = Digit();
 ```
@@ -88,7 +82,7 @@ var pattern = Patterns.Crawl();
 
 In regular expressions syntax you can apply quantifier only after the element that should be quantified. In LINQ to Regex you can define a quantifier group and put a quantified content into it.
 
-### Operators overloading
+### Operators
 #### + Operator
 The **+** operator concatenates the operands into a new pattern. Following three pattern have the same meaning.
 
@@ -131,12 +125,12 @@ var subtraction = Patterns.WhiteSpaceExceptNewLine();
 
 **Any** method represents a group in which any one of the specified patterns has to be matched.
 ```c#
-Pattern pattern = Pattern.Any("first", "second", "third");
+var pattern = Pattern.Any("first", "second", "third");
 ```
 
 Same goal can be achieved using | operator
 ```c#
-Pattern pattern = Pattern.Group("first" | "second" | "third);
+var pattern = "first" | "second" | "third;
 ```
 
 #### ! Operator
@@ -158,7 +152,7 @@ With "using static" statement the pattern is more concise.
 var pattern = !AssertBack(CarriageReturn()) + Linefeed();
 ```
 
-### Native suffix
+### Suffix "Native"
 
 There are methods, such as **AnyNative** or **CrawlNative** that behaves differently depending on the provided **RegexOptions** value.
 In these two patterns, a dot can match any character except linefeed or any character in **RegexOptions.Singleline** option is applied.
