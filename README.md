@@ -3,9 +3,9 @@ Regexator contains libraries that extends .NET regular expressions.
 
 ## LINQ to Regex library
 * LINQ to Regex library provides language integrated access to the .NET regular expressions.
-* It allows you to create and regular expressions directly in your code and develop complex expressions while keeping its readability and maintainability.
-* Knowledge of the regular expression syntax is not required (but you still should be familiar with regular expressions basics).
-* Escaping of metacharacters that should be literals is entirely handled by the library.
+* It allows you to create and use regular expressions directly in your code and develop complex expressions while keeping its readability and maintainability.
+* Knowledge of the regular expression syntax is not required (but you still should be familiar with basics).
+* Escaping of metacharacters that should be interpreted as literals is entirely handled by the library.
 
 ### Namespaces
 The library contains two namespaces:
@@ -13,24 +13,38 @@ The library contains two namespaces:
 Pihrtsoft.Text.RegularExpressions.Linq;
 Pihrtsoft.Text.RegularExpressions.Linq.Extensions;
 ```
-First namespace is a library root namespace. Second namespace contains static classes with extensions methods that extends existing .NET types are placed in the following namespace:
+First namespace is a library root namespace. Second namespace contains static classes with extensions methods that extends existing .NET types.
 
-### Pattern class
+### Pattern Class
 The very base library type is the **Pattern** class that represent an immutable regular expression pattern.
 Another very important type is the **Patterns** class. This static class returns instances of various kinds of **Pattern** class or its derived types.
 When you want to create a pattern you have start with **Patterns** class.
-Following pattern will match a digit character. Regex syntax is **\d**.
+Following pattern will match a digit character. Regex syntax is **\d** .
 ```c#
 var pattern = Patterns.Digit();
 ```
 
-### CharGrouping class
+It is recommended to reference **Patterns** class with **using static** (C# 6.0 or higher) or **Imports** (VB)
+
+```c#
+using static Pihrtsoft.Text.RegularExpressions.Linq.Patterns;
+```
+If you are coding in Visual Basic, use following statement:
+```vb
+Imports Pihrtsoft.Text.RegularExpressions.Linq.Patterns
+```
+
+Previous pattern will then be more concise.
+```c#
+var pattern = Digit();
+```
+
+### CharGrouping Class
 
 **CharGrouping** represents a content of a character group. **CharGrouping** can be created using **CharGroupings** static class that has the same purpose as **Patterns** class.
 
-### Object or Object[]  parameter
-A lot of methods that returns instance of the **Pattern** class accepts parameters of type **Object** and it is usually named **content**.
-This methods accepts following types (types as **Object**):
+### Object or Object[]  Parameter
+A lot of methods that returns instance of the **Pattern** class accepts parameters of type **Object** that is usually named **content**. This methods can handle following types (typed as **Object**):
 * Pattern
 * CharGrouping
 * String
@@ -40,7 +54,7 @@ This methods accepts following types (types as **Object**):
 
 Last two items in the list, **Object[]** and **IEnumerable** can contains zero or more items (patterns) any one of which has to be matched.
 
-Methods that allows to pass a content typed as **Object** usually allows to pass an array of object with **params** (**ParamArray** in VB) keyword. This overload simply convert the array of object to the object and calls overload that accept object as an argument. 
+Methods that allows to pass a content typed as **Object** usually allows to pass an array of object with **params** (**ParamArray** in Visual Basic) keyword. This overload simply convert the array of object to the object and calls overload that accept object as an argument. 
 
 ### Quantifiers
 
@@ -148,19 +162,6 @@ var pattern = !AssertBack(CarriageReturn()) + Linefeed();
 
 There are methods, such as **AnyNative** or **CrawlNative** that behaves differently depending on the provided **RegexOptions** value.
 In these two patterns, a dot can match any character except linefeed or any character in **RegexOptions.Singleline** option is applied.
-
-### using static statement
-
-If you can use new features of the C# 6.0, it is strongly recommended to use following statement:
-
-```c#
-using static Pihrtsoft.Text.RegularExpressions.Linq.Patterns;
-```
-If you are coding in Visual Basic, use following statement:
-
-```vb
-Imports Pihrtsoft.Text.RegularExpressions.Linq.Patterns
-```
 
 This will allow you to create patterns without repeatedly referencing **Patterns** class.
 
