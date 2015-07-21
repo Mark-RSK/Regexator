@@ -28,6 +28,8 @@ Pattern pattern = Patterns.Digit();
 
 ### CharGrouping class
 
+**CharGrouping** represents a content of a character group. **CharGrouping** can be created using **CharGroupings** static class that has the same purpose as **Patterns** class.
+
 ### Object or Object[]  parameter
 A lot of methods that returns instance of the **Pattern** class accepts parameters of type **Object** and it is usually named **content**.
 This methods accepts following types (types as **Object**):
@@ -39,6 +41,8 @@ This methods accepts following types (types as **Object**):
 * IEnumerable
 
 Last two items in the list, **Object[]** and **IEnumerable** can contains zero or more items (patterns) any one of which has to be matched.
+
+Methods that allows to pass a content typed as **Object** usually allows to pass an array of object with **params** (**ParamArray** in VB) keyword. This overload simply convert the array of object to the object and calls overload that accept object as an argument. 
 
 ### Operators overloading
 #### + Operator
@@ -59,6 +63,9 @@ CharSubtraction subtraction1 = Patterns.WhiteSpace() - CharGroupings.CarriageRet
 
 //Or you can use IBaseGroup.Except method to achieve the same goal.
 CharSubtraction subtraction2 = Patterns.WhiteSpace().Except(CharGroupings.CarriageReturn().Linefeed());
+
+//In fact this pattern is very common so there is a direct support for it.
+CharSubtraction subtraction3 = Patterns.WhiteSpaceExceptNewLine();
 ```
 
 #### | Operator
@@ -72,6 +79,34 @@ Pattern pattern = Pattern.Group("first", "second");
 ```
 
 #### ! Operator
+
+**!** operator is used to create pattern that has opposite meaning than operand.
+
+```c#
+//This pattern represents a linefeed that is not preceded with a carriage return and can be used to normalize line endings to Windows mode.
+Pattern pattern2 = Patterns.NotAssertBack(CarriageReturn()).Linefeed();
+
+//Same goal can be achieved using ! operator.
+Pattern pattern = !Patterns.AssertBack(CarriageReturn()) + Patterns.Linefeed();
+
+//With "using static" statement this pattern is even more concise.
+Pattern pattern = !AssertBack(CarriageReturn()) + Linefeed();
+```
+
+### Native suffix
+
+There are methods, such as **AnyNative** or **CrawlNative** that behaves depending on the provided **RegexOptions** value.
+In these two patterns, a dot can match any character except linefeed or any character in **RegexOptions.Singleline** option is applied.
+
+### using static statement
+
+If you can use new features of the C# 6.0, it is strongly recommended to use following statement:
+
+```c#
+using static Pihrtsoft.Text.RegularExpressions.Linq.Patterns;
+```
+
+This will allow you to create patterns without repeatedly referencing **Patterns** class.
 
 ### NuGet Package
 The library is distributed via NuGet: [LinqToRegex](https://www.nuget.org/packages/LinqToRegex).
