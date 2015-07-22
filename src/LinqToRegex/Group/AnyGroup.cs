@@ -1,7 +1,5 @@
 // Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-using System.Collections.Generic;
-
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     internal sealed class AnyGroup
@@ -9,24 +7,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
         private readonly GroupMode _groupMode;
 
-        public AnyGroup(IEnumerable<object> content)
-            : this(GroupMode.NoncapturingGroup, content)
+        public AnyGroup(object content)
+            : this(content, GroupMode.NoncapturingGroup)
         {
         }
 
-        internal AnyGroup(GroupMode groupMode, IEnumerable<object> content)
-            : base((object)content)
-        {
-            _groupMode = groupMode;
-        }
-
-        public AnyGroup(params object[] content)
-            : this(GroupMode.NoncapturingGroup, content)
-        {
-        }
-
-        internal AnyGroup(GroupMode groupMode, params object[] content)
-            : base((object)content)
+        public AnyGroup(object content, GroupMode groupMode)
+            : base(content)
         {
             _groupMode = groupMode;
         }
@@ -36,7 +23,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             builder.AppendAny(Content, GroupMode);
         }
 
-        internal GroupMode GroupMode
+        public GroupMode GroupMode
         {
             get { return _groupMode; }
         }

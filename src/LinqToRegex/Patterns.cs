@@ -521,13 +521,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches any one of the patterns specified in the collection.
+        /// Returns a pattern that matches specified content.
         /// </summary>
-        /// <param name="values">A collection that contains zero or more patterns any one of which has to be matched.</param>
+        /// <param name="content">The content to be matched.</param>
         /// <returns></returns>
-        public static QuantifiablePattern Any(IEnumerable<object> values)
+        public static QuantifiablePattern Any(object content)
         {
-            return new AnyGroup(values);
+            return new AnyGroup(content);
         }
 
         /// <summary>
