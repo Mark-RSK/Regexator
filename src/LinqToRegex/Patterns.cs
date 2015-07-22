@@ -1,7 +1,7 @@
 // Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Text.RegularExpressions;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
@@ -521,11 +521,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches specified content.
+        /// Returns a pattern that matches any one of the patterns specified in the collection.
         /// </summary>
-        /// <param name="content">The content to be matched.</param>
+        /// <param name="content">A collection that contains zero or more patterns any one of which has to be matched.</param>
         /// <returns></returns>
-        public static QuantifiablePattern Any(object content)
+        public static QuantifiablePattern Any(IEnumerable content)
         {
             return new AnyGroup(content);
         }
