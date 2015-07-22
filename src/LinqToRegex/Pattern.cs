@@ -25,10 +25,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         internal abstract void AppendTo(PatternBuilder builder);
 
         /// <summary>
-        /// Appends specified pattern to the current instance if a condition is true.
+        /// If a condition is true, appends a pattern that matches a specified content.
         /// </summary>
         /// <param name="condition">The condition expression to evaluate.</param>
-        /// <param name="content">The pattern to append.</param>
+        /// <param name="content">The content to be matched.</param>
         /// <returns></returns>
         public Pattern ConcatIf(bool condition, object content)
         {
@@ -38,29 +38,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends specified pattern to the current instance.
+        /// Appends a pattern that matches a specified content.
         /// </summary>
-        /// <param name="content">The pattern to append.</param>
+        /// <param name="content">The content to be matched.</param>
         /// <returns></returns>
         public Pattern Concat(object content)
         {
             return ConcatInternal(new ContentPattern(content));
-        }
-
-        /// <summary>
-        /// Appends specified pattern to the current instance.
-        /// </summary>
-        /// <param name="pattern">The pattern to append.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        public Pattern Concat(Pattern pattern)
-        {
-            if (pattern == null)
-            {
-                throw new ArgumentNullException("pattern");
-            }
-
-            return ConcatInternal(new ContentPattern(pattern));
         }
 
         /// <summary>
