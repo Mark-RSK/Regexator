@@ -1,7 +1,7 @@
 ﻿// Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
-using System.Collections.Generic;
+using System.Collections;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
@@ -43,23 +43,23 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
             else
             {
-                var items = _values as IEnumerable<object>;
-                using (IEnumerator<object> en = items.GetEnumerator())
+                var items = _values as IEnumerable;
+
+                IEnumerator en = items.GetEnumerator();
+
+                if (en.MoveNext())
                 {
+                    builder.Append(en.Current);
+
                     if (en.MoveNext())
                     {
+                        builder.Append(_separator);
                         builder.Append(en.Current);
 
-                        if (en.MoveNext())
+                        while (en.MoveNext())
                         {
                             builder.Append(_separator);
                             builder.Append(en.Current);
-
-                            while (en.MoveNext())
-                            {
-                                builder.Append(_separator);
-                                builder.Append(en.Current);
-                            }
                         }
                     }
                 }

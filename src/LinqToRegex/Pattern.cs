@@ -122,6 +122,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
+        /// Concatenates the elements of a <see cref="System.Collections.IEnumerable"/> collection using the specified separator between each element.
+        /// </summary>
+        /// <param name="separator">The pattern to use as a separator.</param>
+        /// <param name="values">A collection object that implements <see cref="System.Collections.IEnumerable"/>.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static Pattern Join(object separator, IEnumerable values)
+        {
+            return new JoinContainer(separator, values);
+        }
+
+        /// <summary>
         /// Concatenates the elements of an object array, using the specified separator between each element.
         /// </summary>
         /// <param name="separator">The pattern to use as a separator.</param>
@@ -130,19 +142,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public static Pattern Join(object separator, params object[] values)
         {
-            return new JoinContainer(separator, (object)values);
-        }
-
-        /// <summary>
-        /// Concatenates the elements of a <see cref="System.Collections.Generic.IEnumerable&lt;T&gt;"/> collection of type <see cref="System.Object"/>, using the specified separator between each element.
-        /// </summary>
-        /// <param name="separator">The pattern to use as a separator.</param>
-        /// <param name="values">A collection object that implements <see cref="System.Collections.Generic.IEnumerable&lt;T&gt;"/> and whose generic type argument is <see cref="System.Object"/>.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        public static Pattern Join(object separator, IEnumerable<object> values)
-        {
-            return new JoinContainer(separator, (object)values);
+            return new JoinContainer(separator, values);
         }
 
         /// <summary>
