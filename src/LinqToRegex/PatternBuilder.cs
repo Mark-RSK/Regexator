@@ -307,7 +307,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Tries to append the pattern representation of an object. The object must be convertible to <see cref="Pattern"/>, <see cref="CharGrouping"/>, <see cref="String"/>, <see cref="Char"/>, object array or <see cref="System.Collections.IEnumerable"/>.
+        /// Appends the pattern representation of an object. The object must be convertible to <see cref="Pattern"/>, <see cref="CharGrouping"/>, <see cref="String"/>, <see cref="Char"/>, object array or <see cref="System.Collections.IEnumerable"/>.
         /// </summary>
         /// <param name="value">The object to append.</param>
         public void Append(object value)
@@ -347,9 +347,15 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             object[] values = value as object[];
             if (values != null)
             {
-                foreach (var item in values)
+                if (values.Length > 0)
                 {
-                    Append(item);
+                    Append(values[0]);
+
+                    for (int i = 1; i < values.Length; i++)
+                    {
+                        AppendOr();
+                        Append(values[i]);
+                    }
                 }
 
                 return;
@@ -358,9 +364,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             IEnumerable items = value as IEnumerable;
             if (items != null)
             {
-                foreach (var item in items)
+                IEnumerator en = items.GetEnumerator();
+
+                if (en.MoveNext())
                 {
-                    Append(item);
+                    Append(en.Current);
+
+                    while (en.MoveNext())
+                    {
+                        AppendOr();
+                        Append(en.Current);
+                    }
                 }
             }
         }
@@ -382,73 +396,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _currentOptions &= applyOptions;
             _currentOptions &= ~disableOptions;
 
-            AppendGroupContentInternal(content);
+            Append(content);
 
             _currentOptions = currentOptions;
-        }
-
-        private void AppendGroupContentInternal(object content)
-        {
-            Pattern pattern = content as Pattern;
-            if (pattern != null)
-            {
-                Append(pattern);
-                return;
-            }
-
-            string text = content as string;
-            if (text != null)
-            {
-                Append(text);
-                return;
-            }
-
-            if (content is char)
-            {
-                Append((char)content);
-                return;
-            }
-
-            CharGrouping charGrouping = content as CharGrouping;
-            if (charGrouping != null)
-            {
-                Append(charGrouping);
-                return;
-            }
-
-            object[] values = content as object[];
-            if (values != null)
-            {
-                if (values.Length > 0)
-                {
-                    Append(values[0]);
-
-                    for (int i = 1; i < values.Length; i++)
-                    {
-                        AppendOr();
-                        Append(values[i]);
-                    }
-                }
-
-                return;
-            }
-
-            IEnumerable items = content as IEnumerable;
-            if (items != null)
-            {
-                IEnumerator en = items.GetEnumerator();
-
-                if (en.MoveNext())
-                {
-                    Append(en.Current);
-
-                    while (en.MoveNext())
-                    {
-                        AppendOr();
-                        Append(en.Current);
-                    }
-                }
-            }
         }
 
         /// <summary>
