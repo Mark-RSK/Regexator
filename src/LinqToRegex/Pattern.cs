@@ -1,6 +1,7 @@
 // Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using Pihrtsoft.Text.RegularExpressions.Linq.Extensions;
@@ -117,17 +118,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static Pattern Concat(params object[] content)
         {
-            return Create((object)content);
+            return new ConcatPattern(content);
         }
 
         /// <summary>
-        /// Concatenates the elements of a <see cref="System.Collections.Generic.IEnumerable&lt;T&gt;"/> collection of type <see cref="System.Object"/>.
+        /// Concatenates the elements of a <see cref="System.Collections.IEnumerable"/> collection.
         /// </summary>
-        /// <param name="content">A collection object that implements <see cref="System.Collections.Generic.IEnumerable&lt;T&gt;"/> and whose generic type argument is <see cref="System.Object"/>.</param>
+        /// <param name="content">A collection object that implements <see cref="System.Collections.IEnumerable"/>.</param>
         /// <returns></returns>
-        public static Pattern Concat(IEnumerable<object> content)
+        public static Pattern Concat(IEnumerable content)
         {
-            return Create((object)content);
+            return new ConcatPattern(content);
         }
 
         /// <summary>

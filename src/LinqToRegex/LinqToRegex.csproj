@@ -76,6 +76,7 @@
     <Compile Include="CharPattern.cs" />
     <Compile Include="CharPattern_.cs" />
     <Compile Include="CharSubtraction.cs" />
+    <Compile Include="ConcatPattern.cs" />
     <Compile Include="ContentPattern.cs" />
     <Compile Include="ExceptionHelper.cs" />
     <Compile Include="Extensions\BaseGroupExtensions.cs" />
