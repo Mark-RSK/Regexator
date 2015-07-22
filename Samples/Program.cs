@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal class Program
+    internal class Program  
     {
         internal static void Main(string[] args)
         {

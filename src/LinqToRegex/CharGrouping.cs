@@ -775,26 +775,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Converts specified characters to an instance of the <see cref="CharGrouping"/> class.
-        /// </summary>
-        /// <param name="characters">A set of Unicode characters.</param>
-        /// <returns></returns>
-        public static explicit operator CharGrouping(string characters)
-        {
-            return CharGroupings.Character(characters);
-        }
-
-        /// <summary>
-        /// Converts specified character to an instance of the <see cref="CharGrouping"/> class.
-        /// </summary>
-        /// <param name="value">A Unicode character.</param>
-        /// <returns></returns>
-        public static explicit operator CharGrouping(char value)
-        {
-            return CharGroupings.Character(value);
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character from a specified base group except characters from a specified excluded group.
         /// </summary>
         /// <param name="baseGroup">A base group.</param>
@@ -828,6 +808,26 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static CharSubtraction operator -(CharGrouping baseGroup, CharPattern excludedGroup)
         {
             return new CharSubtraction(baseGroup, excludedGroup);
+        }
+
+        /// <summary>
+        /// Converts specified characters to an instance of the <see cref="CharGrouping"/> class.
+        /// </summary>
+        /// <param name="characters">A set of Unicode characters.</param>
+        /// <returns></returns>
+        public static explicit operator CharGrouping(string characters)
+        {
+            return CharGroupings.Character(characters);
+        }
+
+        /// <summary>
+        /// Converts specified character to an instance of the <see cref="CharGrouping"/> class.
+        /// </summary>
+        /// <param name="value">A Unicode character.</param>
+        /// <returns></returns>
+        public static explicit operator CharGrouping(char value)
+        {
+            return CharGroupings.Character(value);
         }
 
         internal CharGrouping Previous { get; set; }
