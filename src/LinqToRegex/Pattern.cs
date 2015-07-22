@@ -729,7 +729,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("right");
             }
 
-            return Pattern.Create(left).Concat(right);
+            return Patterns.Text(left).Concat(right);
         }
 
         /// <summary>
