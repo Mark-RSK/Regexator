@@ -24,7 +24,7 @@ It is recommended to reference `Patterns` class with `using static` (C# 6.0 or h
 ```c#
 using static Pihrtsoft.Text.RegularExpressions.Linq.Patterns;
 ```
-or `Imports` (VB)
+or `Imports` (Visual Basic)
 ```vb
 Imports Pihrtsoft.Text.RegularExpressions.Linq.Patterns
 ```
@@ -85,19 +85,16 @@ In regular expressions syntax you can apply quantifier only after the element th
 #### + Operator
 The `+` operator concatenates the operands into a new pattern. Following three pattern have the same meaning.
 
-Pattern class has many instance methods that allows you to concatenate the current instance with another pattern. Following pattern represents empty line.
+Pattern class has many instance methods that allows you to concatenate the current instance with another pattern. Following pattern matches an empty line.
 ```c#
 var pattern = Patterns.BeginLine().Assert(Patterns.NewLine());
 ```
-
-Same goal can be achieved using + operator.
+Same goal can be achieved using `+` operator.
 ```c#
 var pattern = Patterns.BeginLine() + Patterns.Assert(Patterns.NewLine());
 ```
-
-//With "using static" statement pattern more concise.
+With "using static" statement pattern more concise.
 ```c#
-//with "using static" statement and + operator
 var pattern = BeginLine() + Assert(NewLine());
 ```
 
@@ -106,17 +103,15 @@ var pattern = BeginLine() + Assert(NewLine());
 
 `Except` method is used to create character subtraction. Following pattern matches a white-space character except a carriage return and a linefeed. Regex syntax is `[\s-[\r\n]]` .
 ```c#
-var subtraction = Patterns.WhiteSpace().Except(CharGroupings.CarriageReturn().Linefeed());
+var pattern = Patterns.WhiteSpace().Except(CharGroupings.CarriageReturn().Linefeed());
 ```
-
 Same goal can be achieved using `-` operator.
 ```c#
-var subtraction = Patterns.WhiteSpace() - CharGroupings.CarriageReturn().Linefeed();
+var pattern = Patterns.WhiteSpace() - CharGroupings.CarriageReturn().Linefeed();
 ```
-
 In fact this pattern is quite common so it is wrapped into a following method.
 ```c#
-var subtraction = Patterns.WhiteSpaceExceptNewLine();
+var pattern = Patterns.WhiteSpaceExceptNewLine();
 ```
 
 #### | Operator
