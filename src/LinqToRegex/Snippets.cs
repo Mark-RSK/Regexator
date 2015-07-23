@@ -9,7 +9,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     /// <summary>
     /// Provides static methods that returns various kinds of patterns.
     /// </summary>
-    public static class Snippets
+    internal static class Snippets
     {
         /// <summary>
         /// Returns a pattern that matches a linefeed that is not preceded with a carriage return.
