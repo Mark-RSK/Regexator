@@ -1420,9 +1420,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="maxCount">A maximum number of times the pattern can be matched.</param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public void AppendCountTo(int maxCount)
+        public void AppendMaybeCount(int maxCount)
         {
-            AppendCountTo(maxCount, false);
+            AppendMaybeCount(maxCount, false);
         }
 
         /// <summary>
@@ -1431,14 +1431,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="maxCount">A maximum number of times the pattern can be matched.</param>
         /// <param name="lazy">Indicates whether the quantifier will be greedy or lazy.</param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public void AppendCountTo(int maxCount, bool lazy)
+        public void AppendMaybeCount(int maxCount, bool lazy)
         {
             if (maxCount < 0)
             {
                 throw new ArgumentOutOfRangeException("maxCount");
             }
 
-            AppendCountToInternal(maxCount);
+            AppendMaybeCountInternal(maxCount);
 
             if (lazy)
             {
@@ -1446,7 +1446,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        internal void AppendCountToInternal(int maxCount)
+        internal void AppendMaybeCountInternal(int maxCount)
         {
             AppendLeftCurlyBracket();
             _sb.Append(0);

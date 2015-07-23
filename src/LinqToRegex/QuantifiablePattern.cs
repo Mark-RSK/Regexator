@@ -84,7 +84,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="maxCount">A maximum number of times the pattern can be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public QuantifiedPattern CountTo(int maxCount)
+        public QuantifiedPattern MaybeCount(int maxCount)
         {
             return ConcatInternal(new QuantifiedPattern.CountQuantifiedPattern(0, maxCount));
         }

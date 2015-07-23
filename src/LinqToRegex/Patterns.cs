@@ -824,7 +824,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup CountTo(int maxCount, object content)
+        public static QuantifiedGroup MaybeCount(int maxCount, object content)
         {
             return new QuantifiedGroup.CountQuantifiedGroup(0, maxCount, content);
         }
@@ -837,9 +837,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup CountTo(int maxCount, params object[] content)
+        public static QuantifiedGroup MaybeCount(int maxCount, params object[] content)
         {
-            return CountTo(maxCount, (object)content);
+            return MaybeCount(maxCount, (object)content);
         }
 
         /// <summary>

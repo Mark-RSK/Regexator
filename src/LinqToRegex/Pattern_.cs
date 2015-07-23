@@ -3530,9 +3530,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public QuantifiedGroup CountTo(int maxCount, object content)
+        public QuantifiedGroup MaybeCount(int maxCount, object content)
         {
-            return ConcatInternal(Patterns.CountTo(maxCount, content));
+            return ConcatInternal(Patterns.MaybeCount(maxCount, content));
         }
 
         /// <summary>
@@ -3543,9 +3543,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public QuantifiedGroup CountTo(int maxCount, params object[] content)
+        public QuantifiedGroup MaybeCount(int maxCount, params object[] content)
         {
-            return ConcatInternal(Patterns.CountTo(maxCount, content));
+            return ConcatInternal(Patterns.MaybeCount(maxCount, content));
         }
 
         /// <summary>
