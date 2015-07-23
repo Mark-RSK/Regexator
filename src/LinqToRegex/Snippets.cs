@@ -77,14 +77,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 return Patterns
                     .BeginLine()
                     .WhiteSpaceExceptNewLine().MaybeMany()
-                    .NewLine();
+                    .Any(Patterns.NewLine() | Patterns.EndInput());
             }
             else
             {
                 return Patterns
                     .BeginLine()
                     .WhiteSpaceExceptNewLine().MaybeMany()
-                    .Assert(Patterns.NewLine());
+                    .Assert(Patterns.NewLine() | Patterns.EndInput());
             }
         }
 
@@ -123,9 +123,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <returns></returns>
         [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "NonWhite")]
-        public static QuantifiablePattern NonWhiteSpaceLine()
+        public static QuantifiablePattern NonEmptyOrWhiteSpaceLine()
         {
-            return NonWhiteSpaceLine(false);
+            return NonEmptyOrWhiteSpaceLine(false);
         }
 
         /// <summary>
@@ -134,7 +134,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="includeNewLine">Indicates whether new line characters should be included in the match.</param>
         /// <returns></returns>
         [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "NonWhite")]
-        public static QuantifiablePattern NonWhiteSpaceLine(bool includeNewLine)
+        public static QuantifiablePattern NonEmptyOrWhiteSpaceLine(bool includeNewLine)
         {
             return Patterns
                 .BeginLine()
@@ -182,7 +182,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 .AsNoncapturingGroup();
         }
 
-#if DEBUG
         /// <summary>
         /// Returns a pattern that matches a content that is enclosed in quotation marks. The content can contains escaped characters.
         /// </summary>
@@ -210,7 +209,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             return Patterns.SurroundQuoteMarks(pattern).AsNoncapturingGroup();
         }
-#endif
 
         internal static Pattern ValidGroupName()
         {
