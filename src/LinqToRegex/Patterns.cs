@@ -3727,6 +3727,15 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
+        /// Returns a pattern that matches zero or more characters that are white-space characters but neither a carriage return nor a linefeed.
+        /// </summary>
+        /// <returns></returns>
+        public static QuantifiedPattern WhileWhiteSpaceExceptNewLine()
+        {
+            return WhiteSpaceExceptNewLine().MaybeMany();
+        }
+
+        /// <summary>
         /// Returns a pattern that matches zero or more characters that are not a specified character.
         /// </summary>
         /// <param name="value">A Unicode character.</param>

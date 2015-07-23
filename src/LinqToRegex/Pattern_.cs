@@ -913,6 +913,15 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
+        /// Appends a pattern that matches zero or more characters that are white-space characters but a neither carriage return nor a linefeed.
+        /// </summary>
+        /// <returns></returns>
+        public QuantifiedPattern WhileWhiteSpaceExceptNewLine()
+        {
+            return ConcatInternal(Patterns.WhileWhiteSpaceExceptNewLine());
+        }
+
+        /// <summary>
         /// Appends a pattern that matches zero or more characters that are not a specified character.
         /// </summary>
         /// <param name="value">A Unicode character.</param>
