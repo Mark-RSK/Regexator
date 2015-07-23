@@ -1176,18 +1176,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a tab from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup Tab(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, Tab());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not a tab.
         /// </summary>
         /// <returns></returns>
@@ -1205,18 +1193,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotTab(int exactCount)
         {
             return Count(exactCount, NotTab());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not a tab from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotTab(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotTab());
         }
 
         /// <summary>
@@ -1240,18 +1216,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a linefeed from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup Linefeed(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, Linefeed());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not a linefeed.
         /// </summary>
         /// <returns></returns>
@@ -1269,18 +1233,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotLinefeed(int exactCount)
         {
             return Count(exactCount, NotLinefeed());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not a linefeed from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotLinefeed(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotLinefeed());
         }
 
         /// <summary>
@@ -1304,18 +1256,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a carriage return from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup CarriageReturn(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, CarriageReturn());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not a carriage return.
         /// </summary>
         /// <returns></returns>
@@ -1333,18 +1273,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotCarriageReturn(int exactCount)
         {
             return Count(exactCount, NotCarriageReturn());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not a carriage return from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotCarriageReturn(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotCarriageReturn());
         }
 
         /// <summary>
@@ -1368,18 +1296,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a space from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup Space(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, Space());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not a space.
         /// </summary>
         /// <returns></returns>
@@ -1397,18 +1313,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotSpace(int exactCount)
         {
             return Count(exactCount, NotSpace());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not a space from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotSpace(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotSpace());
         }
 
         /// <summary>
@@ -1432,18 +1336,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches an exclamation mark from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup ExclamationMark(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, ExclamationMark());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not an exclamation mark.
         /// </summary>
         /// <returns></returns>
@@ -1461,18 +1353,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotExclamationMark(int exactCount)
         {
             return Count(exactCount, NotExclamationMark());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not an exclamation mark from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotExclamationMark(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotExclamationMark());
         }
 
         /// <summary>
@@ -1496,18 +1376,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a quote mark from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup QuoteMark(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, QuoteMark());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not a quote mark.
         /// </summary>
         /// <returns></returns>
@@ -1525,18 +1393,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotQuoteMark(int exactCount)
         {
             return Count(exactCount, NotQuoteMark());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not a quote mark from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotQuoteMark(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotQuoteMark());
         }
 
         /// <summary>
@@ -1560,18 +1416,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a number sign from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NumberSign(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NumberSign());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not a number sign.
         /// </summary>
         /// <returns></returns>
@@ -1589,18 +1433,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotNumberSign(int exactCount)
         {
             return Count(exactCount, NotNumberSign());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not a number sign from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotNumberSign(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotNumberSign());
         }
 
         /// <summary>
@@ -1624,18 +1456,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a dollar from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup Dollar(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, Dollar());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not a dollar.
         /// </summary>
         /// <returns></returns>
@@ -1653,18 +1473,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotDollar(int exactCount)
         {
             return Count(exactCount, NotDollar());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not a dollar from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotDollar(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotDollar());
         }
 
         /// <summary>
@@ -1688,18 +1496,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a percent from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup Percent(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, Percent());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not a percent.
         /// </summary>
         /// <returns></returns>
@@ -1717,18 +1513,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotPercent(int exactCount)
         {
             return Count(exactCount, NotPercent());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not a percent from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotPercent(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotPercent());
         }
 
         /// <summary>
@@ -1752,18 +1536,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches an ampersand from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup Ampersand(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, Ampersand());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not an ampersand.
         /// </summary>
         /// <returns></returns>
@@ -1781,18 +1553,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotAmpersand(int exactCount)
         {
             return Count(exactCount, NotAmpersand());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not an ampersand from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotAmpersand(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotAmpersand());
         }
 
         /// <summary>
@@ -1816,18 +1576,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches an apostrophe from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup Apostrophe(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, Apostrophe());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not an apostrophe.
         /// </summary>
         /// <returns></returns>
@@ -1845,18 +1593,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotApostrophe(int exactCount)
         {
             return Count(exactCount, NotApostrophe());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not an apostrophe from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotApostrophe(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotApostrophe());
         }
 
         /// <summary>
@@ -1880,18 +1616,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a left parenthesis from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup LeftParenthesis(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, LeftParenthesis());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not a left parenthesis.
         /// </summary>
         /// <returns></returns>
@@ -1909,18 +1633,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotLeftParenthesis(int exactCount)
         {
             return Count(exactCount, NotLeftParenthesis());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not a left parenthesis from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotLeftParenthesis(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotLeftParenthesis());
         }
 
         /// <summary>
@@ -1944,18 +1656,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a right parenthesis from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup RightParenthesis(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, RightParenthesis());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not a right parenthesis.
         /// </summary>
         /// <returns></returns>
@@ -1973,18 +1673,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotRightParenthesis(int exactCount)
         {
             return Count(exactCount, NotRightParenthesis());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not a right parenthesis from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotRightParenthesis(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotRightParenthesis());
         }
 
         /// <summary>
@@ -2008,18 +1696,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches an asterisk from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup Asterisk(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, Asterisk());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not an asterisk.
         /// </summary>
         /// <returns></returns>
@@ -2037,18 +1713,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotAsterisk(int exactCount)
         {
             return Count(exactCount, NotAsterisk());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not an asterisk from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotAsterisk(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotAsterisk());
         }
 
         /// <summary>
@@ -2072,18 +1736,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a plus from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup Plus(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, Plus());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not a plus.
         /// </summary>
         /// <returns></returns>
@@ -2101,18 +1753,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotPlus(int exactCount)
         {
             return Count(exactCount, NotPlus());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not a plus from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotPlus(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotPlus());
         }
 
         /// <summary>
@@ -2136,18 +1776,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a comma from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup Comma(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, Comma());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not a comma.
         /// </summary>
         /// <returns></returns>
@@ -2165,18 +1793,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotComma(int exactCount)
         {
             return Count(exactCount, NotComma());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not a comma from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotComma(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotComma());
         }
 
         /// <summary>
@@ -2200,18 +1816,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a hyphen from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup Hyphen(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, Hyphen());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not a hyphen.
         /// </summary>
         /// <returns></returns>
@@ -2229,18 +1833,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotHyphen(int exactCount)
         {
             return Count(exactCount, NotHyphen());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not a hyphen from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotHyphen(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotHyphen());
         }
 
         /// <summary>
@@ -2264,18 +1856,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a dot from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup Dot(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, Dot());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not a dot.
         /// </summary>
         /// <returns></returns>
@@ -2293,18 +1873,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotDot(int exactCount)
         {
             return Count(exactCount, NotDot());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not a dot from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotDot(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotDot());
         }
 
         /// <summary>
@@ -2328,18 +1896,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a slash from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup Slash(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, Slash());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not a slash.
         /// </summary>
         /// <returns></returns>
@@ -2357,18 +1913,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotSlash(int exactCount)
         {
             return Count(exactCount, NotSlash());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not a slash from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotSlash(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotSlash());
         }
 
         /// <summary>
@@ -2392,18 +1936,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a colon from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup Colon(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, Colon());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not a colon.
         /// </summary>
         /// <returns></returns>
@@ -2421,18 +1953,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotColon(int exactCount)
         {
             return Count(exactCount, NotColon());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not a colon from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotColon(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotColon());
         }
 
         /// <summary>
@@ -2456,18 +1976,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a semicolon from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup Semicolon(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, Semicolon());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not a semicolon.
         /// </summary>
         /// <returns></returns>
@@ -2485,18 +1993,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotSemicolon(int exactCount)
         {
             return Count(exactCount, NotSemicolon());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not a semicolon from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotSemicolon(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotSemicolon());
         }
 
         /// <summary>
@@ -2520,18 +2016,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a left angle bracket (less-than sign) from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup LeftAngleBracket(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, LeftAngleBracket());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not a left angle bracket (less-than sign).
         /// </summary>
         /// <returns></returns>
@@ -2549,18 +2033,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotLeftAngleBracket(int exactCount)
         {
             return Count(exactCount, NotLeftAngleBracket());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not a left angle bracket (less-than sign) from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotLeftAngleBracket(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotLeftAngleBracket());
         }
 
         /// <summary>
@@ -2584,18 +2056,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches an equals sign from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup EqualsSign(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, EqualsSign());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not an equals sign.
         /// </summary>
         /// <returns></returns>
@@ -2613,18 +2073,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotEqualsSign(int exactCount)
         {
             return Count(exactCount, NotEqualsSign());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not an equals sign from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotEqualsSign(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotEqualsSign());
         }
 
         /// <summary>
@@ -2648,18 +2096,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a right angle bracket (greater-than sign) from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup RightAngleBracket(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, RightAngleBracket());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not a right angle bracket (greater-than sign).
         /// </summary>
         /// <returns></returns>
@@ -2677,18 +2113,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotRightAngleBracket(int exactCount)
         {
             return Count(exactCount, NotRightAngleBracket());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not a right angle bracket (greater-than sign) from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotRightAngleBracket(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotRightAngleBracket());
         }
 
         /// <summary>
@@ -2712,18 +2136,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a question mark from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup QuestionMark(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, QuestionMark());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not a question mark.
         /// </summary>
         /// <returns></returns>
@@ -2741,18 +2153,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotQuestionMark(int exactCount)
         {
             return Count(exactCount, NotQuestionMark());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not a question mark from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotQuestionMark(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotQuestionMark());
         }
 
         /// <summary>
@@ -2776,18 +2176,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches an at sign from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup AtSign(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, AtSign());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not an at sign.
         /// </summary>
         /// <returns></returns>
@@ -2805,18 +2193,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotAtSign(int exactCount)
         {
             return Count(exactCount, NotAtSign());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not an at sign from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotAtSign(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotAtSign());
         }
 
         /// <summary>
@@ -2840,18 +2216,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a left square bracket from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup LeftSquareBracket(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, LeftSquareBracket());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not a left square bracket.
         /// </summary>
         /// <returns></returns>
@@ -2869,18 +2233,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotLeftSquareBracket(int exactCount)
         {
             return Count(exactCount, NotLeftSquareBracket());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not a left square bracket from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotLeftSquareBracket(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotLeftSquareBracket());
         }
 
         /// <summary>
@@ -2904,18 +2256,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a backslash from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup Backslash(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, Backslash());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not a backslash.
         /// </summary>
         /// <returns></returns>
@@ -2933,18 +2273,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotBackslash(int exactCount)
         {
             return Count(exactCount, NotBackslash());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not a backslash from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotBackslash(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotBackslash());
         }
 
         /// <summary>
@@ -2968,18 +2296,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a right square bracket from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup RightSquareBracket(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, RightSquareBracket());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not a right square bracket.
         /// </summary>
         /// <returns></returns>
@@ -2997,18 +2313,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotRightSquareBracket(int exactCount)
         {
             return Count(exactCount, NotRightSquareBracket());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not a right square bracket from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotRightSquareBracket(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotRightSquareBracket());
         }
 
         /// <summary>
@@ -3032,18 +2336,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a circumflex accent from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup CircumflexAccent(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, CircumflexAccent());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not a circumflex accent.
         /// </summary>
         /// <returns></returns>
@@ -3061,18 +2353,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotCircumflexAccent(int exactCount)
         {
             return Count(exactCount, NotCircumflexAccent());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not a circumflex accent from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotCircumflexAccent(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotCircumflexAccent());
         }
 
         /// <summary>
@@ -3096,18 +2376,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches an underscore from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup Underscore(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, Underscore());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not an underscore.
         /// </summary>
         /// <returns></returns>
@@ -3125,18 +2393,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotUnderscore(int exactCount)
         {
             return Count(exactCount, NotUnderscore());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not an underscore from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotUnderscore(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotUnderscore());
         }
 
         /// <summary>
@@ -3160,18 +2416,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a grave accent from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup GraveAccent(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, GraveAccent());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not a grave accent.
         /// </summary>
         /// <returns></returns>
@@ -3189,18 +2433,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotGraveAccent(int exactCount)
         {
             return Count(exactCount, NotGraveAccent());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not a grave accent from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotGraveAccent(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotGraveAccent());
         }
 
         /// <summary>
@@ -3224,18 +2456,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a left curly bracket from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup LeftCurlyBracket(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, LeftCurlyBracket());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not a left curly bracket.
         /// </summary>
         /// <returns></returns>
@@ -3253,18 +2473,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotLeftCurlyBracket(int exactCount)
         {
             return Count(exactCount, NotLeftCurlyBracket());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not a left curly bracket from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotLeftCurlyBracket(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotLeftCurlyBracket());
         }
 
         /// <summary>
@@ -3288,18 +2496,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a vertical bar from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup VerticalBar(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, VerticalBar());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not a vertical bar.
         /// </summary>
         /// <returns></returns>
@@ -3317,18 +2513,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotVerticalBar(int exactCount)
         {
             return Count(exactCount, NotVerticalBar());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not a vertical bar from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotVerticalBar(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotVerticalBar());
         }
 
         /// <summary>
@@ -3352,18 +2536,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a right curly bracket from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup RightCurlyBracket(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, RightCurlyBracket());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not a right curly bracket.
         /// </summary>
         /// <returns></returns>
@@ -3381,18 +2553,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotRightCurlyBracket(int exactCount)
         {
             return Count(exactCount, NotRightCurlyBracket());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not a right curly bracket from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotRightCurlyBracket(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotRightCurlyBracket());
         }
 
         /// <summary>
@@ -3416,18 +2576,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a tilde from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup Tilde(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, Tilde());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not a tilde.
         /// </summary>
         /// <returns></returns>
@@ -3445,18 +2593,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotTilde(int exactCount)
         {
             return Count(exactCount, NotTilde());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not a tilde from minimum to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotTilde(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotTilde());
         }
 
         /// <summary>
@@ -3480,18 +2616,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches any character from minimal to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup Any(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, Any());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches any character except linefeed.
         /// </summary>
         /// <returns></returns>
@@ -3509,18 +2633,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup AnyExceptLinefeed(int exactCount)
         {
             return Count(exactCount, AnyExceptLinefeed());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches any character except linefeed from minimal to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup AnyExceptLinefeed(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, AnyExceptLinefeed());
         }
 
         /// <summary>
@@ -3544,18 +2656,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches any character except linefeed (or any character if the <see cref="RegexOptions.Singleline"/> option is applied) from minimal to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup AnyNative(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, AnyNative());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a digit character.
         /// </summary>
         /// <returns></returns>
@@ -3573,18 +2673,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup Digit(int exactCount)
         {
             return Count(exactCount, Digit());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a digit character from minimal to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup Digit(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, Digit());
         }
 
         /// <summary>
@@ -3617,18 +2705,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a character that is not a digit character from minimal to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotDigit(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotDigit());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches one or more characters that are not a digit character.
         /// </summary>
         /// <returns></returns>
@@ -3655,18 +2731,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup WhiteSpace(int exactCount)
         {
             return Count(exactCount, WhiteSpace());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a white-space character from minimal to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup WhiteSpace(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, WhiteSpace());
         }
 
         /// <summary>
@@ -3699,18 +2763,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a character that is not a white-space character from minimal to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotWhiteSpace(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotWhiteSpace());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches one or more characters that are not a white-space character.
         /// </summary>
         /// <returns></returns>
@@ -3737,18 +2789,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup WordChar(int exactCount)
         {
             return Count(exactCount, WordChar());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a word character from minimal to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup WordChar(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, WordChar());
         }
 
         /// <summary>
@@ -3781,18 +2821,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a character that is not a word character from minimal to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotWordChar(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotWordChar());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches one or more characters that are not a word character.
         /// </summary>
         /// <returns></returns>
@@ -3822,18 +2850,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a newline character from minimal to maximum times. Newline character is a carriage return or a linefeed.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NewLineChar(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NewLineChar());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not a newline character. Newline character is a carriage return or a linefeed.
         /// </summary>
         /// <returns></returns>
@@ -3851,18 +2867,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotNewLineChar(int exactCount)
         {
             return Count(exactCount, NotNewLineChar());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not a newline character from minimal to maximum times. Newline character is a carriage return or a linefeed.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotNewLineChar(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotNewLineChar());
         }
 
         /// <summary>
@@ -3886,18 +2890,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches an alphanumeric character from minimal to maximum times. Alphanumeric character is a latin alphabet letter or an arabic digit.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup Alphanumeric(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, Alphanumeric());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not an alphanumeric character. Alphanumeric character is a latin alphabet letter or an arabic digit.
         /// </summary>
         /// <returns></returns>
@@ -3915,18 +2907,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotAlphanumeric(int exactCount)
         {
             return Count(exactCount, NotAlphanumeric());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not an alphanumeric character from minimal to maximum times. Alphanumeric character is a latin alphabet letter or an arabic digit.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotAlphanumeric(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotAlphanumeric());
         }
 
         /// <summary>
@@ -3950,18 +2930,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a lower-case alphanumeric character from minimal to maximum times. Alphanumeric character is a latin alphabet lower-case letter or an arabic digit.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup AlphanumericLower(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, AlphanumericLower());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not a lower-case alphanumeric character. Alphanumeric character is a latin alphabet lower-case letter or an arabic digit.
         /// </summary>
         /// <returns></returns>
@@ -3979,18 +2947,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotAlphanumericLower(int exactCount)
         {
             return Count(exactCount, NotAlphanumericLower());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not a lower-case alphanumeric character from minimal to maximum times. Alphanumeric character is a latin alphabet lower-case letter or an arabic digit.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotAlphanumericLower(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotAlphanumericLower());
         }
 
         /// <summary>
@@ -4014,18 +2970,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches an upper-case alphanumeric character from minimal to maximum times. Alphanumeric character is a latin alphabet upper-case letter or an arabic digit.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup AlphanumericUpper(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, AlphanumericUpper());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not an upper-case alphanumeric character. Alphanumeric character is a latin alphabet upper-case letter or an arabic digit.
         /// </summary>
         /// <returns></returns>
@@ -4043,18 +2987,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotAlphanumericUpper(int exactCount)
         {
             return Count(exactCount, NotAlphanumericUpper());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not an upper-case alphanumeric character from minimal to maximum times. Alphanumeric character is a latin alphabet upper-case letter or an arabic digit.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotAlphanumericUpper(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotAlphanumericUpper());
         }
 
         /// <summary>
@@ -4078,18 +3010,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches an alphanumeric character or an underscore from minimal to maximum times. Alphanumeric character is a latin alphabet letter or an arabic digit.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup AlphanumericUnderscore(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, AlphanumericUnderscore());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is neither alphanumeric character nor underscore. Alphanumeric character is a latin alphabet letter or an arabic digit.
         /// </summary>
         /// <returns></returns>
@@ -4107,18 +3027,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotAlphanumericUnderscore(int exactCount)
         {
             return Count(exactCount, NotAlphanumericUnderscore());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is neither alphanumeric character nor underscore from minimal to maximum times. Alphanumeric character is a latin alphabet letter or an arabic digit.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotAlphanumericUnderscore(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotAlphanumericUnderscore());
         }
 
         /// <summary>
@@ -4142,18 +3050,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a latin alphabet letter from minimal to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup LatinLetter(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, LatinLetter());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not a latin alphabet letter.
         /// </summary>
         /// <returns></returns>
@@ -4171,18 +3067,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotLatinLetter(int exactCount)
         {
             return Count(exactCount, NotLatinLetter());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not a latin alphabet letter from minimal to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotLatinLetter(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotLatinLetter());
         }
 
         /// <summary>
@@ -4206,18 +3090,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a latin alphabet lower-case letter from minimal to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup LatinLetterLower(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, LatinLetterLower());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not a latin alphabet lower-case letter.
         /// </summary>
         /// <returns></returns>
@@ -4235,18 +3107,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotLatinLetterLower(int exactCount)
         {
             return Count(exactCount, NotLatinLetterLower());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not a latin alphabet lower-case letter from minimal to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotLatinLetterLower(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotLatinLetterLower());
         }
 
         /// <summary>
@@ -4270,18 +3130,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a latin alphabet upper-case letter from minimal to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup LatinLetterUpper(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, LatinLetterUpper());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not a latin alphabet upper-case letter.
         /// </summary>
         /// <returns></returns>
@@ -4299,18 +3147,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotLatinLetterUpper(int exactCount)
         {
             return Count(exactCount, NotLatinLetterUpper());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not a latin alphabet upper-case letter from minimal to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotLatinLetterUpper(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotLatinLetterUpper());
         }
 
         /// <summary>
@@ -4334,18 +3170,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a character from <see cref="GeneralCategory.LetterLowercase"/> from minimal to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup LetterLower(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, LetterLower());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not a character from <see cref="GeneralCategory.LetterLowercase"/>.
         /// </summary>
         /// <returns></returns>
@@ -4363,18 +3187,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotLetterLower(int exactCount)
         {
             return Count(exactCount, NotLetterLower());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not a character from <see cref="GeneralCategory.LetterLowercase"/> from minimal to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotLetterLower(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotLetterLower());
         }
 
         /// <summary>
@@ -4398,18 +3210,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a character from <see cref="GeneralCategory.LetterUppercase"/> from minimal to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup LetterUpper(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, LetterUpper());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not a character from <see cref="GeneralCategory.LetterUppercase"/>.
         /// </summary>
         /// <returns></returns>
@@ -4427,18 +3227,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotLetterUpper(int exactCount)
         {
             return Count(exactCount, NotLetterUpper());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not a character from <see cref="GeneralCategory.LetterUppercase"/> from minimal to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotLetterUpper(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotLetterUpper());
         }
 
         /// <summary>
@@ -4462,18 +3250,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches an arabic digit from minimal to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup ArabicDigit(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, ArabicDigit());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not an arabic digit.
         /// </summary>
         /// <returns></returns>
@@ -4491,18 +3267,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotArabicDigit(int exactCount)
         {
             return Count(exactCount, NotArabicDigit());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not an arabic digit from minimal to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotArabicDigit(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotArabicDigit());
         }
 
         /// <summary>
@@ -4526,18 +3290,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a hexadecimal digit from minimal to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup HexadecimalDigit(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, HexadecimalDigit());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is not a hexadecimal digit.
         /// </summary>
         /// <returns></returns>
@@ -4555,18 +3307,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotHexadecimalDigit(int exactCount)
         {
             return Count(exactCount, NotHexadecimalDigit());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is not a hexadecimal digit from minimal to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotHexadecimalDigit(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotHexadecimalDigit());
         }
 
         /// <summary>
@@ -4590,18 +3330,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches left or right parenthesis from minimal to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup Parenthesis(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, Parenthesis());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is neither left nor right parenthesis.
         /// </summary>
         /// <returns></returns>
@@ -4619,18 +3347,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotParenthesis(int exactCount)
         {
             return Count(exactCount, NotParenthesis());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is neither left nor right parenthesis from minimal to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotParenthesis(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotParenthesis());
         }
 
         /// <summary>
@@ -4654,18 +3370,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches left or right curly bracket from minimal to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup CurlyBracket(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, CurlyBracket());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is neither left nor right curly bracket.
         /// </summary>
         /// <returns></returns>
@@ -4683,18 +3387,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup NotCurlyBracket(int exactCount)
         {
             return Count(exactCount, NotCurlyBracket());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a character that is neither left nor right curly bracket from minimal to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotCurlyBracket(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotCurlyBracket());
         }
 
         /// <summary>
@@ -4718,18 +3410,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches left or right square bracket from minimal to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup SquareBracket(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, SquareBracket());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a character that is neither left nor right square bracket.
         /// </summary>
         /// <returns></returns>
@@ -4750,18 +3430,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches a character that is neither left nor right square bracket from minimal to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup NotSquareBracket(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, NotSquareBracket());
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a white-space character except carriage return and linefeed.
         /// </summary>
         /// <returns></returns>
@@ -4779,18 +3447,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static QuantifiedGroup WhiteSpaceExceptNewLine(int exactCount)
         {
             return Count(exactCount, WhiteSpaceExceptNewLine());
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a white-space character except carriage return and linefeed. The character has to be matched from minimal to maximum times.
-        /// </summary>
-        /// <param name="minCount">A minimal number of times a character has to be matched.</param>
-        /// <param name="maxCount">A maximum number of times a character can be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static QuantifiedGroup WhiteSpaceExceptNewLine(int minCount, int maxCount)
-        {
-            return Count(minCount, maxCount, WhiteSpaceExceptNewLine());
         }
 
         /// <summary>
