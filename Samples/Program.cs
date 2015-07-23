@@ -10,9 +10,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
         internal static void Main(string[] args)
         {
-            var left = Patterns.OneMany(CharGroupings.Alphanumeric() + "!#$%&'*+/=?^_`{|}~-");
+            Console.WriteLine(!Chars.WhiteSpace().Digit());
+            Console.WriteLine(!Chars.WhiteSpace() + Patterns.Digit());
 
-            var right = Patterns.Maybe(Patterns.MaybeMany(CharGroupings.Alphanumeric() + "-").Alphanumeric());
+            var left = Patterns.OneMany(Chars.Alphanumeric() + "!#$%&'*+/=?^_`{|}~-");
+
+            var right = Patterns.Maybe(Patterns.MaybeMany(Chars.Alphanumeric() + "-").Alphanumeric());
 
             var exp = left
                 .MaybeMany("." + left)

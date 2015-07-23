@@ -2601,7 +2601,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static QuantifiablePattern Any()
         {
-            return Character(CharGroupings.WhiteSpace().NotWhiteSpace());
+            return Character(Chars.WhiteSpace().NotWhiteSpace());
         }
 
         /// <summary>
@@ -2835,7 +2835,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static CharGroup NewLineChar()
         {
-            return Character(CharGroupings.CarriageReturn().Linefeed());
+            return Character(Chars.CarriageReturn().Linefeed());
         }
 
         /// <summary>
@@ -2855,7 +2855,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static CharGroup NotNewLineChar()
         {
-            return Not(CharGroupings.CarriageReturn().Linefeed());
+            return Not(Chars.CarriageReturn().Linefeed());
         }
 
         /// <summary>
@@ -2875,7 +2875,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static CharGroup Alphanumeric()
         {
-            return Character(CharGroupings.Alphanumeric());
+            return Character(Chars.Alphanumeric());
         }
 
         /// <summary>
@@ -2895,7 +2895,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static CharGroup NotAlphanumeric()
         {
-            return Not(CharGroupings.Alphanumeric());
+            return Not(Chars.Alphanumeric());
         }
 
         /// <summary>
@@ -2915,7 +2915,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static QuantifiablePattern AlphanumericLower()
         {
-            return DisableOptions(RegexOptions.IgnoreCase, CharGroupings.Range('a', 'z').ArabicDigit());
+            return DisableOptions(RegexOptions.IgnoreCase, Chars.Range('a', 'z').ArabicDigit());
         }
 
         /// <summary>
@@ -2935,7 +2935,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static QuantifiablePattern NotAlphanumericLower()
         {
-            return DisableOptions(RegexOptions.IgnoreCase, !CharGroupings.Range('a', 'z').ArabicDigit());
+            return DisableOptions(RegexOptions.IgnoreCase, !Chars.Range('a', 'z').ArabicDigit());
         }
 
         /// <summary>
@@ -2955,7 +2955,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static QuantifiablePattern AlphanumericUpper()
         {
-            return DisableOptions(RegexOptions.IgnoreCase, CharGroupings.Range('A', 'Z').ArabicDigit());
+            return DisableOptions(RegexOptions.IgnoreCase, Chars.Range('A', 'Z').ArabicDigit());
         }
 
         /// <summary>
@@ -2975,7 +2975,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static QuantifiablePattern NotAlphanumericUpper()
         {
-            return DisableOptions(RegexOptions.IgnoreCase, !CharGroupings.Range('A', 'Z').ArabicDigit());
+            return DisableOptions(RegexOptions.IgnoreCase, !Chars.Range('A', 'Z').ArabicDigit());
         }
 
         /// <summary>
@@ -2995,7 +2995,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static CharGroup AlphanumericUnderscore()
         {
-            return Character(CharGroupings.AlphanumericUnderscore());
+            return Character(Chars.AlphanumericUnderscore());
         }
 
         /// <summary>
@@ -3015,7 +3015,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static CharGroup NotAlphanumericUnderscore()
         {
-            return Not(CharGroupings.AlphanumericUnderscore());
+            return Not(Chars.AlphanumericUnderscore());
         }
 
         /// <summary>
@@ -3035,7 +3035,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static CharGroup LatinLetter()
         {
-            return Character(CharGroupings.LatinLetter());
+            return Character(Chars.LatinLetter());
         }
 
         /// <summary>
@@ -3055,7 +3055,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static CharGroup NotLatinLetter()
         {
-            return Not(CharGroupings.LatinLetter());
+            return Not(Chars.LatinLetter());
         }
 
         /// <summary>
@@ -3235,7 +3235,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static CharGroup ArabicDigit()
         {
-            return Character(CharGroupings.ArabicDigit());
+            return Character(Chars.ArabicDigit());
         }
 
         /// <summary>
@@ -3255,7 +3255,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static CharGroup NotArabicDigit()
         {
-            return Not(CharGroupings.ArabicDigit());
+            return Not(Chars.ArabicDigit());
         }
 
         /// <summary>
@@ -3275,7 +3275,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static CharGroup HexadecimalDigit()
         {
-            return Character(CharGroupings.HexadecimalDigit());
+            return Character(Chars.HexadecimalDigit());
         }
 
         /// <summary>
@@ -3295,7 +3295,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static CharGroup NotHexadecimalDigit()
         {
-            return Not(CharGroupings.HexadecimalDigit());
+            return Not(Chars.HexadecimalDigit());
         }
 
         /// <summary>
@@ -3315,7 +3315,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static CharGroup Parenthesis()
         {
-            return Character(CharGroupings.Parenthesis());
+            return Character(Chars.Parenthesis());
         }
 
         /// <summary>
@@ -3335,7 +3335,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static CharGroup NotParenthesis()
         {
-            return Not(CharGroupings.Parenthesis());
+            return Not(Chars.Parenthesis());
         }
 
         /// <summary>
@@ -3355,7 +3355,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static CharGroup CurlyBracket()
         {
-            return Character(CharGroupings.CurlyBracket());
+            return Character(Chars.CurlyBracket());
         }
 
         /// <summary>
@@ -3375,7 +3375,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static CharGroup NotCurlyBracket()
         {
-            return Not(CharGroupings.CurlyBracket());
+            return Not(Chars.CurlyBracket());
         }
 
         /// <summary>
@@ -3395,7 +3395,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static CharGroup SquareBracket()
         {
-            return Character(CharGroupings.SquareBracket());
+            return Character(Chars.SquareBracket());
         }
 
         /// <summary>
@@ -3415,7 +3415,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static CharGroup NotSquareBracket()
         {
-            return Not(CharGroupings.SquareBracket());
+            return Not(Chars.SquareBracket());
         }
 
         /// <summary>

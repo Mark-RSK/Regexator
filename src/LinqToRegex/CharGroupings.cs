@@ -7,7 +7,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     /// <summary>
     /// Exposes static methods that returns instance of <see cref="CharGrouping"/> class. <see cref="CharGrouping"/> class represents a character group content.
     /// </summary>
-    public static class CharGroupings
+    public static class Chars
     {
         /// <summary>
         /// Returns a pattern that matches any one of the specified characters.

@@ -200,7 +200,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentException"></exception>
         public static Pattern SurroundQuoteMarksWithEscapes(string contentGroupName)
         {
-            var chars = Patterns.MaybeMany(!CharGroupings.QuoteMark().Backslash());
+            var chars = Patterns.MaybeMany(!Chars.QuoteMark().Backslash());
 
             var content = chars + Patterns.MaybeMany(Patterns.Backslash().Any() + chars);
 

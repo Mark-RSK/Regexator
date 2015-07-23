@@ -53,7 +53,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping Concat(char value)
         {
-            return Concat(CharGroupings.Character(value));
+            return Concat(Chars.Character(value));
         }
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping Concat(AsciiChar value)
         {
-            return Concat(CharGroupings.Character(value));
+            return Concat(Chars.Character(value));
         }
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentException"></exception>
         public CharGrouping Concat(string characters)
         {
-            return Concat(CharGroupings.Character(characters));
+            return Concat(Chars.Character(characters));
         }
 
         /// <summary>
@@ -85,7 +85,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping Concat(NamedBlock block)
         {
-            return Concat(CharGroupings.Character(block));
+            return Concat(Chars.Character(block));
         }
 
         /// <summary>
@@ -95,7 +95,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping Concat(GeneralCategory category)
         {
-            return Concat(CharGroupings.Character(category));
+            return Concat(Chars.Character(category));
         }
 
         /// <summary>
@@ -106,7 +106,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping Range(char first, char last)
         {
-            return Concat(CharGroupings.Range(first, last));
+            return Concat(Chars.Range(first, last));
         }
 
         /// <summary>
@@ -116,7 +116,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping Not(NamedBlock block)
         {
-            return Concat(CharGroupings.Not(block));
+            return Concat(Chars.Not(block));
         }
 
         /// <summary>
@@ -126,7 +126,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping Not(GeneralCategory category)
         {
-            return Concat(CharGroupings.Not(category));
+            return Concat(Chars.Not(category));
         }
 
         /// <summary>
@@ -135,7 +135,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping Digit()
         {
-            return Concat(CharGroupings.Digit());
+            return Concat(Chars.Digit());
         }
 
         /// <summary>
@@ -144,7 +144,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping NotDigit()
         {
-            return Concat(CharGroupings.NotDigit());
+            return Concat(Chars.NotDigit());
         }
 
         /// <summary>
@@ -153,7 +153,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping WhiteSpace()
         {
-            return Concat(CharGroupings.WhiteSpace());
+            return Concat(Chars.WhiteSpace());
         }
 
         /// <summary>
@@ -162,7 +162,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping NotWhiteSpace()
         {
-            return Concat(CharGroupings.NotWhiteSpace());
+            return Concat(Chars.NotWhiteSpace());
         }
 
         /// <summary>
@@ -171,7 +171,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping WordChar()
         {
-            return Concat(CharGroupings.WordChar());
+            return Concat(Chars.WordChar());
         }
 
         /// <summary>
@@ -180,7 +180,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping NotWordChar()
         {
-            return Concat(CharGroupings.NotWordChar());
+            return Concat(Chars.NotWordChar());
         }
 
         /// <summary>
@@ -189,7 +189,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping Alphanumeric()
         {
-            return Concat(CharGroupings.Alphanumeric());
+            return Concat(Chars.Alphanumeric());
         }
 
         /// <summary>
@@ -198,7 +198,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping AlphanumericUnderscore()
         {
-            return Concat(CharGroupings.AlphanumericUnderscore());
+            return Concat(Chars.AlphanumericUnderscore());
         }
 
         /// <summary>
@@ -207,7 +207,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping LatinLetter()
         {
-            return Concat(CharGroupings.LatinLetter());
+            return Concat(Chars.LatinLetter());
         }
 
         /// <summary>
@@ -216,7 +216,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping ArabicDigit()
         {
-            return Concat(CharGroupings.ArabicDigit());
+            return Concat(Chars.ArabicDigit());
         }
 
         /// <summary>
@@ -225,7 +225,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping NewLineChar()
         {
-            return Concat(CharGroupings.NewLineChar());
+            return Concat(Chars.NewLineChar());
         }
 
         /// <summary>
@@ -234,7 +234,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping Tab()
         {
-            return Concat(CharGroupings.Tab());
+            return Concat(Chars.Tab());
         }
 
         /// <summary>
@@ -243,7 +243,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping Linefeed()
         {
-            return Concat(CharGroupings.Linefeed());
+            return Concat(Chars.Linefeed());
         }
 
         /// <summary>
@@ -252,7 +252,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping CarriageReturn()
         {
-            return Concat(CharGroupings.CarriageReturn());
+            return Concat(Chars.CarriageReturn());
         }
 
         /// <summary>
@@ -261,7 +261,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping Space()
         {
-            return Concat(CharGroupings.Space());
+            return Concat(Chars.Space());
         }
 
         /// <summary>
@@ -270,7 +270,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping ExclamationMark()
         {
-            return Concat(CharGroupings.ExclamationMark());
+            return Concat(Chars.ExclamationMark());
         }
 
         /// <summary>
@@ -279,7 +279,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping QuoteMark()
         {
-            return Concat(CharGroupings.QuoteMark());
+            return Concat(Chars.QuoteMark());
         }
 
         /// <summary>
@@ -288,7 +288,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping NumberSign()
         {
-            return Concat(CharGroupings.NumberSign());
+            return Concat(Chars.NumberSign());
         }
 
         /// <summary>
@@ -297,7 +297,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping Dollar()
         {
-            return Concat(CharGroupings.Dollar());
+            return Concat(Chars.Dollar());
         }
 
         /// <summary>
@@ -306,7 +306,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping Percent()
         {
-            return Concat(CharGroupings.Percent());
+            return Concat(Chars.Percent());
         }
 
         /// <summary>
@@ -315,7 +315,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping Ampersand()
         {
-            return Concat(CharGroupings.Ampersand());
+            return Concat(Chars.Ampersand());
         }
 
         /// <summary>
@@ -324,7 +324,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping Apostrophe()
         {
-            return Concat(CharGroupings.Apostrophe());
+            return Concat(Chars.Apostrophe());
         }
 
         /// <summary>
@@ -333,7 +333,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping LeftParenthesis()
         {
-            return Concat(CharGroupings.LeftParenthesis());
+            return Concat(Chars.LeftParenthesis());
         }
 
         /// <summary>
@@ -342,7 +342,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping RightParenthesis()
         {
-            return Concat(CharGroupings.RightParenthesis());
+            return Concat(Chars.RightParenthesis());
         }
 
         /// <summary>
@@ -351,7 +351,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping Asterisk()
         {
-            return Concat(CharGroupings.Asterisk());
+            return Concat(Chars.Asterisk());
         }
 
         /// <summary>
@@ -360,7 +360,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping Plus()
         {
-            return Concat(CharGroupings.Plus());
+            return Concat(Chars.Plus());
         }
 
         /// <summary>
@@ -369,7 +369,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping Comma()
         {
-            return Concat(CharGroupings.Comma());
+            return Concat(Chars.Comma());
         }
 
         /// <summary>
@@ -378,7 +378,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping Hyphen()
         {
-            return Concat(CharGroupings.Hyphen());
+            return Concat(Chars.Hyphen());
         }
 
         /// <summary>
@@ -387,7 +387,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping Dot()
         {
-            return Concat(CharGroupings.Dot());
+            return Concat(Chars.Dot());
         }
 
         /// <summary>
@@ -396,7 +396,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping Slash()
         {
-            return Concat(CharGroupings.Slash());
+            return Concat(Chars.Slash());
         }
 
         /// <summary>
@@ -405,7 +405,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping Colon()
         {
-            return Concat(CharGroupings.Colon());
+            return Concat(Chars.Colon());
         }
 
         /// <summary>
@@ -414,7 +414,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping Semicolon()
         {
-            return Concat(CharGroupings.Semicolon());
+            return Concat(Chars.Semicolon());
         }
 
         /// <summary>
@@ -423,7 +423,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping LeftAngleBracket()
         {
-            return Concat(CharGroupings.LeftAngleBracket());
+            return Concat(Chars.LeftAngleBracket());
         }
 
         /// <summary>
@@ -432,7 +432,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping EqualsSign()
         {
-            return Concat(CharGroupings.EqualsSign());
+            return Concat(Chars.EqualsSign());
         }
 
         /// <summary>
@@ -441,7 +441,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping RightAngleBracket()
         {
-            return Concat(CharGroupings.RightAngleBracket());
+            return Concat(Chars.RightAngleBracket());
         }
 
         /// <summary>
@@ -450,7 +450,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping QuestionMark()
         {
-            return Concat(CharGroupings.QuestionMark());
+            return Concat(Chars.QuestionMark());
         }
 
         /// <summary>
@@ -459,7 +459,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping AtSign()
         {
-            return Concat(CharGroupings.AtSign());
+            return Concat(Chars.AtSign());
         }
 
         /// <summary>
@@ -468,7 +468,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping LeftSquareBracket()
         {
-            return Concat(CharGroupings.LeftSquareBracket());
+            return Concat(Chars.LeftSquareBracket());
         }
 
         /// <summary>
@@ -477,7 +477,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping Backslash()
         {
-            return Concat(CharGroupings.Backslash());
+            return Concat(Chars.Backslash());
         }
 
         /// <summary>
@@ -486,7 +486,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping RightSquareBracket()
         {
-            return Concat(CharGroupings.RightSquareBracket());
+            return Concat(Chars.RightSquareBracket());
         }
 
         /// <summary>
@@ -495,7 +495,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping CircumflexAccent()
         {
-            return Concat(CharGroupings.CircumflexAccent());
+            return Concat(Chars.CircumflexAccent());
         }
 
         /// <summary>
@@ -504,7 +504,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping Underscore()
         {
-            return Concat(CharGroupings.Underscore());
+            return Concat(Chars.Underscore());
         }
 
         /// <summary>
@@ -513,7 +513,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping GraveAccent()
         {
-            return Concat(CharGroupings.GraveAccent());
+            return Concat(Chars.GraveAccent());
         }
 
         /// <summary>
@@ -522,7 +522,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping LeftCurlyBracket()
         {
-            return Concat(CharGroupings.LeftCurlyBracket());
+            return Concat(Chars.LeftCurlyBracket());
         }
 
         /// <summary>
@@ -531,7 +531,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping VerticalBar()
         {
-            return Concat(CharGroupings.VerticalBar());
+            return Concat(Chars.VerticalBar());
         }
 
         /// <summary>
@@ -540,7 +540,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping RightCurlyBracket()
         {
-            return Concat(CharGroupings.RightCurlyBracket());
+            return Concat(Chars.RightCurlyBracket());
         }
 
         /// <summary>
@@ -549,7 +549,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping Parenthesis()
         {
-            return Concat(CharGroupings.Parenthesis());
+            return Concat(Chars.Parenthesis());
         }
 
         /// <summary>
@@ -558,7 +558,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping SquareBracket()
         {
-            return Concat(CharGroupings.SquareBracket());
+            return Concat(Chars.SquareBracket());
         }
 
         /// <summary>
@@ -567,7 +567,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping CurlyBracket()
         {
-            return Concat(CharGroupings.CurlyBracket());
+            return Concat(Chars.CurlyBracket());
         }
 
         /// <summary>
@@ -576,7 +576,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGrouping Tilde()
         {
-            return Concat(CharGroupings.Tilde());
+            return Concat(Chars.Tilde());
         }
 
         /// <summary>
@@ -677,7 +677,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("right");
             }
 
-            return left.Concat(CharGroupings.Character(right));
+            return left.Concat(Chars.Character(right));
         }
 
         /// <summary>
@@ -721,7 +721,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("right");
             }
 
-            return CharGroupings.Character(left).Concat(CharGroupings.Character(right));
+            return Chars.Character(left).Concat(Chars.Character(right));
         }
 
         /// <summary>
@@ -755,7 +755,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("right");
             }
 
-            return CharGroupings.Character(left).Concat(CharGroupings.Character(right));
+            return Chars.Character(left).Concat(Chars.Character(right));
         }
 
         /// <summary>
@@ -816,7 +816,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static explicit operator CharGrouping(string characters)
         {
-            return CharGroupings.Character(characters);
+            return Chars.Character(characters);
         }
 
         /// <summary>
@@ -826,7 +826,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static explicit operator CharGrouping(char value)
         {
-            return CharGroupings.Character(value);
+            return Chars.Character(value);
         }
 
         internal CharGrouping Previous { get; set; }
