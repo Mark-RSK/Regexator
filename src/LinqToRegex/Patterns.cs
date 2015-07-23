@@ -3774,7 +3774,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="value">A Unicode character.</param>
         /// <returns></returns>
-        public static QuantifiablePattern GoToChar(char value)
+        public static QuantifiablePattern UntilChar(char value)
         {
             return Not(value).MaybeMany().Character(value).AsNoncapturingGroup();
         }
@@ -3784,7 +3784,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="value">An enumerated constant that identifies ASCII character.</param>
         /// <returns></returns>
-        public static QuantifiablePattern GoToChar(AsciiChar value)
+        public static QuantifiablePattern UntilChar(AsciiChar value)
         {
             return Not(value).MaybeMany().Character(value).AsNoncapturingGroup();
         }
@@ -3795,7 +3795,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="value">A content of a character group.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static QuantifiablePattern GoToChar(CharGrouping value)
+        public static QuantifiablePattern UntilChar(CharGrouping value)
         {
             return Not(value).MaybeMany().Character(value).AsNoncapturingGroup();
         }

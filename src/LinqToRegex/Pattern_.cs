@@ -960,9 +960,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="value">A Unicode character.</param>
         /// <returns></returns>
-        public QuantifiablePattern GoToChar(char value)
+        public QuantifiablePattern UntilChar(char value)
         {
-            return ConcatInternal(Patterns.GoToChar(value));
+            return ConcatInternal(Patterns.UntilChar(value));
         }
 
         /// <summary>
@@ -970,9 +970,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="value">An enumerated constant that identifies ASCII character.</param>
         /// <returns></returns>
-        public QuantifiablePattern GoToChar(AsciiChar value)
+        public QuantifiablePattern UntilChar(AsciiChar value)
         {
-            return ConcatInternal(Patterns.GoToChar(value));
+            return ConcatInternal(Patterns.UntilChar(value));
         }
 
         /// <summary>
@@ -981,9 +981,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="value">A content of a character group.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public QuantifiablePattern GoToChar(CharGrouping value)
+        public QuantifiablePattern UntilChar(CharGrouping value)
         {
-            return ConcatInternal(Patterns.GoToChar(value));
+            return ConcatInternal(Patterns.UntilChar(value));
         }
 
         /// <summary>
