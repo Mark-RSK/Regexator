@@ -136,7 +136,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="content">A base pattern to be surrounded.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Pattern Surround(object surroundContent, object content)
+        internal static Pattern Surround(object surroundContent, object content)
         {
             return Surround(surroundContent, content, surroundContent);
         }
