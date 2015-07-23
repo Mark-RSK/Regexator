@@ -3749,6 +3749,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
+        /// Returns a pattern that matches zero or more characters that are not contained in the specified <see cref="String"/>.
+        /// </summary>
+        /// <param name="characters">Unicode characters.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
+        public static QuantifiedPattern WhileNotChar(string characters)
+        {
+            return Not(characters).MaybeMany();
+        }
+
+        /// <summary>
         /// Returns a pattern that matches a character that is not a specified character zero or more times.
         /// </summary>
         /// <param name="value">An enumerated constant that identifies ASCII character.</param>
