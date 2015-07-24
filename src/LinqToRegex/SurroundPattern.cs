@@ -38,14 +38,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             builder.Append(_contentBefore);
 
-            if (_content is IEnumerable)
-            {
-                builder.AppendAny(_content, GroupMode.NoncapturingGroup);
-            }
-            else
-            {
-                builder.Append(_content);
-            }
+            builder.Append(_content);
 
             builder.Append(_contentAfter);
         }

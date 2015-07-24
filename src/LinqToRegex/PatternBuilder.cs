@@ -312,6 +312,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="value">The object to append.</param>
         public void Append(object value)
         {
+            Append(value, GroupMode.NoncapturingGroup);
+        }
+
+        internal void Append(object value, GroupMode mode)
+        {
             if (value == null)
             {
                 return;
@@ -349,12 +354,26 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 if (values.Length > 0)
                 {
+                    if (mode == GroupMode.Group)
+                    {
+                        AppendGroupStart();
+                    }
+                    else if (mode == GroupMode.NoncapturingGroup)
+                    {
+                        AppendNoncapturingGroupStart();
+                    }
+
                     Append(values[0]);
 
                     for (int i = 1; i < values.Length; i++)
                     {
                         AppendOr();
                         Append(values[i]);
+                    }
+
+                    if (mode != GroupMode.None)
+                    {
+                        AppendGroupEnd();
                     }
                 }
 
@@ -368,12 +387,26 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
                 if (en.MoveNext())
                 {
+                    if (mode == GroupMode.Group)
+                    {
+                        AppendGroupStart();
+                    }
+                    else if (mode == GroupMode.NoncapturingGroup)
+                    {
+                        AppendNoncapturingGroupStart();
+                    }
+
                     Append(en.Current);
 
                     while (en.MoveNext())
                     {
                         AppendOr();
                         Append(en.Current);
+                    }
+
+                    if (mode != GroupMode.None)
+                    {
+                        AppendGroupEnd();
                     }
                 }
             }
@@ -396,7 +429,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _currentOptions &= applyOptions;
             _currentOptions &= ~disableOptions;
 
-            Append(content);
+            Append(content, GroupMode.None);
 
             _currentOptions = currentOptions;
         }
@@ -430,15 +463,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 AppendLeftParenthesis();
             }
 
-            Append(testContent);
+            Append(testContent, GroupMode.None);
             AppendGroupEnd();
 
             RegexOptions currentOptions = _currentOptions;
 
-            Append(trueContent);
-
-            if (falseContent != null)
+            if (falseContent == null)
             {
+                Append(trueContent, GroupMode.None);
+            }
+            else
+            {
+                Append(trueContent);
                 AppendOr();
                 Append(falseContent);
             }
@@ -478,10 +514,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             RegexOptions currentOptions = _currentOptions;
 
-            Append(trueContent);
-
-            if (falseContent != null)
+            if (falseContent == null)
             {
+                Append(trueContent, GroupMode.None);
+            }
+            else
+            {
+                Append(trueContent);
                 AppendOr();
                 Append(falseContent);
             }
@@ -516,10 +555,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             RegexOptions currentOptions = _currentOptions;
 
-            Append(trueContent);
-
-            if (falseContent != null)
+            if (falseContent == null)
             {
+                Append(trueContent, GroupMode.None);
+            }
+            else
+            {
+                Append(trueContent);
                 AppendOr();
                 Append(falseContent);
             }
