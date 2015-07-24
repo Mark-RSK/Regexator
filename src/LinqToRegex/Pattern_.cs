@@ -1011,9 +1011,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Appends a pattern that matches zero or more characters that are not a linefeed and a linefeed.
         /// </summary>
         /// <returns></returns>
-        public QuantifiablePattern UntilLinefeed()
+        public QuantifiablePattern UntilNewLine()
         {
-            return ConcatInternal(Patterns.UntilLinefeed());
+            return ConcatInternal(Patterns.UntilNewLine());
         }
 
         /// <summary>

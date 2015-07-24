@@ -3825,7 +3825,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Returns a pattern that matches zero or more characters that are not a linefeed and a linefeed.
         /// </summary>
         /// <returns></returns>
-        public static QuantifiablePattern UntilLinefeed()
+        public static QuantifiablePattern UntilNewLine()
         {
             return UntilChar(AsciiChar.Linefeed);
         }
