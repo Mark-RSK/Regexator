@@ -12,6 +12,100 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     public static class Patterns
     {
         /// <summary>
+        /// Concatenates the elements of a <see cref="System.Collections.IEnumerable"/> collection.
+        /// </summary>
+        /// <param name="content">A collection object that implements <see cref="System.Collections.IEnumerable"/>.</param>
+        /// <returns></returns>
+        public static Pattern Concat(IEnumerable content)
+        {
+            return new ConcatPattern(content);
+        }
+
+        /// <summary>
+        /// Concatenates the elements in a specified Object array.
+        /// </summary>
+        /// <param name="content">An object array that contains the elements to concatenate.</param>
+        /// <returns></returns>
+        public static Pattern Concat(params object[] content)
+        {
+            return new ConcatPattern(content);
+        }
+
+        /// <summary>
+        /// Concatenates the elements of a <see cref="System.Collections.IEnumerable"/> collection using the specified separator between each element.
+        /// </summary>
+        /// <param name="separator">The pattern to use as a separator.</param>
+        /// <param name="values">A collection object that implements <see cref="System.Collections.IEnumerable"/>.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static Pattern Join(object separator, IEnumerable values)
+        {
+            return new JoinContainer(separator, values);
+        }
+
+        /// <summary>
+        /// Concatenates the elements of an object array, using the specified separator between each element.
+        /// </summary>
+        /// <param name="separator">The pattern to use as a separator.</param>
+        /// <param name="values">An object array that contains the patterns to concatenate.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static Pattern Join(object separator, params object[] values)
+        {
+            return new JoinContainer(separator, values);
+        }
+
+        /// <summary>
+        /// Surrounds a specified pattern with another specified pattern.
+        /// </summary>
+        /// <param name="surroundContent">A pattern to be surrounding the base pattern.</param>
+        /// <param name="content">A base pattern to be surrounded.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        internal static Pattern Surround(object surroundContent, object content)
+        {
+            return Surround(surroundContent, content, surroundContent);
+        }
+
+        /// <summary>
+        /// Surrounds a specified pattern with a specified patterns.
+        /// </summary>
+        /// <param name="contentBefore">A pattern to be placed before the base pattern.</param>
+        /// <param name="content">A base pattern to be surrounded.</param>
+        /// <param name="contentAfter">A pattern to be placed after the base pattern.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        internal static Pattern Surround(object contentBefore, object content, object contentAfter)
+        {
+            return new SurroundPattern(contentBefore, content, contentAfter);
+        }
+
+        /// <summary>
+        /// Surrounds specified pattern with a specified character.
+        /// </summary>
+        /// <param name="surroundChar">A character to be surrounding the base pattern.</param>
+        /// <param name="value">A base pattern to be surrounded.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        internal static Pattern Surround(AsciiChar surroundChar, object value)
+        {
+            return Surround(surroundChar, value, surroundChar);
+        }
+
+        /// <summary>
+        /// Surrounds specified pattern with a specified character.
+        /// </summary>
+        /// <param name="charBefore">A character to be placed before the base pattern.</param>
+        /// <param name="value">A base pattern to be surrounded.</param>
+        /// <param name="charAfter">A character to be placed after the base pattern.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        internal static Pattern Surround(AsciiChar charBefore, object value, AsciiChar charAfter)
+        {
+            return new AsciiCharSurroundPattern(charBefore, value, charAfter);
+        }
+
+        /// <summary>
         /// Returns a pattern that matches a specified text.
         /// </summary>
         /// <param name="value">A text to append.</param>
@@ -411,7 +505,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static QuantifiablePattern Word()
         {
-            return Pattern.Surround(WordBoundary(), WordChars()).AsNoncapturingGroup();
+            return Surround(WordBoundary(), WordChars()).AsNoncapturingGroup();
         }
 
         /// <summary>
@@ -422,7 +516,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public static QuantifiablePattern SurroundWordBoundary(object content)
         {
-            return Pattern.Surround(WordBoundary(), content).AsNoncapturingGroup();
+            return Surround(WordBoundary(), content).AsNoncapturingGroup();
         }
 
         /// <summary>
@@ -444,7 +538,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public static QuantifiablePattern EntireInput(object content)
         {
-            return Pattern.Surround(BeginInput(), content, EndInput()).AsNoncapturingGroup();
+            return Surround(BeginInput(), content, EndInput()).AsNoncapturingGroup();
         }
 
         /// <summary>
@@ -475,7 +569,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public static QuantifiablePattern EntireLine(object content)
         {
-            return Pattern.Surround(BeginLine(), content, EndLine(true)).AsNoncapturingGroup();
+            return Surround(BeginLine(), content, EndLine(true)).AsNoncapturingGroup();
         }
 
         /// <summary>
@@ -506,7 +600,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public static Pattern EntireInputOrLine(object content)
         {
-            return Pattern.Surround(BeginInputOrLine(), content, EndInputOrLine(true));
+            return Surround(BeginInputOrLine(), content, EndInputOrLine(true));
         }
 
         /// <summary>
@@ -3466,7 +3560,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public static Pattern SurroundApostrophes(object content)
         {
-            return Pattern.Surround(AsciiChar.Apostrophe, content);
+            return Surround(AsciiChar.Apostrophe, content);
         }
 
         /// <summary>
@@ -3477,7 +3571,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public static Pattern SurroundApostrophes(params object[] content)
         {
-            return Pattern.Surround(AsciiChar.Apostrophe, (object)content);
+            return Surround(AsciiChar.Apostrophe, (object)content);
         }
 
         /// <summary>
@@ -3497,7 +3591,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public static Pattern SurroundQuoteMarks(object content)
         {
-            return Pattern.Surround(AsciiChar.QuoteMark, content);
+            return Surround(AsciiChar.QuoteMark, content);
         }
 
         /// <summary>
@@ -3508,7 +3602,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public static Pattern SurroundQuoteMarks(params object[] content)
         {
-            return Pattern.Surround(AsciiChar.QuoteMark, (object)content);
+            return Surround(AsciiChar.QuoteMark, (object)content);
         }
 
 #if DEBUG
@@ -3561,7 +3655,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public static Pattern SurroundParentheses(object content)
         {
-            return Pattern.Surround(AsciiChar.LeftParenthesis, content, AsciiChar.RightParenthesis);
+            return Surround(AsciiChar.LeftParenthesis, content, AsciiChar.RightParenthesis);
         }
 
         /// <summary>
@@ -3572,7 +3666,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public static Pattern SurroundParentheses(params object[] content)
         {
-            return Pattern.Surround(AsciiChar.LeftParenthesis, (object)content, AsciiChar.RightParenthesis);
+            return Surround(AsciiChar.LeftParenthesis, (object)content, AsciiChar.RightParenthesis);
         }
 
         /// <summary>
@@ -3592,7 +3686,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public static Pattern SurroundCurlyBrackets(object content)
         {
-            return Pattern.Surround(AsciiChar.LeftCurlyBracket, content, AsciiChar.RightCurlyBracket);
+            return Surround(AsciiChar.LeftCurlyBracket, content, AsciiChar.RightCurlyBracket);
         }
 
         /// <summary>
@@ -3603,7 +3697,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public static Pattern SurroundCurlyBrackets(params object[] content)
         {
-            return Pattern.Surround(AsciiChar.LeftCurlyBracket, (object)content, AsciiChar.RightCurlyBracket);
+            return Surround(AsciiChar.LeftCurlyBracket, (object)content, AsciiChar.RightCurlyBracket);
         }
 
         /// <summary>
@@ -3623,7 +3717,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public static Pattern SurroundSquareBrackets(object content)
         {
-            return Pattern.Surround(AsciiChar.LeftSquareBracket, content, AsciiChar.RightSquareBracket);
+            return Surround(AsciiChar.LeftSquareBracket, content, AsciiChar.RightSquareBracket);
         }
 
         /// <summary>
@@ -3634,7 +3728,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public static Pattern SurroundSquareBrackets(params object[] content)
         {
-            return Pattern.Surround(AsciiChar.LeftSquareBracket, (object)content, AsciiChar.RightSquareBracket);
+            return Surround(AsciiChar.LeftSquareBracket, (object)content, AsciiChar.RightSquareBracket);
         }
 
         /// <summary>
@@ -3654,7 +3748,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public static Pattern SurroundAngleBrackets(object content)
         {
-            return Pattern.Surround(AsciiChar.LeftAngleBracket, content, AsciiChar.RightAngleBracket);
+            return Surround(AsciiChar.LeftAngleBracket, content, AsciiChar.RightAngleBracket);
         }
 
         /// <summary>
@@ -3665,7 +3759,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public static Pattern SurroundAngleBrackets(params object[] content)
         {
-            return Pattern.Surround(AsciiChar.LeftAngleBracket, (object)content, AsciiChar.RightAngleBracket);
+            return Surround(AsciiChar.LeftAngleBracket, (object)content, AsciiChar.RightAngleBracket);
         }
 
         /// <summary>
