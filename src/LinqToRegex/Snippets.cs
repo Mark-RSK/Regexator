@@ -98,7 +98,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches an empty line. Neither carriage return nor linefeed is included in the match, optionally including new line characters.
+        /// Returns a pattern that matches an empty line, optionally including new line characters.
+        /// Empty line is defined as a start of line
         /// </summary>
         /// <param name="includeNewLine">Indicates whether new line characters should be included in the match.</param>
         /// <returns></returns>

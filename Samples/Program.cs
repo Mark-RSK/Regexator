@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal class Program  
+    internal class Program
     {
         internal static void Main(string[] args)
         {
@@ -82,13 +82,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             exp = Patterns
                 .BeginInputOrLine()
                 .WhiteSpaceExceptNewLine().OneMany();
-            
+
             Dump("leading whitespace", exp);
 
             exp = Patterns
                 .WhiteSpaceExceptNewLine().OneMany()
                 .EndLine(true);
-            
+
             Dump("trailing whitespace", exp);
 
             exp = Patterns
@@ -116,7 +116,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             Dump("linefeed without carriage return", exp);
 
-            exp = Patterns.NonbacktrackingGroup(Path.GetInvalidFileNameChars().OrderBy(f => (int)f).Select(f => Patterns.Character(f)));
+            exp = Patterns.Any(Path.GetInvalidFileNameChars());
 
             Dump("invalid file name chars", exp);
 
