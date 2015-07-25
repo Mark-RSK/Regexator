@@ -76,14 +76,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 return Patterns
                     .BeginLine()
-                    .WhiteSpaceExceptNewLine().MaybeMany()
+                    .WhileWhiteSpaceExceptNewLine()
                     .Any(Patterns.NewLine() | Patterns.EndInput());
             }
             else
             {
                 return Patterns
                     .BeginLine()
-                    .WhiteSpaceExceptNewLine().MaybeMany()
+                    .WhileWhiteSpaceExceptNewLine()
                     .Assert(Patterns.NewLine() | Patterns.EndInput());
             }
         }
@@ -209,13 +209,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 : content;
 
             return Patterns.SurroundQuoteMarks(pattern).AsNoncapturingGroup();
-        }
-
-        internal static Pattern ValidGroupName()
-        {
-            return Patterns.EntireInput(
-                Patterns.Group(Patterns.Range('1', '9').ArabicDigit().MaybeMany()),
-                Patterns.WordChar().Except(Patterns.ArabicDigit()).WordChar().MaybeMany());
         }
     }
 }

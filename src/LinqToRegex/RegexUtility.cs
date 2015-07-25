@@ -14,7 +14,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
         internal static readonly RegexOptions InlineOptions = RegexOptions.IgnoreCase | RegexOptions.Multiline | RegexOptions.ExplicitCapture | RegexOptions.Singleline | RegexOptions.IgnorePatternWhitespace;
 
-        internal static readonly Pattern ValidGroupName = Snippets.ValidGroupName();
+        internal static readonly Regex ValidGroupNameRegex = Patterns.EntireInput(
+                Patterns.Group(Patterns.Range('1', '9').ArabicDigit().MaybeMany()),
+                Patterns.WordChar().Except(Patterns.ArabicDigit()).WordChar().MaybeMany()
+            ).ToRegex();
 
         /// <summary>
         /// Gets a value indicating whether the specified group name is a valid name of a regex group.
@@ -30,7 +33,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (!string.IsNullOrEmpty(groupName))
             {
-                Match match = ValidGroupName.Match(groupName);
+                Match match = ValidGroupNameRegex.Match(groupName);
                 if (match.Success)
                 {
                     Group g = match.Groups[1];

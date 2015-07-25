@@ -93,7 +93,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             exp = Patterns
                 .BeginLine()
-                .WhiteSpaceExceptNewLine().MaybeMany()
+                .WhileWhiteSpaceExceptNewLine()
                 .Assert(Patterns.NewLine());
 
             Dump("empty or whitespace line", exp);
@@ -108,7 +108,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 .BeginInput()
                 .NotNewLineChar().MaybeMany();
 
-            Dump("first line", exp);
+            Dump("first line without new line", exp);
 
             exp = Patterns
                 .NotAssertBack(Patterns.CarriageReturn())
