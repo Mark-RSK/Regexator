@@ -2929,7 +2929,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static CharGroup NewLineChar()
         {
-            return Character(Chars.CarriageReturn().Linefeed());
+            return Character("\r\n");
         }
 
         /// <summary>
@@ -2949,7 +2949,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static CharGroup NotNewLineChar()
         {
-            return Not(Chars.CarriageReturn().Linefeed());
+            return Not("\r\n");
         }
 
         /// <summary>
