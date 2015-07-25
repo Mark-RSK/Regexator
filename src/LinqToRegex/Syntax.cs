@@ -45,12 +45,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public const string EndOfInputOrBeforeEndingLinefeed = @"\Z";
 
         /// <summary>
-        /// Specifies a pattern that is matched on a boundary between a word character (\w) and a non-word character (\W). The pattern may be also matched on a word boundary at the beginning or end of the string.
+        /// Specifies a pattern that is matched on a boundary between a word character and a non-word character. The pattern may be also matched on a word boundary at the beginning or end of the string.
         /// </summary>
         public const string WordBoundary = @"\b";
 
         /// <summary>
-        /// Specifies a pattern that is not matched on a boundary between a word character (\w) and a non-word character (\W).
+        /// Specifies a pattern that is not matched on a boundary between a word character and a non-word character.
         /// </summary>
         public const string NegativeWordBoundary = @"\B";
 

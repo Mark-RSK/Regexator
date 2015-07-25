@@ -668,7 +668,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that is matched on a boundary between a word character (\w) and a non-word character (\W). The pattern may be also matched on a word boundary at the beginning or end of the string.
+        /// Appends a pattern that is matched on a boundary between a word character and a non-word character. The pattern may be also matched on a word boundary at the beginning or end of the string.
         /// </summary>
         public void AppendWordBoundary()
         {
@@ -676,7 +676,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that is not matched on a boundary between a word character (\w) and a non-word character (\W).
+        /// Appends a pattern that is not matched on a boundary between a word character and a non-word character.
         /// </summary>
         public void AppendNegativeWordBoundary()
         {

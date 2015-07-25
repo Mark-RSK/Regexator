@@ -482,7 +482,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that is matched on a boundary between a word character (\w) and a non-word character (\W). The pattern may be also matched on a word boundary at the beginning or end of the string.
+        /// Returns a pattern that is matched on a boundary between a word character and a non-word character. The pattern may be also matched on a word boundary at the beginning or end of the string.
         /// </summary>
         /// <returns></returns>
         public static WordBoundary WordBoundary()
@@ -491,7 +491,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that is not matched on a boundary between a word character (\w) and a non-word character (\W).
+        /// Returns a pattern that is not matched on a boundary between a word character and a non-word character.
         /// </summary>
         /// <returns></returns>
         public static NegativeWordBoundary NotWordBoundary()
