@@ -558,7 +558,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static QuantifiablePattern EntireLine()
         {
-            return EntireLine(NotNewLineChar().MaybeMany());
+            return EntireLine(WhileNotNewLineChar());
         }
 
         /// <summary>
@@ -589,7 +589,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static Pattern EntireInputOrLine()
         {
-            return EntireInputOrLine(NotNewLineChar().MaybeMany());
+            return EntireInputOrLine(WhileNotNewLineChar());
         }
 
         /// <summary>

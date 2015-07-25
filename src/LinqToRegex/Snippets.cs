@@ -139,9 +139,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             return Patterns
                 .BeginLine()
-                .NotNewLineChar().MaybeMany().Lazy()
+                .WhileNotNewLineChar().Lazy()
                 .NotWhiteSpace()
-                .NotNewLineChar().MaybeMany()
+                .WhileNotNewLineChar()
                 .AppendIf(includeNewLine, Patterns.NewLine().Maybe())
                 .AsNoncapturingGroup();
         }
@@ -179,7 +179,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             return Patterns
                 .BeginInput()
-                .NotNewLineChar().MaybeMany()
+                .WhileNotNewLineChar()
                 .AsNoncapturingGroup();
         }
 

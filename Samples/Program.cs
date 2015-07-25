@@ -104,9 +104,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             Dump("empty line", exp);
 
-            exp = Patterns
-                .BeginInput()
-                .NotNewLineChar().MaybeMany();
+            exp = Patterns.BeginInput().WhileNotNewLineChar();
 
             Dump("first line without new line", exp);
 
