@@ -3891,7 +3891,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static QuantifiablePattern UntilChar(char value)
         {
-            return Not(value).MaybeMany().Character(value).AsNoncapturingGroup();
+            return WhileNotChar(value).Character(value).AsNoncapturingGroup();
         }
 
         /// <summary>
@@ -3901,7 +3901,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static QuantifiablePattern UntilChar(AsciiChar value)
         {
-            return Not(value).MaybeMany().Character(value).AsNoncapturingGroup();
+            return WhileNotChar(value).Character(value).AsNoncapturingGroup();
         }
 
         /// <summary>
@@ -3912,7 +3912,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public static QuantifiablePattern UntilChar(CharGrouping value)
         {
-            return Not(value).MaybeMany().Character(value).AsNoncapturingGroup();
+            return WhileNotChar(value).Character(value).AsNoncapturingGroup();
         }
 
         /// <summary>
