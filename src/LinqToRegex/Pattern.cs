@@ -30,10 +30,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="condition">The condition expression to evaluate.</param>
         /// <param name="content">The content to be matched.</param>
         /// <returns></returns>
-        public Pattern ConcatIf(bool condition, object content)
+        public Pattern AppendIf(bool condition, object content)
         {
             return condition
-                ? Concat(content)
+                ? Append(content)
                 : this;
         }
 
@@ -42,9 +42,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="content">The content to be matched.</param>
         /// <returns></returns>
-        public Pattern Concat(object content)
+        public Pattern Append(object content)
         {
-            return ConcatInternal(new ContentPattern(content));
+            return AppendInternal(new ContentPattern(content));
         }
 
         /// <summary>
@@ -54,7 +54,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public Pattern Text(string value)
         {
-            return ConcatInternal(Patterns.Text(value));
+            return AppendInternal(Patterns.Text(value));
         }
 
         /// <summary>
@@ -65,10 +65,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern Text(string value, bool ignoreCase)
         {
-            return ConcatInternal(Patterns.Text(value, ignoreCase));
+            return AppendInternal(Patterns.Text(value, ignoreCase));
         }
 
-        internal TPattern ConcatInternal<TPattern>(TPattern pattern) where TPattern : Pattern
+        internal TPattern AppendInternal<TPattern>(TPattern pattern) where TPattern : Pattern
         {
             if (pattern == null)
             {
@@ -566,7 +566,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("right");
             }
 
-            return left.Concat(right);
+            return left.Append(right);
         }
 
         /// <summary>
@@ -610,7 +610,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("right");
             }
 
-            return Patterns.Text(left).Concat(right);
+            return Patterns.Text(left).Append(right);
         }
 
         /// <summary>
@@ -627,7 +627,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("left");
             }
 
-            return left.Concat(Patterns.Character(right));
+            return left.Append(Patterns.Character(right));
         }
 
         /// <summary>
@@ -644,7 +644,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentNullException("right");
             }
 
-            return Patterns.Character(left).Concat(right);
+            return Patterns.Character(left).Append(right);
         }
 
         /// <summary>

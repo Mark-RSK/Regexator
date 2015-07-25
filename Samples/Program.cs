@@ -19,7 +19,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 .AtSign()
                 .OneMany(Patterns.Alphanumeric() + right + ".")
                 .Alphanumeric()
-                .Concat(right);
+                .Append(right);
 
             Dump("email", exp);
 
@@ -87,7 +87,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             exp = Patterns
                 .WhiteSpaceExceptNewLine().OneMany()
-                .EndLine(true);
+                .EndInputOrLine(true);
 
             Dump("trailing whitespace", exp);
 

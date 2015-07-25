@@ -28,7 +28,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public TPattern Not<TPattern>(INegateable<TPattern> value) where TPattern : Pattern
         {
-            return ConcatInternal(Patterns.Not(value));
+            return AppendInternal(Patterns.Not(value));
         }
 
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern Any(IEnumerable content)
         {
-            return ConcatInternal(Patterns.Any(content));
+            return AppendInternal(Patterns.Any(content));
         }
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public QuantifiablePattern Any(params object[] content)
         {
-            return ConcatInternal(Patterns.Any(content));
+            return AppendInternal(Patterns.Any(content));
         }
 
         /// <summary>
@@ -61,7 +61,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public QuantifiablePattern IfAssert(Pattern testContent, object trueContent)
         {
-            return ConcatInternal(Patterns.IfAssert(testContent, trueContent));
+            return AppendInternal(Patterns.IfAssert(testContent, trueContent));
         }
 
         /// <summary>
@@ -74,7 +74,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public QuantifiablePattern IfAssert(Pattern testContent, object trueContent, object falseContent)
         {
-            return ConcatInternal(Patterns.IfAssert(testContent, trueContent, falseContent));
+            return AppendInternal(Patterns.IfAssert(testContent, trueContent, falseContent));
         }
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentException"></exception>
         public QuantifiablePattern IfGroup(string groupName, object trueContent)
         {
-            return ConcatInternal(Patterns.IfGroup(groupName, trueContent));
+            return AppendInternal(Patterns.IfGroup(groupName, trueContent));
         }
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentException"></exception>
         public QuantifiablePattern IfGroup(string groupName, object trueContent, object falseContent)
         {
-            return ConcatInternal(Patterns.IfGroup(groupName, trueContent, falseContent));
+            return AppendInternal(Patterns.IfGroup(groupName, trueContent, falseContent));
         }
 
         /// <summary>
@@ -114,7 +114,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiablePattern IfGroup(int groupNumber, object trueContent)
         {
-            return ConcatInternal(Patterns.IfGroup(groupNumber, trueContent));
+            return AppendInternal(Patterns.IfGroup(groupNumber, trueContent));
         }
 
         /// <summary>
@@ -128,7 +128,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiablePattern IfGroup(int groupNumber, object trueContent, object falseContent)
         {
-            return ConcatInternal(Patterns.IfGroup(groupNumber, trueContent, falseContent));
+            return AppendInternal(Patterns.IfGroup(groupNumber, trueContent, falseContent));
         }
 
         /// <summary>
@@ -136,7 +136,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         public QuantifiablePattern BeginInput()
         {
-            return ConcatInternal(Patterns.BeginInput());
+            return AppendInternal(Patterns.BeginInput());
         }
 
         /// <summary>
@@ -145,7 +145,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern EndInput()
         {
-            return ConcatInternal(Patterns.EndInput());
+            return AppendInternal(Patterns.EndInput());
         }
 
         /// <summary>
@@ -153,7 +153,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         public QuantifiablePattern BeginLine()
         {
-            return ConcatInternal(Patterns.BeginLine());
+            return AppendInternal(Patterns.BeginLine());
         }
 
         /// <summary>
@@ -162,7 +162,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern BeginInputOrLine()
         {
-            return ConcatInternal(Patterns.BeginInputOrLine());
+            return AppendInternal(Patterns.BeginInputOrLine());
         }
 
         /// <summary>
@@ -171,7 +171,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern EndLine()
         {
-            return ConcatInternal(Patterns.EndLine());
+            return AppendInternal(Patterns.EndLine());
         }
 
         /// <summary>
@@ -181,7 +181,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public Pattern EndLine(bool beforeCarriageReturn)
         {
-            return ConcatInternal(Patterns.EndLine(beforeCarriageReturn));
+            return AppendInternal(Patterns.EndLine(beforeCarriageReturn));
         }
 
         /// <summary>
@@ -190,7 +190,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern EndInputOrLine()
         {
-            return ConcatInternal(Patterns.EndInputOrLine());
+            return AppendInternal(Patterns.EndInputOrLine());
         }
 
         /// <summary>
@@ -200,7 +200,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern EndInputOrLine(bool beforeCarriageReturn)
         {
-            return ConcatInternal(Patterns.EndInputOrLine(beforeCarriageReturn));
+            return AppendInternal(Patterns.EndInputOrLine(beforeCarriageReturn));
         }
 
         /// <summary>
@@ -209,7 +209,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern EndInputOrBeforeEndingLinefeed()
         {
-            return ConcatInternal(Patterns.EndInputOrBeforeEndingLinefeed());
+            return AppendInternal(Patterns.EndInputOrBeforeEndingLinefeed());
         }
 
         /// <summary>
@@ -218,7 +218,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern PreviousMatchEnd()
         {
-            return ConcatInternal(Patterns.PreviousMatchEnd());
+            return AppendInternal(Patterns.PreviousMatchEnd());
         }
 
         /// <summary>
@@ -227,7 +227,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern WordBoundary()
         {
-            return ConcatInternal(Patterns.WordBoundary());
+            return AppendInternal(Patterns.WordBoundary());
         }
 
         /// <summary>
@@ -236,7 +236,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotWordBoundary()
         {
-            return ConcatInternal(Patterns.NotWordBoundary());
+            return AppendInternal(Patterns.NotWordBoundary());
         }
 
         /// <summary>
@@ -245,7 +245,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern Word()
         {
-            return ConcatInternal(Patterns.Word());
+            return AppendInternal(Patterns.Word());
         }
 
         /// <summary>
@@ -256,7 +256,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public QuantifiablePattern SurroundWordBoundary(object content)
         {
-            return ConcatInternal(Patterns.SurroundWordBoundary(content));
+            return AppendInternal(Patterns.SurroundWordBoundary(content));
         }
 
         /// <summary>
@@ -267,7 +267,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public QuantifiablePattern SurroundWordBoundary(params object[] content)
         {
-            return ConcatInternal(Patterns.SurroundWordBoundary(content));
+            return AppendInternal(Patterns.SurroundWordBoundary(content));
         }
 
         /// <summary>
@@ -278,7 +278,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public QuantifiablePattern Assert(object content)
         {
-            return ConcatInternal(Patterns.Assert(content));
+            return AppendInternal(Patterns.Assert(content));
         }
 
         /// <summary>
@@ -289,7 +289,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public QuantifiablePattern Assert(params object[] content)
         {
-            return ConcatInternal(Patterns.Assert(content));
+            return AppendInternal(Patterns.Assert(content));
         }
 
         /// <summary>
@@ -300,7 +300,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public QuantifiablePattern NotAssert(object content)
         {
-            return ConcatInternal(Patterns.NotAssert(content));
+            return AppendInternal(Patterns.NotAssert(content));
         }
 
         /// <summary>
@@ -311,7 +311,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public QuantifiablePattern NotAssert(params object[] content)
         {
-            return ConcatInternal(Patterns.NotAssert(content));
+            return AppendInternal(Patterns.NotAssert(content));
         }
 
         /// <summary>
@@ -322,7 +322,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public QuantifiablePattern AssertBack(object content)
         {
-            return ConcatInternal(Patterns.AssertBack(content));
+            return AppendInternal(Patterns.AssertBack(content));
         }
 
         /// <summary>
@@ -333,7 +333,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public QuantifiablePattern AssertBack(params object[] content)
         {
-            return ConcatInternal(Patterns.AssertBack(content));
+            return AppendInternal(Patterns.AssertBack(content));
         }
 
         /// <summary>
@@ -344,7 +344,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public QuantifiablePattern NotAssertBack(object content)
         {
-            return ConcatInternal(Patterns.NotAssertBack(content));
+            return AppendInternal(Patterns.NotAssertBack(content));
         }
 
         /// <summary>
@@ -355,7 +355,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public QuantifiablePattern NotAssertBack(params object[] content)
         {
-            return ConcatInternal(Patterns.NotAssertBack(content));
+            return AppendInternal(Patterns.NotAssertBack(content));
         }
 
         /// <summary>
@@ -364,7 +364,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern Group()
         {
-            return ConcatInternal(Patterns.Group());
+            return AppendInternal(Patterns.Group());
         }
 
         /// <summary>
@@ -375,7 +375,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public QuantifiablePattern Group(object content)
         {
-            return ConcatInternal(Patterns.Group(content));
+            return AppendInternal(Patterns.Group(content));
         }
 
         /// <summary>
@@ -386,7 +386,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public QuantifiablePattern Group(params object[] content)
         {
-            return ConcatInternal(Patterns.Group(content));
+            return AppendInternal(Patterns.Group(content));
         }
 
         /// <summary>
@@ -399,7 +399,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentException"></exception>
         public QuantifiablePattern NamedGroup(string name, object content)
         {
-            return ConcatInternal(Patterns.NamedGroup(name, content));
+            return AppendInternal(Patterns.NamedGroup(name, content));
         }
 
         /// <summary>
@@ -412,7 +412,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentException"></exception>
         public QuantifiablePattern NamedGroup(string name, params object[] content)
         {
-            return ConcatInternal(Patterns.NamedGroup(name, content));
+            return AppendInternal(Patterns.NamedGroup(name, content));
         }
 
         /// <summary>
@@ -423,7 +423,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public QuantifiablePattern NoncapturingGroup(object content)
         {
-            return ConcatInternal(Patterns.NoncapturingGroup((content)));
+            return AppendInternal(Patterns.NoncapturingGroup((content)));
         }
 
         /// <summary>
@@ -434,7 +434,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public QuantifiablePattern NoncapturingGroup(params object[] content)
         {
-            return ConcatInternal(Patterns.NoncapturingGroup(content));
+            return AppendInternal(Patterns.NoncapturingGroup(content));
         }
 
         /// <summary>
@@ -448,7 +448,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentException"></exception>
         public QuantifiablePattern BalancingGroup(string name1, string name2, object content)
         {
-            return ConcatInternal(Patterns.BalancingGroup(name1, name2, content));
+            return AppendInternal(Patterns.BalancingGroup(name1, name2, content));
         }
 
         /// <summary>
@@ -462,7 +462,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentException"></exception>
         public QuantifiablePattern BalancingGroup(string name1, string name2, params object[] content)
         {
-            return ConcatInternal(Patterns.BalancingGroup(name1, name2, content));
+            return AppendInternal(Patterns.BalancingGroup(name1, name2, content));
         }
 
         /// <summary>
@@ -473,7 +473,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public QuantifiablePattern NonbacktrackingGroup(object content)
         {
-            return ConcatInternal(Patterns.NonbacktrackingGroup(content));
+            return AppendInternal(Patterns.NonbacktrackingGroup(content));
         }
 
         /// <summary>
@@ -484,7 +484,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public QuantifiablePattern NonbacktrackingGroup(params object[] content)
         {
-            return ConcatInternal(Patterns.NonbacktrackingGroup(content));
+            return AppendInternal(Patterns.NonbacktrackingGroup(content));
         }
 
         /// <summary>
@@ -494,7 +494,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public Pattern Options(RegexOptions applyOptions)
         {
-            return ConcatInternal(Patterns.Options(applyOptions));
+            return AppendInternal(Patterns.Options(applyOptions));
         }
 
         /// <summary>
@@ -506,7 +506,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public QuantifiablePattern Options(RegexOptions applyOptions, object content)
         {
-            return ConcatInternal(Patterns.Options(applyOptions, content));
+            return AppendInternal(Patterns.Options(applyOptions, content));
         }
 
         /// <summary>
@@ -518,7 +518,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public QuantifiablePattern Options(RegexOptions applyOptions, params object[] content)
         {
-            return ConcatInternal(Patterns.Options(applyOptions, content));
+            return AppendInternal(Patterns.Options(applyOptions, content));
         }
 
         /// <summary>
@@ -529,7 +529,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public Pattern Options(RegexOptions applyOptions, RegexOptions disableOptions)
         {
-            return ConcatInternal(Patterns.Options(applyOptions, disableOptions));
+            return AppendInternal(Patterns.Options(applyOptions, disableOptions));
         }
 
         /// <summary>
@@ -542,7 +542,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public QuantifiablePattern Options(RegexOptions applyOptions, RegexOptions disableOptions, object content)
         {
-            return ConcatInternal(Patterns.Options(applyOptions, disableOptions, content));
+            return AppendInternal(Patterns.Options(applyOptions, disableOptions, content));
         }
 
         /// <summary>
@@ -554,7 +554,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern Options(RegexOptions applyOptions, RegexOptions disableOptions, params object[] content)
         {
-            return ConcatInternal(Patterns.Options(applyOptions, disableOptions, content));
+            return AppendInternal(Patterns.Options(applyOptions, disableOptions, content));
         }
 
         /// <summary>
@@ -564,7 +564,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public Pattern DisableOptions(RegexOptions options)
         {
-            return ConcatInternal(Patterns.DisableOptions(options));
+            return AppendInternal(Patterns.DisableOptions(options));
         }
 
         /// <summary>
@@ -576,7 +576,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public QuantifiablePattern DisableOptions(RegexOptions options, object content)
         {
-            return ConcatInternal(Patterns.DisableOptions(options, content));
+            return AppendInternal(Patterns.DisableOptions(options, content));
         }
 
         /// <summary>
@@ -588,7 +588,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public QuantifiablePattern DisableOptions(RegexOptions options, params object[] content)
         {
-            return ConcatInternal(Patterns.DisableOptions(options, content));
+            return AppendInternal(Patterns.DisableOptions(options, content));
         }
 
         /// <summary>
@@ -597,7 +597,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public Pattern SurroundApostrophes()
         {
-            return ConcatInternal(Patterns.SurroundApostrophes());
+            return AppendInternal(Patterns.SurroundApostrophes());
         }
 
         /// <summary>
@@ -608,7 +608,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public Pattern SurroundApostrophes(object content)
         {
-            return ConcatInternal(Patterns.SurroundApostrophes(content));
+            return AppendInternal(Patterns.SurroundApostrophes(content));
         }
 
         /// <summary>
@@ -619,7 +619,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public Pattern SurroundApostrophes(params object[] content)
         {
-            return ConcatInternal(Patterns.SurroundApostrophes(content));
+            return AppendInternal(Patterns.SurroundApostrophes(content));
         }
 
         /// <summary>
@@ -628,7 +628,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public Pattern SurroundQuoteMarks()
         {
-            return ConcatInternal(Patterns.SurroundQuoteMarks());
+            return AppendInternal(Patterns.SurroundQuoteMarks());
         }
 
         /// <summary>
@@ -639,7 +639,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public Pattern SurroundQuoteMarks(object content)
         {
-            return ConcatInternal(Patterns.SurroundQuoteMarks(content));
+            return AppendInternal(Patterns.SurroundQuoteMarks(content));
         }
 
         /// <summary>
@@ -650,7 +650,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public Pattern SurroundQuoteMarks(params object[] content)
         {
-            return ConcatInternal(Patterns.SurroundQuoteMarks(content));
+            return AppendInternal(Patterns.SurroundQuoteMarks(content));
         }
 
 #if DEBUG
@@ -660,7 +660,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern SurroundQuoteMarksOrApostrophes()
         {
-            return ConcatInternal(Patterns.SurroundQuoteMarksOrApostrophes());
+            return AppendInternal(Patterns.SurroundQuoteMarksOrApostrophes());
         }
 
         /// <summary>
@@ -671,7 +671,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public QuantifiablePattern SurroundQuoteMarksOrApostrophes(object content)
         {
-            return ConcatInternal(Patterns.SurroundQuoteMarksOrApostrophes(content));
+            return AppendInternal(Patterns.SurroundQuoteMarksOrApostrophes(content));
         }
 
         /// <summary>
@@ -682,7 +682,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public QuantifiablePattern SurroundQuoteMarksOrApostrophes(params object[] content)
         {
-            return ConcatInternal(Patterns.SurroundQuoteMarksOrApostrophes(content));
+            return AppendInternal(Patterns.SurroundQuoteMarksOrApostrophes(content));
         }
 #endif
 
@@ -692,7 +692,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public Pattern SurroundParentheses()
         {
-            return ConcatInternal(Patterns.SurroundParentheses());
+            return AppendInternal(Patterns.SurroundParentheses());
         }
 
         /// <summary>
@@ -703,7 +703,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public Pattern SurroundParentheses(object content)
         {
-            return ConcatInternal(Patterns.SurroundParentheses(content));
+            return AppendInternal(Patterns.SurroundParentheses(content));
         }
 
         /// <summary>
@@ -714,7 +714,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public Pattern SurroundParentheses(params object[] content)
         {
-            return ConcatInternal(Patterns.SurroundParentheses(content));
+            return AppendInternal(Patterns.SurroundParentheses(content));
         }
 
         /// <summary>
@@ -723,7 +723,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public Pattern SurroundCurlyBrackets()
         {
-            return ConcatInternal(Patterns.SurroundCurlyBrackets());
+            return AppendInternal(Patterns.SurroundCurlyBrackets());
         }
 
         /// <summary>
@@ -734,7 +734,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public Pattern SurroundCurlyBrackets(object content)
         {
-            return ConcatInternal(Patterns.SurroundCurlyBrackets(content));
+            return AppendInternal(Patterns.SurroundCurlyBrackets(content));
         }
 
         /// <summary>
@@ -745,7 +745,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public Pattern SurroundCurlyBrackets(params object[] content)
         {
-            return ConcatInternal(Patterns.SurroundCurlyBrackets(content));
+            return AppendInternal(Patterns.SurroundCurlyBrackets(content));
         }
 
         /// <summary>
@@ -754,7 +754,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public Pattern SurroundSquareBrackets()
         {
-            return ConcatInternal(Patterns.SurroundSquareBrackets());
+            return AppendInternal(Patterns.SurroundSquareBrackets());
         }
 
         /// <summary>
@@ -765,7 +765,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public Pattern SurroundSquareBrackets(object content)
         {
-            return ConcatInternal(Patterns.SurroundSquareBrackets(content));
+            return AppendInternal(Patterns.SurroundSquareBrackets(content));
         }
 
         /// <summary>
@@ -776,7 +776,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public Pattern SurroundSquareBrackets(params object[] content)
         {
-            return ConcatInternal(Patterns.SurroundSquareBrackets(content));
+            return AppendInternal(Patterns.SurroundSquareBrackets(content));
         }
 
         /// <summary>
@@ -785,7 +785,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public Pattern SurroundAngleBrackets()
         {
-            return ConcatInternal(Patterns.SurroundAngleBrackets());
+            return AppendInternal(Patterns.SurroundAngleBrackets());
         }
 
         /// <summary>
@@ -796,7 +796,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public Pattern SurroundAngleBrackets(object content)
         {
-            return ConcatInternal(Patterns.SurroundAngleBrackets(content));
+            return AppendInternal(Patterns.SurroundAngleBrackets(content));
         }
 
         /// <summary>
@@ -807,7 +807,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public Pattern SurroundAngleBrackets(params object[] content)
         {
-            return ConcatInternal(Patterns.SurroundAngleBrackets(content));
+            return AppendInternal(Patterns.SurroundAngleBrackets(content));
         }
 
         /// <summary>
@@ -819,7 +819,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiablePattern Range(char first, char last)
         {
-            return ConcatInternal(Patterns.Range(first, last));
+            return AppendInternal(Patterns.Range(first, last));
         }
 
         /// <summary>
@@ -831,7 +831,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiablePattern NotRange(char first, char last)
         {
-            return ConcatInternal(Patterns.NotRange(first, last));
+            return AppendInternal(Patterns.NotRange(first, last));
         }
 
         /// <summary>
@@ -840,7 +840,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern WhiteSpaceExceptNewLine()
         {
-            return ConcatInternal(Patterns.WhiteSpaceExceptNewLine());
+            return AppendInternal(Patterns.WhiteSpaceExceptNewLine());
         }
 
         /// <summary>
@@ -851,7 +851,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup WhiteSpaceExceptNewLine(int exactCount)
         {
-            return ConcatInternal(Patterns.WhiteSpaceExceptNewLine(exactCount));
+            return AppendInternal(Patterns.WhiteSpaceExceptNewLine(exactCount));
         }
 
         /// <summary>
@@ -861,7 +861,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public Pattern WhileChar(char value)
         {
-            return ConcatInternal(Patterns.WhileChar(value));
+            return AppendInternal(Patterns.WhileChar(value));
         }
 
         /// <summary>
@@ -871,7 +871,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public Pattern WhileChar(AsciiChar value)
         {
-            return ConcatInternal(Patterns.WhileChar(value));
+            return AppendInternal(Patterns.WhileChar(value));
         }
 
         /// <summary>
@@ -882,7 +882,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public Pattern WhileChar(CharGrouping value)
         {
-            return ConcatInternal(Patterns.WhileChar(value));
+            return AppendInternal(Patterns.WhileChar(value));
         }
 
         /// <summary>
@@ -891,7 +891,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiedPattern WhileDigit()
         {
-            return ConcatInternal(Patterns.WhileDigit());
+            return AppendInternal(Patterns.WhileDigit());
         }
 
         /// <summary>
@@ -900,7 +900,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiedPattern WhileWordChar()
         {
-            return ConcatInternal(Patterns.WhileWordChar());
+            return AppendInternal(Patterns.WhileWordChar());
         }
 
         /// <summary>
@@ -909,7 +909,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiedPattern WhileWhiteSpace()
         {
-            return ConcatInternal(Patterns.WhileWhiteSpace());
+            return AppendInternal(Patterns.WhileWhiteSpace());
         }
 
         /// <summary>
@@ -918,7 +918,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiedPattern WhileWhiteSpaceExceptNewLine()
         {
-            return ConcatInternal(Patterns.WhileWhiteSpaceExceptNewLine());
+            return AppendInternal(Patterns.WhileWhiteSpaceExceptNewLine());
         }
 
         /// <summary>
@@ -928,7 +928,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public Pattern WhileNotChar(char value)
         {
-            return ConcatInternal(Patterns.WhileNotChar(value));
+            return AppendInternal(Patterns.WhileNotChar(value));
         }
 
         /// <summary>
@@ -940,7 +940,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentException"></exception>
         public QuantifiedPattern WhileNotChar(params char[] characters)
         {
-            return ConcatInternal(Patterns.WhileNotChar(characters));
+            return AppendInternal(Patterns.WhileNotChar(characters));
         }
 
         /// <summary>
@@ -952,7 +952,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentException"></exception>
         public QuantifiedPattern WhileNotChar(string characters)
         {
-            return ConcatInternal(Patterns.WhileNotChar(characters));
+            return AppendInternal(Patterns.WhileNotChar(characters));
         }
 
         /// <summary>
@@ -962,7 +962,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public Pattern WhileNotChar(AsciiChar value)
         {
-            return ConcatInternal(Patterns.WhileNotChar(value));
+            return AppendInternal(Patterns.WhileNotChar(value));
         }
 
         /// <summary>
@@ -973,7 +973,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public Pattern WhileNotChar(CharGrouping value)
         {
-            return ConcatInternal(Patterns.WhileNotChar(value));
+            return AppendInternal(Patterns.WhileNotChar(value));
         }
 
         /// <summary>
@@ -983,7 +983,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern UntilChar(char value)
         {
-            return ConcatInternal(Patterns.UntilChar(value));
+            return AppendInternal(Patterns.UntilChar(value));
         }
 
         /// <summary>
@@ -993,7 +993,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern UntilChar(AsciiChar value)
         {
-            return ConcatInternal(Patterns.UntilChar(value));
+            return AppendInternal(Patterns.UntilChar(value));
         }
 
         /// <summary>
@@ -1004,7 +1004,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public QuantifiablePattern UntilChar(CharGrouping value)
         {
-            return ConcatInternal(Patterns.UntilChar(value));
+            return AppendInternal(Patterns.UntilChar(value));
         }
 
         /// <summary>
@@ -1013,7 +1013,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern UntilNewLine()
         {
-            return ConcatInternal(Patterns.UntilNewLine());
+            return AppendInternal(Patterns.UntilNewLine());
         }
 
         /// <summary>
@@ -1022,7 +1022,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern Any()
         {
-            return ConcatInternal(Patterns.Any());
+            return AppendInternal(Patterns.Any());
         }
 
         /// <summary>
@@ -1033,7 +1033,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup Any(int exactCount)
         {
-            return ConcatInternal(Patterns.Any(exactCount));
+            return AppendInternal(Patterns.Any(exactCount));
         }
 
         /// <summary>
@@ -1042,7 +1042,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern AnyExceptLinefeed()
         {
-            return ConcatInternal(Patterns.AnyExceptLinefeed());
+            return AppendInternal(Patterns.AnyExceptLinefeed());
         }
 
         /// <summary>
@@ -1053,7 +1053,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup AnyExceptLinefeed(int exactCount)
         {
-            return ConcatInternal(Patterns.AnyExceptLinefeed(exactCount));
+            return AppendInternal(Patterns.AnyExceptLinefeed(exactCount));
         }
 
         /// <summary>
@@ -1062,7 +1062,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern AnyNative()
         {
-            return ConcatInternal(Patterns.AnyNative());
+            return AppendInternal(Patterns.AnyNative());
         }
 
         /// <summary>
@@ -1073,7 +1073,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup AnyNative(int exactCount)
         {
-            return ConcatInternal(Patterns.AnyNative(exactCount));
+            return AppendInternal(Patterns.AnyNative(exactCount));
         }
 
         /// <summary>
@@ -1082,7 +1082,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public Pattern Crawl()
         {
-            return ConcatInternal(Patterns.Crawl());
+            return AppendInternal(Patterns.Crawl());
         }
 
         /// <summary>
@@ -1091,7 +1091,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public Pattern CrawlNative()
         {
-            return ConcatInternal(Patterns.CrawlNative());
+            return AppendInternal(Patterns.CrawlNative());
         }
 
         /// <summary>
@@ -1100,7 +1100,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGroup Alphanumeric()
         {
-            return ConcatInternal(Patterns.Alphanumeric());
+            return AppendInternal(Patterns.Alphanumeric());
         }
 
         /// <summary>
@@ -1111,7 +1111,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup Alphanumeric(int exactCount)
         {
-            return ConcatInternal(Patterns.Alphanumeric(exactCount));
+            return AppendInternal(Patterns.Alphanumeric(exactCount));
         }
 
         /// <summary>
@@ -1120,7 +1120,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGroup NotAlphanumeric()
         {
-            return ConcatInternal(Patterns.NotAlphanumeric());
+            return AppendInternal(Patterns.NotAlphanumeric());
         }
 
         /// <summary>
@@ -1131,7 +1131,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotAlphanumeric(int exactCount)
         {
-            return ConcatInternal(Patterns.NotAlphanumeric(exactCount));
+            return AppendInternal(Patterns.NotAlphanumeric(exactCount));
         }
 
         /// <summary>
@@ -1140,7 +1140,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern AlphanumericLower()
         {
-            return ConcatInternal(Patterns.AlphanumericLower());
+            return AppendInternal(Patterns.AlphanumericLower());
         }
 
         /// <summary>
@@ -1151,7 +1151,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup AlphanumericLower(int exactCount)
         {
-            return ConcatInternal(Patterns.AlphanumericLower(exactCount));
+            return AppendInternal(Patterns.AlphanumericLower(exactCount));
         }
 
         /// <summary>
@@ -1160,7 +1160,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotAlphanumericLower()
         {
-            return ConcatInternal(Patterns.NotAlphanumericLower());
+            return AppendInternal(Patterns.NotAlphanumericLower());
         }
 
         /// <summary>
@@ -1171,7 +1171,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotAlphanumericLower(int exactCount)
         {
-            return ConcatInternal(Patterns.NotAlphanumericLower(exactCount));
+            return AppendInternal(Patterns.NotAlphanumericLower(exactCount));
         }
 
         /// <summary>
@@ -1180,7 +1180,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern AlphanumericUpper()
         {
-            return ConcatInternal(Patterns.AlphanumericUpper());
+            return AppendInternal(Patterns.AlphanumericUpper());
         }
 
         /// <summary>
@@ -1191,7 +1191,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup AlphanumericUpper(int exactCount)
         {
-            return ConcatInternal(Patterns.AlphanumericUpper(exactCount));
+            return AppendInternal(Patterns.AlphanumericUpper(exactCount));
         }
 
         /// <summary>
@@ -1200,7 +1200,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotAlphanumericUpper()
         {
-            return ConcatInternal(Patterns.NotAlphanumericUpper());
+            return AppendInternal(Patterns.NotAlphanumericUpper());
         }
 
         /// <summary>
@@ -1211,7 +1211,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotAlphanumericUpper(int exactCount)
         {
-            return ConcatInternal(Patterns.NotAlphanumericUpper(exactCount));
+            return AppendInternal(Patterns.NotAlphanumericUpper(exactCount));
         }
 
         /// <summary>
@@ -1220,7 +1220,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGroup AlphanumericUnderscore()
         {
-            return ConcatInternal(Patterns.AlphanumericUnderscore());
+            return AppendInternal(Patterns.AlphanumericUnderscore());
         }
 
         /// <summary>
@@ -1231,7 +1231,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup AlphanumericUnderscore(int exactCount)
         {
-            return ConcatInternal(Patterns.AlphanumericUnderscore(exactCount));
+            return AppendInternal(Patterns.AlphanumericUnderscore(exactCount));
         }
 
         /// <summary>
@@ -1240,7 +1240,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGroup NotAlphanumericUnderscore()
         {
-            return ConcatInternal(Patterns.NotAlphanumericUnderscore());
+            return AppendInternal(Patterns.NotAlphanumericUnderscore());
         }
 
         /// <summary>
@@ -1251,7 +1251,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotAlphanumericUnderscore(int exactCount)
         {
-            return ConcatInternal(Patterns.NotAlphanumericUnderscore(exactCount));
+            return AppendInternal(Patterns.NotAlphanumericUnderscore(exactCount));
         }
 
         /// <summary>
@@ -1260,7 +1260,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGroup LatinLetter()
         {
-            return ConcatInternal(Patterns.LatinLetter());
+            return AppendInternal(Patterns.LatinLetter());
         }
 
         /// <summary>
@@ -1271,7 +1271,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup LatinLetter(int exactCount)
         {
-            return ConcatInternal(Patterns.LatinLetter(exactCount));
+            return AppendInternal(Patterns.LatinLetter(exactCount));
         }
 
         /// <summary>
@@ -1280,7 +1280,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern LatinLetterLower()
         {
-            return ConcatInternal(Patterns.LatinLetterLower());
+            return AppendInternal(Patterns.LatinLetterLower());
         }
 
         /// <summary>
@@ -1291,7 +1291,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup LatinLetterLower(int exactCount)
         {
-            return ConcatInternal(Patterns.LatinLetterLower(exactCount));
+            return AppendInternal(Patterns.LatinLetterLower(exactCount));
         }
 
         /// <summary>
@@ -1300,7 +1300,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern LatinLetterUpper()
         {
-            return ConcatInternal(Patterns.LatinLetterUpper());
+            return AppendInternal(Patterns.LatinLetterUpper());
         }
 
         /// <summary>
@@ -1311,7 +1311,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup LatinLetterUpper(int exactCount)
         {
-            return ConcatInternal(Patterns.LatinLetterUpper(exactCount));
+            return AppendInternal(Patterns.LatinLetterUpper(exactCount));
         }
 
         /// <summary>
@@ -1320,7 +1320,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGroup NotLatinLetter()
         {
-            return ConcatInternal(Patterns.NotLatinLetter());
+            return AppendInternal(Patterns.NotLatinLetter());
         }
 
         /// <summary>
@@ -1331,7 +1331,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotLatinLetter(int exactCount)
         {
-            return ConcatInternal(Patterns.NotLatinLetter(exactCount));
+            return AppendInternal(Patterns.NotLatinLetter(exactCount));
         }
 
         /// <summary>
@@ -1340,7 +1340,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotLatinLetterLower()
         {
-            return ConcatInternal(Patterns.NotLatinLetterLower());
+            return AppendInternal(Patterns.NotLatinLetterLower());
         }
 
         /// <summary>
@@ -1351,7 +1351,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotLatinLetterLower(int exactCount)
         {
-            return ConcatInternal(Patterns.NotLatinLetterLower(exactCount));
+            return AppendInternal(Patterns.NotLatinLetterLower(exactCount));
         }
 
         /// <summary>
@@ -1360,7 +1360,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotLatinLetterUpper()
         {
-            return ConcatInternal(Patterns.NotLatinLetterUpper());
+            return AppendInternal(Patterns.NotLatinLetterUpper());
         }
 
         /// <summary>
@@ -1371,7 +1371,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotLatinLetterUpper(int exactCount)
         {
-            return ConcatInternal(Patterns.NotLatinLetterUpper(exactCount));
+            return AppendInternal(Patterns.NotLatinLetterUpper(exactCount));
         }
 
         /// <summary>
@@ -1380,7 +1380,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern LetterLower()
         {
-            return ConcatInternal(Patterns.LetterLower());
+            return AppendInternal(Patterns.LetterLower());
         }
 
         /// <summary>
@@ -1391,7 +1391,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup LetterLower(int exactCount)
         {
-            return ConcatInternal(Patterns.LetterLower(exactCount));
+            return AppendInternal(Patterns.LetterLower(exactCount));
         }
 
         /// <summary>
@@ -1400,7 +1400,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotLetterLower()
         {
-            return ConcatInternal(Patterns.NotLetterLower());
+            return AppendInternal(Patterns.NotLetterLower());
         }
 
         /// <summary>
@@ -1411,7 +1411,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotLetterLower(int exactCount)
         {
-            return ConcatInternal(Patterns.NotLetterLower(exactCount));
+            return AppendInternal(Patterns.NotLetterLower(exactCount));
         }
 
         /// <summary>
@@ -1420,7 +1420,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern LetterUpper()
         {
-            return ConcatInternal(Patterns.LetterUpper());
+            return AppendInternal(Patterns.LetterUpper());
         }
 
         /// <summary>
@@ -1431,7 +1431,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup LetterUpper(int exactCount)
         {
-            return ConcatInternal(Patterns.LetterUpper(exactCount));
+            return AppendInternal(Patterns.LetterUpper(exactCount));
         }
 
         /// <summary>
@@ -1440,7 +1440,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotLetterUpper()
         {
-            return ConcatInternal(Patterns.NotLetterUpper());
+            return AppendInternal(Patterns.NotLetterUpper());
         }
 
         /// <summary>
@@ -1451,7 +1451,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotLetterUpper(int exactCount)
         {
-            return ConcatInternal(Patterns.NotLetterUpper(exactCount));
+            return AppendInternal(Patterns.NotLetterUpper(exactCount));
         }
 
         /// <summary>
@@ -1460,7 +1460,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern ArabicDigit()
         {
-            return ConcatInternal(Patterns.ArabicDigit());
+            return AppendInternal(Patterns.ArabicDigit());
         }
 
         /// <summary>
@@ -1471,7 +1471,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup ArabicDigit(int exactCount)
         {
-            return ConcatInternal(Patterns.ArabicDigit(exactCount));
+            return AppendInternal(Patterns.ArabicDigit(exactCount));
         }
 
         /// <summary>
@@ -1480,7 +1480,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotArabicDigit()
         {
-            return ConcatInternal(Patterns.NotArabicDigit());
+            return AppendInternal(Patterns.NotArabicDigit());
         }
 
         /// <summary>
@@ -1491,7 +1491,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotArabicDigit(int exactCount)
         {
-            return ConcatInternal(Patterns.NotArabicDigit(exactCount));
+            return AppendInternal(Patterns.NotArabicDigit(exactCount));
         }
 
         /// <summary>
@@ -1500,7 +1500,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern HexadecimalDigit()
         {
-            return ConcatInternal(Patterns.HexadecimalDigit());
+            return AppendInternal(Patterns.HexadecimalDigit());
         }
 
         /// <summary>
@@ -1511,7 +1511,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup HexadecimalDigit(int exactCount)
         {
-            return ConcatInternal(Patterns.HexadecimalDigit(exactCount));
+            return AppendInternal(Patterns.HexadecimalDigit(exactCount));
         }
 
         /// <summary>
@@ -1520,7 +1520,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotHexadecimalDigit()
         {
-            return ConcatInternal(Patterns.NotHexadecimalDigit());
+            return AppendInternal(Patterns.NotHexadecimalDigit());
         }
 
         /// <summary>
@@ -1531,7 +1531,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotHexadecimalDigit(int exactCount)
         {
-            return ConcatInternal(Patterns.NotHexadecimalDigit(exactCount));
+            return AppendInternal(Patterns.NotHexadecimalDigit(exactCount));
         }
 
         /// <summary>
@@ -1540,7 +1540,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern Digit()
         {
-            return ConcatInternal(Patterns.Digit());
+            return AppendInternal(Patterns.Digit());
         }
 
         /// <summary>
@@ -1551,7 +1551,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup Digit(int exactCount)
         {
-            return ConcatInternal(Patterns.Digit(exactCount));
+            return AppendInternal(Patterns.Digit(exactCount));
         }
 
         /// <summary>
@@ -1560,7 +1560,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiedGroup Digits()
         {
-            return ConcatInternal(Patterns.Digits());
+            return AppendInternal(Patterns.Digits());
         }
 
         /// <summary>
@@ -1569,7 +1569,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotDigit()
         {
-            return ConcatInternal(Patterns.NotDigit());
+            return AppendInternal(Patterns.NotDigit());
         }
 
         /// <summary>
@@ -1580,7 +1580,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotDigit(int exactCount)
         {
-            return ConcatInternal(Patterns.NotDigit(exactCount));
+            return AppendInternal(Patterns.NotDigit(exactCount));
         }
 
         /// <summary>
@@ -1589,7 +1589,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiedGroup NotDigits()
         {
-            return ConcatInternal(Patterns.NotDigits());
+            return AppendInternal(Patterns.NotDigits());
         }
 
         /// <summary>
@@ -1598,7 +1598,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern WhiteSpace()
         {
-            return ConcatInternal(Patterns.WhiteSpace());
+            return AppendInternal(Patterns.WhiteSpace());
         }
 
         /// <summary>
@@ -1609,7 +1609,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup WhiteSpace(int exactCount)
         {
-            return ConcatInternal(Patterns.WhiteSpace(exactCount));
+            return AppendInternal(Patterns.WhiteSpace(exactCount));
         }
 
         /// <summary>
@@ -1618,7 +1618,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiedGroup WhiteSpaces()
         {
-            return ConcatInternal(Patterns.WhiteSpaces());
+            return AppendInternal(Patterns.WhiteSpaces());
         }
 
         /// <summary>
@@ -1627,7 +1627,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotWhiteSpace()
         {
-            return ConcatInternal(Patterns.NotWhiteSpace());
+            return AppendInternal(Patterns.NotWhiteSpace());
         }
 
         /// <summary>
@@ -1638,7 +1638,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotWhiteSpace(int exactCount)
         {
-            return ConcatInternal(Patterns.NotWhiteSpace(exactCount));
+            return AppendInternal(Patterns.NotWhiteSpace(exactCount));
         }
 
         /// <summary>
@@ -1647,7 +1647,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiedGroup NotWhiteSpaces()
         {
-            return ConcatInternal(Patterns.NotWhiteSpaces());
+            return AppendInternal(Patterns.NotWhiteSpaces());
         }
 
         /// <summary>
@@ -1656,7 +1656,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern WordChar()
         {
-            return ConcatInternal(Patterns.WordChar());
+            return AppendInternal(Patterns.WordChar());
         }
 
         /// <summary>
@@ -1667,7 +1667,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup WordChar(int exactCount)
         {
-            return ConcatInternal(Patterns.WordChar(exactCount));
+            return AppendInternal(Patterns.WordChar(exactCount));
         }
 
         /// <summary>
@@ -1676,7 +1676,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiedGroup WordChars()
         {
-            return ConcatInternal(Patterns.WordChars());
+            return AppendInternal(Patterns.WordChars());
         }
 
         /// <summary>
@@ -1685,7 +1685,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotWordChar()
         {
-            return ConcatInternal(Patterns.NotWordChar());
+            return AppendInternal(Patterns.NotWordChar());
         }
 
         /// <summary>
@@ -1696,7 +1696,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotWordChar(int exactCount)
         {
-            return ConcatInternal(Patterns.NotWordChar(exactCount));
+            return AppendInternal(Patterns.NotWordChar(exactCount));
         }
 
         /// <summary>
@@ -1705,7 +1705,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiedGroup NotWordChars()
         {
-            return ConcatInternal(Patterns.NotWordChars());
+            return AppendInternal(Patterns.NotWordChars());
         }
 
         /// <summary>
@@ -1715,7 +1715,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern Character(char value)
         {
-            return ConcatInternal(Patterns.Character(value));
+            return AppendInternal(Patterns.Character(value));
         }
 
         /// <summary>
@@ -1725,7 +1725,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern Character(AsciiChar value)
         {
-            return ConcatInternal(Patterns.Character(value));
+            return AppendInternal(Patterns.Character(value));
         }
 
         /// <summary>
@@ -1735,7 +1735,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern Character(NamedBlock block)
         {
-            return ConcatInternal(Patterns.Character(block));
+            return AppendInternal(Patterns.Character(block));
         }
 
         /// <summary>
@@ -1745,7 +1745,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern Character(GeneralCategory category)
         {
-            return ConcatInternal(Patterns.Character(category));
+            return AppendInternal(Patterns.Character(category));
         }
 
         /// <summary>
@@ -1757,7 +1757,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentException"></exception>
         public QuantifiablePattern Character(string characters)
         {
-            return ConcatInternal(Patterns.Character(characters));
+            return AppendInternal(Patterns.Character(characters));
         }
 
         /// <summary>
@@ -1768,7 +1768,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public QuantifiablePattern Character(CharGrouping value)
         {
-            return ConcatInternal(Patterns.Character(value));
+            return AppendInternal(Patterns.Character(value));
         }
 
         /// <summary>
@@ -1778,7 +1778,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern Not(char value)
         {
-            return ConcatInternal(Patterns.Not(value));
+            return AppendInternal(Patterns.Not(value));
         }
 
         /// <summary>
@@ -1788,7 +1788,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern Not(AsciiChar value)
         {
-            return ConcatInternal(Patterns.Not(value));
+            return AppendInternal(Patterns.Not(value));
         }
 
         /// <summary>
@@ -1798,7 +1798,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern Not(NamedBlock block)
         {
-            return ConcatInternal(Patterns.Not(block));
+            return AppendInternal(Patterns.Not(block));
         }
 
         /// <summary>
@@ -1808,7 +1808,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern Not(GeneralCategory category)
         {
-            return ConcatInternal(Patterns.Not(category));
+            return AppendInternal(Patterns.Not(category));
         }
 
         /// <summary>
@@ -1820,7 +1820,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentException"></exception>
         public QuantifiablePattern Not(string characters)
         {
-            return ConcatInternal(Patterns.Not(characters));
+            return AppendInternal(Patterns.Not(characters));
         }
 
         /// <summary>
@@ -1832,7 +1832,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentException"></exception>
         public CharGroup Not(params char[] characters)
         {
-            return ConcatInternal(Patterns.Not(characters));
+            return AppendInternal(Patterns.Not(characters));
         }
 
         /// <summary>
@@ -1843,7 +1843,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public QuantifiablePattern Not(CharGrouping value)
         {
-            return ConcatInternal(Patterns.Not(value));
+            return AppendInternal(Patterns.Not(value));
         }
 
         /// <summary>
@@ -1852,7 +1852,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern Tab()
         {
-            return ConcatInternal(Patterns.Tab());
+            return AppendInternal(Patterns.Tab());
         }
 
         /// <summary>
@@ -1863,7 +1863,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup Tab(int exactCount)
         {
-            return ConcatInternal(Patterns.Tab(exactCount));
+            return AppendInternal(Patterns.Tab(exactCount));
         }
 
         /// <summary>
@@ -1872,7 +1872,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotTab()
         {
-            return ConcatInternal(Patterns.NotTab());
+            return AppendInternal(Patterns.NotTab());
         }
 
         /// <summary>
@@ -1883,7 +1883,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotTab(int exactCount)
         {
-            return ConcatInternal(Patterns.NotTab(exactCount));
+            return AppendInternal(Patterns.NotTab(exactCount));
         }
 
         /// <summary>
@@ -1892,7 +1892,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern Linefeed()
         {
-            return ConcatInternal(Patterns.Linefeed());
+            return AppendInternal(Patterns.Linefeed());
         }
 
         /// <summary>
@@ -1903,7 +1903,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup Linefeed(int exactCount)
         {
-            return ConcatInternal(Patterns.Linefeed(exactCount));
+            return AppendInternal(Patterns.Linefeed(exactCount));
         }
 
         /// <summary>
@@ -1912,7 +1912,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotLinefeed()
         {
-            return ConcatInternal(Patterns.NotLinefeed());
+            return AppendInternal(Patterns.NotLinefeed());
         }
 
         /// <summary>
@@ -1923,7 +1923,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotLinefeed(int exactCount)
         {
-            return ConcatInternal(Patterns.NotLinefeed(exactCount));
+            return AppendInternal(Patterns.NotLinefeed(exactCount));
         }
 
         /// <summary>
@@ -1932,7 +1932,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern CarriageReturn()
         {
-            return ConcatInternal(Patterns.CarriageReturn());
+            return AppendInternal(Patterns.CarriageReturn());
         }
 
         /// <summary>
@@ -1943,7 +1943,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup CarriageReturn(int exactCount)
         {
-            return ConcatInternal(Patterns.CarriageReturn(exactCount));
+            return AppendInternal(Patterns.CarriageReturn(exactCount));
         }
 
         /// <summary>
@@ -1952,7 +1952,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotCarriageReturn()
         {
-            return ConcatInternal(Patterns.NotCarriageReturn());
+            return AppendInternal(Patterns.NotCarriageReturn());
         }
 
         /// <summary>
@@ -1963,7 +1963,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotCarriageReturn(int exactCount)
         {
-            return ConcatInternal(Patterns.NotCarriageReturn(exactCount));
+            return AppendInternal(Patterns.NotCarriageReturn(exactCount));
         }
 
         /// <summary>
@@ -1972,7 +1972,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern Space()
         {
-            return ConcatInternal(Patterns.Space());
+            return AppendInternal(Patterns.Space());
         }
 
         /// <summary>
@@ -1983,7 +1983,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup Space(int exactCount)
         {
-            return ConcatInternal(Patterns.Space(exactCount));
+            return AppendInternal(Patterns.Space(exactCount));
         }
 
         /// <summary>
@@ -1992,7 +1992,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotSpace()
         {
-            return ConcatInternal(Patterns.NotSpace());
+            return AppendInternal(Patterns.NotSpace());
         }
 
         /// <summary>
@@ -2003,7 +2003,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotSpace(int exactCount)
         {
-            return ConcatInternal(Patterns.NotSpace(exactCount));
+            return AppendInternal(Patterns.NotSpace(exactCount));
         }
 
         /// <summary>
@@ -2012,7 +2012,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern ExclamationMark()
         {
-            return ConcatInternal(Patterns.ExclamationMark());
+            return AppendInternal(Patterns.ExclamationMark());
         }
 
         /// <summary>
@@ -2023,7 +2023,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup ExclamationMark(int exactCount)
         {
-            return ConcatInternal(Patterns.ExclamationMark(exactCount));
+            return AppendInternal(Patterns.ExclamationMark(exactCount));
         }
 
         /// <summary>
@@ -2032,7 +2032,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotExclamationMark()
         {
-            return ConcatInternal(Patterns.NotExclamationMark());
+            return AppendInternal(Patterns.NotExclamationMark());
         }
 
         /// <summary>
@@ -2043,7 +2043,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotExclamationMark(int exactCount)
         {
-            return ConcatInternal(Patterns.NotExclamationMark(exactCount));
+            return AppendInternal(Patterns.NotExclamationMark(exactCount));
         }
 
         /// <summary>
@@ -2052,7 +2052,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern QuoteMark()
         {
-            return ConcatInternal(Patterns.QuoteMark());
+            return AppendInternal(Patterns.QuoteMark());
         }
 
         /// <summary>
@@ -2063,7 +2063,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup QuoteMark(int exactCount)
         {
-            return ConcatInternal(Patterns.QuoteMark(exactCount));
+            return AppendInternal(Patterns.QuoteMark(exactCount));
         }
 
         /// <summary>
@@ -2072,7 +2072,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotQuoteMark()
         {
-            return ConcatInternal(Patterns.NotQuoteMark());
+            return AppendInternal(Patterns.NotQuoteMark());
         }
 
         /// <summary>
@@ -2083,7 +2083,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotQuoteMark(int exactCount)
         {
-            return ConcatInternal(Patterns.NotQuoteMark(exactCount));
+            return AppendInternal(Patterns.NotQuoteMark(exactCount));
         }
 
         /// <summary>
@@ -2092,7 +2092,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NumberSign()
         {
-            return ConcatInternal(Patterns.NumberSign());
+            return AppendInternal(Patterns.NumberSign());
         }
 
         /// <summary>
@@ -2103,7 +2103,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NumberSign(int exactCount)
         {
-            return ConcatInternal(Patterns.NumberSign(exactCount));
+            return AppendInternal(Patterns.NumberSign(exactCount));
         }
 
         /// <summary>
@@ -2112,7 +2112,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotNumberSign()
         {
-            return ConcatInternal(Patterns.NotNumberSign());
+            return AppendInternal(Patterns.NotNumberSign());
         }
 
         /// <summary>
@@ -2123,7 +2123,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotNumberSign(int exactCount)
         {
-            return ConcatInternal(Patterns.NotNumberSign(exactCount));
+            return AppendInternal(Patterns.NotNumberSign(exactCount));
         }
 
         /// <summary>
@@ -2132,7 +2132,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern Dollar()
         {
-            return ConcatInternal(Patterns.Dollar());
+            return AppendInternal(Patterns.Dollar());
         }
 
         /// <summary>
@@ -2143,7 +2143,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup Dollar(int exactCount)
         {
-            return ConcatInternal(Patterns.Dollar(exactCount));
+            return AppendInternal(Patterns.Dollar(exactCount));
         }
 
         /// <summary>
@@ -2152,7 +2152,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotDollar()
         {
-            return ConcatInternal(Patterns.NotDollar());
+            return AppendInternal(Patterns.NotDollar());
         }
 
         /// <summary>
@@ -2163,7 +2163,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotDollar(int exactCount)
         {
-            return ConcatInternal(Patterns.NotDollar(exactCount));
+            return AppendInternal(Patterns.NotDollar(exactCount));
         }
 
         /// <summary>
@@ -2172,7 +2172,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern Percent()
         {
-            return ConcatInternal(Patterns.Percent());
+            return AppendInternal(Patterns.Percent());
         }
 
         /// <summary>
@@ -2183,7 +2183,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup Percent(int exactCount)
         {
-            return ConcatInternal(Patterns.Percent(exactCount));
+            return AppendInternal(Patterns.Percent(exactCount));
         }
 
         /// <summary>
@@ -2192,7 +2192,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotPercent()
         {
-            return ConcatInternal(Patterns.NotPercent());
+            return AppendInternal(Patterns.NotPercent());
         }
 
         /// <summary>
@@ -2203,7 +2203,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotPercent(int exactCount)
         {
-            return ConcatInternal(Patterns.NotPercent(exactCount));
+            return AppendInternal(Patterns.NotPercent(exactCount));
         }
 
         /// <summary>
@@ -2212,7 +2212,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern Ampersand()
         {
-            return ConcatInternal(Patterns.Ampersand());
+            return AppendInternal(Patterns.Ampersand());
         }
 
         /// <summary>
@@ -2223,7 +2223,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup Ampersand(int exactCount)
         {
-            return ConcatInternal(Patterns.Ampersand(exactCount));
+            return AppendInternal(Patterns.Ampersand(exactCount));
         }
 
         /// <summary>
@@ -2232,7 +2232,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotAmpersand()
         {
-            return ConcatInternal(Patterns.NotAmpersand());
+            return AppendInternal(Patterns.NotAmpersand());
         }
 
         /// <summary>
@@ -2243,7 +2243,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotAmpersand(int exactCount)
         {
-            return ConcatInternal(Patterns.NotAmpersand(exactCount));
+            return AppendInternal(Patterns.NotAmpersand(exactCount));
         }
 
         /// <summary>
@@ -2252,7 +2252,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern Apostrophe()
         {
-            return ConcatInternal(Patterns.Apostrophe());
+            return AppendInternal(Patterns.Apostrophe());
         }
 
         /// <summary>
@@ -2263,7 +2263,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup Apostrophe(int exactCount)
         {
-            return ConcatInternal(Patterns.Apostrophe(exactCount));
+            return AppendInternal(Patterns.Apostrophe(exactCount));
         }
 
         /// <summary>
@@ -2272,7 +2272,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotApostrophe()
         {
-            return ConcatInternal(Patterns.NotApostrophe());
+            return AppendInternal(Patterns.NotApostrophe());
         }
 
         /// <summary>
@@ -2283,7 +2283,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotApostrophe(int exactCount)
         {
-            return ConcatInternal(Patterns.NotApostrophe(exactCount));
+            return AppendInternal(Patterns.NotApostrophe(exactCount));
         }
 
         /// <summary>
@@ -2292,7 +2292,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern LeftParenthesis()
         {
-            return ConcatInternal(Patterns.LeftParenthesis());
+            return AppendInternal(Patterns.LeftParenthesis());
         }
 
         /// <summary>
@@ -2303,7 +2303,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup LeftParenthesis(int exactCount)
         {
-            return ConcatInternal(Patterns.LeftParenthesis(exactCount));
+            return AppendInternal(Patterns.LeftParenthesis(exactCount));
         }
 
         /// <summary>
@@ -2312,7 +2312,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotLeftParenthesis()
         {
-            return ConcatInternal(Patterns.NotLeftParenthesis());
+            return AppendInternal(Patterns.NotLeftParenthesis());
         }
 
         /// <summary>
@@ -2323,7 +2323,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotLeftParenthesis(int exactCount)
         {
-            return ConcatInternal(Patterns.NotLeftParenthesis(exactCount));
+            return AppendInternal(Patterns.NotLeftParenthesis(exactCount));
         }
 
         /// <summary>
@@ -2332,7 +2332,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern RightParenthesis()
         {
-            return ConcatInternal(Patterns.RightParenthesis());
+            return AppendInternal(Patterns.RightParenthesis());
         }
 
         /// <summary>
@@ -2343,7 +2343,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup RightParenthesis(int exactCount)
         {
-            return ConcatInternal(Patterns.RightParenthesis(exactCount));
+            return AppendInternal(Patterns.RightParenthesis(exactCount));
         }
 
         /// <summary>
@@ -2352,7 +2352,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotRightParenthesis()
         {
-            return ConcatInternal(Patterns.NotRightParenthesis());
+            return AppendInternal(Patterns.NotRightParenthesis());
         }
 
         /// <summary>
@@ -2363,7 +2363,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotRightParenthesis(int exactCount)
         {
-            return ConcatInternal(Patterns.NotRightParenthesis(exactCount));
+            return AppendInternal(Patterns.NotRightParenthesis(exactCount));
         }
 
         /// <summary>
@@ -2372,7 +2372,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern Asterisk()
         {
-            return ConcatInternal(Patterns.Asterisk());
+            return AppendInternal(Patterns.Asterisk());
         }
 
         /// <summary>
@@ -2383,7 +2383,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup Asterisk(int exactCount)
         {
-            return ConcatInternal(Patterns.Asterisk(exactCount));
+            return AppendInternal(Patterns.Asterisk(exactCount));
         }
 
         /// <summary>
@@ -2392,7 +2392,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotAsterisk()
         {
-            return ConcatInternal(Patterns.NotAsterisk());
+            return AppendInternal(Patterns.NotAsterisk());
         }
 
         /// <summary>
@@ -2403,7 +2403,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotAsterisk(int exactCount)
         {
-            return ConcatInternal(Patterns.NotAsterisk(exactCount));
+            return AppendInternal(Patterns.NotAsterisk(exactCount));
         }
 
         /// <summary>
@@ -2412,7 +2412,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern Plus()
         {
-            return ConcatInternal(Patterns.Plus());
+            return AppendInternal(Patterns.Plus());
         }
 
         /// <summary>
@@ -2423,7 +2423,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup Plus(int exactCount)
         {
-            return ConcatInternal(Patterns.Plus(exactCount));
+            return AppendInternal(Patterns.Plus(exactCount));
         }
 
         /// <summary>
@@ -2432,7 +2432,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotPlus()
         {
-            return ConcatInternal(Patterns.NotPlus());
+            return AppendInternal(Patterns.NotPlus());
         }
 
         /// <summary>
@@ -2443,7 +2443,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotPlus(int exactCount)
         {
-            return ConcatInternal(Patterns.NotPlus(exactCount));
+            return AppendInternal(Patterns.NotPlus(exactCount));
         }
 
         /// <summary>
@@ -2452,7 +2452,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern Comma()
         {
-            return ConcatInternal(Patterns.Comma());
+            return AppendInternal(Patterns.Comma());
         }
 
         /// <summary>
@@ -2463,7 +2463,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup Comma(int exactCount)
         {
-            return ConcatInternal(Patterns.Comma(exactCount));
+            return AppendInternal(Patterns.Comma(exactCount));
         }
 
         /// <summary>
@@ -2472,7 +2472,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotComma()
         {
-            return ConcatInternal(Patterns.NotComma());
+            return AppendInternal(Patterns.NotComma());
         }
 
         /// <summary>
@@ -2483,7 +2483,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotComma(int exactCount)
         {
-            return ConcatInternal(Patterns.NotComma(exactCount));
+            return AppendInternal(Patterns.NotComma(exactCount));
         }
 
         /// <summary>
@@ -2492,7 +2492,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern Hyphen()
         {
-            return ConcatInternal(Patterns.Hyphen());
+            return AppendInternal(Patterns.Hyphen());
         }
 
         /// <summary>
@@ -2503,7 +2503,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup Hyphen(int exactCount)
         {
-            return ConcatInternal(Patterns.Hyphen(exactCount));
+            return AppendInternal(Patterns.Hyphen(exactCount));
         }
 
         /// <summary>
@@ -2512,7 +2512,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotHyphen()
         {
-            return ConcatInternal(Patterns.NotHyphen());
+            return AppendInternal(Patterns.NotHyphen());
         }
 
         /// <summary>
@@ -2523,7 +2523,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotHyphen(int exactCount)
         {
-            return ConcatInternal(Patterns.NotHyphen(exactCount));
+            return AppendInternal(Patterns.NotHyphen(exactCount));
         }
 
         /// <summary>
@@ -2532,7 +2532,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern Dot()
         {
-            return ConcatInternal(Patterns.Dot());
+            return AppendInternal(Patterns.Dot());
         }
 
         /// <summary>
@@ -2543,7 +2543,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup Dot(int exactCount)
         {
-            return ConcatInternal(Patterns.Dot(exactCount));
+            return AppendInternal(Patterns.Dot(exactCount));
         }
 
         /// <summary>
@@ -2552,7 +2552,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotDot()
         {
-            return ConcatInternal(Patterns.NotDot());
+            return AppendInternal(Patterns.NotDot());
         }
 
         /// <summary>
@@ -2563,7 +2563,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotDot(int exactCount)
         {
-            return ConcatInternal(Patterns.NotDot(exactCount));
+            return AppendInternal(Patterns.NotDot(exactCount));
         }
 
         /// <summary>
@@ -2572,7 +2572,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern Slash()
         {
-            return ConcatInternal(Patterns.Slash());
+            return AppendInternal(Patterns.Slash());
         }
 
         /// <summary>
@@ -2583,7 +2583,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup Slash(int exactCount)
         {
-            return ConcatInternal(Patterns.Slash(exactCount));
+            return AppendInternal(Patterns.Slash(exactCount));
         }
 
         /// <summary>
@@ -2592,7 +2592,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotSlash()
         {
-            return ConcatInternal(Patterns.NotSlash());
+            return AppendInternal(Patterns.NotSlash());
         }
 
         /// <summary>
@@ -2603,7 +2603,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotSlash(int exactCount)
         {
-            return ConcatInternal(Patterns.NotSlash(exactCount));
+            return AppendInternal(Patterns.NotSlash(exactCount));
         }
 
         /// <summary>
@@ -2612,7 +2612,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern Colon()
         {
-            return ConcatInternal(Patterns.Colon());
+            return AppendInternal(Patterns.Colon());
         }
 
         /// <summary>
@@ -2623,7 +2623,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup Colon(int exactCount)
         {
-            return ConcatInternal(Patterns.Colon(exactCount));
+            return AppendInternal(Patterns.Colon(exactCount));
         }
 
         /// <summary>
@@ -2632,7 +2632,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotColon()
         {
-            return ConcatInternal(Patterns.NotColon());
+            return AppendInternal(Patterns.NotColon());
         }
 
         /// <summary>
@@ -2643,7 +2643,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotColon(int exactCount)
         {
-            return ConcatInternal(Patterns.NotColon(exactCount));
+            return AppendInternal(Patterns.NotColon(exactCount));
         }
 
         /// <summary>
@@ -2652,7 +2652,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern Semicolon()
         {
-            return ConcatInternal(Patterns.Semicolon());
+            return AppendInternal(Patterns.Semicolon());
         }
 
         /// <summary>
@@ -2663,7 +2663,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup Semicolon(int exactCount)
         {
-            return ConcatInternal(Patterns.Semicolon(exactCount));
+            return AppendInternal(Patterns.Semicolon(exactCount));
         }
 
         /// <summary>
@@ -2672,7 +2672,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotSemicolon()
         {
-            return ConcatInternal(Patterns.NotSemicolon());
+            return AppendInternal(Patterns.NotSemicolon());
         }
 
         /// <summary>
@@ -2683,7 +2683,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotSemicolon(int exactCount)
         {
-            return ConcatInternal(Patterns.NotSemicolon(exactCount));
+            return AppendInternal(Patterns.NotSemicolon(exactCount));
         }
 
         /// <summary>
@@ -2692,7 +2692,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern LeftAngleBracket()
         {
-            return ConcatInternal(Patterns.LeftAngleBracket());
+            return AppendInternal(Patterns.LeftAngleBracket());
         }
 
         /// <summary>
@@ -2703,7 +2703,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup LeftAngleBracket(int exactCount)
         {
-            return ConcatInternal(Patterns.LeftAngleBracket(exactCount));
+            return AppendInternal(Patterns.LeftAngleBracket(exactCount));
         }
 
         /// <summary>
@@ -2712,7 +2712,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotLeftAngleBracket()
         {
-            return ConcatInternal(Patterns.NotLeftAngleBracket());
+            return AppendInternal(Patterns.NotLeftAngleBracket());
         }
 
         /// <summary>
@@ -2723,7 +2723,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotLeftAngleBracket(int exactCount)
         {
-            return ConcatInternal(Patterns.NotLeftAngleBracket(exactCount));
+            return AppendInternal(Patterns.NotLeftAngleBracket(exactCount));
         }
 
         /// <summary>
@@ -2732,7 +2732,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern EqualsSign()
         {
-            return ConcatInternal(Patterns.EqualsSign());
+            return AppendInternal(Patterns.EqualsSign());
         }
 
         /// <summary>
@@ -2743,7 +2743,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup EqualsSign(int exactCount)
         {
-            return ConcatInternal(Patterns.EqualsSign(exactCount));
+            return AppendInternal(Patterns.EqualsSign(exactCount));
         }
 
         /// <summary>
@@ -2752,7 +2752,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotEqualsSign()
         {
-            return ConcatInternal(Patterns.NotEqualsSign());
+            return AppendInternal(Patterns.NotEqualsSign());
         }
 
         /// <summary>
@@ -2763,7 +2763,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotEqualsSign(int exactCount)
         {
-            return ConcatInternal(Patterns.NotEqualsSign(exactCount));
+            return AppendInternal(Patterns.NotEqualsSign(exactCount));
         }
 
         /// <summary>
@@ -2772,7 +2772,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern RightAngleBracket()
         {
-            return ConcatInternal(Patterns.RightAngleBracket());
+            return AppendInternal(Patterns.RightAngleBracket());
         }
 
         /// <summary>
@@ -2783,7 +2783,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup RightAngleBracket(int exactCount)
         {
-            return ConcatInternal(Patterns.RightAngleBracket(exactCount));
+            return AppendInternal(Patterns.RightAngleBracket(exactCount));
         }
 
         /// <summary>
@@ -2792,7 +2792,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotRightAngleBracket()
         {
-            return ConcatInternal(Patterns.NotRightAngleBracket());
+            return AppendInternal(Patterns.NotRightAngleBracket());
         }
 
         /// <summary>
@@ -2803,7 +2803,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotRightAngleBracket(int exactCount)
         {
-            return ConcatInternal(Patterns.NotRightAngleBracket(exactCount));
+            return AppendInternal(Patterns.NotRightAngleBracket(exactCount));
         }
 
         /// <summary>
@@ -2812,7 +2812,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern QuestionMark()
         {
-            return ConcatInternal(Patterns.QuestionMark());
+            return AppendInternal(Patterns.QuestionMark());
         }
 
         /// <summary>
@@ -2823,7 +2823,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup QuestionMark(int exactCount)
         {
-            return ConcatInternal(Patterns.QuestionMark(exactCount));
+            return AppendInternal(Patterns.QuestionMark(exactCount));
         }
 
         /// <summary>
@@ -2832,7 +2832,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotQuestionMark()
         {
-            return ConcatInternal(Patterns.NotQuestionMark());
+            return AppendInternal(Patterns.NotQuestionMark());
         }
 
         /// <summary>
@@ -2843,7 +2843,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotQuestionMark(int exactCount)
         {
-            return ConcatInternal(Patterns.NotQuestionMark(exactCount));
+            return AppendInternal(Patterns.NotQuestionMark(exactCount));
         }
 
         /// <summary>
@@ -2852,7 +2852,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern AtSign()
         {
-            return ConcatInternal(Patterns.AtSign());
+            return AppendInternal(Patterns.AtSign());
         }
 
         /// <summary>
@@ -2863,7 +2863,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup AtSign(int exactCount)
         {
-            return ConcatInternal(Patterns.AtSign(exactCount));
+            return AppendInternal(Patterns.AtSign(exactCount));
         }
 
         /// <summary>
@@ -2872,7 +2872,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotAtSign()
         {
-            return ConcatInternal(Patterns.NotAtSign());
+            return AppendInternal(Patterns.NotAtSign());
         }
 
         /// <summary>
@@ -2883,7 +2883,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotAtSign(int exactCount)
         {
-            return ConcatInternal(Patterns.NotAtSign(exactCount));
+            return AppendInternal(Patterns.NotAtSign(exactCount));
         }
 
         /// <summary>
@@ -2892,7 +2892,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern LeftSquareBracket()
         {
-            return ConcatInternal(Patterns.LeftSquareBracket());
+            return AppendInternal(Patterns.LeftSquareBracket());
         }
 
         /// <summary>
@@ -2903,7 +2903,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup LeftSquareBracket(int exactCount)
         {
-            return ConcatInternal(Patterns.LeftSquareBracket(exactCount));
+            return AppendInternal(Patterns.LeftSquareBracket(exactCount));
         }
 
         /// <summary>
@@ -2912,7 +2912,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotLeftSquareBracket()
         {
-            return ConcatInternal(Patterns.NotLeftSquareBracket());
+            return AppendInternal(Patterns.NotLeftSquareBracket());
         }
 
         /// <summary>
@@ -2923,7 +2923,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotLeftSquareBracket(int exactCount)
         {
-            return ConcatInternal(Patterns.NotLeftSquareBracket(exactCount));
+            return AppendInternal(Patterns.NotLeftSquareBracket(exactCount));
         }
 
         /// <summary>
@@ -2932,7 +2932,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern Backslash()
         {
-            return ConcatInternal(Patterns.Backslash());
+            return AppendInternal(Patterns.Backslash());
         }
 
         /// <summary>
@@ -2943,7 +2943,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup Backslash(int exactCount)
         {
-            return ConcatInternal(Patterns.Backslash(exactCount));
+            return AppendInternal(Patterns.Backslash(exactCount));
         }
 
         /// <summary>
@@ -2952,7 +2952,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotBackslash()
         {
-            return ConcatInternal(Patterns.NotBackslash());
+            return AppendInternal(Patterns.NotBackslash());
         }
 
         /// <summary>
@@ -2963,7 +2963,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotBackslash(int exactCount)
         {
-            return ConcatInternal(Patterns.NotBackslash(exactCount));
+            return AppendInternal(Patterns.NotBackslash(exactCount));
         }
 
         /// <summary>
@@ -2972,7 +2972,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern RightSquareBracket()
         {
-            return ConcatInternal(Patterns.RightSquareBracket());
+            return AppendInternal(Patterns.RightSquareBracket());
         }
 
         /// <summary>
@@ -2983,7 +2983,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup RightSquareBracket(int exactCount)
         {
-            return ConcatInternal(Patterns.RightSquareBracket(exactCount));
+            return AppendInternal(Patterns.RightSquareBracket(exactCount));
         }
 
         /// <summary>
@@ -2992,7 +2992,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotRightSquareBracket()
         {
-            return ConcatInternal(Patterns.NotRightSquareBracket());
+            return AppendInternal(Patterns.NotRightSquareBracket());
         }
 
         /// <summary>
@@ -3003,7 +3003,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotRightSquareBracket(int exactCount)
         {
-            return ConcatInternal(Patterns.NotRightSquareBracket(exactCount));
+            return AppendInternal(Patterns.NotRightSquareBracket(exactCount));
         }
 
         /// <summary>
@@ -3012,7 +3012,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern CircumflexAccent()
         {
-            return ConcatInternal(Patterns.CircumflexAccent());
+            return AppendInternal(Patterns.CircumflexAccent());
         }
 
         /// <summary>
@@ -3023,7 +3023,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup CircumflexAccent(int exactCount)
         {
-            return ConcatInternal(Patterns.CircumflexAccent(exactCount));
+            return AppendInternal(Patterns.CircumflexAccent(exactCount));
         }
 
         /// <summary>
@@ -3032,7 +3032,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotCircumflexAccent()
         {
-            return ConcatInternal(Patterns.NotCircumflexAccent());
+            return AppendInternal(Patterns.NotCircumflexAccent());
         }
 
         /// <summary>
@@ -3043,7 +3043,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotCircumflexAccent(int exactCount)
         {
-            return ConcatInternal(Patterns.NotCircumflexAccent(exactCount));
+            return AppendInternal(Patterns.NotCircumflexAccent(exactCount));
         }
 
         /// <summary>
@@ -3052,7 +3052,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern Underscore()
         {
-            return ConcatInternal(Patterns.Underscore());
+            return AppendInternal(Patterns.Underscore());
         }
 
         /// <summary>
@@ -3063,7 +3063,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup Underscore(int exactCount)
         {
-            return ConcatInternal(Patterns.Underscore(exactCount));
+            return AppendInternal(Patterns.Underscore(exactCount));
         }
 
         /// <summary>
@@ -3072,7 +3072,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotUnderscore()
         {
-            return ConcatInternal(Patterns.NotUnderscore());
+            return AppendInternal(Patterns.NotUnderscore());
         }
 
         /// <summary>
@@ -3083,7 +3083,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotUnderscore(int exactCount)
         {
-            return ConcatInternal(Patterns.NotUnderscore(exactCount));
+            return AppendInternal(Patterns.NotUnderscore(exactCount));
         }
 
         /// <summary>
@@ -3092,7 +3092,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern GraveAccent()
         {
-            return ConcatInternal(Patterns.GraveAccent());
+            return AppendInternal(Patterns.GraveAccent());
         }
 
         /// <summary>
@@ -3103,7 +3103,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup GraveAccent(int exactCount)
         {
-            return ConcatInternal(Patterns.GraveAccent(exactCount));
+            return AppendInternal(Patterns.GraveAccent(exactCount));
         }
 
         /// <summary>
@@ -3112,7 +3112,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotGraveAccent()
         {
-            return ConcatInternal(Patterns.NotGraveAccent());
+            return AppendInternal(Patterns.NotGraveAccent());
         }
 
         /// <summary>
@@ -3123,7 +3123,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotGraveAccent(int exactCount)
         {
-            return ConcatInternal(Patterns.NotGraveAccent(exactCount));
+            return AppendInternal(Patterns.NotGraveAccent(exactCount));
         }
 
         /// <summary>
@@ -3132,7 +3132,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern LeftCurlyBracket()
         {
-            return ConcatInternal(Patterns.LeftCurlyBracket());
+            return AppendInternal(Patterns.LeftCurlyBracket());
         }
 
         /// <summary>
@@ -3143,7 +3143,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup LeftCurlyBracket(int exactCount)
         {
-            return ConcatInternal(Patterns.LeftCurlyBracket(exactCount));
+            return AppendInternal(Patterns.LeftCurlyBracket(exactCount));
         }
 
         /// <summary>
@@ -3152,7 +3152,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotLeftCurlyBracket()
         {
-            return ConcatInternal(Patterns.NotLeftCurlyBracket());
+            return AppendInternal(Patterns.NotLeftCurlyBracket());
         }
 
         /// <summary>
@@ -3163,7 +3163,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotLeftCurlyBracket(int exactCount)
         {
-            return ConcatInternal(Patterns.NotLeftCurlyBracket(exactCount));
+            return AppendInternal(Patterns.NotLeftCurlyBracket(exactCount));
         }
 
         /// <summary>
@@ -3172,7 +3172,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern VerticalBar()
         {
-            return ConcatInternal(Patterns.VerticalBar());
+            return AppendInternal(Patterns.VerticalBar());
         }
 
         /// <summary>
@@ -3183,7 +3183,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup VerticalBar(int exactCount)
         {
-            return ConcatInternal(Patterns.VerticalBar(exactCount));
+            return AppendInternal(Patterns.VerticalBar(exactCount));
         }
 
         /// <summary>
@@ -3192,7 +3192,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotVerticalBar()
         {
-            return ConcatInternal(Patterns.NotVerticalBar());
+            return AppendInternal(Patterns.NotVerticalBar());
         }
 
         /// <summary>
@@ -3203,7 +3203,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotVerticalBar(int exactCount)
         {
-            return ConcatInternal(Patterns.NotVerticalBar(exactCount));
+            return AppendInternal(Patterns.NotVerticalBar(exactCount));
         }
 
         /// <summary>
@@ -3212,7 +3212,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern RightCurlyBracket()
         {
-            return ConcatInternal(Patterns.RightCurlyBracket());
+            return AppendInternal(Patterns.RightCurlyBracket());
         }
 
         /// <summary>
@@ -3223,7 +3223,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup RightCurlyBracket(int exactCount)
         {
-            return ConcatInternal(Patterns.RightCurlyBracket(exactCount));
+            return AppendInternal(Patterns.RightCurlyBracket(exactCount));
         }
 
         /// <summary>
@@ -3232,7 +3232,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotRightCurlyBracket()
         {
-            return ConcatInternal(Patterns.NotRightCurlyBracket());
+            return AppendInternal(Patterns.NotRightCurlyBracket());
         }
 
         /// <summary>
@@ -3243,7 +3243,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotRightCurlyBracket(int exactCount)
         {
-            return ConcatInternal(Patterns.NotRightCurlyBracket(exactCount));
+            return AppendInternal(Patterns.NotRightCurlyBracket(exactCount));
         }
 
         /// <summary>
@@ -3252,7 +3252,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern Tilde()
         {
-            return ConcatInternal(Patterns.Tilde());
+            return AppendInternal(Patterns.Tilde());
         }
 
         /// <summary>
@@ -3263,7 +3263,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup Tilde(int exactCount)
         {
-            return ConcatInternal(Patterns.Tilde(exactCount));
+            return AppendInternal(Patterns.Tilde(exactCount));
         }
 
         /// <summary>
@@ -3272,7 +3272,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotTilde()
         {
-            return ConcatInternal(Patterns.NotTilde());
+            return AppendInternal(Patterns.NotTilde());
         }
 
         /// <summary>
@@ -3283,7 +3283,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotTilde(int exactCount)
         {
-            return ConcatInternal(Patterns.NotTilde(exactCount));
+            return AppendInternal(Patterns.NotTilde(exactCount));
         }
 
         /// <summary>
@@ -3292,7 +3292,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGroup Parenthesis()
         {
-            return ConcatInternal(Patterns.Parenthesis());
+            return AppendInternal(Patterns.Parenthesis());
         }
 
         /// <summary>
@@ -3303,7 +3303,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup Parenthesis(int exactCount)
         {
-            return ConcatInternal(Patterns.Parenthesis(exactCount));
+            return AppendInternal(Patterns.Parenthesis(exactCount));
         }
 
         /// <summary>
@@ -3312,7 +3312,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGroup NotParenthesis()
         {
-            return ConcatInternal(Patterns.NotParenthesis());
+            return AppendInternal(Patterns.NotParenthesis());
         }
 
         /// <summary>
@@ -3323,7 +3323,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotParenthesis(int exactCount)
         {
-            return ConcatInternal(Patterns.NotParenthesis(exactCount));
+            return AppendInternal(Patterns.NotParenthesis(exactCount));
         }
 
         /// <summary>
@@ -3332,7 +3332,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGroup CurlyBracket()
         {
-            return ConcatInternal(Patterns.CurlyBracket());
+            return AppendInternal(Patterns.CurlyBracket());
         }
 
         /// <summary>
@@ -3343,7 +3343,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup CurlyBracket(int exactCount)
         {
-            return ConcatInternal(Patterns.CurlyBracket(exactCount));
+            return AppendInternal(Patterns.CurlyBracket(exactCount));
         }
 
         /// <summary>
@@ -3352,7 +3352,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGroup NotCurlyBracket()
         {
-            return ConcatInternal(Patterns.NotCurlyBracket());
+            return AppendInternal(Patterns.NotCurlyBracket());
         }
 
         /// <summary>
@@ -3363,7 +3363,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotCurlyBracket(int exactCount)
         {
-            return ConcatInternal(Patterns.NotCurlyBracket(exactCount));
+            return AppendInternal(Patterns.NotCurlyBracket(exactCount));
         }
 
         /// <summary>
@@ -3372,7 +3372,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGroup SquareBracket()
         {
-            return ConcatInternal(Patterns.SquareBracket());
+            return AppendInternal(Patterns.SquareBracket());
         }
 
         /// <summary>
@@ -3383,7 +3383,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup SquareBracket(int exactCount)
         {
-            return ConcatInternal(Patterns.SquareBracket(exactCount));
+            return AppendInternal(Patterns.SquareBracket(exactCount));
         }
 
         /// <summary>
@@ -3392,7 +3392,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public CharGroup NotSquareBracket()
         {
-            return ConcatInternal(Patterns.NotSquareBracket());
+            return AppendInternal(Patterns.NotSquareBracket());
         }
 
         /// <summary>
@@ -3403,7 +3403,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotSquareBracket(int exactCount)
         {
-            return ConcatInternal(Patterns.NotSquareBracket(exactCount));
+            return AppendInternal(Patterns.NotSquareBracket(exactCount));
         }
 
         /// <summary>
@@ -3414,7 +3414,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public QuantifiedGroup Maybe(object content)
         {
-            return ConcatInternal(Patterns.Maybe(content));
+            return AppendInternal(Patterns.Maybe(content));
         }
 
         /// <summary>
@@ -3425,7 +3425,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public QuantifiedGroup Maybe(params object[] content)
         {
-            return ConcatInternal(Patterns.Maybe(content));
+            return AppendInternal(Patterns.Maybe(content));
         }
 
         /// <summary>
@@ -3436,7 +3436,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public QuantifiedGroup MaybeMany(object content)
         {
-            return ConcatInternal(Patterns.MaybeMany(content));
+            return AppendInternal(Patterns.MaybeMany(content));
         }
 
         /// <summary>
@@ -3447,7 +3447,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public QuantifiedGroup MaybeMany(params object[] content)
         {
-            return ConcatInternal(Patterns.MaybeMany(content));
+            return AppendInternal(Patterns.MaybeMany(content));
         }
 
         /// <summary>
@@ -3458,7 +3458,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public QuantifiedGroup OneMany(object content)
         {
-            return ConcatInternal(Patterns.OneMany(content));
+            return AppendInternal(Patterns.OneMany(content));
         }
 
         /// <summary>
@@ -3469,7 +3469,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public QuantifiedGroup OneMany(params object[] content)
         {
-            return ConcatInternal(Patterns.OneMany(content));
+            return AppendInternal(Patterns.OneMany(content));
         }
 
         /// <summary>
@@ -3482,7 +3482,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup Count(int exactCount, object content)
         {
-            return ConcatInternal(Patterns.Count(exactCount, content));
+            return AppendInternal(Patterns.Count(exactCount, content));
         }
 
         /// <summary>
@@ -3495,7 +3495,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup Count(int exactCount, params object[] content)
         {
-            return ConcatInternal(Patterns.Count(exactCount, content));
+            return AppendInternal(Patterns.Count(exactCount, content));
         }
 
         /// <summary>
@@ -3509,7 +3509,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup Count(int minCount, int maxCount, object content)
         {
-            return ConcatInternal(Patterns.Count(minCount, maxCount, content));
+            return AppendInternal(Patterns.Count(minCount, maxCount, content));
         }
 
         /// <summary>
@@ -3523,7 +3523,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup Count(int minCount, int maxCount, params object[] content)
         {
-            return ConcatInternal(Patterns.Count(minCount, maxCount, content));
+            return AppendInternal(Patterns.Count(minCount, maxCount, content));
         }
 
         /// <summary>
@@ -3536,7 +3536,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup CountFrom(int minCount, object content)
         {
-            return ConcatInternal(Patterns.CountFrom(minCount, content));
+            return AppendInternal(Patterns.CountFrom(minCount, content));
         }
 
         /// <summary>
@@ -3549,7 +3549,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup CountFrom(int minCount, params object[] content)
         {
-            return ConcatInternal(Patterns.CountFrom(minCount, content));
+            return AppendInternal(Patterns.CountFrom(minCount, content));
         }
 
         /// <summary>
@@ -3562,7 +3562,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup MaybeCount(int maxCount, object content)
         {
-            return ConcatInternal(Patterns.MaybeCount(maxCount, content));
+            return AppendInternal(Patterns.MaybeCount(maxCount, content));
         }
 
         /// <summary>
@@ -3575,7 +3575,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup MaybeCount(int maxCount, params object[] content)
         {
-            return ConcatInternal(Patterns.MaybeCount(maxCount, content));
+            return AppendInternal(Patterns.MaybeCount(maxCount, content));
         }
 
         /// <summary>
@@ -3586,7 +3586,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiablePattern GroupReference(int groupNumber)
         {
-            return ConcatInternal(Patterns.GroupReference(groupNumber));
+            return AppendInternal(Patterns.GroupReference(groupNumber));
         }
 
         /// <summary>
@@ -3598,7 +3598,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentException"></exception>
         public QuantifiablePattern GroupReference(string groupName)
         {
-            return ConcatInternal(Patterns.GroupReference(groupName));
+            return AppendInternal(Patterns.GroupReference(groupName));
         }
 
         /// <summary>
@@ -3610,7 +3610,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentException"></exception>
         public Pattern Comment(string value)
         {
-            return ConcatInternal(Patterns.Comment(value));
+            return AppendInternal(Patterns.Comment(value));
         }
 
         /// <summary>
@@ -3619,7 +3619,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NewLine()
         {
-            return ConcatInternal(Patterns.NewLine());
+            return AppendInternal(Patterns.NewLine());
         }
 
         /// <summary>
@@ -3628,7 +3628,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NewLineChar()
         {
-            return ConcatInternal(Patterns.NewLineChar());
+            return AppendInternal(Patterns.NewLineChar());
         }
 
         /// <summary>
@@ -3639,7 +3639,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NewLineChar(int exactCount)
         {
-            return ConcatInternal(Patterns.NewLineChar(exactCount));
+            return AppendInternal(Patterns.NewLineChar(exactCount));
         }
 
         /// <summary>
@@ -3648,7 +3648,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiablePattern NotNewLineChar()
         {
-            return ConcatInternal(Patterns.NotNewLineChar());
+            return AppendInternal(Patterns.NotNewLineChar());
         }
 
         /// <summary>
@@ -3659,7 +3659,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup NotNewLineChar(int exactCount)
         {
-            return ConcatInternal(Patterns.NotNewLineChar(exactCount));
+            return AppendInternal(Patterns.NotNewLineChar(exactCount));
         }
 
         /// <summary>
@@ -3675,7 +3675,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentException"></exception>
         public Pattern Balance(char openingCharacter, char closingCharacter, string groupName)
         {
-            return ConcatInternal(Patterns.Balance(openingCharacter, closingCharacter, groupName));
+            return AppendInternal(Patterns.Balance(openingCharacter, closingCharacter, groupName));
         }
 
         /// <summary>
@@ -3692,7 +3692,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentException"></exception>
         public Pattern Balance(char openingCharacter, char closingCharacter, string groupName, string openGroupName)
         {
-            return ConcatInternal(Patterns.Balance(openingCharacter, closingCharacter, groupName, openGroupName));
+            return AppendInternal(Patterns.Balance(openingCharacter, closingCharacter, groupName, openGroupName));
         }
 
         /// <summary>

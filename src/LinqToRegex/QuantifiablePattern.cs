@@ -23,7 +23,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiedPattern Maybe()
         {
-            return ConcatInternal(new QuantifiedPattern.MaybeQuantifiedPattern());
+            return AppendInternal(new QuantifiedPattern.MaybeQuantifiedPattern());
         }
 
         /// <summary>
@@ -32,7 +32,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiedPattern MaybeMany()
         {
-            return ConcatInternal(new QuantifiedPattern.MaybeManyQuantifiedPattern());
+            return AppendInternal(new QuantifiedPattern.MaybeManyQuantifiedPattern());
         }
 
         /// <summary>
@@ -41,7 +41,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public QuantifiedPattern OneMany()
         {
-            return ConcatInternal(new QuantifiedPattern.OneManyQuantifiedPattern());
+            return AppendInternal(new QuantifiedPattern.OneManyQuantifiedPattern());
         }
 
         /// <summary>
@@ -52,7 +52,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedPattern Count(int exactCount)
         {
-            return ConcatInternal(new QuantifiedPattern.CountQuantifiedPattern(exactCount));
+            return AppendInternal(new QuantifiedPattern.CountQuantifiedPattern(exactCount));
         }
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedPattern Count(int minCount, int maxCount)
         {
-            return ConcatInternal(new QuantifiedPattern.CountQuantifiedPattern(minCount, maxCount));
+            return AppendInternal(new QuantifiedPattern.CountQuantifiedPattern(minCount, maxCount));
         }
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedPattern CountFrom(int minCount)
         {
-            return ConcatInternal(new QuantifiedPattern.CountFromQuantifiedPattern(minCount));
+            return AppendInternal(new QuantifiedPattern.CountFromQuantifiedPattern(minCount));
         }
 
         /// <summary>
@@ -86,7 +86,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedPattern MaybeCount(int maxCount)
         {
-            return ConcatInternal(new QuantifiedPattern.CountQuantifiedPattern(0, maxCount));
+            return AppendInternal(new QuantifiedPattern.CountQuantifiedPattern(0, maxCount));
         }
     }
 }

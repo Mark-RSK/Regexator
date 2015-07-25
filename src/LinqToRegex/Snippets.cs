@@ -142,7 +142,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 .NotNewLineChar().MaybeMany().Lazy()
                 .NotWhiteSpace()
                 .NotNewLineChar().MaybeMany()
-                .ConcatIf(includeNewLine, Patterns.NewLine().Maybe())
+                .AppendIf(includeNewLine, Patterns.NewLine().Maybe())
                 .AsNoncapturingGroup();
         }
 
@@ -167,7 +167,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return Patterns
                 .BeginLine()
                 .NotNewLineChar().OneMany()
-                .ConcatIf(includeNewLine, Patterns.NewLine().Maybe())
+                .AppendIf(includeNewLine, Patterns.NewLine().Maybe())
                 .AsNoncapturingGroup();
         }
 

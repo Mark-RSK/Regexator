@@ -21,7 +21,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public Pattern Lazy()
         {
-            return ConcatInternal(new LazyQuantifier());
+            return AppendInternal(new LazyQuantifier());
         }
     }
 }

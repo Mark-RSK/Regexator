@@ -31,7 +31,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return new TextSubstitution(value);
         }
 
-        internal Substitution Concat(Substitution substitution)
+        internal Substitution Append(Substitution substitution)
         {
             substitution.Previous = this;
             return substitution;
@@ -77,7 +77,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentException"></exception>
         public Substitution NamedGroup(string groupName)
         {
-            return Concat(Substitutions.NamedGroup(groupName));
+            return Append(Substitutions.NamedGroup(groupName));
         }
 
         /// <summary>
@@ -86,7 +86,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public Substitution LastCapturedGroup()
         {
-            return Concat(Substitutions.LastCapturedGroup());
+            return Append(Substitutions.LastCapturedGroup());
         }
 
         /// <summary>
@@ -95,7 +95,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public Substitution EntireInput()
         {
-            return Concat(Substitutions.EntireInput());
+            return Append(Substitutions.EntireInput());
         }
 
         /// <summary>
@@ -104,7 +104,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public Substitution EntireMatch()
         {
-            return Concat(Substitutions.EntireMatch());
+            return Append(Substitutions.EntireMatch());
         }
 
         /// <summary>
@@ -113,7 +113,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public Substitution AfterMatch()
         {
-            return Concat(Substitutions.AfterMatch());
+            return Append(Substitutions.AfterMatch());
         }
 
         /// <summary>
@@ -122,7 +122,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public Substitution BeforeMatch()
         {
-            return Concat(Substitutions.BeforeMatch());
+            return Append(Substitutions.BeforeMatch());
         }
 
         /// <summary>
@@ -133,7 +133,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public Substitution Text(string value)
         {
-            return Concat(Create(value));
+            return Append(Create(value));
         }
 
         internal virtual string Value
