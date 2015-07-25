@@ -956,7 +956,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not a specified character zero or more times.
+        /// Appends a pattern that matches zero or more characters that are not a specified character.
         /// </summary>
         /// <param name="value">An enumerated constant that identifies ASCII character.</param>
         /// <returns></returns>
@@ -966,7 +966,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not a specified character zero or more times.
+        /// Appends a pattern that matches zero or more characters that are not matched by a specified <see cref="CharGrouping"/>.
         /// </summary>
         /// <param name="value">A set of Unicode characters.</param>
         /// <returns></returns>
