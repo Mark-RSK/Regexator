@@ -175,7 +175,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Returns a pattern that matches first line of the string. Neither carriage return nor linefeed is included in the match.
         /// </summary>
         /// <returns></returns>
-        public static QuantifiablePattern FirstLine()
+        public static QuantifiablePattern FirstLineWithoutNewLine()
         {
             return Patterns
                 .BeginInput()
