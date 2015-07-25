@@ -3885,6 +3885,15 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
+        /// Returns a pattern that matches zero or more characters that are neither a carriage return nor a linefeed.
+        /// </summary>
+        /// <returns></returns>
+        public static QuantifiedPattern WhileNotNewLineChar()
+        {
+            return WhileNotChar("\r\n");
+        }
+
+        /// <summary>
         /// Returns a pattern that matches zero or more characters that are not a specified character and a specified character.
         /// </summary>
         /// <param name="value">A Unicode character.</param>
