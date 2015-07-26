@@ -3427,14 +3427,35 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches any one element of the specified content zero or one times.
+        /// Appends a pattern that matches any one specified element zero or one times.
         /// </summary>
-        /// <param name="content">An object array that contains zero or more patterns any one of which has to be matched.</param>
+        /// <param name="first">First element of a sequence that contains patterns any one of which has to be matched.</param>
+        /// <param name="others">Other elements of a sequence that contains patterns any one of which has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public QuantifiedGroup Maybe(params object[] content)
+        public QuantifiedGroup Maybe(object first, params object[] others)
         {
-            return AppendInternal(Patterns.Maybe(content));
+            if (first == null)
+            {
+                throw new ArgumentNullException("first");
+            }
+
+            if (others == null || others.Length == 0)
+            {
+                return Maybe(first);
+            }
+            else if (others.Length == 1)
+            {
+                return Maybe(new object[] { first, others[0] });
+            }
+            else
+            {
+                var content = new object[others.Length + 1];
+                content[0] = first;
+                Array.Copy(others, 0, content, 1, others.Length);
+
+                return Maybe(content);
+            }
         }
 
         /// <summary>
@@ -3449,14 +3470,35 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches any one element of the specified content zero or more times.
+        /// Appends a pattern that matches any one specified element zero or more times.
         /// </summary>
-        /// <param name="content">An object array that contains zero or more patterns any one of which has to be matched.</param>
+        /// <param name="first">First element of a sequence that contains patterns any one of which has to be matched.</param>
+        /// <param name="others">Other elements of a sequence that contains patterns any one of which has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public QuantifiedGroup MaybeMany(params object[] content)
+        public QuantifiedGroup MaybeMany(object first, params object[] others)
         {
-            return AppendInternal(Patterns.MaybeMany(content));
+            if (first == null)
+            {
+                throw new ArgumentNullException("first");
+            }
+
+            if (others == null || others.Length == 0)
+            {
+                return MaybeMany(first);
+            }
+            else if (others.Length == 1)
+            {
+                return MaybeMany(new object[] { first, others[0] });
+            }
+            else
+            {
+                var content = new object[others.Length + 1];
+                content[0] = first;
+                Array.Copy(others, 0, content, 1, others.Length);
+
+                return MaybeMany(content);
+            }
         }
 
         /// <summary>
@@ -3471,14 +3513,35 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches any one element of the specified content one or more times.
+        /// Appends a pattern that matches any one specified element one or more times.
         /// </summary>
-        /// <param name="content">An object array that contains zero or more patterns any one of which has to be matched.</param>
+        /// <param name="first">First element of a sequence that contains patterns any one of which has to be matched.</param>
+        /// <param name="others">Other elements of a sequence that contains patterns any one of which has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public QuantifiedGroup OneMany(params object[] content)
+        public QuantifiedGroup OneMany(object first, params object[] others)
         {
-            return AppendInternal(Patterns.OneMany(content));
+            if (first == null)
+            {
+                throw new ArgumentNullException("first");
+            }
+
+            if (others == null || others.Length == 0)
+            {
+                return OneMany(first);
+            }
+            else if (others.Length == 1)
+            {
+                return OneMany(new object[] { first, others[0] });
+            }
+            else
+            {
+                var content = new object[others.Length + 1];
+                content[0] = first;
+                Array.Copy(others, 0, content, 1, others.Length);
+
+                return OneMany(content);
+            }
         }
 
         /// <summary>
@@ -3495,16 +3558,37 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches any one pattern specified number of times.
+        /// Appends a pattern that matches any one specified pattern specified number of times.
         /// </summary>
         /// <param name="exactCount">A number of times the pattern has to be matched.</param>
-        /// <param name="content">An object array that contains zero or more patterns any one of which has to be matched.</param>
+        /// <param name="first">First element of a sequence that contains patterns any one of which has to be matched.</param>
+        /// <param name="others">Other elements of a sequence that contains patterns any one of which has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public QuantifiedGroup Count(int exactCount, params object[] content)
+        public QuantifiedGroup Count(int exactCount, object first, params object[] others)
         {
-            return AppendInternal(Patterns.Count(exactCount, content));
+            if (first == null)
+            {
+                throw new ArgumentNullException("first");
+            }
+
+            if (others == null || others.Length == 0)
+            {
+                return Count(exactCount, first);
+            }
+            else if (others.Length == 1)
+            {
+                return Count(exactCount, new object[] { first, others[0] });
+            }
+            else
+            {
+                var content = new object[others.Length + 1];
+                content[0] = first;
+                Array.Copy(others, 0, content, 1, others.Length);
+
+                return Count(exactCount, content);
+            }
         }
 
         /// <summary>
@@ -3522,17 +3606,38 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches any one pattern from minimal to maximum number of times.
+        /// Appends a pattern that matches any one specified pattern from minimal to maximum number of times.
         /// </summary>
         /// <param name="minCount">A minimal number of times the pattern must be matched.</param>
         /// <param name="maxCount">A maximum number of times the pattern can be matched.</param>
-        /// <param name="content">An object array that contains zero or more patterns any one of which has to be matched.</param>
+        /// <param name="first">First element of a sequence that contains patterns any one of which has to be matched.</param>
+        /// <param name="others">Other elements of a sequence that contains patterns any one of which has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public QuantifiedGroup Count(int minCount, int maxCount, params object[] content)
+        public QuantifiedGroup Count(int minCount, int maxCount, object first, params object[] others)
         {
-            return AppendInternal(Patterns.Count(minCount, maxCount, content));
+            if (first == null)
+            {
+                throw new ArgumentNullException("first");
+            }
+
+            if (others == null || others.Length == 0)
+            {
+                return Count(minCount, maxCount, first);
+            }
+            else if (others.Length == 1)
+            {
+                return Count(minCount, maxCount, (object)(new object[] { first, others[0] }));
+            }
+            else
+            {
+                var content = new object[others.Length + 1];
+                content[0] = first;
+                Array.Copy(others, 0, content, 1, others.Length);
+
+                return Count(minCount, maxCount, (object)content);
+            }
         }
 
         /// <summary>
@@ -3549,16 +3654,37 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches any one pattern at least specified number of times.
+        /// Appends a pattern that matches any one specified pattern at least specified number of times.
         /// </summary>
         /// <param name="minCount">A minimal number of times the pattern must be matched.</param>
-        /// <param name="content">An object array that contains zero or more patterns any one of which has to be matched.</param>
+        /// <param name="first">First element of a sequence that contains patterns any one of which has to be matched.</param>
+        /// <param name="others">Other elements of a sequence that contains patterns any one of which has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public QuantifiedGroup CountFrom(int minCount, params object[] content)
+        public QuantifiedGroup CountFrom(int minCount, object first, params object[] others)
         {
-            return AppendInternal(Patterns.CountFrom(minCount, content));
+            if (first == null)
+            {
+                throw new ArgumentNullException("first");
+            }
+
+            if (others == null || others.Length == 0)
+            {
+                return CountFrom(minCount, first);
+            }
+            else if (others.Length == 1)
+            {
+                return CountFrom(minCount, new object[] { first, others[0] });
+            }
+            else
+            {
+                var content = new object[others.Length + 1];
+                content[0] = first;
+                Array.Copy(others, 0, content, 1, others.Length);
+
+                return CountFrom(minCount, content);
+            }
         }
 
         /// <summary>
@@ -3575,16 +3701,37 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches any one pattern at most specified number of times.
+        /// Appends a pattern that matches any one specified pattern at most specified number of times.
         /// </summary>
         /// <param name="maxCount">A maximum number of times the pattern can be matched.</param>
-        /// <param name="content">An object array that contains zero or more patterns any one of which has to be matched.</param>
+        /// <param name="first">First element of a sequence that contains patterns any one of which has to be matched.</param>
+        /// <param name="others">Other elements of a sequence that contains patterns any one of which has to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public QuantifiedGroup MaybeCount(int maxCount, params object[] content)
+        public QuantifiedGroup MaybeCount(int maxCount, object first, params object[] others)
         {
-            return AppendInternal(Patterns.MaybeCount(maxCount, content));
+            if (first == null)
+            {
+                throw new ArgumentNullException("first");
+            }
+
+            if (others == null || others.Length == 0)
+            {
+                return MaybeCount(maxCount, first);
+            }
+            else if (others.Length == 1)
+            {
+                return MaybeCount(maxCount, new object[] { first, others[0] });
+            }
+            else
+            {
+                var content = new object[others.Length + 1];
+                content[0] = first;
+                Array.Copy(others, 0, content, 1, others.Length);
+
+                return MaybeCount(maxCount, content);
+            }
         }
 
         /// <summary>
