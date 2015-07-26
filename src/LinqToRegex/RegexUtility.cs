@@ -85,7 +85,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Converts a specified character to the <see cref="String"/> object that represents the character as a literal rather than a metacharacter.
+        /// Converts a specified character to the <see cref="string"/> object that represents the character as a literal rather than a metacharacter.
         /// The character is considered not to be in the character group.
         /// </summary>
         /// <param name="value">A Unicode character.</param>
@@ -96,7 +96,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Converts a specified character to the <see cref="String"/> object that represents the character as a literal rather than a metacharacter.
+        /// Converts a specified character to the <see cref="string"/> object that represents the character as a literal rather than a metacharacter.
         /// </summary>
         /// <param name="value">A Unicode character.</param>
         /// <param name="inCharGroup">Indicates whether the character is considered to be inside or outside of the character group.</param>
@@ -181,7 +181,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Converts a specified text to the <see cref="String"/> object that represents each character as a literal rather than a metacharacter.
+        /// Converts a specified text to the <see cref="string"/> object that represents each character as a literal rather than a metacharacter.
         /// The text is considered not to be in the character group.
         /// </summary>
         /// <param name="input">The text to be converted.</param>
@@ -193,7 +193,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Converts a specified input to the <see cref="String"/> object that represents each character as a literal rather than a metacharacter.
+        /// Converts a specified input to the <see cref="string"/> object that represents each character as a literal rather than a metacharacter.
         /// </summary>
         /// <param name="input">The text to be converted.</param>
         /// <param name="inCharGroup">Indicates whether the text is considered to be inside or outside of the character group.</param>

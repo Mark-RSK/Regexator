@@ -43,7 +43,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Converts the value of this instance to a <see cref="String"/>.
+        /// Converts the value of this instance to a <see cref="string"/>.
         /// </summary>
         /// <returns></returns>
         public override string ToString()
@@ -307,7 +307,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends the pattern representation of an object. The object must be convertible to <see cref="Pattern"/>, <see cref="CharGrouping"/>, <see cref="String"/>, <see cref="Char"/>, object array or <see cref="System.Collections.IEnumerable"/>.
+        /// Appends the pattern representation of an object. The object must be convertible to <see cref="Pattern"/>, <see cref="CharGrouping"/>, <see cref="string"/>, <see cref="char"/>, object array or <see cref="IEnumerable"/>.
         /// </summary>
         /// <param name="value">The object to append.</param>
         public void Append(object value)

@@ -12,9 +12,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     public static class Patterns
     {
         /// <summary>
-        /// Concatenates the elements of a <see cref="System.Collections.IEnumerable"/> collection.
+        /// Concatenates the elements of a <see cref="IEnumerable"/> collection.
         /// </summary>
-        /// <param name="content">A collection object that implements <see cref="System.Collections.IEnumerable"/>.</param>
+        /// <param name="content">A collection object that implements <see cref="IEnumerable"/>.</param>
         /// <returns></returns>
         public static Pattern Concat(IEnumerable content)
         {
@@ -32,10 +32,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Concatenates the elements of a <see cref="System.Collections.IEnumerable"/> collection using the specified separator between each element.
+        /// Concatenates the elements of a <see cref="IEnumerable"/> collection using the specified separator between each element.
         /// </summary>
         /// <param name="separator">The pattern to use as a separator.</param>
-        /// <param name="values">A collection object that implements <see cref="System.Collections.IEnumerable"/>.</param>
+        /// <param name="values">A collection object that implements <see cref="IEnumerable"/>.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public static Pattern Join(object separator, IEnumerable values)
@@ -1179,7 +1179,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches any character that is not contained in the specified <see cref="String"/>.
+        /// Returns a pattern that matches any character that is not contained in the specified <see cref="string"/>.
         /// </summary>
         /// <param name="characters">Unicode characters.</param>
         /// <returns></returns>
@@ -3852,7 +3852,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches zero or more characters that are not contained in the specified <see cref="String"/>.
+        /// Returns a pattern that matches zero or more characters that are not contained in the specified <see cref="string"/>.
         /// </summary>
         /// <param name="characters">Unicode characters.</param>
         /// <returns></returns>

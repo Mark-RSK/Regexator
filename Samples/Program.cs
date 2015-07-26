@@ -23,7 +23,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 .Alphanumeric()
                 .Append(right);
 
-            Dump("email", exp);
+            Dump("email address", exp);
 
             exp = SurroundAngleBrackets(
                     "!" + SurroundSquareBrackets(

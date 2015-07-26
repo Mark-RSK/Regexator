@@ -944,7 +944,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches zero or more characters that are not contained in the specified <see cref="String"/>.
+        /// Appends a pattern that matches zero or more characters that are not contained in the specified <see cref="string"/>.
         /// </summary>
         /// <param name="characters">Unicode characters.</param>
         /// <returns></returns>
@@ -1821,7 +1821,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches any character that is not contained in the specified <see cref="String"/>.
+        /// Appends a pattern that matches any character that is not contained in the specified <see cref="string"/>.
         /// </summary>
         /// <param name="characters">Unicode characters.</param>
         /// <returns></returns>
