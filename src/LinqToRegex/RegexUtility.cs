@@ -4,6 +4,7 @@ using System;
 using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
+using static Pihrtsoft.Text.RegularExpressions.Linq.Patterns;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
@@ -32,9 +33,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 if (ValidGroupNameRegex == null)
                 {
-                    ValidGroupNameRegex = Patterns.EntireInput(
-                        Patterns.Group(Patterns.Range('1', '9').ArabicDigit().MaybeMany()),
-                        Patterns.WordChar().Except(Patterns.ArabicDigit()).WordChar().MaybeMany()
+                    ValidGroupNameRegex = EntireInput(
+                        Group(Range('1', '9') + MaybeMany(ArabicDigit())),
+                        (WordChar() - ArabicDigit()) + WhileWordChar()
                     ).ToRegex();
                 }
 
