@@ -3,6 +3,7 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Text.RegularExpressions;
+using static Pihrtsoft.Text.RegularExpressions.Linq.Patterns;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
@@ -17,8 +18,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static QuantifiablePattern LinefeedWithoutCarriageReturn()
         {
-            return Patterns
-                .NotAssertBack(Patterns.CarriageReturn())
+            return NotAssertBack(CarriageReturn())
                 .Linefeed()
                 .AsNoncapturingGroup();
         }
@@ -29,8 +29,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static QuantifiablePattern LeadingWhiteSpace()
         {
-            return Patterns
-                .BeginInputOrLine()
+            return BeginInputOrLine()
                 .WhiteSpaceExceptNewLine().OneMany()
                 .AsNoncapturingGroup();
         }
@@ -41,8 +40,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static QuantifiablePattern TrailingWhiteSpace()
         {
-            return Patterns
-                .WhiteSpaceExceptNewLine().OneMany()
+            return WhiteSpaceExceptNewLine().OneMany()
                 .EndInputOrLine(true)
                 .AsNoncapturingGroup();
         }
@@ -74,17 +72,15 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (includeNewLine)
             {
-                return Patterns
-                    .BeginLine()
+                return BeginLine()
                     .WhileWhiteSpaceExceptNewLine()
-                    .Any(Patterns.NewLine() | Patterns.EndInput());
+                    .Any(NewLine() | EndInput());
             }
             else
             {
-                return Patterns
-                    .BeginLine()
+                return BeginLine()
                     .WhileWhiteSpaceExceptNewLine()
-                    .Assert(Patterns.NewLine() | Patterns.EndInput());
+                    .Assert(NewLine() | EndInput());
             }
         }
 
@@ -107,15 +103,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (includeNewLine)
             {
-                return Patterns
-                    .BeginLine()
-                    .NewLine();
+                return BeginLine().NewLine();
             }
             else
             {
-                return Patterns
-                    .BeginLine()
-                    .Assert(Patterns.NewLine());
+                return BeginLine().Assert(NewLine());
             }
         }
 
@@ -137,12 +129,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "NonWhite")]
         public static QuantifiablePattern NonEmptyOrWhiteSpaceLine(bool includeNewLine)
         {
-            return Patterns
-                .BeginLine()
+            return BeginLine()
                 .WhileNotNewLineChar().Lazy()
                 .NotWhiteSpace()
                 .WhileNotNewLineChar()
-                .AppendIf(includeNewLine, Patterns.NewLine().Maybe())
+                .AppendIf(includeNewLine, NewLine().Maybe())
                 .AsNoncapturingGroup();
         }
 
@@ -164,10 +155,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "NonEmpty")]
         public static QuantifiablePattern NonEmptyLine(bool includeNewLine)
         {
-            return Patterns
-                .BeginLine()
+            return BeginLine()
                 .NotNewLineChar().OneMany()
-                .AppendIf(includeNewLine, Patterns.NewLine().Maybe())
+                .AppendIf(includeNewLine, NewLine().Maybe())
                 .AsNoncapturingGroup();
         }
 
@@ -177,8 +167,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static QuantifiablePattern FirstLineWithoutNewLine()
         {
-            return Patterns
-                .BeginInput()
+            return BeginInput()
                 .WhileNotNewLineChar()
                 .AsNoncapturingGroup();
         }
@@ -200,15 +189,15 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentException"></exception>
         public static Pattern SurroundQuoteMarksWithEscapes(string contentGroupName)
         {
-            var chars = Patterns.MaybeMany(!Chars.QuoteMark().Backslash());
+            var chars = MaybeMany(!Chars.QuoteMark().Backslash());
 
-            var content = chars + Patterns.MaybeMany(Patterns.Backslash().Any() + chars);
+            var content = chars + MaybeMany(Backslash().Any() + chars);
 
             var pattern = (contentGroupName != null)
-                ? Patterns.NamedGroup(contentGroupName, content)
+                ? NamedGroup(contentGroupName, content)
                 : content;
 
-            return Patterns.SurroundQuoteMarks(pattern).AsNoncapturingGroup();
+            return SurroundQuoteMarks(pattern).AsNoncapturingGroup();
         }
     }
 }

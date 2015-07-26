@@ -3,6 +3,8 @@
 using System;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
+using static Pihrtsoft.Text.RegularExpressions.Linq.Patterns;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
@@ -10,24 +12,23 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
         internal static void Main(string[] args)
         {
-            var left = Patterns.OneMany(Chars.Alphanumeric() + "!#$%&'*+/=?^_`{|}~-");
+            var left = OneMany(Chars.Alphanumeric() + "!#$%&'*+/=?^_`{|}~-");
 
-            var right = Patterns.Maybe(Patterns.MaybeMany(Chars.Alphanumeric() + "-").Alphanumeric());
+            var right = Maybe(MaybeMany(Chars.Alphanumeric() + "-").Alphanumeric());
 
             var exp = left
                 .MaybeMany("." + left)
                 .AtSign()
-                .OneMany(Patterns.Alphanumeric() + right + ".")
+                .OneMany(Alphanumeric() + right + ".")
                 .Alphanumeric()
                 .Append(right);
 
             Dump("email", exp);
 
-            exp = Patterns
-                .SurroundAngleBrackets(
-                    "!" + Patterns.SurroundSquareBrackets(
-                        "CDATA" + Patterns.SurroundSquareBrackets(
-                            Patterns.Group(Patterns.Crawl())
+            exp = SurroundAngleBrackets(
+                    "!" + SurroundSquareBrackets(
+                        "CDATA" + SurroundSquareBrackets(
+                            Group(Crawl())
                         )
                     )
                 );
@@ -36,9 +37,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             var values = new string[] { "one", "two", "three" };
 
-            exp = Patterns.WordBoundary()
+            exp = WordBoundary()
                 .CountFrom(3,
-                    Patterns.Any(values.Select(f => Patterns.Group(Patterns.Text(f))))
+                    Any(values.Select(f => Group(Patterns.Text(f))))
                     .WordBoundary()
                     .NotWordChar().MaybeMany().Lazy())
                 .GroupReference(1)
@@ -47,74 +48,59 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             Dump("multiple words", exp);
 
-            exp = Patterns.AtSign().SurroundQuoteMarks(
-                Patterns.WhileNotChar('"')
-                .MaybeMany(Patterns.QuoteMark(2).WhileNotChar('"')));
+            exp = "@" + SurroundQuoteMarks(
+                WhileNotChar('"')
+                .MaybeMany(QuoteMark(2).WhileNotChar('"')));
 
             Dump("verbatim quoted text", exp);
 
-            exp = Patterns
-                .Digits()
-                .Assert(
-                    Patterns.MaybeMany(Patterns.NotAssert("<b>").Any())
-                    .Text("</b>"));
+            exp = Digits().Assert(MaybeMany(NotAssert("<b>").Any()) + "</b>");
 
             Dump("digits inside b element value", exp);
 
-            exp = Patterns.Group(Patterns.Word())
+            exp = Group(Word())
                 .WhiteSpaces()
                 .GroupReference(1)
                 .WordBoundary();
 
             Dump("repeated word", exp);
 
-            exp = Patterns.SurroundWordBoundary("word1", "word2", "word3");
+            exp = SurroundWordBoundary("word1", "word2", "word3");
 
             Dump("any word", exp);
 
-            exp = Patterns.BeginInput()
-                .Assert(Patterns.Crawl().SurroundWordBoundary("word1"))
-                .Assert(Patterns.Crawl().SurroundWordBoundary("word2"))
+            exp = BeginInput()
+                .Assert(Crawl().SurroundWordBoundary("word1"))
+                .Assert(Crawl().SurroundWordBoundary("word2"))
                 .Any().MaybeMany();
 
             Dump("words in any order", exp);
 
-            exp = Patterns
-                .BeginInputOrLine()
-                .WhiteSpaceExceptNewLine().OneMany();
+            exp = BeginInputOrLine().WhiteSpaceExceptNewLine().OneMany();
 
             Dump("leading whitespace", exp);
 
-            exp = Patterns
-                .WhiteSpaceExceptNewLine().OneMany()
-                .EndInputOrLine(true);
+            exp = WhiteSpaceExceptNewLine().OneMany().EndInputOrLine(true);
 
             Dump("trailing whitespace", exp);
 
-            exp = Patterns
-                .BeginLine()
-                .WhileWhiteSpaceExceptNewLine()
-                .Assert(Patterns.NewLine());
+            exp = BeginLine().WhileWhiteSpaceExceptNewLine().Assert(NewLine());
 
             Dump("empty or whitespace line", exp);
 
-            exp = Patterns
-                .BeginLine()
-                .Assert(Patterns.NewLine());
+            exp = BeginLine().Assert(NewLine());
 
             Dump("empty line", exp);
 
-            exp = Patterns.BeginInput().WhileNotNewLineChar();
+            exp = BeginInput().WhileNotNewLineChar();
 
             Dump("first line without new line", exp);
 
-            exp = Patterns
-                .NotAssertBack(Patterns.CarriageReturn())
-                .Linefeed();
+            exp = NotAssertBack(CarriageReturn()).Linefeed();
 
             Dump("linefeed without carriage return", exp);
 
-            exp = Patterns.Any(Path.GetInvalidFileNameChars());
+            exp = Any(Path.GetInvalidFileNameChars());
 
             Dump("invalid file name chars", exp);
 
