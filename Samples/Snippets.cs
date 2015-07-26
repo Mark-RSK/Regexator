@@ -7,10 +7,7 @@ using static Pihrtsoft.Text.RegularExpressions.Linq.Patterns;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    /// <summary>
-    /// Provides static methods that returns various kinds of patterns.
-    /// </summary>
-    internal static class Snippets
+    public static class Snippets
     {
         /// <summary>
         /// Returns a pattern that matches a linefeed that is not preceded with a carriage return.
@@ -18,9 +15,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static QuantifiablePattern LinefeedWithoutCarriageReturn()
         {
-            return NotAssertBack(CarriageReturn())
-                .Linefeed()
-                .AsNoncapturingGroup();
+            return NoncapturingGroup(
+                NotAssertBack(CarriageReturn()).Linefeed());
         }
 
         /// <summary>
@@ -29,9 +25,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static QuantifiablePattern LeadingWhiteSpace()
         {
-            return BeginInputOrLine()
-                .WhiteSpaceExceptNewLine().OneMany()
-                .AsNoncapturingGroup();
+            return NoncapturingGroup(
+                BeginInputOrLine().WhiteSpaceExceptNewLine().OneMany());
         }
 
         /// <summary>
@@ -40,9 +35,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static QuantifiablePattern TrailingWhiteSpace()
         {
-            return WhiteSpaceExceptNewLine().OneMany()
-                .EndInputOrLine(true)
-                .AsNoncapturingGroup();
+            return NoncapturingGroup(
+                WhiteSpaceExceptNewLine().OneMany()
+                .EndInputOrLine(true));
         }
 
         /// <summary>
@@ -129,12 +124,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "NonWhite")]
         public static QuantifiablePattern NonEmptyOrWhiteSpaceLine(bool includeNewLine)
         {
-            return BeginLine()
-                .WhileNotNewLineChar().Lazy()
-                .NotWhiteSpace()
-                .WhileNotNewLineChar()
-                .AppendIf(includeNewLine, NewLine().Maybe())
-                .AsNoncapturingGroup();
+            return NoncapturingGroup(
+                BeginLine()
+                    .WhileNotNewLineChar().Lazy()
+                    .NotWhiteSpace()
+                    .WhileNotNewLineChar()
+                    .AppendIf(includeNewLine, NewLine().Maybe()));
         }
 
         /// <summary>
@@ -155,10 +150,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "NonEmpty")]
         public static QuantifiablePattern NonEmptyLine(bool includeNewLine)
         {
-            return BeginLine()
+            return NoncapturingGroup(
+                BeginLine()
                 .NotNewLineChar().OneMany()
-                .AppendIf(includeNewLine, NewLine().Maybe())
-                .AsNoncapturingGroup();
+                .AppendIf(includeNewLine, NewLine().Maybe()));
         }
 
         /// <summary>
@@ -167,9 +162,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static QuantifiablePattern FirstLineWithoutNewLine()
         {
-            return BeginInput()
-                .WhileNotNewLineChar()
-                .AsNoncapturingGroup();
+            return NoncapturingGroup(
+                BeginInput().WhileNotNewLineChar());
         }
 
         /// <summary>
@@ -197,7 +191,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 ? NamedGroup(contentGroupName, content)
                 : content;
 
-            return SurroundQuoteMarks(pattern).AsNoncapturingGroup();
+            return NoncapturingGroup(SurroundQuoteMarks(pattern));
         }
     }
 }
