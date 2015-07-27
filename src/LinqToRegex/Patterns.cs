@@ -555,15 +555,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Returns a pattern that is matched from the beginning of the line to the position (before carriage return) at the end of line. End of line is defined as the position before a linefeed.
         /// </summary>
-        /// <returns></returns>
-        public static QuantifiablePattern EntireLine()
-        {
-            return EntireLine(WhileNotNewLineChar());
-        }
-
-        /// <summary>
-        /// Returns a pattern that is matched from the beginning of the line to the position (before carriage return) at the end of line. End of line is defined as the position before a linefeed.
-        /// </summary>
         /// <param name="content">The content to be matched.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
