@@ -3435,27 +3435,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public QuantifiedGroup Maybe(object first, params object[] others)
         {
-            if (first == null)
-            {
-                throw new ArgumentNullException("first");
-            }
-
-            if (others == null || others.Length == 0)
-            {
-                return Maybe(first);
-            }
-            else if (others.Length == 1)
-            {
-                return Maybe(new object[] { first, others[0] });
-            }
-            else
-            {
-                var content = new object[others.Length + 1];
-                content[0] = first;
-                Array.Copy(others, 0, content, 1, others.Length);
-
-                return Maybe(content);
-            }
+            return AppendInternal(Patterns.Maybe(first, others));
         }
 
         /// <summary>
@@ -3478,27 +3458,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public QuantifiedGroup MaybeMany(object first, params object[] others)
         {
-            if (first == null)
-            {
-                throw new ArgumentNullException("first");
-            }
-
-            if (others == null || others.Length == 0)
-            {
-                return MaybeMany(first);
-            }
-            else if (others.Length == 1)
-            {
-                return MaybeMany(new object[] { first, others[0] });
-            }
-            else
-            {
-                var content = new object[others.Length + 1];
-                content[0] = first;
-                Array.Copy(others, 0, content, 1, others.Length);
-
-                return MaybeMany(content);
-            }
+            return AppendInternal(Patterns.MaybeMany(first, others));
         }
 
         /// <summary>
@@ -3521,27 +3481,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public QuantifiedGroup OneMany(object first, params object[] others)
         {
-            if (first == null)
-            {
-                throw new ArgumentNullException("first");
-            }
-
-            if (others == null || others.Length == 0)
-            {
-                return OneMany(first);
-            }
-            else if (others.Length == 1)
-            {
-                return OneMany(new object[] { first, others[0] });
-            }
-            else
-            {
-                var content = new object[others.Length + 1];
-                content[0] = first;
-                Array.Copy(others, 0, content, 1, others.Length);
-
-                return OneMany(content);
-            }
+            return AppendInternal(Patterns.OneMany(first, others));
         }
 
         /// <summary>
@@ -3568,27 +3508,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup Count(int exactCount, object first, params object[] others)
         {
-            if (first == null)
-            {
-                throw new ArgumentNullException("first");
-            }
-
-            if (others == null || others.Length == 0)
-            {
-                return Count(exactCount, first);
-            }
-            else if (others.Length == 1)
-            {
-                return Count(exactCount, new object[] { first, others[0] });
-            }
-            else
-            {
-                var content = new object[others.Length + 1];
-                content[0] = first;
-                Array.Copy(others, 0, content, 1, others.Length);
-
-                return Count(exactCount, content);
-            }
+            return AppendInternal(Patterns.Count(exactCount, first, others));
         }
 
         /// <summary>
@@ -3617,27 +3537,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup Count(int minCount, int maxCount, object first, params object[] others)
         {
-            if (first == null)
-            {
-                throw new ArgumentNullException("first");
-            }
-
-            if (others == null || others.Length == 0)
-            {
-                return Count(minCount, maxCount, first);
-            }
-            else if (others.Length == 1)
-            {
-                return Count(minCount, maxCount, (object)(new object[] { first, others[0] }));
-            }
-            else
-            {
-                var content = new object[others.Length + 1];
-                content[0] = first;
-                Array.Copy(others, 0, content, 1, others.Length);
-
-                return Count(minCount, maxCount, (object)content);
-            }
+            return AppendInternal(Patterns.Count(minCount, maxCount, first, others));
         }
 
         /// <summary>
@@ -3664,27 +3564,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup CountFrom(int minCount, object first, params object[] others)
         {
-            if (first == null)
-            {
-                throw new ArgumentNullException("first");
-            }
-
-            if (others == null || others.Length == 0)
-            {
-                return CountFrom(minCount, first);
-            }
-            else if (others.Length == 1)
-            {
-                return CountFrom(minCount, new object[] { first, others[0] });
-            }
-            else
-            {
-                var content = new object[others.Length + 1];
-                content[0] = first;
-                Array.Copy(others, 0, content, 1, others.Length);
-
-                return CountFrom(minCount, content);
-            }
+            return AppendInternal(Patterns.CountFrom(minCount, first, others));
         }
 
         /// <summary>
@@ -3711,27 +3591,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public QuantifiedGroup MaybeCount(int maxCount, object first, params object[] others)
         {
-            if (first == null)
-            {
-                throw new ArgumentNullException("first");
-            }
-
-            if (others == null || others.Length == 0)
-            {
-                return MaybeCount(maxCount, first);
-            }
-            else if (others.Length == 1)
-            {
-                return MaybeCount(maxCount, new object[] { first, others[0] });
-            }
-            else
-            {
-                var content = new object[others.Length + 1];
-                content[0] = first;
-                Array.Copy(others, 0, content, 1, others.Length);
-
-                return MaybeCount(maxCount, content);
-            }
+            return AppendInternal(Patterns.MaybeCount(maxCount, first, others));
         }
 
         /// <summary>
