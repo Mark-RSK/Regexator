@@ -66,7 +66,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                     string s = Content as string;
                     if (s != null)
                     {
-                        return s.Length > 1;
+                        return s.Length == 0 || s.Length > 1;
                     }
                     else
                     {
