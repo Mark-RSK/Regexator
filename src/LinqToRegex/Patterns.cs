@@ -600,7 +600,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public static Pattern EntireInputOrLine(object content)
         {
-            return Surround(BeginInputOrLine(), content, EndInputOrLine(true));
+            return Surround(BeginInputOrLine(), content, EndInputOrLine(true)).AsNoncapturingGroup();
         }
 
         /// <summary>
