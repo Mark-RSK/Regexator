@@ -1040,7 +1040,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches a character that is not a specified character..
+        /// Appends a pattern that matches a character that is not a specified character.
         /// </summary>
         /// <param name="value">An enumerated constant that identifies ASCII character.</param>
         public void AppendNegativeCharGroup(AsciiChar value)
