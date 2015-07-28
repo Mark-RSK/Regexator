@@ -553,50 +553,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that is matched from the beginning of the line to the position (before carriage return) at the end of line. End of line is defined as the position before a linefeed.
-        /// </summary>
-        /// <param name="content">The content to be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        public static QuantifiablePattern EntireLine(object content)
-        {
-            return Surround(BeginLine(), content, EndLine(true)).AsNoncapturingGroup();
-        }
-
-        /// <summary>
-        /// Returns a pattern that is matched from the beginning of the line to the position (before carriage return) at the end of line. End of line is defined as the position before a linefeed.
-        /// </summary>
-        /// <param name="content">An object array that contains zero or more values any one of which has to be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        public static QuantifiablePattern EntireLine(params object[] content)
-        {
-            return EntireLine((object)content);
-        }
-
-        /// <summary>
-        /// Returns a pattern that is matched from the beginning of the string (or line if the <see cref="RegexOptions.Multiline"/> option is applied) to the position (before carriage return) at the end of string (or line if the <see cref="RegexOptions.Multiline"/> option is applied). End of line is defined as the position before a linefeed.
-        /// </summary>
-        /// <param name="content">The content to be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        public static Pattern EntireInputOrLine(object content)
-        {
-            return Surround(BeginInputOrLine(), content, EndInputOrLine(true)).AsNoncapturingGroup();
-        }
-
-        /// <summary>
-        /// Returns a pattern that is matched from the beginning of the string (or line if the <see cref="RegexOptions.Multiline"/> option is applied) to the position (before carriage return) at the end of string (or line if the <see cref="RegexOptions.Multiline"/> option is applied). End of line is defined as the position before a linefeed.
-        /// </summary>
-        /// <param name="content">An object array that contains zero or more values any one of which has to be matched.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        public static Pattern EntireInputOrLine(params object[] content)
-        {
-            return EntireInputOrLine((object)content);
-        }
-
-        /// <summary>
         /// Returns a pattern that matches any one of the patterns specified in the collection.
         /// </summary>
         /// <param name="content">A collection that contains zero or more patterns any one of which has to be matched.</param>
