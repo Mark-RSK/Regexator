@@ -293,7 +293,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public const string SubstituteNamedGroupEnd = "}";
 
         /// <summary>
-        /// Gets a content of the Unicode category pattern for a specified category.
+        /// Gets a designation of the specified Unicode category.
         /// </summary>
         /// <param name="category">An enumerated constant that identifies Unicode category.</param>
         /// <returns></returns>
@@ -303,7 +303,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Gets a content of the Unicode block pattern for a specified block.
+        /// Gets a designation of the specified Unicode block.
         /// </summary>
         /// <param name="block">An enumerated constant that identifies Unicode block.</param>
         /// <returns></returns>
