@@ -17,7 +17,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         private StringBuilder _sb;
         private PatternSettings _settings;
         private Stack<Pattern> _patterns;
-        private Stack<CharGrouping> _charGroupings;
+        private Stack<CharGrouping> _chars;
         private RegexOptions _currentOptions;
 
         internal PatternBuilder()
@@ -1851,12 +1851,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             get
             {
-                if (_charGroupings == null)
+                if (_chars == null)
                 {
-                    _charGroupings = new Stack<CharGrouping>();
+                    _chars = new Stack<CharGrouping>();
                 }
 
-                return _charGroupings;
+                return _chars;
             }
         }
 
