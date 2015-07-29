@@ -96,7 +96,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                     {
                         char ch = value[i];
                         int lastPos;
-                        _sb.Append(value, 0, i);
+                        AppendInternal(value, 0, i);
 
                         do
                         {
@@ -117,7 +117,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                                 i++;
                             }
 
-                            _sb.Append(value, lastPos, i - lastPos);
+                            AppendInternal(value, lastPos, i - lastPos);
 
                         } while (i < value.Length);
 
@@ -125,7 +125,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                     }
                 }
 
-                _sb.Append(value);
+                AppendInternal(value);
             }
         }
 
@@ -134,33 +134,33 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             switch (mode)
             {
                 case CharEscapeMode.AsciiHexadecimal:
-                    _sb.Append(Syntax.AsciiHexadecimalStart);
-                    _sb.Append(((int)ch).ToString("X2", CultureInfo.InvariantCulture));
+                    AppendInternal(Syntax.AsciiHexadecimalStart);
+                    AppendInternal(((int)ch).ToString("X2", CultureInfo.InvariantCulture));
                     break;
                 case CharEscapeMode.Backslash:
-                    _sb.Append('\\');
-                    _sb.Append(ch);
+                    AppendInternal('\\');
+                    AppendInternal(ch);
                     break;
                 case CharEscapeMode.Bell:
-                    _sb.Append(Syntax.Bell);
+                    AppendInternal(Syntax.Bell);
                     break;
                 case CharEscapeMode.CarriageReturn:
-                    _sb.Append(Syntax.CarriageReturn);
+                    AppendInternal(Syntax.CarriageReturn);
                     break;
                 case CharEscapeMode.Escape:
-                    _sb.Append(Syntax.Escape);
+                    AppendInternal(Syntax.Escape);
                     break;
                 case CharEscapeMode.FormFeed:
-                    _sb.Append(Syntax.FormFeed);
+                    AppendInternal(Syntax.FormFeed);
                     break;
                 case CharEscapeMode.Linefeed:
-                    _sb.Append(Syntax.Linefeed);
+                    AppendInternal(Syntax.Linefeed);
                     break;
                 case CharEscapeMode.VerticalTab:
-                    _sb.Append(Syntax.VerticalTab);
+                    AppendInternal(Syntax.VerticalTab);
                     break;
                 case CharEscapeMode.Tab:
-                    _sb.Append(Syntax.Tab);
+                    AppendInternal(Syntax.Tab);
                     break;
             }
         }
@@ -217,14 +217,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             switch (RegexUtility.GetEscapeModeInternal(value, inCharGroup))
             {
                 case CharEscapeMode.None:
-                    _sb.Append((char)value);
+                    AppendInternal((char)value);
                     break;
                 case CharEscapeMode.AsciiHexadecimal:
                     AppendAsciiHexadecimal(value);
                     break;
                 case CharEscapeMode.Backslash:
                     AppendBackslash();
-                    _sb.Append((char)value);
+                    AppendInternal((char)value);
                     break;
                 case CharEscapeMode.Bell:
                     AppendBell();
@@ -306,6 +306,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             AppendCharGroup(value);
         }
 
+        private void AppendOr(object value)
+        {
+            _pendingOr = true;
+            Append(value);
+            _pendingOr = false;
+        }
+
         /// <summary>
         /// Appends the pattern representation of an object. The object must be convertible to <see cref="Pattern"/>, <see cref="CharGrouping"/>, <see cref="string"/>, <see cref="char"/>, object array or <see cref="IEnumerable"/>.
         /// </summary>
@@ -367,8 +374,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
                     for (int i = 1; i < values.Length; i++)
                     {
-                        AppendOr();
-                        Append(values[i]);
+                        AppendOr(values[i]);
                     }
 
                     if (mode != GroupMode.None)
@@ -400,8 +406,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
                     while (en.MoveNext())
                     {
-                        AppendOr();
-                        Append(en.Current);
+                        AppendOr(en.Current);
                     }
 
                     if (mode != GroupMode.None)
@@ -414,7 +419,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal void AppendGroupStart()
         {
-            _sb.Append("(?");
+            AppendInternal("(?");
         }
 
         internal void AppendGroupContent(object content)
@@ -475,8 +480,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             else
             {
                 Append(trueContent);
-                AppendOr();
-                Append(falseContent);
+                AppendOr(falseContent);
             }
 
             AppendGroupEnd();
@@ -521,8 +525,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             else
             {
                 Append(trueContent);
-                AppendOr();
-                Append(falseContent);
+                AppendOr(falseContent);
             }
 
             AppendGroupEnd();
@@ -562,8 +565,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             else
             {
                 Append(trueContent);
-                AppendOr();
-                Append(falseContent);
+                AppendOr(falseContent);
             }
 
             AppendGroupEnd();
@@ -579,7 +581,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         internal void AppendIfGroupCondition(string groupName)
         {
             AppendLeftParenthesis();
-            _sb.Append(groupName);
+            AppendInternal(groupName);
             AppendGroupEnd();
         }
 
@@ -632,7 +634,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         public void AppendBeginningOfInput()
         {
-            _sb.Append(Syntax.BeginningOfInput);
+            AppendInternal(Syntax.BeginningOfInput);
         }
 
         /// <summary>
@@ -640,7 +642,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         public void AppendBeginningOfInputOrLine()
         {
-            _sb.Append(Syntax.BeginningOfInputOrLine);
+            AppendInternal(Syntax.BeginningOfInputOrLine);
         }
 
         /// <summary>
@@ -648,7 +650,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         public void AppendEndOfInput()
         {
-            _sb.Append(Syntax.EndOfInput);
+            AppendInternal(Syntax.EndOfInput);
         }
 
         /// <summary>
@@ -656,7 +658,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         public void AppendEndOfInputOrLine()
         {
-            _sb.Append(Syntax.EndOfInputOrLine);
+            AppendInternal(Syntax.EndOfInputOrLine);
         }
 
         /// <summary>
@@ -664,7 +666,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         public void AppendEndOfInputOrBeforeEndingLinefeed()
         {
-            _sb.Append(Syntax.EndOfInputOrBeforeEndingLinefeed);
+            AppendInternal(Syntax.EndOfInputOrBeforeEndingLinefeed);
         }
 
         /// <summary>
@@ -672,7 +674,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         public void AppendWordBoundary()
         {
-            _sb.Append(Syntax.WordBoundary);
+            AppendInternal(Syntax.WordBoundary);
         }
 
         /// <summary>
@@ -680,7 +682,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         public void AppendNegativeWordBoundary()
         {
-            _sb.Append(Syntax.NegativeWordBoundary);
+            AppendInternal(Syntax.NegativeWordBoundary);
         }
 
         /// <summary>
@@ -688,32 +690,27 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         public void AppendPreviousMatchEnd()
         {
-            _sb.Append(Syntax.PreviousMatchEnd);
+            AppendInternal(Syntax.PreviousMatchEnd);
         }
 
         internal void AppendAssertionStart()
         {
-            _sb.Append(Syntax.AssertionStart);
+            AppendInternal(Syntax.AssertionStart);
         }
 
         internal void AppendNegativeAssertionStart()
         {
-            _sb.Append(Syntax.NegativeAssertionStart);
+            AppendInternal(Syntax.NegativeAssertionStart);
         }
 
         internal void AppendBackAssertionStart()
         {
-            _sb.Append(Syntax.BackAssertionStart);
+            AppendInternal(Syntax.BackAssertionStart);
         }
 
         internal void AppendNegativeBackAssertionStart()
         {
-            _sb.Append(Syntax.NegativeBackAssertionStart);
-        }
-
-        internal void AppendOr()
-        {
-            _sb.Append(Syntax.Or);
+            AppendInternal(Syntax.NegativeBackAssertionStart);
         }
 
         internal void AppendAny(object content, GroupMode mode)
@@ -789,7 +786,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             AppendGroupStart();
             AppendStartIdentifierBoundary();
-            _sb.Append(groupName);
+            AppendInternal(groupName);
             AppendEndIdentifierBoundary();
         }
 
@@ -812,7 +809,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal void AppendNoncapturingGroupStart()
         {
-            _sb.Append(Syntax.NoncapturingGroupStart);
+            AppendInternal(Syntax.NoncapturingGroupStart);
         }
 
         /// <summary>
@@ -834,7 +831,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal void AppendNonbacktrackingGroupStart()
         {
-            _sb.Append(Syntax.NonbacktrackingGroupStart);
+            AppendInternal(Syntax.NonbacktrackingGroupStart);
         }
 
         internal void AppendBalancingGroup(string name1, string name2, object content)
@@ -853,15 +850,15 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             AppendGroupStart();
             AppendStartIdentifierBoundary();
-            _sb.Append(name1);
+            AppendInternal(name1);
             AppendHyphen();
-            _sb.Append(name2);
+            AppendInternal(name2);
             AppendEndIdentifierBoundary();
         }
 
         internal void AppendGroupEnd()
         {
-            _sb.Append(Syntax.GroupEnd);
+            AppendInternal(Syntax.GroupEnd);
         }
 
         /// <summary>
@@ -869,7 +866,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         public void AppendAnyChar()
         {
-            _sb.Append(Syntax.AnyChar);
+            AppendInternal(Syntax.AnyChar);
         }
 
         /// <summary>
@@ -906,7 +903,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         public void AppendDigit()
         {
-            _sb.Append(Syntax.Digit);
+            AppendInternal(Syntax.Digit);
         }
 
         /// <summary>
@@ -914,7 +911,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         public void AppendNotDigit()
         {
-            _sb.Append(Syntax.NotDigit);
+            AppendInternal(Syntax.NotDigit);
         }
 
         /// <summary>
@@ -922,7 +919,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         public void AppendWhiteSpace()
         {
-            _sb.Append(Syntax.WhiteSpace);
+            AppendInternal(Syntax.WhiteSpace);
         }
 
         /// <summary>
@@ -930,7 +927,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         public void AppendNotWhiteSpace()
         {
-            _sb.Append(Syntax.NotWhiteSpace);
+            AppendInternal(Syntax.NotWhiteSpace);
         }
 
         /// <summary>
@@ -938,7 +935,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         public void AppendWordChar()
         {
-            _sb.Append(Syntax.WordChar);
+            AppendInternal(Syntax.WordChar);
         }
 
         /// <summary>
@@ -946,7 +943,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         public void AppendNotWordChar()
         {
-            _sb.Append(Syntax.NotWordChar);
+            AppendInternal(Syntax.NotWordChar);
         }
 
         internal void AppendCharGroupStart()
@@ -956,17 +953,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal void AppendCharGroupStart(bool negative)
         {
-            _sb.Append(Syntax.CharGroupStart);
+            AppendInternal(Syntax.CharGroupStart);
 
             if (negative)
             {
-                _sb.Append(Syntax.CharGroupNegation);
+                AppendInternal(Syntax.CharGroupNegation);
             }
         }
 
         internal void AppendCharGroupEnd()
         {
-            _sb.Append(Syntax.CharGroupEnd);
+            AppendInternal(Syntax.CharGroupEnd);
         }
 
         /// <summary>
@@ -1229,8 +1226,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         internal void AppendGeneralCategory(GeneralCategory category, bool negative)
         {
             AppendUnicodeStart(negative);
-            _sb.Append(Syntax.GetCategoryDesignation(category));
-            _sb.Append(Syntax.UnicodeEnd);
+            AppendInternal(Syntax.GetCategoryDesignation(category));
+            AppendInternal(Syntax.UnicodeEnd);
         }
 
         /// <summary>
@@ -1256,19 +1253,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         internal void AppendNamedBlock(NamedBlock block, bool negative)
         {
             AppendUnicodeStart(negative);
-            _sb.Append(Syntax.GetBlockDesignation(block));
-            _sb.Append(Syntax.UnicodeEnd);
+            AppendInternal(Syntax.GetBlockDesignation(block));
+            AppendInternal(Syntax.UnicodeEnd);
         }
 
         private void AppendUnicodeStart(bool negative)
         {
             if (negative)
             {
-                _sb.Append(Syntax.NotUnicodeStart);
+                AppendInternal(Syntax.NotUnicodeStart);
             }
             else
             {
-                _sb.Append(Syntax.UnicodeStart);
+                AppendInternal(Syntax.UnicodeStart);
             }
         }
 
@@ -1286,7 +1283,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="lazy">Indicates whether the quantifier will be greedy or lazy.</param>
         public void AppendMaybe(bool lazy)
         {
-            _sb.Append(Syntax.Maybe);
+            AppendInternal(Syntax.Maybe);
 
             if (lazy)
             {
@@ -1308,7 +1305,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="lazy">Indicates whether the quantifier will be greedy or lazy.</param>
         public void AppendMaybeMany(bool lazy)
         {
-            _sb.Append(Syntax.MaybeMany);
+            AppendInternal(Syntax.MaybeMany);
 
             if (lazy)
             {
@@ -1330,7 +1327,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="lazy">Indicates whether the quantifier will be greedy or lazy.</param>
         public void AppendOneMany(bool lazy)
         {
-            _sb.Append(Syntax.OneMany);
+            AppendInternal(Syntax.OneMany);
 
             if (lazy)
             {
@@ -1372,7 +1369,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         internal void AppendCountInternal(int exactCount)
         {
             AppendLeftCurlyBracket();
-            _sb.Append(exactCount);
+            AppendInternal(exactCount);
             AppendRightCurlyBracket();
         }
 
@@ -1412,9 +1409,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         internal void AppendCountInternal(int minCount, int maxCount)
         {
             AppendLeftCurlyBracket();
-            _sb.Append(minCount);
+            AppendInternal(minCount);
             AppendComma();
-            _sb.Append(maxCount);
+            AppendInternal(maxCount);
             AppendRightCurlyBracket();
         }
 
@@ -1452,7 +1449,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         internal void AppendCountFromInternal(int minCount)
         {
             AppendLeftCurlyBracket();
-            _sb.Append(minCount);
+            AppendInternal(minCount);
             AppendComma();
             AppendRightCurlyBracket();
         }
@@ -1491,21 +1488,21 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         internal void AppendMaybeCountInternal(int maxCount)
         {
             AppendLeftCurlyBracket();
-            _sb.Append(0);
+            AppendInternal(0);
             AppendComma();
-            _sb.Append(maxCount);
+            AppendInternal(maxCount);
             AppendRightCurlyBracket();
         }
 
         internal void AppendLazy()
         {
-            _sb.Append(Syntax.Lazy);
+            AppendInternal(Syntax.Lazy);
         }
 
         internal void AppendGroupReferenceInternal(int groupNumber)
         {
             AppendBackslash();
-            _sb.Append(groupNumber);
+            AppendInternal(groupNumber);
 
             if (Settings.HasOptions(PatternOptions.SeparateGroupNumberReference))
             {
@@ -1516,9 +1513,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal void AppendGroupReferenceInternal(string groupName)
         {
-            _sb.Append(@"\k");
+            AppendInternal(@"\k");
             AppendStartIdentifierBoundary();
-            _sb.Append(groupName);
+            AppendInternal(groupName);
             AppendEndIdentifierBoundary();
         }
 
@@ -1639,27 +1636,27 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if ((options & RegexOptions.IgnoreCase) == RegexOptions.IgnoreCase)
             {
-                _sb.Append(Syntax.IgnoreCaseChar);
+                AppendInternal(Syntax.IgnoreCaseChar);
             }
 
             if ((options & RegexOptions.Multiline) == RegexOptions.Multiline)
             {
-                _sb.Append(Syntax.MultilineChar);
+                AppendInternal(Syntax.MultilineChar);
             }
 
             if ((options & RegexOptions.ExplicitCapture) == RegexOptions.ExplicitCapture)
             {
-                _sb.Append(Syntax.ExplicitCaptureChar);
+                AppendInternal(Syntax.ExplicitCaptureChar);
             }
 
             if ((options & RegexOptions.Singleline) == RegexOptions.Singleline)
             {
-                _sb.Append(Syntax.SinglelineChar);
+                AppendInternal(Syntax.SinglelineChar);
             }
 
             if ((options & RegexOptions.IgnorePatternWhitespace) == RegexOptions.IgnorePatternWhitespace)
             {
-                _sb.Append(Syntax.IgnorePatternWhiteSpaceChar);
+                AppendInternal(Syntax.IgnorePatternWhiteSpaceChar);
             }
         }
 
@@ -1687,63 +1684,63 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal void AppendInlineCommentInternal(string comment)
         {
-            _sb.Append(Syntax.InlineCommentStart);
-            _sb.Append(comment);
+            AppendInternal(Syntax.InlineCommentStart);
+            AppendInternal(comment);
             AppendGroupEnd();
         }
 
         internal void AppendStartIdentifierBoundary()
         {
-            _sb.Append(Settings.IdentifierBoundary == IdentifierBoundary.Apostrophe
+            AppendInternal(Settings.IdentifierBoundary == IdentifierBoundary.Apostrophe
                 ? '\''
                 : '<');
         }
 
         internal void AppendEndIdentifierBoundary()
         {
-            _sb.Append(Settings.IdentifierBoundary == IdentifierBoundary.Apostrophe
+            AppendInternal(Settings.IdentifierBoundary == IdentifierBoundary.Apostrophe
                 ? '\''
                 : '>');
         }
 
         internal void AppendLeftParenthesis()
         {
-            _sb.Append('(');
+            AppendInternal('(');
         }
 
         internal void AppendLeftCurlyBracket()
         {
-            _sb.Append('{');
+            AppendInternal('{');
         }
 
         internal void AppendRightCurlyBracket()
         {
-            _sb.Append('}');
+            AppendInternal('}');
         }
 
         internal void AppendComma()
         {
-            _sb.Append(',');
+            AppendInternal(',');
         }
 
         internal void AppendColon()
         {
-            _sb.Append(':');
+            AppendInternal(':');
         }
 
         internal void AppendHyphen()
         {
-            _sb.Append('-');
+            AppendInternal('-');
         }
 
         internal void AppendBackslash()
         {
-            _sb.Append('\\');
+            AppendInternal('\\');
         }
 
         internal void AppendCharGroupNegation()
         {
-            _sb.Append('^');
+            AppendInternal('^');
         }
 
         internal void AppendAsciiHexadecimal(int charCode)
@@ -1753,43 +1750,93 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 throw new ArgumentOutOfRangeException("charCode");
             }
 
-            _sb.Append(Syntax.AsciiHexadecimalStart);
-            _sb.Append(charCode.ToString("X2", CultureInfo.InvariantCulture));
+            AppendInternal(Syntax.AsciiHexadecimalStart);
+            AppendInternal(charCode.ToString("X2", CultureInfo.InvariantCulture));
         }
 
         private void AppendBell()
         {
-            _sb.Append(Syntax.Bell);
+            AppendInternal(Syntax.Bell);
         }
 
         private void AppendCarriageReturn()
         {
-            _sb.Append(Syntax.CarriageReturn);
+            AppendInternal(Syntax.CarriageReturn);
         }
 
         private void AppendEscape()
         {
-            _sb.Append(Syntax.Escape);
+            AppendInternal(Syntax.Escape);
         }
 
         private void AppendFormFeed()
         {
-            _sb.Append(Syntax.FormFeed);
+            AppendInternal(Syntax.FormFeed);
         }
 
         private void AppendLinefeed()
         {
-            _sb.Append(Syntax.Linefeed);
+            AppendInternal(Syntax.Linefeed);
         }
 
         private void AppendVerticalTab()
         {
-            _sb.Append(Syntax.VerticalTab);
+            AppendInternal(Syntax.VerticalTab);
         }
 
         private void AppendTab()
         {
-            _sb.Append(Syntax.Tab);
+            AppendInternal(Syntax.Tab);
+        }
+
+        private void AppendInternal(int value)
+        {
+            if (_pendingOr)
+            {
+                _sb.Append(Syntax.Or);
+                _pendingOr = false;
+            }
+
+            _sb.Append(value.ToString(CultureInfo.InvariantCulture));
+        }
+
+        private void AppendInternal(char value)
+        {
+            if (_pendingOr)
+            {
+                _sb.Append(Syntax.Or);
+                _pendingOr = false;
+            }
+
+            _sb.Append(value);
+        }
+
+        private void AppendInternal(string value)
+        {
+            if (!string.IsNullOrEmpty(value))
+            {
+                if (_pendingOr)
+                {
+                    _sb.Append(Syntax.Or);
+                    _pendingOr = false;
+                }
+
+                _sb.Append(value);
+            }
+        }
+
+        private void AppendInternal(string value, int startIndex, int count)
+        {
+            if (count > 0)
+            {
+                if (_pendingOr)
+                {
+                    _sb.Append(Syntax.Or);
+                    _pendingOr = false;
+                }
+
+                _sb.Append(value, startIndex, count);
+            }
         }
 
         /// <summary>
@@ -1812,5 +1859,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 return _charGroupings;
             }
         }
+
+        private bool _pendingOr;
     }
 }
