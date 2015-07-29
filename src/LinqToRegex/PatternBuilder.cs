@@ -1800,7 +1800,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             get { return _settings; }
         }
 
-        internal Stack<CharGrouping> CharGroupings
+        internal Stack<CharGrouping> Chars
         {
             get
             {

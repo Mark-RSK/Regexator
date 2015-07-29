@@ -637,7 +637,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (Previous != null)
             {
-                Stack<CharGrouping> stack = builder.CharGroupings;
+                Stack<CharGrouping> stack = builder.Chars;
                 int cnt = stack.Count;
                 CharGrouping item = this;
 
