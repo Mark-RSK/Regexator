@@ -19,6 +19,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         private Stack<Pattern> _patterns;
         private Stack<CharGrouping> _chars;
         private RegexOptions _currentOptions;
+        private bool _pendingOr;
 
         internal PatternBuilder()
             : this(new PatternSettings())
@@ -480,7 +481,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             else
             {
                 Append(trueContent);
-                AppendOr(falseContent);
+                AppendOr();
+                Append(falseContent);
             }
 
             AppendGroupEnd();
@@ -525,7 +527,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             else
             {
                 Append(trueContent);
-                AppendOr(falseContent);
+                AppendOr();
+                Append(falseContent);
             }
 
             AppendGroupEnd();
@@ -565,7 +568,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             else
             {
                 Append(trueContent);
-                AppendOr(falseContent);
+                AppendOr();
+                Append(falseContent);
             }
 
             AppendGroupEnd();
@@ -1789,11 +1793,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             AppendInternal(Syntax.Tab);
         }
 
+        private void AppendOr()
+        {
+            _sb.Append(Syntax.Or);
+        }
+
         private void AppendInternal(int value)
         {
             if (_pendingOr)
             {
-                _sb.Append(Syntax.Or);
+                AppendOr();
                 _pendingOr = false;
             }
 
@@ -1804,7 +1813,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (_pendingOr)
             {
-                _sb.Append(Syntax.Or);
+                AppendOr();
                 _pendingOr = false;
             }
 
@@ -1817,7 +1826,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 if (_pendingOr)
                 {
-                    _sb.Append(Syntax.Or);
+                    AppendOr();
                     _pendingOr = false;
                 }
 
@@ -1831,7 +1840,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 if (_pendingOr)
                 {
-                    _sb.Append(Syntax.Or);
+                    AppendOr();
                     _pendingOr = false;
                 }
 
@@ -1859,7 +1868,5 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 return _chars;
             }
         }
-
-        private bool _pendingOr;
     }
 }
