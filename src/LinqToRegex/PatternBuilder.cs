@@ -10,7 +10,7 @@ using System.Text.RegularExpressions;
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
-    /// Represents a class that converts an instance of the <see cref="Pattern"/> class to its text representation.
+    /// Represents a class that enables to create a text representation of the <see cref="Pattern"/>. This class cannot be inherited.
     /// </summary>
     public sealed class PatternBuilder
     {
