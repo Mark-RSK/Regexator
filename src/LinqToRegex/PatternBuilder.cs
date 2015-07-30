@@ -371,11 +371,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                         AppendNoncapturingGroupStart();
                     }
 
-                    Append(values[0]);
+                    int length = Length;
 
-                    for (int i = 1; i < values.Length; i++)
+                    for (int i = 0; i < values.Length; i++)
                     {
-                        AppendOr(values[i]);
+                        _pendingOr = (Length > length);
+                        length = Length;
+                        Append(values[i]);
+                        _pendingOr = false;
                     }
 
                     if (mode != GroupMode.None)
@@ -403,11 +406,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                         AppendNoncapturingGroupStart();
                     }
 
+                    int length = Length;
+
                     Append(en.Current);
 
                     while (en.MoveNext())
                     {
-                        AppendOr(en.Current);
+                        _pendingOr = (Length > length);
+                        length = Length;
+                        Append(en.Current);
+                        _pendingOr = false;
                     }
 
                     if (mode != GroupMode.None)
@@ -481,8 +489,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             else
             {
                 Append(trueContent);
-                AppendOr();
-                Append(falseContent);
+                AppendOr(falseContent);
             }
 
             AppendGroupEnd();
@@ -527,8 +534,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             else
             {
                 Append(trueContent);
-                AppendOr();
-                Append(falseContent);
+                AppendOr(falseContent);
             }
 
             AppendGroupEnd();
@@ -568,8 +574,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             else
             {
                 Append(trueContent);
-                AppendOr();
-                Append(falseContent);
+                AppendOr(falseContent);
             }
 
             AppendGroupEnd();
@@ -1854,6 +1859,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public PatternSettings Settings
         {
             get { return _settings; }
+        }
+
+        internal int Length
+        {
+            get { return _sb.Length; }
         }
 
         internal Stack<CharGrouping> Chars
