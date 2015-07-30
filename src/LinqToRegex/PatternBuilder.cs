@@ -371,15 +371,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                         AppendNoncapturingGroupStart();
                     }
 
+                    _pendingOr = false;
                     int length = Length;
 
                     for (int i = 0; i < values.Length; i++)
                     {
-                        _pendingOr = (Length > length);
+                        _pendingOr = _pendingOr || (Length > length);
                         length = Length;
                         Append(values[i]);
-                        _pendingOr = false;
                     }
+
+                    _pendingOr = false;
 
                     if (mode != GroupMode.None)
                     {
@@ -406,17 +408,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                         AppendNoncapturingGroupStart();
                     }
 
+                    _pendingOr = false;
                     int length = Length;
 
                     Append(en.Current);
 
                     while (en.MoveNext())
                     {
-                        _pendingOr = (Length > length);
+                        _pendingOr = _pendingOr || (Length > length);
                         length = Length;
                         Append(en.Current);
-                        _pendingOr = false;
                     }
+
+                    _pendingOr = false;
 
                     if (mode != GroupMode.None)
                     {
