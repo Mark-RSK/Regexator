@@ -1782,29 +1782,25 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             AppendInternal(Syntax.Tab);
         }
 
-        private void AppendOr()
+        private void AppendOrIfPending()
         {
-            _sb.Append(Syntax.Or);
+            if (_pendingOr)
+            {
+                _sb.Append(Syntax.Or);
+                _pendingOr = false;
+            }
         }
 
         private void AppendInternal(int value)
         {
-            if (_pendingOr)
-            {
-                AppendOr();
-                _pendingOr = false;
-            }
+            AppendOrIfPending();
 
             _sb.Append(value.ToString(CultureInfo.InvariantCulture));
         }
 
         private void AppendInternal(char value)
         {
-            if (_pendingOr)
-            {
-                AppendOr();
-                _pendingOr = false;
-            }
+            AppendOrIfPending();
 
             _sb.Append(value);
         }
@@ -1813,11 +1809,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (!string.IsNullOrEmpty(value))
             {
-                if (_pendingOr)
-                {
-                    AppendOr();
-                    _pendingOr = false;
-                }
+                AppendOrIfPending();
 
                 _sb.Append(value);
             }
@@ -1827,11 +1819,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (count > 0)
             {
-                if (_pendingOr)
-                {
-                    AppendOr();
-                    _pendingOr = false;
-                }
+                AppendOrIfPending();
 
                 _sb.Append(value, startIndex, count);
             }
