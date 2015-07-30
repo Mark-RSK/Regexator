@@ -35,7 +35,7 @@ var pattern = Digit();
 
 ### CharGrouping Class
 
-`CharGrouping` represents a content of a character group. `CharGrouping` can be created using `CharGroupings` static class that has the same purpose as `Patterns` class.
+`CharGrouping` represents a content of a character group. `CharGrouping` can be created using `Chars` static class that has the same purpose as `Patterns` class.
 
 ### Object or Object[]  Parameter
 A lot of methods that returns instance of the `Pattern` class accepts parameters of type `Object` that is usually named `content`. This methods can handle following types (typed as `Object`):
@@ -103,11 +103,11 @@ var pattern = BeginLine() + Assert(NewLine());
 
 `Except` method is used to create character subtraction. Following pattern matches a white-space character except a carriage return and a linefeed. Regex syntax is `[\s-[\r\n]]` .
 ```c#
-var pattern = Patterns.WhiteSpace().Except(CharGroupings.CarriageReturn().Linefeed());
+var pattern = Patterns.WhiteSpace().Except(Chars.CarriageReturn().Linefeed());
 ```
 Same goal can be achieved using `-` operator.
 ```c#
-var pattern = Patterns.WhiteSpace() - CharGroupings.CarriageReturn().Linefeed();
+var pattern = Patterns.WhiteSpace() - Chars.CarriageReturn().Linefeed();
 ```
 In fact this pattern is quite common so it is wrapped into a following method.
 ```c#
