@@ -410,7 +410,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
                     _pendingOr = false;
                     int length = Length;
-
                     Append(en.Current);
 
                     while (en.MoveNext())
@@ -724,25 +723,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         internal void AppendNegativeBackAssertionStart()
         {
             AppendInternal(Syntax.NegativeBackAssertionStart);
-        }
-
-        internal void AppendAny(object content, GroupMode mode)
-        {
-            if (mode == GroupMode.Group)
-            {
-                AppendLeftParenthesis();
-            }
-            else if (mode == GroupMode.NoncapturingGroup)
-            {
-                AppendNoncapturingGroupStart();
-            }
-
-            AppendGroupContent(content);
-
-            if (mode != GroupMode.None)
-            {
-                AppendGroupEnd();
-            }
         }
 
         /// <summary>

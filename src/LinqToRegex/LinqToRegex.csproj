@@ -89,7 +89,6 @@
     <Compile Include="GroupMode.cs" />
     <Compile Include="GroupNameReference.cs" />
     <Compile Include="GroupNumberReference.cs" />
-    <Compile Include="Group\AnyGroup.cs" />
     <Compile Include="Group\BalancingGroup.cs" />
     <Compile Include="Group\GroupingPattern.cs" />
     <Compile Include="Group\GroupOptions.cs" />

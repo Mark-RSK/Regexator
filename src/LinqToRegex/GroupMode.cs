@@ -3,22 +3,22 @@
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
-    /// Specifies whether the <see cref="AnyGroup"/> will be enclosed in a certain kind of a group construct.
+    /// Specifies whether a content will be enclosed in a certain kind of a group construct.
     /// </summary>
     internal enum GroupMode
     {
         /// <summary>
-        /// Specifies that <see cref="AnyGroup"/> will not be enclosed in the group.
+        /// Specifies that a content will not be enclosed in the group.
         /// </summary>
         None,
 
         /// <summary>
-        /// Specifies that <see cref="AnyGroup"/> will be enclosed in the group.
+        /// Specifies that a content will be enclosed in the group.
         /// </summary>
         Group,
 
         /// <summary>
-        /// Specifies that <see cref="AnyGroup"/> will be enclosed in the noncapturing group.
+        /// Specifies that a content will be enclosed in the noncapturing group.
         /// </summary>
         NoncapturingGroup
     }

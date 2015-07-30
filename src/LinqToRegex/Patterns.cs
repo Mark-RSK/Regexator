@@ -559,7 +559,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static QuantifiablePattern Any(IEnumerable content)
         {
-            return new AnyGroup(content);
+            return NoncapturingGroup(content);
         }
 
         /// <summary>
@@ -570,7 +570,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentNullException"></exception>
         public static QuantifiablePattern Any(params object[] content)
         {
-            return new AnyGroup(content);
+            return NoncapturingGroup(content);
         }
 
         /// <summary>
