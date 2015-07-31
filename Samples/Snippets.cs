@@ -193,5 +193,30 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             return NoncapturingGroup(SurroundQuoteMarks(pattern));
         }
+
+        public static Pattern CSharpQuoteMarks()
+        {
+            return IfAssert(Character("@"),
+                CSharpVerbatimQuoteMarks(),
+                CSharpQuoteMarksWithEscapes());
+        }
+
+        public static Pattern CSharpQuoteMarksWithEscapes()
+        {
+            var chars = MaybeMany(!Chars.QuoteMark().Backslash().NewLineChar());
+
+            return SurroundQuoteMarks(chars + MaybeMany(Backslash().NotNewLineChar() + chars));
+        }
+
+        public static Pattern CSharpVerbatimQuoteMarks()
+        {
+            var q = QuoteMark();
+            var nq = NotQuoteMark();
+
+            return "@" + q
+                + MaybeMany(nq)
+                + MaybeMany(q + q + nq)
+                + q;
+        }
     }
 }
