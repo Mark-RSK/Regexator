@@ -59,7 +59,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="trueContent">The content to be matched if the assertion succeeds.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public QuantifiablePattern IfAssert(Pattern testContent, object trueContent)
+        public QuantifiablePattern IfAssert(object testContent, object trueContent)
         {
             return AppendInternal(Patterns.IfAssert(testContent, trueContent));
         }
@@ -72,7 +72,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="falseContent">The content to be matched if the assertion fails.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public QuantifiablePattern IfAssert(Pattern testContent, object trueContent, object falseContent)
+        public QuantifiablePattern IfAssert(object testContent, object trueContent, object falseContent)
         {
             return AppendInternal(Patterns.IfAssert(testContent, trueContent, falseContent));
         }
