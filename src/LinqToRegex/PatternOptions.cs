@@ -17,9 +17,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         None = 0,
 
         /// <summary>
-        /// Specifies that an if construct condition will be expressed as an assertion.
+        /// Specifies that an if construct condition will not be expressed as an assertion.
         /// </summary>
-        IfConditionAsAssertion = 1,
+        IfConditionWithoutAssertion = 1,
 
         /// <summary>
         /// Specifies that an empty (noncapturing) group will be added after the group number backreference.
