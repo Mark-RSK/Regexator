@@ -248,11 +248,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static Pattern CSharpMultilineComment()
         {
             return "/*" 
-                + Not("*").MaybeMany() 
+                + WhileNotChar('*')
                 + MaybeMany(
                     "*" 
                     + NotAssert("/") 
-                    + Not("*").MaybeMany());
+                    + WhileNotChar('*'))
+                + "*/";
         }
 
         public static Pattern XmlCData()
@@ -260,11 +261,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return SurroundAngleBrackets(
                     "!" + SurroundSquareBrackets(
                         "CDATA" + SurroundSquareBrackets(
-                            Not("]").MaybeMany() 
+                            WhileNotChar(']') 
                             + MaybeMany(
                                 "]" 
                                 + NotAssert("]>") 
-                                + Not("]").MaybeMany())
+                                + WhileNotChar(']'))
                         )
                     )
                 );
