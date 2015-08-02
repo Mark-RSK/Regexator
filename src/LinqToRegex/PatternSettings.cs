@@ -9,13 +9,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
         private readonly PatternOptions _options;
         private readonly IdentifierBoundary _boundary;
-        private static readonly PatternOptions _defaultOptions = PatternOptions.IfConditionAsAssertion | PatternOptions.SeparateGroupNumberReference;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PatternSettings"/> class.
         /// </summary>
         public PatternSettings()
-            : this(_defaultOptions)
+            : this(PatternOptions.None)
         {
         }
 
@@ -33,7 +32,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="boundary">Indicates whether a group name will be enclosed in angle brackets or apostrophes.</param>
         public PatternSettings(IdentifierBoundary boundary)
-            : this(_defaultOptions, boundary)
+            : this(PatternOptions.None, boundary)
         {
         }
 

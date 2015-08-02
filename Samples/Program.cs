@@ -107,7 +107,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         private static void Dump(string title, Pattern pattern)
         {
-            var options = PatternOptions.Format | PatternOptions.Comment | PatternOptions.SeparateGroupNumberReference | PatternOptions.IfConditionAsAssertion;
+            var options = PatternOptions.FormatAndComment;
 
             if (!string.IsNullOrEmpty(title))
             {
