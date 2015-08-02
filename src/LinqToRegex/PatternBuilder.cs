@@ -533,7 +533,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 _tokens.Add(SyntaxKind.IfAssert);
             }
 
-            if (Settings.HasOptions(PatternOptions.ConditionWithAssertion))
+            if (Settings.HasOptions(PatternOptions.IfConditionAsAssertion))
             {
                 AppendAssertion(testContent);
             }

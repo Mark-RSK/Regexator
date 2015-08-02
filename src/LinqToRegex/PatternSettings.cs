@@ -9,7 +9,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
         private readonly PatternOptions _options;
         private readonly IdentifierBoundary _boundary;
-        private static readonly PatternOptions _defaultOptions = PatternOptions.ConditionWithAssertion | PatternOptions.SeparateGroupNumberReference;
+        private static readonly PatternOptions _defaultOptions = PatternOptions.IfConditionAsAssertion | PatternOptions.SeparateGroupNumberReference;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PatternSettings"/> class.

@@ -19,7 +19,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Specifies that an if construct condition will be expressed as an assertion.
         /// </summary>
-        ConditionWithAssertion = 1,
+        IfConditionAsAssertion = 1,
 
         /// <summary>
         /// Specifies that an empty (noncapturing) group will be added after the group number backreference.
