@@ -1,7 +1,5 @@
 ﻿// Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -12,22 +10,24 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
         private int _index;
         private StringBuilder _sb;
-        private List<SyntaxKind> _items;
+        private LineInfoCollection _lines;
 
-        private static readonly Regex _newLineRegex = new Regex(@"\r?\n");
+        private static readonly Regex _newLineRegex = Patterns.NewLine().ToRegex();
 
-        public string AddComments(string pattern, List<SyntaxKind> items)
+        public string AddComments(string pattern, LineInfoCollection lines)
         {
             _index = 0;
             _sb = new StringBuilder();
-            _items = items;
-            var lines = _newLineRegex.Split(pattern);
-            int maxLength = lines.Max(f => f.Length);
+            _lines = lines;
+            var splits = _newLineRegex.Split(pattern);
+            int maxLength = splits.Max(f => f.Length);
 
-            foreach (var line in lines)
+            foreach (var split in splits)
             {
-                _sb.Append(line);
-                AppendComment(maxLength - line.Length + 1);
+                _sb.Append(split);
+                AppendComment(maxLength - split.Length + 1);
+                _sb.AppendLine();
+                _index++;
             }
 
             return _sb.ToString();
@@ -35,85 +35,58 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         private void AppendComment(int indexOffset)
         {
-            if (_index < _items.Count)
+            _sb.Append(' ', indexOffset);
+            _sb.Append("# ");
+            _sb.Append(GetComment());
+
+            if (Current.QuantifierKind != QuantifierKind.None)
             {
-                string s = GetComment();
-                Debug.Assert(s != null);
+                _sb.Append(' ');
+                _sb.Append(GetQuantifierComment(Current.QuantifierKind));
 
-                if (s != null)
+                if (Current.Lazy)
                 {
-                    _sb.Append(' ', indexOffset);
-                    _sb.Append("# ");
-                    _sb.Append(s);
-                    _index++;
-
-                    if (_index < _items.Count)
-                    {
-                        AppendQuantifierComment();
-                    }
-
-                    _sb.AppendLine();
-                }
-            }
-        }
-
-        private void AppendQuantifierComment()
-        {
-            string s = GetQuantifierComment(_items[_index]);
-            if (s != null)
-            {
-                _sb.Append(" ");
-                _sb.Append(s);
-                _index++;
-
-                if (_index < _items.Count)
-                {
-                    if (_items[_index] == SyntaxKind.Lazy)
-                    {
-                        _sb.Append(" but as few times as possible");
-                        _index++;
-                    }
+                    _sb.Append(" but as few times as possible");
                 }
             }
         }
 
         private string GetComment()
         {
-            if (_items[_index] == SyntaxKind.GroupEnd)
+            if (Current.Kind == SyntaxKind.GroupEnd && Current.QuantifierKind != QuantifierKind.None)
             {
-                if ((_index + 1) < _items.Count)
-                {
-                    if (GetQuantifierComment(_items[_index + 1]) != null)
-                    {
-                        return "group";
-                    }
-                }
+                return "group";
             }
 
-            return _comments[(int)_items[_index]];
+            return _comments[(int)Current.Kind];
         }
 
-        private static string GetQuantifierComment(SyntaxKind kind)
+        private static string GetQuantifierComment(QuantifierKind kind)
         {
             switch (kind)
             {
-                case SyntaxKind.Maybe:
+                case QuantifierKind.Maybe:
                     return "zero or one times";
-                case SyntaxKind.MaybeMany:
+                case QuantifierKind.MaybeMany:
                     return "zero or more times";
-                case SyntaxKind.OneMany:
+                case QuantifierKind.OneMany:
                     return "one or more times";
-                case SyntaxKind.Count:
+                case QuantifierKind.Count:
                     return "exactly n times";
-                case SyntaxKind.CountRange:
+                case QuantifierKind.CountRange:
                     return "from n to m times";
-                case SyntaxKind.CountFrom:
+                case QuantifierKind.CountFrom:
                     return "at least n times";
-                case SyntaxKind.MaybeCount:
+                case QuantifierKind.MaybeCount:
                     return "from zero to n times";
             }
 
             return null;
+        }
+
+        public LineInfo Current
+        {
+            get { return _lines[_index]; }
         }
 
         private static readonly string[] _comments = new string[] {
@@ -151,14 +124,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             "not Unicode category",
             "Unicode block",
             "not Unicode block",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
             "options",
             "group reference",
             "text",

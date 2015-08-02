@@ -25,7 +25,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         private int _indentSize = 4;
         private bool _format;
         private bool _comment;
-        private List<SyntaxKind> _tokens;
+        private LineInfoCollection _lines;
 
         private static readonly string[] _numbers = new string[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
@@ -54,7 +54,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (_comment)
             {
-                _tokens = new List<SyntaxKind>();
+                _lines = new LineInfoCollection();
             }
         }
 
@@ -67,7 +67,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             if (_comment)
             {
                 var builder = new CommentBuilder();
-                return builder.AddComments(_sb.ToString(), _tokens);
+                return builder.AddComments(_sb.ToString(), _lines);
             }
             else
             {
@@ -124,7 +124,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
                         if (_comment && i > 0 && !inCharGroup)
                         {
-                            _tokens.Add(i > 1 ? SyntaxKind.Text : SyntaxKind.Character);
+                            _lines.Add(i > 1 ? SyntaxKind.Text : SyntaxKind.Character);
                         }
 
                         do
@@ -133,7 +133,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
                             if (_comment && !inCharGroup)
                             {
-                                _tokens.Add(SyntaxKind.Character);
+                                _lines.Add(SyntaxKind.Character);
                             }
 
                             i++;
@@ -156,7 +156,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
                             if (_comment && (i - lastPos) > 0 && !inCharGroup)
                             {
-                                _tokens.Add((i - lastPos) > i ? SyntaxKind.Text : SyntaxKind.Character);
+                                _lines.Add((i - lastPos) > i ? SyntaxKind.Text : SyntaxKind.Character);
                             }
 
                         } while (i < value.Length);
@@ -170,7 +170,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
                 if (_comment && !inCharGroup)
                 {
-                    _tokens.Add(value.Length > 1 ? SyntaxKind.Text : SyntaxKind.Character);
+                    _lines.Add(value.Length > 1 ? SyntaxKind.Text : SyntaxKind.Character);
                 }
             }
         }
@@ -294,7 +294,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (_comment && !inCharGroup)
             {
-                _tokens.Add(SyntaxKind.Character);
+                _lines.Add(SyntaxKind.Character);
             }
         }
 
@@ -531,7 +531,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (_comment)
             {
-                _tokens.Add(SyntaxKind.IfAssert);
+                _lines.Add(SyntaxKind.IfAssert);
             }
 
             if (!Settings.HasOptions(PatternOptions.IfConditionWithoutAssertion))
@@ -594,7 +594,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (_comment)
             {
-                _tokens.Add(SyntaxKind.IfAssert);
+                _lines.Add(SyntaxKind.IfAssert);
             }
 
             RegexOptions currentOptions = _currentOptions;
@@ -640,7 +640,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (_comment)
             {
-                _tokens.Add(SyntaxKind.Assertion);
+                _lines.Add(SyntaxKind.Assertion);
             }
 
             AppendAssertion("=", content);
@@ -654,7 +654,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (_comment)
             {
-                _tokens.Add(SyntaxKind.NegativeAssertion);
+                _lines.Add(SyntaxKind.NegativeAssertion);
             }
 
             AppendAssertion("!", content);
@@ -668,7 +668,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (_comment)
             {
-                _tokens.Add(SyntaxKind.BackAssertion);
+                _lines.Add(SyntaxKind.BackAssertion);
             }
 
             AppendAssertion("<=", content);
@@ -682,7 +682,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (_comment)
             {
-                _tokens.Add(SyntaxKind.NegativeBackAssertion);
+                _lines.Add(SyntaxKind.NegativeBackAssertion);
             }
 
             AppendAssertion("<!", content);
@@ -707,7 +707,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (_comment)
             {
-                _tokens.Add(SyntaxKind.BeginningOfInput);
+                _lines.Add(SyntaxKind.BeginningOfInput);
             }
         }
 
@@ -720,7 +720,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (_comment)
             {
-                _tokens.Add(SyntaxKind.BeginningOfInputOrLine);
+                _lines.Add(SyntaxKind.BeginningOfInputOrLine);
             }
         }
 
@@ -733,7 +733,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (_comment)
             {
-                _tokens.Add(SyntaxKind.EndOfInput);
+                _lines.Add(SyntaxKind.EndOfInput);
             }
         }
 
@@ -746,7 +746,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (_comment)
             {
-                _tokens.Add(SyntaxKind.EndOfInputOrLine);
+                _lines.Add(SyntaxKind.EndOfInputOrLine);
             }
         }
 
@@ -759,7 +759,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (_comment)
             {
-                _tokens.Add(SyntaxKind.EndOfInputOrBeforeEndingLinefeed);
+                _lines.Add(SyntaxKind.EndOfInputOrBeforeEndingLinefeed);
             }
         }
 
@@ -772,7 +772,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (_comment)
             {
-                _tokens.Add(SyntaxKind.WordBoundary);
+                _lines.Add(SyntaxKind.WordBoundary);
             }
         }
 
@@ -785,7 +785,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (_comment)
             {
-                _tokens.Add(SyntaxKind.NegativeWordBoundary);
+                _lines.Add(SyntaxKind.NegativeWordBoundary);
             }
         }
 
@@ -798,7 +798,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (_comment)
             {
-                _tokens.Add(SyntaxKind.PreviousMatchEnd);
+                _lines.Add(SyntaxKind.PreviousMatchEnd);
             }
         }
 
@@ -827,7 +827,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (_comment)
             {
-                _tokens.Add(SyntaxKind.Group);
+                _lines.Add(SyntaxKind.Group);
             }
         }
 
@@ -860,7 +860,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (_comment)
             {
-                _tokens.Add(SyntaxKind.NamedGroup);
+                _lines.Add(SyntaxKind.NamedGroup);
             }
 
             _indentLevel++;
@@ -895,7 +895,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (_comment)
             {
-                _tokens.Add(SyntaxKind.NoncapturingGroup);
+                _lines.Add(SyntaxKind.NoncapturingGroup);
             }
         }
 
@@ -916,7 +916,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (_comment)
             {
-                _tokens.Add(SyntaxKind.NonbacktrackingGroup);
+                _lines.Add(SyntaxKind.NonbacktrackingGroup);
             }
 
             _indentLevel++;
@@ -941,7 +941,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (_comment)
             {
-                _tokens.Add(SyntaxKind.BalancingGroup);
+                _lines.Add(SyntaxKind.BalancingGroup);
             }
 
             _indentLevel++;
@@ -968,7 +968,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (_comment && unindent)
             {
-                _tokens.Add(SyntaxKind.GroupEnd);
+                _lines.Add(SyntaxKind.GroupEnd);
             }
         }
 
@@ -1018,7 +1018,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (_comment && _charGroupLevel == 0)
             {
-                _tokens.Add(SyntaxKind.Digit);
+                _lines.Add(SyntaxKind.Digit);
             }
         }
 
@@ -1031,7 +1031,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (_comment && _charGroupLevel == 0)
             {
-                _tokens.Add(SyntaxKind.NotDigit);
+                _lines.Add(SyntaxKind.NotDigit);
             }
         }
 
@@ -1044,7 +1044,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (_comment && _charGroupLevel == 0)
             {
-                _tokens.Add(SyntaxKind.WhiteSpace);
+                _lines.Add(SyntaxKind.WhiteSpace);
             }
         }
 
@@ -1057,7 +1057,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (_comment && _charGroupLevel == 0)
             {
-                _tokens.Add(SyntaxKind.NotWhiteSpace);
+                _lines.Add(SyntaxKind.NotWhiteSpace);
             }
         }
 
@@ -1070,7 +1070,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (_comment && _charGroupLevel == 0)
             {
-                _tokens.Add(SyntaxKind.WordChar);
+                _lines.Add(SyntaxKind.WordChar);
             }
         }
 
@@ -1083,7 +1083,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (_comment && _charGroupLevel == 0)
             {
-                _tokens.Add(SyntaxKind.NotWordChar);
+                _lines.Add(SyntaxKind.NotWordChar);
             }
         }
 
@@ -1104,7 +1104,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (_comment && _charGroupLevel == 1)
             {
-                _tokens.Add(negative ? SyntaxKind.NegativeCharGroup : SyntaxKind.CharGroup);
+                _lines.Add(negative ? SyntaxKind.NegativeCharGroup : SyntaxKind.CharGroup);
             }
         }
 
@@ -1380,7 +1380,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (_comment && _charGroupLevel == 0)
             {
-                _tokens.Add(negative ? SyntaxKind.NotGeneralCategory : SyntaxKind.GeneralCategory);
+                _lines.Add(negative ? SyntaxKind.NotGeneralCategory : SyntaxKind.GeneralCategory);
             }
         }
 
@@ -1413,7 +1413,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (_comment && _charGroupLevel == 0)
             {
-                _tokens.Add(negative ? SyntaxKind.NotNamedBlock : SyntaxKind.NamedBlock);
+                _lines.Add(negative ? SyntaxKind.NotNamedBlock : SyntaxKind.NamedBlock);
             }
         }
 
@@ -1435,7 +1435,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (_comment)
             {
-                _tokens.Add(SyntaxKind.Maybe);
+                _lines.Last.QuantifierKind = QuantifierKind.Maybe;
             }
 
             if (lazy)
@@ -1462,7 +1462,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (_comment)
             {
-                _tokens.Add(SyntaxKind.MaybeMany);
+                _lines.Last.QuantifierKind = QuantifierKind.MaybeMany;
             }
 
             if (lazy)
@@ -1489,7 +1489,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (_comment)
             {
-                _tokens.Add(SyntaxKind.OneMany);
+                _lines.Last.QuantifierKind = QuantifierKind.OneMany;
             }
 
             if (lazy)
@@ -1537,7 +1537,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (_comment)
             {
-                _tokens.Add(SyntaxKind.Count);
+                _lines.Last.QuantifierKind = QuantifierKind.Count;
             }
         }
 
@@ -1584,7 +1584,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (_comment)
             {
-                _tokens.Add(SyntaxKind.CountRange);
+                _lines.Last.QuantifierKind = QuantifierKind.CountRange;
             }
         }
 
@@ -1628,7 +1628,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (_comment)
             {
-                _tokens.Add(SyntaxKind.CountFrom);
+                _lines.Last.QuantifierKind = QuantifierKind.CountFrom;
             }
         }
 
@@ -1663,7 +1663,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (_comment)
             {
-                _tokens.Add(SyntaxKind.MaybeCount);
+                _lines.Last.QuantifierKind = QuantifierKind.MaybeCount;
             }
 
             if (lazy)
@@ -1678,7 +1678,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (_comment)
             {
-                _tokens.Add(SyntaxKind.Lazy);
+                _lines.Last.Lazy = true;
             }
         }
 
@@ -1694,7 +1694,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (_comment)
             {
-                _tokens.Add(SyntaxKind.GroupReference);
+                _lines.Add(SyntaxKind.GroupReference);
             }
         }
 
@@ -1707,7 +1707,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (_comment)
             {
-                _tokens.Add(SyntaxKind.GroupReference);
+                _lines.Add(SyntaxKind.GroupReference);
             }
         }
 
@@ -1747,7 +1747,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
                 if (_comment)
                 {
-                    _tokens.Add(SyntaxKind.Options);
+                    _lines.Add(SyntaxKind.Options);
                 }
 
                 _currentOptions &= applyOptions;
@@ -1800,7 +1800,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
                 if (_comment)
                 {
-                    _tokens.Add(SyntaxKind.GroupOptions);
+                    _lines.Add(SyntaxKind.GroupOptions);
                 }
             }
             else
@@ -1809,7 +1809,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
                 if (_comment)
                 {
-                    _tokens.Add(SyntaxKind.NoncapturingGroup);
+                    _lines.Add(SyntaxKind.NoncapturingGroup);
                 }
             }
 
@@ -1932,7 +1932,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
                         if (_comment)
                         {
-                            _tokens.Add(SyntaxKind.Or);
+                            _lines.Add(SyntaxKind.Or);
                         }
 
                         _pendingOr = false;
@@ -1952,7 +1952,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
                 if (_comment)
                 {
-                    _tokens.Add(SyntaxKind.Or);
+                    _lines.Add(SyntaxKind.Or);
                 }
 
                 _pendingOr = false;
