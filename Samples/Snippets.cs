@@ -196,9 +196,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static Pattern CSharpQuotation()
         {
-            return IfAssert("@",
+            return Any(
                 CSharpVerbatimQuotation(),
                 CSharpQuotationMarksWithEscapes());
+        }
+
+        public static Pattern CSharpQuotationOrComments()
+        {
+            return Any(
+                CSharpVerbatimQuotation(),
+                CSharpQuotationMarksWithEscapes(),
+                CSharpCharInApostrophes(),
+                CSharpLineComment(),
+                CSharpMultilineComment());
         }
 
         public static Pattern CSharpQuotationMarksWithEscapes()
@@ -217,6 +227,47 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 + MaybeMany(nq)
                 + MaybeMany(q + q + nq)
                 + q;
+        }
+
+        public static Pattern CSharpCharInApostrophes()
+        {
+            var a = Apostrophe();
+            var na = NotApostrophe();
+
+            return a
+                + MaybeMany(na)
+                + MaybeMany(@"\'" + na)
+                + a;
+        }
+
+        public static Pattern CSharpLineComment()
+        {
+            return "//" + NotNewLineChar().MaybeMany();
+        }
+
+        public static Pattern CSharpMultilineComment()
+        {
+            return "/*" 
+                + Not("*").MaybeMany() 
+                + MaybeMany(
+                    "*" 
+                    + NotAssert("/") 
+                    + Not("*").MaybeMany());
+        }
+
+        public static Pattern XmlCData()
+        {
+            return SurroundAngleBrackets(
+                    "!" + SurroundSquareBrackets(
+                        "CDATA" + SurroundSquareBrackets(
+                            Not("]").MaybeMany() 
+                            + MaybeMany(
+                                "]" 
+                                + NotAssert("]>") 
+                                + Not("]").MaybeMany())
+                        )
+                    )
+                );
         }
     }
 }

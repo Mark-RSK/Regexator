@@ -1,6 +1,7 @@
 // Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Text.RegularExpressions;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
@@ -23,6 +24,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Specifies that an empty (noncapturing) group will be added after the group number backreference.
         /// </summary>
-        SeparateGroupNumberReference = 2
+        SeparateGroupNumberReference = 2,
+
+        /// <summary>
+        /// Specifies that a pattern text will be formatted.
+        /// </summary>
+        Format = 4,
+
+        /// <summary>
+        /// Specifies that a comment will be added to the each line of the formatted pattern text. This options is relevant only in combination with <see cref="PatternOptions.Format"/> option.
+        /// </summary>
+        Comment = 8
     }
 }

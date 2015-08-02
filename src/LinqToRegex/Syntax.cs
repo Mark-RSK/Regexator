@@ -1,5 +1,6 @@
 // Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System.Collections.ObjectModel;
 using System.Text.RegularExpressions;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
@@ -299,7 +300,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static string GetCategoryDesignation(GeneralCategory category)
         {
-            return _categories[(int)category];
+            return CategoryDesignations[(int)category];
         }
 
         /// <summary>
@@ -309,10 +310,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static string GetBlockDesignation(NamedBlock block)
         {
-            return _blocks[(int)block];
+            return BlockDesignations[(int)block];
         }
 
-        private static readonly string[] _categories = new string[]
+        internal static readonly string[] CategoryDesignations = new string[]
         {
             "C",
             "M",
@@ -353,7 +354,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             "So"
         };
 
-        private static readonly string[] _blocks = new string[]
+        internal static readonly string[] BlockDesignations = new string[]
         {
             "IsAlphabeticPresentationForms",
             "IsArabic",

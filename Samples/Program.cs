@@ -12,6 +12,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
         internal static void Main(string[] args)
         {
+            Dump("c# quotation or comment", Snippets.CSharpQuotationOrComments());
+            Dump("cdata value", Snippets.XmlCData());
+
             var left = OneMany(Chars.Alphanumeric() + "!#$%&'*+/=?^_`{|}~-");
 
             var right = Maybe(MaybeMany(Chars.Alphanumeric() + "-").Alphanumeric());
@@ -24,16 +27,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 .Append(right);
 
             Dump("email address", exp);
-
-            exp = SurroundAngleBrackets(
-                    "!" + SurroundSquareBrackets(
-                        "CDATA" + SurroundSquareBrackets(
-                            Group(Crawl())
-                        )
-                    )
-                );
-
-            Dump("cdata value", exp);
 
             var values = new string[] { "one", "two", "three" };
 
@@ -107,10 +100,21 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Console.ReadKey();
         }
 
+        private static void Dump(Pattern pattern)
+        {
+            Dump(null, pattern);
+        }
+
         private static void Dump(string title, Pattern pattern)
         {
-            Console.WriteLine("{0}:", title);
-            Console.WriteLine(pattern);
+            var options = PatternOptions.Format | PatternOptions.Comment | PatternOptions.SeparateGroupNumberReference | PatternOptions.ConditionWithAssertion;
+
+            if (!string.IsNullOrEmpty(title))
+            {
+                Console.WriteLine("{0}:", title);
+            }
+
+            Console.WriteLine(pattern.ToString(options));
             Console.WriteLine(string.Empty);
         }
     }

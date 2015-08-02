@@ -83,7 +83,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (Negative)
             {
-                builder.AppendCharGroupNegation();
+                builder.AppendDirect('^');
             }
 
             AppendContentTo(builder);

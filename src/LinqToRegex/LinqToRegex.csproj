@@ -106,6 +106,8 @@
     <Compile Include="JoinContainer.cs" />
     <Compile Include="LazyQuantifier.cs" />
     <Compile Include="CaseAwareTextPattern.cs" />
+    <Compile Include="SyntaxKind.cs" />
+    <Compile Include="CommentBuilder.cs" />
     <Compile Include="TextPattern.cs" />
     <Compile Include="NamedBlock.cs" />
     <Compile Include="NegativeSurroundAssertion.cs" />
