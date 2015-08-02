@@ -194,31 +194,31 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return NoncapturingGroup(SurroundQuoteMarks(pattern));
         }
 
-        public static Pattern CSharpQuotation()
+        public static Pattern CSharpQuoteMarks()
         {
             return Any(
-                CSharpVerbatimQuotation(),
-                CSharpQuotationMarksWithEscapes());
+                CSharpVerbatimQuoteMarks(),
+                CSharpQuoteMarksWithEscape());
         }
 
-        public static Pattern CSharpQuotationOrComments()
+        public static Pattern CSharpQuoteMarksOrComment()
         {
             return Any(
-                CSharpVerbatimQuotation(),
-                CSharpQuotationMarksWithEscapes(),
-                CSharpCharInApostrophes(),
+                CSharpVerbatimQuoteMarks(),
+                CSharpQuoteMarksWithEscape(),
+                CSharpApostrophes(),
                 CSharpLineComment(),
                 CSharpMultilineComment());
         }
 
-        public static Pattern CSharpQuotationMarksWithEscapes()
+        public static Pattern CSharpQuoteMarksWithEscape()
         {
             var chars = MaybeMany(!Chars.QuoteMark().Backslash().NewLineChar());
 
             return SurroundQuoteMarks(chars + MaybeMany(Backslash().NotNewLineChar() + chars));
         }
 
-        public static Pattern CSharpVerbatimQuotation()
+        public static Pattern CSharpVerbatimQuoteMarks()
         {
             var q = QuoteMark();
             var nq = NotQuoteMark();
@@ -229,7 +229,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 + q;
         }
 
-        public static Pattern CSharpCharInApostrophes()
+        public static Pattern CSharpApostrophes()
         {
             var a = Apostrophe();
             var na = NotApostrophe();

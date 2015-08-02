@@ -12,7 +12,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
         internal static void Main(string[] args)
         {
-            Dump("c# quotation or comment", Snippets.CSharpQuotationOrComments());
+            Dump("c# quotation or comment", Snippets.CSharpQuoteMarksOrComment());
             Dump("cdata value", Snippets.XmlCData());
 
             var left = OneMany(Chars.Alphanumeric() + "!#$%&'*+/=?^_`{|}~-");
