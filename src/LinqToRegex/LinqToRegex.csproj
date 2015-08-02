@@ -102,7 +102,6 @@
     <Compile Include="IfAssert.cs" />
     <Compile Include="IfGroup.cs" />
     <Compile Include="INegateable.cs" />
-    <Compile Include="InlineComment.cs" />
     <Compile Include="JoinContainer.cs" />
     <Compile Include="LazyQuantifier.cs" />
     <Compile Include="CaseAwareTextPattern.cs" />

@@ -1149,18 +1149,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns an inline comment.
-        /// </summary>
-        /// <param name="value">A comment text.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        /// <exception cref="ArgumentException"></exception>
-        public static Pattern Comment(string value)
-        {
-            return new InlineComment(value);
-        }
-
-        /// <summary>
         /// Returns a pattern that matches a specified character.
         /// </summary>
         /// <param name="value">A Unicode character.</param>

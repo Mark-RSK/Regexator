@@ -6,6 +6,5 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
         public const string CharGroupCannotBeEmpty = "Character group cannot be empty.";
         public const string RegexOptionsNotConvertibleToInlineChars = "RegexOptions value cannot be expressed as a combination of inline characters.";
-        public const string CommentCannotContainsRightParenthesis = "Comment cannot contain right parenthesis.";
     }
 }

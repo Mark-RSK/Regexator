@@ -3618,18 +3618,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends an inline comment.
-        /// </summary>
-        /// <param name="value">A comment text.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        /// <exception cref="ArgumentException"></exception>
-        public Pattern Comment(string value)
-        {
-            return AppendInternal(Patterns.Comment(value));
-        }
-
-        /// <summary>
         /// Appends a pattern that matches a combination of an optional carriage return and a linefeed.
         /// </summary>
         /// <returns></returns>

@@ -1869,31 +1869,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        /// <summary>
-        /// Appends an inline comment.
-        /// </summary>
-        /// <param name="value">A comment text.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        /// <exception cref="ArgumentException"></exception>
-        public void AppendInlineComment(string value)
-        {
-            if (value == null)
-            {
-                throw new ArgumentNullException("value");
-            }
-
-            if (value.IndexOf(')') != -1)
-            {
-                throw new ArgumentException(ExceptionHelper.CommentCannotContainsRightParenthesis, "value");
-            }
-
-            AppendGroupStart(false);
-            AppendDirect('#');
-            AppendDirect(value);
-            AppendGroupEnd(false);
-        }
-
         private void AppendBackslash(char value)
         {
             AppendInternal('\\');
