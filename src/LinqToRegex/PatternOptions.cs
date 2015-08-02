@@ -32,8 +32,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         Format = 4,
 
         /// <summary>
-        /// Specifies that a comment will be added to the each line of the formatted pattern text. This options is relevant only in combination with <see cref="PatternOptions.Format"/> option.
+        /// Specifies that a comment will be added to the end of each line. This options is relevant only in combination with <see cref="PatternOptions.Format"/> option.
         /// </summary>
-        Comment = 8
+        Comment = 8,
+
+        /// <summary>
+        /// Indicates that the <see cref="PatternOptions.Format"/> and <see cref="PatternOptions.Comment"/> options are used. This is a composite options.
+        /// </summary>
+        FormatAndComment = 12
     }
 }
