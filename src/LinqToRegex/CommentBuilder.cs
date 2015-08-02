@@ -1,68 +1,101 @@
 ﻿// Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
-    internal static class CommentBuilder
+    internal sealed class CommentBuilder
     {
+        private int _index;
+        private StringBuilder _sb;
+        private List<SyntaxKind> _items;
+
         private static readonly Regex _newLineRegex = new Regex(@"\r?\n");
 
-        public static string AddComments(string pattern, List<SyntaxKind> tokens)
+        public string AddComments(string pattern, List<SyntaxKind> items)
         {
-            var i = 0;
-            var sb = new StringBuilder();
+            _index = 0;
+            _sb = new StringBuilder();
+            _items = items;
             var lines = _newLineRegex.Split(pattern);
-            var maxLength = lines.Max(f => f.Length);
+            int maxLength = lines.Max(f => f.Length);
 
             foreach (var line in lines)
             {
-                sb.Append(line);
+                _sb.Append(line);
+                AppendComment(maxLength - line.Length + 1);
+            }
 
-                if (i < tokens.Count)
+            return _sb.ToString();
+        }
+
+        private void AppendComment(int indexOffset)
+        {
+            if (_index < _items.Count)
+            {
+                string s = GetComment();
+                Debug.Assert(s != null);
+
+                if (s != null)
                 {
-                    string s = _comments[(int)tokens[i]];
-                    if (s != null)
+                    _sb.Append(' ', indexOffset);
+                    _sb.Append("# ");
+                    _sb.Append(s);
+                    _index++;
+
+                    if (_index < _items.Count)
                     {
-                        sb.Append(' ', maxLength - line.Length + 1);
-                        sb.Append("# ");
-                        sb.Append(s);
-                        i++;
+                        AppendQuantifierComment();
+                    }
 
-                        if (i < tokens.Count)
-                        {
-                            s = GetQuantifierComment(tokens[i]);
-                            if (s != null)
-                            {
-                                sb.Append(" ");
-                                sb.Append(s);
-                                i++;
+                    _sb.AppendLine();
+                }
+            }
+        }
 
-                                if (i < tokens.Count)
-                                {
-                                    if (tokens[i] == SyntaxKind.Lazy)
-                                    {
-                                        sb.Append(" but as few times as possible");
-                                        i++;
-                                    }
-                                }
-                            }
-                        }
+        private void AppendQuantifierComment()
+        {
+            string s = GetQuantifierComment(_items[_index]);
+            if (s != null)
+            {
+                _sb.Append(" ");
+                _sb.Append(s);
+                _index++;
 
-                        sb.AppendLine();
+                if (_index < _items.Count)
+                {
+                    if (_items[_index] == SyntaxKind.Lazy)
+                    {
+                        _sb.Append(" but as few times as possible");
+                        _index++;
+                    }
+                }
+            }
+        }
+
+        private string GetComment()
+        {
+            if (_items[_index] == SyntaxKind.GroupEnd)
+            {
+                if ((_index + 1) < _items.Count)
+                {
+                    if (GetQuantifierComment(_items[_index + 1]) != null)
+                    {
+                        return "group";
                     }
                 }
             }
 
-            return sb.ToString();
+            return _comments[(int)_items[_index]];
         }
 
-        private static string GetQuantifierComment(SyntaxKind token)
+        private static string GetQuantifierComment(SyntaxKind kind)
         {
-            switch (token)
+            switch (kind)
             {
                 case SyntaxKind.Maybe:
                     return "zero or one times";
