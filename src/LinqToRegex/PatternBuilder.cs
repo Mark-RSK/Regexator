@@ -985,7 +985,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 _lines.Add(SyntaxKind.AnyChar);
             }
 
-            Linq.Chars.WhiteSpace().NotWhiteSpace().AppendContentTo(this);
+            Chars.WhiteSpace().NotWhiteSpace().AppendContentTo(this);
 
             _charGroupLevel--;
             AppendDirect(']');
