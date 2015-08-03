@@ -220,24 +220,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         public static Pattern CSharpVerbatimQuoteMarks()
         {
-            var q = QuoteMark();
-            var nq = NotQuoteMark();
+            string q = "\"";
 
-            return "@" + q
-                + MaybeMany(nq)
-                + MaybeMany(q + q + nq)
-                + q;
+            return "@" + q + WhileNotChar(q) + MaybeMany(q + q + WhileNotChar(q)) + q;
         }
 
         public static Pattern CSharpApostrophes()
         {
-            var a = Apostrophe();
-            var na = NotApostrophe();
+            var chars = MaybeMany(!Chars.Apostrophe().Backslash().NewLineChar());
 
-            return a
-                + MaybeMany(na)
-                + MaybeMany(@"\'" + na)
-                + a;
+            return SurroundApostrophes(chars + MaybeMany(Backslash().NotNewLineChar() + chars));
         }
 
         public static Pattern CSharpLineComment()
