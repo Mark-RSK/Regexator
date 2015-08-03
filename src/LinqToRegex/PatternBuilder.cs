@@ -510,7 +510,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             RegexOptions currentOptions = _currentOptions;
 
-            _currentOptions &= applyOptions;
+            _currentOptions |= applyOptions;
             _currentOptions &= ~disableOptions;
 
             Append(content, GroupMode.None);
@@ -1766,7 +1766,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                     _lines.Add(SyntaxKind.Options);
                 }
 
-                _currentOptions &= applyOptions;
+                _currentOptions |= applyOptions;
                 _currentOptions &= ~disableOptions;
             }
         }
