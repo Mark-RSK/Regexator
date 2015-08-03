@@ -985,7 +985,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 _lines.Add(SyntaxKind.AnyChar);
             }
 
-            Chars.WhiteSpace().NotWhiteSpace().AppendContentTo(this);
+            AppendWhiteSpace();
+            AppendNotWhiteSpace();
 
             _charGroupLevel--;
             AppendDirect(']');
@@ -996,8 +997,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         public void AppendAnyCharNative()
         {
-            Append();
-            AppendDirect('.');
+            AppendInternal('.');
 
             if (_comment)
             {

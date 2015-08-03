@@ -12,7 +12,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
         internal static void Main(string[] args)
         {
-            Dump(Digit().Crawl().CrawlNative().Any().Digit().AnyExceptLinefeed().AnyNative().Options(RegexOptions.Singleline, AnyNative()));
+            Dump(Any());
 
             Dump("c# quotation or comment", Snippets.CSharpQuoteMarksOrComment());
             Dump("cdata value", Snippets.XmlCData());
