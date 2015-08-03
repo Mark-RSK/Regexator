@@ -112,6 +112,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             "balancing group",
             "group options",
             "group end",
+            "any character",
+            "any character except linefeed",
             "digit",
             "non-digit",
             "white-space",

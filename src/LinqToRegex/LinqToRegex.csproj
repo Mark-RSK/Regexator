@@ -64,6 +64,7 @@
     <Compile Include="Anchor\StartOfLine.cs" />
     <Compile Include="Anchor\WordBoundary.cs" />
     <Compile Include="AnyChar.cs" />
+    <Compile Include="AnyCharNative.cs" />
     <Compile Include="AsciiChar.cs" />
     <Compile Include="AsciiCharSurroundPattern.cs" />
     <Compile Include="CharClass.cs" />

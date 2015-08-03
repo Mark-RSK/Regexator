@@ -26,6 +26,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         BalancingGroup,
         GroupOptions,
         GroupEnd,
+        AnyChar,
+        AnyCharExceptLinefeed,
         Digit,
         NotDigit,
         WhiteSpace,

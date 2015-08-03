@@ -2768,7 +2768,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static QuantifiablePattern Any()
         {
-            return Character(Chars.WhiteSpace().NotWhiteSpace());
+            return new AnyChar();
         }
 
         /// <summary>
@@ -2788,7 +2788,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static QuantifiablePattern AnyExceptLinefeed()
         {
-            return DisableOptions(RegexOptions.Singleline, new AnyChar());
+            return DisableOptions(RegexOptions.Singleline, new AnyCharNative());
         }
 
         /// <summary>
@@ -2808,7 +2808,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         public static QuantifiablePattern AnyNative()
         {
-            return new AnyChar();
+            return new AnyCharNative();
         }
 
         /// <summary>

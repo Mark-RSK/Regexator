@@ -506,20 +506,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             AppendGroupContent(content, RegexOptions.None, RegexOptions.None);
         }
 
-        //internal void AppendGroupContent(object content, bool indent)
-        //{
-        //    if (indent)
-        //    {
-        //        _indentLevel++;
-        //        AppendGroupContent(content, RegexOptions.None, RegexOptions.None);
-        //        _indentLevel--;
-        //    }
-        //    else
-        //    {
-        //        AppendGroupContent(content, RegexOptions.None, RegexOptions.None);
-        //    }
-        //}
-
         internal void AppendGroupContent(object content, RegexOptions applyOptions, RegexOptions disableOptions)
         {
             RegexOptions currentOptions = _currentOptions;
@@ -987,11 +973,27 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Appends a pattern that matches any character except linefeed (or any character if the <see cref="RegexOptions.Singleline"/> option is applied).
+        /// Appends a pattern that matches any character.
         /// </summary>
         public void AppendAnyChar()
         {
-            AppendInternal('.');
+            AppendCharGroup(Linq.Chars.WhiteSpace().NotWhiteSpace());
+        }
+
+        /// <summary>
+        /// Appends a pattern that matches any character except linefeed (or any character if the <see cref="RegexOptions.Singleline"/> option is applied).
+        /// </summary>
+        public void AppendAnyCharNative()
+        {
+            Append();
+            AppendDirect('.');
+
+            if (_comment)
+            {
+                _lines.Add(((_currentOptions & RegexOptions.Singleline) == RegexOptions.Singleline) 
+                    ? SyntaxKind.AnyChar 
+                    : SyntaxKind.AnyCharExceptLinefeed);
+            }
         }
 
         /// <summary>
