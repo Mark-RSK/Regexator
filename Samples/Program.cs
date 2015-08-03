@@ -12,8 +12,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     {
         internal static void Main(string[] args)
         {
-            Dump(Any());
-
             Dump("c# quotation or comment", Snippets.CSharpQuoteMarksOrComment());
             Dump("cdata value", Snippets.XmlCData());
 
