@@ -977,7 +977,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         public void AppendAnyChar()
         {
-            AppendCharGroup(Linq.Chars.WhiteSpace().NotWhiteSpace());
+            AppendInternal('[');
+            _charGroupLevel++;
+
+            if (_comment)
+            {
+                _lines.Add(SyntaxKind.AnyChar);
+            }
+
+            Linq.Chars.WhiteSpace().NotWhiteSpace().AppendContentTo(this);
+
+            _charGroupLevel--;
+            AppendDirect(']');
         }
 
         /// <summary>
