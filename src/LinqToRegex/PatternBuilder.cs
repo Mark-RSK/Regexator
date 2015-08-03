@@ -727,7 +727,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (_comment)
             {
-                _lines.Add(SyntaxKind.BeginningOfInputOrLine);
+                _lines.Add(IsEnabled(RegexOptions.Multiline) ? SyntaxKind.BeginningOfInputOrLine : SyntaxKind.BeginningOfInput);
             }
 
             AppendInternal('^');
@@ -753,7 +753,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (_comment)
             {
-                _lines.Add(SyntaxKind.EndOfInputOrLine);
+                _lines.Add(IsEnabled(RegexOptions.Multiline) ? SyntaxKind.EndOfInputOrLine : SyntaxKind.EndOfInput);
             }
 
             AppendInternal('$');
@@ -1001,9 +1001,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (_comment)
             {
-                _lines.Add(((_currentOptions & RegexOptions.Singleline) == RegexOptions.Singleline) 
-                    ? SyntaxKind.AnyChar 
-                    : SyntaxKind.AnyCharExceptLinefeed);
+                _lines.Add(IsEnabled(RegexOptions.Singleline) ? SyntaxKind.AnyChar : SyntaxKind.AnyCharExceptLinefeed);
             }
         }
 
@@ -1979,6 +1977,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 return value.ToString(CultureInfo.InvariantCulture);
             }
+        }
+
+        private bool IsEnabled(RegexOptions options)
+        {
+            return (_currentOptions & options) == options;
         }
 
         /// <summary>
