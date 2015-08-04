@@ -2,7 +2,6 @@
 * LINQ to Regex library provides language integrated access to the .NET regular expressions.
 * It allows you to create and use regular expressions directly in your code and develop complex expressions while keeping its readability and maintainability.
 * Knowledge of the regular expression syntax is not required (but you should be familiar with basics).
-* Escaping of metacharacters that should be interpreted as literals is entirely handled by the library.
 
 The library contains two namespaces:
 ```c#
@@ -37,8 +36,29 @@ var pattern = Digit();
 
 `CharGrouping` represents a content of a character group. `CharGrouping` can be created using `Chars` static class that has the same purpose as `Patterns` class.
 
+### Pattern Text
+`Pattern` object can be converted to a regular expression text using a `ToString` method.
+```c#
+public override string ToString()
+public string ToString(PatternOptions options)
+public string ToString(PatternSettings settings)
+```
+
 ### String Parameter
-LINQ to Regex always interprets `String` parameters literals, never as metacharacters. `@"\."` string parameter will match a backslash and a dot.
+LINQ to Regex always interprets `String` parameters as literals, never as metacharacters.
+```c#
+// This pattern will match a combination of a backslash character and a dot character.
+Pattern pattern = @"\.";
+
+// "\\\."
+string text = pattern.ToString();
+```
+
+### Collection Parameter
+
+A parameter that implements at least non-generic `IEnumerable` interface is interpreted in a way that any one element of the collection has to be matched.
+
+There is one exception from this rule and that is `Patterns.Concat` static method.
 
 ### Object or Object[]  Parameter
 A lot of methods that returns instance of the `Pattern` class accepts parameters of type `Object` that is usually named `content`. This methods can handle following types (typed as `Object`):
@@ -52,6 +72,19 @@ A lot of methods that returns instance of the `Pattern` class accepts parameters
 Last two items in the list, `Object[]` and `IEnumerable` can contains zero or more items (patterns) any one of which has to be matched.
 
 Methods that allows to pass a content typed as `Object` usually allows to pass an array of object with `params` (`ParamArray` in Visual Basic) keyword. This overload simply convert the array of object to the object and calls overload that accept object as an argument. 
+
+### Concat and Join Methods
+`Patterns.Concat` static method concatenates elements of the specified collection.
+```c#
+// "abcd"
+var pattern = Concat("a", "b", "c", "d");
+```
+
+`Patterns.Join` static method is very similar to a `String.Join` method.
+```c#
+// "a\s+b\s+c\s+d"
+var pattern = Join(WhiteSpace(), "a", "b", "c", "d");
+```
 
 ### Quantifiers
 
