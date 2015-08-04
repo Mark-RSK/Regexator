@@ -2,10 +2,10 @@
 
 namespace Pihrtsoft.Text.RegularExpressions
 {
-    internal sealed class CSharpTextBuilder
-        : TextBuilder
+    internal sealed class CSharpLiteralBuilder
+        : LiteralBuilder
     {
-        public CSharpTextBuilder()
+        public CSharpLiteralBuilder()
         {
         }
 
@@ -40,13 +40,13 @@ namespace Pihrtsoft.Text.RegularExpressions
 
             switch (Settings.NewLineLiteral)
             {
-                case NewLineLiteral.Linefeed:
+                case NewLineMode.Linefeed:
                     Append("'\\n'");
                     break;
-                case NewLineLiteral.CarriageReturnLinefeed:
+                case NewLineMode.CarriageReturnLinefeed:
                     Append("\"\\r\\n\"");
                     break;
-                case NewLineLiteral.Environment:
+                case NewLineMode.Environment:
                     Append("Environment.NewLine");
                     break;
             }

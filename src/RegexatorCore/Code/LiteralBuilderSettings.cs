@@ -2,16 +2,16 @@
 
 namespace Pihrtsoft.Text.RegularExpressions
 {
-    public class TextBuilderSettings
+    public class LiteralBuilderSettings
     {
         private string _concatOperator;
 
-        public TextBuilderSettings()
+        public LiteralBuilderSettings()
         {
             _concatOperator = "+";
         }
 
-        public NewLineLiteral NewLineLiteral { get; set; }
+        public NewLineMode NewLineLiteral { get; set; }
         public bool ConcatAtBeginningOfLine { get; set; }
         public bool Verbatim { get; set; }
         public bool Multiline { get; set; }

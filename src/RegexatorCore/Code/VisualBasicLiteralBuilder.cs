@@ -2,10 +2,10 @@
 
 namespace Pihrtsoft.Text.RegularExpressions
 {
-    internal sealed class VisualBasicTextBuilder
-        : TextBuilder
+    internal sealed class VisualBasicLiteralBuilder
+        : LiteralBuilder
     {
-        public VisualBasicTextBuilder()
+        public VisualBasicLiteralBuilder()
         {
         }
 
@@ -27,13 +27,13 @@ namespace Pihrtsoft.Text.RegularExpressions
 
             switch (Settings.NewLineLiteral)
             {
-                case NewLineLiteral.Linefeed:
+                case NewLineMode.Linefeed:
                     Append("vbLf");
                     break;
-                case NewLineLiteral.CarriageReturnLinefeed:
+                case NewLineMode.CarriageReturnLinefeed:
                     Append("vbCrLf");
                     break;
-                case NewLineLiteral.Environment:
+                case NewLineMode.Environment:
                     Append("Environment.NewLine");
                     break;
             }

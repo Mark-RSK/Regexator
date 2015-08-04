@@ -2,7 +2,7 @@
 
 namespace Pihrtsoft.Text.RegularExpressions
 {
-    public enum NewLineLiteral
+    public enum NewLineMode
     {
         Linefeed,
         CarriageReturnLinefeed,

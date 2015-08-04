@@ -5,14 +5,14 @@ using System.Text;
 
 namespace Pihrtsoft.Text.RegularExpressions
 {
-    internal abstract class TextBuilder
+    internal abstract class LiteralBuilder
     {
         private StringBuilder _sb;
-        private readonly TextBuilderSettings _settings;
+        private readonly LiteralBuilderSettings _settings;
 
         protected abstract void AppendNewLine();
 
-        protected TextBuilder()
+        protected LiteralBuilder()
         {
         }
 
@@ -92,7 +92,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             get { return false; }
         }
 
-        public TextBuilderSettings Settings
+        public LiteralBuilderSettings Settings
         {
             get { return _settings; }
         }
