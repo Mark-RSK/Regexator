@@ -807,6 +807,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 _lines.Add(SyntaxKind.PreviousMatchEnd);
             }
+
             AppendBackslash('G');
         }
 

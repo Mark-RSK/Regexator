@@ -166,66 +166,41 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 BeginInput().WhileNotNewLineChar());
         }
 
-        /// <summary>
-        /// Returns a pattern that matches a content that is enclosed in quotation marks. The content can contains escaped characters.
-        /// </summary>
-        /// <returns></returns>
-        public static Pattern SurroundQuoteMarksWithEscapes()
-        {
-            return SurroundQuoteMarksWithEscapes(null);
-        }
-
-        /// <summary>
-        /// Returns a pattern that matches a content that is enclosed in quotation marks. The content can contains escaped characters.
-        /// </summary>
-        /// <param name="contentGroupName">A name of the group that contain quoted content. Specify <c>null</c> to omit group.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentException"></exception>
-        public static Pattern SurroundQuoteMarksWithEscapes(string contentGroupName)
-        {
-            var chars = MaybeMany(!Chars.QuoteMark().Backslash());
-
-            var content = chars + MaybeMany(Backslash().Any() + chars);
-
-            var pattern = (contentGroupName != null)
-                ? NamedGroup(contentGroupName, content)
-                : content;
-
-            return NoncapturingGroup(SurroundQuoteMarks(pattern));
-        }
-
-        public static Pattern CSharpQuoteMarks()
+        public static Pattern CSharpLiteralOrComment()
         {
             return Any(
-                CSharpVerbatimQuoteMarks(),
-                CSharpQuoteMarksWithEscape());
-        }
-
-        public static Pattern CSharpQuoteMarksOrComment()
-        {
-            return Any(
-                CSharpVerbatimQuoteMarks(),
-                CSharpQuoteMarksWithEscape(),
-                CSharpApostrophes(),
+                CSharpEscapedTextLiteral(),
+                CSharpVerbatimTextLiteral(),
+                CSharpCharacterLiteral(),
                 CSharpLineComment(),
                 CSharpMultilineComment());
         }
 
-        public static Pattern CSharpQuoteMarksWithEscape()
+        public static Pattern CSharpLiteral()
+        {
+            return CSharpEscapedTextLiteral() | CSharpVerbatimTextLiteral() | CSharpCharacterLiteral();
+        }
+
+        public static Pattern CSharpTextLiteral()
+        {
+            return CSharpEscapedTextLiteral() | CSharpVerbatimTextLiteral();
+        }
+
+        public static Pattern CSharpEscapedTextLiteral()
         {
             var chars = MaybeMany(!Chars.QuoteMark().Backslash().NewLineChar());
 
             return SurroundQuoteMarks(chars + MaybeMany(Backslash().NotNewLineChar() + chars));
         }
 
-        public static Pattern CSharpVerbatimQuoteMarks()
+        public static Pattern CSharpVerbatimTextLiteral()
         {
             string q = "\"";
 
             return "@" + q + WhileNotChar(q) + MaybeMany(q + q + WhileNotChar(q)) + q;
         }
 
-        public static Pattern CSharpApostrophes()
+        public static Pattern CSharpCharacterLiteral()
         {
             var chars = MaybeMany(!Chars.Apostrophe().Backslash().NewLineChar());
 
