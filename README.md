@@ -188,10 +188,10 @@ string q = "\"";
 
 var pattern = "@" + q + WhileNotChar(q) + MaybeMany(q + q + WhileNotChar(q)) + q;
 
-Dump(pattern.ToString(PatternOptions.FormatAndComment));
+Console.WriteLine(pattern.ToString(PatternOptions.FormatAndComment));
 ```
 
-`Dump` method will produce following output:
+Output:
 ```
 @"        # text
 [^"]*     # negative character group zero or more times
@@ -203,6 +203,111 @@ Dump(pattern.ToString(PatternOptions.FormatAndComment));
 ```
 
 #### C# String Literal, Character Literal or Comment
+```c#
+using static Pihrtsoft.Text.RegularExpressions.Linq.Patterns;
+
+namespace Pihrtsoft.Text.RegularExpressions.Linq
+{
+    public static class Program
+    {
+        public static void Main(string[] args)
+        {
+            var pattern = Any(
+                CSharpEscapedTextLiteral(),
+                CSharpVerbatimTextLiteral(),
+                CSharpCharacterLiteral(),
+                CSharpLineComment(),
+                CSharpMultilineComment());
+            
+            Console.WriteLine(pattern.ToString(PatternOptions.FormatAndComment));
+        }
+
+        public static Pattern CSharpEscapedTextLiteral()
+        {
+            var chars = MaybeMany(!Chars.QuoteMark().Backslash().NewLineChar());
+
+            return SurroundQuoteMarks(chars + MaybeMany(Backslash().NotNewLineChar() + chars));
+        }
+
+        public static Pattern CSharpVerbatimTextLiteral()
+        {
+            string q = "\"";
+
+            return "@" + q + WhileNotChar(q) + MaybeMany(q + q + WhileNotChar(q)) + q;
+        }
+
+        public static Pattern CSharpCharacterLiteral()
+        {
+            var chars = MaybeMany(!Chars.Apostrophe().Backslash().NewLineChar());
+
+            return SurroundApostrophes(chars + MaybeMany(Backslash().NotNewLineChar() + chars));
+        }
+
+        public static Pattern CSharpLineComment()
+        {
+            return "//" + NotNewLineChar().MaybeMany();
+        }
+
+        public static Pattern CSharpMultilineComment()
+        {
+            return "/*" 
+                + WhileNotChar('*')
+                + MaybeMany(
+                    "*" 
+                    + NotAssert("/") 
+                    + WhileNotChar('*'))
+                + "*/";
+        }
+    }
+}
+```
+
+Output:
+```
+(?:                 # noncapturing group
+    "               # character
+    [^"\\\r\n]*     # negative character group zero or more times
+    (?:             # noncapturing group
+        \\          # character
+        [^\r\n]     # negative character group
+        [^"\\\r\n]* # negative character group zero or more times
+    )*              # group zero or more times
+    "               # character
+|                   # or
+    @"              # text
+    [^"]*           # negative character group zero or more times
+    (?:             # noncapturing group
+        ""          # text
+        [^"]*       # negative character group zero or more times
+    )*              # group zero or more times
+    "               # character
+|                   # or
+    '               # character
+    [^'\\\r\n]*     # negative character group zero or more times
+    (?:             # noncapturing group
+        \\          # character
+        [^\r\n]     # negative character group
+        [^'\\\r\n]* # negative character group zero or more times
+    )*              # group zero or more times
+    '               # character
+|                   # or
+    //              # text
+    [^\r\n]*        # negative character group zero or more times
+|                   # or
+    /               # character
+    \*              # character
+    [^*]*           # negative character group zero or more times
+    (?:             # noncapturing group
+        \*          # character
+        (?!         # negative lookahead assertion
+            /       # character
+        )           # group end
+        [^*]*       # negative character group zero or more times
+    )*              # group zero or more times
+    \*              # character
+    /               # character
+)                   # group end
+```
 
 ### NuGet Package
 The library is distributed via [NuGet](https://www.nuget.org/packages/LinqToRegex).
