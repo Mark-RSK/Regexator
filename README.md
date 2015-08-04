@@ -83,7 +83,7 @@ var pattern = Concat("a", "b", "c", "d");
 `Patterns.Join` static method is very similar to a `String.Join` method.
 ```c#
 // "a\s+b\s+c\s+d"
-var pattern = Join(WhiteSpace(), "a", "b", "c", "d");
+var pattern = Join(WhiteSpaces(), "a", "b", "c", "d");
 ```
 
 ### Quantifiers
