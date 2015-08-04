@@ -37,14 +37,17 @@ var pattern = Digit();
 
 `CharGrouping` represents a content of a character group. `CharGrouping` can be created using `Chars` static class that has the same purpose as `Patterns` class.
 
+### String Parameter
+LINQ to Regex always interprets `String` parameters literals, never as metacharacters. `@"\."` string parameter will match a backslash and a dot.
+
 ### Object or Object[]  Parameter
 A lot of methods that returns instance of the `Pattern` class accepts parameters of type `Object` that is usually named `content`. This methods can handle following types (typed as `Object`):
-* Pattern
-* CharGrouping
-* String
-* Char
-* Object[]
-* IEnumerable
+* `Pattern`
+* `CharGrouping`
+* `String`
+* `Char`
+* `Object[]`
+* `IEnumerable`
 
 Last two items in the list, `Object[]` and `IEnumerable` can contains zero or more items (patterns) any one of which has to be matched.
 
@@ -127,7 +130,7 @@ var pattern = "first" | "second" | "third;
 #### ! Operator
 `!` operator is used to create pattern that has opposite meaning than operand. Following pattern represents a linefeed that is not preceded with a carriage return and can be used to normalize line endings to Windows mode.
 ```c#
-var pattern2 = Patterns.NotAssertBack(CarriageReturn()).Linefeed();
+var pattern = Patterns.NotAssertBack(CarriageReturn()).Linefeed();
 ```
 Same goal can be achieved using ! operator.
 ```c#
@@ -143,6 +146,30 @@ var pattern = !AssertBack(CarriageReturn()) + Linefeed();
 
 There are methods, such as `AnyNative` or `CrawlNative` that behaves differently depending on the provided `RegexOptions` value.
 In these two patterns, a dot can match any character except linefeed or any character in `RegexOptions.Singleline` option is applied.
+
+### Samples
+
+#### C# Verbatim String Literal
+```c#
+string q = "\"";
+
+var pattern = "@" + q + WhileNotChar(q) + MaybeMany(q + q + WhileNotChar(q)) + q;
+
+Dump(pattern.ToString(PatternOptions.FormatAndComment));
+```
+
+`Dump` method will produce following output:
+```
+@"        # text
+[^"]*     # negative character group zero or more times
+(?:       # noncapturing group
+    ""    # text
+    [^"]* # negative character group zero or more times
+)*        # group zero or more times
+"         # character
+```
+
+#### C# String Literal, Character Literal or Comment
 
 ### NuGet Package
 The library is distributed via [NuGet](https://www.nuget.org/packages/LinqToRegex).
