@@ -75,7 +75,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             base.AppendLineStart();
         }
 
-        protected override bool SinglelineEnabled
+        protected override bool MultilineEnabled
         {
             get { return true; }
         }

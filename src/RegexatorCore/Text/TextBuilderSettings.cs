@@ -14,7 +14,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         public NewLineLiteral NewLineLiteral { get; set; }
         public bool ConcatAtBeginningOfLine { get; set; }
         public bool Verbatim { get; set; }
-        public bool Singleline { get; set; }
+        public bool Multiline { get; set; }
 
         public string ConcatOperator
         {

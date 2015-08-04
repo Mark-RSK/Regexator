@@ -23,9 +23,10 @@ namespace Pihrtsoft.Text.RegularExpressions
                 throw new ArgumentNullException("code");
             }
 
-            bool isNewLine = false;
             _sb = new StringBuilder(code.Length);
             AppendLineStart();
+
+            bool isNewLine = false;
 
             for (int i = 0; i < code.Length; i++)
             {
@@ -39,7 +40,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                 {
                     if (isNewLine)
                     {
-                        if (SinglelineEnabled && Settings.Singleline)
+                        if (MultilineEnabled && Settings.Multiline)
                         {
                             _sb.Append('\n');
                         }
@@ -86,7 +87,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             _sb.Append('"');
         }
 
-        protected virtual bool SinglelineEnabled
+        protected virtual bool MultilineEnabled
         {
             get { return false; }
         }
