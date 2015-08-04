@@ -4080,15 +4080,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return BalanceInternal(openingCharacter, closingCharacter, groupName, openGroupName);
         }
 
-        internal static Pattern BalanceInternal(char openChar, char closeChar, string groupName, string openGroupName)
+        private static Pattern BalanceInternal(char open, char close, string closeGroup, string openGroup)
         {
-            return Patterns
-                .OneMany(Patterns
-                    .NamedGroup(openGroupName, openChar)
-                    .WhileNotChar(openChar, closeChar))
-                .OneMany(Patterns
-                    .BalancingGroup(groupName, openGroupName, closeChar)
-                    .WhileNotChar(openChar, closeChar));
+            var not = WhileNotChar(open, close);
+
+            return open
+                + not
+                + MaybeMany(
+                    OneMany(NamedGroup(openGroup, open) + not)
+                    + OneMany(BalancingGroup(closeGroup, openGroup, close) + not)
+                )
+                + close;
         }
     }
 }
