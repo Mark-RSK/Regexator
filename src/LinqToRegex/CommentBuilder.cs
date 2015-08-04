@@ -66,7 +66,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             switch (kind)
             {
                 case QuantifierKind.Maybe:
-                    return "zero or one times";
+                    return "zero or one time";
                 case QuantifierKind.MaybeMany:
                     return "zero or more times";
                 case QuantifierKind.OneMany:

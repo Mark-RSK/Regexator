@@ -703,7 +703,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches specified content zero or one times.
+        /// Returns a pattern that matches specified content zero or one time.
         /// </summary>
         /// <param name="content">The content to be matched.</param>
         /// <returns></returns>
@@ -714,7 +714,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Returns a pattern that matches any one specified element zero or one times.
+        /// Returns a pattern that matches any one specified element zero or one time.
         /// </summary>
         /// <param name="first">First element of a sequence that contains patterns any one of which has to be matched.</param>
         /// <param name="others">Other elements of a sequence that contains patterns any one of which has to be matched.</param>

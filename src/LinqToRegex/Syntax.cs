@@ -209,7 +209,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public const string UnicodeEnd = "}";
 
         /// <summary>
-        /// Specifies a quantifier that matches previous element zero or one times.
+        /// Specifies a quantifier that matches previous element zero or one time.
         /// </summary>
         public const string Maybe = "?";
 
