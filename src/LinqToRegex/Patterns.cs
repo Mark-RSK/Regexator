@@ -4082,13 +4082,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         private static Pattern BalanceInternal(char open, char close, string closeGroup, string openGroup)
         {
-            var not = WhileNotChar(open, close);
-
             return open
-                + not
+                + WhileNotChar(open, close)
                 + MaybeMany(
-                    OneMany(NamedGroup(openGroup, open) + not)
-                    + OneMany(BalancingGroup(closeGroup, openGroup, close) + not)
+                    OneMany(
+                        NamedGroup(openGroup, open) + WhileNotChar(open, close))
+                    + OneMany(
+                        BalancingGroup(closeGroup, openGroup, close) + WhileNotChar(open, close))
                 )
                 + close;
         }
