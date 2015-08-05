@@ -9,24 +9,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         internal sealed class NamedGroupSubstitution
             : Substitution
         {
-            private readonly string _groupName;
-
             internal NamedGroupSubstitution(string groupName)
             {
                 RegexUtility.CheckGroupName(groupName);
 
-                _groupName = groupName;
+                GroupName = groupName;
             }
 
-            public string GroupName
-            {
-                get { return _groupName; }
-            }
+            internal override string Value => Syntax.SubstituteNamedGroupStart + GroupName + Syntax.SubstituteNamedGroupEnd;
 
-            internal override string Value
-            {
-                get { return Syntax.SubstituteNamedGroupStart + GroupName + Syntax.SubstituteNamedGroupEnd; }
-            }
+            public string GroupName { get; }
         }
 
         internal sealed class EntireMatchSubstitution
@@ -36,10 +28,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
             }
 
-            internal override string Value
-            {
-                get { return Syntax.SubstituteEntireMatch; }
-            }
+            internal override string Value => Syntax.SubstituteEntireMatch;
         }
 
         internal sealed class BeforeMatchSubstitution
@@ -49,10 +38,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
             }
 
-            internal override string Value
-            {
-                get { return Syntax.SubstituteBeforeMatch; }
-            }
+            internal override string Value => Syntax.SubstituteBeforeMatch;
         }
 
         internal sealed class AfterMatchSubstitution
@@ -62,10 +48,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
             }
 
-            internal override string Value
-            {
-                get { return Syntax.SubstituteAfterMatch; }
-            }
+            internal override string Value => Syntax.SubstituteAfterMatch;
         }
 
         internal sealed class LastCapturedGroupSubstitution
@@ -75,10 +58,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
             }
 
-            internal override string Value
-            {
-                get { return Syntax.SubstituteLastCapturedGroup; }
-            }
+            internal override string Value => Syntax.SubstituteLastCapturedGroup;
         }
 
         internal sealed class EntireInputSubstitution
@@ -88,10 +68,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
             }
 
-            internal override string Value
-            {
-                get { return Syntax.SubstituteEntireInput; }
-            }
+            internal override string Value => Syntax.SubstituteEntireInput;
         }
 
         internal sealed class TextSubstitution
@@ -103,16 +80,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 if (text == null)
                 {
-                    throw new ArgumentNullException("text");
+                    throw new ArgumentNullException(nameof(text));
                 }
 
                 _text = text;
             }
 
-            internal override string Value
-            {
-                get { return RegexUtility.EscapeSubstitution(_text); }
-            }
+            internal override string Value => RegexUtility.EscapeSubstitution(_text);
         }
     }
 }

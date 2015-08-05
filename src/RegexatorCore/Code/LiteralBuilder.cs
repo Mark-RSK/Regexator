@@ -20,7 +20,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         {
             if (code == null)
             {
-                throw new ArgumentNullException("code");
+                throw new ArgumentNullException(nameof(code));
             }
 
             _sb = new StringBuilder(code.Length);
@@ -87,14 +87,8 @@ namespace Pihrtsoft.Text.RegularExpressions
             _sb.Append('"');
         }
 
-        protected virtual bool MultilineEnabled
-        {
-            get { return false; }
-        }
+        protected virtual bool MultilineEnabled => false;
 
-        public LiteralBuilderSettings Settings
-        {
-            get { return _settings; }
-        }
+        public LiteralBuilderSettings Settings => _settings;
     }
 }

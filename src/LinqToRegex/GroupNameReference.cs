@@ -19,9 +19,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             builder.AppendGroupReferenceInternal(GroupName);
         }
 
-        public string GroupName
-        {
-            get { return _groupName; }
-        }
+        public string GroupName => _groupName;
     }
 }

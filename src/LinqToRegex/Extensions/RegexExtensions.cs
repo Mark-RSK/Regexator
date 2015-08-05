@@ -22,7 +22,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq.Extensions
         {
             if (regex == null)
             {
-                throw new ArgumentNullException("regex");
+                throw new ArgumentNullException(nameof(regex));
             }
 
             return EnumerateMatches(input, (f) => regex.Match(f));
@@ -41,7 +41,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq.Extensions
         {
             if (regex == null)
             {
-                throw new ArgumentNullException("regex");
+                throw new ArgumentNullException(nameof(regex));
             }
 
             return EnumerateMatches(input, (f) => regex.Match(f, startAt));
@@ -61,7 +61,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq.Extensions
         {
             if (regex == null)
             {
-                throw new ArgumentNullException("regex");
+                throw new ArgumentNullException(nameof(regex));
             }
 
             return EnumerateMatches(input, (f) => regex.Match(f, beginning, length));
@@ -76,8 +76,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq.Extensions
         /// <exception cref="ArgumentNullException"></exception>
         public static IEnumerable<Group> EnumerateGroups(this Regex regex, string input)
         {
-            return EnumerateMatches(regex, input)
-                .EnumerateGroups();
+            return EnumerateMatches(regex, input).EnumerateGroups();
         }
 
         /// <summary>
@@ -90,8 +89,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq.Extensions
         /// <exception cref="ArgumentNullException"></exception>
         public static IEnumerable<Group> EnumerateGroups(this Regex regex, string input, string groupName)
         {
-            return EnumerateMatches(regex, input)
-                .EnumerateGroups(groupName);
+            return EnumerateMatches(regex, input).EnumerateGroups(groupName);
         }
 
         /// <summary>
@@ -105,8 +103,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq.Extensions
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static IEnumerable<Group> EnumerateGroups(this Regex regex, string input, int groupNumber)
         {
-            return EnumerateMatches(regex, input)
-                .EnumerateGroups(groupNumber);
+            return EnumerateMatches(regex, input).EnumerateGroups(groupNumber);
         }
 
         /// <summary>
@@ -118,8 +115,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq.Extensions
         /// <exception cref="ArgumentNullException"></exception>
         public static IEnumerable<Group> EnumerateSuccessGroups(this Regex regex, string input)
         {
-            return EnumerateMatches(regex, input)
-                .EnumerateSuccessGroups();
+            return EnumerateMatches(regex, input).EnumerateSuccessGroups();
         }
 
         /// <summary>
@@ -132,8 +128,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq.Extensions
         /// <exception cref="ArgumentNullException"></exception>
         public static IEnumerable<Group> EnumerateSuccessGroups(this Regex regex, string input, string groupName)
         {
-            return EnumerateMatches(regex, input)
-                .EnumerateSuccessGroups(groupName);
+            return EnumerateMatches(regex, input).EnumerateSuccessGroups(groupName);
         }
 
         /// <summary>
@@ -147,8 +142,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq.Extensions
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static IEnumerable<Group> EnumerateSuccessGroups(this Regex regex, string input, int groupNumber)
         {
-            return EnumerateMatches(regex, input)
-                .EnumerateSuccessGroups(groupNumber);
+            return EnumerateMatches(regex, input).EnumerateSuccessGroups(groupNumber);
         }
 
         /// <summary>
@@ -160,8 +154,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq.Extensions
         /// <exception cref="ArgumentNullException"></exception>
         public static IEnumerable<Capture> EnumerateCaptures(this Regex regex, string input)
         {
-            return EnumerateMatches(regex, input)
-                .EnumerateCaptures();
+            return EnumerateMatches(regex, input).EnumerateCaptures();
         }
 
         /// <summary>
@@ -174,8 +167,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq.Extensions
         /// <exception cref="ArgumentNullException"></exception>
         public static IEnumerable<Capture> EnumerateCaptures(this Regex regex, string input, string groupName)
         {
-            return EnumerateMatches(regex, input)
-                .EnumerateCaptures(groupName);
+            return EnumerateMatches(regex, input).EnumerateCaptures(groupName);
         }
 
         /// <summary>
@@ -189,15 +181,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq.Extensions
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static IEnumerable<Capture> EnumerateCaptures(this Regex regex, string input, int groupNumber)
         {
-            return EnumerateMatches(regex, input)
-                .EnumerateCaptures(groupNumber);
+            return EnumerateMatches(regex, input).EnumerateCaptures(groupNumber);
         }
 
         private static IEnumerable<Match> EnumerateMatches(string input, Func<string, Match> matchFactory)
         {
             if (input == null)
             {
-                throw new ArgumentNullException("input");
+                throw new ArgumentNullException(nameof(input));
             }
 
             Match match = matchFactory(input);

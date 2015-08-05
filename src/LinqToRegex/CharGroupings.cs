@@ -136,459 +136,306 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Returns a pattern that matches a character from the digit character class.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping Digit()
-        {
-            return Character(CharClass.Digit);
-        }
+        public static CharGrouping Digit() => Character(CharClass.Digit);
 
         /// <summary>
         /// Returns a pattern that matches a character that is not from the digit character class.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping NotDigit()
-        {
-            return Character(CharClass.NotDigit);
-        }
+        public static CharGrouping NotDigit() => Character(CharClass.NotDigit);
 
         /// <summary>
         /// Returns a pattern that matches a character from the white-space character class.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping WhiteSpace()
-        {
-            return Character(CharClass.WhiteSpace);
-        }
+        public static CharGrouping WhiteSpace() => Character(CharClass.WhiteSpace);
 
         /// <summary>
         /// Returns a pattern that matches a character that is not from the digit character class.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping NotWhiteSpace()
-        {
-            return Character(CharClass.NotWhiteSpace);
-        }
+        public static CharGrouping NotWhiteSpace() => Character(CharClass.NotWhiteSpace);
 
         /// <summary>
         /// Returns a pattern that matches a character from the word character class.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping WordChar()
-        {
-            return Character(CharClass.WordChar);
-        }
+        public static CharGrouping WordChar() => Character(CharClass.WordChar);
 
         /// <summary>
         /// Returns a pattern that matches a character that is not from the word character class.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping NotWordChar()
-        {
-            return Character(CharClass.NotWordChar);
-        }
+        public static CharGrouping NotWordChar() => Character(CharClass.NotWordChar);
 
         /// <summary>
         /// Returns a pattern that matches a latin alphabet letter or an arabic digit.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping Alphanumeric()
-        {
-            return LatinLetter().ArabicDigit();
-        }
+        public static CharGrouping Alphanumeric() => LatinLetter().ArabicDigit();
 
         /// <summary>
         /// Returns a pattern that matches a latin alphabet letter, an arabic digit or an underscore.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping AlphanumericUnderscore()
-        {
-            return Alphanumeric().Underscore();
-        }
+        public static CharGrouping AlphanumericUnderscore() => Alphanumeric().Underscore();
 
         /// <summary>
         /// Returns a pattern that matches a latin alphabet letter.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping LatinLetter()
-        {
-            return Range('a', 'z').Range('A', 'Z');
-        }
+        public static CharGrouping LatinLetter() => Range('a', 'z').Range('A', 'Z');
 
         /// <summary>
         /// Returns a pattern that matches an arabic digit.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping ArabicDigit()
-        {
-            return Range('0', '9');
-        }
+        public static CharGrouping ArabicDigit() => Range('0', '9');
 
         /// <summary>
         /// Returns a pattern that matches a hexadecimal digit.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping HexadecimalDigit()
-        {
-            return ArabicDigit().Range('a', 'f').Range('A', 'F');
-        }
+        public static CharGrouping HexadecimalDigit() => ArabicDigit().Range('a', 'f').Range('A', 'F');
 
         /// <summary>
         /// Returns a pattern that matches a new line character, i.e. a linefeed character or a carriage return character.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping NewLineChar()
-        {
-            return CarriageReturn().Linefeed();
-        }
+        public static CharGrouping NewLineChar() => CarriageReturn().Linefeed();
 
         /// <summary>
         /// Returns a pattern that matches a tab.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping Tab()
-        {
-            return Character(AsciiChar.Tab);
-        }
+        public static CharGrouping Tab() => Character(AsciiChar.Tab);
 
         /// <summary>
         /// Returns a pattern that matches a linefeed.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping Linefeed()
-        {
-            return Character(AsciiChar.Linefeed);
-        }
+        public static CharGrouping Linefeed() => Character(AsciiChar.Linefeed);
 
         /// <summary>
         /// Returns a pattern that matches a carriage return.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping CarriageReturn()
-        {
-            return Character(AsciiChar.CarriageReturn);
-        }
+        public static CharGrouping CarriageReturn() => Character(AsciiChar.CarriageReturn);
 
         /// <summary>
         /// Returns a pattern that matches a space character.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping Space()
-        {
-            return Character(AsciiChar.Space);
-        }
+        public static CharGrouping Space() => Character(AsciiChar.Space);
 
         /// <summary>
         /// Returns a pattern that matches exclamation mark.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping ExclamationMark()
-        {
-            return Character(AsciiChar.ExclamationMark);
-        }
+        public static CharGrouping ExclamationMark() => Character(AsciiChar.ExclamationMark);
 
         /// <summary>
         /// Returns a pattern that matches a quotation mark.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping QuoteMark()
-        {
-            return Character(AsciiChar.QuoteMark);
-        }
+        public static CharGrouping QuoteMark() => Character(AsciiChar.QuoteMark);
 
         /// <summary>
         /// Returns a pattern that matches a number sign.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping NumberSign()
-        {
-            return Character(AsciiChar.NumberSign);
-        }
+        public static CharGrouping NumberSign() => Character(AsciiChar.NumberSign);
 
         /// <summary>
         /// Returns a pattern that matches a dollar character.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping Dollar()
-        {
-            return Character(AsciiChar.Dollar);
-        }
+        public static CharGrouping Dollar() => Character(AsciiChar.Dollar);
 
         /// <summary>
         /// Returns a pattern that matches a percent sign.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping Percent()
-        {
-            return Character(AsciiChar.Percent);
-        }
+        public static CharGrouping Percent() => Character(AsciiChar.Percent);
 
         /// <summary>
         /// Returns a pattern that matches an ampersand.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping Ampersand()
-        {
-            return Character(AsciiChar.Ampersand);
-        }
+        public static CharGrouping Ampersand() => Character(AsciiChar.Ampersand);
 
         /// <summary>
         /// Returns a pattern that matches apostrophe.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping Apostrophe()
-        {
-            return Character(AsciiChar.Apostrophe);
-        }
+        public static CharGrouping Apostrophe() => Character(AsciiChar.Apostrophe);
 
         /// <summary>
         /// Returns a pattern that matches left parenthesis.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping LeftParenthesis()
-        {
-            return Character(AsciiChar.LeftParenthesis);
-        }
+        public static CharGrouping LeftParenthesis() => Character(AsciiChar.LeftParenthesis);
 
         /// <summary>
         /// Returns a pattern that matches right parenthesis.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping RightParenthesis()
-        {
-            return Character(AsciiChar.RightParenthesis);
-        }
+        public static CharGrouping RightParenthesis() => Character(AsciiChar.RightParenthesis);
 
         /// <summary>
         /// Returns a pattern that matches an asterisk.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping Asterisk()
-        {
-            return Character(AsciiChar.Asterisk);
-        }
+        public static CharGrouping Asterisk() => Character(AsciiChar.Asterisk);
 
         /// <summary>
         /// Returns a pattern that matches a plus sign.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping Plus()
-        {
-            return Character(AsciiChar.Plus);
-        }
+        public static CharGrouping Plus() => Character(AsciiChar.Plus);
 
         /// <summary>
         /// Returns a pattern that matches a comma.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping Comma()
-        {
-            return Character(AsciiChar.Comma);
-        }
+        public static CharGrouping Comma() => Character(AsciiChar.Comma);
 
         /// <summary>
         /// Returns a pattern that matches a hyphen.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping Hyphen()
-        {
-            return Character(AsciiChar.Hyphen);
-        }
+        public static CharGrouping Hyphen() => Character(AsciiChar.Hyphen);
 
         /// <summary>
         /// Returns a pattern that matches a period.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping Dot()
-        {
-            return Character(AsciiChar.Dot);
-        }
+        public static CharGrouping Dot() => Character(AsciiChar.Dot);
 
         /// <summary>
         /// Returns a pattern that matches a slash.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping Slash()
-        {
-            return Character(AsciiChar.Slash);
-        }
+        public static CharGrouping Slash() => Character(AsciiChar.Slash);
 
         /// <summary>
         /// Returns a pattern that matches a colon.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping Colon()
-        {
-            return Character(AsciiChar.Colon);
-        }
+        public static CharGrouping Colon() => Character(AsciiChar.Colon);
 
         /// <summary>
         /// Returns a pattern that matches a semicolon.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping Semicolon()
-        {
-            return Character(AsciiChar.Semicolon);
-        }
+        public static CharGrouping Semicolon() => Character(AsciiChar.Semicolon);
 
         /// <summary>
         /// Returns a pattern that matches a left angle bracket (less-than sign).
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping LeftAngleBracket()
-        {
-            return Character(AsciiChar.LeftAngleBracket);
-        }
+        public static CharGrouping LeftAngleBracket() => Character(AsciiChar.LeftAngleBracket);
 
         /// <summary>
         /// Returns a pattern that matches an equals sign.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping EqualsSign()
-        {
-            return Character(AsciiChar.EqualsSign);
-        }
+        public static CharGrouping EqualsSign() => Character(AsciiChar.EqualsSign);
 
         /// <summary>
         /// Returns a pattern that matches a right angle bracket (greater-than sign).
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping RightAngleBracket()
-        {
-            return Character(AsciiChar.RightAngleBracket);
-        }
+        public static CharGrouping RightAngleBracket() => Character(AsciiChar.RightAngleBracket);
 
         /// <summary>
         /// Returns a pattern that matches a question mark.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping QuestionMark()
-        {
-            return Character(AsciiChar.QuestionMark);
-        }
+        public static CharGrouping QuestionMark() => Character(AsciiChar.QuestionMark);
 
         /// <summary>
         /// Returns a pattern that matches an at sign.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping AtSign()
-        {
-            return Character(AsciiChar.AtSign);
-        }
+        public static CharGrouping AtSign() => Character(AsciiChar.AtSign);
 
         /// <summary>
         /// Returns a pattern that matches left square bracket.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping LeftSquareBracket()
-        {
-            return Character(AsciiChar.LeftSquareBracket);
-        }
+        public static CharGrouping LeftSquareBracket() => Character(AsciiChar.LeftSquareBracket);
 
         /// <summary>
         /// Returns a pattern that matches a backslash.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping Backslash()
-        {
-            return Character(AsciiChar.Backslash);
-        }
+        public static CharGrouping Backslash() => Character(AsciiChar.Backslash);
 
         /// <summary>
         /// Returns a pattern that matches right square bracket.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping RightSquareBracket()
-        {
-            return Character(AsciiChar.RightSquareBracket);
-        }
+        public static CharGrouping RightSquareBracket() => Character(AsciiChar.RightSquareBracket);
 
         /// <summary>
         /// Returns a pattern that matches a circumflex accent.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping CircumflexAccent()
-        {
-            return Character(AsciiChar.CircumflexAccent);
-        }
+        public static CharGrouping CircumflexAccent() => Character(AsciiChar.CircumflexAccent);
 
         /// <summary>
         /// Returns a pattern that matches an underscore.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping Underscore()
-        {
-            return Character(AsciiChar.Underscore);
-        }
+        public static CharGrouping Underscore() => Character(AsciiChar.Underscore);
 
         /// <summary>
         /// Returns a pattern that matches a grave accent.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping GraveAccent()
-        {
-            return Character(AsciiChar.GraveAccent);
-        }
+        public static CharGrouping GraveAccent() => Character(AsciiChar.GraveAccent);
 
         /// <summary>
         /// Returns a pattern that matches left curly bracket
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping LeftCurlyBracket()
-        {
-            return Character(AsciiChar.LeftCurlyBracket);
-        }
+        public static CharGrouping LeftCurlyBracket() => Character(AsciiChar.LeftCurlyBracket);
 
         /// <summary>
         /// Returns a pattern that matches a vertical bar.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping VerticalBar()
-        {
-            return Character(AsciiChar.VerticalBar);
-        }
+        public static CharGrouping VerticalBar() => Character(AsciiChar.VerticalBar);
 
         /// <summary>
         /// Returns a pattern that matches right curly bracket.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping RightCurlyBracket()
-        {
-            return Character(AsciiChar.RightCurlyBracket);
-        }
+        public static CharGrouping RightCurlyBracket() => Character(AsciiChar.RightCurlyBracket);
 
         /// <summary>
         /// Returns a pattern that matches a tilde.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping Tilde()
-        {
-            return Character(AsciiChar.Tilde);
-        }
+        public static CharGrouping Tilde() => Character(AsciiChar.Tilde);
 
         /// <summary>
         /// Returns a pattern that matches left or right parenthesis.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping Parenthesis()
-        {
-            return LeftParenthesis().RightParenthesis();
-        }
+        public static CharGrouping Parenthesis() => LeftParenthesis().RightParenthesis();
 
         /// <summary>
         /// Returns a pattern that matches left or right square bracket.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping SquareBracket()
-        {
-            return LeftSquareBracket().RightSquareBracket();
-        }
+        public static CharGrouping SquareBracket() => LeftSquareBracket().RightSquareBracket();
 
         /// <summary>
         /// Returns a pattern that matches left or right curly bracket.
         /// </summary>
         /// <returns></returns>
-        public static CharGrouping CurlyBracket()
-        {
-            return LeftCurlyBracket().RightCurlyBracket();
-        }
+        public static CharGrouping CurlyBracket() => LeftCurlyBracket().RightCurlyBracket();
     }
 }

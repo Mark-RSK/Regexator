@@ -43,7 +43,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (settings == null)
             {
-                throw new ArgumentNullException("settings");
+                throw new ArgumentNullException(nameof(settings));
             }
 
             _settings = settings;
@@ -98,7 +98,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (characters == null)
             {
-                throw new ArgumentNullException("characters");
+                throw new ArgumentNullException(nameof(characters));
             }
 
             foreach (var value in characters)
@@ -259,7 +259,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (value < 0 || value > 0xFFFF)
             {
-                throw new ArgumentOutOfRangeException("value");
+                throw new ArgumentOutOfRangeException(nameof(value));
             }
 
             AppendInternal(value, inCharGroup);
@@ -323,7 +323,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (pattern == null)
             {
-                throw new ArgumentNullException("pattern");
+                throw new ArgumentNullException(nameof(pattern));
             }
 
             if (pattern.Previous != null)
@@ -416,34 +416,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             object[] values = value as object[];
             if (values != null)
             {
-                if (values.Length > 0)
-                {
-                    if (mode == GroupMode.Group)
-                    {
-                        AppendNumberedGroupStart();
-                    }
-                    else if (mode == GroupMode.NoncapturingGroup)
-                    {
-                        AppendNoncapturingGroupStart();
-                    }
-
-                    _pendingOr = false;
-                    int length = Length;
-
-                    for (int i = 0; i < values.Length; i++)
-                    {
-                        _pendingOr = _pendingOr || (Length > length);
-                        length = Length;
-                        Append(values[i]);
-                    }
-
-                    _pendingOr = false;
-
-                    if (mode != GroupMode.None)
-                    {
-                        AppendGroupEnd();
-                    }
-                }
+                Append(values, mode);
 
                 return;
             }
@@ -451,36 +424,73 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             IEnumerable items = value as IEnumerable;
             if (items != null)
             {
-                IEnumerator en = items.GetEnumerator();
+                Append(items, mode);
+            }
+        }
 
-                if (en.MoveNext())
+        private void Append(object[] values, GroupMode mode)
+        {
+            if (values.Length > 0)
+            {
+                if (mode == GroupMode.Group)
                 {
-                    if (mode == GroupMode.Group)
-                    {
-                        AppendNumberedGroupStart();
-                    }
-                    else if (mode == GroupMode.NoncapturingGroup)
-                    {
-                        AppendNoncapturingGroupStart();
-                    }
+                    AppendNumberedGroupStart();
+                }
+                else if (mode == GroupMode.NoncapturingGroup)
+                {
+                    AppendNoncapturingGroupStart();
+                }
 
-                    _pendingOr = false;
-                    int length = Length;
+                _pendingOr = false;
+                int length = Length;
+
+                for (int i = 0; i < values.Length; i++)
+                {
+                    _pendingOr = _pendingOr || (Length > length);
+                    length = Length;
+                    Append(values[i]);
+                }
+
+                _pendingOr = false;
+
+                if (mode != GroupMode.None)
+                {
+                    AppendGroupEnd();
+                }
+            }
+        }
+
+        private void Append(IEnumerable items, GroupMode mode)
+        {
+            IEnumerator en = items.GetEnumerator();
+
+            if (en.MoveNext())
+            {
+                if (mode == GroupMode.Group)
+                {
+                    AppendNumberedGroupStart();
+                }
+                else if (mode == GroupMode.NoncapturingGroup)
+                {
+                    AppendNoncapturingGroupStart();
+                }
+
+                _pendingOr = false;
+                int length = Length;
+                Append(en.Current);
+
+                while (en.MoveNext())
+                {
+                    _pendingOr = _pendingOr || (Length > length);
+                    length = Length;
                     Append(en.Current);
+                }
 
-                    while (en.MoveNext())
-                    {
-                        _pendingOr = _pendingOr || (Length > length);
-                        length = Length;
-                        Append(en.Current);
-                    }
+                _pendingOr = false;
 
-                    _pendingOr = false;
-
-                    if (mode != GroupMode.None)
-                    {
-                        AppendGroupEnd();
-                    }
+                if (mode != GroupMode.None)
+                {
+                    AppendGroupEnd();
                 }
             }
         }
@@ -528,12 +538,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (testContent == null)
             {
-                throw new ArgumentNullException("testContent");
+                throw new ArgumentNullException(nameof(testContent));
             }
 
             if (trueContent == null)
             {
-                throw new ArgumentNullException("trueContent");
+                throw new ArgumentNullException(nameof(trueContent));
             }
 
             AppendGroupStart(false);
@@ -593,7 +603,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (trueContent == null)
             {
-                throw new ArgumentNullException("trueContent");
+                throw new ArgumentNullException(nameof(trueContent));
             }
 
             AppendGroupStart(false);
@@ -637,7 +647,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (groupNumber < 0)
             {
-                throw new ArgumentOutOfRangeException("groupNumber");
+                throw new ArgumentOutOfRangeException(nameof(groupNumber));
             }
 
             AppendIfGroup(NumberToString(groupNumber), trueContent, falseContent);
@@ -821,7 +831,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (content == null)
             {
-                throw new ArgumentNullException("content");
+                throw new ArgumentNullException(nameof(content));
             }
 
             AppendNumberedGroupStart();
@@ -850,11 +860,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <exception cref="ArgumentException"></exception>
         public void AppendNamedGroup(string name, object content)
         {
-            RegexUtility.CheckGroupName(name, "name");
+            RegexUtility.CheckGroupName(name, nameof(name));
 
             if (content == null)
             {
-                throw new ArgumentNullException("content");
+                throw new ArgumentNullException(nameof(content));
             }
 
             AppendNamedGroupInternal(name, content);
@@ -885,7 +895,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (content == null)
             {
-                throw new ArgumentNullException("content");
+                throw new ArgumentNullException(nameof(content));
             }
 
             AppendNoncapturingGroupStart();
@@ -913,7 +923,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (content == null)
             {
-                throw new ArgumentNullException("content");
+                throw new ArgumentNullException(nameof(content));
             }
 
             AppendGroupStart();
@@ -932,7 +942,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (content == null)
             {
-                throw new ArgumentNullException("content");
+                throw new ArgumentNullException(nameof(content));
             }
 
             AppendGroupStart();
@@ -1252,12 +1262,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (characters == null)
             {
-                throw new ArgumentNullException("characters");
+                throw new ArgumentNullException(nameof(characters));
             }
 
             if (characters.Length == 0)
             {
-                throw new ArgumentException(ExceptionHelper.CharGroupCannotBeEmpty, "characters");
+                throw new ArgumentException(ExceptionHelper.CharGroupCannotBeEmpty, nameof(characters));
             }
 
             AppendCharGroupStart(negative);
@@ -1269,12 +1279,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (characters == null)
             {
-                throw new ArgumentNullException("characters");
+                throw new ArgumentNullException(nameof(characters));
             }
 
             if (characters.Length == 0)
             {
-                throw new ArgumentException(ExceptionHelper.CharGroupCannotBeEmpty, "characters");
+                throw new ArgumentException(ExceptionHelper.CharGroupCannotBeEmpty, nameof(characters));
             }
 
             AppendCharGroupStart(negative);
@@ -1342,7 +1352,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (value == null)
             {
-                throw new ArgumentNullException("value");
+                throw new ArgumentNullException(nameof(value));
             }
 
             AppendCharGroupStart(negative);
@@ -1360,12 +1370,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (baseGroup == null)
             {
-                throw new ArgumentNullException("baseGroup");
+                throw new ArgumentNullException(nameof(baseGroup));
             }
 
             if (excludedGroup == null)
             {
-                throw new ArgumentNullException("excludedGroup");
+                throw new ArgumentNullException(nameof(excludedGroup));
             }
 
             AppendCharGroupStart();
@@ -1544,7 +1554,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (exactCount < 0)
             {
-                throw new ArgumentOutOfRangeException("exactCount");
+                throw new ArgumentOutOfRangeException(nameof(exactCount));
             }
 
             AppendCountInternal(exactCount);
@@ -1589,7 +1599,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (minCount < 0 || maxCount < minCount)
             {
-                throw new ArgumentOutOfRangeException("minCount");
+                throw new ArgumentOutOfRangeException(nameof(minCount));
             }
 
             AppendCountInternal(minCount, maxCount);
@@ -1634,7 +1644,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (minCount < 0)
             {
-                throw new ArgumentOutOfRangeException("minCount");
+                throw new ArgumentOutOfRangeException(nameof(minCount));
             }
 
             AppendCountFromInternal(minCount);
@@ -1678,7 +1688,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (maxCount < 0)
             {
-                throw new ArgumentOutOfRangeException("maxCount");
+                throw new ArgumentOutOfRangeException(nameof(maxCount));
             }
 
             AppendDirect('{');
@@ -1759,12 +1769,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 if (!RegexUtility.IsValidInlineOptions(applyOptions))
                 {
-                    throw new ArgumentException(ExceptionHelper.RegexOptionsNotConvertibleToInlineChars, "applyOptions");
+                    throw new ArgumentException(ExceptionHelper.RegexOptionsNotConvertibleToInlineChars, nameof(applyOptions));
                 }
 
                 if (!RegexUtility.IsValidInlineOptions(disableOptions))
                 {
-                    throw new ArgumentException(ExceptionHelper.RegexOptionsNotConvertibleToInlineChars, "disableOptions");
+                    throw new ArgumentException(ExceptionHelper.RegexOptionsNotConvertibleToInlineChars, nameof(disableOptions));
                 }
 
                 AppendGroupStart(false);
@@ -1805,17 +1815,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (!RegexUtility.IsValidInlineOptions(applyOptions))
             {
-                throw new ArgumentException(ExceptionHelper.RegexOptionsNotConvertibleToInlineChars, "applyOptions");
+                throw new ArgumentException(ExceptionHelper.RegexOptionsNotConvertibleToInlineChars, nameof(applyOptions));
             }
 
             if (!RegexUtility.IsValidInlineOptions(disableOptions))
             {
-                throw new ArgumentException(ExceptionHelper.RegexOptionsNotConvertibleToInlineChars, "disableOptions");
+                throw new ArgumentException(ExceptionHelper.RegexOptionsNotConvertibleToInlineChars, nameof(disableOptions));
             }
 
             if (content == null)
             {
-                throw new ArgumentNullException("content");
+                throw new ArgumentNullException(nameof(content));
             }
 
             if (applyOptions != RegexOptions.None || disableOptions != RegexOptions.None)
@@ -1904,7 +1914,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (charCode < 0 || charCode > 0xFF)
             {
-                throw new ArgumentOutOfRangeException("charCode");
+                throw new ArgumentOutOfRangeException(nameof(charCode));
             }
 
             AppendBackslash('x');
@@ -1980,23 +1990,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             }
         }
 
-        private bool IsEnabled(RegexOptions options)
-        {
-            return (_currentOptions & options) == options;
-        }
+        private bool IsEnabled(RegexOptions options) => (_currentOptions & options) == options;
 
         /// <summary>
         /// Gets the <see cref="PatternSettings"/> object that modifies the pattern.
         /// </summary>
-        public PatternSettings Settings
-        {
-            get { return _settings; }
-        }
+        public PatternSettings Settings => _settings;
 
-        internal int Length
-        {
-            get { return _sb.Length; }
-        }
+        internal int Length => _sb.Length;
 
         internal Stack<CharGrouping> CharGroupings
         {

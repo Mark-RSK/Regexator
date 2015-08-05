@@ -18,7 +18,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (trueContent == null)
             {
-                throw new ArgumentNullException("trueContent");
+                throw new ArgumentNullException(nameof(trueContent));
             }
 
             _groupName = groupName;
@@ -30,12 +30,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (groupNumber < 0)
             {
-                throw new ArgumentOutOfRangeException("groupNumber");
+                throw new ArgumentOutOfRangeException(nameof(groupNumber));
             }
 
             if (trueContent == null)
             {
-                throw new ArgumentNullException("trueContent");
+                throw new ArgumentNullException(nameof(trueContent));
             }
 
             _groupName = groupNumber.ToString(CultureInfo.InvariantCulture);
@@ -43,14 +43,11 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             _falseContent = falseContent;
         }
 
-        public string GroupName
-        {
-            get { return _groupName; }
-        }
-
         internal override void AppendTo(PatternBuilder builder)
         {
             builder.AppendIfGroupInternal(GroupName, _trueContent, _falseContent, false);
         }
+
+        public string GroupName => _groupName;
     }
 }

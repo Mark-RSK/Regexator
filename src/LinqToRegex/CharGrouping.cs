@@ -33,7 +33,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (value == null)
             {
-                throw new ArgumentNullException("value");
+                throw new ArgumentNullException(nameof(value));
             }
 
             CharGrouping first = value;
@@ -51,20 +51,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="value">A Unicode character.</param>
         /// <returns></returns>
-        public CharGrouping Append(char value)
-        {
-            return Append(Chars.Character(value));
-        }
+        public CharGrouping Append(char value) => Append(Chars.Character(value));
 
         /// <summary>
         /// Appends a pattern that matches specified Unicode character.
         /// </summary>
         /// <param name="value">An enumerated constant that identifies ASCII character.</param>
         /// <returns></returns>
-        public CharGrouping Append(AsciiChar value)
-        {
-            return Append(Chars.Character(value));
-        }
+        public CharGrouping Append(AsciiChar value) => Append(Chars.Character(value));
 
         /// <summary>
         /// Appends a pattern that matches any one of the specified characters.
@@ -73,30 +67,21 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentException"></exception>
-        public CharGrouping Append(string characters)
-        {
-            return Append(Chars.Character(characters));
-        }
+        public CharGrouping Append(string characters) => Append(Chars.Character(characters));
 
         /// <summary>
         /// Appends a pattern that matches a character from the specified Unicode block.
         /// </summary>
         /// <param name="block">An enumerated constant that identifies Unicode block.</param>
         /// <returns></returns>
-        public CharGrouping Append(NamedBlock block)
-        {
-            return Append(Chars.Character(block));
-        }
+        public CharGrouping Append(NamedBlock block) => Append(Chars.Character(block));
 
         /// <summary>
         /// Appends a pattern that matches a character from the specified Unicode category.
         /// </summary>
         /// <param name="category">An enumerated constant that identifies Unicode category.</param>
         /// <returns></returns>
-        public CharGrouping Append(GeneralCategory category)
-        {
-            return Append(Chars.Character(category));
-        }
+        public CharGrouping Append(GeneralCategory category) => Append(Chars.Character(category));
 
         /// <summary>
         /// Appends a pattern that matches any one character from the specified range.
@@ -104,498 +89,333 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="first">The first character of the range.</param>
         /// <param name="last">The last character of the range.</param>
         /// <returns></returns>
-        public CharGrouping Range(char first, char last)
-        {
-            return Append(Chars.Range(first, last));
-        }
+        public CharGrouping Range(char first, char last) => Append(Chars.Range(first, last));
 
         /// <summary>
         /// Appends a pattern that matches a character that is not from the specified Unicode block.
         /// </summary>
         /// <param name="block">An enumerated constant that identifies Unicode block.</param>
         /// <returns></returns>
-        public CharGrouping Not(NamedBlock block)
-        {
-            return Append(Chars.Not(block));
-        }
+        public CharGrouping Not(NamedBlock block) => Append(Chars.Not(block));
 
         /// <summary>
         /// Appends a pattern that matches a character that is not from the specified Unicode category.
         /// </summary>
         /// <param name="category">An enumerated constant that identifies Unicode category.</param>
         /// <returns></returns>
-        public CharGrouping Not(GeneralCategory category)
-        {
-            return Append(Chars.Not(category));
-        }
+        public CharGrouping Not(GeneralCategory category) => Append(Chars.Not(category));
 
         /// <summary>
         /// Appends a pattern that matches a character from the digit character class.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping Digit()
-        {
-            return Append(Chars.Digit());
-        }
+        public CharGrouping Digit() => Append(Chars.Digit());
 
         /// <summary>
         /// Appends a pattern that matches a character that is not from the digit character class.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping NotDigit()
-        {
-            return Append(Chars.NotDigit());
-        }
+        public CharGrouping NotDigit() => Append(Chars.NotDigit());
 
         /// <summary>
         /// Appends a pattern that matches a character from the white-space character class.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping WhiteSpace()
-        {
-            return Append(Chars.WhiteSpace());
-        }
+        public CharGrouping WhiteSpace() => Append(Chars.WhiteSpace());
 
         /// <summary>
         /// Appends a pattern that matches a character that is not from the white-space character class.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping NotWhiteSpace()
-        {
-            return Append(Chars.NotWhiteSpace());
-        }
+        public CharGrouping NotWhiteSpace() => Append(Chars.NotWhiteSpace());
 
         /// <summary>
         /// Appends a pattern that matches a character from the word character class.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping WordChar()
-        {
-            return Append(Chars.WordChar());
-        }
+        public CharGrouping WordChar() => Append(Chars.WordChar());
 
         /// <summary>
         /// Appends a pattern that matches a character that is not from the word character class.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping NotWordChar()
-        {
-            return Append(Chars.NotWordChar());
-        }
+        public CharGrouping NotWordChar() => Append(Chars.NotWordChar());
 
         /// <summary>
         /// Appends a pattern that matches a latin alphabet letter or an arabic digit.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping Alphanumeric()
-        {
-            return Append(Chars.Alphanumeric());
-        }
+        public CharGrouping Alphanumeric() => Append(Chars.Alphanumeric());
 
         /// <summary>
         /// Appends a pattern that matches a latin alphabet letter, an arabic digit or an underscore.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping AlphanumericUnderscore()
-        {
-            return Append(Chars.AlphanumericUnderscore());
-        }
+        public CharGrouping AlphanumericUnderscore() => Append(Chars.AlphanumericUnderscore());
 
         /// <summary>
         /// Appends a pattern that matches a latin alphabet letter.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping LatinLetter()
-        {
-            return Append(Chars.LatinLetter());
-        }
+        public CharGrouping LatinLetter() => Append(Chars.LatinLetter());
 
         /// <summary>
         /// Matches an arabic digit.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping ArabicDigit()
-        {
-            return Append(Chars.ArabicDigit());
-        }
+        public CharGrouping ArabicDigit() => Append(Chars.ArabicDigit());
 
         /// <summary>
         /// Appends a pattern that matches a new line character, i.e. a linefeed character or a carriage return character.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping NewLineChar()
-        {
-            return Append(Chars.NewLineChar());
-        }
+        public CharGrouping NewLineChar() => Append(Chars.NewLineChar());
 
         /// <summary>
         /// Appends a pattern that matches a tab.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping Tab()
-        {
-            return Append(Chars.Tab());
-        }
+        public CharGrouping Tab() => Append(Chars.Tab());
 
         /// <summary>
         /// Appends a pattern that matches a linefeed.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping Linefeed()
-        {
-            return Append(Chars.Linefeed());
-        }
+        public CharGrouping Linefeed() => Append(Chars.Linefeed());
 
         /// <summary>
         /// Appends a pattern that matches a carriage return.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping CarriageReturn()
-        {
-            return Append(Chars.CarriageReturn());
-        }
+        public CharGrouping CarriageReturn() => Append(Chars.CarriageReturn());
 
         /// <summary>
         /// Appends a pattern that matches a space character.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping Space()
-        {
-            return Append(Chars.Space());
-        }
+        public CharGrouping Space() => Append(Chars.Space());
 
         /// <summary>
         /// Appends a pattern that matches an exclamation mark.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping ExclamationMark()
-        {
-            return Append(Chars.ExclamationMark());
-        }
+        public CharGrouping ExclamationMark() => Append(Chars.ExclamationMark());
 
         /// <summary>
         /// Appends a pattern that matches a quotation mark.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping QuoteMark()
-        {
-            return Append(Chars.QuoteMark());
-        }
+        public CharGrouping QuoteMark() => Append(Chars.QuoteMark());
 
         /// <summary>
         /// Appends a pattern that matches a number sign.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping NumberSign()
-        {
-            return Append(Chars.NumberSign());
-        }
+        public CharGrouping NumberSign() => Append(Chars.NumberSign());
 
         /// <summary>
         /// Appends a pattern that matches a dollar character.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping Dollar()
-        {
-            return Append(Chars.Dollar());
-        }
+        public CharGrouping Dollar() => Append(Chars.Dollar());
 
         /// <summary>
         /// Appends a pattern that matches a percent sign.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping Percent()
-        {
-            return Append(Chars.Percent());
-        }
+        public CharGrouping Percent() => Append(Chars.Percent());
 
         /// <summary>
         /// Matches an ampersand.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping Ampersand()
-        {
-            return Append(Chars.Ampersand());
-        }
+        public CharGrouping Ampersand() => Append(Chars.Ampersand());
 
         /// <summary>
         /// Appends a pattern that matches an apostrophe.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping Apostrophe()
-        {
-            return Append(Chars.Apostrophe());
-        }
+        public CharGrouping Apostrophe() => Append(Chars.Apostrophe());
 
         /// <summary>
         /// Appends a pattern that matches left parenthesis.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping LeftParenthesis()
-        {
-            return Append(Chars.LeftParenthesis());
-        }
+        public CharGrouping LeftParenthesis() => Append(Chars.LeftParenthesis());
 
         /// <summary>
         /// Appends a pattern that matches right parenthesis.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping RightParenthesis()
-        {
-            return Append(Chars.RightParenthesis());
-        }
+        public CharGrouping RightParenthesis() => Append(Chars.RightParenthesis());
 
         /// <summary>
         /// Appends a pattern that matches an asterisk.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping Asterisk()
-        {
-            return Append(Chars.Asterisk());
-        }
+        public CharGrouping Asterisk() => Append(Chars.Asterisk());
 
         /// <summary>
         /// Appends a pattern that matches a plus sign.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping Plus()
-        {
-            return Append(Chars.Plus());
-        }
+        public CharGrouping Plus() => Append(Chars.Plus());
 
         /// <summary>
         /// Appends a pattern that matches a comma.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping Comma()
-        {
-            return Append(Chars.Comma());
-        }
+        public CharGrouping Comma() => Append(Chars.Comma());
 
         /// <summary>
         /// Appends a pattern that matches a hyphen.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping Hyphen()
-        {
-            return Append(Chars.Hyphen());
-        }
+        public CharGrouping Hyphen() => Append(Chars.Hyphen());
 
         /// <summary>
         /// Appends a pattern that matches a period.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping Dot()
-        {
-            return Append(Chars.Dot());
-        }
+        public CharGrouping Dot() => Append(Chars.Dot());
 
         /// <summary>
         /// Appends a pattern that matches a slash.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping Slash()
-        {
-            return Append(Chars.Slash());
-        }
+        public CharGrouping Slash() => Append(Chars.Slash());
 
         /// <summary>
         /// Appends a pattern that matches a colon.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping Colon()
-        {
-            return Append(Chars.Colon());
-        }
+        public CharGrouping Colon() => Append(Chars.Colon());
 
         /// <summary>
         /// Appends a pattern that matches a semicolon.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping Semicolon()
-        {
-            return Append(Chars.Semicolon());
-        }
+        public CharGrouping Semicolon() => Append(Chars.Semicolon());
 
         /// <summary>
         /// Appends a pattern that matches a left angle bracket (less-than sign).
         /// </summary>
         /// <returns></returns>
-        public CharGrouping LeftAngleBracket()
-        {
-            return Append(Chars.LeftAngleBracket());
-        }
+        public CharGrouping LeftAngleBracket() => Append(Chars.LeftAngleBracket());
 
         /// <summary>
         /// Appends a pattern that matches an equals sign.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping EqualsSign()
-        {
-            return Append(Chars.EqualsSign());
-        }
+        public CharGrouping EqualsSign() => Append(Chars.EqualsSign());
 
         /// <summary>
         /// Appends a pattern that matches a right angle bracket (greater-than sign).
         /// </summary>
         /// <returns></returns>
-        public CharGrouping RightAngleBracket()
-        {
-            return Append(Chars.RightAngleBracket());
-        }
+        public CharGrouping RightAngleBracket() => Append(Chars.RightAngleBracket());
 
         /// <summary>
         /// Appends a pattern that matches a question mark.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping QuestionMark()
-        {
-            return Append(Chars.QuestionMark());
-        }
+        public CharGrouping QuestionMark() => Append(Chars.QuestionMark());
 
         /// <summary>
         /// Appends a pattern that matches an at sign.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping AtSign()
-        {
-            return Append(Chars.AtSign());
-        }
+        public CharGrouping AtSign() => Append(Chars.AtSign());
 
         /// <summary>
         /// Appends a pattern that matches left square bracket.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping LeftSquareBracket()
-        {
-            return Append(Chars.LeftSquareBracket());
-        }
+        public CharGrouping LeftSquareBracket() => Append(Chars.LeftSquareBracket());
 
         /// <summary>
         /// Appends a pattern that matches a backslash.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping Backslash()
-        {
-            return Append(Chars.Backslash());
-        }
+        public CharGrouping Backslash() => Append(Chars.Backslash());
 
         /// <summary>
         /// Appends a pattern that matches right square bracket.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping RightSquareBracket()
-        {
-            return Append(Chars.RightSquareBracket());
-        }
+        public CharGrouping RightSquareBracket() => Append(Chars.RightSquareBracket());
 
         /// <summary>
         /// Appends a pattern that matches a circumflex accent.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping CircumflexAccent()
-        {
-            return Append(Chars.CircumflexAccent());
-        }
+        public CharGrouping CircumflexAccent() => Append(Chars.CircumflexAccent());
 
         /// <summary>
         /// Appends a pattern that matches an underscore.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping Underscore()
-        {
-            return Append(Chars.Underscore());
-        }
+        public CharGrouping Underscore() => Append(Chars.Underscore());
 
         /// <summary>
         /// Appends a pattern that matches a grave accent.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping GraveAccent()
-        {
-            return Append(Chars.GraveAccent());
-        }
+        public CharGrouping GraveAccent() => Append(Chars.GraveAccent());
 
         /// <summary>
         /// Appends a pattern that matches left curly bracket.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping LeftCurlyBracket()
-        {
-            return Append(Chars.LeftCurlyBracket());
-        }
+        public CharGrouping LeftCurlyBracket() => Append(Chars.LeftCurlyBracket());
 
         /// <summary>
         /// Appends a pattern that matches a vertical bar.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping VerticalBar()
-        {
-            return Append(Chars.VerticalBar());
-        }
+        public CharGrouping VerticalBar() => Append(Chars.VerticalBar());
 
         /// <summary>
         /// Appends a pattern that matches right curly bracket.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping RightCurlyBracket()
-        {
-            return Append(Chars.RightCurlyBracket());
-        }
+        public CharGrouping RightCurlyBracket() => Append(Chars.RightCurlyBracket());
 
         /// <summary>
         /// Appends a pattern that matches left or right parenthesis.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping Parenthesis()
-        {
-            return Append(Chars.Parenthesis());
-        }
+        public CharGrouping Parenthesis() => Append(Chars.Parenthesis());
 
         /// <summary>
         /// Appends a pattern that matches left or right square bracket.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping SquareBracket()
-        {
-            return Append(Chars.SquareBracket());
-        }
+        public CharGrouping SquareBracket() => Append(Chars.SquareBracket());
 
         /// <summary>
         /// Appends a pattern that matches left or right curly bracket.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping CurlyBracket()
-        {
-            return Append(Chars.CurlyBracket());
-        }
+        public CharGrouping CurlyBracket() => Append(Chars.CurlyBracket());
 
         /// <summary>
         /// Appends a pattern that matches a tilde.
         /// </summary>
         /// <returns></returns>
-        public CharGrouping Tilde()
-        {
-            return Append(Chars.Tilde());
-        }
+        public CharGrouping Tilde() => Append(Chars.Tilde());
 
         /// <summary>
         /// Converts the current instance of the <see cref="CharGrouping"/> to the positive character group.
         /// </summary>
         /// <returns></returns>
-        public CharGroup ToGroup()
-        {
-            return CharGroup.Create(this, false);
-        }
+        public CharGroup ToGroup() => CharGroup.Create(this, false);
 
         /// <summary>
         /// Converts the current instance of the <see cref="CharGrouping"/> to the negative character group.
         /// </summary>
         /// <returns></returns>
-        public CharGroup ToNegativeGroup()
-        {
-            return CharGroup.Create(this, true);
-        }
+        public CharGroup ToNegativeGroup() => CharGroup.Create(this, true);
 
         /// <summary>
         /// Appends a core content of the current instance to a specified <see cref="PatternBuilder"/>.
@@ -612,7 +432,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (builder == null)
             {
-                throw new ArgumentNullException("builder");
+                throw new ArgumentNullException(nameof(builder));
             }
 
             AppendContentTo(builder);
@@ -627,7 +447,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (builder == null)
             {
-                throw new ArgumentNullException("builder");
+                throw new ArgumentNullException(nameof(builder));
             }
 
             builder.Append(this);
@@ -669,12 +489,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (left == null)
             {
-                throw new ArgumentNullException("left");
+                throw new ArgumentNullException(nameof(left));
             }
 
             if (right == null)
             {
-                throw new ArgumentNullException("right");
+                throw new ArgumentNullException(nameof(right));
             }
 
             return left.Append(Chars.Character(right));
@@ -691,12 +511,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (left == null)
             {
-                throw new ArgumentNullException("left");
+                throw new ArgumentNullException(nameof(left));
             }
 
             if (right == null)
             {
-                throw new ArgumentNullException("right");
+                throw new ArgumentNullException(nameof(right));
             }
 
             return left.Append(right);
@@ -713,12 +533,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (left == null)
             {
-                throw new ArgumentNullException("left");
+                throw new ArgumentNullException(nameof(left));
             }
 
             if (right == null)
             {
-                throw new ArgumentNullException("right");
+                throw new ArgumentNullException(nameof(right));
             }
 
             return Chars.Character(left).Append(Chars.Character(right));
@@ -735,7 +555,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (left == null)
             {
-                throw new ArgumentNullException("left");
+                throw new ArgumentNullException(nameof(left));
             }
 
             return left.Append(right);
@@ -752,7 +572,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (right == null)
             {
-                throw new ArgumentNullException("right");
+                throw new ArgumentNullException(nameof(right));
             }
 
             return Chars.Character(left).Append(Chars.Character(right));
@@ -767,7 +587,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (value == null)
             {
-                throw new ArgumentNullException("value");
+                throw new ArgumentNullException(nameof(value));
             }
 
             return Patterns.Not(value);

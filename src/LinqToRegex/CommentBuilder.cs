@@ -84,10 +84,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return null;
         }
 
-        public LineInfo Current
-        {
-            get { return _lines[_index]; }
-        }
+        public LineInfo Current => _lines[_index];
 
         private static readonly string[] _comments = new string[] {
             "any character",

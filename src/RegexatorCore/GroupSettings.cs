@@ -12,13 +12,7 @@ namespace Pihrtsoft.Text.RegularExpressions
     public class GroupSettings
         : ICloneable
     {
-        private readonly GroupSortProperty _sortPropertyName;
-        private readonly ListSortDirection _sortDirection;
-        private readonly ReadOnlyCollection<string> _ignoredGroups;
         private readonly HashSet<string> _ignoredSet;
-        private readonly bool _isZeroIgnored;
-        private readonly GroupInfoSorter _sorter;
-        private static readonly GroupSettings _default = new GroupSettings();
 
         public GroupSettings()
             : this(DefaultSortProperty, DefaultSortDirection)
@@ -39,87 +33,57 @@ namespace Pihrtsoft.Text.RegularExpressions
         {
             if (ignoredGroups == null)
             {
-                throw new ArgumentNullException("ignoredGroups");
+                throw new ArgumentNullException(nameof(ignoredGroups));
             }
 
-            _sortPropertyName = sortPropertyName;
-            _sortDirection = sortDirection;
-            _ignoredGroups = new ReadOnlyCollection<string>(ignoredGroups);
+            SortProperty = sortPropertyName;
+            SortDirection = sortDirection;
+            IgnoredGroups = new ReadOnlyCollection<string>(ignoredGroups);
             _ignoredSet = new HashSet<string>(ignoredGroups);
-            _isZeroIgnored = _ignoredGroups.Contains("0");
-            _sorter = new GroupInfoSorter(SortProperty, SortDirection);
+            IsZeroIgnored = IgnoredGroups.Contains("0");
+            Sorter = new GroupInfoSorter(SortProperty, SortDirection);
         }
 
         public static bool HasDefaultValues(GroupSettings settings)
         {
             if (settings == null)
             {
-                throw new ArgumentNullException("settings");
+                throw new ArgumentNullException(nameof(settings));
             }
 
             return settings.IgnoredGroups.Count == 0 &&
-                settings.SortProperty == GroupSettings.DefaultSortProperty &&
-                settings.SortDirection == GroupSettings.DefaultSortDirection;
+                settings.SortProperty == DefaultSortProperty &&
+                settings.SortDirection == DefaultSortDirection;
         }
 
         public bool IsIgnored(GroupInfo info)
         {
             if (info == null)
             {
-                throw new ArgumentNullException("info");
+                throw new ArgumentNullException(nameof(info));
             }
 
             return IsIgnored(info.Name);
         }
 
-        public bool IsIgnored(string groupName)
-        {
-            return _ignoredSet.Contains(groupName);
-        }
+        public bool IsIgnored(string groupName) => _ignoredSet.Contains(groupName);
 
-        public object Clone()
-        {
-            return new GroupSettings(SortProperty, SortDirection, IgnoredGroups.ToArray());
-        }
+        public object Clone() => new GroupSettings(SortProperty, SortDirection, IgnoredGroups.ToArray());
 
-        public bool IsZeroIgnored
-        {
-            get { return _isZeroIgnored; }
-        }
+        public bool IsZeroIgnored { get; }
 
-        public GroupInfoSorter Sorter
-        {
-            get { return _sorter; }
-        }
+        public GroupInfoSorter Sorter { get; }
 
-        public GroupSortProperty SortProperty
-        {
-            get { return _sortPropertyName; }
-        }
+        public GroupSortProperty SortProperty { get; }
 
-        public ListSortDirection SortDirection
-        {
-            get { return _sortDirection; }
-        }
+        public ListSortDirection SortDirection { get; }
 
-        public ReadOnlyCollection<string> IgnoredGroups
-        {
-            get { return _ignoredGroups; }
-        }
+        public ReadOnlyCollection<string> IgnoredGroups { get; }
 
-        public static ListSortDirection DefaultSortDirection
-        {
-            get { return ListSortDirection.Ascending; }
-        }
+        public static ListSortDirection DefaultSortDirection => ListSortDirection.Ascending;
 
-        public static GroupSortProperty DefaultSortProperty
-        {
-            get { return GroupSortProperty.Index; }
-        }
+        public static GroupSortProperty DefaultSortProperty => GroupSortProperty.Index;
 
-        public static GroupSettings Default
-        {
-            get { return _default; }
-        }
+        public static GroupSettings Default { get; } = new GroupSettings();
     }
 }

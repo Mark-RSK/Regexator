@@ -16,7 +16,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 if (exactCount < 0)
                 {
-                    throw new ArgumentOutOfRangeException("exactCount");
+                    throw new ArgumentOutOfRangeException(nameof(exactCount));
                 }
 
                 _count1 = exactCount;
@@ -27,7 +27,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 if (minCount < 0 || maxCount < minCount)
                 {
-                    throw new ArgumentOutOfRangeException("minCount");
+                    throw new ArgumentOutOfRangeException(nameof(minCount));
                 }
 
                 _count1 = minCount;
@@ -56,7 +56,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 if (minCount < 0)
                 {
-                    throw new ArgumentOutOfRangeException("minCount");
+                    throw new ArgumentOutOfRangeException(nameof(minCount));
                 }
 
                 _minCount = minCount;

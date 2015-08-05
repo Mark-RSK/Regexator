@@ -13,7 +13,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (groupNumber < 0)
             {
-                throw new ArgumentOutOfRangeException("groupNumber");
+                throw new ArgumentOutOfRangeException(nameof(groupNumber));
             }
 
             _groupNumber = groupNumber;
@@ -24,9 +24,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             builder.AppendGroupReferenceInternal(GroupNumber);
         }
 
-        public int GroupNumber
-        {
-            get { return _groupNumber; }
-        }
+        public int GroupNumber => _groupNumber;
     }
 }

@@ -22,7 +22,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq.Extensions
         {
             if (matches == null)
             {
-                throw new ArgumentNullException("matches");
+                throw new ArgumentNullException(nameof(matches));
             }
 
             return matches.SelectMany(match => match.Groups.Cast<Group>());
@@ -39,12 +39,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq.Extensions
         {
             if (matches == null)
             {
-                throw new ArgumentNullException("matches");
+                throw new ArgumentNullException(nameof(matches));
             }
 
             if (groupName == null)
             {
-                throw new ArgumentNullException("groupName");
+                throw new ArgumentNullException(nameof(groupName));
             }
 
             return matches.Select(match => match.Groups[groupName]);
@@ -62,12 +62,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq.Extensions
         {
             if (matches == null)
             {
-                throw new ArgumentNullException("matches");
+                throw new ArgumentNullException(nameof(matches));
             }
 
             if (groupNumber < 0)
             {
-                throw new ArgumentOutOfRangeException("groupNumber");
+                throw new ArgumentOutOfRangeException(nameof(groupNumber));
             }
 
             return matches.Select(match => match.Groups[groupNumber]);
@@ -163,7 +163,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq.Extensions
         {
             if (groups == null)
             {
-                throw new ArgumentNullException("groups");
+                throw new ArgumentNullException(nameof(groups));
             }
 
             return groups.SelectMany(group => group.Captures.Cast<Capture>());
@@ -179,7 +179,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq.Extensions
         {
             if (collection == null)
             {
-                throw new ArgumentNullException("collection");
+                throw new ArgumentNullException(nameof(collection));
             }
 
             return collection.Select(capture => capture.Value);

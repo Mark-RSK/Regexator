@@ -4,45 +4,23 @@ namespace Pihrtsoft.Text.RegularExpressions
 {
     public class ReplaceResult
     {
-        private readonly string _value;
-        private readonly int _index;
-        private readonly ReplaceItem _replaceItem;
-
         internal ReplaceResult(string value, int index, ReplaceItem replaceItem)
         {
-            _value = value;
-            _index = index;
-            _replaceItem = replaceItem;
+            Value = value;
+            Index = index;
+            ReplaceItem = replaceItem;
         }
 
-        public override string ToString()
-        {
-            return _value;
-        }
+        public override string ToString() => Value;
 
-        public string Value
-        {
-            get { return _value; }
-        }
+        public string Value { get; }
 
-        public int Index
-        {
-            get { return _index; }
-        }
+        public int Index { get; }
 
-        public int Length
-        {
-            get { return _value.Length; }
-        }
+        public int Length => Value.Length;
 
-        public int EndIndex
-        {
-            get { return _index + _value.Length; }
-        }
+        public int EndIndex => Index + Value.Length;
 
-        public ReplaceItem ReplaceItem
-        {
-            get { return _replaceItem; }
-        }
+        public ReplaceItem ReplaceItem { get; }
     }
 }

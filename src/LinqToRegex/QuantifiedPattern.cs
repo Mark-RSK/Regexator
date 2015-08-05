@@ -19,9 +19,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Specifies that the quantifier is lazy. Quantified pattern will be matched as few times as possible.
         /// </summary>
         /// <returns></returns>
-        public Pattern Lazy()
-        {
-            return AppendInternal(new LazyQuantifier());
-        }
+        public Pattern Lazy() => AppendInternal(new LazyQuantifier());
     }
 }

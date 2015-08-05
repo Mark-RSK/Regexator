@@ -298,20 +298,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="category">An enumerated constant that identifies Unicode category.</param>
         /// <returns></returns>
-        public static string GetCategoryDesignation(GeneralCategory category)
-        {
-            return CategoryDesignations[(int)category];
-        }
+        public static string GetCategoryDesignation(GeneralCategory category) => CategoryDesignations[(int)category];
 
         /// <summary>
         /// Gets a designation of the specified Unicode block.
         /// </summary>
         /// <param name="block">An enumerated constant that identifies Unicode block.</param>
         /// <returns></returns>
-        public static string GetBlockDesignation(NamedBlock block)
-        {
-            return BlockDesignations[(int)block];
-        }
+        public static string GetBlockDesignation(NamedBlock block) => BlockDesignations[(int)block];
 
         internal static readonly string[] CategoryDesignations = new string[]
         {

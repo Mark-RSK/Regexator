@@ -137,7 +137,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (value == null)
             {
-                throw new ArgumentNullException("value");
+                throw new ArgumentNullException(nameof(value));
             }
 
             return value.Negate();
@@ -147,12 +147,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (left == null)
             {
-                throw new ArgumentNullException("left");
+                throw new ArgumentNullException(nameof(left));
             }
 
             if (right == null)
             {
-                throw new ArgumentNullException("right");
+                throw new ArgumentNullException(nameof(right));
             }
 
             return new OrContainer(left, right);
@@ -724,7 +724,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (first == null)
             {
-                throw new ArgumentNullException("first");
+                throw new ArgumentNullException(nameof(first));
             }
 
             if (others == null || others.Length == 0)
@@ -767,7 +767,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (first == null)
             {
-                throw new ArgumentNullException("first");
+                throw new ArgumentNullException(nameof(first));
             }
 
             if (others == null || others.Length == 0)
@@ -810,7 +810,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (first == null)
             {
-                throw new ArgumentNullException("first");
+                throw new ArgumentNullException(nameof(first));
             }
 
             if (others == null || others.Length == 0)
@@ -857,7 +857,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (first == null)
             {
-                throw new ArgumentNullException("first");
+                throw new ArgumentNullException(nameof(first));
             }
 
             if (others == null || others.Length == 0)
@@ -906,7 +906,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (first == null)
             {
-                throw new ArgumentNullException("first");
+                throw new ArgumentNullException(nameof(first));
             }
 
             if (others == null || others.Length == 0)
@@ -953,7 +953,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (first == null)
             {
-                throw new ArgumentNullException("first");
+                throw new ArgumentNullException(nameof(first));
             }
 
             if (others == null || others.Length == 0)
@@ -1000,7 +1000,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (first == null)
             {
-                throw new ArgumentNullException("first");
+                throw new ArgumentNullException(nameof(first));
             }
 
             if (others == null || others.Length == 0)
@@ -4075,7 +4075,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public static Pattern Balance(char openingCharacter, char closingCharacter, string groupName, string openGroupName)
         {
             RegexUtility.CheckGroupName(groupName);
-            RegexUtility.CheckGroupName(openGroupName, "openGroupName");
+            RegexUtility.CheckGroupName(openGroupName, nameof(openGroupName));
 
             return BalanceInternal(openingCharacter, closingCharacter, groupName, openGroupName);
         }

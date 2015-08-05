@@ -8,40 +8,27 @@ namespace Pihrtsoft.Text.RegularExpressions
     [DebuggerDisplay("Index: {Index}, Name: {Name}")]
     public class GroupInfo
     {
-        private readonly int _index;
-        private readonly string _name;
-        private static readonly GroupInfo _default = new GroupInfo(0, "0");
-
         internal GroupInfo(int index, string name)
         {
-            _index = index;
-            _name = name;
+            Index = index;
+            Name = name;
         }
 
         protected GroupInfo(GroupInfo info)
         {
             if (info == null)
             {
-                throw new ArgumentNullException("info");
+                throw new ArgumentNullException(nameof(info));
             }
 
-            _index = info.Index;
-            _name = info.Name;
+            Index = info.Index;
+            Name = info.Name;
         }
 
-        public int Index
-        {
-            get { return _index; }
-        }
+        public int Index { get; }
 
-        public string Name
-        {
-            get { return _name; ; }
-        }
+        public string Name { get; }
 
-        public static GroupInfo Default
-        {
-            get { return _default; }
-        }
+        public static GroupInfo Default { get; } = new GroupInfo(0, "0");
     }
 }

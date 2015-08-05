@@ -20,7 +20,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 if (builder == null)
                 {
-                    throw new ArgumentNullException("builder");
+                    throw new ArgumentNullException(nameof(builder));
                 }
 
                 builder.Append(_value, true);
@@ -41,7 +41,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 if (builder == null)
                 {
-                    throw new ArgumentNullException("builder");
+                    throw new ArgumentNullException(nameof(builder));
                 }
 
                 builder.Append(_value, true);
@@ -57,12 +57,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 if (characters == null)
                 {
-                    throw new ArgumentNullException("characters");
+                    throw new ArgumentNullException(nameof(characters));
                 }
 
                 if (characters.Length == 0)
                 {
-                    throw new ArgumentException(ExceptionHelper.CharGroupCannotBeEmpty, "characters");
+                    throw new ArgumentException(ExceptionHelper.CharGroupCannotBeEmpty, nameof(characters));
                 }
 
                 _characters = characters;
@@ -72,7 +72,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 if (builder == null)
                 {
-                    throw new ArgumentNullException("builder");
+                    throw new ArgumentNullException(nameof(builder));
                 }
 
                 builder.Append(_characters, true);
@@ -89,7 +89,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 if (lastChar < firstChar)
                 {
-                    throw new ArgumentOutOfRangeException("lastChar");
+                    throw new ArgumentOutOfRangeException(nameof(lastChar));
                 }
 
                 _firstChar = firstChar;
@@ -100,7 +100,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 if (builder == null)
                 {
-                    throw new ArgumentNullException("builder");
+                    throw new ArgumentNullException(nameof(builder));
                 }
 
                 builder.AppendCharRange(_firstChar, _lastChar);
@@ -121,7 +121,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 if (builder == null)
                 {
-                    throw new ArgumentNullException("builder");
+                    throw new ArgumentNullException(nameof(builder));
                 }
 
                 builder.AppendCharClass(_value);
@@ -140,20 +140,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 _negative = negative;
             }
 
-            public virtual bool Negative
-            {
-                get { return _negative; }
-            }
-
             protected override void AppendItemContentTo(PatternBuilder builder)
             {
                 if (builder == null)
                 {
-                    throw new ArgumentNullException("builder");
+                    throw new ArgumentNullException(nameof(builder));
                 }
 
                 builder.AppendGeneralCategory(_category, Negative);
             }
+
+            public virtual bool Negative => _negative;
         }
 
         internal class NamedBlockCharGrouping
@@ -168,20 +165,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 _negative = negative;
             }
 
-            public virtual bool Negative
-            {
-                get { return _negative; }
-            }
-
             protected override void AppendItemContentTo(PatternBuilder builder)
             {
                 if (builder == null)
                 {
-                    throw new ArgumentNullException("builder");
+                    throw new ArgumentNullException(nameof(builder));
                 }
 
                 builder.AppendNamedBlock(_block, Negative);
             }
+
+            public virtual bool Negative => _negative;
         }
 
         internal class CharGroupingCharGrouping
@@ -193,7 +187,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 if (value == null)
                 {
-                    throw new ArgumentNullException("value");
+                    throw new ArgumentNullException(nameof(value));
                 }
 
                 _value = value;
@@ -203,7 +197,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 if (builder == null)
                 {
-                    throw new ArgumentNullException("builder");
+                    throw new ArgumentNullException(nameof(builder));
                 }
 
                 _value.AppendContentTo(builder);

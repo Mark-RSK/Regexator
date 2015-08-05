@@ -10,10 +10,6 @@ namespace Pihrtsoft.Text.RegularExpressions
 {
     public class SplitData
     {
-        private readonly Regex _regex;
-        private readonly GroupInfoCollection _groupInfos;
-        private readonly string _input;
-        private readonly int _limit;
         private LimitState _limitState;
         private ReadOnlyCollection<string> _values;
         private SplitItemCollection _items;
@@ -27,34 +23,34 @@ namespace Pihrtsoft.Text.RegularExpressions
         {
             if (regex == null)
             {
-                throw new ArgumentNullException("regex");
+                throw new ArgumentNullException(nameof(regex));
             }
 
             if (input == null)
             {
-                throw new ArgumentNullException("input");
+                throw new ArgumentNullException(nameof(input));
             }
 
             if (limit < 0)
             {
-                throw new ArgumentOutOfRangeException("limit");
+                throw new ArgumentOutOfRangeException(nameof(limit));
             }
 
-            _regex = regex;
-            _input = input;
-            _limit = limit;
-            _groupInfos = new GroupInfoCollection(regex);
+            Regex = regex;
+            Input = input;
+            Limit = limit;
+            GroupInfos = new GroupInfoCollection(regex);
         }
 
         private string[] Split()
         {
             if (Limit == MatchData.InfiniteLimit)
             {
-                return this.Regex.Split(Input);
+                return Regex.Split(Input);
             }
             else
             {
-                return this.Regex.Split(Input, Limit);
+                return Regex.Split(Input, Limit);
             }
         }
 
@@ -87,10 +83,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             _limitState = (item.Success && item.ItemIndex > 0) ? LimitState.Limited : LimitState.NotLimited;
         }
 
-        public Match Match()
-        {
-            return Regex.Match(Input);
-        }
+        public Match Match() => Regex.Match(Input);
 
         public ReadOnlyCollection<string> Values
         {
@@ -123,39 +116,18 @@ namespace Pihrtsoft.Text.RegularExpressions
             }
         }
 
-        public ReadOnlyCollection<GroupInfo> SuccessGroups
-        {
-            get { return Items.SuccessGroups; }
-        }
+        public ReadOnlyCollection<GroupInfo> SuccessGroups => Items.SuccessGroups;
 
-        public ReadOnlyCollection<GroupInfo> UnsuccessGroups
-        {
-            get { return Items.UnsuccessGroups; }
-        }
+        public ReadOnlyCollection<GroupInfo> UnsuccessGroups => Items.UnsuccessGroups;
 
-        public Regex Regex
-        {
-            get { return _regex; }
-        }
+        public Regex Regex { get; }
 
-        public GroupInfoCollection GroupInfos
-        {
-            get { return _groupInfos; }
-        }
+        public GroupInfoCollection GroupInfos { get; }
 
-        public string Input
-        {
-            get { return _input; }
-        }
+        public string Input { get; }
 
-        public int Limit
-        {
-            get { return _limit; }
-        }
+        public int Limit { get; }
 
-        public LimitState LimitState
-        {
-            get { return _limitState; }
-        }
+        public LimitState LimitState => _limitState;
     }
 }

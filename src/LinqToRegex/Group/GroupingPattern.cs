@@ -28,7 +28,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (content == null)
             {
-                throw new ArgumentNullException("content");
+                throw new ArgumentNullException(nameof(content));
             }
 
             _content = content;
@@ -43,15 +43,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (content == null)
             {
-                throw new ArgumentNullException("content");
+                throw new ArgumentNullException(nameof(content));
             }
 
             _content = content.Content;
         }
 
-        internal object Content
-        {
-            get { return _content; }
-        }
+        internal object Content => _content;
     }
 }

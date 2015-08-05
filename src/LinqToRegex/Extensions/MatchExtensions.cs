@@ -21,7 +21,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq.Extensions
         {
             if (match == null)
             {
-                throw new ArgumentNullException("match");
+                throw new ArgumentNullException(nameof(match));
             }
 
             return match.Groups[groupName];
@@ -38,7 +38,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq.Extensions
         {
             if (match == null)
             {
-                throw new ArgumentNullException("match");
+                throw new ArgumentNullException(nameof(match));
             }
 
             return match.Groups[groupNumber];

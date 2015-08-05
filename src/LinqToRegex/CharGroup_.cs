@@ -10,19 +10,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             : CharGroup
         {
             private readonly char _value;
-            private readonly bool _negative;
 
             public CharCharGroup(char value, bool negative)
             {
                 _value = value;
-                _negative = negative;
+                Negative = negative;
             }
 
             internal override void AppendContentTo(PatternBuilder builder)
             {
                 if (builder == null)
                 {
-                    throw new ArgumentNullException("builder");
+                    throw new ArgumentNullException(nameof(builder));
                 }
 
                 builder.Append(_value, true);
@@ -33,29 +32,25 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 builder.AppendCharGroup(_value, Negative);
             }
 
-            public override bool Negative
-            {
-                get { return _negative; }
-            }
+            public override bool Negative { get; }
         }
 
         internal sealed class AsciiCharCharGroup
             : CharGroup
         {
             private readonly AsciiChar _value;
-            private readonly bool _negative;
 
             public AsciiCharCharGroup(AsciiChar value, bool negative)
             {
                 _value = value;
-                _negative = negative;
+                Negative = negative;
             }
 
             internal override void AppendContentTo(PatternBuilder builder)
             {
                 if (builder == null)
                 {
-                    throw new ArgumentNullException("builder");
+                    throw new ArgumentNullException(nameof(builder));
                 }
 
                 builder.Append(_value, true);
@@ -66,39 +61,35 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 builder.AppendCharGroup(_value, Negative);
             }
 
-            public override bool Negative
-            {
-                get { return _negative; }
-            }
+            public override bool Negative { get; }
         }
 
         internal sealed class TextCharGroup
             : CharGroup
         {
             private readonly string _characters;
-            private readonly bool _negative;
 
             public TextCharGroup(string characters, bool negative)
             {
                 if (characters == null)
                 {
-                    throw new ArgumentNullException("characters");
+                    throw new ArgumentNullException(nameof(characters));
                 }
 
                 if (characters.Length == 0)
                 {
-                    throw new ArgumentException(ExceptionHelper.CharGroupCannotBeEmpty, "characters");
+                    throw new ArgumentException(ExceptionHelper.CharGroupCannotBeEmpty, nameof(characters));
                 }
 
                 _characters = characters;
-                _negative = negative;
+                Negative = negative;
             }
 
             internal override void AppendContentTo(PatternBuilder builder)
             {
                 if (builder == null)
                 {
-                    throw new ArgumentNullException("builder");
+                    throw new ArgumentNullException(nameof(builder));
                 }
 
                 builder.Append(_characters, true);
@@ -109,39 +100,35 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 builder.AppendCharGroup(_characters, Negative);
             }
 
-            public override bool Negative
-            {
-                get { return _negative; }
-            }
+            public override bool Negative { get; }
         }
 
         internal sealed class CharactersCharGroup
             : CharGroup
         {
             private readonly char[] _characters;
-            private readonly bool _negative;
 
             public CharactersCharGroup(char[] characters, bool negative)
             {
                 if (characters == null)
                 {
-                    throw new ArgumentNullException("characters");
+                    throw new ArgumentNullException(nameof(characters));
                 }
 
                 if (characters.Length == 0)
                 {
-                    throw new ArgumentException(ExceptionHelper.CharGroupCannotBeEmpty, "characters");
+                    throw new ArgumentException(ExceptionHelper.CharGroupCannotBeEmpty, nameof(characters));
                 }
 
                 _characters = characters;
-                _negative = negative;
+                Negative = negative;
             }
 
             internal override void AppendContentTo(PatternBuilder builder)
             {
                 if (builder == null)
                 {
-                    throw new ArgumentNullException("builder");
+                    throw new ArgumentNullException(nameof(builder));
                 }
 
                 builder.Append(_characters, true);
@@ -152,10 +139,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 builder.AppendCharGroup(_characters, Negative);
             }
 
-            public override bool Negative
-            {
-                get { return _negative; }
-            }
+            public override bool Negative { get; }
         }
 
         internal sealed class CharRangeCharGroup
@@ -163,30 +147,24 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             private readonly char _firstChar;
             private readonly char _lastChar;
-            private readonly bool _negative;
 
             public CharRangeCharGroup(char firstChar, char lastChar, bool negative)
             {
                 if (lastChar < firstChar)
                 {
-                    throw new ArgumentOutOfRangeException("lastChar");
+                    throw new ArgumentOutOfRangeException(nameof(lastChar));
                 }
 
                 _firstChar = firstChar;
                 _lastChar = lastChar;
-                _negative = negative;
-            }
-
-            public override bool Negative
-            {
-                get { return _negative; }
+                Negative = negative;
             }
 
             internal override void AppendContentTo(PatternBuilder builder)
             {
                 if (builder == null)
                 {
-                    throw new ArgumentNullException("builder");
+                    throw new ArgumentNullException(nameof(builder));
                 }
 
                 builder.AppendCharRange(_firstChar, _lastChar);
@@ -196,18 +174,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 builder.AppendCharGroup(_firstChar, _lastChar, Negative);
             }
+
+            public override bool Negative { get; }
         }
 
         internal sealed class GeneralCategoryCharGroup
             : CharGroup
         {
             private readonly GeneralCategory _category;
-            private readonly bool _negative;
 
             public GeneralCategoryCharGroup(GeneralCategory category, bool negative)
             {
                 _category = category;
-                _negative = negative;
+                Negative = negative;
             }
 
             internal override void AppendContentTo(PatternBuilder builder)
@@ -220,22 +199,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 builder.AppendCharGroup(_category, Negative);
             }
 
-            public override bool Negative
-            {
-                get { return _negative; }
-            }
+            public override bool Negative { get; }
         }
 
         internal sealed class NamedBlockCharGroup
             : CharGroup
         {
             private readonly NamedBlock _block;
-            private readonly bool _negative;
 
             public NamedBlockCharGroup(NamedBlock block, bool negative)
             {
                 _block = block;
-                _negative = negative;
+                Negative = negative;
             }
 
             internal override void AppendContentTo(PatternBuilder builder)
@@ -248,10 +223,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 builder.AppendCharGroup(_block, Negative);
             }
 
-            public override bool Negative
-            {
-                get { return _negative; }
-            }
+            public override bool Negative { get; }
         }
 
         internal sealed class CharClassCharGroup
@@ -279,17 +251,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             : CharGroup
         {
             private readonly CharGrouping _item;
-            private readonly bool _negative;
 
             public CharGroupingCharGroup(CharGrouping value, bool negative)
             {
                 if (value == null)
                 {
-                    throw new ArgumentNullException("value");
+                    throw new ArgumentNullException(nameof(value));
                 }
 
                 _item = value;
-                _negative = negative;
+                Negative = negative;
             }
 
             internal override void AppendContentTo(PatternBuilder builder)
@@ -302,27 +273,23 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 builder.AppendCharGroup(_item, Negative);
             }
 
-            public override bool Negative
-            {
-                get { return _negative; }
-            }
+            public override bool Negative { get; }
         }
 
         internal sealed class CharGroupCharGroup
             : CharGroup
         {
             private readonly CharGroup _group;
-            private readonly bool _negative;
 
             internal CharGroupCharGroup(CharGroup group, bool negative)
             {
                 if (group == null)
                 {
-                    throw new ArgumentNullException("group");
+                    throw new ArgumentNullException(nameof(group));
                 }
 
                 _group = group;
-                _negative = negative;
+                Negative = negative;
             }
 
             internal override void AppendContentTo(PatternBuilder builder)
@@ -337,10 +304,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 builder.AppendCharGroupEnd();
             }
 
-            public override bool Negative
-            {
-                get { return _negative; }
-            }
+            public override bool Negative { get; }
         }
     }
 }

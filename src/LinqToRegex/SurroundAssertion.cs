@@ -18,17 +18,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (backAssertion == null)
             {
-                throw new ArgumentNullException("backAssertion");
+                throw new ArgumentNullException(nameof(backAssertion));
             }
 
             if (content == null)
             {
-                throw new ArgumentNullException("content");
+                throw new ArgumentNullException(nameof(content));
             }
 
             if (assertion == null)
             {
-                throw new ArgumentNullException("assertion");
+                throw new ArgumentNullException(nameof(assertion));
             }
 
             _backAssertion = backAssertion;

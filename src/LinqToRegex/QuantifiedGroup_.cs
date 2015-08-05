@@ -17,7 +17,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 if (exactCount < 0)
                 {
-                    throw new ArgumentOutOfRangeException("exactCount");
+                    throw new ArgumentOutOfRangeException(nameof(exactCount));
                 }
 
                 _count1 = exactCount;
@@ -29,7 +29,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 if (minCount < 0 || maxCount < minCount)
                 {
-                    throw new ArgumentOutOfRangeException("minCount");
+                    throw new ArgumentOutOfRangeException(nameof(minCount));
                 }
 
                 _count1 = minCount;
@@ -40,7 +40,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 if (builder == null)
                 {
-                    throw new ArgumentNullException("builder");
+                    throw new ArgumentNullException(nameof(builder));
                 }
 
                 if (_count2 == -1)
@@ -64,7 +64,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 if (minCount < 0)
                 {
-                    throw new ArgumentOutOfRangeException("minCount");
+                    throw new ArgumentOutOfRangeException(nameof(minCount));
                 }
 
                 _minCount = minCount;
@@ -74,7 +74,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 if (builder == null)
                 {
-                    throw new ArgumentNullException("builder");
+                    throw new ArgumentNullException(nameof(builder));
                 }
 
                 builder.AppendCountFromInternal(_minCount);
@@ -93,7 +93,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 if (builder == null)
                 {
-                    throw new ArgumentNullException("builder");
+                    throw new ArgumentNullException(nameof(builder));
                 }
 
                 builder.AppendMaybe();
@@ -112,7 +112,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 if (builder == null)
                 {
-                    throw new ArgumentNullException("builder");
+                    throw new ArgumentNullException(nameof(builder));
                 }
 
                 builder.AppendMaybeMany();
@@ -131,7 +131,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 if (builder == null)
                 {
-                    throw new ArgumentNullException("builder");
+                    throw new ArgumentNullException(nameof(builder));
                 }
 
                 builder.AppendOneMany();

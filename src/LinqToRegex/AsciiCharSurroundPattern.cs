@@ -15,7 +15,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (content == null)
             {
-                throw new ArgumentNullException("content");
+                throw new ArgumentNullException(nameof(content));
             }
 
             _charBefore = charBefore;

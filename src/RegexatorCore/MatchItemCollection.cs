@@ -12,18 +12,14 @@ namespace Pihrtsoft.Text.RegularExpressions
         private CaptureItemCollection _captureItems;
         private ReadOnlyCollection<GroupInfo> _successGroups;
         private ReadOnlyCollection<GroupInfo> _unsuccessGroups;
-        private readonly GroupInfoCollection _groupInfos;
 
         internal MatchItemCollection(IList<MatchItem> list, GroupInfoCollection groupInfos)
             : base(list)
         {
-            _groupInfos = groupInfos;
+            GroupInfos = groupInfos;
         }
 
-        public int CaptureCount
-        {
-            get { return CaptureItems.Count; }
-        }
+        public int CaptureCount => CaptureItems.Count;
 
         public CaptureItemCollection CaptureItems
         {
@@ -71,9 +67,6 @@ namespace Pihrtsoft.Text.RegularExpressions
             }
         }
 
-        public GroupInfoCollection GroupInfos
-        {
-            get { return _groupInfos; }
-        }
+        public GroupInfoCollection GroupInfos { get; }
     }
 }

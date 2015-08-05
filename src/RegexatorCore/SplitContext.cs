@@ -7,30 +7,17 @@ namespace Pihrtsoft.Text.RegularExpressions
 {
     internal class SplitContext
     {
-        private readonly ReadOnlyCollection<string> _values;
-        private readonly ReadOnlyCollection<GroupInfo> _groupInfos;
-        private readonly int _inputLength;
-
         public SplitContext(SplitData data)
         {
-            _values = data.Values;
-            _groupInfos = data.GroupInfos.ExceptZero().ToList().AsReadOnly();
-            _inputLength = data.Input.Length;
+            Values = data.Values;
+            GroupInfos = data.GroupInfos.ExceptZero().ToList().AsReadOnly();
+            InputLength = data.Input.Length;
         }
 
-        public ReadOnlyCollection<string> Values
-        {
-            get { return _values; }
-        }
+        public ReadOnlyCollection<string> Values { get; }
 
-        public ReadOnlyCollection<GroupInfo> GroupInfos
-        {
-            get { return _groupInfos; }
-        }
+        public ReadOnlyCollection<GroupInfo> GroupInfos { get; }
 
-        public int InputLength
-        {
-            get { return _inputLength; }
-        }
+        public int InputLength { get; }
     }
 }

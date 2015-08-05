@@ -10,9 +10,6 @@ namespace Pihrtsoft.Text.RegularExpressions
     public class GroupInfoSorter
         : IComparer<GroupInfo>
     {
-        private readonly GroupSortProperty _sortPropertyName;
-        private readonly ListSortDirection _sortDirection;
-
         public GroupInfoSorter()
             : this(GroupSettings.DefaultSortProperty, GroupSettings.DefaultSortDirection)
         {
@@ -20,39 +17,34 @@ namespace Pihrtsoft.Text.RegularExpressions
 
         public GroupInfoSorter(GroupSortProperty sortPropertyName, ListSortDirection sortDirection)
         {
-            _sortPropertyName = sortPropertyName;
-            _sortDirection = sortDirection;
+            SortPropertyName = sortPropertyName;
+            SortDirection = sortDirection;
         }
 
         public int Compare(GroupInfo x, GroupInfo y)
         {
-            if (object.ReferenceEquals(x, y))
+            if (ReferenceEquals(x, y))
             {
                 return 0;
             }
 
-            if (object.ReferenceEquals(x, null))
+            if (ReferenceEquals(x, null))
             {
                 return -1;
             }
 
-            if (object.ReferenceEquals(y, null))
+            if (ReferenceEquals(y, null))
             {
                 return 1;
             }
 
             int value = (SortPropertyName == GroupSortProperty.Name) ? string.Compare(x.Name, y.Name, StringComparison.CurrentCulture) : x.Index.CompareTo(y.Index);
+
             return SortDirection == ListSortDirection.Ascending ? value : -value;
         }
 
-        public GroupSortProperty SortPropertyName
-        {
-            get { return _sortPropertyName; }
-        }
+        public GroupSortProperty SortPropertyName { get; }
 
-        public ListSortDirection SortDirection
-        {
-            get { return _sortDirection; }
-        }
+        public ListSortDirection SortDirection { get; }
     }
 }

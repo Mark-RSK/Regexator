@@ -15,12 +15,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (testContent == null)
             {
-                throw new ArgumentNullException("testContent");
+                throw new ArgumentNullException(nameof(testContent));
             }
 
             if (trueContent == null)
             {
-                throw new ArgumentNullException("trueContent");
+                throw new ArgumentNullException(nameof(trueContent));
             }
 
             _testContent = testContent;

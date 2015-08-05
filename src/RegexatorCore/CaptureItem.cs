@@ -6,72 +6,34 @@ namespace Pihrtsoft.Text.RegularExpressions
 {
     public sealed class CaptureItem
     {
-        private readonly Capture _capture;
-        private readonly GroupItem _groupItem;
-        private readonly int _itemIndex;
-        private readonly string _key;
-
         internal CaptureItem(Capture capture, GroupItem groupItem, int itemIndex)
         {
-            _capture = capture;
-            _groupItem = groupItem;
-            _itemIndex = itemIndex;
-            _key = groupItem.Key + itemIndex;
+            Capture = capture;
+            GroupItem = groupItem;
+            ItemIndex = itemIndex;
+            Key = groupItem.Key + itemIndex;
         }
 
-        public override string ToString()
-        {
-            return Value;
-        }
+        public override string ToString() => Value;
 
-        public string Value
-        {
-            get { return Capture.Value; }
-        }
+        public string Value => Capture.Value;
 
-        public int Index
-        {
-            get { return Capture.Index; }
-        }
+        public int Index => Capture.Index;
 
-        public int Length
-        {
-            get { return Capture.Length; }
-        }
+        public int Length => Capture.Length;
 
-        public MatchItem MatchItem
-        {
-            get { return GroupItem.MatchItem; }
-        }
+        public MatchItem MatchItem => GroupItem.MatchItem;
 
-        public bool IsDefaultCapture
-        {
-            get { return GroupItem.IsDefaultGroup; }
-        }
+        public bool IsDefaultCapture => GroupItem.IsDefaultGroup;
 
-        public Capture Capture
-        {
-            get { return _capture; }
-        }
+        public Capture Capture { get; }
 
-        public GroupItem GroupItem
-        {
-            get { return _groupItem; }
-        }
+        public GroupItem GroupItem { get; }
 
-        public GroupInfo GroupInfo
-        {
-            get { return _groupItem.GroupInfo; }
-        }
+        public GroupInfo GroupInfo => GroupItem.GroupInfo;
 
-        public int ItemIndex
-        {
-            get { return _itemIndex; }
-        }
+        public int ItemIndex { get; }
 
-        public string Key
-        {
-            get { return _key; }
-        }
+        public string Key { get; }
     }
 }

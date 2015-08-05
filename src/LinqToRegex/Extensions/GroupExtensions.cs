@@ -20,7 +20,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq.Extensions
         {
             if (group == null)
             {
-                throw new ArgumentNullException("group");
+                throw new ArgumentNullException(nameof(group));
             }
 
             if (group.Captures.Count > 0)

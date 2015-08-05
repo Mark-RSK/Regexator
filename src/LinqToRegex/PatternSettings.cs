@@ -7,9 +7,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     /// </summary>
     public sealed class PatternSettings
     {
-        private readonly PatternOptions _options;
-        private readonly IdentifierBoundary _boundary;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="PatternSettings"/> class.
         /// </summary>
@@ -43,8 +40,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="boundary">Indicates whether a group name will be enclosed in angle brackets or apostrophes.</param>
         public PatternSettings(PatternOptions options, IdentifierBoundary boundary)
         {
-            _options = options;
-            _boundary = boundary;
+            Options = options;
+            IdentifierBoundary = boundary;
         }
 
         /// <summary>
@@ -52,25 +49,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="options">A bitwise combination of the enumeration values.</param>
         /// <returns></returns>
-        public bool HasOptions(PatternOptions options)
-        {
-            return (Options & options) == options;
-        }
+        public bool HasOptions(PatternOptions options) => (Options & options) == options;
 
         /// <summary>
         /// Get the options of this instance.
         /// </summary>
-        public PatternOptions Options
-        {
-            get { return _options; }
-        }
+        /// 
+        public PatternOptions Options { get; }
 
         /// <summary>
         /// Get a value indicating whether a group name will be enclosed in angle brackets or apostrophes.
         /// </summary>
-        public IdentifierBoundary IdentifierBoundary
-        {
-            get { return _boundary; }
-        }
+        public IdentifierBoundary IdentifierBoundary { get; }
     }
 }

@@ -58,7 +58,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
         internal static void CheckGroupName(string groupName)
         {
-            CheckGroupName(groupName, "groupName");
+            CheckGroupName(groupName, nameof(groupName));
         }
 
         internal static void CheckGroupName(string groupName, string paramName)
@@ -203,7 +203,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (input == null)
             {
-                throw new ArgumentNullException("input");
+                throw new ArgumentNullException(nameof(input));
             }
 
             CharEscapeMode mode = CharEscapeMode.None;
@@ -290,7 +290,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (input == null)
             {
-                throw new ArgumentNullException("input");
+                throw new ArgumentNullException(nameof(input));
             }
 
             for (int i = 0; i < input.Length; i++)
@@ -348,7 +348,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (length < 1)
             {
-                throw new ArgumentOutOfRangeException("length");
+                throw new ArgumentOutOfRangeException(nameof(length));
             }
 
             var sb = new StringBuilder(length);

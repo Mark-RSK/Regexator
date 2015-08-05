@@ -11,10 +11,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         {
         }
 
-        public override string ToString()
-        {
-            return Value;
-        }
+        public override string ToString() => Value;
 
         public abstract ReadOnlyCollection<SplitItem> SplitItems { get; }
 
@@ -34,14 +31,8 @@ namespace Pihrtsoft.Text.RegularExpressions
 
         public abstract string Key { get; }
 
-        public virtual GroupInfo GroupInfo
-        {
-            get { return null; }
-        }
+        public virtual GroupInfo GroupInfo => null;
 
-        public virtual bool Success
-        {
-            get { return true; }
-        }
+        public virtual bool Success => true;
     }
 }

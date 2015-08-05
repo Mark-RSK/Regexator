@@ -9,14 +9,13 @@ namespace Pihrtsoft.Text.RegularExpressions
     public class SplitItemCollection
         : ReadOnlyCollection<SplitItem>
     {
-        private readonly GroupInfoCollection _groupInfos;
         private ReadOnlyCollection<GroupInfo> _unsuccessGroups;
         private ReadOnlyCollection<GroupInfo> _successGroups;
 
         internal SplitItemCollection(IList<SplitItem> list, GroupInfoCollection groupInfos)
             : base(list)
         {
-            _groupInfos = groupInfos;
+            GroupInfos = groupInfos;
         }
 
         public ReadOnlyCollection<GroupInfo> SuccessGroups
@@ -53,9 +52,6 @@ namespace Pihrtsoft.Text.RegularExpressions
             }
         }
 
-        public GroupInfoCollection GroupInfos
-        {
-            get { return _groupInfos; }
-        }
+        public GroupInfoCollection GroupInfos { get; }
     }
 }

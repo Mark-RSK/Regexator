@@ -14,30 +14,20 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
         }
 
-        internal static CharPattern Create(char value)
-        {
-            return new CharCharPattern(value);
-        }
+        internal static CharPattern Create(char value) 
+            => new CharCharPattern(value);
 
-        internal static CharPattern Create(AsciiChar value)
-        {
-            return new AsciiCharCharPattern(value);
-        }
+        internal static CharPattern Create(AsciiChar value) 
+            => new AsciiCharCharPattern(value);
 
-        internal static CharPattern Create(CharClass value)
-        {
-            return new CharClassCharPattern(value);
-        }
+        internal static CharPattern Create(CharClass value) 
+            => new CharClassCharPattern(value);
 
-        internal static CharPattern Create(GeneralCategory category, bool negative)
-        {
-            return new GeneralCategoryCharPattern(category, negative);
-        }
+        internal static CharPattern Create(GeneralCategory category, bool negative) 
+            => new GeneralCategoryCharPattern(category, negative);
 
-        internal static CharPattern Create(NamedBlock block, bool negative)
-        {
-            return new NamedBlockCharPattern(block, negative);
-        }
+        internal static CharPattern Create(NamedBlock block, bool negative) 
+            => new NamedBlockCharPattern(block, negative);
 
         /// <summary>
         /// Returns a patterns that matches what is not matched by the current instance.
@@ -54,7 +44,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (builder == null)
             {
-                throw new ArgumentNullException("builder");
+                throw new ArgumentNullException(nameof(builder));
             }
 
             AppendTo(builder);
@@ -69,7 +59,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (builder == null)
             {
-                throw new ArgumentNullException("builder");
+                throw new ArgumentNullException(nameof(builder));
             }
 
             AppendGroupContentTo(builder);
@@ -84,7 +74,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (builder == null)
             {
-                throw new ArgumentNullException("builder");
+                throw new ArgumentNullException(nameof(builder));
             }
 
             builder.AppendCharGroupStart();
@@ -101,7 +91,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (value == null)
             {
-                throw new ArgumentNullException("value");
+                throw new ArgumentNullException(nameof(value));
             }
 
             return value.Negate();
@@ -114,10 +104,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="excludedGroup">An excluded group.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static CharSubtraction operator -(CharPattern baseGroup, CharPattern excludedGroup)
-        {
-            return new CharSubtraction(baseGroup, excludedGroup);
-        }
+        public static CharSubtraction operator -(CharPattern baseGroup, CharPattern excludedGroup) 
+            => new CharSubtraction(baseGroup, excludedGroup);
 
         /// <summary>
         /// Returns a pattern that matches a character from a specified base group except characters from a specified excluded group.
@@ -126,10 +114,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="excludedGroup">An excluded group.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static CharSubtraction operator -(CharPattern baseGroup, CharGroup excludedGroup)
-        {
-            return new CharSubtraction(baseGroup, excludedGroup);
-        }
+        public static CharSubtraction operator -(CharPattern baseGroup, CharGroup excludedGroup) 
+            => new CharSubtraction(baseGroup, excludedGroup);
 
         /// <summary>
         /// Returns a pattern that matches a character from a specified base group except characters from a specified excluded group.
@@ -138,9 +124,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="excludedGroup">An excluded group.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static CharSubtraction operator -(CharPattern baseGroup, CharGrouping excludedGroup)
-        {
-            return new CharSubtraction(baseGroup, excludedGroup);
-        }
+        public static CharSubtraction operator -(CharPattern baseGroup, CharGrouping excludedGroup) 
+            => new CharSubtraction(baseGroup, excludedGroup);
     }
 }

@@ -15,17 +15,17 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (contentBefore == null)
             {
-                throw new ArgumentNullException("contentBefore");
+                throw new ArgumentNullException(nameof(contentBefore));
             }
 
             if (content == null)
             {
-                throw new ArgumentNullException("content");
+                throw new ArgumentNullException(nameof(content));
             }
 
             if (contentAfter == null)
             {
-                throw new ArgumentNullException("contentAfter");
+                throw new ArgumentNullException(nameof(contentAfter));
             }
 
             _contentBefore = contentBefore;

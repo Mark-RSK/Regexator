@@ -17,12 +17,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (baseGroup == null)
             {
-                throw new ArgumentNullException("baseGroup");
+                throw new ArgumentNullException(nameof(baseGroup));
             }
 
             if (excludedGroup == null)
             {
-                throw new ArgumentNullException("excludedGroup");
+                throw new ArgumentNullException(nameof(excludedGroup));
             }
 
             _baseGroup = baseGroup;
@@ -38,7 +38,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (builder == null)
             {
-                throw new ArgumentNullException("builder");
+                throw new ArgumentNullException(nameof(builder));
             }
 
             AppendTo(builder);

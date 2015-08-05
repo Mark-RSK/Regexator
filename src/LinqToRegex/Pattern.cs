@@ -71,7 +71,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (pattern == null)
             {
-                throw new ArgumentNullException("pattern");
+                throw new ArgumentNullException(nameof(pattern));
             }
 
             Pattern first = pattern;
@@ -88,54 +88,41 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Compiles a new instance of the <see cref="Regex"/> class for the current instance.
         /// </summary>
         /// <returns></returns>
-        public Regex ToRegex()
-        {
-            return ToRegex(RegexOptions.None);
-        }
+        public Regex ToRegex() => ToRegex(RegexOptions.None);
 
         /// <summary>
         /// Compiles a new instance of the <see cref="Regex"/> class for the current instance, with options that modify the pattern.
         /// </summary>
         /// <param name="options">A bitwise combination of the enumeration values that modify the regular expression.</param>
         /// <returns></returns>
-        public Regex ToRegex(RegexOptions options)
-        {
-            return new Regex(ToString(), options);
-        }
+        public Regex ToRegex(RegexOptions options) => new Regex(ToString(), options);
 
         /// <summary>
         /// Constructs a pattern text that represents the current instance.
         /// </summary>
         /// <returns></returns>
-        public override string ToString()
-        {
-            return ToString(PatternOptions.None);
-        }
+        public override string ToString() => ToString(PatternOptions.None);
 
-        internal string ToString(RegexOptions options)
-        {
-            return ToString(new PatternSettings(), options);
-        }
+        /// <summary>
+        /// Constructs a pattern text that represents the current instance. with regex options that modify the pattern.
+        /// </summary>
+        /// <param name="options">A bitwise combination of the enumeration values that modify the pattern.</param>
+        /// <returns></returns>
+        internal string ToString(RegexOptions options) => ToString(new PatternSettings(), options);
 
         /// <summary>
         /// Constructs a pattern text that represents the current instance. with options that modify the pattern.
         /// </summary>
         /// <param name="options">A bitwise combination of the enumeration values that modify the pattern.</param>
         /// <returns></returns>
-        public string ToString(PatternOptions options)
-        {
-            return ToString(new PatternSettings(options));
-        }
+        public string ToString(PatternOptions options) => ToString(new PatternSettings(options));
 
         /// <summary>
         /// Constructs a pattern text that represents the current instance. with settings that modify the pattern.
         /// </summary>
         /// <param name="settings">A settings that modify the pattern.</param>
         /// <returns></returns>
-        public string ToString(PatternSettings settings)
-        {
-            return ToString(settings, RegexOptions.None);
-        }
+        public string ToString(PatternSettings settings) => ToString(settings, RegexOptions.None);
 
         internal string ToString(PatternSettings settings, RegexOptions options)
         {
@@ -557,12 +544,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (left == null)
             {
-                throw new ArgumentNullException("left");
+                throw new ArgumentNullException(nameof(left));
             }
 
             if (right == null)
             {
-                throw new ArgumentNullException("right");
+                throw new ArgumentNullException(nameof(right));
             }
 
             return left.Append(right);
@@ -579,12 +566,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (left == null)
             {
-                throw new ArgumentNullException("left");
+                throw new ArgumentNullException(nameof(left));
             }
 
             if (right == null)
             {
-                throw new ArgumentNullException("right");
+                throw new ArgumentNullException(nameof(right));
             }
 
             return left.Text(right);
@@ -601,12 +588,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (left == null)
             {
-                throw new ArgumentNullException("left");
+                throw new ArgumentNullException(nameof(left));
             }
 
             if (right == null)
             {
-                throw new ArgumentNullException("right");
+                throw new ArgumentNullException(nameof(right));
             }
 
             return Patterns.Text(left).Append(right);
@@ -623,7 +610,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (left == null)
             {
-                throw new ArgumentNullException("left");
+                throw new ArgumentNullException(nameof(left));
             }
 
             return left.Append(Patterns.Character(right));
@@ -640,7 +627,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (right == null)
             {
-                throw new ArgumentNullException("right");
+                throw new ArgumentNullException(nameof(right));
             }
 
             return Patterns.Character(left).Append(right);
@@ -735,20 +722,14 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="text">A text to convert.</param>
         /// <returns></returns>
-        public static explicit operator Pattern(string text)
-        {
-            return new TextPattern(text);
-        }
+        public static explicit operator Pattern(string text) => new TextPattern(text);
 
         /// <summary>
         /// Converts specified character to a pattern.
         /// </summary>
         /// <param name="value">The Unicode character to convert.</param>
         /// <returns></returns>
-        public static explicit operator Pattern(char value)
-        {
-            return CharPattern.Create(value);
-        }
+        public static explicit operator Pattern(char value) => CharPattern.Create(value);
 
         private string Value
         {

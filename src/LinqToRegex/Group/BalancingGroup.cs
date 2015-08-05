@@ -11,22 +11,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public BalancingGroup(string name1, string name2, object content)
             : base(content)
         {
-            RegexUtility.CheckGroupName(name1, "name1");
-            RegexUtility.CheckGroupName(name2, "name2");
+            RegexUtility.CheckGroupName(name1, nameof(name1));
+            RegexUtility.CheckGroupName(name2, nameof(name2));
 
             _name1 = name1;
             _name2 = name2;
         }
 
-        public string Name1
-        {
-            get { return _name1; }
-        }
+        public string Name1 => _name1;
 
-        public string Name2
-        {
-            get { return _name2; }
-        }
+        public string Name2 => _name2;
 
         internal override void AppendTo(PatternBuilder builder)
         {

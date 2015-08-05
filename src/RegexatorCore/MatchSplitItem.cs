@@ -12,13 +12,7 @@ namespace Pihrtsoft.Text.RegularExpressions
     public sealed class MatchSplitItem
         : SplitItem
     {
-        private readonly int _index;
-        private readonly int _length;
         private readonly Match _match;
-        private readonly bool _success;
-        private readonly int _itemIndex;
-        private readonly string _name;
-        private readonly string _key;
         private readonly int _splitIndex;
         private readonly SplitContext _context;
         private ReadOnlyCollection<SplitItem> _splitItems;
@@ -27,34 +21,31 @@ namespace Pihrtsoft.Text.RegularExpressions
         {
             if (data == null)
             {
-                throw new ArgumentNullException("data");
+                throw new ArgumentNullException(nameof(data));
             }
 
             _context = new SplitContext(data);
             _match = data.Match();
-            _success = true;
-            _length = _match.Success ? _match.Index : data.Input.Length;
-            _name = "0";
-            _key = "0";
+            Success = true;
+            Length = _match.Success ? _match.Index : data.Input.Length;
+            Name = "0";
+            Key = "0";
         }
 
         internal MatchSplitItem(MatchSplitItem prevItem, SplitContext context)
         {
             _context = context;
             _match = prevItem._match.NextMatch();
-            _success = prevItem._match.Success;
-            _index = prevItem._match.Index + prevItem._match.Length;
-            _length = (_match.Success ? _match.Index : _context.InputLength) - Index;
-            _itemIndex = prevItem.ItemIndex + prevItem.SplitItems.Count + 1;
+            Success = prevItem._match.Success;
+            Index = prevItem._match.Index + prevItem._match.Length;
+            Length = (_match.Success ? _match.Index : _context.InputLength) - Index;
+            ItemIndex = prevItem.ItemIndex + prevItem.SplitItems.Count + 1;
             _splitIndex = prevItem._splitIndex + 1;
-            _key = ItemIndex.ToString(CultureInfo.CurrentCulture);
-            _name = _splitIndex.ToString(CultureInfo.CurrentCulture);
+            Key = ItemIndex.ToString(CultureInfo.CurrentCulture);
+            Name = _splitIndex.ToString(CultureInfo.CurrentCulture);
         }
 
-        public MatchSplitItem NextItem()
-        {
-            return new MatchSplitItem(this, _context);
-        }
+        public MatchSplitItem NextItem() => new MatchSplitItem(this, _context);
 
         public override ReadOnlyCollection<SplitItem> SplitItems
         {
@@ -87,49 +78,22 @@ namespace Pihrtsoft.Text.RegularExpressions
             }
         }
 
-        public override string Value
-        {
-            get { return _context.Values[ItemIndex]; }
-        }
+        public override string Value => _context.Values[ItemIndex];
 
-        public override int Index
-        {
-            get { return _index; }
-        }
+        public override int Index { get; }
 
-        public override int Length
-        {
-            get { return _length; }
-        }
+        public override int Length { get; }
 
-        public override Capture Capture
-        {
-            get { return _match; }
-        }
+        public override Capture Capture => _match;
 
-        public override bool Success
-        {
-            get { return _success; }
-        }
+        public override bool Success { get; }
 
-        public override int ItemIndex
-        {
-            get { return _itemIndex; }
-        }
+        public override int ItemIndex { get; }
 
-        public override string Name
-        {
-            get { return _name; }
-        }
+        public override string Name { get; }
 
-        public override SplitItemKind Kind
-        {
-            get { return SplitItemKind.Split; }
-        }
+        public override SplitItemKind Kind => SplitItemKind.Split;
 
-        public override string Key
-        {
-            get { return _key; }
-        }
+        public override string Key { get; }
     }
 }

@@ -16,9 +16,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Add(new LineInfo(kind));
         }
 
-        public LineInfo Last
-        {
-            get { return this[Count - 1]; }
-        }
+        public LineInfo Last => this[Count - 1];
     }
 }

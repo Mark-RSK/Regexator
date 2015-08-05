@@ -9,17 +9,14 @@ namespace Pihrtsoft.Text.RegularExpressions
 {
     public class ReplaceData
     {
-        private readonly Regex _regex;
-        private readonly string _input;
-        private readonly string _replacement;
-        private readonly int _limit;
-        private readonly ResultMode _resultMode;
         private string _output;
         private ReplaceItemCollection _items;
         private List<ReplaceItem> _lst;
         private LimitState _limitState;
         private int _offset;
         private int _count;
+        private string _input;
+        private string _replacement;
 
         public ReplaceData(Regex regex, string input, string replacement)
             : this(regex, input, replacement, ResultMode.None, MatchData.InfiniteLimit)
@@ -40,29 +37,29 @@ namespace Pihrtsoft.Text.RegularExpressions
         {
             if (regex == null)
             {
-                throw new ArgumentNullException("regex");
+                throw new ArgumentNullException(nameof(regex));
             }
 
             if (input == null)
             {
-                throw new ArgumentNullException("input");
+                throw new ArgumentNullException(nameof(input));
             }
 
             if (replacement == null)
             {
-                throw new ArgumentNullException("replacement");
+                throw new ArgumentNullException(nameof(replacement));
             }
 
             if (limit < 0)
             {
-                throw new ArgumentOutOfRangeException("limit");
+                throw new ArgumentOutOfRangeException(nameof(limit));
             }
 
-            _regex = regex;
-            _input = input;
-            _replacement = replacement;
-            _resultMode = resultMode;
-            _limit = limit;
+            Regex = regex;
+            Input = input;
+            Replacement = replacement;
+            ResultMode = resultMode;
+            Limit = limit;
         }
 
         private string Replace()
@@ -71,11 +68,11 @@ namespace Pihrtsoft.Text.RegularExpressions
 
             if (Limit == MatchData.InfiniteLimit)
             {
-                return this.Regex.Replace(Input, Evaluator);
+                return Regex.Replace(Input, Evaluator);
             }
             else
             {
-                return this.Regex.Replace(Input, Evaluator, Limit);
+                return Regex.Replace(Input, Evaluator, Limit);
             }
         }
 
@@ -111,15 +108,9 @@ namespace Pihrtsoft.Text.RegularExpressions
             }
         }
 
-        public Regex Regex
-        {
-            get { return _regex; }
-        }
+        public Regex Regex { get; }
 
-        public string Input
-        {
-            get { return _input; }
-        }
+        public string Input { get; }
 
         public string Output
         {
@@ -134,10 +125,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             }
         }
 
-        public string Replacement
-        {
-            get { return _replacement; }
-        }
+        public string Replacement { get; }
 
         public ReplaceItemCollection Items
         {
@@ -157,19 +145,10 @@ namespace Pihrtsoft.Text.RegularExpressions
             }
         }
 
-        public int Limit
-        {
-            get { return _limit; }
-        }
+        public int Limit { get; }
 
-        public LimitState LimitState
-        {
-            get { return _limitState; }
-        }
+        public LimitState LimitState { get; }
 
-        public ResultMode ResultMode
-        {
-            get { return _resultMode; }
-        }
+        public ResultMode ResultMode { get; }
     }
 }

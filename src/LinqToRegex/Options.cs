@@ -20,12 +20,12 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (!RegexUtility.IsValidInlineOptions(applyOptions))
             {
-                throw new ArgumentException(ExceptionHelper.RegexOptionsNotConvertibleToInlineChars, "applyOptions");
+                throw new ArgumentException(ExceptionHelper.RegexOptionsNotConvertibleToInlineChars, nameof(applyOptions));
             }
 
             if (!RegexUtility.IsValidInlineOptions(disableOptions))
             {
-                throw new ArgumentException(ExceptionHelper.RegexOptionsNotConvertibleToInlineChars, "disableOptions");
+                throw new ArgumentException(ExceptionHelper.RegexOptionsNotConvertibleToInlineChars, nameof(disableOptions));
             }
 
             _applyOptions = applyOptions;

@@ -25,7 +25,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         {
             if (regex == null)
             {
-                throw new ArgumentNullException("regex");
+                throw new ArgumentNullException(nameof(regex));
             }
 
             return regex.GetGroupNames().Select((n, i) => new GroupInfo(i, n)).ToArray();
@@ -35,7 +35,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         {
             if (groupName == null)
             {
-                throw new ArgumentNullException("groupName");
+                throw new ArgumentNullException(nameof(groupName));
             }
 
             return _names.ContainsKey(groupName);
@@ -45,21 +45,15 @@ namespace Pihrtsoft.Text.RegularExpressions
         {
             if (groupIndex < 0)
             {
-                throw new ArgumentOutOfRangeException("groupIndex");
+                throw new ArgumentOutOfRangeException(nameof(groupIndex));
             }
 
             return _indexes.ContainsKey(groupIndex);
         }
 
-        internal Dictionary<string, GroupInfo> ToNameDictionary()
-        {
-            return Items.ToDictionary(f => f.Name, f => f);
-        }
+        internal Dictionary<string, GroupInfo> ToNameDictionary() => Items.ToDictionary(f => f.Name, f => f);
 
-        internal Dictionary<int, GroupInfo> ToIndexDictionary()
-        {
-            return Items.ToDictionary(f => f.Index, f => f);
-        }
+        internal Dictionary<int, GroupInfo> ToIndexDictionary() => Items.ToDictionary(f => f.Index, f => f);
 
         public GroupInfo this[string groupName]
         {
@@ -67,7 +61,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 if (groupName == null)
                 {
-                    throw new ArgumentNullException("groupName");
+                    throw new ArgumentNullException(nameof(groupName));
                 }
 
                 try
@@ -76,7 +70,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                 }
                 catch (KeyNotFoundException)
                 {
-                    throw new ArgumentOutOfRangeException("groupName");
+                    throw new ArgumentOutOfRangeException(nameof(groupName));
                 }
             }
         }

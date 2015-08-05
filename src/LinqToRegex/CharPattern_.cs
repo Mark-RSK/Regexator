@@ -16,10 +16,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 _value = value;
             }
 
-            public override CharGroup Negate()
-            {
-                return CharGroup.Create(_value, true);
-            }
+            public override CharGroup Negate() => CharGroup.Create(_value, true);
 
             internal override void AppendTo(PatternBuilder builder)
             {
@@ -30,7 +27,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 if (builder == null)
                 {
-                    throw new ArgumentNullException("builder");
+                    throw new ArgumentNullException(nameof(builder));
                 }
 
                 builder.Append(_value, true);
@@ -47,10 +44,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 _value = value;
             }
 
-            public override CharGroup Negate()
-            {
-                return CharGroup.Create(_value, true);
-            }
+            public override CharGroup Negate() => CharGroup.Create(_value, true);
 
             internal override void AppendTo(PatternBuilder builder)
             {
@@ -61,7 +55,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 if (builder == null)
                 {
-                    throw new ArgumentNullException("builder");
+                    throw new ArgumentNullException(nameof(builder));
                 }
 
                 builder.Append(_value, true);
@@ -80,10 +74,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 _negative = negative;
             }
 
-            public override CharGroup Negate()
-            {
-                return CharGroup.Create(_category, !_negative);
-            }
+            public override CharGroup Negate() => CharGroup.Create(_category, !_negative);
 
             internal override void AppendTo(PatternBuilder builder)
             {
@@ -103,10 +94,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                 _negative = negative;
             }
 
-            public override CharGroup Negate()
-            {
-                return CharGroup.Create(_block, !_negative);
-            }
+            public override CharGroup Negate() => CharGroup.Create(_block, !_negative);
 
             internal override void AppendTo(PatternBuilder builder)
             {

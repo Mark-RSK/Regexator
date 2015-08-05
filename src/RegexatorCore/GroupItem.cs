@@ -7,100 +7,48 @@ namespace Pihrtsoft.Text.RegularExpressions
 {
     public sealed class GroupItem
     {
-        private readonly Group _group;
-        private readonly GroupInfo _groupInfo;
-        private readonly int _itemIndex;
-        private readonly string _key;
-        private readonly CaptureItemCollection _captureItems;
-        private readonly MatchItem _matchItem;
-
         internal GroupItem(Group group, GroupInfo groupInfo, int itemIndex, MatchItem matchItem)
         {
-            _group = group;
-            _groupInfo = groupInfo;
-            _itemIndex = itemIndex;
-            _matchItem = matchItem;
-            _key = matchItem.Key + groupInfo.Name;
+            Group = group;
+            GroupInfo = groupInfo;
+            ItemIndex = itemIndex;
+            MatchItem = matchItem;
+            Key = matchItem.Key + groupInfo.Name;
 
-            _captureItems = new CaptureItemCollection(Captures
+            CaptureItems = new CaptureItemCollection(Captures
                 .Cast<Capture>()
                 .Select((c, i) => new CaptureItem(c, this, i))
                 .ToArray());
         }
 
-        public override string ToString()
-        {
-            return Group.ToString();
-        }
+        public override string ToString() => Group.ToString();
 
-        public CaptureCollection Captures
-        {
-            get { return Group.Captures; }
-        }
+        public CaptureCollection Captures => Group.Captures;
 
-        public int CaptureCount
-        {
-            get { return Captures.Count; }
-        }
+        public int CaptureCount => Captures.Count;
 
-        public string Value
-        {
-            get { return Group.Value; }
-        }
+        public string Value => Group.Value;
 
-        public int Index
-        {
-            get { return Group.Index; }
-        }
+        public int Index => Group.Index;
 
-        public int Length
-        {
-            get { return Group.Length; }
-        }
+        public int Length => Group.Length;
 
-        public bool Success
-        {
-            get { return Group.Success; }
-        }
+        public bool Success => Group.Success;
 
-        public bool IsDefaultGroup
-        {
-            get { return GroupInfo.Index == 0; }
-        }
+        public bool IsDefaultGroup => GroupInfo.Index == 0;
 
-        public Group Group
-        {
-            get { return _group; }
-        }
+        public Group Group { get; }
 
-        public GroupInfo GroupInfo
-        {
-            get { return _groupInfo; }
-        }
+        public GroupInfo GroupInfo { get; }
 
-        public string Name
-        {
-            get { return GroupInfo.Name; }
-        }
+        public string Name => GroupInfo.Name;
 
-        public int ItemIndex
-        {
-            get { return _itemIndex; }
-        }
+        public int ItemIndex { get; }
 
-        public string Key
-        {
-            get { return _key; }
-        }
+        public string Key { get; }
 
-        public CaptureItemCollection CaptureItems
-        {
-            get { return _captureItems; }
-        }
+        public CaptureItemCollection CaptureItems { get; }
 
-        public MatchItem MatchItem
-        {
-            get { return _matchItem; }
-        }
+        public MatchItem MatchItem { get; }
     }
 }

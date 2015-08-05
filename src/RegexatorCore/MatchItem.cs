@@ -11,47 +11,33 @@ namespace Pihrtsoft.Text.RegularExpressions
     public sealed class MatchItem
     {
         private readonly GroupInfoCollection _groupInfos;
-        private readonly Match _match;
-        private readonly int _itemIndex;
-        private string _key;
-        private GroupItemCollection _groupItems;
 
         internal MatchItem(Match match, GroupInfoCollection groups)
         {
-            _match = match;
+            Match = match;
             _groupInfos = groups;
-            Initialize();
+            Key = ItemIndex.ToString(CultureInfo.CurrentCulture);
+            GroupItems = new GroupItemCollection(_groupInfos.Select((g, i) => new GroupItem(Match.Groups[g.Index], g, i, this)).ToArray());
         }
 
         private MatchItem(MatchItem previousItem, GroupInfoCollection groups)
         {
-            _match = previousItem.Match.NextMatch();
-            _itemIndex = previousItem.ItemIndex + 1;
+            Match = previousItem.Match.NextMatch();
+            ItemIndex = previousItem.ItemIndex + 1;
             _groupInfos = groups;
-            Initialize();
+            Key = ItemIndex.ToString(CultureInfo.CurrentCulture);
+            GroupItems = new GroupItemCollection(_groupInfos.Select((g, i) => new GroupItem(Match.Groups[g.Index], g, i, this)).ToArray());
         }
 
-        private void Initialize()
-        {
-            _key = ItemIndex.ToString(CultureInfo.CurrentCulture);
-            _groupItems = new GroupItemCollection(_groupInfos.Select((g, i) => new GroupItem(Match.Groups[g.Index], g, i, this)).ToArray());
-        }
+        public MatchItem NextItem() => new MatchItem(this, _groupInfos);
 
-        public MatchItem NextItem()
-        {
-            return new MatchItem(this, _groupInfos);
-        }
-
-        public override string ToString()
-        {
-            return Value;
-        }
+        public override string ToString() => Value;
 
         public IEnumerable<GroupItem> EnumerateGroupItems(GroupSettings settings)
         {
             if (settings == null)
             {
-                throw new ArgumentNullException("settings");
+                throw new ArgumentNullException(nameof(settings));
             }
 
             return GroupItems
@@ -59,49 +45,22 @@ namespace Pihrtsoft.Text.RegularExpressions
                 .OrderBy(f => f.GroupInfo, settings.Sorter);
         }
 
-        public IEnumerable<CaptureItem> EnumerateCaptureItems
-        {
-            get { return GroupItems.ToCaptureItems(); }
-        }
+        public IEnumerable<CaptureItem> EnumerateCaptureItems => GroupItems.ToCaptureItems();
 
-        public string Value
-        {
-            get { return Match.Value; }
-        }
+        public string Value => Match.Value;
 
-        public int Index
-        {
-            get { return Match.Index; }
-        }
+        public int Index => Match.Index;
 
-        public int Length
-        {
-            get { return Match.Length; }
-        }
+        public int Length => Match.Length;
 
-        public bool Success
-        {
-            get { return Match.Success; }
-        }
+        public bool Success => Match.Success;
 
-        public Match Match
-        {
-            get { return _match; }
-        }
+        public Match Match { get; }
 
-        public int ItemIndex
-        {
-            get { return _itemIndex; }
-        }
+        public int ItemIndex { get; }
 
-        public string Key
-        {
-            get { return _key; }
-        }
+        public string Key { get; }
 
-        public GroupItemCollection GroupItems
-        {
-            get { return _groupItems; }
-        }
+        public GroupItemCollection GroupItems { get; }
     }
 }

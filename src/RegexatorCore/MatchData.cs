@@ -10,10 +10,10 @@ namespace Pihrtsoft.Text.RegularExpressions
 {
     public class MatchData
     {
-        private readonly Regex _regex;
-        private readonly GroupInfoCollection _groupInfos;
-        private readonly string _input;
-        private readonly int _limit;
+        //private readonly Regex _regex;
+        //private readonly GroupInfoCollection _groupInfos;
+        //private readonly string _input;
+        //private readonly int _limit;
         private LimitState _limitState;
         private MatchItemCollection _items;
 
@@ -28,23 +28,23 @@ namespace Pihrtsoft.Text.RegularExpressions
         {
             if (regex == null)
             {
-                throw new ArgumentNullException("regex");
+                throw new ArgumentNullException(nameof(regex));
             }
 
             if (input == null)
             {
-                throw new ArgumentNullException("input");
+                throw new ArgumentNullException(nameof(input));
             }
 
             if (limit < 0)
             {
-                throw new ArgumentOutOfRangeException("limit");
+                throw new ArgumentOutOfRangeException(nameof(limit));
             }
 
-            _regex = regex;
-            _groupInfos = new GroupInfoCollection(regex);
-            _input = input;
-            _limit = limit;
+            Regex = regex;
+            GroupInfos = new GroupInfoCollection(regex);
+            Input = input;
+            Limit = limit;
         }
 
         private IEnumerable<MatchItem> CreateItems()
@@ -71,40 +71,19 @@ namespace Pihrtsoft.Text.RegularExpressions
             _limitState = (item.Success && item.ItemIndex > 0) ? LimitState.Limited : LimitState.NotLimited;
         }
 
-        public IEnumerable<CaptureItem> EnumerateCaptureItems()
-        {
-            return Items.ToCaptureItems();
-        }
+        public IEnumerable<CaptureItem> EnumerateCaptureItems() => Items.ToCaptureItems();
 
-        public IEnumerable<GroupItem> EnumerateGroupItems()
-        {
-            return Items.ToGroupItems();
-        }
+        public IEnumerable<GroupItem> EnumerateGroupItems() => Items.ToGroupItems();
 
-        public IEnumerable<GroupItem> EnumerateGroupItems(int groupIndex)
-        {
-            return Items.ToGroupItems(groupIndex);
-        }
+        public IEnumerable<GroupItem> EnumerateGroupItems(int groupIndex) => Items.ToGroupItems(groupIndex);
 
-        public IEnumerable<GroupItem> EnumerateGroupItems(string groupName)
-        {
-            return Items.ToGroupItems(groupName);
-        }
+        public IEnumerable<GroupItem> EnumerateGroupItems(string groupName) => Items.ToGroupItems(groupName);
 
-        public IEnumerable<GroupItem> EnumerateGroupItems(bool successOnly)
-        {
-            return Items.ToGroupItems(successOnly);
-        }
+        public IEnumerable<GroupItem> EnumerateGroupItems(bool successOnly) => Items.ToGroupItems(successOnly);
 
-        public MatchItem MatchItem()
-        {
-            return new MatchItem(Match(), GroupInfos);
-        }
+        public MatchItem MatchItem() => new MatchItem(Match(), GroupInfos);
 
-        public Match Match()
-        {
-            return Regex.Match(Input);
-        }
+        public Match Match() => Regex.Match(Input);
 
         public MatchItemCollection Items
         {
@@ -119,49 +98,22 @@ namespace Pihrtsoft.Text.RegularExpressions
             }
         }
 
-        public int MatchCount
-        {
-            get { return Items.Count; }
-        }
+        public int MatchCount => Items.Count;
 
-        public int CaptureCount
-        {
-            get { return Items.CaptureCount; }
-        }
+        public int CaptureCount => Items.CaptureCount;
 
-        public ReadOnlyCollection<GroupInfo> SuccessGroups
-        {
-            get { return Items.SuccessGroups; }
-        }
+        public ReadOnlyCollection<GroupInfo> SuccessGroups => Items.SuccessGroups;
 
-        public ReadOnlyCollection<GroupInfo> UnsuccessGroups
-        {
-            get { return Items.UnsuccessGroups; }
-        }
+        public ReadOnlyCollection<GroupInfo> UnsuccessGroups => Items.UnsuccessGroups;
 
-        public Regex Regex
-        {
-            get { return _regex; }
-        }
+        public Regex Regex { get; }
 
-        public GroupInfoCollection GroupInfos
-        {
-            get { return _groupInfos; }
-        }
+        public GroupInfoCollection GroupInfos { get; }
 
-        public string Input
-        {
-            get { return _input; }
-        }
+        public string Input { get; }
 
-        public int Limit
-        {
-            get { return _limit; }
-        }
+        public int Limit { get; }
 
-        public LimitState LimitState
-        {
-            get { return _limitState; }
-        }
+        public LimitState LimitState => _limitState;
     }
 }

@@ -11,8 +11,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     /// </summary>
     public abstract partial class Substitution
     {
-        private Substitution _previous;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="Substitution"/> class.
         /// </summary>
@@ -26,10 +24,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="value">A content of the substitution pattern.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        internal static Substitution Create(string value)
-        {
-            return new TextSubstitution(value);
-        }
+        internal static Substitution Create(string value) => new TextSubstitution(value);
 
         internal Substitution Append(Substitution substitution)
         {
@@ -75,55 +70,37 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentException"></exception>
-        public Substitution NamedGroup(string groupName)
-        {
-            return Append(Substitutions.NamedGroup(groupName));
-        }
+        public Substitution NamedGroup(string groupName) => Append(Substitutions.NamedGroup(groupName));
 
         /// <summary>
         /// Appends a substitution pattern that substitutes the last captured group.
         /// </summary>
         /// <returns></returns>
-        public Substitution LastCapturedGroup()
-        {
-            return Append(Substitutions.LastCapturedGroup());
-        }
+        public Substitution LastCapturedGroup() => Append(Substitutions.LastCapturedGroup());
 
         /// <summary>
         /// Appends a substitution pattern that substitutes the entire input string.
         /// </summary>
         /// <returns></returns>
-        public Substitution EntireInput()
-        {
-            return Append(Substitutions.EntireInput());
-        }
+        public Substitution EntireInput() => Append(Substitutions.EntireInput());
 
         /// <summary>
         /// Appends a substitution pattern that substitutes the entire match.
         /// </summary>
         /// <returns></returns>
-        public Substitution EntireMatch()
-        {
-            return Append(Substitutions.EntireMatch());
-        }
+        public Substitution EntireMatch() => Append(Substitutions.EntireMatch());
 
         /// <summary>
         /// Appends a substitution pattern that substitutes all the text of the input string after the match.
         /// </summary>
         /// <returns></returns>
-        public Substitution AfterMatch()
-        {
-            return Append(Substitutions.AfterMatch());
-        }
+        public Substitution AfterMatch() => Append(Substitutions.AfterMatch());
 
         /// <summary>
         /// Appends a substitution pattern that substitutes all the text of the input string before the match.
         /// </summary>
         /// <returns></returns>
-        public Substitution BeforeMatch()
-        {
-            return Append(Substitutions.BeforeMatch());
-        }
+        public Substitution BeforeMatch() => Append(Substitutions.BeforeMatch());
 
         /// <summary>
         /// Appends a specified text to the substitution pattern.
@@ -131,20 +108,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <param name="value">A text to append.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public Substitution Text(string value)
-        {
-            return Append(Create(value));
-        }
+        public Substitution Text(string value) => Append(Create(value));
 
-        internal virtual string Value
-        {
-            get { return null; }
-        }
+        internal virtual string Value => null;
 
-        internal Substitution Previous
-        {
-            get { return _previous; }
-            set { _previous = value; }
-        }
+        internal Substitution Previous { get; set; }
     }
 }

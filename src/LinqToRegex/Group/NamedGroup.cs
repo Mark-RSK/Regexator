@@ -10,19 +10,16 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public NamedGroup(string name, object content)
             : base(content)
         {
-            RegexUtility.CheckGroupName(name, "name");
+            RegexUtility.CheckGroupName(name, nameof(name));
 
             _name = name;
-        }
-
-        public string Name
-        {
-            get { return _name; }
         }
 
         internal override void AppendTo(PatternBuilder builder)
         {
             builder.AppendNamedGroupInternal(Name, Content);
         }
+
+        public string Name => _name;
     }
 }

@@ -10,70 +10,37 @@ namespace Pihrtsoft.Text.RegularExpressions
     public sealed class GroupSplitItem
         : SplitItem
     {
-        private readonly Group _group;
-        private readonly GroupInfo _groupInfo;
-        private readonly int _itemIndex;
-        private readonly string _key;
         private readonly SplitContext _context;
+        private readonly Group _group;
         private static readonly ReadOnlyCollection<SplitItem> _empty = Array.AsReadOnly(new SplitItem[] { });
 
         internal GroupSplitItem(Group group, GroupInfo groupInfo, int itemIndex, SplitContext context)
         {
             _group = group;
-            _groupInfo = groupInfo;
-            _itemIndex = itemIndex;
-            _key = itemIndex.ToString(CultureInfo.CurrentCulture);
+            GroupInfo = groupInfo;
+            ItemIndex = itemIndex;
+            Key = itemIndex.ToString(CultureInfo.CurrentCulture);
             _context = context;
         }
 
-        public override ReadOnlyCollection<SplitItem> SplitItems
-        {
-            get { return _empty; }
-        }
+        public override ReadOnlyCollection<SplitItem> SplitItems => _empty;
 
-        public override string Value
-        {
-            get { return _context.Values[ItemIndex]; }
-        }
+        public override string Value => _context.Values[ItemIndex];
 
-        public override int Index
-        {
-            get { return _group.Index; }
-        }
+        public override int Index => _group.Index;
 
-        public override int Length
-        {
-            get { return _group.Length; }
-        }
+        public override int Length => _group.Length;
 
-        public override int ItemIndex
-        {
-            get { return _itemIndex; }
-        }
+        public override int ItemIndex { get; }
 
-        public override string Name
-        {
-            get { return _groupInfo.Name; }
-        }
+        public override string Name => GroupInfo.Name;
 
-        public override GroupInfo GroupInfo
-        {
-            get { return _groupInfo; }
-        }
+        public override GroupInfo GroupInfo { get; }
 
-        public override SplitItemKind Kind
-        {
-            get { return SplitItemKind.Group; }
-        }
+        public override SplitItemKind Kind => SplitItemKind.Group;
 
-        public override string Key
-        {
-            get { return _key; }
-        }
+        public override string Key { get; }
 
-        public override Capture Capture
-        {
-            get { return _group; }
-        }
+        public override Capture Capture { get; }
     }
 }

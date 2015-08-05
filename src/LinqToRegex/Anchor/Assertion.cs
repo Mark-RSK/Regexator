@@ -19,10 +19,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Returns an instance of the <see cref="NegativeAssertion"/> class.
         /// </summary>
         /// <returns></returns>
-        public NegativeAssertion Negate()
-        {
-            return new NegativeAssertion(this);
-        }
+        public NegativeAssertion Negate() => new NegativeAssertion(this);
 
         internal override void AppendTo(PatternBuilder builder)
         {
@@ -39,7 +36,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (value == null)
             {
-                throw new ArgumentNullException("value");
+                throw new ArgumentNullException(nameof(value));
             }
 
             return value.Negate();

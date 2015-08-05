@@ -15,7 +15,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         {
             if (values == null)
             {
-                throw new ArgumentNullException("values");
+                throw new ArgumentNullException(nameof(values));
             }
 
             _separator = separator;

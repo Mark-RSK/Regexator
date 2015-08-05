@@ -25,12 +25,12 @@ namespace Pihrtsoft.Text.RegularExpressions
         {
             if (pattern == null)
             {
-                throw new ArgumentNullException("pattern");
+                throw new ArgumentNullException(nameof(pattern));
             }
 
             if (comment == null)
             {
-                throw new ArgumentNullException("comment");
+                throw new ArgumentNullException(nameof(comment));
             }
 
             _pattern = pattern;
@@ -61,7 +61,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         {
             if (charCode < 0 || charCode > 0xFFFF)
             {
-                throw new ArgumentOutOfRangeException("charCode");
+                throw new ArgumentOutOfRangeException(nameof(charCode));
             }
 
             string s = ((char)charCode).ToString();
@@ -168,14 +168,8 @@ namespace Pihrtsoft.Text.RegularExpressions
             }
         }
 
-        public string Pattern
-        {
-            get { return _pattern; }
-        }
+        public string Pattern => _pattern;
 
-        public string Comment
-        {
-            get { return _comment; }
-        }
+        public string Comment => _comment;
     }
 }

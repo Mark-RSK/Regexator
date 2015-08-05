@@ -7,47 +7,24 @@ namespace Pihrtsoft.Text.RegularExpressions
 {
     public sealed class ReplaceItem
     {
-        private readonly Match _match;
-        private readonly int _itemIndex;
-        private readonly string _key;
-        private readonly ReplaceResult _result;
-
         internal ReplaceItem(Match match, string resultValue, int resultIndex, int itemIndex)
         {
-            _match = match;
-            _itemIndex = itemIndex;
-            _key = itemIndex.ToString(CultureInfo.CurrentCulture);
-            _result = new ReplaceResult(resultValue, resultIndex, this);
+            Match = match;
+            ItemIndex = itemIndex;
+            Key = itemIndex.ToString(CultureInfo.CurrentCulture);
+            Result = new ReplaceResult(resultValue, resultIndex, this);
         }
 
-        public override string ToString()
-        {
-            return _result.ToString();
-        }
+        public override string ToString() => Result.ToString();
 
-        public int MatchEndIndex
-        {
-            get { return Match.Index + Match.Length; }
-        }
+        public int MatchEndIndex => Match.Index + Match.Length;
 
-        public Match Match
-        {
-            get { return _match; }
-        }
+        public Match Match { get; }
 
-        public int ItemIndex
-        {
-            get { return _itemIndex; }
-        }
+        public int ItemIndex { get; }
 
-        public string Key
-        {
-            get { return _key; }
-        }
+        public string Key { get; }
 
-        public ReplaceResult Result
-        {
-            get { return _result; }
-        }
+        public ReplaceResult Result { get; }
     }
 }
