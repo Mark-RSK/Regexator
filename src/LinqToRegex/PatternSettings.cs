@@ -1,5 +1,7 @@
 // Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System;
+
 namespace Pihrtsoft.Text.RegularExpressions.Linq
 {
     /// <summary>
@@ -7,6 +9,8 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     /// </summary>
     public sealed class PatternSettings
     {
+        private int _indentSize;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="PatternSettings"/> class.
         /// </summary>
@@ -20,28 +24,10 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// </summary>
         /// <param name="options">A bitwise combination of the enumeration values.</param>
         public PatternSettings(PatternOptions options)
-            : this(options, IdentifierBoundary.AngleBrackets)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PatternSettings"/> class with a specified identifier boundary.
-        /// </summary>
-        /// <param name="boundary">Indicates whether a group name will be enclosed in angle brackets or apostrophes.</param>
-        public PatternSettings(IdentifierBoundary boundary)
-            : this(PatternOptions.None, boundary)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PatternSettings"/> class with a specified options and an identifier boundary.
-        /// </summary>
-        /// <param name="options">A bitwise combination of the enumeration values.</param>
-        /// <param name="boundary">Indicates whether a group name will be enclosed in angle brackets or apostrophes.</param>
-        public PatternSettings(PatternOptions options, IdentifierBoundary boundary)
         {
             Options = options;
-            IdentifierBoundary = boundary;
+            IdentifierBoundary = IdentifierBoundary.AngleBrackets;
+            IndentSize = 4;
         }
 
         /// <summary>
@@ -54,11 +40,20 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Get the options of this instance.
         /// </summary>
-        public PatternOptions Options { get; }
+        public PatternOptions Options { get; set; }
 
         /// <summary>
         /// Get a value indicating whether a group name will be enclosed in angle brackets or apostrophes.
         /// </summary>
-        public IdentifierBoundary IdentifierBoundary { get; }
+        public IdentifierBoundary IdentifierBoundary { get; set; }
+
+        /// <summary>
+        /// Gets or sets the number of spaces in an indent.
+        /// </summary>
+        public int IndentSize
+        {
+            get { return _indentSize; }
+            set { _indentSize = Math.Max(value, 1); }
+        }
     }
 }

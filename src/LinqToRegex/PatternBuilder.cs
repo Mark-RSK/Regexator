@@ -22,7 +22,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         private bool _pendingOr;
         private int _charGroupLevel;
         private int _indentLevel;
-        private readonly int _indentSize = 4;
         private readonly bool _format;
         private readonly bool _comment;
         private readonly LineInfoCollection _lines;
@@ -972,7 +971,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             {
                 _indentLevel--;
                 _sb.AppendLine();
-                _sb.Append(' ', _indentLevel * _indentSize);
+                _sb.Append(' ', _indentLevel * Settings.IndentSize);
             }
 
             AppendDirect(')');
@@ -1952,7 +1951,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                     {
                         _indentLevel--;
                         _sb.AppendLine();
-                        _sb.Append(' ', _indentLevel * _indentSize);
+                        _sb.Append(' ', _indentLevel * Settings.IndentSize);
                         _sb.Append('|');
 
                         if (_comment)
@@ -1967,7 +1966,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
                     if (_sb.Length > 0)
                     {
                         _sb.AppendLine();
-                        _sb.Append(' ', _indentLevel * _indentSize);
+                        _sb.Append(' ', _indentLevel * Settings.IndentSize);
                     }
                 }
             }
