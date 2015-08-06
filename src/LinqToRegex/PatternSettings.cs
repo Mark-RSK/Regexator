@@ -38,7 +38,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         public bool HasOptions(PatternOptions options) => (Options & options) == options;
 
         /// <summary>
-        /// Get the options of this instance.
+        /// Gets the options of this instance.
         /// </summary>
         public PatternOptions Options { get; set; }
 

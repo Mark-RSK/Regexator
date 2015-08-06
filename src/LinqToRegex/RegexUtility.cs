@@ -136,7 +136,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Get a value indicating how a specified character is represented in the regular expression pattern.
+        /// Gets a value indicating how a specified character is represented in the regular expression pattern.
         /// </summary>
         /// <param name="value">A Unicode character.</param>
         /// <returns></returns>
@@ -146,7 +146,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         }
 
         /// <summary>
-        /// Get a value indicating how a specified character is represented in the regular expression pattern, specifying whether the character is inside or outside of the character group.
+        /// Gets a value indicating how a specified character is represented in the regular expression pattern, specifying whether the character is inside or outside of the character group.
         /// </summary>
         /// <param name="value">A Unicode character.</param>
         /// <param name="inCharGroup">Indicates whether the character is inside or outside of the character group.</param>
