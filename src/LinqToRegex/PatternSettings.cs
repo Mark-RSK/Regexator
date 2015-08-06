@@ -54,7 +54,6 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// <summary>
         /// Get the options of this instance.
         /// </summary>
-        /// 
         public PatternOptions Options { get; }
 
         /// <summary>

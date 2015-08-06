@@ -14,18 +14,18 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
     /// </summary>
     public sealed class PatternBuilder
     {
-        private StringBuilder _sb;
-        private PatternSettings _settings;
+        private readonly StringBuilder _sb;
+        private readonly PatternSettings _settings;
         private Stack<Pattern> _patterns;
         private Stack<CharGrouping> _charGroupings;
         private RegexOptions _currentOptions;
         private bool _pendingOr;
         private int _charGroupLevel;
         private int _indentLevel;
-        private int _indentSize = 4;
-        private bool _format;
-        private bool _comment;
-        private LineInfoCollection _lines;
+        private readonly int _indentSize = 4;
+        private readonly bool _format;
+        private readonly bool _comment;
+        private readonly LineInfoCollection _lines;
 
         private static readonly string[] _numbers = new string[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 

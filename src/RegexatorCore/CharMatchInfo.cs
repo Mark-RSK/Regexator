@@ -100,7 +100,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                 {
                     MemberInfo[] info = typeof(GeneralCategory).GetMember(category.ToString());
                     object[] attributes = info[0].GetCustomAttributes(typeof(DescriptionAttribute), false);
-                    yield return new CharMatchInfo(pattern, string.Format("Unicode category: {0}", ((DescriptionAttribute)attributes[0]).Description));
+                    yield return new CharMatchInfo(pattern, $"Unicode category: {((DescriptionAttribute)attributes[0]).Description}");
                 }
             }
 
@@ -111,7 +111,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                 {
                     MemberInfo[] info = typeof(NamedBlock).GetMember(block.ToString());
                     object[] attributes = info[0].GetCustomAttributes(typeof(DescriptionAttribute), false);
-                    yield return new CharMatchInfo(pattern, string.Format("Unicode block: {0}", ((DescriptionAttribute)attributes[0]).Description));
+                    yield return new CharMatchInfo(pattern, $"Unicode block: {((DescriptionAttribute)attributes[0]).Description}");
                     break;
                 }
             }

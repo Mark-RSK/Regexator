@@ -10,10 +10,6 @@ namespace Pihrtsoft.Text.RegularExpressions
 {
     public class MatchData
     {
-        //private readonly Regex _regex;
-        //private readonly GroupInfoCollection _groupInfos;
-        //private readonly string _input;
-        //private readonly int _limit;
         private LimitState _limitState;
         private MatchItemCollection _items;
 

@@ -111,7 +111,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             if (!string.IsNullOrEmpty(title))
             {
-                Console.WriteLine("{0}:", title);
+                Console.WriteLine($"{title}:");
             }
 
             Console.WriteLine(pattern.ToString(options));

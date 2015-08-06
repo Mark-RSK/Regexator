@@ -15,8 +15,6 @@ namespace Pihrtsoft.Text.RegularExpressions
         private LimitState _limitState;
         private int _offset;
         private int _count;
-        private string _input;
-        private string _replacement;
 
         public ReplaceData(Regex regex, string input, string replacement)
             : this(regex, input, replacement, ResultMode.None, MatchData.InfiniteLimit)
@@ -147,7 +145,7 @@ namespace Pihrtsoft.Text.RegularExpressions
 
         public int Limit { get; }
 
-        public LimitState LimitState { get; }
+        public LimitState LimitState => _limitState;
 
         public ResultMode ResultMode { get; }
     }
