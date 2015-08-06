@@ -5,18 +5,100 @@ using System.Text;
 
 namespace Pihrtsoft.Text.RegularExpressions
 {
-    internal abstract class LiteralBuilder
+    /// <summary>
+    /// Represents a text builder that enables create language literal from a text.
+    /// </summary>
+    public abstract class LiteralBuilder
     {
         private StringBuilder _sb;
-        private readonly LiteralBuilderSettings _settings;
+        private readonly LiteralSettings _settings;
 
-        protected abstract void AppendNewLine();
-
+        /// <summary>
+        /// Initializes a new instance <see cref="LiteralBuilder"/> class.
+        /// </summary>
         protected LiteralBuilder()
+            : this(new LiteralSettings())
         {
         }
 
-        public string GetText(string code)
+        /// <summary>
+        /// Initializes a new instance <see cref="LiteralBuilder"/> class with a specified settings.
+        /// </summary>
+        /// <param name="settings"></param>
+        /// <exception cref="ArgumentNullException"><paramref name="settings"/> is <c>null</c>.</exception>
+        protected LiteralBuilder(LiteralSettings settings)
+        {
+            if (settings == null)
+            {
+                throw new ArgumentNullException(nameof(settings));
+            }
+
+            _settings = settings;
+        }
+
+        /// <summary>
+        /// Returns a Visual Basic string literal created from a specified text.
+        /// </summary>
+        /// <param name="text">A text to be converted to a string literal.</param>
+        /// <returns>Visual Basic string literal.</returns>
+        /// <exception cref="ArgumentNullException"><paramref name="text"/> or <paramref name="settings"/> is <c>null</c>.</exception>
+        public static string CreateVisualBasicLiteral(string text)
+        {
+            return CreateVisualBasicLiteral(text, new LiteralSettings());
+        }
+
+        /// <summary>
+        /// Returns a Visual Basic string literal created from a specified text, using a specified settings.
+        /// </summary>
+        /// <param name="text">A text to be converted to a string literal.</param>
+        /// <param name="settings">A literal settings.</param>
+        /// <returns>Visual Basic string literal.</returns>
+        /// <exception cref="ArgumentNullException"><paramref name="text"/> or <paramref name="settings"/> is <c>null</c>.</exception>
+        public static string CreateVisualBasicLiteral(string text, LiteralSettings settings)
+        {
+            if (text == null)
+            {
+                throw new ArgumentNullException(nameof(text));
+            }
+
+            var builder = new VisualBasicLiteralBuilder(settings);
+            return builder.GetText(text);
+        }
+
+        /// <summary>
+        /// Returns a C# string literal created from a specified text.
+        /// </summary>
+        /// <param name="text">A text to be converted to a string literal.</param>
+        /// <returns>C# string literal.</returns>
+        /// <exception cref="ArgumentNullException"><paramref name="text"/> or <paramref name="settings"/> is <c>null</c>.</exception>
+        public static string CreateCSharpLiteral(string text)
+        {
+            return CreateCSharpLiteral(text, new LiteralSettings());
+        }
+
+        /// <summary>
+        /// Returns a C# string literal created from a specified text, using a specified settings.
+        /// </summary>
+        /// <param name="text">A text to be converted to a string literal.</param>
+        /// <param name="settings">A literal settings.</param>
+        /// <returns>C# string literal.</returns>
+        /// <exception cref="ArgumentNullException"><paramref name="text"/> or <paramref name="settings"/> is <c>null</c>.</exception>
+        public static string CreateCSharpLiteral(string text, LiteralSettings settings)
+        {
+            if (text == null)
+            {
+                throw new ArgumentNullException(nameof(text));
+            }
+
+            var builder = new CSharpLiteralBuilder(settings);
+            return builder.GetText(text);
+        }
+
+        protected abstract void BeginLine();
+        protected abstract void EndLine();
+        protected abstract string GetNewLineLiteral();
+
+        private string GetText(string code)
         {
             if (code == null)
             {
@@ -24,9 +106,9 @@ namespace Pihrtsoft.Text.RegularExpressions
             }
 
             _sb = new StringBuilder(code.Length);
-            AppendLineStart();
-
             bool isNewLine = false;
+
+            AppendStartQuoteMark();
 
             for (int i = 0; i < code.Length; i++)
             {
@@ -35,20 +117,19 @@ namespace Pihrtsoft.Text.RegularExpressions
                 if (ch == '\n')
                 {
                     isNewLine = true;
+                    EndLine();
                 }
                 else
                 {
                     if (isNewLine)
                     {
-                        if (MultilineEnabled && Settings.Multiline)
+                        if (Settings.Multiline)
                         {
-                            _sb.Append('\n');
+                            AppendNewLine();
                         }
                         else
                         {
-                            AppendLineEnd();
-                            AppendNewLine();
-                            AppendLineStart();
+                            BeginLine();
                         }
 
                         isNewLine = false;
@@ -58,7 +139,11 @@ namespace Pihrtsoft.Text.RegularExpressions
                 }
             }
 
-            AppendLineEnd();
+            if (!isNewLine)
+            {
+                AppendQuoteMark();
+            }
+
             return _sb.ToString();
         }
 
@@ -77,18 +162,29 @@ namespace Pihrtsoft.Text.RegularExpressions
             _sb.Append(value);
         }
 
-        protected virtual void AppendLineStart()
+        protected virtual void AppendStartQuoteMark()
         {
             _sb.Append('"');
         }
 
-        protected virtual void AppendLineEnd()
+        protected void AppendQuoteMark()
         {
             _sb.Append('"');
         }
 
-        protected virtual bool MultilineEnabled => false;
+        protected void AppendNewLine()
+        {
+            _sb.Append('\n');
+        }
 
-        public LiteralBuilderSettings Settings => _settings;
+        protected void AppendNewLineLiteral()
+        {
+            _sb.Append(GetNewLineLiteral());
+        }
+
+        /// <summary>
+        /// Gets a settings of the current instance.
+        /// </summary>
+        public LiteralSettings Settings => _settings;
     }
 }

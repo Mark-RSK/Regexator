@@ -30,7 +30,8 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>RegexatorCore.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>
+    </CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>
@@ -55,9 +56,9 @@
     <Compile Include="CharMatchInfo.cs" />
     <Compile Include="EnumerableExtensions.cs" />
     <Compile Include="Code\CSharpLiteralBuilder.cs" />
-    <Compile Include="Code\NewLineMode.cs" />
+    <Compile Include="Code\NewLineLiteral.cs" />
     <Compile Include="Code\LiteralBuilder.cs" />
-    <Compile Include="Code\LiteralBuilderSettings.cs" />
+    <Compile Include="Code\LiteralSettings.cs" />
     <Compile Include="Code\VisualBasicLiteralBuilder.cs" />
     <Compile Include="Extensions\RegexExtensions.cs" />
     <Compile Include="GlobalSuppressions.cs" />
@@ -103,9 +104,6 @@
       <Project>{a5c864f0-d0a3-4a3c-8854-ce4ee631901b}</Project>
       <Name>LinqToRegex</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="RegexatorCore.ruleset" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

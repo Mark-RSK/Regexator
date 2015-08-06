@@ -1,11 +1,19 @@
 ﻿// Copyright (c) Josef Pihrt. All rights reserved. Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System.Diagnostics;
+
 namespace Pihrtsoft.Text.RegularExpressions
 {
     internal sealed class CSharpLiteralBuilder
         : LiteralBuilder
     {
         public CSharpLiteralBuilder()
+            : base()
+        {
+        }
+
+        public CSharpLiteralBuilder(LiteralSettings settings)
+            : base(settings)
         {
         }
 
@@ -32,49 +40,59 @@ namespace Pihrtsoft.Text.RegularExpressions
             base.AppendChar(value);
         }
 
-        protected override void AppendNewLine()
+        protected override void EndLine()
         {
-            Append(' ');
-            Append('+');
-            Append(' ');
-
-            switch (Settings.NewLineLiteral)
-            {
-                case NewLineMode.Linefeed:
-                    Append("'\\n'");
-                    break;
-                case NewLineMode.CarriageReturnLinefeed:
-                    Append("\"\\r\\n\"");
-                    break;
-                case NewLineMode.Environment:
-                    Append("Environment.NewLine");
-                    break;
-            }
+            AppendQuoteMark();
 
             if (Settings.ConcatAtBeginningOfLine)
             {
-                Append('\n');
-                Append('+');
-                Append(' ');
+                AppendNewLine();
             }
             else
             {
-                Append(' ');
-                Append('+');
-                Append('\n');
+                Append(" ");
+            }
+
+            Append("+ ");
+            AppendNewLineLiteral();
+        }
+
+        protected override void BeginLine()
+        {
+            Append(" + ");
+
+            if (!Settings.ConcatAtBeginningOfLine)
+            {
+                AppendNewLine();
+            }
+
+            AppendStartQuoteMark();
+        }
+
+        protected override string GetNewLineLiteral()
+        {
+            switch (Settings.NewLineLiteral)
+            {
+                case NewLineLiteral.Linefeed:
+                    return @"'\n'";
+                case NewLineLiteral.CarriageReturnLinefeed:
+                    return @"""\r\n\""";
+                case NewLineLiteral.Environment:
+                    return "Environment.NewLine";
+                default:
+                    Debug.Assert(false);
+                    return string.Empty;
             }
         }
 
-        protected override void AppendLineStart()
+        protected override void AppendStartQuoteMark()
         {
             if (Settings.Verbatim)
             {
                 Append('@');
             }
 
-            base.AppendLineStart();
+            base.AppendStartQuoteMark();
         }
-
-        protected override bool MultilineEnabled => true;
     }
 }

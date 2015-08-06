@@ -32,7 +32,8 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>LinqToRegex.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>
+    </CodeAnalysisRuleSet>
     <DocumentationFile>bin\Release\Pihrtsoft.Text.RegularExpressions.Linq.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
@@ -143,7 +144,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="LinqToRegex.pfx" />
-    <None Include="LinqToRegex.ruleset" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

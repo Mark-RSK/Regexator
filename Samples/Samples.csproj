@@ -31,7 +31,8 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>Samples.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>
+    </CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -52,12 +53,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Samples.ruleset" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\src\LinqToRegex\LinqToRegex.csproj">
       <Project>{a5c864f0-d0a3-4a3c-8854-ce4ee631901b}</Project>
       <Name>LinqToRegex</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\src\RegexatorCore\RegexatorCore.csproj">
+      <Project>{c1f3da6c-5f01-4f65-8001-1ff40596ef53}</Project>
+      <Name>RegexatorCore</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
