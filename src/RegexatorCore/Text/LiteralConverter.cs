@@ -8,25 +8,25 @@ namespace Pihrtsoft.Text.RegularExpressions
     /// <summary>
     /// Represents a text builder that enables create language literal from a text.
     /// </summary>
-    public abstract class LiteralBuilder
+    public abstract class LiteralConverter
     {
         private StringBuilder _sb;
         private readonly LiteralSettings _settings;
 
         /// <summary>
-        /// Initializes a new instance <see cref="LiteralBuilder"/> class.
+        /// Initializes a new instance <see cref="LiteralConverter"/> class.
         /// </summary>
-        protected LiteralBuilder()
+        protected LiteralConverter()
             : this(new LiteralSettings())
         {
         }
 
         /// <summary>
-        /// Initializes a new instance <see cref="LiteralBuilder"/> class with a specified settings.
+        /// Initializes a new instance <see cref="LiteralConverter"/> class with a specified settings.
         /// </summary>
         /// <param name="settings"></param>
         /// <exception cref="ArgumentNullException"><paramref name="settings"/> is <c>null</c>.</exception>
-        protected LiteralBuilder(LiteralSettings settings)
+        protected LiteralConverter(LiteralSettings settings)
         {
             if (settings == null)
             {
@@ -42,9 +42,9 @@ namespace Pihrtsoft.Text.RegularExpressions
         /// <param name="text">A text to be converted to a string literal.</param>
         /// <returns>Visual Basic string literal.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="text"/> or <paramref name="settings"/> is <c>null</c>.</exception>
-        public static string CreateVisualBasicLiteral(string text)
+        public static string ToVisualBasicLiteral(string text)
         {
-            return CreateVisualBasicLiteral(text, new LiteralSettings());
+            return ToVisualBasicLiteral(text, new LiteralSettings());
         }
 
         /// <summary>
@@ -54,14 +54,14 @@ namespace Pihrtsoft.Text.RegularExpressions
         /// <param name="settings">A literal settings.</param>
         /// <returns>Visual Basic string literal.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="text"/> or <paramref name="settings"/> is <c>null</c>.</exception>
-        public static string CreateVisualBasicLiteral(string text, LiteralSettings settings)
+        public static string ToVisualBasicLiteral(string text, LiteralSettings settings)
         {
             if (text == null)
             {
                 throw new ArgumentNullException(nameof(text));
             }
 
-            var builder = new VisualBasicLiteralBuilder(settings);
+            var builder = new VisualBasicLiteralConverter(settings);
             return builder.GetText(text);
         }
 
@@ -71,9 +71,9 @@ namespace Pihrtsoft.Text.RegularExpressions
         /// <param name="text">A text to be converted to a string literal.</param>
         /// <returns>C# string literal.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="text"/> or <paramref name="settings"/> is <c>null</c>.</exception>
-        public static string CreateCSharpLiteral(string text)
+        public static string ToCSharpLiteral(string text)
         {
-            return CreateCSharpLiteral(text, new LiteralSettings());
+            return ToCSharpLiteral(text, new LiteralSettings());
         }
 
         /// <summary>
@@ -83,14 +83,14 @@ namespace Pihrtsoft.Text.RegularExpressions
         /// <param name="settings">A literal settings.</param>
         /// <returns>C# string literal.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="text"/> or <paramref name="settings"/> is <c>null</c>.</exception>
-        public static string CreateCSharpLiteral(string text, LiteralSettings settings)
+        public static string ToCSharpLiteral(string text, LiteralSettings settings)
         {
             if (text == null)
             {
                 throw new ArgumentNullException(nameof(text));
             }
 
-            var builder = new CSharpLiteralBuilder(settings);
+            var builder = new CSharpLiteralConverter(settings);
             return builder.GetText(text);
         }
 

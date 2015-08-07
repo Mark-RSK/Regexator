@@ -7,7 +7,7 @@ namespace Pihrtsoft.Text.RegularExpressions
     /// <summary>
     /// Specifies a character or a combination of characters that are used to create new line.
     /// </summary>
-    public enum NewLineLiteral
+    public enum NewLineMode
     {
         /// <summary>
         /// A linefeed character.

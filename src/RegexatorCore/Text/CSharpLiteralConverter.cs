@@ -4,15 +4,15 @@ using System.Diagnostics;
 
 namespace Pihrtsoft.Text.RegularExpressions
 {
-    internal sealed class CSharpLiteralBuilder
-        : LiteralBuilder
+    internal sealed class CSharpLiteralConverter
+        : LiteralConverter
     {
-        public CSharpLiteralBuilder()
+        public CSharpLiteralConverter()
             : base()
         {
         }
 
-        public CSharpLiteralBuilder(LiteralSettings settings)
+        public CSharpLiteralConverter(LiteralSettings settings)
             : base(settings)
         {
         }
@@ -73,11 +73,11 @@ namespace Pihrtsoft.Text.RegularExpressions
         {
             switch (Settings.NewLineLiteral)
             {
-                case NewLineLiteral.Linefeed:
+                case NewLineMode.Linefeed:
                     return @"'\n'";
-                case NewLineLiteral.CarriageReturnLinefeed:
+                case NewLineMode.CarriageReturnLinefeed:
                     return @"""\r\n\""";
-                case NewLineLiteral.Environment:
+                case NewLineMode.Environment:
                     return "Environment.NewLine";
                 default:
                     Debug.Assert(false);

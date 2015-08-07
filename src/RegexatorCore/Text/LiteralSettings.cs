@@ -3,7 +3,7 @@
 namespace Pihrtsoft.Text.RegularExpressions
 {
     /// <summary>
-    /// Specifies a set of features to support on the <see cref="LiteralBuilder"/> object. This class cannot be inherited.
+    /// Specifies a set of features to support on the <see cref="LiteralConverter"/> object. This class cannot be inherited.
     /// </summary>
     public sealed class LiteralSettings
     {
@@ -20,7 +20,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         /// <summary>
         /// Gets or sets a text that is used to create new line.
         /// </summary>
-        public NewLineLiteral NewLineLiteral { get; set; }
+        public NewLineMode NewLineLiteral { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether a new line literal is at the end or at the beginning of line.

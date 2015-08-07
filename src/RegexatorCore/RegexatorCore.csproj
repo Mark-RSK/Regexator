@@ -55,11 +55,11 @@
     <Compile Include="CaptureItemEqualityComparer.cs" />
     <Compile Include="CharMatchInfo.cs" />
     <Compile Include="EnumerableExtensions.cs" />
-    <Compile Include="Code\CSharpLiteralBuilder.cs" />
-    <Compile Include="Code\NewLineLiteral.cs" />
-    <Compile Include="Code\LiteralBuilder.cs" />
-    <Compile Include="Code\LiteralSettings.cs" />
-    <Compile Include="Code\VisualBasicLiteralBuilder.cs" />
+    <Compile Include="Text\CSharpLiteralConverter.cs" />
+    <Compile Include="Text\NewLineMode.cs" />
+    <Compile Include="Text\LiteralConverter.cs" />
+    <Compile Include="Text\LiteralSettings.cs" />
+    <Compile Include="Text\VisualBasicLiteralConverter.cs" />
     <Compile Include="Extensions\RegexExtensions.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="GroupInfo.cs" />

@@ -5,15 +5,15 @@ using System.Diagnostics;
 
 namespace Pihrtsoft.Text.RegularExpressions
 {
-    internal sealed class VisualBasicLiteralBuilder
-        : LiteralBuilder
+    internal sealed class VisualBasicLiteralConverter
+        : LiteralConverter
     {
-        public VisualBasicLiteralBuilder()
+        public VisualBasicLiteralConverter()
             : base()
         {
         }
 
-        public VisualBasicLiteralBuilder(LiteralSettings settings)
+        public VisualBasicLiteralConverter(LiteralSettings settings)
             : base(settings)
         {
         }
@@ -68,11 +68,11 @@ namespace Pihrtsoft.Text.RegularExpressions
         {
             switch (Settings.NewLineLiteral)
             {
-                case NewLineLiteral.Linefeed:
+                case NewLineMode.Linefeed:
                     return "vbLf";
-                case NewLineLiteral.CarriageReturnLinefeed:
+                case NewLineMode.CarriageReturnLinefeed:
                     return "vbCrLf";
-                case NewLineLiteral.Environment:
+                case NewLineMode.Environment:
                     return "Environment.NewLine";
                 default:
                     Debug.Assert(false);
