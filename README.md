@@ -180,8 +180,72 @@ var pattern = !AssertBack(CarriageReturn()) + Linefeed();
 There are methods, such as `AnyNative` or `CrawlNative` that behaves differently depending on the provided `RegexOptions` value.
 In these two patterns, a dot can match any character except linefeed or any character in `RegexOptions.Singleline` option is applied.
 
-### Samples
+### Prefix "While"
+```c#
+var pattern = WhileChar('a'); // a*
+```
+```c#
+var pattern = WhileDigit(); // \d*
+```
+```c#
+var pattern = WhileNotChar('a'); // [^a]*
+```
+```c#
+var pattern = WhileNotNewLineChar(); // [^\r\n]*
+```
+```c#
+var pattern = WhileWhiteSpace(); // \s*
+```
+```c#
+var pattern = WhileWhiteSpaceExceptNewLine(); // [\s-[\r\n]]*
+```
+```c#
+var pattern = WhileWordChar(); // \w*
+```
+### Prefix "Until"
+```c#
+var pattern = UntilChar('a'); // (?:[^a]*a)
+```
+```c#
+var pattern = UntilNewLine(); // (?:[^\n]*\n)
+```
 
+### Examples
+
+#### Leading White-space
+```c#
+Pattern pattern = BeginInputOrLine().WhiteSpaceExceptNewLine().OneMany());
+
+Console.WriteLine(pattern.ToString(PatternOptions.FormatAndComment));
+```
+Output:
+```
+^            # beginning of input
+[\s-[\r\n]]+ # character group one or more times
+```
+#### Repeated Word
+```c#
+var pattern = 
+    Group(Word())
+        .NotWordChars()
+        .GroupReference(1)
+        .WordBoundary();
+
+Console.WriteLine(pattern.ToString(PatternOptions.FormatAndComment));
+```
+Output:
+```
+(           # numbered group
+    (?:     # noncapturing group
+        \b  # word boundary
+        \w+ # word character one or more times
+        \b  # word boundary
+    )       # group end
+)           # group end
+\W+         # non-word character one or more times
+\1          # group reference
+\b          # word boundary
+```
 #### C# Verbatim String Literal
 ```c#
 string q = "\"";
@@ -190,7 +254,6 @@ var pattern = "@" + q + WhileNotChar(q) + MaybeMany(q + q + WhileNotChar(q)) + q
 
 Console.WriteLine(pattern.ToString(PatternOptions.FormatAndComment));
 ```
-
 Output:
 ```
 @"        # text
@@ -201,112 +264,83 @@ Output:
 )*        # group zero or more times
 "         # character
 ```
-
-#### C# String Literal, Character Literal or Comment
+#### Words in Sequence in Any Order
 ```c#
-using static Pihrtsoft.Text.RegularExpressions.Linq.Patterns;
+var pattern = 
+    WordBoundary()
+        .CountFrom(3,
+            Any(values.Select(f => Group(Patterns.Text(f))))
+            .WordBoundary()
+            .NotWordChar().MaybeMany().Lazy())
+        .GroupReference(1)
+        .GroupReference(2)
+        .GroupReference(3);
 
-namespace Pihrtsoft.Text.RegularExpressions.Linq
-{
-    public static class Program
-    {
-        public static void Main(string[] args)
-        {
-            var pattern = Any(
-                CSharpEscapedTextLiteral(),
-                CSharpVerbatimTextLiteral(),
-                CSharpCharacterLiteral(),
-                CSharpLineComment(),
-                CSharpMultilineComment());
-            
-            Console.WriteLine(pattern.ToString(PatternOptions.FormatAndComment));
-        }
-
-        public static Pattern CSharpEscapedTextLiteral()
-        {
-            var chars = MaybeMany(!Chars.QuoteMark().Backslash().NewLineChar());
-
-            return SurroundQuoteMarks(chars + MaybeMany(Backslash().NotNewLineChar() + chars));
-        }
-
-        public static Pattern CSharpVerbatimTextLiteral()
-        {
-            string q = "\"";
-
-            return "@" + q + WhileNotChar(q) + MaybeMany(q + q + WhileNotChar(q)) + q;
-        }
-
-        public static Pattern CSharpCharacterLiteral()
-        {
-            var chars = MaybeMany(!Chars.Apostrophe().Backslash().NewLineChar());
-
-            return SurroundApostrophes(chars + MaybeMany(Backslash().NotNewLineChar() + chars));
-        }
-
-        public static Pattern CSharpLineComment()
-        {
-            return "//" + NotNewLineChar().MaybeMany();
-        }
-
-        public static Pattern CSharpMultilineComment()
-        {
-            return "/*" 
-                + WhileNotChar('*')
-                + MaybeMany(
-                    "*" 
-                    + NotAssert("/") 
-                    + WhileNotChar('*'))
-                + "*/";
-        }
-    }
-}
+Console.WriteLine(pattern.ToString(PatternOptions.FormatAndComment));
 ```
-
 Output:
 ```
-(?:                 # noncapturing group
-    "               # character
-    [^"\\\r\n]*     # negative character group zero or more times
-    (?:             # noncapturing group
-        \\          # character
-        [^\r\n]     # negative character group
-        [^"\\\r\n]* # negative character group zero or more times
-    )*              # group zero or more times
-    "               # character
-|                   # or
-    @"              # text
-    [^"]*           # negative character group zero or more times
-    (?:             # noncapturing group
-        ""          # text
-        [^"]*       # negative character group zero or more times
-    )*              # group zero or more times
-    "               # character
-|                   # or
-    '               # character
-    [^'\\\r\n]*     # negative character group zero or more times
-    (?:             # noncapturing group
-        \\          # character
-        [^\r\n]     # negative character group
-        [^'\\\r\n]* # negative character group zero or more times
-    )*              # group zero or more times
-    '               # character
-|                   # or
-    //              # text
-    [^\r\n]*        # negative character group zero or more times
-|                   # or
-    /               # character
-    \*              # character
-    [^*]*           # negative character group zero or more times
-    (?:             # noncapturing group
-        \*          # character
-        (?!         # negative lookahead assertion
-            /       # character
-        )           # group end
-        [^*]*       # negative character group zero or more times
-    )*              # group zero or more times
-    \*              # character
-    /               # character
-)                   # group end
+\b                # word boundary
+(?:               # noncapturing group
+    (?:           # noncapturing group
+        (         # numbered group
+            one   # text
+        )         # group end
+    |             # or
+        (         # numbered group
+            two   # text
+        )         # group end
+    |             # or
+        (         # numbered group
+            three # text
+        )         # group end
+    )             # group end
+    \b            # word boundary
+    \W*?          # non-word character zero or more times but as few times as possible
+){3,}             # group at least n times
+\1                # group reference
+\2                # group reference
+\3                # group reference
+```
+#### XML CDATA Value
+```c#
+Pattern pattern = 
+    SurroundAngleBrackets(
+        "!" + SurroundSquareBrackets(
+            "CDATA" + SurroundSquareBrackets(
+                Group(
+                    WhileNotChar(']')
+                    + MaybeMany(
+                        "]"
+                        + NotAssert("]>")
+                        + WhileNotChar(']'))
+                )
+            )
+        )
+    );
+
+Console.WriteLine(pattern.ToString(PatternOptions.FormatAndComment));
+```
+Output:
+```
+<              # character
+!              # character
+\[             # character
+CDATA          # text
+\[             # character
+(              # numbered group
+    [^\]]*     # negative character group zero or more times
+    (?:        # noncapturing group
+        ]      # character
+        (?!    # negative lookahead assertion
+            ]> # text
+        )      # group end
+        [^\]]* # negative character group zero or more times
+    )*         # group zero or more times
+)              # group end
+]              # character
+]              # character
+>              # character
 ```
 
 ### NuGet Package
