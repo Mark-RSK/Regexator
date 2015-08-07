@@ -123,7 +123,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                 {
                     if (isNewLine)
                     {
-                        if (Settings.Multiline)
+                        if (Settings.HasOptions(LiteralOptions.Multiline))
                         {
                             AppendNewLine();
                         }

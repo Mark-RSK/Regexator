@@ -23,12 +23,12 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 case '"':
                     {
-                        Append(Settings.Verbatim ? '"' : '\\');
+                        Append(Settings.HasOptions(LiteralOptions.Verbatim) ? '"' : '\\');
                         break;
                     }
                 case '\\':
                     {
-                        if (!Settings.Verbatim)
+                        if (!Settings.HasOptions(LiteralOptions.Verbatim))
                         {
                             Append("\\");
                         }
@@ -44,7 +44,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         {
             AppendQuoteMark();
 
-            if (Settings.ConcatAtBeginningOfLine)
+            if (Settings.HasOptions(LiteralOptions.ConcatAtBeginningOfLine))
             {
                 AppendNewLine();
             }
@@ -61,7 +61,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         {
             Append(" + ");
 
-            if (!Settings.ConcatAtBeginningOfLine)
+            if (!Settings.HasOptions(LiteralOptions.ConcatAtBeginningOfLine))
             {
                 AppendNewLine();
             }
@@ -87,7 +87,7 @@ namespace Pihrtsoft.Text.RegularExpressions
 
         protected override void AppendStartQuoteMark()
         {
-            if (Settings.Verbatim)
+            if (Settings.HasOptions(LiteralOptions.Verbatim))
             {
                 Append('@');
             }

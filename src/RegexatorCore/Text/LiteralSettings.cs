@@ -17,25 +17,17 @@ namespace Pihrtsoft.Text.RegularExpressions
             _concatOperator = "+";
         }
 
+        public bool HasOptions(LiteralOptions options) => (Options & options) == options;
+
         /// <summary>
         /// Gets or sets a text that is used to create new line.
         /// </summary>
         public NewLineMode NewLineLiteral { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether a new line literal is at the end or at the beginning of line.
+        /// Gets the options of this instance.
         /// </summary>
-        public bool ConcatAtBeginningOfLine { get; set; }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether a literal is verbatim. This value is relevant for a C# only.
-        /// </summary>
-        public bool Verbatim { get; set; }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether a literal is multiline.
-        /// </summary>
-        public bool Multiline { get; set; }
+        public LiteralOptions Options { get; set; }
 
         /// <summary>
         /// Gets or sets a concatenating operator.

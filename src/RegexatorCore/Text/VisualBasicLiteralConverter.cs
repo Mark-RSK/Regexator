@@ -32,7 +32,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         {
             AppendQuoteMark();
 
-            if (Settings.ConcatAtBeginningOfLine)
+            if (Settings.HasOptions(LiteralOptions.ConcatAtBeginningOfLine))
             {
                 Append(" _");
                 AppendNewLine();
@@ -52,7 +52,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             Append(' ');
             Append(Settings.ConcatOperator);
 
-            if (Settings.ConcatAtBeginningOfLine)
+            if (Settings.HasOptions(LiteralOptions.ConcatAtBeginningOfLine))
             {
                 Append(' ');
             }
