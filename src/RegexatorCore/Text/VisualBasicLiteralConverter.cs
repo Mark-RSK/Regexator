@@ -68,11 +68,11 @@ namespace Pihrtsoft.Text.RegularExpressions
         {
             switch (Settings.NewLineLiteral)
             {
-                case NewLineMode.Linefeed:
+                case NewLineKind.Linefeed:
                     return "vbLf";
-                case NewLineMode.CarriageReturnLinefeed:
+                case NewLineKind.CarriageReturnLinefeed:
                     return "vbCrLf";
-                case NewLineMode.Environment:
+                case NewLineKind.Environment:
                     return "Environment.NewLine";
                 default:
                     Debug.Assert(false);

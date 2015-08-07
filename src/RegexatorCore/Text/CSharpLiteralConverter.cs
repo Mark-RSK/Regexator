@@ -73,11 +73,11 @@ namespace Pihrtsoft.Text.RegularExpressions
         {
             switch (Settings.NewLineLiteral)
             {
-                case NewLineMode.Linefeed:
+                case NewLineKind.Linefeed:
                     return @"'\n'";
-                case NewLineMode.CarriageReturnLinefeed:
+                case NewLineKind.CarriageReturnLinefeed:
                     return @"""\r\n\""";
-                case NewLineMode.Environment:
+                case NewLineKind.Environment:
                     return "Environment.NewLine";
                 default:
                     Debug.Assert(false);

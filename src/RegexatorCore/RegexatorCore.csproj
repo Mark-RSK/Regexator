@@ -57,7 +57,7 @@
     <Compile Include="EnumerableExtensions.cs" />
     <Compile Include="Text\CSharpLiteralConverter.cs" />
     <Compile Include="Text\LiteralOptions.cs" />
-    <Compile Include="Text\NewLineMode.cs" />
+    <Compile Include="Text\NewLineKind.cs" />
     <Compile Include="Text\LiteralConverter.cs" />
     <Compile Include="Text\LiteralSettings.cs" />
     <Compile Include="Text\VisualBasicLiteralConverter.cs" />

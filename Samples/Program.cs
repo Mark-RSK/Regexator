@@ -41,9 +41,9 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
 
             Dump("multiple words", exp);
 
-            exp = "@" + SurroundQuoteMarks(
-                WhileNotChar('"')
-                .MaybeMany(QuoteMark(2).WhileNotChar('"')));
+            string q = "\"";
+
+            exp = "@" + q + WhileNotChar(q) + MaybeMany(q + q + WhileNotChar(q)) + q;
 
             Dump("verbatim quoted text", exp);
 
@@ -52,7 +52,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             Dump("digits inside b element value", exp);
 
             exp = Group(Word())
-                .WhiteSpaces()
+                .NotWordChars()
                 .GroupReference(1)
                 .WordBoundary();
 

@@ -22,7 +22,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         /// <summary>
         /// Gets or sets a text that is used to create new line.
         /// </summary>
-        public NewLineMode NewLineLiteral { get; set; }
+        public NewLineKind NewLineLiteral { get; set; }
 
         /// <summary>
         /// Gets the options of this instance.
