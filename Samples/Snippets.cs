@@ -228,11 +228,13 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
             return SurroundAngleBrackets(
                     "!" + SurroundSquareBrackets(
                         "CDATA" + SurroundSquareBrackets(
-                            WhileNotChar(']') 
-                            + MaybeMany(
-                                "]" 
-                                + NotAssert("]>") 
-                                + WhileNotChar(']'))
+                            Group(
+                                WhileNotChar(']')
+                                + MaybeMany(
+                                    "]"
+                                    + NotAssert("]>")
+                                    + WhileNotChar(']'))
+                            )
                         )
                     )
                 );
