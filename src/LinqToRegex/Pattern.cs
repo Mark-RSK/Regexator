@@ -88,41 +88,59 @@ namespace Pihrtsoft.Text.RegularExpressions.Linq
         /// Compiles a new instance of the <see cref="Regex"/> class for the current instance.
         /// </summary>
         /// <returns></returns>
-        public Regex ToRegex() => ToRegex(RegexOptions.None);
+        public Regex ToRegex()
+        {
+            return ToRegex(RegexOptions.None);
+        }
 
         /// <summary>
         /// Compiles a new instance of the <see cref="Regex"/> class for the current instance, with options that modify the pattern.
         /// </summary>
         /// <param name="options">A bitwise combination of the enumeration values that modify the regular expression.</param>
         /// <returns></returns>
-        public Regex ToRegex(RegexOptions options) => new Regex(ToString(), options);
+        public Regex ToRegex(RegexOptions options)
+        {
+            return new Regex(ToString(), options);
+        }
 
         /// <summary>
         /// Constructs a pattern text that represents the current instance.
         /// </summary>
         /// <returns></returns>
-        public override string ToString() => ToString(PatternOptions.None);
+        public override string ToString()
+        {
+            return ToString(PatternOptions.None);
+        }
 
         /// <summary>
         /// Constructs a pattern text that represents the current instance. with regex options that modify the pattern.
         /// </summary>
         /// <param name="options">A bitwise combination of the enumeration values that modify the pattern.</param>
         /// <returns></returns>
-        internal string ToString(RegexOptions options) => ToString(new PatternSettings(), options);
+        internal string ToString(RegexOptions options)
+        {
+            return ToString(new PatternSettings(), options);
+        }
 
         /// <summary>
         /// Constructs a pattern text that represents the current instance. with options that modify the pattern.
         /// </summary>
         /// <param name="options">A bitwise combination of the enumeration values that modify the pattern.</param>
         /// <returns></returns>
-        public string ToString(PatternOptions options) => ToString(new PatternSettings(options));
+        public string ToString(PatternOptions options)
+        {
+            return ToString(new PatternSettings(options));
+        }
 
         /// <summary>
         /// Constructs a pattern text that represents the current instance. with settings that modify the pattern.
         /// </summary>
         /// <param name="settings">A settings that modify the pattern.</param>
         /// <returns></returns>
-        public string ToString(PatternSettings settings) => ToString(settings, RegexOptions.None);
+        public string ToString(PatternSettings settings)
+        {
+            return ToString(settings, RegexOptions.None);
+        }
 
         internal string ToString(PatternSettings settings, RegexOptions options)
         {
