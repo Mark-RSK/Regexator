@@ -6,7 +6,7 @@ using System.Text;
 namespace Pihrtsoft.Text.RegularExpressions
 {
     /// <summary>
-    /// Represents a text builder that enables create language literal from a text.
+    /// Enables to convert a text to a language literal.
     /// </summary>
     public abstract class LiteralConverter
     {
