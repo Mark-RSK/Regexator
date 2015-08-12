@@ -95,7 +95,7 @@ namespace Pihrtsoft.Text.RegularExpressions
 
             foreach (var category in Enum.GetValues(typeof(GeneralCategory)).Cast<GeneralCategory>())
             {
-                string pattern = Syntax.UnicodeStart + Syntax.GetCategoryDesignation(category) + Syntax.UnicodeEnd;
+                string pattern = @"\p{" + RegexUtility.GetCategoryDesignation(category) + "}";
                 if (Regex.IsMatch(s, pattern, options))
                 {
                     MemberInfo[] info = typeof(GeneralCategory).GetMember(category.ToString());
@@ -106,7 +106,7 @@ namespace Pihrtsoft.Text.RegularExpressions
 
             foreach (var block in Enum.GetValues(typeof(NamedBlock)).Cast<NamedBlock>())
             {
-                string pattern = Syntax.UnicodeStart + Syntax.GetBlockDesignation(block) + Syntax.UnicodeEnd;
+                string pattern = @"\p{" + RegexUtility.GetBlockDesignation(block) + "}";
                 if (Regex.IsMatch(s, pattern, options))
                 {
                     MemberInfo[] info = typeof(NamedBlock).GetMember(block.ToString());
@@ -124,25 +124,25 @@ namespace Pihrtsoft.Text.RegularExpressions
                         yield return new CharMatchInfo(@"\" + ((char)charCode).ToString(), "Escaped character");
                         break;
                     case CharEscapeMode.Bell:
-                        yield return new CharMatchInfo(Syntax.Bell);
+                        yield return new CharMatchInfo(@"\a");
                         break;
                     case CharEscapeMode.CarriageReturn:
-                        yield return new CharMatchInfo(Syntax.CarriageReturn);
+                        yield return new CharMatchInfo(@"\r");
                         break;
                     case CharEscapeMode.Escape:
-                        yield return new CharMatchInfo(Syntax.Escape);
+                        yield return new CharMatchInfo(@"\e");
                         break;
                     case CharEscapeMode.FormFeed:
-                        yield return new CharMatchInfo(Syntax.FormFeed);
+                        yield return new CharMatchInfo(@"\f");
                         break;
                     case CharEscapeMode.Linefeed:
-                        yield return new CharMatchInfo(Syntax.Linefeed);
+                        yield return new CharMatchInfo(@"\n");
                         break;
                     case CharEscapeMode.Tab:
-                        yield return new CharMatchInfo(Syntax.Tab);
+                        yield return new CharMatchInfo(@"\t");
                         break;
                     case CharEscapeMode.VerticalTab:
-                        yield return new CharMatchInfo(Syntax.VerticalTab);
+                        yield return new CharMatchInfo(@"\v");
                         break;
                     case CharEscapeMode.None:
                         yield return new CharMatchInfo(((char)charCode).ToString());
@@ -151,19 +151,19 @@ namespace Pihrtsoft.Text.RegularExpressions
 
                 if (inCharGroup && charCode == 8)
                 {
-                    yield return new CharMatchInfo(Syntax.WordBoundary, "Escaped character");
+                    yield return new CharMatchInfo(@"\b", "Escaped character");
                 }
 
-                yield return new CharMatchInfo(Syntax.UnicodeHexadecimalStart + charCode.ToString("X4", CultureInfo.InvariantCulture), "Unicode character (four hexadecimal digits)");
+                yield return new CharMatchInfo(@"\u" + charCode.ToString("X4", CultureInfo.InvariantCulture), "Unicode character (four hexadecimal digits)");
 
-                yield return new CharMatchInfo(Syntax.AsciiHexadecimalStart + charCode.ToString("X2", CultureInfo.InvariantCulture), "ASCII character (two hexadecimal digits)");
+                yield return new CharMatchInfo(@"\x" + charCode.ToString("X2", CultureInfo.InvariantCulture), "ASCII character (two hexadecimal digits)");
 
                 yield return new CharMatchInfo(@"\" + Convert.ToString(charCode, 8).PadLeft(2, '0'), "ASCII character (two or three octal digits)");
 
                 if (charCode > 0 && charCode <= 0x1A)
                 {
-                    yield return new CharMatchInfo(Syntax.AsciiControlStart + System.Convert.ToChar('a' + charCode - 1), "ASCII control character");
-                    yield return new CharMatchInfo(Syntax.AsciiControlStart + System.Convert.ToChar('A' + charCode - 1), "ASCII control character");
+                    yield return new CharMatchInfo(@"\c" + System.Convert.ToChar('a' + charCode - 1), "ASCII control character");
+                    yield return new CharMatchInfo(@"\c" + System.Convert.ToChar('A' + charCode - 1), "ASCII control character");
                 }
             }
         }

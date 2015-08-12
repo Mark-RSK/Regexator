@@ -41,6 +41,10 @@
     </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Pihrtsoft.Text.RegularExpressions.Linq, Version=2.0.0.16639, Culture=neutral, PublicKeyToken=01b9b207a9c6318e, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\LinqToRegex.2.0.0\lib\net40\Pihrtsoft.Text.RegularExpressions.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -101,10 +105,7 @@
     </CodeAnalysisDictionary>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LinqToRegex\LinqToRegex.csproj">
-      <Project>{a5c864f0-d0a3-4a3c-8854-ce4ee631901b}</Project>
-      <Name>LinqToRegex</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
