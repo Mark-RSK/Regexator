@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Pihrtsoft.Text.RegularExpressions.Linq;
 
 namespace Pihrtsoft.Text.RegularExpressions
 {
@@ -177,18 +178,32 @@ namespace Pihrtsoft.Text.RegularExpressions
 
                     System.Diagnostics.Debug.Assert(splits.Length == _items.Count);
 
-                    int i = 0;
-                    foreach (var item in _items)
+                    for (int i = 0; i < _items.Count; i++)
                     {
-                        if (item.Value != splits[i])
+                        if (_items[i].Value != splits[i])
                         {
                             System.Diagnostics.Debug.WriteLine(i);
                             System.Diagnostics.Debug.WriteLine(splits[i]);
-                            System.Diagnostics.Debug.WriteLine(item.Value);
+                            System.Diagnostics.Debug.WriteLine(_items[i].Value);
                             System.Diagnostics.Debug.Assert(false);
                         }
+                    }
 
-                        i++;
+                    splits = (Limit == MatchData.InfiniteLimit)
+                        ? RegexSplit.EnumerateValues(Regex, Input).ToArray()
+                        : RegexSplit.EnumerateValues(Regex, Input, Limit).ToArray();
+
+                    System.Diagnostics.Debug.Assert(splits.Length == _items.Count);
+
+                    for (int i = 0; i < _items.Count; i++)
+                    {
+                        if (_items[i].Value != splits[i])
+                        {
+                            System.Diagnostics.Debug.WriteLine(i);
+                            System.Diagnostics.Debug.WriteLine(splits[i]);
+                            System.Diagnostics.Debug.WriteLine(_items[i].Value);
+                            System.Diagnostics.Debug.Assert(false);
+                        }
                     }
 #endif
                 }

@@ -59,6 +59,7 @@
     <Compile Include="CaptureItemEqualityComparer.cs" />
     <Compile Include="CharMatchInfo.cs" />
     <Compile Include="EnumerableExtensions.cs" />
+    <Compile Include="RegexSplit.cs" />
     <Compile Include="Text\CSharpLiteralConverter.cs" />
     <Compile Include="Text\LiteralOptions.cs" />
     <Compile Include="Text\NewLineKind.cs" />
