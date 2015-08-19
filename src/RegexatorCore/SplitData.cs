@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Pihrtsoft.Text.RegularExpressions.Linq;
 
 namespace Pihrtsoft.Text.RegularExpressions
 {
@@ -44,12 +43,23 @@ namespace Pihrtsoft.Text.RegularExpressions
 
         private IEnumerable<Match> EnumerateMatches(Match match)
         {
+            int count = Limit;
+            count--;
+
             if (Regex.RightToLeft)
             {
                 var matches = new List<Match>();
                 while (match.Success)
                 {
                     matches.Add(match);
+
+                    count--;
+                    if (count == 0)
+                    {
+                        _limitState = LimitState.Limited;
+                        break;
+                    }
+
                     match = match.NextMatch();
                 }
 
@@ -60,10 +70,17 @@ namespace Pihrtsoft.Text.RegularExpressions
             }
             else
             {
-                var matches = new List<Match>();
                 while (match.Success)
                 {
                     yield return match;
+
+                    count--;
+                    if (count == 0)
+                    {
+                        _limitState = LimitState.Limited;
+                        yield break;
+                    }
+
                     match = match.NextMatch();
                 }
             }
@@ -130,53 +147,19 @@ namespace Pihrtsoft.Text.RegularExpressions
             yield return new MatchSplitItem(Input.Substring(prevIndex, Input.Length - prevIndex), prevIndex, itemIndex, splitIndex);
         }
 
-        private IList<SplitItem> GetItems()
-        {
-            if (Limit == MatchData.InfiniteLimit)
-            {
-                _limitState = LimitState.NotLimited;
-                return EnumerateItems().ToArray();
-            }
-            else
-            {
-                int cnt = 0;
-                var lst = new List<SplitItem>();
-
-                foreach (var item in EnumerateItems())
-                {
-                    if (cnt < Limit)
-                    {
-                        lst.Add(item);
-                        if (item.Kind == SplitItemKind.Split)
-                        {
-                            cnt++;
-                        }
-                    }
-                    else
-                    {
-                        _limitState = LimitState.Limited;
-                        return lst;
-                    }
-                }
-
-                _limitState = LimitState.NotLimited;
-                return lst;
-            }
-        }
-
         public SplitItemCollection Items
         {
             get
             {
                 if (_items == null)
                 {
-                    _items = new SplitItemCollection(GetItems(), GroupInfos);
+                    _items = new SplitItemCollection(EnumerateItems().ToArray(), GroupInfos);
 #if DEBUG
                     var splits = (Limit == MatchData.InfiniteLimit)
                         ? Regex.Split(Input)
                         : Regex.Split(Input, Limit);
 
-                    System.Diagnostics.Debug.Assert(splits.Length == _items.Count);
+                    System.Diagnostics.Debug.Assert(splits.Length == _items.Count, _items.Count.ToString() + " " + splits.Length.ToString());
 
                     for (int i = 0; i < _items.Count; i++)
                     {
@@ -193,7 +176,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                         ? RegexSplit.EnumerateValues(Regex, Input).ToArray()
                         : RegexSplit.EnumerateValues(Regex, Input, Limit).ToArray();
 
-                    System.Diagnostics.Debug.Assert(splits.Length == _items.Count);
+                    System.Diagnostics.Debug.Assert(splits.Length == _items.Count, _items.Count.ToString() + " " + splits.Length.ToString());
 
                     for (int i = 0; i < _items.Count; i++)
                     {
