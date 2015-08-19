@@ -171,23 +171,6 @@ namespace Pihrtsoft.Text.RegularExpressions
                             System.Diagnostics.Debug.Assert(false);
                         }
                     }
-
-                    splits = (Limit == MatchData.InfiniteLimit)
-                        ? RegexSplit.EnumerateValues(Regex, Input).ToArray()
-                        : RegexSplit.EnumerateValues(Regex, Input, Limit).ToArray();
-
-                    System.Diagnostics.Debug.Assert(splits.Length == _items.Count, _items.Count.ToString() + " " + splits.Length.ToString());
-
-                    for (int i = 0; i < _items.Count; i++)
-                    {
-                        if (_items[i].Value != splits[i])
-                        {
-                            System.Diagnostics.Debug.WriteLine(i);
-                            System.Diagnostics.Debug.WriteLine(splits[i]);
-                            System.Diagnostics.Debug.WriteLine(_items[i].Value);
-                            System.Diagnostics.Debug.Assert(false);
-                        }
-                    }
 #endif
                 }
 
