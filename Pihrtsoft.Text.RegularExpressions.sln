@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegexatorCore", "src\RegexatorCore\RegexatorCore.csproj", "{C1F3DA6C-5F01-4F65-8001-1FF40596EF53}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pihrtsoft.Text.RegularExpressions", "src\Pihrtsoft.Text.RegularExpressions\Pihrtsoft.Text.RegularExpressions.csproj", "{C1F3DA6C-5F01-4F65-8001-1FF40596EF53}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
