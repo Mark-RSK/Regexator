@@ -12,6 +12,7 @@ namespace Pihrtsoft.Text.RegularExpressions
     {
         private LimitState _limitState;
         private SplitItemCollection _items;
+        private int _groupSplitItemCount;
 
         public SplitData(Regex regex, string input)
             : this(regex, input, MatchData.InfiniteLimit)
@@ -21,19 +22,13 @@ namespace Pihrtsoft.Text.RegularExpressions
         public SplitData(Regex regex, string input, int limit)
         {
             if (regex == null)
-            {
                 throw new ArgumentNullException(nameof(regex));
-            }
 
             if (input == null)
-            {
                 throw new ArgumentNullException(nameof(input));
-            }
 
             if (limit < 0)
-            {
                 throw new ArgumentOutOfRangeException(nameof(limit));
-            }
 
             Regex = regex;
             Input = input;
@@ -64,9 +59,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                 }
 
                 for (int i = (matches.Count - 1); i >= 0; i--)
-                {
                     yield return matches[i];
-                }
             }
             else
             {
@@ -122,6 +115,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                             if (group.Success)
                             {
                                 yield return new GroupSplitItem(group, GroupInfos[i], itemIndex);
+                                _groupSplitItemCount++;
                                 itemIndex++;
                             }
                         }
@@ -137,6 +131,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                             if (group.Success)
                             {
                                 yield return new GroupSplitItem(group, info, itemIndex);
+                                _groupSplitItemCount++;
                                 itemIndex++;
                             }
                         }
@@ -189,6 +184,8 @@ namespace Pihrtsoft.Text.RegularExpressions
         public string Input { get; }
 
         public int Limit { get; }
+
+        public int GroupSplitItemCount => _groupSplitItemCount;
 
         public LimitState LimitState => _limitState;
     }

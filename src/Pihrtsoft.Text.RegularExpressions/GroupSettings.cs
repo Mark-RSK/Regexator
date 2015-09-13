@@ -32,9 +32,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         public GroupSettings(GroupSortProperty sortPropertyName, ListSortDirection sortDirection, IList<string> ignoredGroups)
         {
             if (ignoredGroups == null)
-            {
                 throw new ArgumentNullException(nameof(ignoredGroups));
-            }
 
             SortProperty = sortPropertyName;
             SortDirection = sortDirection;
@@ -47,9 +45,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         public static bool HasDefaultValues(GroupSettings settings)
         {
             if (settings == null)
-            {
                 throw new ArgumentNullException(nameof(settings));
-            }
 
             return settings.IgnoredGroups.Count == 0 &&
                 settings.SortProperty == DefaultSortProperty &&
@@ -59,9 +55,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         public bool IsIgnored(GroupInfo info)
         {
             if (info == null)
-            {
                 throw new ArgumentNullException(nameof(info));
-            }
 
             return IsIgnored(info.Name);
         }

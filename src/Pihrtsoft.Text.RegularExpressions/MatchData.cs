@@ -23,19 +23,13 @@ namespace Pihrtsoft.Text.RegularExpressions
         public MatchData(Regex regex, string input, int limit)
         {
             if (regex == null)
-            {
                 throw new ArgumentNullException(nameof(regex));
-            }
 
             if (input == null)
-            {
                 throw new ArgumentNullException(nameof(input));
-            }
 
             if (limit < 0)
-            {
                 throw new ArgumentOutOfRangeException(nameof(limit));
-            }
 
             Regex = regex;
             GroupInfos = new GroupInfoCollection(regex);
@@ -46,13 +40,9 @@ namespace Pihrtsoft.Text.RegularExpressions
         private IEnumerable<MatchItem> CreateItems()
         {
             if (Limit == InfiniteLimit)
-            {
                 return CreateItems(f => f.Success);
-            }
             else
-            {
                 return CreateItems(f => f.Success && f.ItemIndex < Limit);
-            }
         }
 
         private IEnumerable<MatchItem> CreateItems(Func<MatchItem, bool> predicate)
@@ -86,9 +76,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             get
             {
                 if (_items == null)
-                {
                     _items = new MatchItemCollection(CreateItems().ToArray(), GroupInfos);
-                }
 
                 return _items;
             }

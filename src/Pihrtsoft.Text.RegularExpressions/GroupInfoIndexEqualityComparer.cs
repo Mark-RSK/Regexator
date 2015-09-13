@@ -10,14 +10,10 @@ namespace Pihrtsoft.Text.RegularExpressions
         public override bool Equals(GroupInfo x, GroupInfo y)
         {
             if (object.ReferenceEquals(x, y))
-            {
                 return true;
-            }
 
             if (x == null || y == null)
-            {
                 return false;
-            }
 
             return x.Index == y.Index;
         }
@@ -25,9 +21,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         public override int GetHashCode(GroupInfo obj)
         {
             if (obj != null)
-            {
                 return obj.Index.GetHashCode();
-            }
 
             return 0;
         }

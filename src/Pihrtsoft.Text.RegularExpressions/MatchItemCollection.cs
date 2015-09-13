@@ -26,9 +26,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             get
             {
                 if (_captureItems == null)
-                {
                     _captureItems = new CaptureItemCollection(this.ToCaptureItems().ToArray());
-                }
 
                 return _captureItems;
             }

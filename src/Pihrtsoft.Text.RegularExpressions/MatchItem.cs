@@ -36,9 +36,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         public IEnumerable<GroupItem> EnumerateGroupItems(GroupSettings settings)
         {
             if (settings == null)
-            {
                 throw new ArgumentNullException(nameof(settings));
-            }
 
             return GroupItems
                 .Where(f => !settings.IsIgnored(f.Name))

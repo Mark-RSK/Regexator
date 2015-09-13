@@ -24,9 +24,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         private static GroupInfo[] Initialize(Regex regex)
         {
             if (regex == null)
-            {
                 throw new ArgumentNullException(nameof(regex));
-            }
 
             return regex.GetGroupNames().Select((n, i) => new GroupInfo(i, n)).ToArray();
         }
@@ -34,9 +32,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         public bool Contains(string groupName)
         {
             if (groupName == null)
-            {
                 throw new ArgumentNullException(nameof(groupName));
-            }
 
             return _names.ContainsKey(groupName);
         }
@@ -44,9 +40,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         public bool Contains(int groupIndex)
         {
             if (groupIndex < 0)
-            {
                 throw new ArgumentOutOfRangeException(nameof(groupIndex));
-            }
 
             return _indexes.ContainsKey(groupIndex);
         }
@@ -60,9 +54,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             get
             {
                 if (groupName == null)
-                {
                     throw new ArgumentNullException(nameof(groupName));
-                }
 
                 try
                 {

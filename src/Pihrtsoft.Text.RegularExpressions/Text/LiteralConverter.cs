@@ -29,9 +29,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         protected LiteralConverter(LiteralSettings settings)
         {
             if (settings == null)
-            {
                 throw new ArgumentNullException(nameof(settings));
-            }
 
             _settings = settings;
         }
@@ -57,9 +55,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         public static string ToVisualBasicLiteral(string text, LiteralSettings settings)
         {
             if (text == null)
-            {
                 throw new ArgumentNullException(nameof(text));
-            }
 
             var builder = new VisualBasicLiteralConverter(settings);
             return builder.GetText(text);
@@ -86,9 +82,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         public static string ToCSharpLiteral(string text, LiteralSettings settings)
         {
             if (text == null)
-            {
                 throw new ArgumentNullException(nameof(text));
-            }
 
             var builder = new CSharpLiteralConverter(settings);
             return builder.GetText(text);
@@ -101,9 +95,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         private string GetText(string code)
         {
             if (code == null)
-            {
                 throw new ArgumentNullException(nameof(code));
-            }
 
             _sb = new StringBuilder(code.Length);
             bool isNewLine = false;
@@ -124,13 +116,9 @@ namespace Pihrtsoft.Text.RegularExpressions
                     if (isNewLine)
                     {
                         if (Settings.HasOptions(LiteralOptions.Multiline))
-                        {
                             AppendNewLine();
-                        }
                         else
-                        {
                             BeginLine();
-                        }
 
                         isNewLine = false;
                     }
@@ -140,9 +128,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             }
 
             if (!isNewLine)
-            {
                 AppendQuoteMark();
-            }
 
             return _sb.ToString();
         }

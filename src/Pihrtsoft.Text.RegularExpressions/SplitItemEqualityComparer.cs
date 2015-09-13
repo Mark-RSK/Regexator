@@ -10,23 +10,25 @@ namespace Pihrtsoft.Text.RegularExpressions
         public override bool Equals(SplitItem x, SplitItem y)
         {
             if (object.ReferenceEquals(x, y))
-            {
                 return true;
-            }
 
             if (x == null || y == null)
-            {
                 return false;
-            }
 
-            return x.Index == y.Index && x.Length == y.Length && x.Name == y.Name && x.Value == y.Value;
+            return x.Index == y.Index
+                && x.Length == y.Length
+                && x.Name == y.Name
+                && x.Value == y.Value;
         }
 
         public override int GetHashCode(SplitItem obj)
         {
             if (obj != null)
             {
-                return obj.Index.GetHashCode() ^ obj.Length.GetHashCode() ^ obj.Name.GetHashCode() ^ obj.Value.GetHashCode();
+                return obj.Index.GetHashCode()
+                    ^ obj.Length.GetHashCode()
+                    ^ obj.Name.GetHashCode()
+                    ^ obj.Value.GetHashCode();
             }
 
             return 0;

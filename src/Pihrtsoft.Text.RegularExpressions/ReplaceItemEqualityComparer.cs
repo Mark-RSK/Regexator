@@ -13,23 +13,21 @@ namespace Pihrtsoft.Text.RegularExpressions
         public override bool Equals(ReplaceItem x, ReplaceItem y)
         {
             if (object.ReferenceEquals(x, y))
-            {
                 return true;
-            }
 
             if (x == null || y == null)
-            {
                 return false;
-            }
 
-            return _matchEqualityComparer.Equals(x.Match, y.Match) && _resultEqualityComparer.Equals(x.Result, y.Result);
+            return _matchEqualityComparer.Equals(x.Match, y.Match)
+                && _resultEqualityComparer.Equals(x.Result, y.Result);
         }
 
         public override int GetHashCode(ReplaceItem obj)
         {
             if (obj != null)
             {
-                return _matchEqualityComparer.GetHashCode(obj.Match) ^ _resultEqualityComparer.GetHashCode(obj.Result);
+                return _matchEqualityComparer.GetHashCode(obj.Match)
+                    ^ _resultEqualityComparer.GetHashCode(obj.Result);
             }
 
             return 0;

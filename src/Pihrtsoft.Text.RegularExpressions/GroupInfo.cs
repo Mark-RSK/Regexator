@@ -17,9 +17,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         protected GroupInfo(GroupInfo info)
         {
             if (info == null)
-            {
                 throw new ArgumentNullException(nameof(info));
-            }
 
             Index = info.Index;
             Name = info.Name;

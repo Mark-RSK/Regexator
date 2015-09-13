@@ -12,9 +12,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         public static IEnumerable<Match> ToMatches(this IEnumerable<MatchItem> items)
         {
             if (items == null)
-            {
                 throw new ArgumentNullException(nameof(items));
-            }
 
             return items.Select(f => f.Match);
         }
@@ -22,9 +20,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         public static IEnumerable<Match> ToMatches(this IEnumerable<ReplaceItem> items)
         {
             if (items == null)
-            {
                 throw new ArgumentNullException(nameof(items));
-            }
 
             return items.Select(f => f.Match);
         }
@@ -32,9 +28,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         public static IEnumerable<Group> ToGroups(this IEnumerable<MatchItem> items)
         {
             if (items == null)
-            {
                 throw new ArgumentNullException(nameof(items));
-            }
 
             return items
                 .ToGroupItems()
@@ -44,9 +38,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         public static IEnumerable<Group> ToGroups(this IEnumerable<GroupItem> items)
         {
             if (items == null)
-            {
                 throw new ArgumentNullException(nameof(items));
-            }
 
             return items.Select(f => f.Group);
         }
@@ -54,9 +46,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         public static IEnumerable<GroupInfo> ToGroupInfos(this IEnumerable<GroupItem> items)
         {
             if (items == null)
-            {
                 throw new ArgumentNullException(nameof(items));
-            }
 
             return items.Select(f => f.GroupInfo);
         }
@@ -64,9 +54,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         public static IEnumerable<Capture> ToCaptures(this IEnumerable<MatchItem> items)
         {
             if (items == null)
-            {
                 throw new ArgumentNullException(nameof(items));
-            }
 
             return items
                 .ToGroupItems()
@@ -76,9 +64,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         public static IEnumerable<Capture> ToCaptures(this IEnumerable<GroupItem> items)
         {
             if (items == null)
-            {
                 throw new ArgumentNullException(nameof(items));
-            }
 
             return items
                 .ToCaptureItems()
@@ -88,9 +74,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         public static IEnumerable<Capture> ToCaptures(this IEnumerable<CaptureItem> items)
         {
             if (items == null)
-            {
                 throw new ArgumentNullException(nameof(items));
-            }
 
             return items.Select(f => f.Capture);
         }
@@ -98,9 +82,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         public static IEnumerable<GroupItem> ToGroupItems(this IEnumerable<MatchItem> items)
         {
             if (items == null)
-            {
                 throw new ArgumentNullException(nameof(items));
-            }
 
             return items.SelectMany(f => f.GroupItems);
         }
@@ -108,9 +90,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         public static IEnumerable<GroupItem> ToGroupItems(this IEnumerable<MatchItem> items, int groupIndex)
         {
             if (items == null)
-            {
                 throw new ArgumentNullException(nameof(items));
-            }
 
             return items.ToGroupItems(f => f.GroupInfo.Index == groupIndex);
         }
@@ -118,9 +98,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         public static IEnumerable<GroupItem> ToGroupItems(this IEnumerable<MatchItem> items, string groupName)
         {
             if (items == null)
-            {
                 throw new ArgumentNullException(nameof(items));
-            }
 
             return items.ToGroupItems(f => f.Name == groupName);
         }
@@ -128,9 +106,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         public static IEnumerable<GroupItem> ToGroupItems(this IEnumerable<MatchItem> items, bool successOnly)
         {
             if (items == null)
-            {
                 throw new ArgumentNullException(nameof(items));
-            }
 
             return successOnly
                 ? items.ToGroupItems(f => f.Success)
@@ -140,9 +116,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         internal static IEnumerable<GroupItem> ToGroupItems(this IEnumerable<MatchItem> items, Func<GroupItem, bool> predicate)
         {
             if (items == null)
-            {
                 throw new ArgumentNullException(nameof(items));
-            }
 
             return items
                 .ToGroupItems()
@@ -152,9 +126,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         public static IEnumerable<CaptureItem> ToCaptureItems(this IEnumerable<MatchItem> items)
         {
             if (items == null)
-            {
                 throw new ArgumentNullException(nameof(items));
-            }
 
             return items
                 .ToGroupItems()
@@ -164,9 +136,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         public static IEnumerable<CaptureItem> ToCaptureItems(this IEnumerable<GroupItem> items)
         {
             if (items == null)
-            {
                 throw new ArgumentNullException(nameof(items));
-            }
 
             return items.SelectMany(f => f.CaptureItems);
         }
@@ -174,9 +144,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         public static IEnumerable<ReplaceResult> ToResults(this IEnumerable<ReplaceItem> items)
         {
             if (items == null)
-            {
                 throw new ArgumentNullException(nameof(items));
-            }
 
             return items.Select(f => f.Result);
         }
@@ -184,9 +152,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         public static IEnumerable<string> ToNames(this IEnumerable<GroupInfo> collection)
         {
             if (collection == null)
-            {
                 throw new ArgumentNullException(nameof(collection));
-            }
 
             return collection.Select(f => f.Name);
         }
@@ -194,9 +160,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         public static IEnumerable<int> ToIndexes(this IEnumerable<GroupInfo> collection)
         {
             if (collection == null)
-            {
                 throw new ArgumentNullException(nameof(collection));
-            }
 
             return collection.Select(f => f.Index);
         }
@@ -204,9 +168,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         public static IEnumerable<GroupInfo> ExceptZero(this IEnumerable<GroupInfo> collection)
         {
             if (collection == null)
-            {
                 throw new ArgumentNullException(nameof(collection));
-            }
 
             return collection.Where(f => f.Index != 0);
         }

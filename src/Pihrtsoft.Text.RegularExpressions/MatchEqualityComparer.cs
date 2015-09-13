@@ -11,23 +11,25 @@ namespace Pihrtsoft.Text.RegularExpressions
         public override bool Equals(Match x, Match y)
         {
             if (object.ReferenceEquals(x, y))
-            {
                 return true;
-            }
 
             if (x == null || y == null)
-            {
                 return false;
-            }
 
-            return x.Success == y.Success && x.Index == y.Index && x.Length == y.Length && x.Value == y.Value;
+            return x.Success == y.Success
+                && x.Index == y.Index
+                && x.Length == y.Length
+                && x.Value == y.Value;
         }
 
         public override int GetHashCode(Match obj)
         {
             if (obj != null)
             {
-                return obj.Success.GetHashCode() ^ obj.Index.GetHashCode() ^ obj.Length.GetHashCode() ^ obj.Value.GetHashCode();
+                return obj.Success.GetHashCode()
+                    ^ obj.Index.GetHashCode()
+                    ^ obj.Length.GetHashCode()
+                    ^ obj.Value.GetHashCode();
             }
 
             return 0;

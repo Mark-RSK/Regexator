@@ -34,24 +34,16 @@ namespace Pihrtsoft.Text.RegularExpressions
         public ReplaceData(Regex regex, string input, string replacement, ResultMode resultMode, int limit)
         {
             if (regex == null)
-            {
                 throw new ArgumentNullException(nameof(regex));
-            }
 
             if (input == null)
-            {
                 throw new ArgumentNullException(nameof(input));
-            }
 
             if (replacement == null)
-            {
                 throw new ArgumentNullException(nameof(replacement));
-            }
 
             if (limit < 0)
-            {
                 throw new ArgumentOutOfRangeException(nameof(limit));
-            }
 
             Regex = regex;
             Input = input;
@@ -65,13 +57,9 @@ namespace Pihrtsoft.Text.RegularExpressions
             _lst = new List<ReplaceItem>();
 
             if (Limit == MatchData.InfiniteLimit)
-            {
                 return Regex.Replace(Input, Evaluator);
-            }
             else
-            {
                 return Regex.Replace(Input, Evaluator, Limit);
-            }
         }
 
         private string Evaluator(Match match)
@@ -82,13 +70,9 @@ namespace Pihrtsoft.Text.RegularExpressions
             _count++;
 
             if (Limit != MatchData.InfiniteLimit && _count == Limit && match.NextMatch().Success)
-            {
                 _limitState = LimitState.Limited;
-            }
             else
-            {
                 _limitState = LimitState.NotLimited;
-            }
 
             return item.Result.Value;
         }
@@ -115,9 +99,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             get
             {
                 if (_lst == null)
-                {
                     _output = Replace();
-                }
 
                 return _output;
             }
@@ -132,9 +114,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                 if (_items == null)
                 {
                     if (_lst == null)
-                    {
                         _output = Replace();
-                    }
 
                     _items = new ReplaceItemCollection(_lst);
                 }

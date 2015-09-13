@@ -21,9 +21,7 @@ namespace Pihrtsoft.Text.RegularExpressions
         protected override void AppendChar(char value)
         {
             if (value == '"')
-            {
                 Append('"');
-            }
 
             base.AppendChar(value);
         }
@@ -53,13 +51,9 @@ namespace Pihrtsoft.Text.RegularExpressions
             Append(Settings.ConcatOperator);
 
             if (Settings.HasOptions(LiteralOptions.ConcatAtBeginningOfLine))
-            {
                 Append(' ');
-            }
             else
-            {
                 AppendNewLine();
-            }
 
             AppendStartQuoteMark();
         }

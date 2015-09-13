@@ -23,9 +23,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             get
             {
                 if (_captureCount == -1)
-                {
                     _captureCount = Items.ToCaptureItems().Count();
-                }
 
                 return _captureCount;
             }

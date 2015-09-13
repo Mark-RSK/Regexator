@@ -13,14 +13,10 @@ namespace Pihrtsoft.Text.RegularExpressions
         public override bool Equals(GroupItem x, GroupItem y)
         {
             if (object.ReferenceEquals(x, y))
-            {
                 return true;
-            }
 
             if (x == null || y == null)
-            {
                 return false;
-            }
 
             return x.CaptureItems.SequenceEqual(y.CaptureItems, _captureItemEqualityComparer);
         }
@@ -31,9 +27,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             if (obj != null)
             {
                 foreach (var captureItem in obj.CaptureItems)
-                {
                     hashCode ^= captureItem.GetHashCode();
-                }
             }
 
             return hashCode;
