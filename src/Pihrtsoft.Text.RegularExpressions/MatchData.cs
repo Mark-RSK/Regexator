@@ -65,7 +65,7 @@ namespace Pihrtsoft.Text.RegularExpressions
 
         public IEnumerable<GroupItem> EnumerateGroupItems(string groupName) => Items.ToGroupItems(groupName);
 
-        public IEnumerable<GroupItem> EnumerateGroupItems(bool successOnly) => Items.ToGroupItems(successOnly);
+        public IEnumerable<GroupItem> EnumerateSuccessGroupItems() => Items.ToSuccessGroupItems();
 
         public MatchItem MatchItem() => new MatchItem(Match(), GroupInfos);
 

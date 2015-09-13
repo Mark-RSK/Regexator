@@ -38,7 +38,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             {
                 if (_successGroups == null)
                 {
-                    _successGroups = this.ToGroupItems(true)
+                    _successGroups = this.ToSuccessGroupItems()
                         .Select(f => f.GroupInfo)
                         .Distinct(new GroupInfoIndexEqualityComparer())
                         .ToList()
