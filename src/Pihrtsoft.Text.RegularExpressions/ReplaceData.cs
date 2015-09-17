@@ -22,21 +22,21 @@ namespace Pihrtsoft.Text.RegularExpressions
         }
 
         public ReplaceData(Regex regex, string input, string replacement)
-            : this(regex, input, replacement, ResultMode.None, MatchData.InfiniteLimit)
+            : this(regex, input, replacement, ReplacementMode.None, MatchData.InfiniteLimit)
         {
         }
 
-        public ReplaceData(Regex regex, string input, string replacement, ResultMode mode)
+        public ReplaceData(Regex regex, string input, string replacement, ReplacementMode mode)
             : this(regex, input, replacement, mode, MatchData.InfiniteLimit)
         {
         }
 
         public ReplaceData(Regex regex, string input, string replacement, int limit)
-            : this(regex, input, replacement, ResultMode.None, limit)
+            : this(regex, input, replacement, ReplacementMode.None, limit)
         {
         }
 
-        public ReplaceData(Regex regex, string input, string replacement, ResultMode resultMode, int limit)
+        public ReplaceData(Regex regex, string input, string replacement, ReplacementMode resultMode, int limit)
         {
             if (regex == null)
                 throw new ArgumentNullException(nameof(regex));
@@ -86,9 +86,9 @@ namespace Pihrtsoft.Text.RegularExpressions
         {
             switch (ResultMode)
             {
-                case ResultMode.ToUpper:
+                case ReplacementMode.ToUpper:
                     return result.ToUpper(CultureInfo.CurrentCulture);
-                case ResultMode.ToLower:
+                case ReplacementMode.ToLower:
                     return result.ToLower(CultureInfo.CurrentCulture);
                 default:
                     return result;
@@ -132,6 +132,6 @@ namespace Pihrtsoft.Text.RegularExpressions
 
         public LimitState LimitState => _limitState;
 
-        public ResultMode ResultMode { get; }
+        public ReplacementMode ResultMode { get; }
     }
 }

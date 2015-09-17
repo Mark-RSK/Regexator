@@ -2,7 +2,7 @@
 
 namespace Pihrtsoft.Text.RegularExpressions
 {
-    public enum ResultMode
+    public enum ReplacementMode
     {
         None,
         ToUpper,

@@ -31,7 +31,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Extensions
             return new ReplaceData(regex, input, replacement).Items;
         }
 
-        public static ReplaceItemCollection ReplaceItems(this Regex regex, string input, string replacement, ResultMode mode)
+        public static ReplaceItemCollection ReplaceItems(this Regex regex, string input, string replacement, ReplacementMode mode)
         {
             return new ReplaceData(regex, input, replacement, mode).Items;
         }
@@ -41,7 +41,7 @@ namespace Pihrtsoft.Text.RegularExpressions.Extensions
             return new ReplaceData(regex, input, replacement, limit).Items;
         }
 
-        public static ReplaceItemCollection ReplaceItems(this Regex regex, string input, string replacement, ResultMode mode, int limit)
+        public static ReplaceItemCollection ReplaceItems(this Regex regex, string input, string replacement, ReplacementMode mode, int limit)
         {
             return new ReplaceData(regex, input, replacement, mode, limit).Items;
         }
