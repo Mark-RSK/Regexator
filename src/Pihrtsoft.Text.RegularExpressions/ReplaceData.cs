@@ -16,6 +16,11 @@ namespace Pihrtsoft.Text.RegularExpressions
         private int _offset;
         private int _count;
 
+        public ReplaceData(Regex regex, string input)
+            : this(regex, input, string.Empty)
+        {
+        }
+
         public ReplaceData(Regex regex, string input, string replacement)
             : this(regex, input, replacement, ResultMode.None, MatchData.InfiniteLimit)
         {
