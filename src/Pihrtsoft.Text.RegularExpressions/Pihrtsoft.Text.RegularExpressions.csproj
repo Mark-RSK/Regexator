@@ -39,8 +39,8 @@
     <AssemblyOriginatorKeyFile>Regexator_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Pihrtsoft.Text.RegularExpressions.Linq, Version=2.1.0.38729, Culture=neutral, PublicKeyToken=01b9b207a9c6318e, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\LinqToRegex.2.1.0\lib\net40\Pihrtsoft.Text.RegularExpressions.Linq.dll</HintPath>
+    <Reference Include="Pihrtsoft.Text.RegularExpressions.Linq, Version=2.2.0.42013, Culture=neutral, PublicKeyToken=01b9b207a9c6318e, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\LinqToRegex.2.2.0\lib\net40\Pihrtsoft.Text.RegularExpressions.Linq.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
