@@ -33,7 +33,7 @@
     <CodeAnalysisRuleSet>Pihrtsoft.Text.RegularExpressions.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>false</SignAssembly>
+    <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>Regexator_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
@@ -81,6 +81,7 @@
     <Compile Include="ReplaceItem.cs" />
     <Compile Include="ReplaceItemCollection.cs" />
     <Compile Include="ReplaceItemEqualityComparer.cs" />
+    <Compile Include="ReplacementSettings.cs" />
     <Compile Include="ReplaceResult.cs" />
     <Compile Include="ReplaceResultEqualityComparer.cs" />
     <Compile Include="ReplacementMode.cs" />

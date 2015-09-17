@@ -22,21 +22,11 @@ namespace Pihrtsoft.Text.RegularExpressions
         }
 
         public ReplaceData(Regex regex, string input, string replacement)
-            : this(regex, input, replacement, ReplacementMode.None, MatchData.InfiniteLimit)
+            : this(regex, input, replacement, ReplacementSettings.Default)
         {
         }
 
-        public ReplaceData(Regex regex, string input, string replacement, ReplacementMode mode)
-            : this(regex, input, replacement, mode, MatchData.InfiniteLimit)
-        {
-        }
-
-        public ReplaceData(Regex regex, string input, string replacement, int limit)
-            : this(regex, input, replacement, ReplacementMode.None, limit)
-        {
-        }
-
-        public ReplaceData(Regex regex, string input, string replacement, ReplacementMode resultMode, int limit)
+        public ReplaceData(Regex regex, string input, string replacement, ReplacementSettings settings)
         {
             if (regex == null)
                 throw new ArgumentNullException(nameof(regex));
@@ -47,34 +37,33 @@ namespace Pihrtsoft.Text.RegularExpressions
             if (replacement == null)
                 throw new ArgumentNullException(nameof(replacement));
 
-            if (limit < 0)
-                throw new ArgumentOutOfRangeException(nameof(limit));
+            if (settings == null)
+                throw new ArgumentNullException(nameof(settings));
 
             Regex = regex;
             Input = input;
             Replacement = replacement;
-            ResultMode = resultMode;
-            Limit = limit;
+            Settings = settings;
         }
 
         private string Replace()
         {
             _lst = new List<ReplaceItem>();
 
-            if (Limit == MatchData.InfiniteLimit)
+            if (Settings.Limit == MatchData.InfiniteLimit)
                 return Regex.Replace(Input, Evaluator);
             else
-                return Regex.Replace(Input, Evaluator, Limit);
+                return Regex.Replace(Input, Evaluator, Settings.Limit);
         }
 
         private string Evaluator(Match match)
         {
-            var item = new ReplaceItem(match, ProcessResult(match.Result(Replacement)), match.Index + _offset, _count);
+            var item = new ReplaceItem(match, GetResult(match), match.Index + _offset, _count);
             _lst.Add(item);
             _offset += item.Result.Length - match.Length;
             _count++;
 
-            if (Limit != MatchData.InfiniteLimit && _count == Limit && match.NextMatch().Success)
+            if (Settings.Limit != MatchData.InfiniteLimit && _count == Settings.Limit && match.NextMatch().Success)
                 _limitState = LimitState.Limited;
             else
                 _limitState = LimitState.NotLimited;
@@ -82,16 +71,19 @@ namespace Pihrtsoft.Text.RegularExpressions
             return item.Result.Value;
         }
 
-        private string ProcessResult(string result)
+        private string GetResult(Match match)
         {
-            switch (ResultMode)
+            if (Settings.Character != null)
+                return new string(Settings.Character.Value, match.Length);
+
+            switch (Settings.Mode)
             {
                 case ReplacementMode.ToUpper:
-                    return result.ToUpper(CultureInfo.CurrentCulture);
+                    return match.Result(Replacement).ToUpper(CultureInfo.CurrentCulture);
                 case ReplacementMode.ToLower:
-                    return result.ToLower(CultureInfo.CurrentCulture);
+                    return match.Result(Replacement).ToLower(CultureInfo.CurrentCulture);
                 default:
-                    return result;
+                    return match.Result(Replacement);
             }
         }
 
@@ -128,10 +120,8 @@ namespace Pihrtsoft.Text.RegularExpressions
             }
         }
 
-        public int Limit { get; }
-
         public LimitState LimitState => _limitState;
 
-        public ReplacementMode ResultMode { get; }
+        public ReplacementSettings Settings { get; }
     }
 }

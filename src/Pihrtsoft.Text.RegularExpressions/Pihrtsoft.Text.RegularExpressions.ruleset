@@ -2,6 +2,8 @@
 <RuleSet Name="Rules for Pihrtsoft.Text.RegularExpressions" Description="Code analysis rules for Pihrtsoft.Text.RegularExpressions.csproj." ToolsVersion="14.0">
   <Rules AnalyzerId="CodeCracker.CSharp" RuleNamespace="CodeCracker.CSharp">
     <Rule Id="CC0001" Action="None" />
+    <Rule Id="CC0013" Action="None" />
+    <Rule Id="CC0014" Action="None" />
   </Rules>
   <Rules AnalyzerId="Microsoft.Analyzers.ManagedCodeAnalysis" RuleNamespace="Microsoft.Rules.Managed">
     <Rule Id="CA1001" Action="Warning" />

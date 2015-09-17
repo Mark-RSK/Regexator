@@ -26,24 +26,19 @@ namespace Pihrtsoft.Text.RegularExpressions.Extensions
             return new MatchData(regex, input, limit).Items;
         }
 
+        public static ReplaceItemCollection ReplaceItems(this Regex regex, string input)
+        {
+            return new ReplaceData(regex, input).Items;
+        }
+
         public static ReplaceItemCollection ReplaceItems(this Regex regex, string input, string replacement)
         {
             return new ReplaceData(regex, input, replacement).Items;
         }
 
-        public static ReplaceItemCollection ReplaceItems(this Regex regex, string input, string replacement, ReplacementMode mode)
+        public static ReplaceItemCollection ReplaceItems(this Regex regex, string input, string replacement, ReplacementSettings settings)
         {
-            return new ReplaceData(regex, input, replacement, mode).Items;
-        }
-
-        public static ReplaceItemCollection ReplaceItems(this Regex regex, string input, string replacement, int limit)
-        {
-            return new ReplaceData(regex, input, replacement, limit).Items;
-        }
-
-        public static ReplaceItemCollection ReplaceItems(this Regex regex, string input, string replacement, ReplacementMode mode, int limit)
-        {
-            return new ReplaceData(regex, input, replacement, mode, limit).Items;
+            return new ReplaceData(regex, input, replacement, settings).Items;
         }
 
         public static SplitItemCollection SplitItems(this Regex regex, string input)
