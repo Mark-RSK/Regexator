@@ -188,7 +188,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                     GroupItem groupItem = item.GroupItems[i];
 
                     for (int j = 0; j < groupItem.CaptureItems.Count; j++)
-                        yield return groupItem.CaptureItems[i];
+                        yield return groupItem.CaptureItems[j];
                 }
             }
         }
