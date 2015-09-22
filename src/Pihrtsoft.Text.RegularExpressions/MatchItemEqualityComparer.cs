@@ -8,7 +8,7 @@ namespace Pihrtsoft.Text.RegularExpressions
     public class MatchItemEqualityComparer
         : EqualityComparer<MatchItem>
     {
-        private static readonly GroupItemEqualityComparer _groupItemEqualityComparer = new GroupItemEqualityComparer();
+        private static readonly GroupItemEqualityComparer _comparer = new GroupItemEqualityComparer();
 
         public override bool Equals(MatchItem x, MatchItem y)
         {
@@ -18,7 +18,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             if (x == null || y == null)
                 return false;
 
-            return x.GroupItems.SequenceEqual(y.GroupItems, _groupItemEqualityComparer);
+            return x.GroupItems.SequenceEqual(y.GroupItems, _comparer);
         }
 
         public override int GetHashCode(MatchItem obj)
@@ -27,7 +27,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             if (obj != null)
             {
                 foreach (var groupItem in obj.GroupItems)
-                    hashCode ^= groupItem.GetHashCode();
+                    hashCode ^= _comparer.GetHashCode(groupItem);
             }
 
             return hashCode;
