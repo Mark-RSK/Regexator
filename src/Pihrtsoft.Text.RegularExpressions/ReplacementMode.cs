@@ -6,6 +6,7 @@ namespace Pihrtsoft.Text.RegularExpressions
     {
         None,
         ToUpper,
-        ToLower
+        ToLower,
+        Char
     }
 }

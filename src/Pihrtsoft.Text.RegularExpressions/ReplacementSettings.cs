@@ -11,20 +11,6 @@ namespace Pihrtsoft.Text.RegularExpressions
         {
         }
 
-        public ReplacementSettings(char character)
-            : this(character, MatchData.InfiniteLimit)
-        {
-        }
-
-        public ReplacementSettings(char character, int limit)
-        {
-            if (limit < 0)
-                throw new ArgumentOutOfRangeException(nameof(limit));
-
-            Character = character;
-            Limit = limit;
-        }
-
         public ReplacementSettings(ReplacementMode mode)
             : this(mode, MatchData.InfiniteLimit)
         {
@@ -45,7 +31,6 @@ namespace Pihrtsoft.Text.RegularExpressions
         }
 
         public ReplacementMode Mode { get; }
-        public char? Character { get; }
         public int Limit { get; }
 
         public static ReplacementSettings Default { get; } = new ReplacementSettings();

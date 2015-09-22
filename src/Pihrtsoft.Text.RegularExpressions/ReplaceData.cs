@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace Pihrtsoft.Text.RegularExpressions
@@ -73,18 +74,36 @@ namespace Pihrtsoft.Text.RegularExpressions
 
         private string GetResult(Match match)
         {
-            if (Settings.Character != null)
-                return new string(Settings.Character.Value, match.Length);
-
             switch (Settings.Mode)
             {
                 case ReplacementMode.ToUpper:
                     return match.Result(Replacement).ToUpper(CultureInfo.CurrentCulture);
                 case ReplacementMode.ToLower:
                     return match.Result(Replacement).ToLower(CultureInfo.CurrentCulture);
+                case ReplacementMode.Char:
+                    {
+                        switch (Replacement.Length)
+                        {
+                            case 0:
+                                return string.Empty;
+                            case 1:
+                                return new string(Replacement[0], match.Length);
+                            default:
+                                return Multiply(Replacement, match.Length);
+                        }
+                    }
                 default:
                     return match.Result(Replacement);
             }
+        }
+
+        private static string Multiply(string value, int multiplier)
+        {
+            StringBuilder sb = new StringBuilder(multiplier * value.Length);
+            for (int i = 0; i < multiplier; i++)
+                sb.Append(value);
+
+            return sb.ToString();
         }
 
         public Regex Regex { get; }
