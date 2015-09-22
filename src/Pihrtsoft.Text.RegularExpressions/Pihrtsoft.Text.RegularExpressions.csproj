@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="CaptureItem.cs" />
     <Compile Include="CaptureItemCollection.cs" />
+    <Compile Include="CaptureEqualityComparer.cs" />
     <Compile Include="CaptureItemEqualityComparer.cs" />
     <Compile Include="CharMatchInfo.cs" />
     <Compile Include="EnumerableExtensions.cs" />
