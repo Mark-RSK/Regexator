@@ -66,6 +66,7 @@
     <Compile Include="GroupInfoSorter.cs" />
     <Compile Include="GroupItem.cs" />
     <Compile Include="GroupItemCollection.cs" />
+    <Compile Include="GroupEqualityComparer.cs" />
     <Compile Include="GroupItemEqualityComparer.cs" />
     <Compile Include="GroupSettings.cs" />
     <Compile Include="GroupSortProperty.cs" />
