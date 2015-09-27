@@ -10,23 +10,33 @@ namespace Pihrtsoft.Text.RegularExpressions
 {
     public sealed class MatchItem
     {
-        private readonly GroupInfoCollection _groupInfos;
+        private GroupInfoCollection _groupInfos;
 
         internal MatchItem(Match match, GroupInfoCollection groups)
         {
             Match = match;
-            _groupInfos = groups;
             Key = ItemIndex.ToString(CultureInfo.CurrentCulture);
-            GroupItems = new GroupItemCollection(_groupInfos.Select((g, i) => new GroupItem(Match.Groups[g.Index], g, i, this)).ToArray());
+            GroupItems = CreateGroupItems(groups);
         }
 
         private MatchItem(MatchItem previousItem, GroupInfoCollection groups)
         {
             Match = previousItem.Match.NextMatch();
             ItemIndex = previousItem.ItemIndex + 1;
-            _groupInfos = groups;
             Key = ItemIndex.ToString(CultureInfo.CurrentCulture);
-            GroupItems = new GroupItemCollection(_groupInfos.Select((g, i) => new GroupItem(Match.Groups[g.Index], g, i, this)).ToArray());
+            GroupItems = CreateGroupItems(groups);
+        }
+
+        public GroupItemCollection CreateGroupItems(GroupInfoCollection groups)
+        {
+            _groupInfos = groups;
+
+            var list = new List<GroupItem>(_groupInfos.Count);
+
+            for (int i = 0; i < _groupInfos.Count; i++)
+                list.Add(new GroupItem(Match.Groups[groups[i].Index], groups[i], i, this));
+
+            return new GroupItemCollection(list);
         }
 
         public MatchItem NextItem() => new MatchItem(this, _groupInfos);

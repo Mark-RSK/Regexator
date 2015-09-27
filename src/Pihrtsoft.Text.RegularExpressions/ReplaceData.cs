@@ -99,7 +99,7 @@ namespace Pihrtsoft.Text.RegularExpressions
 
         private static string Multiply(string value, int multiplier)
         {
-            StringBuilder sb = new StringBuilder(multiplier * value.Length);
+            var sb = new StringBuilder(multiplier * value.Length);
             for (int i = 0; i < multiplier; i++)
                 sb.Append(value);
 

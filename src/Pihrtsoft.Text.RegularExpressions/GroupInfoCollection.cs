@@ -15,18 +15,24 @@ namespace Pihrtsoft.Text.RegularExpressions
         private readonly Dictionary<int, GroupInfo> _indexes;
 
         public GroupInfoCollection(Regex regex)
-            : base(Initialize(regex))
+            : base(CreateGroupInfos(regex))
         {
             _names = ToNameDictionary();
             _indexes = ToIndexDictionary();
         }
 
-        private static GroupInfo[] Initialize(Regex regex)
+        private static GroupInfo[] CreateGroupInfos(Regex regex)
         {
             if (regex == null)
                 throw new ArgumentNullException(nameof(regex));
 
-            return regex.GetGroupNames().Select((n, i) => new GroupInfo(i, n)).ToArray();
+            string[] names = regex.GetGroupNames();
+            GroupInfo[] infos = new GroupInfo[names.Length];
+
+            for (int i = 0; i < names.Length; i++)
+                infos[i] = new GroupInfo(i, names[i]);
+
+            return infos;
         }
 
         public bool Contains(string groupName)

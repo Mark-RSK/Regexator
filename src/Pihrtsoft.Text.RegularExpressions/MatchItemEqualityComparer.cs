@@ -23,14 +23,16 @@ namespace Pihrtsoft.Text.RegularExpressions
 
         public override int GetHashCode(MatchItem obj)
         {
-            int hashCode = 0;
             if (obj != null)
             {
+                int hashCode = 0;
                 foreach (var groupItem in obj.GroupItems)
                     hashCode ^= _comparer.GetHashCode(groupItem);
+
+                return hashCode;
             }
 
-            return hashCode;
+            return 0;
         }
     }
 }
