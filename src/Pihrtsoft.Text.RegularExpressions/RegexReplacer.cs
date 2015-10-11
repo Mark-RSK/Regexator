@@ -1,10 +1,11 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
 
 namespace Pihrtsoft.Text.RegularExpressions
 {
-    internal class RegexReplacer
+    public sealed class RegexReplacer
     {
         public string Replacement { get; }
         public ReplacementMode Mode { get; }
@@ -17,6 +18,19 @@ namespace Pihrtsoft.Text.RegularExpressions
 
         public static string Replace(Regex regex, string input, string replacement, ReplacementMode mode)
         {
+            if (regex == null)
+                throw new ArgumentNullException(nameof(regex));
+
+            if (input == null)
+                throw new ArgumentNullException(nameof(input));
+
+            if (replacement == null)
+                throw new ArgumentNullException(nameof(replacement));
+
+
+            if (mode == ReplacementMode.None)
+                return regex.Replace(input, replacement);
+
             var replacer = new RegexReplacer(replacement, mode);
             return replacer.Replace(regex, input);
         }

@@ -51,22 +51,5 @@ namespace Pihrtsoft.Text.RegularExpressions.Extensions
         {
             return new SplitData(regex, input, limit).Items;
         }
-
-        public static string Replace(this Regex regex, string input, string replacement, ReplacementMode replacementMode)
-        {
-            if (regex == null)
-                throw new ArgumentNullException(nameof(regex));
-
-            if (input == null)
-                throw new ArgumentNullException(nameof(input));
-
-            if (replacement == null)
-                throw new ArgumentNullException(nameof(replacement));
-
-            if (replacementMode == ReplacementMode.None)
-                return regex.Replace(input, replacement);
-
-            return RegexReplacer.Replace(regex, input, replacement, replacementMode);
-        }
     }
 }
