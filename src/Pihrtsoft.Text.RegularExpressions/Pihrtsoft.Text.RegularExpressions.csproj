@@ -59,6 +59,7 @@
     <Compile Include="CharMatchInfo.cs" />
     <Compile Include="EnumerableExtensions.cs" />
     <Compile Include="Extensions\RegexExtensions.cs" />
+    <Compile Include="RegexReplacer.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="GroupInfo.cs" />
     <Compile Include="GroupInfoCollection.cs" />
