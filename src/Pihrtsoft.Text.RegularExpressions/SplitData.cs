@@ -98,7 +98,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             int itemIndex = 0;
             int splitIndex = 0;
 
-            foreach (var match in EnumerateMatches(firstMatch))
+            foreach (Match match in EnumerateMatches(firstMatch))
             {
                 yield return new MatchSplitItem(Input.Substring(prevIndex, match.Index - prevIndex), prevIndex, itemIndex, splitIndex);
                 itemIndex++;
@@ -111,7 +111,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                     {
                         if (GroupInfos[i].Index != 0)
                         {
-                            var group = match.Groups[GroupInfos[i].Index];
+                            Group group = match.Groups[GroupInfos[i].Index];
                             if (group.Success)
                             {
                                 yield return new GroupSplitItem(group, GroupInfos[i], itemIndex);
@@ -123,11 +123,11 @@ namespace Pihrtsoft.Text.RegularExpressions
                 }
                 else
                 {
-                    foreach (var info in GroupInfos)
+                    foreach (GroupInfo info in GroupInfos)
                     {
                         if (info.Index != 0)
                         {
-                            var group = match.Groups[info.Index];
+                            Group group = match.Groups[info.Index];
                             if (group.Success)
                             {
                                 yield return new GroupSplitItem(group, info, itemIndex);

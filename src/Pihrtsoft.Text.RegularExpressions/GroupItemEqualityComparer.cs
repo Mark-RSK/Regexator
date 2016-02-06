@@ -26,7 +26,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             if (obj != null)
             {
                 int hashCode = 0;
-                foreach (var captureItem in obj.CaptureItems)
+                foreach (CaptureItem captureItem in obj.CaptureItems)
                     hashCode ^= _comparer.GetHashCode(captureItem);
 
                 return hashCode;

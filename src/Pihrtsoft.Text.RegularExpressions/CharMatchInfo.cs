@@ -75,7 +75,7 @@ namespace Pihrtsoft.Text.RegularExpressions
             else
                 yield return new CharMatchInfo(@"\W", "Non-word character");
 
-            foreach (var category in Enum.GetValues(typeof(GeneralCategory)).Cast<GeneralCategory>())
+            foreach (GeneralCategory category in Enum.GetValues(typeof(GeneralCategory)).Cast<GeneralCategory>())
             {
                 string pattern = @"\p{" + RegexUtility.GetCategoryDesignation(category) + "}";
                 if (Regex.IsMatch(s, pattern, options))
@@ -86,7 +86,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                 }
             }
 
-            foreach (var block in Enum.GetValues(typeof(NamedBlock)).Cast<NamedBlock>())
+            foreach (NamedBlock block in Enum.GetValues(typeof(NamedBlock)).Cast<NamedBlock>())
             {
                 string pattern = @"\p{" + RegexUtility.GetBlockDesignation(block) + "}";
                 if (Regex.IsMatch(s, pattern, options))
