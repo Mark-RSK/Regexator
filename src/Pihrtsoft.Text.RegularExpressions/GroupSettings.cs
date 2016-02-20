@@ -47,9 +47,9 @@ namespace Pihrtsoft.Text.RegularExpressions
             if (settings == null)
                 throw new ArgumentNullException(nameof(settings));
 
-            return settings.IgnoredGroups.Count == 0 &&
-                settings.SortProperty == DefaultSortProperty &&
-                settings.SortDirection == DefaultSortDirection;
+            return settings.IgnoredGroups.Count == 0
+                && settings.SortProperty == DefaultSortProperty
+                && settings.SortDirection == DefaultSortDirection;
         }
 
         public bool IsIgnored(GroupInfo info)
