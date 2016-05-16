@@ -8,11 +8,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Regexator Core Library")]
+[assembly: AssemblyTitle("Pihrtsoft.Text.RegularExpressions")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Pihrtsoft")]
-[assembly: AssemblyProduct("Regexator Core Library")]
+[assembly: AssemblyProduct("Pihrtsoft.Text.RegularExpressions")]
 [assembly: AssemblyCopyright("Copyright (c) Josef Pihrt")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -35,7 +35,7 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.3.3.*")]
+[assembly: AssemblyVersion("1.3.4.0")]
 //[assembly: AssemblyFileVersion("1.0.0.0")]
 [assembly: NeutralResourcesLanguageAttribute("en-US")]
 [assembly: CLSCompliant(true)]
