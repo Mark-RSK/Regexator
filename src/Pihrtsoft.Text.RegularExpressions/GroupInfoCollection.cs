@@ -27,7 +27,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                 throw new ArgumentNullException(nameof(regex));
 
             string[] names = regex.GetGroupNames();
-            GroupInfo[] infos = new GroupInfo[names.Length];
+            var infos = new GroupInfo[names.Length];
 
             for (int i = 0; i < names.Length; i++)
                 infos[i] = new GroupInfo(i, names[i]);

@@ -27,7 +27,6 @@ namespace Pihrtsoft.Text.RegularExpressions
             if (replacement == null)
                 throw new ArgumentNullException(nameof(replacement));
 
-
             if (mode == ReplacementMode.None)
                 return regex.Replace(input, replacement);
 
