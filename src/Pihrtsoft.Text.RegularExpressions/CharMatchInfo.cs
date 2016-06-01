@@ -13,9 +13,6 @@ namespace Pihrtsoft.Text.RegularExpressions
 {
     public class CharMatchInfo
     {
-        private readonly string _pattern;
-        private readonly string _comment;
-
         private CharMatchInfo(string pattern)
             : this(pattern, string.Empty)
         {
@@ -29,8 +26,8 @@ namespace Pihrtsoft.Text.RegularExpressions
             if (comment == null)
                 throw new ArgumentNullException(nameof(comment));
 
-            _pattern = pattern;
-            _comment = comment;
+            Pattern = pattern;
+            Comment = comment;
         }
 
         public static IEnumerable<CharMatchInfo>  Create(char value)
@@ -148,8 +145,8 @@ namespace Pihrtsoft.Text.RegularExpressions
             }
         }
 
-        public string Pattern => _pattern;
+        public string Pattern { get; }
 
-        public string Comment => _comment;
+        public string Comment { get; }
     }
 }

@@ -28,10 +28,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                     return false;
             }
 
-            if (e2.MoveNext())
-                return false;
-
-            return true;
+            return !e2.MoveNext();
         }
 
         public override int GetHashCode(Group obj)

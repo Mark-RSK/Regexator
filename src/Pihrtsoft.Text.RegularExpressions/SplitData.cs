@@ -150,7 +150,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                 {
                     _items = new SplitItemCollection(EnumerateItems().ToArray(), GroupInfos);
 #if DEBUG
-                    var splits = (Limit == MatchData.InfiniteLimit)
+                    string[] splits = (Limit == MatchData.InfiniteLimit)
                         ? Regex.Split(Input)
                         : Regex.Split(Input, Limit);
 
