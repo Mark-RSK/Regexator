@@ -58,7 +58,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                     match = match.NextMatch();
                 }
 
-                for (int i = (matches.Count - 1); i >= 0; i--)
+                for (int i = matches.Count - 1; i >= 0; i--)
                     yield return matches[i];
             }
             else
@@ -107,7 +107,7 @@ namespace Pihrtsoft.Text.RegularExpressions
 
                 if (Regex.RightToLeft)
                 {
-                    for (int i = (GroupInfos.Count - 1); i >= 0; i--)
+                    for (int i = GroupInfos.Count - 1; i >= 0; i--)
                     {
                         if (GroupInfos[i].Index != 0)
                         {
