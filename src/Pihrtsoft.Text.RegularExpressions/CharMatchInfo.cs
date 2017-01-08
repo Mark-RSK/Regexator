@@ -100,32 +100,50 @@ namespace Pihrtsoft.Text.RegularExpressions
                 switch (RegexUtility.GetEscapeMode((char)charCode, inCharGroup))
                 {
                     case CharEscapeMode.Backslash:
-                        yield return new CharMatchInfo(@"\" + ((char)charCode).ToString(), "Escaped character");
-                        break;
+                        {
+                            yield return new CharMatchInfo(@"\" + ((char)charCode).ToString(), "Escaped character");
+                            break;
+                        }
                     case CharEscapeMode.Bell:
-                        yield return new CharMatchInfo(@"\a");
-                        break;
+                        {
+                            yield return new CharMatchInfo(@"\a");
+                            break;
+                        }
                     case CharEscapeMode.CarriageReturn:
-                        yield return new CharMatchInfo(@"\r");
-                        break;
+                        {
+                            yield return new CharMatchInfo(@"\r");
+                            break;
+                        }
                     case CharEscapeMode.Escape:
-                        yield return new CharMatchInfo(@"\e");
-                        break;
+                        {
+                            yield return new CharMatchInfo(@"\e");
+                            break;
+                        }
                     case CharEscapeMode.FormFeed:
-                        yield return new CharMatchInfo(@"\f");
-                        break;
+                        {
+                            yield return new CharMatchInfo(@"\f");
+                            break;
+                        }
                     case CharEscapeMode.Linefeed:
-                        yield return new CharMatchInfo(@"\n");
-                        break;
+                        {
+                            yield return new CharMatchInfo(@"\n");
+                            break;
+                        }
                     case CharEscapeMode.Tab:
-                        yield return new CharMatchInfo(@"\t");
-                        break;
+                        {
+                            yield return new CharMatchInfo(@"\t");
+                            break;
+                        }
                     case CharEscapeMode.VerticalTab:
-                        yield return new CharMatchInfo(@"\v");
-                        break;
+                        {
+                            yield return new CharMatchInfo(@"\v");
+                            break;
+                        }
                     case CharEscapeMode.None:
-                        yield return new CharMatchInfo(((char)charCode).ToString());
-                        break;
+                        {
+                            yield return new CharMatchInfo(((char)charCode).ToString());
+                            break;
+                        }
                 }
 
                 if (inCharGroup && charCode == 8)

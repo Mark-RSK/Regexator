@@ -36,7 +36,7 @@ namespace Pihrtsoft.Text.RegularExpressions
                 ? string.Compare(x.Name, y.Name, StringComparison.CurrentCulture)
                 : x.Index.CompareTo(y.Index);
 
-            return SortDirection == ListSortDirection.Ascending ? value : -value;
+            return (SortDirection == ListSortDirection.Ascending) ? value : -value;
         }
 
         public GroupSortProperty SortPropertyName { get; }
