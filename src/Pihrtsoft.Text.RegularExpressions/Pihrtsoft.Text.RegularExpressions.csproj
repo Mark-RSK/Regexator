@@ -39,8 +39,8 @@
     <AssemblyOriginatorKeyFile>Regexator_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Pihrtsoft.Text.RegularExpressions.Linq, Version=2.3.0.22739, Culture=neutral, PublicKeyToken=01b9b207a9c6318e, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\LinqToRegex.2.3.0\lib\net40\Pihrtsoft.Text.RegularExpressions.Linq.dll</HintPath>
+    <Reference Include="Pihrtsoft.Text.RegularExpressions.Linq, Version=2.4.0.0, Culture=neutral, PublicKeyToken=7b6a2af53c8ae8ab, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\LinqToRegex.2.4.0\lib\net40\Pihrtsoft.Text.RegularExpressions.Linq.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -104,8 +104,8 @@
     <None Include="Regexator_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Analyzer Include="..\..\packages\CSharpAnalyzers.1.1.0\analyzers\dotnet\cs\Roslynator.CSharp.Analyzers.dll" />
-    <Analyzer Include="..\..\packages\CSharpAnalyzers.1.1.0\analyzers\dotnet\cs\Roslynator.Utilities.dll" />
+    <Analyzer Include="..\..\packages\CSharpAnalyzers.1.2.0-rc\analyzers\dotnet\cs\Roslynator.CSharp.Analyzers.dll" />
+    <Analyzer Include="..\..\packages\CSharpAnalyzers.1.2.0-rc\analyzers\dotnet\cs\Roslynator.Utilities.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
