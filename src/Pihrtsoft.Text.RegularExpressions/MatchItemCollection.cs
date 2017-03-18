@@ -23,13 +23,7 @@ namespace Pihrtsoft.Text.RegularExpressions
 
         public CaptureItemCollection CaptureItems
         {
-            get
-            {
-                if (_captureItems == null)
-                    _captureItems = new CaptureItemCollection(this.ToCaptureItems().ToArray());
-
-                return _captureItems;
-            }
+            get { return _captureItems ?? (_captureItems = new CaptureItemCollection(this.ToCaptureItems().ToArray())); }
         }
 
         public ReadOnlyCollection<GroupInfo> SuccessGroups

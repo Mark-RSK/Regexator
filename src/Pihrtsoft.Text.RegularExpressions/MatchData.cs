@@ -73,13 +73,7 @@ namespace Pihrtsoft.Text.RegularExpressions
 
         public MatchItemCollection Items
         {
-            get
-            {
-                if (_items == null)
-                    _items = new MatchItemCollection(CreateItems().ToArray(), GroupInfos);
-
-                return _items;
-            }
+            get { return _items ?? (_items = new MatchItemCollection(CreateItems().ToArray(), GroupInfos)); }
         }
 
         public int MatchCount => Items.Count;
