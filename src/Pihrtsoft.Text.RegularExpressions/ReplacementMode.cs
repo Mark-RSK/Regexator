@@ -4,9 +4,9 @@ namespace Pihrtsoft.Text.RegularExpressions
 {
     public enum ReplacementMode
     {
-        None,
-        ToUpper,
-        ToLower,
-        Char
+        None = 0,
+        ToUpper = 1,
+        ToLower = 2,
+        Char = 3
     }
 }

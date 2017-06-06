@@ -52,9 +52,13 @@ namespace Pihrtsoft.Text.RegularExpressions
             _lst = new List<ReplaceItem>();
 
             if (Settings.Limit == MatchData.InfiniteLimit)
+            {
                 return Regex.Replace(Input, Evaluator);
+            }
             else
+            {
                 return Regex.Replace(Input, Evaluator, Settings.Limit);
+            }
         }
 
         private string Evaluator(Match match)
@@ -65,9 +69,13 @@ namespace Pihrtsoft.Text.RegularExpressions
             _count++;
 
             if (Settings.Limit != MatchData.InfiniteLimit && _count == Settings.Limit && match.NextMatch().Success)
+            {
                 _limitState = LimitState.Limited;
+            }
             else
+            {
                 _limitState = LimitState.NotLimited;
+            }
 
             return item.Result.Value;
         }

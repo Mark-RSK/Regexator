@@ -58,19 +58,31 @@ namespace Pihrtsoft.Text.RegularExpressions
             string s = ((char)charCode).ToString();
 
             if (Regex.IsMatch(s, @"\d", options))
+            {
                 yield return new CharMatchInfo(@"\d", "Digit character");
+            }
             else
+            {
                 yield return new CharMatchInfo(@"\D", "Non-digit character");
+            }
 
             if (Regex.IsMatch(s, @"\s", options))
+            {
                 yield return new CharMatchInfo(@"\s", "Whitespace character");
+            }
             else
+            {
                 yield return new CharMatchInfo(@"\S", "Non-whitespace character");
+            }
 
             if (Regex.IsMatch(s, @"\w", options))
+            {
                 yield return new CharMatchInfo(@"\w", "Word character");
+            }
             else
+            {
                 yield return new CharMatchInfo(@"\W", "Non-word character");
+            }
 
             foreach (GeneralCategory category in Enum.GetValues(typeof(GeneralCategory)).Cast<GeneralCategory>())
             {

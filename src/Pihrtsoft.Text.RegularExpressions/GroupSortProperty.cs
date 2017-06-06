@@ -4,7 +4,7 @@ namespace Pihrtsoft.Text.RegularExpressions
 {
     public enum GroupSortProperty
     {
-        Index,
-        Name
+        Index = 0,
+        Name = 1
     }
 }

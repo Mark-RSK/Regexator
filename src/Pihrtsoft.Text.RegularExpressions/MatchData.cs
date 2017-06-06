@@ -40,9 +40,13 @@ namespace Pihrtsoft.Text.RegularExpressions
         private IEnumerable<MatchItem> CreateItems()
         {
             if (Limit == InfiniteLimit)
+            {
                 return CreateItems(f => f.Success);
+            }
             else
+            {
                 return CreateItems(f => f.Success && f.ItemIndex < Limit);
+            }
         }
 
         private IEnumerable<MatchItem> CreateItems(Func<MatchItem, bool> predicate)

@@ -4,7 +4,7 @@ namespace Pihrtsoft.Text.RegularExpressions
 {
     public enum SplitItemKind
     {
-        Split,
-        Group
+        Split = 0,
+        Group = 1
     }
 }

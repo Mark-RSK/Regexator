@@ -5,8 +5,8 @@ namespace Pihrtsoft.Text.RegularExpressions
     //todo MaybeLimited
     public enum LimitState
     {
-        None,
-        Limited,
-        NotLimited
+        None = 0,
+        Limited = 1,
+        NotLimited = 2
     }
 }
